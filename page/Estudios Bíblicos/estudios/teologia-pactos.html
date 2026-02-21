@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teología de los Pactos - Pactos Divinos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #0d4e4a;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 25%, #a7f3d0 50%, #d1fae5 75%, #ecfdf5 100%);
+            background-size: 200% 200%;
+            animation: subtleFlow 20s ease infinite;
+            min-height: 100vh;
+        }
+
+        @keyframes subtleFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        header {
+            text-align: center;
+            background: linear-gradient(135deg, #047857 0%, #059669 25%, #10b981 50%, #34d399 75%, #6ee7b7 100%);
+            color: white;
+            padding: 80px 40px;
+            border-radius: 30px;
+            margin-bottom: 60px;
+            box-shadow: 
+                0 25px 50px rgba(4, 120, 87, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 100px,
+                rgba(255,255,255,0.05) 100px,
+                rgba(255,255,255,0.05) 102px
+            );
+            animation: slidePattern 25s linear infinite;
+        }
+
+        @keyframes slidePattern {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        h1 {
+            font-size: 4.2em;
+            margin-bottom: 25px;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.6em;
+            opacity: 0.95;
+            font-weight: 300;
+            letter-spacing: 6px;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 1.3em;
+            max-width: 900px;
+            margin: 0 auto 25px auto;
+            position: relative;
+            z-index: 1;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .keywords {
+            font-size: 1.2em;
+            letter-spacing: 4px;
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+        }
+
+        .intro-panel {
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+            padding: 45px;
+            border-radius: 25px;
+            margin-bottom: 50px;
+            border: 2px solid #10b981;
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #047857, #10b981, #34d399, #10b981, #047857);
+            background-size: 200% 100%;
+            animation: gradientMove 8s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .intro-text {
+            font-size: 1.4em;
+            line-height: 1.8;
+            text-align: center;
+            color: #064e3b;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-container {
+            position: relative;
+            margin: 60px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #047857, #10b981, #34d399, #6ee7b7, #a7f3d0);
+            transform: translateX(-50%);
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .pacto-item {
+            position: relative;
+            margin: 80px 0;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInTimeline 0.8s ease-out forwards;
+        }
+
+        .pacto-item:nth-child(odd) {
+            justify-content: flex-start;
+            animation-delay: 0.2s;
+        }
+
+        .pacto-item:nth-child(even) {
+            justify-content: flex-end;
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeInTimeline {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pacto-card {
+            width: 45%;
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.15);
+            border: 1px solid #a7f3d0;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .pacto-card:hover {
+            transform: scale(1.03) translateY(-5px);
+            box-shadow: 0 25px 50px rgba(16, 185, 129, 0.25);
+            border-color: #10b981;
+        }
+
+        .pacto-indicator {
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #047857 0%, #10b981 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.3em;
+            transform: translateY(-50%);
+            box-shadow: 0 8px 20px rgba(4, 120, 87, 0.4);
+            border: 4px solid white;
+            z-index: 10;
+        }
+
+        .pacto-item:nth-child(odd) .pacto-indicator {
+            right: -75px;
+        }
+
+        .pacto-item:nth-child(even) .pacto-indicator {
+            left: -75px;
+        }
+
+        .pacto-title {
+            color: #047857;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .pacto-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #10b981, #34d399);
+            border-radius: 2px;
+        }
+
+        .pacto-period {
+            background: linear-gradient(135deg, #047857 0%, #059669 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .pacto-content h4 {
+            color: #065f46;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        .pacto-content p {
+            font-size: 1.05em;
+            margin-bottom: 15px;
+            color: #064e3b;
+            line-height: 1.7;
+        }
+
+        .pacto-references {
+            background: #ecfdf5;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #10b981;
+            margin-top: 15px;
+            font-style: italic;
+            color: #047857;
+        }
+
+        .progresion-section {
+            background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #059669 100%);
+            color: white;
+            padding: 60px;
+            border-radius: 30px;
+            margin: 60px 0;
+            box-shadow: 0 25px 50px rgba(6, 78, 59, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progresion-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(52, 211, 153, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .progresion-section h2 {
+            color: #a7f3d0;
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+            font-weight: 700;
+        }
+
+        .progresion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .progresion-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(167, 243, 208, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .progresion-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .progresion-card h3 {
+            color: #6ee7b7;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .progresion-card p {
+            color: #d1fae5;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .cumplimiento-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #f59e0b 100%);
+            padding: 50px;
+            border-radius: 25px;
+            margin: 50px 0;
+            border: 2px solid #f59e0b;
+            color: #92400e;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cumplimiento-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        .cumplimiento-section h2 {
+            color: #b45309;
+            font-size: 2.8em;
+            text-align: center;
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 1;
+            font-weight: 700;
+        }
+
+        .cumplimiento-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cristo-conexion {
+            background: linear-gradient(135deg, #ffffff 0%, #fef3c7 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 2px solid #f59e0b;
+            text-align: center;
+        }
+
+        .cristo-conexion h3 {
+            color: #b45309;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .verse-highlight {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #16a34a;
+            margin: 25px 0;
+            font-style: italic;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(22, 163, 74, 0.1);
+        }
+
+        .verse-highlight::before {
+            content: '"';
+            font-size: 4em;
+            color: #16a34a;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .verse-text {
+            font-size: 1.2em;
+            color: #15803d;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .verse-ref {
+            text-align: right;
+            font-weight: 700;
+            color: #166534;
+            font-size: 1.1em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .preguntas-investigacion {
+            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 50%, #c4b5fd 100%);
+            padding: 50px;
+            border-radius: 25px;
+            margin: 50px 0;
+            border: 2px solid #8b5cf6;
+        }
+
+        .preguntas-investigacion h2 {
+            color: #6d28d9;
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .pregunta-analisis {
+            background: white;
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.15);
+            position: relative;
+            border-left: 5px solid #8b5cf6;
+            transition: all 0.3s ease;
+        }
+
+        .pregunta-analisis:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.25);
+        }
+
+        .pregunta-num {
+            position: absolute;
+            top: -15px;
+            left: 25px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        }
+
+        .pregunta-categoria {
+            color: #7c3aed;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .pregunta-texto {
+            color: #4c1d95;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+
+        .emphasis {
+            color: #047857;
+            font-weight: 700;
+        }
+
+        .scripture-ref {
+            font-style: italic;
+            color: #059669;
+            font-weight: 600;
+        }
+
+        .conclusion-final {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            padding: 50px;
+            border-radius: 25px;
+            border: 3px solid #16a34a;
+            box-shadow: 0 20px 40px rgba(22, 163, 74, 0.15);
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .conclusion-final h2 {
+            color: #15803d;
+            font-size: 3em;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .conclusion-final p {
+            font-size: 1.3em;
+            line-height: 1.8;
+            color: #166534;
+            max-width: 900px;
+            margin: 0 auto 25px auto;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 30px;
+            }
+            
+            .pacto-item {
+                justify-content: flex-end !important;
+            }
+            
+            .pacto-card {
+                width: calc(100% - 80px);
+                margin-left: 80px;
+            }
+            
+            .pacto-indicator {
+                left: 5px !important;
+                right: auto !important;
+            }
+            
+            .progresion-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 3em;
+            }
+            
+            .intro-panel,
+            .progresion-section,
+            .cumplimiento-section,
+            .preguntas-investigacion {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Teología de los Pactos</h1>
+            <p class="subtitle">PACTOS DIVINOS</p>
+            <p class="description">Estudio sistemático de los pactos bíblicos: Adán, Noé, Abraham, Moisés, David y el Nuevo Pacto, y su progresión en la historia de la salvación.</p>
+            <div class="keywords">• HISTORIA • PROGRESIÓN • SALVACIÓN •</div>
+        </header>
+
+        <div class="intro-panel">
+            <div class="intro-text">
+                Los <span class="emphasis">pactos divinos</span> forman la estructura fundamental de la revelación bíblica y la historia de la salvación. A través de estos pactos, Dios revela progresivamente su plan redentor, estableciendo relaciones específicas con la humanidad que culminan en <span class="emphasis">Cristo Jesús</span>. <span class="scripture-ref">"Porque todas las promesas de Dios son en él Sí, y en él Amén"</span> <span class="scripture-ref">(2 Corintios 1:20)</span>.
+            </div>
+        </div>
+
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            
+            <div class="pacto-item">
+                <div class="pacto-card">
+                    <div class="pacto-indicator">1</div>
+                    <div class="pacto-title">Pacto Adámico</div>
+                    <div class="pacto-period">CREACIÓN - CAÍDA</div>
+                    <div class="pacto-content">
+                        <h4>Pacto de Obras</h4>
+                        <p>Establecido con <span class="emphasis">Adán como representante</span> de toda la humanidad, este pacto exigía <span class="emphasis">obediencia perfecta</span> a cambio de vida eterna. La condición era simple pero absoluta: no comer del árbol del conocimiento del bien y del mal.</p>
+                        
+                        <h4>Elementos del Pacto</h4>
+                        <p><strong>Partes:</strong> Dios y Adán (representando a toda la humanidad)<br>
+                        <strong>Condición:</strong> Obediencia perfecta<br>
+                        <strong>Promesa:</strong> Vida eterna en comunión con Dios<br>
+                        <strong>Amenaza:</strong> Muerte por desobediencia</p>
+                        
+                        <h4>Consecuencias de la Violación</h4>
+                        <p>La desobediencia de Adán introdujo el <span class="emphasis">pecado y la muerte</span> en el mundo, afectando a toda su posteridad. Sin embargo, inmediatamente después de la caída, Dios anunció el protoevangelio <span class="scripture-ref">(Génesis 3:15)</span>, prometiendo un redentor futuro.</p>
+                        
+                        <div class="pacto-references">
+                            <strong>Referencias clave:</strong> Génesis 1:26-28; 2:15-17; 3:1-24; Romanos 5:12-21; 1 Corintios 15:22,45-49
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pacto-item">
+                <div class="pacto-card">
+                    <div class="pacto-indicator">2</div>
+                    <div class="pacto-title">Pacto Noético</div>
+                    <div class="pacto-period">POST-DILUVIO</div>
+                    <div class="pacto-content">
+                        <h4>Pacto de Preservación</h4>
+                        <p>Después del diluvio, Dios estableció un pacto <span class="emphasis">incondicional</span> con Noé y toda la creación, prometiendo preservar la tierra y mantener el orden natural hasta el fin de los tiempos.</p>
+                        
+                        <h4>Provisiones del Pacto</h4>
+                        <p><strong>Preservación Global:</strong> Nunca más destruirá la tierra por diluvio<br>
+                        <strong>Orden Natural:</strong> Mantenimiento de las estaciones y ciclos naturales<br>
+                        <strong>Gobierno Humano:</strong> Establecimiento de la autoridad civil<br>
+                        <strong>Señal del Pacto:</strong> El arco iris como recordatorio perpetuo</p>
+                        
+                        <h4>Significado Teológico</h4>
+                        <p>Este pacto garantiza la <span class="emphasis">estabilidad del mundo</span> para que el plan de salvación pueda desarrollarse. Provee el contexto necesario para la predicación del evangelio y la expansión del Reino de Dios hasta el final de los tiempos.</p>
+                        
+                        <div class="pacto-references">
+                            <strong>Referencias clave:</strong> Génesis 8:20-9:17; Isaías 54:9-10; Jeremías 31:35-36; 2 Pedro 3:3-7
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pacto-item">
+                <div class="pacto-card">
+                    <div class="pacto-indicator">3</div>
+                    <div class="pacto-title">Pacto Abrahámico</div>
+                    <div class="pacto-period">2000 A.C. APROX.</div>
+                    <div class="pacto-content">
+                        <h4>Pacto de Promesa</h4>
+                        <p>Dios llamó a Abraham y estableció con él un pacto <span class="emphasis">incondicional</span> que forma la base de todas las promesas de salvación posteriores. Este pacto revela claramente la <span class="emphasis">naturaleza graciosa</span> de la salvación.</p>
+                        
+                        <h4>Las Tres Promesas Fundamentales</h4>
+                        <p><strong>Simiente:</strong> Descendencia numerosa como las estrellas del cielo<br>
+                        <strong>Tierra:</strong> Posesión de la tierra prometida para siempre<br>
+                        <strong>Bendición:</strong> Bendición a todas las familias de la tierra a través de su simiente</p>
+                        
+                        <h4>Cumplimiento en Cristo</h4>
+                        <p>Pablo clarifica que la <span class="emphasis">simiente</span> se refiere específicamente a Cristo <span class="scripture-ref">(Gálatas 3:16)</span>. La bendición prometida a las naciones se cumple en el evangelio que va a todos los pueblos a través de la fe en Cristo.</p>
+                        
+                        <h4>Confirmaciones del Pacto</h4>
+                        <p>Dios confirmó este pacto múltiples veces con Abraham <span class="scripture-ref">(Génesis 15, 17, 22)</span> y lo reafirmó con Isaac <span class="scripture-ref">(Génesis 26:3-4)</span> y Jacob <span class="scripture-ref">(Génesis 28:13-15)</span>.</p>
+                        
+                        <div class="pacto-references">
+                            <strong>Referencias clave:</strong> Génesis 12:1-3; 15:1-21; 17:1-27; 22:15-18; Gálatas 3:6-29; Romanos 4:1-25
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pacto-item">
+                <div class="pacto-card">
+                    <div class="pacto-indicator">4</div>
+                    <div class="pacto-title">Pacto Mosaico</div>
+                    <div class="pacto-period">1500 A.C. APROX.</div>
+                    <div class="pacto-content">
+                        <h4>Pacto de Ley</h4>
+                        <p>En el Sinaí, Dios estableció un pacto <span class="emphasis">condicional</span> con Israel que no anulaba las promesas abrahámicas, sino que servía como <span class="emphasis">"ayo para llevarnos a Cristo"</span> <span class="scripture-ref">(Gálatas 3:24)</span>.</p>
+                        
+                        <h4>Propósitos de la Ley</h4>
+                        <p><strong>Revelación del Pecado:</strong> Mostrar la naturaleza y extensión del pecado<br>
+                        <strong>Norma de Santidad:</strong> Revelar el carácter santo de Dios<br>
+                        <strong>Separación Nacional:</strong> Distinguir a Israel de las naciones<br>
+                        <strong>Preparación Mesiánica:</strong> Preparar para la venida de Cristo</p>
+                        
+                        <h4>Estructura del Pacto</h4>
+                        <p><strong>Ley Moral:</strong> Los Diez Mandamientos (carácter permanente)<br>
+                        <strong>Ley Civil:</strong> Leyes para el gobierno de Israel (temporal)<br>
+                        <strong>Ley Ceremonial:</strong> Sistema sacrificial y ritual (sombra de Cristo)</p>
+                        
+                        <h4>Cumplimiento en Cristo</h4>
+                        <p>Cristo <span class="emphasis">cumplió perfectamente</span> todos los requisitos de la ley <span class="scripture-ref">(Mateo 5:17)</span> y terminó su función condenatoria para los creyentes <span class="scripture-ref">(Romanos 10:4)</span>.</p>
+                        
+                        <div class="pacto-references">
+                            <strong>Referencias clave:</strong> Éxodo 19-24; Deuteronomio 28-30; Gálatas 3:19-25; Hebreos 8:6-13; Romanos 7:7-25
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pacto-item">
+                <div class="pacto-card">
+                    <div class="pacto-indicator">5</div>
+                    <div class="pacto-title">Pacto Davídico</div>
+                    <div class="pacto-period">1000 A.C. APROX.</div>
+                    <div class="pacto-content">
+                        <h4>Pacto de Reino</h4>
+                        <p>Dios prometió a David un reino <span class="emphasis">eterno e incondicional</span> que se cumpliría a través de su descendencia. Este pacto garantiza la venida del Mesías como Rey eterno.</p>
+                        
+                        <h4>Las Cuatro Promesas Eternas</h4>
+                        <p><strong>Casa:</strong> Una dinastía perpetua<br>
+                        <strong>Reino:</strong> Un dominio establecido para siempre<br>
+                        <strong>Trono:</strong> Autoridad real permanente<br>
+                        <strong>Simiente:</strong> Un descendiente que reinará eternamente</p>
+                        
+                        <h4>Cumplimiento Progresivo</h4>
+                        <p><strong>Cumplimiento Inmediato:</strong> La dinastía davídica en Israel<br>
+                        <strong>Cumplimiento Mesiánico:</strong> Cristo como Rey eterno<br>
+                        <strong>Cumplimiento Escatológico:</strong> El reino milenial y eterno de Cristo</p>
+                        
+                        <h4>Testimonio del Nuevo Testamento</h4>
+                        <p>El ángel Gabriel anuncia a María que Jesús <span class="emphasis">"reinará sobre la casa de Jacob para siempre, y su reino no tendrá fin"</span> <span class="scripture-ref">(Lucas 1:32-33)</span>.</p>
+                        
+                        <div class="pacto-references">
+                            <strong>Referencias clave:</strong> 2 Samuel 7:8-16; 1 Crónicas 17:10-14; Salmo 89:3-4,28-37; Lucas 1:32-33; Apocalipsis 22:16
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pacto-item">
+                <div class="pacto-card">
+                    <div class="pacto-indicator">6</div>
+                    <div class="pacto-title">Nuevo Pacto</div>
+                    <div class="pacto-period">ERA MESIÁNICA</div>
+                    <div class="pacto-content">
+                        <h4>Pacto de Gracia Consumado</h4>
+                        <p>El Nuevo Pacto representa la <span class="emphasis">culminación y cumplimiento</span> de todos los pactos anteriores. Establecido por la sangre de Cristo, provee salvación completa y eterna para todos los que creen.</p>
+                        
+                        <h4>Características Superiores</h4>
+                        <p><strong>Perdón Completo:</strong> Remisión total de pecados<br>
+                        <strong>Corazón Nuevo:</strong> Transformación interna por el Espíritu<br>
+                        <strong>Conocimiento de Dios:</strong> Relación personal e íntima<br>
+                        <strong>Obediencia Interna:</strong> Ley escrita en el corazón</p>
+                        
+                        <h4>Mediador Superior</h4>
+                        <p>Cristo es el <span class="emphasis">mediador del nuevo pacto</span> <span class="scripture-ref">(Hebreos 12:24)</span>, superior a Moisés en que establece un pacto eterno basado en mejores promesas <span class="scripture-ref">(Hebreos 8:6)</span>.</p>
+                        
+                        <h4>Alcance Universal</h4>
+                        <p>A diferencia del pacto mosaico que era exclusivamente para Israel, el Nuevo Pacto se extiende a <span class="emphasis">todas las naciones</span> que creen en Cristo <span class="scripture-ref">(Efesios 2:11-22)</span>.</p>
+                        
+                        <div class="pacto-references">
+                            <strong>Referencias clave:</strong> Jeremías 31:31-34; Lucas 22:20; 2 Corintios 3:6-18; Hebreos 8:6-13; 9:11-28
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="progresion-section">
+            <h2>Progresión Histórica de la Salvación</h2>
+            
+            <div class="progresion-grid">
+                <div class="progresion-card">
+                    <h3>Revelación Progresiva</h3>
+                    <p>Cada pacto revela más claramente el plan de salvación de Dios. Desde la promesa inicial en Génesis 3:15 hasta la revelación completa en Cristo, Dios ha ido desvelando progresivamente su propósito redentor.</p>
+                </div>
+                
+                <div class="progresion-card">
+                    <h3>Unidad Temática</h3>
+                    <p>Aunque los pactos tienen características distintas, todos convergen en Cristo. El hilo conductor es la gracia de Dios manifestada en su elección, llamado, y preservación de un pueblo para su gloria.</p>
+                </div>
+                
+                <div class="progresion-card">
+                    <h3>Cumplimiento Cristológico</h3>
+                    <p>Cristo es el cumplimiento de todos los pactos: el segundo Adán, la simiente de Abraham, el cumplidor de la ley, el hijo de David, y el mediador del nuevo pacto. En Él, todas las promesas encuentran su "Sí" y "Amén".</p>
+                </div>
+                
+                <div class="progresion-card">
+                    <h3>Aplicación Escatológica</h3>
+                    <p>Los pactos no solo explican la historia pasada, sino que apuntan hacia el cumplimiento futuro. El reino eterno de Cristo cumplirá definitivamente todas las promesas pactales en la nueva creación.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cumplimiento-section">
+            <h2>Cristo: El Cumplimiento de Todos los Pactos</h2>
+            
+            <div class="cumplimiento-content">
+                <p>Jesucristo no solo cumple los pactos individuales, sino que <span class="emphasis">unifica y consuma</span> todo el propósito pactal de Dios. En Él, la historia de la salvación alcanza su clímax y significado pleno.</p>
+
+                <div class="cristo-conexion">
+                    <h3>La Conexión Cristológica</h3>
+                    <p><strong>Como el Segundo Adán:</strong> Cumple perfectamente lo que el primer Adán falló, obteniendo vida eterna para su pueblo.</p>
+                    <p><strong>Como la Simiente de Abraham:</strong> Trae bendición a todas las familias de la tierra a través del evangelio.</p>
+                    <p><strong>Como el Cumplidor de la Ley:</strong> Satisface perfectamente todas las demandas de la justicia divina.</p>
+                    <p><strong>Como el Hijo de David:</strong> Establece el reino eterno prometido al linaje davídico.</p>
+                    <p><strong>Como el Mediador del Nuevo Pacto:</strong> Provee acceso directo y permanente a Dios.</p>
+                </div>
+
+                <div class="verse-highlight">
+                    <div class="verse-text">Porque todas las promesas de Dios son en él Sí, y en él Amén, por medio de nosotros, para la gloria de Dios.</div>
+                    <div class="verse-ref">2 Corintios 1:20</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="preguntas-investigacion">
+            <h2>Preguntas de Investigación Avanzada</h2>
+            
+            <div class="pregunta-analisis">
+                <div class="pregunta-num">1</div>
+                <div class="pregunta-categoria">Pregunta Histórico-Teológica:</div>
+                <div class="pregunta-texto">¿Cómo se relaciona el pacto adámico con el concepto de representación federal? Analiza las paralelas entre Adán y Cristo según Romanos 5:12-21 y sus implicaciones para la doctrina de la salvación.</div>
+            </div>
+
+            <div class="pregunta-analisis">
+                <div class="pregunta-num">2</div>
+                <div class="pregunta-categoria">Pregunta Exegética:</div>
+                <div class="pregunta-texto">Examina Gálatas 3:15-18 donde Pablo argumenta que la ley no anula las promesas abrahámicas. ¿Qué implica esto para la relación entre ley y gracia en la historia de la salvación?</div>
+            </div>
+
+            <div class="pregunta-analisis">
+                <div class="pregunta-num">3</div>
+                <div class="pregunta-categoria">Pregunta Tipológica:</div>
+                <div class="pregunta-texto">¿De qué manera el sistema sacrificial del pacto mosaico prefigura el sacrificio de Cristo? Analiza específicamente el Día de la Expiación (Levítico 16) y su cumplimiento en Hebreos 9-10.</div>
+            </div>
+
+            <div class="pregunta-analisis">
+                <div class="pregunta-num">4</div>
+                <div class="pregunta-categoria">Pregunta Escatológica:</div>
+                <div class="pregunta-texto">¿Cómo se relacionan las promesas del pacto davídico con el reino presente de Cristo y su reino futuro? Analiza la tensión entre el "ya" y el "todavía no" del reino mesiánico.</div>
+            </div>
+
+            <div class="pregunta-analisis">
+                <div class="pregunta-num">5</div>
+                <div class="pregunta-categoria">Pregunta Eclesiológica:</div>
+                <div class="pregunta-texto">¿Cuál es la relación entre Israel y la iglesia a la luz de los pactos? ¿Cómo entender Efesios 2:11-22 y Romanos 11:11-32 en este contexto?</div>
+            </div>
+
+            <div class="pregunta-analisis">
+                <div class="pregunta-num">6</div>
+                <div class="pregunta-categoria">Pregunta Aplicativa:</div>
+                <div class="pregunta-texto">¿Cómo debe la comprensión de la teología pactal influir en la predicación del evangelio y la edificación de la iglesia? ¿Qué implicaciones prácticas tiene para la vida cristiana?</div>
+            </div>
+        </div>
+
+        <div class="conclusion-final">
+            <h2>La Unidad del Propósito Divino</h2>
+            
+            <p>La teología de los pactos revela la <span class="emphasis">unidad magistral</span> del plan de Dios a través de la historia. Desde la eternidad pasada hasta la eternidad futura, vemos un propósito divino coherente y glorioso desenvolviéndose a través de estos pactos.</p>
+
+            <p>Cada pacto contribuye a la gran sinfonía de la redención, con Cristo como el <span class="emphasis">director y cumplimiento</span> de toda la obra. Los pactos no son eventos aislados, sino movimientos interconnectados en la gran obra de salvación que Dios ha estado orquestando desde antes de la fundación del mundo.</p>
+
+            <div class="verse-highlight">
+                <div class="verse-text">Bendito sea el Dios y Padre de nuestro Señor Jesucristo, que nos bendijo con toda bendición espiritual en los lugares celestiales en Cristo, según nos escogió en él antes de la fundación del mundo, para que fuésemos santos y sin mancha delante de él.</div>
+                <div class="verse-ref">Efesios 1:3-4</div>
+            </div>
+
+            <p>Para el estudiante de la Palabra, la teología pactal proporciona el <span class="emphasis">marco interpretativo</span> esencial para entender la unidad de las Escrituras y la continuidad del propósito divino. Es la clave que abre la comprensión de cómo cada parte de la Biblia contribuye al gran tema de la <span class="emphasis">redención en Cristo</span>.</p>
+        </div>
+    </div>
+</body>
+</html>

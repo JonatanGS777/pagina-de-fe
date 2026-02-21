@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falsas Doctrinas: Discernimiento Bíblico</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+        
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #1a1a1a;
+            --accent: #ff6b35;
+            --accent-light: #ff8c5a;
+            --accent-dark: #e5512b;
+            --text-primary: #0a0a0a;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-accent: #fff5f2;
+            --border-light: #e5e7eb;
+            --shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark {
+            --primary: #ffffff;
+            --secondary: #e5e7eb;
+            --text-primary: #ffffff;
+            --text-secondary: #d1d5db;
+            --text-light: #9ca3af;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-accent: #1e1611;
+            --border-light: #374151;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* Cursor personalizado */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            mix-blend-mode: difference;
+        }
+
+        .cursor.active {
+            transform: scale(1.5);
+            background-color: var(--accent);
+        }
+
+        /* Header con navegación flotante */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 2rem 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            padding: 1rem 0;
+        }
+
+        body.dark .header.scrolled {
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 2px solid var(--border-light);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Hero section editorial */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: var(--bg-primary);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            z-index: 2;
+        }
+
+        .hero-eyebrow {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            max-width: 500px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .hero-cta:hover::before {
+            left: 100%;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 600px;
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            padding: 2rem;
+            border-radius: 0;
+            box-shadow: var(--shadow-heavy);
+            max-width: 300px;
+            transition: transform 0.3s ease;
+        }
+
+        .floating-card:nth-child(1) {
+            top: 10%;
+            right: 20%;
+            transform: rotate(-5deg);
+            animation: float1 6s ease-in-out infinite;
+        }
+
+        .floating-card:nth-child(2) {
+            bottom: 20%;
+            right: 0%;
+            transform: rotate(3deg);
+            animation: float2 8s ease-in-out infinite;
+        }
+
+        .floating-card:nth-child(3) {
+            top: 40%;
+            right: 60%;
+            transform: rotate(-2deg);
+            animation: float3 7s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: rotate(-5deg) translateY(0px); }
+            50% { transform: rotate(-5deg) translateY(-20px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: rotate(3deg) translateY(0px); }
+            50% { transform: rotate(3deg) translateY(-15px); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: rotate(-2deg) translateY(0px); }
+            50% { transform: rotate(-2deg) translateY(-25px); }
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .card-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Sección de estadísticas */
+        .stats-section {
+            padding: 6rem 0;
+            background: var(--bg-secondary);
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 4rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .stat-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Timeline con diseño magazine */
+        .timeline-section {
+            padding: 8rem 0;
+            background: var(--bg-primary);
+        }
+
+        .section-header {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            margin-bottom: 8rem;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .timeline-item:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .timeline-content {
+            padding: 3rem;
+            background: var(--bg-secondary);
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent);
+        }
+
+        .timeline-era {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .scripture-list {
+            list-style: none;
+            space-y: 1rem;
+        }
+
+        .scripture-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .scripture-ref {
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .scripture-text {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .timeline-visual {
+            background: var(--bg-primary);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            opacity: 0.1;
+            position: relative;
+        }
+
+        /* Grid de doctrinas moderno */
+        .doctrines-section {
+            padding: 8rem 0;
+            background: var(--bg-accent);
+        }
+
+        .doctrines-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .doctrine-card {
+            background: var(--bg-primary);
+            padding: 3rem;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .doctrine-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .doctrine-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .doctrine-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .doctrine-icon {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .doctrine-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .doctrine-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .verse-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .verse-tag {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .verse-tag:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        /* Sección de aplicaciones con layout magazine */
+        .applications-section {
+            padding: 8rem 0;
+            background: var(--bg-primary);
+        }
+
+        .applications-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .applications-intro {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .applications-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .applications-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .applications-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+        }
+
+        .main-application {
+            background: var(--accent);
+            color: white;
+            padding: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-application::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .main-app-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .main-app-text {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        .side-applications {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .side-app {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .side-app:hover {
+            transform: translateX(10px);
+            border-color: var(--accent);
+        }
+
+        .side-app-title {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .side-app-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Footer minimalista */
+        .footer {
+            background: var(--secondary);
+            color: var(--text-light);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .timeline-item:nth-child(even) {
+                direction: ltr;
+            }
+            
+            .applications-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cursor {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor" id="cursor"></div>
+
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="#" class="logo">Discernimiento</a>
+            <ul class="nav-links">
+                <li><a href="#historia">Historia</a></li>
+                <li><a href="#doctrinas">Doctrinas</a></li>
+                <li><a href="#aplicaciones">Aplicaciones</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle">Modo Oscuro</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-eyebrow">Estudio Bíblico</div>
+                    <h1 class="hero-title">Falsas Doctrinas</h1>
+                    <p class="hero-subtitle">
+                        Un análisis profundo de las enseñanzas erróneas denunciadas en las Escrituras, 
+                        desde los tiempos bíblicos hasta nuestros días.
+                    </p>
+                    <a href="#historia" class="hero-cta">
+                        Comenzar Estudio
+                        <span>→</span>
+                    </a>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-elements">
+                        <div class="floating-card">
+                            <div class="card-title">Judas 1:4</div>
+                            <div class="card-text">"Porque algunos hombres han entrado encubiertamente..."</div>
+                        </div>
+                        <div class="floating-card">
+                            <div class="card-title">2 Pedro 2:1</div>
+                            <div class="card-text">"Pero hubo también falsos profetas entre el pueblo..."</div>
+                        </div>
+                        <div class="floating-card">
+                            <div class="card-title">1 Juan 4:1</div>
+                            <div class="card-text">"Probad los espíritus si son de Dios..."</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">66</div>
+                        <div class="stat-label">Libros de la Biblia</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Referencias sobre falsas doctrinas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Categorías principales</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2000+</div>
+                        <div class="stat-label">Años de historia</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="timeline-section" id="historia">
+            <div class="section-header">
+                <h2 class="section-title">Historia Bíblica</h2>
+                <p class="section-description">
+                    Las falsas doctrinas han existido desde los primeros tiempos. 
+                    La Biblia nos proporciona una cronología clara de advertencias y ejemplos.
+                </p>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-era">Antiguo Testamento</div>
+                        <h3 class="timeline-title">Fundamentos</h3>
+                        <ul class="scripture-list">
+                            <li class="scripture-item">
+                                <div class="scripture-ref">Deuteronomio 13:1-5</div>
+                                <div class="scripture-text">Advertencia contra falsos profetas que realizan señales</div>
+                            </li>
+                            <li class="scripture-item">
+                                <div class="scripture-ref">Jeremías 23:16-32</div>
+                                <div class="scripture-text">Denuncia de profetas que profetizan vanidad y engaño</div>
+                            </li>
+                            <li class="scripture-item">
+                                <div class="scripture-ref">Ezequiel 13:1-23</div>
+                                <div class="scripture-text">Contra profetas que profetizan de su propio corazón</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="timeline-visual">📜</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-era">Ministerio de Cristo</div>
+                        <h3 class="timeline-title">Advertencias Directas</h3>
+                        <ul class="scripture-list">
+                            <li class="scripture-item">
+                                <div class="scripture-ref">Mateo 7:15-20</div>
+                                <div class="scripture-text">"Guardaos de los falsos profetas... por sus frutos los conoceréis"</div>
+                            </li>
+                            <li class="scripture-item">
+                                <div class="scripture-ref">Mateo 24:11,24</div>
+                                <div class="scripture-text">Profecía sobre falsos profetas en los últimos tiempos</div>
+                            </li>
+                            <li class="scripture-item">
+                                <div class="scripture-ref">Juan 10:1-16</div>
+                                <div class="scripture-text">Parábola del Buen Pastor vs. ladrones y salteadores</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="timeline-visual">✝️</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-era">Cartas Apostólicas</div>
+                        <h3 class="timeline-title">Combate Activo</h3>
+                        <ul class="scripture-list">
+                            <li class="scripture-item">
+                                <div class="scripture-ref">Gálatas 1:6-9</div>
+                                <div class="scripture-text">Anatema a quien predique otro evangelio</div>
+                            </li>
+                            <li class="scripture-item">
+                                <div class="scripture-ref">2 Corintios 11:13-15</div>
+                                <div class="scripture-text">Falsos apóstoles que se disfrazan como ministros de justicia</div>
+                            </li>
+                            <li class="scripture-item">
+                                <div class="scripture-ref">1 Timoteo 4:1-5</div>
+                                <div class="scripture-text">Doctrinas de demonios en los últimos tiempos</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="timeline-visual">📖</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-era">Judas y 2 Pedro</div>
+                        <h3 class="timeline-title">Enfoque Específico</h3>
+                        <ul class="scripture-list">
+                            <li class="scripture-item">
+                                <div class="scripture-ref">Judas 1:3-4</div>
+                                <div class="scripture-text">Contender por la fe contra hombres infiltrados</div>
+                            </li>
+                            <li class="scripture-item">
+                                <div class="scripture-ref">2 Pedro 2:1-22</div>
+                                <div class="scripture-text">Descripción detallada de falsos maestros</div>
+                            </li>
+                            <li class="scripture-item">
+                                <div class="scripture-ref">2 Pedro 3:3-7</div>
+                                <div class="scripture-text">Burladores de los últimos días</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="timeline-visual">⚠️</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="doctrines-section" id="doctrinas">
+            <div class="section-header">
+                <h2 class="section-title">Falsas Doctrinas Identificadas</h2>
+                <p class="section-description">
+                    Análisis detallado de las principales enseñanzas erróneas denunciadas en las Escrituras
+                </p>
+            </div>
+            <div class="doctrines-grid">
+                <article class="doctrine-card">
+                    <span class="doctrine-icon">⚖️</span>
+                    <h3 class="doctrine-title">Libertinaje Moral</h3>
+                    <p class="doctrine-description">
+                        Convertir la gracia de Dios en licencia para pecar, 
+                        negando la necesidad de santidad y obediencia.
+                    </p>
+                    <div class="verse-tags">
+                        <span class="verse-tag">Judas 1:4</span>
+                        <span class="verse-tag">2 Pedro 2:19</span>
+                        <span class="verse-tag">Romanos 6:1-2</span>
+                        <span class="verse-tag">Gálatas 5:13</span>
+                    </div>
+                </article>
+
+                <article class="doctrine-card">
+                    <span class="doctrine-icon">👑</span>
+                    <h3 class="doctrine-title">Negación del Señorío</h3>
+                    <p class="doctrine-description">
+                        Rechazar la autoridad suprema y deidad de Jesucristo, 
+                        minimizando su papel como Señor y Salvador.
+                    </p>
+                    <div class="verse-tags">
+                        <span class="verse-tag">Judas 1:4</span>
+                        <span class="verse-tag">2 Pedro 2:1</span>
+                        <span class="verse-tag">1 Juan 2:22-23</span>
+                        <span class="verse-tag">2 Juan 1:7</span>
+                    </div>
+                </article>
+
+                <article class="doctrine-card">
+                    <span class="doctrine-icon">⚡</span>
+                    <h3 class="doctrine-title">Negación del Juicio</h3>
+                    <p class="doctrine-description">
+                        Rechazar la realidad del juicio final y las consecuencias 
+                        eternas del pecado.
+                    </p>
+                    <div class="verse-tags">
+                        <span class="verse-tag">2 Pedro 3:3-4</span>
+                        <span class="verse-tag">Judas 1:5-7</span>
+                        <span class="verse-tag">Hebreos 9:27</span>
+                        <span class="verse-tag">Apocalipsis 20:11-15</span>
+                    </div>
+                </article>
+
+                <article class="doctrine-card">
+                    <span class="doctrine-icon">💰</span>
+                    <h3 class="doctrine-title">Mercantilismo Espiritual</h3>
+                    <p class="doctrine-description">
+                        Usar la religión para ganancia personal y explotación 
+                        financiera de los creyentes.
+                    </p>
+                    <div class="verse-tags">
+                        <span class="verse-tag">2 Pedro 2:3</span>
+                        <span class="verse-tag">1 Timoteo 6:5</span>
+                        <span class="verse-tag">Tito 1:11</span>
+                        <span class="verse-tag">Miqueas 3:11</span>
+                    </div>
+                </article>
+
+                <article class="doctrine-card">
+                    <span class="doctrine-icon">👁️</span>
+                    <h3 class="doctrine-title">Revelaciones Falsas</h3>
+                    <p class="doctrine-description">
+                        Reclamar revelaciones especiales y visiones que van 
+                        más allá o contradicen la Escritura.
+                    </p>
+                    <div class="verse-tags">
+                        <span class="verse-tag">Judas 1:8</span>
+                        <span class="verse-tag">Colosenses 2:18</span>
+                        <span class="verse-tag">Jeremías 23:16</span>
+                        <span class="verse-tag">Apocalipsis 22:18-19</span>
+                    </div>
+                </article>
+
+                <article class="doctrine-card">
+                    <span class="doctrine-icon">💔</span>
+                    <h3 class="doctrine-title">División Sectaria</h3>
+                    <p class="doctrine-description">
+                        Causar divisiones en el cuerpo de Cristo por 
+                        intereses personales y doctrinas particulares.
+                    </p>
+                    <div class="verse-tags">
+                        <span class="verse-tag">Judas 1:19</span>
+                        <span class="verse-tag">Romanos 16:17</span>
+                        <span class="verse-tag">1 Corintios 1:10</span>
+                        <span class="verse-tag">Tito 3:10</span>
+                    </div>
+                </article>
+
+                <article class="doctrine-card">
+                    <span class="doctrine-icon">🔮</span>
+                    <h3 class="doctrine-title">Gnosticismo</h3>
+                    <p class="doctrine-description">
+                        Conocimiento secreto superior que niega la 
+                        encarnación real de Cristo y la salvación por gracia.
+                    </p>
+                    <div class="verse-tags">
+                        <span class="verse-tag">1 Juan 4:1-3</span>
+                        <span class="verse-tag">2 Juan 1:7</span>
+                        <span class="verse-tag">Colosenses 2:8</span>
+                        <span class="verse-tag">1 Timoteo 6:20</span>
+                    </div>
+                </article>
+
+                <article class="doctrine-card">
+                    <span class="doctrine-icon">🐺</span>
+                    <h3 class="doctrine-title">Liderazgo Corrupto</h3>
+                    <p class="doctrine-description">
+                        Líderes que abusan de su autoridad espiritual 
+                        para beneficio personal y control.
+                    </p>
+                    <div class="verse-tags">
+                        <span class="verse-tag">Judas 1:11</span>
+                        <span class="verse-tag">2 Pedro 2:10</span>
+                        <span class="verse-tag">3 Juan 1:9-10</span>
+                        <span class="verse-tag">Ezequiel 34:1-6</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="applications-section" id="aplicaciones">
+            <div class="applications-container">
+                <div class="applications-intro">
+                    <h2 class="applications-title">Aplicación Moderna</h2>
+                    <p class="applications-subtitle">
+                        Cómo identificar y responder a las falsas doctrinas en el contexto contemporáneo
+                    </p>
+                </div>
+                <div class="applications-grid">
+                    <div class="main-application">
+                        <h3 class="main-app-title">Discernimiento Bíblico</h3>
+                        <p class="main-app-text">
+                            El fundamento para combatir las falsas doctrinas es un conocimiento sólido de las Escrituras. 
+                            Como los bereanos en Hechos 17:11, debemos escudriñar diariamente las Escrituras para 
+                            verificar si las enseñanzas son verdaderas. El discernimiento no es opcional, 
+                            es un mandato bíblico para todo creyente.
+                        </p>
+                    </div>
+                    <div class="side-applications">
+                        <div class="side-app">
+                            <h4 class="side-app-title">Educación Doctrinal</h4>
+                            <p class="side-app-text">
+                                Conocimiento sistemático de la sana doctrina según 2 Timoteo 3:16-17 
+                                para resistir el error.
+                            </p>
+                        </div>
+                        <div class="side-app">
+                            <h4 class="side-app-title">Liderazgo Íntegro</h4>
+                            <p class="side-app-text">
+                                Pastores y líderes que sirven con transparencia y rendición de cuentas 
+                                según 1 Pedro 5:1-4.
+                            </p>
+                        </div>
+                        <div class="side-app">
+                            <h4 class="side-app-title">Alertas Contemporáneas</h4>
+                            <p class="side-app-text">
+                                Identificar manifestaciones modernas: teología de la prosperidad, 
+                                hipergracia, relativismo doctrinal.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Cursor personalizado
+        const cursor = document.getElementById('cursor');
+        let mouseX = 0, mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function updateCursor() {
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+            requestAnimationFrame(updateCursor);
+        }
+        updateCursor();
+
+        // Efectos hover para cursor
+        document.querySelectorAll('a, button, .doctrine-card').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            themeToggle.textContent = document.body.classList.contains('dark') ? 'Modo Claro' : 'Modo Oscuro';
+        });
+
+        // Intersection Observer para animaciones
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos
+        document.querySelectorAll('.stat-item, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect para floating cards
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const cards = document.querySelectorAll('.floating-card');
+            cards.forEach((card, index) => {
+                const speed = 0.5 + (index * 0.1);
+                card.style.transform += ` translateY(${scrolled * speed * 0.1}px)`;
+            });
+        });
+
+        // Animación escalonada para stats
+        setTimeout(() => {
+            document.querySelectorAll('.stat-item').forEach((stat, index) => {
+                setTimeout(() => {
+                    stat.classList.add('visible');
+                }, index * 200);
+            });
+        }, 500);
+    </script>
+</body>
+</html>

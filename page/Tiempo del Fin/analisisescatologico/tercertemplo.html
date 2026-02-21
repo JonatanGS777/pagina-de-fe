@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preparativos para el Tercer Templo y Profecías Bíblicas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Partículas de fondo */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, #ffd700, transparent);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(10px) rotate(240deg); }
+        }
+
+        /* Header */
+        .header {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
+        }
+
+        .header-content {
+            z-index: 2;
+            animation: slideUp 1.5s ease-out;
+        }
+
+        .main-title {
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ffd700, #ffffff, #8a2be2);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+            animation: fadeIn 2s ease-out 0.5s both;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes glow {
+            to { text-shadow: 0 0 40px rgba(255, 215, 0, 0.8); }
+        }
+
+        /* Navegación */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-item a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-item a:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-item a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-item a:hover::before {
+            left: 100%;
+        }
+
+        /* Contenido principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #ffd700;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            border-radius: 2px;
+        }
+
+        /* Tarjetas de contenido */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ffd700, #8a2be2, #ffd700);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            color: #8a2be2;
+        }
+
+        .card-content {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        /* Lista de preparativos */
+        .prep-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .prep-item {
+            background: rgba(255, 215, 0, 0.1);
+            margin: 1rem 0;
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #ffd700;
+            transition: all 0.3s ease;
+        }
+
+        .prep-item:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: translateX(10px);
+        }
+
+        /* Cronología profética */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #ffd700, #8a2be2, #ffd700);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 2rem 0;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 55%;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: scale(1.05);
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -20px;
+            border-left-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -20px;
+            border-right-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .timeline-date {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            background: #ffd700;
+            border-radius: 50%;
+            border: 3px solid #1a1a2e;
+            z-index: 10;
+        }
+
+        /* Citas bíblicas */
+        .biblical-quote {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(255, 215, 0, 0.1));
+            border-left: 5px solid #8a2be2;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            font-style: italic;
+            position: relative;
+        }
+
+        .biblical-quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: #8a2be2;
+            position: absolute;
+            top: 0;
+            left: 10px;
+            opacity: 0.3;
+        }
+
+        .quote-reference {
+            text-align: right;
+            color: #ffd700;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        /* Estadísticas */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: scale(1.05);
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            animation: countUp 2s ease-out;
+        }
+
+        .stat-label {
+            color: #cccccc;
+            font-size: 1.1rem;
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: calc(100% - 50px);
+                left: 50px !important;
+                text-align: left !important;
+            }
+
+            .timeline-item .timeline-content::before {
+                left: -20px !important;
+                border-right-color: rgba(255, 215, 0, 0.3) !important;
+                border-left-color: transparent !important;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animación de entrada */
+        .fade-in {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Partículas de fondo -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navegación -->
+    <nav class="nav" id="navbar">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#inicio">Inicio</a></li>
+            <li class="nav-item"><a href="#preparativos">Preparativos</a></li>
+            <li class="nav-item"><a href="#profecias">Profecías</a></li>
+            <li class="nav-item"><a href="#gobierno">Influencia Política</a></li>
+            <li class="nav-item"><a href="#cronologia">Cronología</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="header" id="inicio">
+        <div class="header-content">
+            <h1 class="main-title">El Tercer Templo</h1>
+            <p class="subtitle">Preparativos Actuales y Profecías Bíblicas</p>
+            <p class="subtitle">Una convergencia histórica en Jerusalén</p>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="container">
+        <!-- Sección de Preparativos -->
+        <section class="section" id="preparativos">
+            <h2 class="section-title">Preparativos Actuales en Israel</h2>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">60+</div>
+                    <div class="stat-label">Vasijas Sagradas Recreadas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2024</div>
+                    <div class="stat-label">Aceleración de Preparativos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3000</div>
+                    <div class="stat-label">Años desde el Primer Templo</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1954</div>
+                    <div class="stat-label">Años desde la Destrucción</div>
+                </div>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">🏛️</span>
+                        Instituto del Templo
+                    </h3>
+                    <div class="card-content">
+                        <p>El Instituto del Templo en Jerusalén ha recreado meticulosamente más de 60 vasijas sagradas kosher, incluyendo el Altar Dorado, la Mesa de los Panes de la Proposición, y el Altar de Sacrificio. Estos no son replicas para exhibición, sino instrumentos funcionales para el futuro servicio del Templo.</p>
+                        <ul class="prep-list">
+                            <li class="prep-item">✨ Vasijas de incienso y copas de medición</li>
+                            <li class="prep-item">🎺 Trompetas de plata y arpas levíticas</li>
+                            <li class="prep-item">👑 Pectoral del Sumo Sacerdote con 12 piedras</li>
+                            <li class="prep-item">🎵 Coro Levítico entrenado y uniformado</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">👨‍💼</span>
+                        Entrenamiento Sacerdotal
+                    </h3>
+                    <div class="card-content">
+                        <p>Los Kohanim (descendientes de Aarón) están siendo entrenados activamente para el servicio del Templo por primera vez en dos milenios. Visten túnicas de algodón blanco con fajas intrincadas y practican rituales sagrados.</p>
+                        <ul class="prep-list">
+                            <li class="prep-item">🌾 Ofrenda de Primicias</li>
+                            <li class="prep-item">🍞 Ofrenda de los Dos Panes</li>
+                            <li class="prep-item">🐑 Ofrenda de Pascua</li>
+                            <li class="prep-item">🔥 Rituales de purificación</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">🐄</span>
+                        Novillas Rojas
+                    </h3>
+                    <div class="card-content">
+                        <p>Un desarrollo crucial: varias novillas rojas sin mancha han sido identificadas y llevadas a Israel. Sus cenizas son requeridas para los ritos de purificación necesarios para quienes servirán en el Templo reconstruido.</p>
+                        <div class="biblical-quote">
+                            "Y habló Jehová a Moisés y a Aarón, diciendo: Esta es la ordenanza de la ley que Jehová ha mandado, diciendo: Di a los hijos de Israel que te traigan una vaca alazana, perfecta, en la cual no haya falta, sobre la cual no se haya puesto yugo."
+                            <div class="quote-reference">- Números 19:1-2</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">📐</span>
+                        Planos Arquitectónicos
+                    </h3>
+                    <div class="card-content">
+                        <p>Los planos detallados del Tercer Templo han sido completados tras décadas de investigación meticulosa de textos antiguos. Un modelo a escala 1:50 estará disponible en el Centro de Visitantes de Jerusalén en 2025.</p>
+                        <ul class="prep-list">
+                            <li class="prep-item">📏 Edificio cuadrado de 150x150 metros</li>
+                            <li class="prep-item">🏗️ Incorpora elementos de acero y vidrio moderno</li>
+                            <li class="prep-item">♿ Características de accesibilidad moderna</li>
+                            <li class="prep-item">🎬 Animaciones 3D ya disponibles</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Profecías -->
+        <section class="section" id="profecias">
+            <h2 class="section-title">Profecías Bíblicas del Tercer Templo</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">📜</span>
+                        Profecía de Daniel
+                    </h3>
+                    <div class="card-content">
+                        <div class="biblical-quote">
+                            "Setenta semanas están determinadas sobre tu pueblo y sobre tu santa ciudad, para terminar la prevaricación, y poner fin al pecado, y expiar la iniquidad, para traer la justicia perdurable, y sellar la visión y la profecía, y ungir al Santo de los santos."
+                            <div class="quote-reference">- Daniel 9:24-27</div>
+                        </div>
+                        <p>La profecía de las 70 semanas de Daniel describe la reconstrucción de Jerusalén y el Templo, la venida del Mesías, y eventos futuros relacionados con el Templo y el Anticristo.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">🏛️</span>
+                        Visión de Ezequiel
+                    </h3>
+                    <div class="card-content">
+                        <div class="biblical-quote">
+                            "Me llevó allí, y he aquí un varón, cuyo aspecto era como aspecto de bronce, y tenía un cordel de lino en su mano, y una caña de medir; y él estaba a la puerta."
+                            <div class="quote-reference">- Ezequiel 40:3</div>
+                        </div>
+                        <p>Ezequiel 40-48 proporciona la descripción más detallada de un templo futuro, con medidas específicas, dimensiones exactas y descripciones de rituales que nunca se han cumplido completamente en la historia.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">📖</span>
+                        Apocalipsis de Juan
+                    </h3>
+                    <div class="card-content">
+                        <div class="biblical-quote">
+                            "Entonces me fue dada una caña semejante a una vara de medir, y se me dijo: Levántate, y mide el templo de Dios, y el altar, y a los que adoran en él."
+                            <div class="quote-reference">- Apocalipsis 11:1-2</div>
+                        </div>
+                        <p>Juan recibe instrucciones de medir el templo de Dios, sugiriendo la existencia de un templo durante los eventos del tiempo del fin descritos en Apocalipsis.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">⚡</span>
+                        Abominación Desoladora
+                    </h3>
+                    <div class="card-content">
+                        <div class="biblical-quote">
+                            "Por tanto, cuando veáis en el lugar santo la abominación desoladora de que habló el profeta Daniel (el que lee, entienda), entonces los que estén en Judea, huyan a los montes."
+                            <div class="quote-reference">- Mateo 24:15-16</div>
+                        </div>
+                        <p>Jesús confirma que las profecías de Daniel sobre la abominación desoladora tendrán un cumplimiento futuro, requiriendo la existencia de un templo en los últimos tiempos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Influencia Política -->
+        <section class="section" id="gobierno">
+            <h2 class="section-title">Influencia Política y Gubernamental</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">🇺🇸</span>
+                        Apoyo Estadounidense
+                    </h3>
+                    <div class="card-content">
+                        <p><strong>Pete Hegseth</strong>, Secretario de Defensa de Estados Unidos, ha expresado públicamente su apoyo a la reconstrucción del Tercer Templo. En 2018, declaró en Jerusalén:</p>
+                        <div class="biblical-quote">
+                            "No hay razón por la cual el milagro de restablecer el Templo en el Monte del Templo no sea posible. No sé cómo sucedería, pero sé que podría suceder."
+                            <div class="quote-reference">- Pete Hegseth, 2018</div>
+                        </div>
+                        <p>Su nombramiento le otorga una influencia sin precedentes desde una posición gubernamental de alto nivel.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">🇮🇱</span>
+                        Extrema Derecha Israelí
+                    </h3>
+                    <div class="card-content">
+                        <p><strong>Itamar Ben-Gvir</strong> y otros líderes de la extrema derecha israelí han sido identificados como teniendo un plan ordenado de tres etapas para tomar control del sitio y construir el Templo:</p>
+                        <ul class="prep-list">
+                            <li class="prep-item">🏛️ Permitir oraciones judías en el Monte del Templo</li>
+                            <li class="prep-item">🕌 Construcción de una sinagoga en el sitio</li>
+                            <li class="prep-item">⛪ Eventual demolición de la Mezquita Al-Aqsa</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">⚖️</span>
+                        Desafíos Legales
+                    </h3>
+                    <div class="card-content">
+                        <p>El Monte del Templo presenta complejos desafíos legales y religiosos:</p>
+                        <ul class="prep-list">
+                            <li class="prep-item">🕌 Sitio más sagrado para judíos, tercero para musulmanes</li>
+                            <li class="prep-item">⛔ Ley israelí prohíbe oraciones judías en el sitio</li>
+                            <li class="prep-item">🤝 Control musulmán vs. seguridad israelí</li>
+                            <li class="prep-item">🌍 Oposición de la comunidad internacional</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">
+                        <span class="card-icon">🏗️</span>
+                        Organizaciones Activistas
+                    </h3>
+                    <div class="card-content">
+                        <p>Varias organizaciones trabajan activamente hacia la reconstrucción:</p>
+                        <ul class="prep-list">
+                            <li class="prep-item">🏛️ <strong>Instituto del Templo:</strong> Investigación y preparación práctica</li>
+                            <li class="prep-item">⛰️ <strong>Fieles del Monte del Templo:</strong> Demostraciones y piedras angulares</li>
+                            <li class="prep-item">🕊️ <strong>Movimiento Tierra de Israel:</strong> Promoción de soberanía judía</li>
+                            <li class="prep-item">👥 <strong>Administración del Monte del Templo:</strong> Coordinación de esfuerzos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cronología Profética -->
+        <section class="section" id="cronologia">
+            <h2 class="section-title">Cronología de Eventos Proféticos</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">586 AC</div>
+                        <h4>Destrucción del Primer Templo</h4>
+                        <p>Nabucodonosor destruye el Templo de Salomón. Daniel profetiza sobre la reconstrucción y eventos futuros desde Babilonia.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">516 AC</div>
+                        <h4>Segundo Templo Construido</h4>
+                        <p>Zorobabel completa la reconstrucción. Más tarde, Herodes el Grande lo expande magníficamente.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">70 DC</div>
+                        <h4>Destrucción del Segundo Templo</h4>
+                        <p>Las legiones romanas bajo Tito destruyen el Templo, cumpliendo la profecía de Jesús sobre la desolación de Jerusalén.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">1948</div>
+                        <h4>Establecimiento de Israel</h4>
+                        <p>El renacimiento del estado de Israel después de casi 2000 años, preparando el escenario para el cumplimiento profético.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">1967</div>
+                        <h4>Liberación de Jerusalén</h4>
+                        <p>Israel recupera el control del Monte del Templo durante la Guerra de los Seis Días, reunificando Jerusalén por primera vez en 1897 años.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">1987</div>
+                        <h4>Inicio del Movimiento del Templo</h4>
+                        <p>Se establecen organizaciones dedicadas a la preparación activa para la reconstrucción del Tercer Templo.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024-2025</div>
+                        <h4>Aceleración Actual</h4>
+                        <p>Preparativos intensificados: novillas rojas, entrenamiento sacerdotal, apoyo político de alto nivel, y planos arquitectónicos completos.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Futuro Profético</div>
+                        <h4>Construcción del Tercer Templo</h4>
+                        <p>Según las profecías bíblicas, el Tercer Templo será construido antes del regreso del Mesías, cumpliendo las visiones de Daniel, Ezequiel y Apocalipsis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reflexión Final -->
+        <section class="section">
+            <div class="card">
+                <h3 class="card-title">
+                    <span class="card-icon"></span>
+                    Convergencia Profética
+                </h3>
+                <div class="card-content">
+                    <p>Por primera vez en casi dos milenios, todos los elementos necesarios para la reconstrucción del Templo están convergiendo simultáneamente:</p>
+                    
+                    <div class="biblical-quote">
+                        "Y en los postreros días acontecerá que el monte de la casa de Jehová será establecido por cabecera de montes, y más alto que los collados, y correrán a él todas las naciones."
+                        <div class="quote-reference">- Miqueas 4:1</div>
+                    </div>
+
+                    <p>Los preparativos físicos, el apoyo político internacional, la presencia de elementos rituales específicos como las novillas rojas, y el cumplimiento de las profecías sobre el regreso de Israel a su tierra, sugieren que estamos presenciando un momento único en la historia profética.</p>
+
+                    <p>Ya sea que interpretemos estas profecías de manera literal o simbólica, la convergencia actual de eventos señala hacia un período de significado escatológico profundo, donde las antiguas promesas bíblicas encuentran su expresión en el mundo moderno.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+        <p>"Velad, pues, porque no sabéis a qué hora ha de venir vuestro Señor" - Mateo 24:42</p>
+    </footer>
+
+    <script>
+        // Crear partículas de fondo
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 4 + 1;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Animación de scroll para navbar
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Observador de intersección para animaciones
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observar todas las secciones
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animación de números en estadísticas
+        function animateNumbers() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const target = parseInt(entry.target.textContent.replace(/\D/g, ''));
+                            const suffix = entry.target.textContent.replace(/\d/g, '');
+                            let current = 0;
+                            const increment = target / 100;
+                            const timer = setInterval(() => {
+                                current += increment;
+                                if (current >= target) {
+                                    entry.target.textContent = target + suffix;
+                                    clearInterval(timer);
+                                } else {
+                                    entry.target.textContent = Math.floor(current) + suffix;
+                                }
+                            }, 20);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+                
+                observer.observe(stat);
+            });
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            animateNumbers();
+            
+            // Añadir clase de animación a elementos después de un pequeño retraso
+            setTimeout(() => {
+                document.querySelectorAll('.card, .prep-item, .timeline-item').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('fade-in');
+                    }, index * 100);
+                });
+            }, 500);
+        });
+
+        // Efecto de paralaje en el header
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElement = document.querySelector('.header-content');
+            const speed = scrolled * 0.5;
+            parallaxElement.style.transform = `translateY(${speed}px)`;
+        });
+    </script>
+</body>
+</html>

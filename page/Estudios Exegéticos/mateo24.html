@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exégesis de Mateo 24: El Discurso del Monte de los Olivos</title>
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #00cec9;
+            --accent: #e84393;
+            --light: #f5f6fa;
+            --dark: #2d3436;
+            --warning: #fdcb6e;
+            --info: #74b9ff;
+            --success: #55efc4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: var(--dark);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.2rem;
+            display: block;
+            font-weight: 500;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        main {
+            padding: 2rem 0;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2.5rem;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header {
+            padding: 1.8rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .card-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-header p {
+            opacity: 0.9;
+        }
+        
+        .card-body {
+            padding: 1.8rem;
+        }
+        
+        .card-body p {
+            margin-bottom: 1.2rem;
+        }
+        
+        .card-body h3 {
+            color: var(--primary);
+            margin: 1.8rem 0 1rem 0;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 0.5rem;
+        }
+        
+        .card-body h4 {
+            color: var(--accent);
+            margin: 1.5rem 0 0.8rem 0;
+        }
+        
+        .card-body ul, .card-body ol {
+            margin: 1rem 0 1.2rem 2rem;
+        }
+        
+        .card-body li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--light);
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .highlight {
+            background-color: #ffe6cc;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.2rem 0;
+            border-left: 4px solid var(--warning);
+        }
+        
+        .scripture {
+            font-style: italic;
+            color: var(--primary);
+            margin: 1.2rem 0;
+            padding: 1rem;
+            background-color: rgba(108, 92, 231, 0.08);
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+            font-weight: 500;
+        }
+        
+        .definition {
+            background-color: rgba(116, 185, 255, 0.1);
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.2rem 0;
+            border-left: 4px solid var(--info);
+        }
+        
+        .application {
+            background-color: rgba(85, 239, 196, 0.1);
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.2rem 0;
+            border-left: 4px solid var(--success);
+        }
+        
+        .greek {
+            font-style: italic;
+            color: #8e44ad;
+            font-weight: 500;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #5649c1;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid var(--accent);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .column {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .tab-link {
+            padding: 1rem 1.5rem;
+            background-color: #f1f2f6;
+            border-radius: 8px 8px 0 0;
+            margin-right: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .tab-link:hover, .tab-link.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 0 8px 8px 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+        
+        @media screen and (max-width: 600px) {
+            nav a {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .card-header h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📜 Exégesis de Mateo 24: El Discurso del Monte de los Olivos 🏔️</h1>
+            <p>Un análisis profundo de las enseñanzas escatológicas de Jesús sobre la destrucción del Templo, el fin de los tiempos y su Segunda Venida</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container nav-container">
+            <a href="#contexto">Contexto General</a>
+            <a href="#versiculo1-2">Mateo 24:1-2</a>
+            <a href="#versiculo3">Mateo 24:3</a>
+            <a href="#versiculo4-8">Mateo 24:4-8</a>
+            <a href="#versiculo9-14">Mateo 24:9-14</a>
+            <a href="#versiculo15-20">Mateo 24:15-20</a>
+            <a href="#versiculo21-22">Mateo 24:21-22</a>
+            <a href="#versiculo23-28">Mateo 24:23-28</a>
+            <a href="#versiculo29-31">Mateo 24:29-31</a>
+            <a href="#versiculo32-35">Mateo 24:32-35</a>
+            <a href="#versiculo36-41">Mateo 24:36-41</a>
+            <a href="#versiculo42-44">Mateo 24:42-44</a>
+            <a href="#versiculo45-51">Mateo 24:45-51</a>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section id="contexto" class="card">
+            <div class="card-header">
+                <h2>Contexto General del Discurso Escatológico</h2>
+                <p>Trasfondo histórico y significado de Mateo 24</p>
+            </div>
+            <div class="card-body">
+                <p>Mateo 24 (el "Discurso del Monte de los Olivos") es una enseñanza de Jesús sobre la destrucción del Templo de Jerusalén y los eventos del "fin de la era". Se pronuncia tras su salida del Templo en la semana final de su ministerio público (Mt 21–23).</p>
+                
+                <p>Los discípulos, conmocionados por la profecía de Jesús sobre el Templo, le formulan preguntas que dan pie a este discurso escatológico. En Mateo 24:3 ellos preguntan por cuándo ocurrirán "estas cosas" (la destrucción del Templo) y qué señal habrá de su venida (<span class="greek">parousía</span>, παρουσία) y de la consumación del siglo (<span class="greek">sunteleía toû aiōnos</span>, συντέλεια τοῦ αἰῶνος) – es decir, el fin de la era presente.</p>
+                
+                <p>Jesús responde entrelazando la inminente caída de Jerusalén (ocurrida en 70 d.C.) con eventos futuros de alcance universal, combinando así contexto histórico del siglo I con un horizonte escatológico más amplio.</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h4>Ministerio Público de Jesús</h4>
+                            <p>Mateo 21-23: Entrada triunfal, controversias en el templo, y pronunciamiento de juicio contra los líderes religiosos</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h4>Monte de los Olivos</h4>
+                            <p>Mateo 24: Jesús pronuncia su discurso escatológico, respondiendo preguntas sobre el fin</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h4>70 d.C.</h4>
+                            <p>Destrucción del Templo de Jerusalén por las legiones romanas bajo el mando de Tito</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h4>Futuro</h4>
+                            <p>La Segunda Venida de Cristo y la consumación final del siglo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight">
+                    <h4>Clave Interpretativa</h4>
+                    <p>Este discurso presenta un reto interpretativo: distinguir qué partes se refieren primariamente a la destrucción histórica de Jerusalén (70 d.C.) y cuáles a la venida futura de Cristo. Muchos eruditos ven un cumplimiento doble o "telescópico", donde los eventos del siglo I prefiguran y apuntan hacia la consumación final de la historia.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="versiculo1-2" class="card">
+            <div class="card-header">
+                <h2>Mateo 24:1-2 – Profecía sobre la destrucción del Templo</h2>
+            </div>
+            <div class="card-body">
+                <div class="scripture">
+                    "Cuando Jesús salió del Templo y se iba, se acercaron sus discípulos para mostrarle los edificios del Templo. Pero Él les dijo: '¿Veis todo esto? En verdad os digo que no quedará aquí piedra sobre piedra que no sea derribada'." (Mateo 24:1-2)
+                </div>
+                
+                <h3>Análisis Exegético</h3>
+                <p>Jesús sale del <span class="greek">hierós</span> (ἱερόν, recinto sagrado del Templo) y pronuncia una profecía impactante: la total destrucción del complejo del Templo de Jerusalén. Los discípulos admiraban la magnificencia de las construcciones herodianas – en efecto, el Segundo Templo, ampliado por Herodes el Grande, era símbolo central del culto judío y orgullo nacional.</p>
+                
+                <div class="definition">
+                    <h4>Análisis Lingüístico</h4>
+                    <p>Jesús emplea una frase enfática que en griego utiliza una <strong>doble negación</strong> (<span class="greek">ou mḗ</span>, οὐ μὴ) seguida del verbo <span class="greek">kataluthḗsetai</span> (καταλυθήσεται, "será derribado"), acentuando la certeza absoluta de la ruina completa.</p>
+                </div>
+                
+                <h3>Contexto Histórico</h3>
+                <p>En el judaísmo del Segundo Templo, la idea de la destrucción del Templo resultaba inconcebible para muchos. El Templo era visto como morada de la gloria divina y garantía de la presencia de Dios con su pueblo. Sin embargo, las Escrituras hebreas ofrecían precedentes proféticos de juicio contra el templo por infidelidad (cf. Jer 7:12-14).</p>
+                
+                <p>Esta predicción literal se cumplió aproximadamente 40 años después: en el año 70 d.C., las legiones romanas al mando de Tito arrasaron Jerusalén y quemaron el Templo durante la Gran Revuelta Judía. El historiador judío Flavio Josefo, testigo ocular, describió la escena con crudeza: la ciudad quedó convertida en un desierto, "irreconocible" tras la devastación.</p>
+                
+                <h3>Implicaciones Teológicas</h3>
+                <p>La profecía de Jesús subraya su rol profético y su autoridad divina – Él anticipa un acontecimiento histórico de enorme significado teológico: el juicio de Dios sobre la nación que rechazó al Mesías (cf. Mt 23:37).</p>
+                
+                <div class="application">
+                    <h4>Aplicación</h4>
+                    <p>Teológicamente, esto anuncia el fin de la economía del Antiguo Pacto centrada en el templo, preparando el camino para una nueva era (el Nuevo Pacto) en la que la presencia de Dios no estará limitada a un edificio físico (cf. Jn 4:21-23).</p>
+                    <p>La exactitud de esta predicción, verificada históricamente, se convierte en una base para confiar en las demás palabras proféticas de Jesús sobre el fin.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="versiculo3" class="card">
+            <div class="card-header">
+                <h2>Mateo 24:3 – Pregunta de los discípulos en el Monte de los Olivos</h2>
+            </div>
+            <div class="card-body">
+                <div class="scripture">
+                    "Y estando Él sentado en el Monte de los Olivos, los discípulos se le acercaron en privado, diciendo: 'Dinos, ¿cuándo serán estas cosas, y qué señal habrá de tu venida y del fin del siglo?'" (Mateo 24:3)
+                </div>
+                
+                <h3>Análisis Exegético</h3>
+                <p>Jesús se traslada al Monte de los Olivos, frente a Jerusalén, un lugar cargado de simbolismo mesiánico (cf. Zac 14:4). Allí, en privado, sus discípulos (Marcos menciona a Pedro, Santiago, Juan y Andrés) le plantean inquietudes nacidas de la profecía recién oída.</p>
+                
+                <p>La pregunta tiene tres componentes:</p>
+                <ol>
+                    <li><strong>¿Cuándo serán estas cosas?</strong> – refiriéndose a la destrucción del Templo que Jesús anunció</li>
+                    <li><strong>¿Qué señal habrá de tu venida?</strong> – aquí "venida" traduce <span class="greek">parousía</span> (παρουσία), término griego que significa presencia o llegada oficial. <span class="greek">Parousía</span> era usado en la época para la visita solemne de un rey o dignatario</li>
+                    <li><strong>¿Qué señal habrá del fin del siglo?</strong> – es decir, de la consumación de la era presente (<span class="greek">sunteleía toû aiōnos</span>)</li>
+                </ol>
+                
+                <p>Es probable que, en la mente de los discípulos, estos eventos estuvieran estrechamente vinculados: la caída del Templo, la venida mesiánica de Jesús en gloria y el fin de la era serían parte de un mismo gran acontecimiento escatológico.</p>
+                
+                <h3>Contexto Histórico y Lingüístico</h3>
+                <p>La expresión "fin del siglo" refleja la cosmovisión apocalíptica judía del Segundo Templo, influida por libros como Daniel y 1 Henoc, que dividían la historia en "esta era" (bajo dominio del mal) y "la era venidera" (el reino de Dios).</p>
+                
+                <div class="definition">
+                    <h4>Terminología Escatológica</h4>
+                    <p>En griego, <span class="greek">sunteleía</span> conlleva idea de consumación o culminación conjunta de eventos. Los discípulos utilizan el artículo definido en la frase "<span class="greek">tēs sēs parousías kai sunteleías tou aiōnos</span>" – literalmente "de la tu venida y de la consumación de la era" – lo que sugiere que para ellos es una sola realidad compleja.</p>
+                </div>
+                
+                <p>El Monte de los Olivos, donde formulan la pregunta, era significativo porque según Zacarías 14:4 el Señor se plantaría allí en "el día del Señor"; además, Ezequiel 11:23 menciona la gloria de Dios levantándose del Templo hacia el oriente (hacia el Olivete), y la tradición judía conectaba el Olivar con la venida del Mesías.</p>
+                
+                <h3>Implicaciones Teológicas</h3>
+                <p>La triple pregunta de los discípulos enmarca todo el discurso. Jesús responderá de forma integrada, sin separar rígidamente la respuesta en tres partes, lo que nos obliga a un análisis cuidadoso: algunas afirmaciones aluden a la inminente caída de Jerusalén (que ocurrió en esa generación), mientras otras trascienden ese marco y apuntan a su parousía futura en poder.</p>
+                
+                <div class="application">
+                    <h4>Perspectivas Teológicas</h4>
+                    <p>Esta pregunta muestra la tensión entre el "ya" y el "todavía no" de la escatología cristiana. Los discípulos quieren un calendario claro, pero Jesús responderá enfatizando más bien señales generales, principios de vigilancia y confianza en Dios, antes que fechas exactas (de hecho, subrayará que "nadie sabe el día ni la hora", v.36).</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="versiculo4-8" class="card">
+            <div class="card-header">
+                <h2>Mateo 24:4-8 – Advertencia contra engaños y el "principio de dolores"</h2>
+            </div>
+            <div class="card-body">
+                <div class="scripture">
+                    "Respondiendo Jesús, les dijo: 'Mirad que nadie os engañe. Porque vendrán muchos en mi nombre, diciendo: "Yo soy el Cristo", y a muchos engañarán. Y oiréis de guerras y rumores de guerras; mirad que no os turbéis, porque es necesario que todo esto acontezca, pero aún no es el fin. Porque se levantará nación contra nación y reino contra reino; y habrá hambres y terremotos en diferentes lugares. Pero todo esto es solo el comienzo de dolores'" (Mateo 24:4-8)
+                </div>
+                
+                <h3>Primera Parte: Advertencia contra los engaños (v. 4-5)</h3>
+                <p>Jesús comienza su respuesta no con fechas ni señales cósmicas, sino con una advertencia pastoral: "Mirad que nadie os engañe". La primera preocupación de Jesús es que sus seguidores no sean extraviados (<span class="greek">planēthēte</span>, πλανηθῆτε, "sean engañados" o "desviados") por acontecimientos o personas falsas.</p>
+                
+                <p>Anuncia que "muchos vendrán en mi nombre, diciendo: 'Yo soy el Cristo'", reclamando la identidad mesiánica de Jesús o presentándose ellos mismos como mesías. La expresión "en mi nombre" puede implicar tanto venir usurpando la autoridad de Cristo como venir alegando ser la encarnación de lo que Jesús representaba.</p>
+                
+                <div class="definition">
+                    <h4>Falsos Mesías</h4>
+                    <p>En ambos casos, se trata de falsos mesías o falsos cristos (<span class="greek">pseudochristói</span>, ψευδόχριστοι) que surgirán y "a muchos engañarán".</p>
+                </div>
+                
+                <h4>Contexto Histórico</h4>
+                <p>Esta advertencia subraya la expectativa mesiánica febril que caracterizaba al siglo I: tras la ascensión de Jesús, y especialmente durante la convulsa época previa a la caída de Jerusalén, se documentan varios individuos en Judea que se proclamaron enviados por Dios o libertadores:</p>
+                <ul>
+                    <li>Hechos 5:36-37 menciona a Teudas y a Judas el Galileo</li>
+                    <li>Flavio Josefo registra a un "profeta egipcio" y a Simón bar Giora</li>
+                </ul>
+                
+                <h3>Segunda Parte: Guerras y calamidades (v. 6-8)</h3>
+                <p>Jesús continúa describiendo una serie de acontecimientos inquietantes pero advierte que "todavía no es el fin". Menciona:</p>
+                <ul>
+                    <li><strong>Guerras y rumores de guerras</strong> - En las décadas posteriores a Jesús, hubo enfrentamientos entre Roma y Partia (36 d.C.) y conflictos como la guerra entre Herodes Antipas y el rey nabateo Aretas IV</li>
+                    <li><strong>Nación contra nación y reino contra reino</strong> - Una frase típica en la literatura profética para tiempos de convulsión general (cf. Isa 19:2)</li>
+                    <li><strong>Hambres</strong> - Hechos 11:28 menciona una gran hambruna "en tiempos de Claudio" (45-48 d.C.)</li>
+                    <li><strong>Terremotos</strong> - Se documentan terremotos importantes en Frigia (61 d.C.), Pompeya (62 d.C.), y en Judea durante la guerra (67 d.C.)</li>
+                </ul>
+                
+                <p>Jesús dice "no os turbéis" (<span class="greek">mē throeîsthe</span>, μὴ θροεῖσθε), literalmente "no se alarmen/atemoricen", indicando que estos eventos no deben interpretarse inmediatamente como el fin escatológico.</p>
+                
+                <div class="highlight">
+                    <h4>El principio de dolores</h4>
+                    <p>"Todo esto es solo el comienzo de dolores". La expresión "principio de dolores" traduce el griego <span class="greek">archē ōdinōn</span> (ἀρχὴ ὠδίνων), literalmente "inicio de dolores de parto". Esta metáfora era conocida en la escatología judía: en textos rabínicos posteriores se habla de "los dolores del Mesías" (<em>jeblê hamashíaj</em>), refiriéndose a las tribulaciones que precederían la era mesiánica.</p>
+                </div>
+                
+                <h3>Implicaciones Teológicas y Escatológicas</h3>
+                <p>Estos versículos aportan un principio hermenéutico clave para la escatología: no todo suceso calamitoso equivale al "fin". Jesús establece que habrá un período prolongado de la historia caracterizado por convulsiones – guerras, desastres naturales, persecuciones – pero que esos eventos en sí mismos no deben ser leídos como la señal definitiva del fin.</p>
+                
+                <div class="application">
+                    <h4>Aplicación</h4>
+                    <p>La imagen de los dolores de parto enseña que así como las contracciones iniciales anuncian que el alumbramiento se aproxima pero no ocurre de inmediato, igualmente estas calamidades anuncian que el plan de Dios avanza hacia su culminación, pero no señalan el fin inmediato.</p>
+                    <p>El creyente no debe alarmarse ante cada crisis mundial como si fuera el fin definitivo, sino perseverar con fe, sabiendo que el fin vendrá en el momento señalado por Dios, tras este período prolongado de tribulaciones comunes a la humanidad.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="versiculo9-14" class="card">
+            <div class="card-header">
+                <h2>Mateo 24:9-14 – Persecución, apostasía, perseverancia y proclamación universal</h2>
+            </div>
+            <div class="card-body">
+                <div class="scripture">
+                    "Entonces os entregarán a tribulación (thlîpsis) y os matarán, y seréis aborrecidos por todas las naciones por causa de mi nombre. Muchos tropezarán entonces y se entregarán unos a otros y unos a otros se odiarán. Y surgirá muchos falsos profetas que engañarán a muchos; y por haberse multiplicado la iniquidad, el amor de muchos se enfriará. Mas el que persevere hasta el fin, ése será salvo. Y se predicará este evangelio del reino en todo el mundo (oikoumenē) como testimonio a todas las naciones, y entonces vendrá el fin." (Mateo 24:9-14)
+                </div>
+                
+                <div class="columns">
+                    <div class="column">
+                        <h3>Primera Parte: Persecución y apostasía (v. 9-12)</h3>
+                        <p>Jesús pasa de las calamidades "generales" a advertir a sus discípulos sobre lo que ellos personalmente enfrentarán:</p>
+                        
+                        <h4>La persecución contra los creyentes</h4>
+                        <ul>
+                            <li>"Os entregarán a tribulación" - La palabra griega <span class="greek">thlîpsis</span> (θλῖψις) significa opresión, angustia o aflicción intensa</li>
+                            <li>"Os matarán" - Los primeros discípulos experimentarían martirio (como Santiago en Hch 12:2)</li>
+                            <li>"Seréis aborrecidos por todas las naciones por causa de mi nombre" - La persecución vendría tanto de judíos como de gentiles</li>
+                        </ul>
+                        
+                        <h4>La crisis interna de la fe</h4>
+                        <ul>
+                            <li>"Muchos tropezarán" - <span class="greek">skandalisthḗsontai</span> (σκανδαλισθήσονται), literalmente "se escandalizarán" o caerán en apostasía</li>
+                            <li>"Se entregarán unos a otros" - Traiciones internas bajo presión</li>
+                            <li>"Falsos profetas" - <span class="greek">pseudoprophētai</span> (ψευδοπροφῆται), líderes o maestros religiosos dentro o fuera de la comunidad que desviarán a muchos</li>
+                            <li>"Por la multiplicación de la iniquidad (<span class="greek">anomía</span>, ἀνομία), el amor de muchos se enfriará" - La maldad ambiental debilitará el fervor espiritual</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="column">
+                        <h3>Segunda Parte: Perseverancia y misión (v. 13-14)</h3>
+                        <h4>La perseverancia salvadora</h4>
+                        <p>"El que persevere hasta el fin, ése será salvo" - El verbo "persevere" traduce <span class="greek">hypoménein</span> (ὑπομένειν), que significa mantenerse firme, resistir con constancia. "Hasta el fin" puede referir tanto al fin de la vida propia (muriendo fiel) como al fin de la era si uno llegase vivo.</p>
+                        
+                        <div class="definition">
+                            <p>"Será salvo" (<span class="greek">sōthḗsetai</span>, σωθήσεται) aquí puede entenderse en doble sentido: salvación escatológica (participar de la vida eterna en el Reino de Dios) y también puede insinuar ser librado a través de esas tribulaciones.</p>
+                        </div>
+                        
+                        <h4>La misión universal</h4>
+                        <p>"Y será proclamado este evangelio del reino en todo el mundo (en griego: <span class="greek">en holē tê oikoumenē</span>, ἐν ὅλῃ τῇ οἰκουμένῃ) para testimonio a todas las naciones, y entonces vendrá el fin."</p>
+                        
+                        <p>Jesús revela que la misión evangelizadora global es parte necesaria del plan previo al fin. "<span class="greek">Oikoumenē</span>" literalmente significa "la tierra habitada" y en el uso común podía referir al mundo romano en su extensión.</p>
+                        
+                        <p>Solo "entonces vendrá el fin" – es decir, el fin (<span class="greek">telos</span>, τέλος) está condicionado a que primero el evangelio sea predicado universalmente.</p>
+                    </div>
+                </div>
+                
+                <h3>Contexto Histórico</h3>
+                <p>En el siglo I, los cristianos efectivamente enfrentaron persecución (de judíos y romanos), hubo falsos maestros (ver 1 Jn 4:1, Didaché 11) y apostasía (2 Tim 4:10). Respecto a la evangelización mundial, para el tiempo de la destrucción del Templo (70 d.C.), el evangelio ya se había extendido por gran parte del mundo mediterráneo: Pablo pudo afirmar cerca del 60 d.C. que el evangelio estaba dando fruto "en todo el mundo" (Col 1:6), en sentido hiperbólico refiriéndose al mundo romano.</p>
+                
+                <h3>Implicaciones Teológicas</h3>
+                <div class="application">
+                    <p>Este pasaje ofrece tres principios clave de la escatología cristiana:</p>
+                    <ol>
+                        <li><strong>Tribulación inevitable</strong> - La fe cristiana no promete un camino de gloria inmediata, sino oposición y prueba</li>
+                        <li><strong>Perseverancia necesaria</strong> - La fe genuina persiste bajo presión, mostrando que la firmeza es evidencia (no causa) de la salvación</li>
+                        <li><strong>Misión universal</strong> - El plan de Dios incluye que el mensaje del Reino alcance a todas las naciones antes del fin</li>
+                    </ol>
+                    <p>Teológicamente, la promesa del v.14 revela la dimensión misionera del plan de Dios: el evangelio debe alcanzar al mundo entero antes del fin. Esto corrige una posible actitud escapista: los discípulos no debían simplemente esperar pasivamente el fin, sino ocuparse en la misión evangelizadora.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="versiculo15-20" class="card">
+            <div class="card-header">
+                <h2>Mateo 24:15-20 – "La abominación desoladora" y la huida urgente de Judea</h2>
+            </div>
+            <div class="card-body">
+                <div class="scripture">
+                    "Por tanto, cuando veáis en el Lugar Santo la abominación desoladora de la que habló el profeta Daniel (el que lee, entienda), entonces los que estén en Judea, que huyan a los montes. El que esté en la azotea, no descienda a sacar algo de su casa; y el que esté en el campo, no vuelva atrás a tomar su capa. ¡Ay de las que estén encintas, y de las que estén criando en aquellos días! Orad, pues, que vuestra huida no suceda en invierno ni en sábado." (Mateo 24:15-20)
+                </div>
+                
+                <h3>Análisis Exegético</h3>
+                <p>Aquí Jesús señala una señal específica y crítica que desencadenará la siguiente etapa: "la abominación de la desolación" (en griego <span class="greek">to bdélygma tēs erēmṓseōs</span>, τὸ βδέλυγμα τῆς ἐρημώσεως) "en el lugar santo". Esta expresión proviene del libro de Daniel (ver Dan 9:27, 11:31, 12:11), donde se refiere originalmente a un acto sacrílego horrendo que provoca la desolación (profanación y abandono) del santuario.</p>
+                
+                <div class="definition">
+                    <h4>Términos Clave</h4>
+                    <ul>
+                        <li><strong>"El lugar santo"</strong> - Normalmente designa el Templo</li>
+                        <li><strong>"Abominación" (<span class="greek">bdélygma</span>)</strong> - Denota algo repugnante y sacrílego a ojos de Dios, típicamente asociado con idolatría</li>
+                        <li><strong>"Desoladora" (<span class="greek">erēmṓsis</span>)</strong> - Sugiere que causa devastación o abandono</li>
+                    </ul>
+                </div>
+                
+                <p>Jesús añade la nota editorial: "(el que lee, entienda)", que casi seguro es un comentario de Mateo para sus lectores, exhortándolos a discernir el significado profético. Entonces, Jesús instruye: cuando vean eso, "los que estén en Judea, huyan a los montes". Es un llamado a fuga inmediata de la región.</p>
+                
+                <h4>Instrucciones para la huida (v. 17-20)</h4>
+                <p>Jesús describe la urgencia extrema de la huida:</p>
+                <ul>
+                    <li>"No bajen a tomar nada de casa" - Las casas tenían azoteas planas donde la gente pasaba tiempo; una escalera externa permitía descender directamente a la calle</li>
+                    <li>"No regresen a por su capa" - No hay tiempo para recoger ni lo esencial</li>
+                    <li>"¡Ay de las embarazadas y las que crían!" - Compasión por quienes tendrán dificultad para huir</li>
+                    <li>"Orad que no sea en invierno ni en sábado" - El invierno haría difícil el viaje por lluvias; el sábado complicaría la evacuación por restricciones religiosas</li>
+                </ul>
+                
+                <h3>Contexto Histórico</h3>
+                <p>La "abominación desoladora" era un concepto bien conocido por los judíos del tiempo de Jesús por su historia con Antíoco Epífanes (167 a.C.). En Daniel tuvo un cumplimiento histórico cuando este rey seléucida profanó el Templo de Jerusalén (colocando un altar a Zeus, sacrificando animales impuros).</p>
+                
+                <p>Históricamente, los cristianos de Jerusalén hicieron exactamente lo que Jesús instruyó: según registros antiguos (Eusebio, Hist. Eccl. 3.5.3), los cristianos recordaron las palabras de Jesús y, antes del cerco final romano, huyeron de Jerusalén hacia Pella, en Transjordania, salvando así sus vidas.</p>
+                
+                <div class="highlight">
+                    <h4>¿Qué fue la "abominación desoladora"?</h4>
+                    <p>Lucas 21:20, en el pasaje paralelo, da una pista clara: "Pero cuando veáis a Jerusalén rodeada de ejércitos, sabed entonces que su desolación ha llegado". Esto sugiere fuertemente que la "abominación desoladora" se cumplió en la profanación del Templo por las fuerzas romanas durante la guerra del 66-70 d.C. Los soldados romanos, portando enseñas con símbolos idolátricos (águilas imperiales) e incendiando el santuario, habrían constituido esa abominación final en el "lugar santo".</p>
+                </div>
+                
+                <h3>Implicaciones Teológicas</h3>
+                <div class="application">
+                    <p>La instrucción de Jesús de huir muestra un principio: no siempre el camino espiritual es "quedarse y enfrentar" – a veces es legítimo escapar de la persecución para salvar la vida y seguir sirviendo a Dios (cf. Mt 10:23).</p>
+                    <p>Vemos la convergencia de profecía y responsabilidad humana: Jesús profetiza el evento, pero los discípulos deben actuar (huir) y orar (por condiciones favorables). Esto enseña que las profecías no anulan la necesidad de respuesta activa de nuestra parte.</p>
+                    <p>Escatológicamente, este pasaje ha sido visto por algunos intérpretes futuristas como patrón de un evento futuro parecido. Sin embargo, la mayoría de comentaristas académicos tradicionales interpreta que Jesús hablaba primariamente de la caída del Segundo Templo en 70 d.C.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="versiculo21-22" class="card">
+            <div class="card-header">
+                <h2>Mateo 24:21-22 – La "gran tribulación" y el acortamiento de los días</h2>
+            </div>
+            <div class="card-body">
+                <div class="scripture">
+                    "Porque entonces habrá gran tribulación (thlîpsis megálē) cual no la ha habido desde el principio del mundo hasta ahora, ni la habrá. Y si aquellos días no fuesen acortados, nadie sería salvo; mas por causa de los escogidos, aquellos días serán acortados." (Mateo 24:21-22)
+                </div>
+                
+                <h3>Análisis Exegético</h3>
+                <p>Jesús aquí caracteriza el período desencadenado por la "abominación desoladora" como una "gran tribulación" sin precedentes en la historia. El término griego es <span class="greek">thlîpsis megálē</span> (θλῖψις μεγάλη), literalmente "aflicción/opresión grande". Este lenguaje hiperbólico es común en los escritos apocalípticos para describir un sufrimiento único y máximo.</p>
+                
+                <p>En Daniel 12:1 encontramos algo muy similar: "Será tiempo de angustia cual nunca fue desde que existen las naciones hasta entonces". Jesús adopta esa fraseología y afirma que la tribulación venidera será incomparable en severidad – "como no la ha habido desde el principio del mundo… ni la habrá".</p>
+                
+                <div class="highlight">
+                    <h4>¿A qué "gran tribulación" se refiere?</h4>
+                    <p>Existen tres interpretaciones principales:</p>
+                    <ol>
+                        <li><strong>Interpretación histórica:</strong> Se refiere exclusivamente a la catástrofe de Jerusalén en 70 d.C.</li>
+                        <li><strong>Interpretación futurista:</strong> Apunta a una tribulación escatológica futura al fin del mundo</li>
+                        <li><strong>Interpretación doble:</strong> La destrucción de Jerusalén como tipo/prefiguración de la tribulación final</li>
+                    </ol>
+                    <p>Los historiadores dan testimonio de que el sitio y la caída de Jerusalén en 70 d.C. fueron de una brutalidad extrema: se estima que murieron alrededor de un millón de judíos según Josefo, hubo casos de canibalismo y crucifixiones masivas. Para los judíos, fue una catástrofe nacional-religiosa sin igual.</p>
+                </div>
+                
+                <h4>El acortamiento de los días (v. 22)</h4>
+                <p>Jesús añade un detalle consolador: "Y si aquellos días no fuesen acortados, nadie sería salvo; mas por causa de los escogidos, aquellos días serán acortados."</p>
+                <ul>
+                    <li>"Aquellos días" se refiere a la duración de la gran tribulación mencionada</li>
+                    <li>"Acortados" (<span class="greek">ekolobṓthēsan</span>, ἐκολοβώθησαν) implica que Dios limitará el tiempo del sufrimiento</li>
+                    <li>"Por causa de los escogidos" (<span class="greek">eklektoí</span>, ἐκλεκτοί) - Por amor a los elegidos de Dios</li>
+                </ul>
+                
+                <p>Históricamente, podemos ver un cumplimiento: la campaña de Tito contra Jerusalén, aunque feroz, fue relativamente breve (unos meses de sitio intenso). Si hubiese durado más, el hambre podría haber matado a todos.</p>
+                
+                <h3>Implicaciones Teológicas</h3>
+                <div class="application">
+                    <p>Este pasaje nos enseña acerca del juicio de Dios y Su misericordia por los elegidos simultáneamente:</p>
+                    <ul>
+                        <li>La soberanía de Dios sobre la historia: incluso los actos de conquistadores romanos cumplen sin saberlo los límites marcados por Dios</li>
+                        <li>El cuidado especial por los escogidos: Dios interviene para mitigar la tribulación en beneficio de Sus elegidos</li>
+                        <li>El principio bíblico de preservación del remanente: aunque hay juicio severo, Dios guarda a los Suyos (ver Isa 1:9)</li>
+                    </ul>
+                    <p>Este versículo manifiesta un principio teológico reconfortante: Dios gobierna la duración y alcance de las pruebas, no permitiendo que sus escogidos sean aniquilados completamente.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="versiculo23-28" class="card">
+            <div class="card-header">
+                <h2>Mateo 24:23-28 – Falsos cristos y la venida manifiesta del Hijo del Hombre</h2>
+            </div>
+            <div class="card-body">
+                <div class="scripture">
+                    "Entonces, si alguno os dice: 'Mirad, aquí está el Cristo', o 'Mirad, allí está', no le creáis. Porque se levantarán falsos cristos (pseudochristói) y falsos profetas, y mostrarán grandes señales y prodigios, de tal manera que engañarían, si fuera posible, aún a los escogidos. Mirad que os lo he dicho de antemano. Así que si os dicen: 'Mirad, está en el desierto', no salgáis; o 'Mirad, está en los aposentos interiores', no lo creáis. Porque como el relámpago que sale del oriente y se muestra hasta el occidente, así será la venida (parousía) del Hijo del Hombre. Porque dondequiera que esté el cadáver, allí se juntarán los buitres (águilas)." (Mateo 24:23-28)
+                </div>
+                
+                <div class="columns">
+                    <div class="column">
+                        <h3>Primera Parte: Advertencia contra falsos mesías (v. 23-26)</h3>
+                        <p>Jesús retoma el tema del engaño mesiánico, advertido inicialmente en v.4-5, pero ahora situado "entonces", es decir, en el contexto de la gran tribulación. En momentos de crisis extrema, la gente es particularmente vulnerable a seguir a cualquier que clame traer salvación.</p>
+                        
+                        <div class="definition">
+                            <h4>Falsos mesías con señales convincentes</h4>
+                            <p>Jesús advierte sobre "falsos cristos" (<span class="greek">pseudochristói</span>) y "falsos profetas" que incluso llegarán a hacer "grandes señales y prodigios" para convencer. Estos engaños serán tan persuasivos que "engañarían, de ser posible, aún a los escogidos".</p>
+                        </div>
+                        
+                        <p>Jesús enfatiza su previsión: "Os lo he dicho de antemano", recordando que la advertencia está dada para que cuando suceda, ellos recuerden y no sucumban.</p>
+                        
+                        <h4>Escenarios específicos</h4>
+                        <p>Se mencionan dos escenarios engañosos:</p>
+                        <ul>
+                            <li>"<strong>En el desierto</strong>" - El desierto evocaba el éxodo y era lugar donde algunos esperaban la manifestación mesiánica. Josefo relata que falsos profetas llevaron personas al desierto con promesas de signos</li>
+                            <li>"<strong>En los aposentos interiores</strong>" - Sugiere un Mesías oculto en alguna cámara, quizás al estilo de movimientos clandestinos o pretensiones esotéricas</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="column">
+                        <h3>Segunda Parte: La verdadera venida de Cristo (v. 27-28)</h3>
+                        <p>En contraste con los engaños localizados, Jesús declara una característica clave de su venida (<span class="greek">parousía</span>) final:</p>
+                        
+                        <h4>Como el relámpago universal</h4>
+                        <p>"Será como un relámpago que cruza el cielo de este a oeste". Es decir, repentina, visible y mundialmente manifiesta. Un relámpago iluminando de oriente a occidente no es algo que pase desapercibido; todo el horizonte lo ve.</p>
+                        
+                        <p>En griego <span class="greek">astrapē</span> (ἀστραπή) significa relámpago o resplandor; transmite la idea de algo fulminante e imponente. Este versículo es fundamental en la escatología cristiana: descarta concepciones puramente "espiritualizadas" de la Parusía y establece su carácter literal, personal y glorioso.</p>
+                        
+                        <h4>El proverbio de los buitres</h4>
+                        <p>"Donde esté el cadáver, allí se juntarán los buitres." Este proverbio (también en Lc 17:37) tiene varias interpretaciones:</p>
+                        <ol>
+                            <li><strong>Señal de inevitabilidad/obviedad:</strong> Así como los buitres inevitablemente aparecen donde hay un cadáver, la venida de Cristo será evidente por sí misma</li>
+                            <li><strong>Imagen de juicio:</strong> Cristo vendrá en juicio y los impíos (el "cadáver" corrupto) serán presa del juicio (los buitres)</li>
+                            <li><strong>Referencia a Roma:</strong> "Águilas" alude a los estandartes romanos reuniéndose sobre el "cadáver" de Jerusalén</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <h3>Implicaciones Teológicas</h3>
+                <div class="application">
+                    <p>Estos versículos enseñan principios importantes sobre el discernimiento y la naturaleza de la Segunda Venida:</p>
+                    <ul>
+                        <li><strong>Necesidad de discernimiento espiritual:</strong> Incluso ante supuestos "milagros", los creyentes deben evaluar todo a la luz de las palabras de Cristo</li>
+                        <li><strong>Seguridad de los elegidos:</strong> "Si fuera posible" engañar a los elegidos implica que, gracias a la gracia sustentadora de Dios, los verdaderos creyentes no caerán en el engaño definitivo</li>
+                        <li><strong>Naturaleza de la Parusía:</strong> La venida de Cristo será un evento global, repentino, glorioso, público y visible para todos</li>
+                    </ul>
+                    <p>La enseñanza sobre el relámpago protege contra doctrinas de parusías "secretas" o "invisibles" que algunas sectas han propuesto. La iglesia histórica, basándose en este texto, confiesa: "Y de nuevo vendrá con gloria para juzgar a vivos y muertos".</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="versiculo29-31" class="card">
+            <div class="card-header">
+                <h2>Mateo 24:29-31 – Señales cósmicas y la venida gloriosa del Hijo del Hombre</h2>
+            </div>
+            <div class="card-body">
+                <div class="scripture">
+                    "E inmediatamente después de la tribulación de aquellos días, el sol se oscurecerá, la luna no dará su resplandor, las estrellas caerán del cielo, y las potencias de los cielos serán sacudidas. Entonces aparecerá en el cielo la señal del Hijo del Hombre; y entonces lamentarán todas las tribus de la tierra, y verán al Hijo del Hombre viniendo sobre las nubes del cielo con poder y gran gloria. Y enviará a Sus ángeles con gran voz de trompeta, y reunirán a Sus escogidos de los cuatro vientos, desde un extremo de los cielos hasta el otro." (Mateo 24:29-31)
+                </div>
+                
+                <h3>Señales Cósmicas (v. 29)</h3>
+                <p>Aquí Jesús describe eventos de orden cósmico que acompañarán su venida. "Inmediatamente después de la tribulación de aquellos días" – conecta la gran tribulación (v.21) con lo que sigue. Menciona cuatro señales celestiales:</p>
+                <ol>
+                    <li>Oscurecimiento del sol</li>
+                    <li>Oscurecimiento de la luna</li>
+                    <li>Caída de las estrellas</li>
+                    <li>Sacudimiento de los poderes celestiales</li>
+                </ol>
+                
+                <div class="definition">
+                    <h4>Lenguaje Apocalíptico del AT</h4>
+                    <p>Este lenguaje es característico de la imaginería apocalíptica del Antiguo Testamento para el Día del Señor:</p>
+                    <ul>
+                        <li><strong>Isaías 13:10:</strong> "Los astros del cielo… no darán su luz; el sol se oscurecerá al nacer, y la luna no irradiará su luz"</li>
+                        <li><strong>Joel 2:31:</strong> "El sol se convertirá en tinieblas y la luna en sangre antes que venga el día de Yahvé grande y terrible"</li>
+                        <li><strong>Isaías 34:4:</strong> "Todo el ejército de los cielos se disolverá… caerán como cae la hoja de la parra"</li>
+                    </ul>
+                </div>
+                
+                <h3>La Aparición del Hijo del Hombre (v. 30)</h3>
+                <p>"Entonces aparecerá en el cielo la señal del Hijo del Hombre". Esta frase "la señal (<span class="greek">sēmeion</span>) del Hijo del Hombre en el cielo" ha sido debatida:</p>
+                <ol>
+                    <li>La "señal" es el propio Hijo del Hombre viniendo</li>
+                    <li>Un fenómeno específico antecedente que anuncia a Cristo (algunos Padres de la Iglesia sugirieron una cruz brillante)</li>
+                    <li>Simplemente significa que se hará evidente la venida del Hijo del Hombre en el cielo</li>
+                </ol>
+                
+                <p>"Entonces lamentarán todas las tribus de la tierra" – "Lamentar" (<span class="greek">kópsontai</span>, κόψονται) indica golpearse o hacer duelo de desesperación. Es el lamento de quienes rechazaron a Cristo al ver que llega el juicio ineludible.</p>
+                
+                <p>"Verán al Hijo del Hombre viniendo sobre las nubes del cielo con poder y gran gloria" - Jesús aplica a sí mismo Daniel 7:13. Venir en las nubes es tradicionalmente lenguaje divino (Yahvé en AT viene en nubes, Sal 104:3).</p>
+                
+                <h3>La Reunión de los Escogidos (v. 31)</h3>
+                <p>Jesús describe una acción que realizará al venir: "Enviará a sus ángeles con un potente sonido de trompeta para reunir a sus escogidos". Esta imagen combina elementos apocalípticos y escatológicos:</p>
+                <ul>
+                    <li>La trompeta evoca las trompetas del AT que señalaban la Teofanía o el Jubileo</li>
+                    <li>Los ángeles son los agentes enviados por Cristo – subrayando su autoridad divina</li>
+                    <li>"De los cuatro vientos" y "de un extremo del cielo al otro" indica un alcance mundial</li>
+                </ul>
+                
+                <p>Esto abarca la resurrección/transformación de los creyentes muertos y el arrebatamiento de los vivos para encontrarse con el Señor (cf. 1 Tes 4:16-17).</p>
+                
+                <h3>Implicaciones Teológicas</h3>
+                <div class="application">
+                    <p>Este pasaje (29-31) presenta la Parusía de Cristo como un evento de juicio y redención:</p>
+                    <ul>
+                        <li><strong>Juicio para el mundo rebelde:</strong> Portentos cósmicos aterradores, duelo de las naciones</li>
+                        <li><strong>Redención para los escogidos:</strong> Reunión, salvación final</li>
+                        <li><strong>Autoridad real de Cristo:</strong> Él es el Hijo del Hombre investido de poder celestial, que comanda los ejércitos angélicos</li>
+                        <li><strong>Fidelidad de Dios a sus elegidos:</strong> No serán olvidados sino recogidos uno por uno</li>
+                    </ul>
+                    <p>Estos versículos son una base para la doctrina del retorno visible de Cristo, la resurrección/transformación de los creyentes, y la inauguración del Juicio Final.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="versiculo32-35" class="card">
+            <div class="card-header">
+                <h2>Mateo 24:32-35 – La parábola de la higuera y "esta generación"</h2>
+            </div>
+            <div class="card-body">
+                <div class="scripture">
+                    "De la higuera aprended la parábola: cuando su rama ya está tierna y brotan las hojas, sabéis que el verano está cerca. Así también vosotros, cuando veáis todas estas cosas, sabed que Él (o esto) está cerca, a las puertas. De cierto os digo que no pasará esta generación hasta que todo esto acontezca. El cielo y la tierra pasarán, pero mis palabras no pasarán." (Mateo 24:32-35)
+                </div>
+                
+                <h3>La Parábola de la Higuera (v. 32-33)</h3>
+                <p>Jesús ahora recurre a una ilustración natural para enseñar sobre el tiempo de cumplimiento de sus profecías. La higuera era un árbol común en Palestina, caducifolio, que en invierno parece seco pero en primavera echa brotes tiernos anunciando el verano.</p>
+                
+                <p>Jesús dice: así como los discípulos saben leer los signos estacionales en la higuera – ramas tiernas y brotes = verano inminente – igualmente deben, al "ver todas estas cosas", reconocer que "está cerca, a las puertas".</p>
+                
+                <div class="definition">
+                    <h4>Análisis Lingüístico</h4>
+                    <p>¿Qué o quién "está cerca"? El texto griego dice: "<span class="greek">gnōte hoti engýs estin epithýrais</span>" – "sabed que [ÉL] está cerca, a las puertas". Algunos manuscritos lo entienden en neutro ("esto está cerca"), refiriéndose al evento o fin; pero la mayoría lo toma en masculino implícito: "Él", es decir, el Hijo del Hombre.</p>
+                </div>
+                
+                <h3>La Declaración sobre "Esta Generación" (v. 34)</h3>
+                <p>"De cierto os digo que no pasará esta generación hasta que todo esto acontezca." Este versículo es uno de los más discutidos. "Generación" en griego es <span class="greek">geneá</span> (γενεά), que normalmente se refiere a la generación contemporánea (~30-40 años).</p>
+                
+                <div class="highlight">
+                    <h4>Interpretaciones Principales</h4>
+                    <ol>
+                        <li><strong>Interpretación preterista completa:</strong> "Todas estas cosas" (incluyendo la venida del Hijo del Hombre) se cumplieron simbólicamente en el juicio sobre Jerusalén en 70 d.C.</li>
+                        <li><strong>Interpretación preterista parcial:</strong> "Esta generación" se refiere a la del siglo I, y "todas estas cosas" se refiere específicamente hasta los eventos de la destrucción del Templo (24:4-22), no incluyendo la venida final (24:30-31)</li>
+                        <li><strong>Interpretación futurista:</strong> "Esta generación" se refiere a la generación futura que verá las señales finales</li>
+                        <li><strong>Interpretación de "generación" como raza:</strong> La "raza" judía no pasará hasta que todo se cumpla</li>
+                    </ol>
+                </div>
+                
+                <p>La mayoría de comentaristas modernos entienden "esta generación" en su sentido normal (la de Jesús) y "todas estas cosas" como todo lo relativo a la destrucción de Jerusalén como prenda y garantía del resto.</p>
+                
+                <h3>La Permanencia de las Palabras de Cristo (v. 35)</h3>
+                <p>"El cielo y la tierra pasarán, pero mis palabras no pasarán." Aquí Jesús concluye esta sección con una afirmación de autoridad impresionante que eleva su palabra al nivel divino: solo la Palabra de Dios "permanece para siempre" (Isa 40:8).</p>
+                
+                <p>En contexto inmediato, es una garantía enfática de que todo lo que Él ha dicho (sobre el Templo, la tribulación, su venida) se cumplirá infaliblemente. También implica su propia identidad divina: ¿qué persona puede decir que sus palabras son más duraderas que la creación sino Dios mismo?</p>
+                
+                <h3>Implicaciones Teológicas</h3>
+                <div class="application">
+                    <h4>Lecciones Prácticas</h4>
+                    <ul>
+                        <li><strong>Vigilancia inteligente:</strong> La parábola de la higuera enseña a estar atentos a los indicios del cumplimiento profético</li>
+                        <li><strong>Fiabilidad profética:</strong> La profecía cercana sobre el Templo se cumplió, lo que anima a confiar en las promesas sobre el fin</li>
+                        <li><strong>Fundamento seguro:</strong> En un mundo cambiante, las palabras de Cristo permanecen como roca firme</li>
+                    </ul>
+                    <p>Aunque hubiera podido cumplirse todo en la generación que las oyó si era la voluntad de Dios, la no consumación de la parusía inmediata no invalida en absoluto su palabra – sigue pendiente pero segura.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="versiculo36-41" class="card">
+            <div class="card-header">
+                <h2>Mateo 24:36-41 – Nadie sabe el día y la hora: el ejemplo de Noé</h2>
+            </div>
+            <div class="card-body">
+                <div class="scripture">
+                    "Pero acerca de aquel día y hora, nadie sabe, ni aun los ángeles de los cielos, ni el Hijo, sino solo el Padre. Mas como en los días de Noé, así será la venida (parousía) del Hijo del Hombre. Porque como en los días antes del diluvio estaban comiendo y bebiendo, casándose y dando en casamiento, hasta el día en que Noé entró en el arca; y no entendieron hasta que vino el diluvio y se los llevó a todos, así será también la venida del Hijo del Hombre. Entonces estarán dos en el campo; uno será tomado y el otro dejado. Dos mujeres estarán moliendo en un molino; una será tomada y la otra dejada." (Mateo 24:36-41)
+                </div>
+                
+                <h3>El Tiempo Desconocido (v. 36)</h3>
+                <p>Tras afirmar que sus palabras no pasarán, Jesús hace un giro importante: del "cuando vean estas cosas, sepan que está cerca" pasa a "pero el día exacto, nadie lo sabe".</p>
+                
+                <p>"Aquel día y hora" se refiere específicamente al momento preciso de su venida y consumación final. "Nadie sabe" – es una negación absoluta: ningún ser humano puede conocer la fecha/hora exacta. Ni siquiera los ángeles en el cielo, ni el Hijo (según algunos manuscritos y el paralelo en Marcos 13:32), sino solo el Padre.</p>
+                
+                <div class="definition">
+                    <h4>Posibles Implicaciones Teológicas</h4>
+                    <p>Teológicamente, esto muestra la auto-limitación de Cristo en cuanto a conocimiento durante su encarnación (Fil 2:7). En todo caso, el énfasis es claro: solo el Padre tiene esa información reservada en su autoridad (Hech 1:7).</p>
+                </div>
+                
+                <h3>El Ejemplo de los Días de Noé (v. 37-39)</h3>
+                <p>Jesús provee una analogía histórica para ilustrar la imprevisibilidad y sorpresa de su venida: los días de Noé antes del diluvio. En aquellos días, la gente seguía su vida cotidiana normal – "comiendo y bebiendo, casándose…" – actividades ordinarias, legítimas en sí mismas, pero la gente estaba absorta en ellas sin percepción del juicio inminente.</p>
+                
+                <p>"No entendieron" (o no se dieron cuenta) "hasta que vino el diluvio y los arrasó a todos". Noé había estado advirtiendo, pero la gente hizo caso omiso. Jesús dice: "así será también la parusía del Hijo del Hombre" – el mundo estará viviendo su vida ordinaria hasta que abruptamente llegará el día del Señor.</p>
+                
+                <h3>Uno Tomado, Otro Dejado (v. 40-41)</h3>
+                <p>Jesús da ejemplos concretos del efecto divisorio y selectivo de su venida: dos personas realizando tareas comunes juntas, y repentinamente, uno es "tomado" y el otro "dejado".</p>
+                
+                <div class="highlight">
+                    <h4>¿Qué significa "tomado" y "dejado"?</h4>
+                    <ol>
+                        <li><strong>Tomado para salvación (arrebatado) y dejado para juicio:</strong> El Señor recoge a sus elegidos (coherente con v.31). Es decir, el que es tomado es llevado con Cristo, y el que es dejado es abandonado a juicio.</li>
+                        <li><strong>Tomado en juicio y dejado para salvación:</strong> "Tomar" aquí tendría connotación de llevar en juicio (como el diluvio "los llevó a todos"), mientras "dejado" implicaría librado (Noé fue dejado con vida).</li>
+                    </ol>
+                    <p>La mayoría de comentaristas recientes favorecen la primera opción: tomado = rescatado. Especialmente porque Mateo ha enfatizado la reunión de escogidos.</p>
+                </div>
+                
+                <h3>Implicaciones Teológicas</h3>
+                <div class="application">
+                    <h4>Principios Espirituales</h4>
+                    <ul>
+                        <li><strong>Impredecibilidad:</strong> La venida de Cristo será repentina e inesperada para muchos</li>
+                        <li><strong>Vigilancia continua:</strong> Como no sabemos el momento, debemos vivir siempre preparados</li>
+                        <li><strong>División escatológica:</strong> Habrá una separación final entre creyentes y no creyentes, sin importar su proximidad externa</li>
+                    </ul>
+                    <p>Estos versos inculcan la doctrina de la inminencia: Cristo puede venir en cualquier momento, nadie sabe cuándo, así que hay que estar preparados hoy. La ignorancia intencional del mundo no debe ser la de los discípulos.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="versiculo42-44" class="card">
+            <div class="card-header">
+                <h2>Mateo 24:42-44 – Exhortación a velar: el ladrón inesperado</h2>
+            </div>
+            <div class="card-body">
+                <div class="scripture">
+                    "Velad, pues, porque no sabéis a qué hora ha de venir vuestro Señor. Pero sabed esto: que si el padre de familia supiera a qué hora el ladrón habría de venir, velaría (gregorēsei) y no dejaría minar (forzar) su casa. Por tanto, también vosotros estad preparados, porque a la hora que no pensáis, vendrá el Hijo del Hombre." (Mateo 24:42-44)
+                </div>
+                
+                <h3>El Llamado a Velar (v. 42)</h3>
+                <p>Aquí Jesús saca la conclusión práctica: "Velad" (<span class="greek">grēgoréite</span>, γρηγορεῖτε) significa estad despiertos, permaneced vigilantes. Es un imperativo presente, denotando un hábito continuo.</p>
+                
+                <p>La razón: "porque no sabéis a qué hora viene vuestro Señor". De nuevo subraya la incertidumbre del momento. Llama "vuestro Señor" a sí mismo, remarcando la relación: los discípulos aguardan al Señor al cual sirven.</p>
+                
+                <p>Velar implica una actitud espiritual atenta, sobria, activa en espera de su llegada. Si uno supiera la hora exacta, podría relajarse hasta justo antes; pero como no se sabe, la única conducta sensata es estar siempre listo.</p>
+                
+                <h3>La Ilustración del Ladrón (v. 43-44)</h3>
+                <p>Jesús ilustra la necesidad de vigilar con una mini parábola: un ladrón que llega de noche. Un "padre de familia" (dueño de casa) si supiera exactamente cuándo viene el ladrón, estaría despierto esperando para impedir el robo.</p>
+                
+                <div class="definition">
+                    <h4>El Símbolo del Ladrón</h4>
+                    <p>Este símil del "ladrón en la noche" se hizo clásico en el NT (1 Tes 5:2 "el día del Señor vendrá como ladrón en la noche"; 2 Pe 3:10; Ap 3:3). La comparación con ladrón no implica que Jesús sea "maligno", sino señala la sorpresa repentina para los no vigilantes.</p>
+                </div>
+                
+                <p>Jesús aplica: "Por tanto, estad preparados" (lit. "sed preparados" – <span class="greek">ginesthe etoimoi</span>, γίνεσθε ἕτοιμοι, un estado continuo de preparación). "Porque a la hora que no pensáis, vendrá el Hijo del Hombre."</p>
+                
+                <h3>Implicaciones Teológicas</h3>
+                <div class="application">
+                    <h4>Una Espiritualidad de la Vigilancia</h4>
+                    <p>Estar preparado abarca vivir en santidad, cumplir los deberes fielmente, cultivar la comunión con Dios – en resumen, estar en paz con Dios de tal manera que si Cristo aparece hoy, uno le recibe con gozo y no con terror o vergüenza.</p>
+                    
+                    <p>La metáfora del ladrón ensalza la sabiduría de la incertidumbre: si supiéramos el momento exacto, la mayoría podría procrastinar. Dios quiere una fidelidad genuina, no una obediencia a última hora.</p>
+                    
+                    <p>El único modo de no ser sorprendido es vivir siempre listo. Estar despiertos significa no vivir en tinieblas morales (1 Tes 5:4-8 contrasta hijos de luz que velan con hijos de noche que duermen o se embriagan).</p>
+                    
+                    <p>Cabe notar que Jesús dice "a la hora que no pensáis vendrá". Esto implica que si alguien cree haber calculado la hora, seguro no es esa, por definición.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="versiculo45-51" class="card">
+            <div class="card-header">
+                <h2>Mateo 24:45-51 – Parábola del siervo fiel e infiel</h2>
+            </div>
+            <div class="card-body">
+                <div class="scripture">
+                    "¿Quién es, pues, el siervo fiel y prudente al cual puso su señor sobre su casa para que les dé alimento a su tiempo? Bienaventurado aquel siervo al cual, cuando su señor venga, lo halle haciendo así. De cierto os digo que lo pondrá sobre todos sus bienes. Pero si aquel siervo, malo, dice en su corazón: 'Mi señor tarda'; y comienza a golpear a sus consiervos, y aun a comer y beber con los borrachos, vendrá el señor de aquel siervo en día que éste no espera, y a la hora que no sabe, y lo cortará en dos y le asignará su parte con los hipócritas; allí será el lloro y el crujir de dientes." (Mateo 24:45-51)
+                </div>
+                
+                <div class="columns">
+                    <div class="column">
+                        <h3>El Siervo Fiel y Prudente (v. 45-47)</h3>
+                        <p>Jesús concluye el discurso con una pequeña parábola que contrasta dos tipos de siervos en ausencia de su señor, aplicando la enseñanza de vigilancia a la fidelidad práctica.</p>
+                        
+                        <h4>Características del siervo fiel</h4>
+                        <ul>
+                            <li>Es "fiel y prudente" (o "sabio")</li>
+                            <li>Cumple la tarea encomendada: dar alimento a la casa a su tiempo</li>
+                            <li>Persiste en su deber hasta la llegada del señor</li>
+                        </ul>
+                        
+                        <h4>Recompensa del siervo fiel</h4>
+                        <p>"Bienaventurado" (<span class="greek">makários</span>) aquel siervo – es dichoso porque su fidelidad será recompensada. Note la continuidad: "haciendo" (<span class="greek">poiôn</span>, ποιῶν, presente participio) su deber en ese mismo momento. No solo lo hizo al principio, sino sigue haciéndolo.</p>
+                        
+                        <p>"De cierto os digo que lo pondrá sobre todos sus bienes" - Lo ascenderá, confiándole aún mayor autoridad y privilegios. Esta promesa sugiere la doctrina de la recompensa celestial: los creyentes fieles en lo poco (esta vida) serán puestos sobre lo mucho (el reino venidero, cf. Mt 25:21).</p>
+                    </div>
+                    
+                    <div class="column">
+                        <h3>El Siervo Malo y su Destino (v. 48-51)</h3>
+                        <h4>Actitud y comportamiento del siervo malo</h4>
+                        <p>"Dice en su corazón: Mi señor tarda" – es crucial, su mala conducta nace de su convicción interna de que el amo no vendrá pronto. Esto lo lleva a dos tipos de conducta perversa:</p>
+                        <ul>
+                            <li>"Golpear a sus consiervos" - Abusa de la autoridad dada, oprimiendo a sus compañeros</li>
+                            <li>"Comer y beber con los borrachos" - Se entrega a la disipación, se une a la juerga y la embriaguez</li>
+                        </ul>
+                        
+                        <h4>Castigo del siervo infiel</h4>
+                        <p>"Vendrá el señor en día que no espera y hora que no sabe" - Para el siervo malo, la venida es sorpresa y desastre.</p>
+                        
+                        <p>"Lo cortará en dos" (<span class="greek">dichotomēsei</span>) - Expresión fuerte que implica castigo extremo. "Y le asignará su parte con los hipócritas" - Lo echará fuera con los que fingían lealtad.</p>
+                        
+                        <p>"Allí será el llanto y crujir de dientes" - Fórmula típica de Mateo para el castigo final (ver Mt 8:12, 22:13), denotando el dolor de los condenados.</p>
+                    </div>
+                </div>
+                
+                <h3>Contexto Teológico</h3>
+                <p>Aquí Jesús une la ética escatológica con la ética cotidiana: la expectación de su retorno debe traducirse en servicio fiel y pureza. Si se pierde esa expectación (piensa "tarda"), viene la decadencia moral y abuso.</p>
+                
+                <p>En la iglesia primitiva, esto quizá apuntó a líderes negligentes o falsos maestros (2 Pe 3:3-4 menciona burladores diciendo "¿dónde está su venida? desde que los padres durmieron todo sigue igual").</p>
+                
+                <h3>Implicaciones Teológicas y Aplicación</h3>
+                <div class="application">
+                    <p>Este pasaje cierra Mateo 24 con lecciones fundamentales:</p>
+                    <ul>
+                        <li><strong>Fidelidad en la espera:</strong> No basta con esperar pasivamente; hay que estar ocupado en la tarea encomendada</li>
+                        <li><strong>Peligro de la falsa seguridad:</strong> Pensar "mi señor tarda" puede conducir a la infidelidad</li>
+                        <li><strong>Recompensa proporcional:</strong> Fidelidad ahora → mayor servicio en el reino; infidelidad ahora → pérdida absoluta</li>
+                    </ul>
+                    <p>La imagen del siervo fiel resuena especialmente para líderes cristianos: su labor es alimentar espiritualmente al pueblo de Dios fielmente hasta que Cristo venga. Si lo hacen, serán bendecidos; si en cambio abusan de la iglesia y se mundanizan, recibirán juicio severo.</p>
+                </div>
+                
+                <div class="highlight">
+                    <h4>Principio Final</h4>
+                    <p>Si vivimos cada día como si el Señor pudiera venir, cuando venga no tendremos vergüenza. Como dice 1 Juan 2:28: "permanezcáis en Él, para que cuando se manifieste, tengamos confianza y no seamos avergonzados ante Él en Su venida".</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="card">
+            <div class="card-header">
+                <h2>Conclusión: El Mensaje Central de Mateo 24</h2>
+            </div>
+            <div class="card-body">
+                <p>Mateo 24 nos ha llevado desde la profecía del Templo hasta la segunda venida de Cristo, intercalando la caída de Jerusalén y los tiempos intermedios. Ha integrado aspectos históricos (siglo I: persecución, 70 d.C.) con futuristas (segunda venida, juicio final), brindando un cuadro complejo pero coherente donde lo ocurrido sirve de señal de lo definitivo.</p>
+                
+                <div class="columns">
+                    <div class="column">
+                        <h3>Principios Teológicos Clave</h3>
+                        <ul>
+                            <li><strong>La soberanía de Cristo sobre la historia</strong> - Sus profecías se cumplen con exactitud</li>
+                            <li><strong>Discernimiento espiritual</strong> - No dejarse engañar por falsos mesías o profetas</li>
+                            <li><strong>Perseverancia en tribulación</strong> - La oposición al evangelio es inevitable</li>
+                            <li><strong>Fidelidad misional</strong> - El evangelio debe ser predicado a todas las naciones</li>
+                            <li><strong>El cuidado divino por los elegidos</strong> - Dios preserva y reúne a los suyos</li>
+                            <li><strong>La certeza del retorno de Cristo</strong> - Visible, glorioso, inesperado pero seguro</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="column">
+                        <h3>Aplicaciones Prácticas</h3>
+                        <ul>
+                            <li><strong>Vigilancia</strong> - Vivir despiertos y preparados para la venida del Señor</li>
+                            <li><strong>Servicio fiel</strong> - Cumplir con los deberes encomendados por Cristo</li>
+                            <li><strong>Testimonio valiente</strong> - Ser luz en medio de la oscuridad de los tiempos</li>
+                            <li><strong>Esperanza genuina</strong> - Esperar el regreso de Cristo como el gran consuelo</li>
+                            <li><strong>Humildad escatológica</strong> - No pretender saber el día ni la hora</li>
+                            <li><strong>Lectura sabia de los "signos"</strong> - Como la higuera, reconocer las señales sin alarmismo</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="application">
+                    <h3>Mensaje Final</h3>
+                    <p>Mateo 24 ofrece una visión integral donde contexto histórico y futuro escatológico se entrelazan. Cada versículo nos anima a:</p>
+                    <ul>
+                        <li>Confiar en la palabra infalible de Cristo</li>
+                        <li>Interpretar los tiempos con sabiduría</li>
+                        <li>Soportar con fe las pruebas</li>
+                        <li>Rechazar los engaños espirituales</li>
+                        <li>Vivir cada día como si fuera el día del regreso de nuestro Señor</li>
+                    </ul>
+                    
+                    <p>Es un llamado a la iglesia de todos los siglos a ser escatológicamente consciente: ni alarmista ni indiferente, sino ocupada en la obra del Señor, "fiel y prudente" hasta que Él venga, sabiendo que "aunque tarda, no tardará" (Hab 2:3) y que al final nuestra esperanza se transformará en gozo eterno ante Él.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>📜 Exégesis Bíblica de Mateo 24: El Discurso del Monte de los Olivos © 2025</p>
+            <p>"El cielo y la tierra pasarán, pero mis palabras no pasarán." (Mateo 24:35)</p>
+        </div>
+    </footer

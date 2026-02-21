@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!-- ARCHIVO: temple-3d.html - Página Mejorada del Modelo 3D -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templo de Salomón - Modelo 3D Interactivo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/temple-styles.css">
+    <link rel="stylesheet" href="css/temple-3d-styles.css">
+</head>
+<body class="temple-3d-page">
+    <!-- Navigation -->
+    <header class="temple-3d-header">
+        <nav class="temple-3d-nav">
+            <div class="logo">
+                <a href="templo-figuras.html">← Volver al inicio</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Modelo 3D</a></li>
+                <li><a href="#parts-info">Componentes</a></li>
+                <li><a href="#controls-help">Ayuda</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 3D Viewer Section -->
+    <section class="temple-3d-viewer">
+        <div id="canvas-container" class="canvas-container"></div>
+        
+        <!-- 3D Controls -->
+        <div class="viewer-controls">
+            <button id="zoom-in" class="control-btn" title="Acercar">+</button>
+            <button id="zoom-out" class="control-btn" title="Alejar">-</button>
+            <button id="reset-view" class="control-btn" title="Reiniciar vista">↻</button>
+            <button id="fullscreen" class="control-btn" title="Pantalla completa">⛶</button>
+        </div>
+        
+        <!-- Info Tooltips -->
+        <div id="info-tooltip" class="info-tooltip hidden">
+            <h4 class="tooltip-title"></h4>
+            <p class="tooltip-content"></p>
+        </div>
+        
+        <!-- Loading Indicator -->
+        <div id="loading-indicator" class="loading-indicator">
+            <div class="spinner"></div>
+            <p>Cargando modelo 3D...</p>
+            <p class="loading-details">Preparando texturas y geometría de alta calidad</p>
+        </div>
+        
+        <!-- Info Panel - Always Visible -->
+        <div class="info-panel">
+            <div class="info-panel-header">
+                <h3>Templo de Salomón</h3>
+                <button class="info-panel-toggle" title="Minimizar/Maximizar">▼</button>
+            </div>
+            <div class="info-panel-content">
+                <p>Selecciona cualquier punto brillante para obtener información detallada.</p>
+                <p>Usa el ratón para rotar, hacer zoom y mover el modelo.</p>
+                <div class="current-selection">
+                    <h4>Selección Actual:</h4>
+                    <p id="current-part-name">Ninguna</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parts Information Section -->
+    <section id="parts-info" class="parts-info-section">
+        <div class="container">
+            <h2 class="section-title">Componentes del Templo</h2>
+            <div class="parts-filter">
+                <button class="filter-btn active" data-filter="all">Todo</button>
+                <button class="filter-btn" data-filter="exterior">Exterior</button>
+                <button class="filter-btn" data-filter="interior">Interior</button>
+                <button class="filter-btn" data-filter="mobiliario">Mobiliario</button>
+            </div>
+            <div class="parts-grid" id="parts-grid">
+                <!-- Generado dinámicamente desde temple-data.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Controls Help -->
+    <section id="controls-help" class="controls-help-section">
+        <div class="container">
+            <h2 class="section-title">Cómo usar el modelo 3D</h2>
+            <div class="help-grid">
+                <div class="help-item">
+                    <div class="help-icon">🖱️</div>
+                    <h3>Rotar</h3>
+                    <p>Click izquierdo + arrastrar</p>
+                </div>
+                <div class="help-item">
+                    <div class="help-icon">🔍</div>
+                    <h3>Zoom</h3>
+                    <p>Rueda del ratón o botones +/-</p>
+                </div>
+                <div class="help-item">
+                    <div class="help-icon">✋</div>
+                    <h3>Mover</h3>
+                    <p>Click derecho + arrastrar</p>
+                </div>
+                <div class="help-item">
+                    <div class="help-icon">🎯</div>
+                    <h3>Seleccionar</h3>
+                    <p>Click en los puntos brillantes</p>
+                </div>
+            </div>
+            
+            <div class="keyboard-shortcuts">
+                <h3>Atajos de Teclado</h3>
+                <ul class="shortcut-list">
+                    <li><span class="key">R</span> Reiniciar vista</li>
+                    <li><span class="key">F</span> Pantalla completa</li>
+                    <li><span class="key">+</span> Acercar</li>
+                    <li><span class="key">-</span> Alejar</li>
+                    <li><span class="key">1-9</span> Saltar a partes específicas</li>
+                    <li><span class="key">H</span> Alternar panel de ayuda</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detail Modal -->
+    <div id="detail-modal" class="detail-modal hidden">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 class="modal-title"></h2>
+            <div class="modal-body">
+                <div class="modal-image-container"></div>
+                <div class="modal-info">
+                    <div class="modal-description">
+                        <h3>Descripción</h3>
+                        <p class="description-text"></p>
+                    </div>
+                    <div class="modal-symbolism">
+                        <h3>Simbología</h3>
+                        <p class="symbolism-text"></p>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn-focus-part">Enfocar en el modelo</button>
+                        <button class="btn-close-modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Controls -->
+    <div class="floating-controls">
+        <button class="floating-btn" id="toggle-info" title="Mostrar/Ocultar Información">
+            <span class="info-icon">i</span>
+        </button>
+        <button class="floating-btn" id="toggle-lights" title="Cambiar Iluminación">
+            <span class="light-icon">💡</span>
+        </button>
+        <button class="floating-btn" id="toggle-labels" title="Mostrar/Ocultar Etiquetas">
+            <span class="label-icon">🏷️</span>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/FXAAShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/OutlinePass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="javascript/temple-data.js"></script>
+    <script src="javascript/templo-script.js"></script>
+</body>
+</html>

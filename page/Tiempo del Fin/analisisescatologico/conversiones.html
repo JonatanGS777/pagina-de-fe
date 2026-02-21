@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avivamientos Recientes: ¿La Lluvia Tardía Profetizada?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 25%, #2d1b69 50%, #3b2f7a 75%, #4a3c95 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header elegante con gradiente */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(74, 60, 149, 0.8), rgba(29, 26, 58, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><radialGradient id="rain" cx="50%" cy="0%" r="100%"><stop offset="0%" style="stop-color:%23ffffff;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%23ffffff;stop-opacity:0"/></radialGradient></defs><rect width="1200" height="600" fill="url(%23rain)"/></svg>');
+            background-size: cover;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(255, 215, 0, 0.1) 50%, 
+                transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+
+        .hero-content {
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffd700, #ffffff, #87ceeb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3)); }
+            to { filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.6)); }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .verse-highlight {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .verse-highlight h3 {
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Secciones con glassmorphism */
+        .section {
+            padding: 5rem 0;
+            margin: 2rem 0;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #ffd700, #87ceeb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Grid para estadísticas */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(135, 206, 235, 0.1));
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ffd700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #87ceeb;
+            margin-top: 0.5rem;
+        }
+
+        /* Timeline de avivamientos */
+        .timeline {
+            position: relative;
+            margin: 3rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #ffd700, #87ceeb);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            width: 45%;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #ffd700;
+            border-radius: 50%;
+            border: 4px solid #4a3c95;
+            z-index: 1;
+        }
+
+        /* Mapa interactivo */
+        .world-map {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .country-highlight {
+            display: inline-block;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.2), rgba(135, 206, 235, 0.2));
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .country-highlight:hover {
+            transform: scale(1.1);
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.4), rgba(135, 206, 235, 0.4));
+        }
+
+        /* Profecía bíblica destacada */
+        .prophecy-section {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(75, 0, 130, 0.2));
+            padding: 4rem;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prophecy-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .prophecy-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            text-align: center;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .prophecy-reference {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            display: block;
+        }
+
+        /* Botón llamada a la acción */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ffd700, #87ceeb);
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Footer elegante */
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 60px !important;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Efectos de lluvia */
+        .rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .raindrop {
+            position: absolute;
+            background: linear-gradient(to bottom, rgba(135, 206, 235, 0.8), rgba(255, 255, 255, 0.3));
+            width: 2px;
+            height: 20px;
+            border-radius: 2px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-100vh);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Efecto de lluvia -->
+    <div class="rain" id="rain"></div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Avivamientos Recientes</h1>
+            <p>¿La Lluvia Tardía Profetizada?</p>
+            <div class="verse-highlight">
+                <h3>Joel 2:28-29</h3>
+                <p>"Y después de esto derramaré mi Espíritu sobre toda carne, y profetizarán vuestros hijos y vuestras hijas; vuestros ancianos soñarán sueños, y vuestros jóvenes verán visiones. Y también sobre los siervos y sobre las siervas derramaré mi Espíritu en aquellos días."</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección Principal -->
+    <main class="container">
+        
+        <!-- Introducción -->
+        <section class="section">
+            <div class="glass-card">
+                <h2 class="section-title">El Despertar Espiritual Mundial</h2>
+                <p>En los últimos años, hemos sido testigos de un fenómeno extraordinario: <strong>movimientos de despertar espiritual</strong> que surgen en diversas naciones alrededor del mundo, especialmente en aquellas donde el cristianismo enfrenta restricciones severas. Estos avivamientos sugieren el cumplimiento de la profecía de Joel 2:28-32, conocida como <strong>"la lluvia tardía"</strong>.</p>
+                
+                <p>Desde las conversiones masivas en Irán hasta el crecimiento silencioso en Indonesia, desde los testimonios en el África subsahariana hasta las transformaciones en países donde la apostasía del Islam conlleva graves consecuencias, estamos presenciando lo que muchos consideran como el cumplimiento de las promesas escatológicas para la iglesia actual.</p>
+            </div>
+        </section>
+
+        <!-- Estadísticas Impactantes -->
+        <section class="section">
+            <h2 class="section-title">Números que Revelan el Mover de Dios</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">2.64B</span>
+                    <div class="stat-label">Cristianos en el mundo (2025)</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">1M</span>
+                    <div class="stat-label">Iraníes convertidos al cristianismo</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2M</span>
+                    <div class="stat-label">Conversiones anuales en Indonesia</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">450K</span>
+                    <div class="stat-label">Misioneros activos globalmente</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline de Avivamientos -->
+        <section class="section">
+            <h2 class="section-title">Cronología del Despertar Espiritual</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2020-2025: Irán</h3>
+                        <p><cite index="12-1">Irán experimenta el crecimiento cristiano más acelerado del mundo, con casi un millón de iraníes abrazando el cristianismo en silencio</cite>, a pesar de las severas represalias del régimen islámico.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2024: Indonesia</h3>
+                        <p><cite index="13-1">La red social islámica #SaveMaryam reporta perder dos millones de miembros anualmente debido a conversiones al cristianismo</cite>, temiendo que Indonesia deje de ser mayoritariamente islámica para 2035.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2023-2024: África Subsahariana</h3>
+                        <p><cite index="3-1">El epicentro del cristianismo mundial continúa expandiéndose con 40% de la población cristiana global</cite>, a pesar de la creciente persecución de grupos extremistas.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2024-2025: Crecimiento Global</h3>
+                        <p><cite index="4-1">El cristianismo crece a una tasa del 0.98% anual, superando el crecimiento poblacional mundial (0.88%)</cite>, proyectándose alcanzar 3 mil millones de cristianos antes de 2050.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Países Destacados -->
+        <section class="section">
+            <h2 class="section-title">Epicentros del Avivamiento</h2>
+            <div class="world-map">
+                <h3>Países con Mayor Crecimiento Cristiano</h3>
+                <div class="country-highlight">🇮🇷 Irán - Crecimiento Explosivo</div>
+                <div class="country-highlight">🇮🇩 Indonesia - 2M Conversiones/Año</div>
+                <div class="country-highlight">🇳🇬 Nigeria - Epicentro Africano</div>
+                <div class="country-highlight">🇵🇰 Pakistán - Crecimiento Silencioso</div>
+                <div class="country-highlight">🇧🇩 Bangladesh - Transformación</div>
+                <div class="country-highlight">🇮🇳 India - Avivamiento Rural</div>
+                <div class="country-highlight">🇲🇱 Mali - Nuevas Conversiones</div>
+                <div class="country-highlight">🇪🇹 Etiopía - Crecimiento Constante</div>
+            </div>
+        </section>
+
+        <!-- Profecía de Joel -->
+        <section class="prophecy-section">
+            <div class="prophecy-text">
+                <h2 class="section-title">La Profecía de la Lluvia Tardía</h2>
+                <p>"Y acontecerá que después de esto, derramaré mi Espíritu sobre toda carne, y profetizarán vuestros hijos y vuestras hijas; vuestros ancianos soñarán sueños, y vuestros jóvenes verán visiones. Y también sobre los siervos y sobre las siervas derramaré mi Espíritu en aquellos días."</p>
+                <span class="prophecy-reference">Joel 2:28-29</span>
+                
+                <div style="margin-top: 2rem;">
+                    <p>"Y todo aquel que invocare el nombre de Jehová será salvo; porque en el monte de Sion y en Jerusalén habrá salvación, como ha dicho Jehová, y entre el remanente al cual él habrá llamado."</p>
+                    <span class="prophecy-reference">Joel 2:32</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonios y Causas -->
+        <section class="section">
+            <div class="glass-card">
+                <h2 class="section-title">Causas del Despertar Espiritual</h2>
+                
+                <h3 style="color: #ffd700; margin-bottom: 1rem;">1. Visiones Sobrenaturales</h3>
+                <p><cite index="15-1">Un gran número de musulmanes reciben visiones de Jesús y de la Santísima Virgen que los ha llevado a convertirse</cite>, reportan misioneros y expertos en Medio Oriente.</p>
+                
+                <h3 style="color: #ffd700; margin: 2rem 0 1rem;">2. Acceso Digital al Evangelio</h3>
+                <p><cite index="20-1">Hoy en día con internet es mucho más fácil descubrir los contenidos del cristianismo</cite>, rompiendo las barreras tradicionales de censura y restricción religiosa.</p>
+                
+                <h3 style="color: #ffd700; margin: 2rem 0 1rem;">3. Rechazo a la Violencia Extremista</h3>
+                <p><cite index="15-1">Los fundamentalistas islámicos están bastante asustados e intentan aterrorizar. Pero el acto mismo de aterrorizar a la gente ha terminado con personas cada vez más disgustadas con el Islam</cite>.</p>
+                
+                <h3 style="color: #ffd700; margin: 2rem 0 1rem;">4. Predicación Valiente</h3>
+                <p>Evangelistas como el padre Peter (Butros) Zakariam llegan a decenas de millones de árabes a través de programas televisivos y debates en internet, proclamando el cristianismo con conocimiento profundo del Corán.</p>
+            </div>
+        </section>
+
+        <!-- Significado Escatológico -->
+        <section class="section">
+            <div class="glass-card">
+                <h2 class="section-title">Significado Escatológico</h2>
+                
+                <h3 style="color: #87ceeb; margin-bottom: 1rem;">La Lluvia Temprana y Tardía</h3>
+                <p>Según la profecía bíblica, <strong>la lluvia temprana</strong> se cumplió en Pentecostés, cuando el Espíritu Santo descendió por primera vez sobre los discípulos. Ahora, muchos teólogos creen que estamos presenciando <strong>la lluvia tardía</strong> - el derramamiento final del Espíritu Santo antes de la gran cosecha de almas y el retorno de Cristo.</p>
+                
+                <h3 style="color: #87ceeb; margin: 2rem 0 1rem;">Los Últimos Días</h3>
+                <p><cite index="27-1">Los "últimos días" comenzaron con la primera venida del Mesías y continuarán hasta la segunda venida de Cristo en gloria</cite>. El derramamiento del Espíritu Santo en Pentecostés marcó el comienzo de esta nueva era.</p>
+                
+                <h3 style="color: #87ceeb; margin: 2rem 0 1rem;">La Gran Cosecha</h3>
+                <p>Las conversiones masivas en países tradicionalmente cerrados al Evangelio podrían indicar que nos acercamos a la "gran cosecha" profetizada - un tiempo de salvación mundial antes del fin de los tiempos.</p>
+            </div>
+        </section>
+
+        <!-- Persecución y Crecimiento -->
+        <section class="section">
+            <h2 class="section-title">Paradoja: Persecución y Crecimiento</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">365M</span>
+                    <div class="stat-label">Cristianos viven bajo persecución</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">78</span>
+                    <div class="stat-label">Países con restricciones severas</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">900K</span>
+                    <div class="stat-label">Mártires cristianos (2020-2030)</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">1:7</span>
+                    <div class="stat-label">Cristianos bajo persecución mundial</div>
+                </div>
+            </div>
+            
+            <div class="glass-card" style="margin-top: 2rem;">
+                <p><cite index="6-1">1 de cada 7 cristianos en el mundo vive en naciones con altos niveles de persecución o discriminación</cite>, incluyendo 1 de cada 5 creyentes en África, 2 de cada 5 en Asia, y 1 de cada 16 en América Latina. Sin embargo, paradójicamente, es en estas regiones donde el cristianismo experimenta su mayor crecimiento.</p>
+            </div>
+        </section>
+
+        <!-- Llamada a la Acción -->
+        <section class="section" style="text-align: center;">
+            <div class="glass-card">
+                <h2 class="section-title">Un Tiempo de Oración y Vigilancia</h2>
+                <p>Como creyentes, estamos llamados a reconocer los tiempos en que vivimos. Los avivamientos actuales pueden ser señales del cumplimiento de las profecías bíblicas sobre los últimos días. Es tiempo de orar por:</p>
+                
+                <div style="margin: 2rem 0; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    <p>✨ <strong>Los cristianos perseguidos</strong> en países restrictivos</p>
+                    <p>✨ <strong>Los nuevos convertidos</strong> que necesitan protección y discipulado</p>
+                    <p>✨ <strong>Los misioneros</strong> que arriesgan sus vidas por el Evangelio</p>
+                    <p>✨ <strong>Más lluvia tardía</strong> para la cosecha final</p>
+                    <p>✨ <strong>Sabiduría</strong> para discernir los tiempos proféticos</p>
+                </div>
+                
+                <div class="verse-highlight">
+                    <h3>Zacarías 10:1</h3>
+                    <p>"Pedid a Jehová lluvia en la estación tardía"</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            <p style="margin-top: 1rem; opacity: 0.7;">"Porque la tierra será llena del conocimiento de la gloria de Jehová, como las aguas cubren el mar." - Habacuc 2:14</p>
+        </div>
+    </footer>
+
+    <script>
+        // Crear efecto de lluvia
+        function createRain() {
+            const rainContainer = document.getElementById('rain');
+            
+            for (let i = 0; i < 50; i++) {
+                const raindrop = document.createElement('div');
+                raindrop.className = 'raindrop';
+                raindrop.style.left = Math.random() * 100 + '%';
+                raindrop.style.animationDuration = (Math.random() * 2 + 1) + 's';
+                raindrop.style.animationDelay = Math.random() * 2 + 's';
+                rainContainer.appendChild(raindrop);
+            }
+        }
+
+        // Efecto de scroll suave para revelar elementos
+        function revealOnScroll() {
+            const elements = document.querySelectorAll('.glass-card, .stat-card, .timeline-item');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Inicializar efectos
+        document.addEventListener('DOMContentLoaded', function() {
+            createRain();
+            
+            // Configurar elementos para animación
+            const elements = document.querySelectorAll('.glass-card, .stat-card, .timeline-item');
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // Revelar elementos en scroll
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Llamar una vez al cargar
+        });
+
+        // Efecto hover para países
+        document.addEventListener('DOMContentLoaded', function() {
+            const countries = document.querySelectorAll('.country-highlight');
+            countries.forEach(country => {
+                country.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 10px 30px rgba(255, 215, 0, 0.4)';
+                });
+                
+                country.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

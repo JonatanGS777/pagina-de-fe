@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupos Religiosos - Época de Jesús | Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Crimson+Text:wght@300;400;600;700&family=Spectral:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+    --primary-color: #5e4630;        /* Sepia mineral – tono de papiro antiguo húmedo */
+    --secondary-color: #d2a679;      /* Ámbar cálido – iluminación suave */
+    --accent-color: #7b5e45;         /* Marrón tabaco – borde de manuscritos */
+    --background-color: #f8f3ec;     /* Crema de papiro seco – fondo claro */
+    --text-color: #3a2c21;           /* Marrón oscuro profundo – ideal para lectura prolongada */
+    --light-accent: #f2e8dc;         /* Arena pálida – detalle limpio */
+    --gold-deep: #c49e60;            /* Oro mate envejecido – para énfasis sobrio */
+    --burgundy: #6f1e26;             /* Rojo sangre seco – para citas o versículos importantes */
+    --parchment-dark: #e2d6c6;       /* Tono neutro apagado – fondo alterno */
+    --leather-brown: #4b3426;        /* Marrón cuero envejecido – bordes o encabezados */
+    --manuscript-border: #bfa680;    /* Beige piedra – marco sutil */
+    --gradient-scholarly: linear-gradient(135deg, rgba(94, 70, 48, 0.95) 0%, rgba(210, 166, 121, 0.95) 50%, rgba(123, 94, 69, 0.95) 100%);
+    --transition: all 0.4s ease-in-out;
+    --card-shadow: 0 10px 30px rgba(94, 70, 48, 0.15), 0 3px 10px rgba(94, 70, 48, 0.08);
+    --text-shadow: 0 1px 3px rgba(58, 44, 33, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Crimson Text', serif;
+    line-height: 1.8;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    background-image: 
+        linear-gradient(45deg, rgba(205, 133, 63, 0.03) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(139, 69, 19, 0.03) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(205, 133, 63, 0.03) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(139, 69, 19, 0.03) 75%);
+    background-size: 60px 60px;
+    background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+header {
+    background: var(--gradient-scholarly);
+    color: white;
+    padding: 1.2rem 0;
+    box-shadow: var(--card-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+}
+
+.container {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img {
+    height: 55px;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+}
+
+.logo-text {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.8px;
+    text-shadow: var(--text-shadow);
+}
+
+.breadcrumb {
+    background: linear-gradient(to right, var(--parchment-dark), var(--light-accent));
+    padding: 1rem 0;
+    border-bottom: 3px solid var(--manuscript-border);
+    border-top: 1px solid var(--manuscript-border);
+}
+
+.breadcrumb-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.breadcrumb-nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+}
+
+.breadcrumb-nav a:hover {
+    color: var(--gold-deep);
+    background-color: rgba(205, 133, 63, 0.1);
+}
+
+.breadcrumb-nav i {
+    color: var(--accent-color);
+    font-size: 0.8rem;
+}
+
+/* Main Scholarly Layout */
+.scholarly-main {
+    padding: 4rem 0;
+}
+
+.library-hero {
+    text-align: center;
+    margin-bottom: 6rem;
+    position: relative;
+    padding: 3rem;
+    background: linear-gradient(135deg, rgba(245, 240, 232, 0.9), rgba(230, 221, 212, 0.9));
+    border-radius: 20px;
+    border: 3px solid var(--manuscript-border);
+    box-shadow: var(--card-shadow);
+}
+
+.library-hero::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: var(--gradient-scholarly);
+    border-radius: 25px;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+.hero-icon {
+    font-size: 4rem;
+    color: var(--gold-deep);
+    margin-bottom: 1.5rem;
+    text-shadow: var(--text-shadow);
+}
+
+.main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-shadow: var(--text-shadow);
+}
+
+.main-subtitle {
+    font-size: 1.4rem;
+    color: var(--accent-color);
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 400;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+/* Book Tabs Navigation */
+.manuscript-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    background: var(--parchment-dark);
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: inset 0 2px 10px rgba(139, 69, 19, 0.1);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tab-button {
+    background: var(--light-accent);
+    border: 2px solid var(--manuscript-border);
+    color: var(--text-color);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.tab-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-scholarly);
+    transition: var(--transition);
+    z-index: -1;
+}
+
+.tab-button:hover::before,
+.tab-button.active::before {
+    left: 0;
+}
+
+.tab-button:hover,
+.tab-button.active {
+    color: white;
+    border-color: var(--gold-deep);
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow);
+}
+
+/* Manuscript Cards Layout */
+.manuscript-collection {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.manuscript-collection.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.codex-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.group-codex {
+    background: var(--light-accent);
+    border: 3px solid var(--manuscript-border);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    position: relative;
+    cursor: pointer;
+}
+
+.group-codex::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 20px,
+            rgba(193, 154, 107, 0.05) 20px,
+            rgba(193, 154, 107, 0.05) 22px
+        );
+    pointer-events: none;
+}
+
+.group-codex:hover {
+    transform: translateY(-8px) rotateX(2deg);
+    box-shadow: 0 20px 40px rgba(139, 69, 19, 0.2), 0 5px 15px rgba(139, 69, 19, 0.1);
+    border-color: var(--gold-deep);
+}
+
+.codex-header {
+    background: var(--gradient-scholarly);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.codex-header::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 10px solid rgba(205, 133, 63, 0.9);
+}
+
+.group-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: var(--text-shadow);
+}
+
+.group-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.group-subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+    font-style: italic;
+}
+
+.codex-content {
+    padding: 2rem;
+    background: white;
+    position: relative;
+}
+
+.group-description {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    line-height: 1.8;
+}
+
+.characteristics-list {
+    background: var(--light-accent);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.characteristics-list h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+}
+
+.characteristics-list ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.characteristics-list li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.characteristics-list li::before {
+    content: '◈';
+    position: absolute;
+    left: 0;
+    color: var(--gold-deep);
+    font-weight: bold;
+}
+
+.historical-note {
+    background: linear-gradient(135deg, rgba(184, 134, 11, 0.1), rgba(128, 0, 32, 0.05));
+    border-left: 4px solid var(--burgundy);
+    padding: 1.5rem;
+    border-radius: 0 10px 10px 0;
+    font-style: italic;
+    margin-top: 1.5rem;
+}
+
+.source-reference {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    border-top: 1px solid var(--parchment-dark);
+    padding-top: 1rem;
+    font-style: italic;
+}
+
+/* Academic Citation Box */
+.scholarly-citation {
+    background: var(--parchment-dark);
+    border: 2px solid var(--manuscript-border);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 3rem 0;
+    position: relative;
+}
+
+.scholarly-citation::before {
+    content: '"';
+    font-size: 5rem;
+    color: var(--gold-deep);
+    opacity: 0.3;
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.citation-text {
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+    color: var(--text-color);
+}
+
+.citation-author {
+    text-align: right;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+}
+
+/* Comparative Table */
+.comparison-scroll {
+    background: white;
+    border: 3px solid var(--manuscript-border);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 3rem 0;
+    box-shadow: var(--card-shadow);
+    overflow-x: auto;
+}
+
+.comparison-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid var(--manuscript-border);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--parchment-dark);
+    border-right: 1px solid var(--parchment-dark);
+}
+
+.comparison-table th {
+    background: var(--gradient-scholarly);
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    text-shadow: var(--text-shadow);
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table td:last-child,
+.comparison-table th:last-child {
+    border-right: none;
+}
+
+.comparison-table tr:nth-child(even) {
+    background-color: rgba(245, 240, 232, 0.5);
+}
+
+.comparison-table tr:hover {
+    background-color: rgba(205, 133, 63, 0.1);
+    transform: scale(1.01);
+    transition: var(--transition);
+}
+
+/* Bibliography Section */
+.manuscript-bibliography {
+    background: var(--light-accent);
+    border: 3px solid var(--manuscript-border);
+    border-radius: 15px;
+    padding: 3rem;
+    margin: 4rem 0;
+    box-shadow: var(--card-shadow);
+}
+
+.bibliography-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.bibliography-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.bibliography-entry {
+    background: white;
+    border: 2px solid var(--parchment-dark);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.bibliography-entry::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gradient-scholarly);
+}
+
+.bibliography-entry:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.15);
+    border-color: var(--gold-deep);
+}
+
+.book-info {
+    padding-left: 1rem;
+}
+
+.book-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.book-author {
+    color: var(--accent-color);
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+}
+
+.book-details {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .main-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .manuscript-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .tab-button {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .codex-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .group-codex {
+        margin-bottom: 1rem;
+    }
+    
+    .comparison-scroll {
+        padding: 1rem;
+    }
+    
+    .comparison-table {
+        font-size: 0.9rem;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 0.7rem 0.5rem;
+    }
+    
+    .bibliography-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .library-hero {
+        padding: 2rem;
+    }
+    
+    .container {
+        width: 95%;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .group-name {
+        font-size: 1.5rem;
+    }
+    
+    .codex-content {
+        padding: 1.5rem;
+    }
+    
+    .scholarly-citation {
+        padding: 1.5rem;
+    }
+    
+    .citation-text {
+        font-size: 1.1rem;
+        padding-left: 1rem;
+    }
+}
+
+/* Scroll Reveal Animation */
+@keyframes manuscriptReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px) rotateX(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+.group-codex {
+    animation: manuscriptReveal 0.6s ease-out forwards;
+}
+
+.group-codex:nth-child(1) { animation-delay: 0.1s; }
+.group-codex:nth-child(2) { animation-delay: 0.2s; }
+.group-codex:nth-child(3) { animation-delay: 0.3s; }
+.group-codex:nth-child(4) { animation-delay: 0.4s; }
+.group-codex:nth-child(5) { animation-delay: 0.5s; }
+.group-codex:nth-child(6) { animation-delay: 0.6s; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-accent);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--manuscript-border);
+    border-radius: 6px;
+    border: 2px solid var(--light-accent);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="../../images/EMD.png" alt="Logo EMD">
+                <div class="logo-text">
+                    <div>Ministerio</div>
+                    <div>"La Gloria es del Señor"</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="../../index.html">Inicio</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="../index.html">Época de Jesús</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Grupos Religiosos</span>
+            </nav>
+        </div>
+    </div>
+
+    <main class="scholarly-main">
+        <div class="container">
+            <section class="library-hero">
+                <div class="hero-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h1 class="main-title">Grupos Religiosos y Sociales</h1>
+                <p class="main-subtitle">Un codex exhaustivo sobre las facciones que definieron el panorama religioso y social en la Palestina del siglo I</p>
+            </section>
+
+            <nav class="manuscript-tabs">
+                <button class="tab-button active" data-tab="religious">Grupos Religiosos</button>
+                <button class="tab-button" data-tab="social">Grupos Sociales</button>
+                <button class="tab-button" data-tab="comparison">Análisis Comparativo</button>
+            </nav>
+
+            <!-- Religious Groups Tab -->
+            <section class="manuscript-collection active" id="religious">
+                <div class="codex-grid">
+                    <article class="group-codex">
+                        <header class="codex-header">
+                            <div class="group-icon">
+                                <i class="fas fa-torah"></i>
+                            </div>
+                            <h2 class="group-name">Los Fariseos</h2>
+                            <p class="group-subtitle">פרושים - "Los Separados"</p>
+                        </header>
+                        <div class="codex-content">
+                            <p class="group-description">
+                                Los fariseos constituían el grupo religioso más influyente durante el ministerio de Jesús. Originados durante el período macabeo, se caracterizaban por su estricta observancia de la ley oral y escrita, desarrollando un complejo sistema de interpretaciones halájicas.
+                            </p>
+                            <div class="characteristics-list">
+                                <h4>Características Distintivas</h4>
+                                <ul>
+                                    <li>Creencia en la resurrección de los muertos y la vida después de la muerte</li>
+                                    <li>Aceptación de los ángeles y la providencia divina</li>
+                                    <li>Desarrollo de la tradición oral (Mishnah) como complemento de la Torah</li>
+                                    <li>Enfoque en la pureza ritual y las regulaciones dietéticas (kashrut)</li>
+                                    <li>Influencia predominante en las sinagogas locales</li>
+                                    <li>Origen mayoritariamente de clase media urbana</li>
+                                </ul>
+                            </div>
+                            <div class="historical-note">
+                                <strong>Contextualización histórica:</strong> Según William Barclay, los fariseos representaban aproximadamente 6,000 individuos en tiempos de Jesús, pero su influencia superaba ampliamente su número debido a su respeto popular y conocimiento de las Escrituras.
+                            </div>
+                            <div class="source-reference">
+                                <strong>Fuentes:</strong> Josefo, "Antigüedades Judías" XVIII.1.3; William Barclay, "Jesus as they saw him"
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="group-codex">
+                        <header class="codex-header">
+                            <div class="group-icon">
+                                <i class="fas fa-synagogue"></i>
+                            </div>
+                            <h2 class="group-name">Los Saduceos</h2>
+                            <p class="group-subtitle">צדוקים - "Los Justos"</p>
+                        </header>
+                        <div class="codex-content">
+                            <p class="group-description">
+                                Los saduceos formaban la élite aristocrática y sacerdotal de la sociedad judía. Dominaban el Templo de Jerusalén y mantenían una posición pragmática respecto al poder romano, privilegiando la estabilidad política sobre la pureza religiosa.
+                            </p>
+                            <div class="characteristics-list">
+                                <h4>Características Distintivas</h4>
+                                <ul>
+                                    <li>Aceptación únicamente de la Torah escrita, rechazando la tradición oral</li>
+                                    <li>Negación de la resurrección, ángeles y demonios</li>
+                                    <li>Control del culto del Templo y el sistema sacrificial</li>
+                                    <li>Colaboración política con las autoridades romanas</li>
+                                    <li>Origen aristocrático y sacerdotal</li>
+                                    <li>Filosofía más helenizada que los fariseos</li>
+                                </ul>
+                            </div>
+                            <div class="historical-note">
+                                <strong>Observación académica:</strong> Madiel Nálvaez señala que los saduceos desaparecieron como grupo después de la destrucción del Templo en 70 d.C., ya que su identidad estaba intrínsecamente ligada al culto sacrificial.
+                            </div>
+                            <div class="source-reference">
+                                <strong>Fuentes:</strong> Josefo, "La Guerra de los Judíos" II.8.14; Madiel Nálvaez, "Jesús en el Siglo XXI"
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="group-codex">
+                        <header class="codex-header">
+                            <div class="group-icon">
+                                <i class="fas fa-mountain"></i>
+                            </div>
+                            <h2 class="group-name">Los Esenios</h2>
+                            <p class="group-subtitle">אסנים - "Los Piadosos"</p>
+                        </header>
+                        <div class="codex-content">
+                            <p class="group-description">
+                                Los esenios representaban una comunidad ascética que se había separado del judaísmo mainstream. Su descubrimiento moderno a través de los Rollos del Mar Muerto ha revolucionado nuestra comprensión del judaísmo del Segundo Templo.
+                            </p>
+                            <div class="characteristics-list">
+                                <h4>Características Distintivas</h4>
+                                <ul>
+                                    <li>Vida comunal con propiedad compartida</li>
+                                    <li>Estricto celibato y pureza ritual</li>
+                                    <li>Calendario solar alternativo al lunar del Templo</li>
+                                    <li>Expectativas apocalípticas intensas</li>
+                                    <li>Rechazo del sacerdocio del Templo como corrupto</li>
+                                    <li>Prácticas baptismales frecuentes</li>
+                                </ul>
+                            </div>
+                            <div class="historical-note">
+                                <strong>Descubrimiento arqueológico:</strong> Los hallazgos de Qumrán han confirmado las descripciones de Josefo sobre los esenios, proporcionando evidencia textual directa de sus creencias y prácticas.
+                            </div>
+                            <div class="source-reference">
+                                <strong>Fuentes:</strong> Josefo, "La Guerra de los Judíos" II.8.2-13; Rullos del Mar Muerto (1947-1956)
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="group-codex">
+                        <header class="codex-header">
+                            <div class="group-icon">
+                                <i class="fas fa-khanda"></i>
+                            </div>
+                            <h2 class="group-name">Los Zelotes</h2>
+                            <p class="group-subtitle">קנאים - "Los Celosos"</p>
+                        </header>
+                        <div class="codex-content">
+                            <p class="group-description">
+                                Los zelotes emergieron como un movimiento revolucionario que combinaba fervor religioso con activismo político violento. Su oposición radical al dominio romano los convirtió en los precursores de la Gran Revuelta Judía (66-73 d.C.).
+                            </p>
+                            <div class="characteristics-list">
+                                <h4>Características Distintivas</h4>
+                                <ul>
+                                    <li>Resistencia armada contra la ocupación romana</li>
+                                    <li>Rechazo categórico a pagar tributos al César</li>
+                                    <li>Expectativas mesiánicas político-militares</li>
+                                    <li>Tácticas de guerrilla y terrorismo urbano</li>
+                                    <li>Base de apoyo en Galilea y zonas rurales</li>
+                                    <li>Disposición al martirio por la causa nacional</li>
+                                </ul>
+                            </div>
+                            <div class="historical-note">
+                                <strong>Impacto histórico:</strong> Su activismo condujo directamente a la destrucción del Templo y la diáspora judía, alterando permanentemente el curso de la historia judía.
+                            </div>
+                            <div class="source-reference">
+                                <strong>Fuentes:</strong> Josefo, "La Guerra de los Judíos" IV.3.9; R.A. Horsley, "Jesus and the Spiral of Violence"
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="group-codex">
+                        <header class="codex-header">
+                            <div class="group-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <h2 class="group-name">Los Herodianos</h2>
+                            <p class="group-subtitle">הורדוסים - "Partidarios de Herodes"</p>
+                        </header>
+                        <div class="codex-content">
+                            <p class="group-description">
+                                Los herodianos constituían un grupo político-religioso que apoyaba la dinastía herodiana y, por extensión, la dominación romana. Su pragmatismo político contrastaba con el idealismo religioso de otros grupos.
+                            </p>
+                            <div class="characteristics-list">
+                                <h4>Características Distintivas</h4>
+                                <ul>
+                                    <li>Lealtad a la familia real herodiana</li>
+                                    <li>Aceptación del dominio romano como providencial</li>
+                                    <li>Enfoque en beneficios económicos y políticos</li>
+                                    <li>Sincretismo religioso con elementos helenísticos</li>
+                                    <li>Oposición a movimientos mesiánicos desestabilizadores</li>
+                                    <li>Base urbana en las nuevas ciudades herodianas</li>
+                                </ul>
+                            </div>
+                            <div class="historical-note">
+                                <strong>Contexto político:</strong> Representaban los intereses de la nueva élite surgida bajo el patronazgo herodiano, diferenciándose tanto de la aristocracia sacerdotal tradicional como de los movimientos populares.
+                            </div>
+                            <div class="source-reference">
+                                <strong>Fuentes:</strong> Marcos 3:6, 12:13; Mateo 22:16; Bruce J. Malina, "The Social World of Jesus"
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="group-codex">
+                        <header class="codex-header">
+                            <div class="group-icon">
+                                <i class="fas fa-mountain"></i>
+                            </div>
+                            <h2 class="group-name">Los Samaritanos</h2>
+                            <p class="group-subtitle">שומרונים - "Guardianes del Monte"</p>
+                        </header>
+                        <div class="codex-content">
+                            <p class="group-description">
+                                Los samaritanos mantenían una tradición religiosa paralela al judaísmo, centrada en el Monte Gerizim. Su relación conflictiva con los judíos de Jerusalén refleja siglos de divisiones étnicas, religiosas y territoriales.
+                            </p>
+                            <div class="characteristics-list">
+                                <h4>Características Distintivas</h4>
+                                <ul>
+                                    <li>Aceptación únicamente del Pentateuco samaritano</li>
+                                    <li>Monte Gerizim como lugar sagrado de culto</li>
+                                    <li>Rechazo del Templo de Jerusalén y su sacerdocio</li>
+                                    <li>Expectativas mesiánicas centradas en el Taheb</li>
+                                    <li>Conservación de tradiciones pre-exílicas</li>
+                                    <li>Autonomía cultural y religiosa en Samaria</li>
+                                </ul>
+                            </div>
+                            <div class="historical-note">
+                                <strong>Significado teológico:</strong> El encuentro de Jesús con la mujer samaritana (Juan 4) representa un paradigma del rompimiento de barreras étnicas y religiosas en el mensaje evangélico.
+                            </div>
+                            <div class="source-reference">
+                                <strong>Fuentes:</strong> Juan 4:1-42; Josefo, "Antigüedades Judías" XI.8.6; James D. Purvis, "The Samaritan Pentateuch"
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Social Groups Tab -->
+            <section class="manuscript-collection" id="social">
+                <div class="codex-grid">
+                    <article class="group-codex">
+                        <header class="codex-header">
+                            <div class="group-icon">
+                                <i class="fas fa-scroll"></i>
+                            </div>
+                            <h2 class="group-name">Los Escribas</h2>
+                            <p class="group-subtitle">סופרים - "Los Letrados"</p>
+                        </header>
+                        <div class="codex-content">
+                            <p class="group-description">
+                                Los escribas formaban la clase intelectual de la sociedad judía, especializada en el estudio, interpretación y transmisión de las Escrituras. Su influencia trasciende las divisiones sectarias, encontrándose escribas tanto fariseos como saduceos.
+                            </p>
+                            <div class="characteristics-list">
+                                <h4>Funciones Sociales</h4>
+                                <ul>
+                                    <li>Copistas y preservadores de textos sagrados</li>
+                                    <li>Intérpretes autorizados de la ley (halakha)</li>
+                                    <li>Maestros en sinagogas y casas de estudio</li>
+                                    <li>Asesores legales en tribunales religiosos</li>
+                                    <li>Mediadores entre autoridades y pueblo</li>
+                                    <li>Custodios de la tradición oral</li>
+                                </ul>
+                            </div>
+                            <div class="historical-note">
+                                <strong>Proceso educativo:</strong> William Barclay describe el riguroso proceso de formación escribal que podía durar décadas, incluyendo memorización de toda la Torah y dominio de técnicas hermenéuticas complejas.
+                            </div>
+                            <div class="source-reference">
+                                <strong>Fuentes:</strong> Sirácida 39:1-11; William Barclay, "Jesús tal como lo vieron sus contemporáneos"
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="group-codex">
+                        <header class="codex-header">
+                            <div class="group-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <h2 class="group-name">Los Publicanos</h2>
+                            <p class="group-subtitle">τελῶναι - "Recaudadores de Impuestos"</p>
+                        </header>
+                        <div class="codex-content">
+                            <p class="group-description">
+                                Los publicanos ocupaban una posición única en la sociedad palestina: económicamente prósperos pero socialmente despreciados. Su colaboración con el sistema fiscal romano los convertía en parias religiosos y sociales.
+                            </p>
+                            <div class="characteristics-list">
+                                <h4>Estructura Organizacional</h4>
+                                <ul>
+                                    <li>Sistema de arrendamiento de recaudación fiscal</li>
+                                    <li>Jerarquía desde jefes de publicanos hasta cobradores locales</li>
+                                    <li>Beneficios económicos significativos pero inestables</li>
+                                    <li>Exclusión de la comunidad religiosa observante</li>
+                                    <li>Dependencia de la protección romana</li>
+                                    <li>Vulnerable a fluctuaciones políticas</li>
+                                </ul>
+                            </div>
+                            <div class="historical-note">
+                                <strong>Transformación evangélica:</strong> El caso de Zaqueo (Lucas 19) y Leví-Mateo ejemplifica la radical inclusión de marginados sociales en el mensaje de Jesús, desafiando estructuras de exclusión religiosa.
+                            </div>
+                            <div class="source-reference">
+                                <strong>Fuentes:</strong> Lucas 19:1-10; Mateo 9:9-13; John R. Donahue, "Tax Collectors and Sinners"
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="group-codex">
+                        <header class="codex-header">
+                            <div class="group-icon">
+                                <i class="fas fa-fish"></i>
+                            </div>
+                            <h2 class="group-name">Los Pescadores</h2>
+                            <p class="group-subtitle">ἁλιεῖς - "Trabajadores del Mar"</p>
+                        </header>
+                        <div class="codex-content">
+                            <p class="group-description">
+                                Los pescadores del Mar de Galilea formaban un sector económicamente vital pero socialmente modesto. Su trabajo los familiarizaba con las costumbres de múltiples culturas que convergían en el lago.
+                            </p>
+                            <div class="characteristics-list">
+                                <h4>Contexto Socioeconómico</h4>
+                                <ul>
+                                    <li>Base económica en cooperativas familiares</li>
+                                    <li>Conocimiento de rutas comerciales marítimas</li>
+                                    <li>Contacto con poblaciones gentiles</li>
+                                    <li>Trabajo dependiente de condiciones naturales</li>
+                                    <li>Nivel educativo básico pero experiencia práctica</li>
+                                    <li>Redes sociales interétnicas</li>
+                                </ul>
+                            </div>
+                            <div class="historical-note">
+                                <strong>Simbolismo misiológico:</strong> La elección de pescadores como primeros discípulos simboliza la extensión del evangelio más allá de las élites académicas hacia las clases trabajadoras.
+                            </div>
+                            <div class="source-reference">
+                                <strong>Fuentes:</strong> Marcos 1:16-20; K.C. Hanson, "The Galilean Fishing Economy"
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="group-codex">
+                        <header class="codex-header">
+                            <div class="group-icon">
+                                <i class="fas fa-hammer"></i>
+                            </div>
+                            <h2 class="group-name">Los Artesanos</h2>
+                            <p class="group-subtitle">τέκτονες - "Constructores y Fabricantes"</p>
+                        </header>
+                        <div class="codex-content">
+                            <p class="group-description">
+                                Los artesanos constituían la clase media de la sociedad palestina, especializándose en construcción, carpintería, metalurgia y textiles. Su posición económica era estable pero vulnerable a cambios políticos.
+                            </p>
+                            <div class="characteristics-list">
+                                <h4>Especialidades Artesanales</h4>
+                                <ul>
+                                    <li>Carpintería y ebanistería (como José y Jesús)</li>
+                                    <li>Construcción en piedra para proyectos herodianos</li>
+                                    <li>Metalurgia y fabricación de herramientas</li>
+                                    <li>Textiles y curtiembre</li>
+                                    <li>Alfarería y cerámica</li>
+                                    <li>Trabajo itinerante según demanda</li>
+                                </ul>
+                            </div>
+                            <div class="historical-note">
+                                <strong>Contexto familiar:</strong> Madiel Nálvaez sugiere que la formación artesanal de Jesús le proporcionó conocimiento directo de las realidades económicas de las clases trabajadoras, influyendo en su ministerio.
+                            </div>
+                            <div class="source-reference">
+                                <strong>Fuentes:</strong> Marcos 6:3; Madiel Nálvaez, "Jesús en el Siglo XXI"; Richard A. Batey, "Is not this the Carpenter?"
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="group-codex">
+                        <header class="codex-header">
+                            <div class="group-icon">
+                                <i class="fas fa-shield"></i>
+                            </div>
+                            <h2 class="group-name">Soldados Romanos</h2>
+                            <p class="group-subtitle">στρατιῶται - "Fuerzas de Ocupación"</p>
+                        </header>
+                        <div class="codex-content">
+                            <p class="group-description">
+                                Los soldados romanos representaban el poder imperial en Palestina. Su presencia constante generaba tensiones culturales y religiosas, pero también oportunidades de intercambio cultural.
+                            </p>
+                            <div class="characteristics-list">
+                                <h4>Estructura Militar</h4>
+                                <ul>
+                                    <li>Legionarios de ciudadanía romana</li>
+                                    <li>Auxiliares reclutados en provincias</li>
+                                    <li>Veteranos establecidos como colonos</li>
+                                    <li>Centuriones como elite militar provincial</li>
+                                    <li>Guarniciones en ciudades estratégicas</li>
+                                    <li>Funciones policiales y administrativas</li>
+                                </ul>
+                            </div>
+                            <div class="historical-note">
+                                <strong>Encuentros evangélicos:</strong> Los relatos del centurión de Capernaúm (Mateo 8) y Cornelio (Hechos 10) ilustran cómo el evangelio penetró incluso en las estructuras de ocupación romana.
+                            </div>
+                            <div class="source-reference">
+                                <strong>Fuentes:</strong> Mateo 8:5-13; Hechos 10:1-48; J.B. Campbell, "The Emperor and the Roman Army"
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="group-codex">
+                        <header class="codex-header">
+                            <div class="group-icon">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <h2 class="group-name">Los Am Ha'aretz</h2>
+                            <p class="group-subtitle">עם הארץ - "Pueblo de la Tierra"</p>
+                        </header>
+                        <div class="codex-content">
+                            <p class="group-description">
+                                Los am ha'aretz constituían la mayoría de la población judía: campesinos, pequeños comerciantes y trabajadores que no podían observar todas las minucias de la ley rabínica. Eran despreciados por los grupos religiosos observantes.
+                            </p>
+                            <div class="characteristics-list">
+                                <h4>Características Sociales</h4>
+                                <ul>
+                                    <li>Observancia básica de la Torah pero no de tradiciones rabínicas</li>
+                                    <li>Ocupaciones que impedían pureza ritual constante</li>
+                                    <li>Educación religiosa limitada</li>
+                                    <li>Receptividad a enseñanzas accesibles</li>
+                                    <li>Base principal del movimiento de Jesús</li>
+                                    <li>Menospreciados por la elite religiosa</li>
+                                </ul>
+                            </div>
+                            <div class="historical-note">
+                                <strong>Relevancia misiológica:</strong> El ministerio de Jesús se dirigió precisamente a estos "marginados religiosos", ofreciendo un camino de santidad accesible sin las barreras impuestas por la elite.
+                            </div>
+                            <div class="source-reference">
+                                <strong>Fuentes:</strong> Juan 7:49; Aharon Oppenheimer, "The 'Am Ha-aretz'"; William Barclay, "Jesus as they saw him"
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Comparison Tab -->
+            <section class="manuscript-collection" id="comparison">
+                <div class="comparison-scroll">
+                    <h2 class="comparison-title">Cuadro Comparativo de Grupos Religiosos</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Grupo</th>
+                                <th>Posición Teológica</th>
+                                <th>Relación con Roma</th>
+                                <th>Base Social</th>
+                                <th>Práctica Religiosa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Fariseos</strong></td>
+                                <td>Torah escrita + tradición oral<br>Resurrección, ángeles</td>
+                                <td>Resistencia pasiva<br>Autonomía bajo ocupación</td>
+                                <td>Clase media urbana<br>Comerciantes, artesanos</td>
+                                <td>Pureza ritual estricta<br>Sinagoga como centro</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Saduceos</strong></td>
+                                <td>Solo Torah escrita<br>No resurrección ni ángeles</td>
+                                <td>Colaboración activa<br>Pragmatismo político</td>
+                                <td>Aristocracia sacerdotal<br>Élite terrateniente</td>
+                                <td>Culto del Templo<br>Sacrificios centrales</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Esenios</strong></td>
+                                <td>Literatura apocalíptica<br>Dualismo cósmico</td>
+                                <td>Separación total<br>Aislamiento social</td>
+                                <td>Comunidades ascéticas<br>Intelectuales religiosos</td>
+                                <td>Purificaciones frecuentes<br>Vida comunitaria</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Zelotes</strong></td>
+                                <td>Torah + nacionalismo<br>Mesianismo político</td>
+                                <td>Resistencia armada<br>Guerra santa</td>
+                                <td>Campesinos galileos<br>Sectores marginales</td>
+                                <td>Observancia tradicional<br>Activismo religioso</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Herodianos</strong></td>
+                                <td>Sincretismo pragmático<br>Helenización moderada</td>
+                                <td>Apoyo incondicional<br>Beneficiarios del sistema</td>
+                                <td>Nueva élite urbana<br>Funcionarios palaciegos</td>
+                                <td>Adaptación cultural<br>Flexibilidad ritual</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Samaritanos</strong></td>
+                                <td>Pentateuco samaritano<br>Monte Gerizim sagrado</td>
+                                <td>Autonomía provincial<br>Administración local</td>
+                                <td>Agricultores de Samaria<br>Comerciantes regionales</td>
+                                <td>Culto alternativo<br>Tradiciones propias</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="scholarly-citation">
+                    <p class="citation-text">
+                        "El judaísmo del Segundo Templo era un mosaico complejo de grupos y tendencias. Cada facción representaba una respuesta diferente a los desafíos de mantener la identidad religiosa bajo dominio extranjero, creando un ambiente de pluralidad teológica que contextualizó el ministerio de Jesús."
+                    </p>
+                    <p class="citation-author">— E.P. Sanders, "Judaism: Practice and Belief"</p>
+                </div>
+            </section>
+
+            <section class="manuscript-bibliography">
+                <h2 class="bibliography-title">Bibliografía Académica</h2>
+                <div class="bibliography-grid">
+                    <div class="bibliography-entry">
+                        <div class="book-info">
+                            <div class="book-title">Jesús en el Siglo XXI</div>
+                            <div class="book-author">Madiel Nálvaez</div>
+                            <div class="book-details">Editorial Caribe, 2020. Análisis contemporáneo del contexto social y religioso de Jesús, integrando hallazgos arqueológicos recientes.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bibliography-entry">
+                        <div class="book-info">
+                            <div class="book-title">Jesús tal como lo vieron sus contemporáneos</div>
+                            <div class="book-author">William Barclay</div>
+                            <div class="book-details">Editorial Clie, 1995. Estudio clásico sobre los grupos religiosos y sociales en tiempos de Jesús desde una perspectiva pastoral.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bibliography-entry">
+                        <div class="book-info">
+                            <div class="book-title">Antigüedades Judías</div>
+                            <div class="book-author">Flavio Josefo</div>
+                            <div class="book-details">Siglo I d.C. Fuente histórica primaria sobre los grupos religiosos judíos. Proporciona descripciones detalladas desde una perspectiva contemporánea.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bibliography-entry">
+                        <div class="book-info">
+                            <div class="book-title">Judaism: Practice and Belief 63 BCE - 66 CE</div>
+                            <div class="book-author">E.P. Sanders</div>
+                            <div class="book-details">Trinity Press International, 1992. Estudio crítico exhaustivo del judaísmo del Segundo Templo, considerado obra de referencia.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bibliography-entry">
+                        <div class="book-info">
+                            <div class="book-title">The Social World of Jesus and the Gospels</div>
+                            <div class="book-author">Bruce J. Malina</div>
+                            <div class="book-details">Routledge, 1996. Análisis sociológico de los grupos en la Palestina del siglo I desde perspectivas antropológicas.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bibliography-entry">
+                        <div class="book-info">
+                            <div class="book-title">The Dead Sea Scrolls: A New Translation</div>
+                            <div class="book-author">Michael Wise, Martin Abegg Jr.</div>
+                            <div class="book-details">HarperSanFrancisco, 2005. Traducción académica de textos esenios que ilumina creencias y prácticas sectarias.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bibliography-entry">
+                        <div class="book-info">
+                            <div class="book-title">Jesus and the Spiral of Violence</div>
+                            <div class="book-author">Richard A. Horsley</div>
+                            <div class="book-details">Fortress Press, 1993. Análisis del contexto político y los movimientos de resistencia en tiempos de Jesús.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bibliography-entry">
+                        <div class="book-info">
+                            <div class="book-title">The Historical Figure of Jesus</div>
+                            <div class="book-author">E.P. Sanders</div>
+                            <div class="book-details">Penguin Books, 1995. Biografía histórica de Jesús en su contexto judío del siglo I.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer style="background: var(--gradient-scholarly); color: white; padding: 3rem 0; margin-top: 5rem;">
+        <div class="container">
+            <div style="text-align: center;">
+                <h4 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem; color: var(--secondary-color);">"</h4>
+                <p style="margin-bottom: 1rem; opacity: 0.9;">Explorando la riqueza histórica del pueblo de Dios</p>
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                    <a href="../../index.html" style="color: white; text-decoration: none; transition: var(--transition); padding: 0.5rem;">Inicio</a>
+                    <span style="color: var(--secondary-color);">|</span>
+                    <a href="contexto-historico.html" style="color: white; text-decoration: none; transition: var(--transition); padding: 0.5rem;">Contexto Histórico</a>
+                    <span style="color: var(--secondary-color);">|</span>
+                    <a href="estudio-contemporaneo.html" style="color: white; text-decoration: none; transition: var(--transition); padding: 0.5rem;">Estudio Contemporáneo</a>
+                </div>
+                <p style="font-size: 0.9rem; opacity: 0.7;">&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Switching Functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const manuscriptCollections = document.querySelectorAll('.manuscript-collection');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and collections
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                manuscriptCollections.forEach(collection => collection.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Show corresponding collection
+                const targetTab = button.getAttribute('data-tab');
+                const targetCollection = document.getElementById(targetTab);
+                targetCollection.classList.add('active');
+                
+                // Scroll to top of content
+                targetCollection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Enhanced Card Hover Effects
+        document.querySelectorAll('.group-codex').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) rotateX(2deg)';
+                this.style.boxShadow = '0 20px 40px rgba(139, 69, 19, 0.2), 0 5px 15px rgba(139, 69, 19, 0.1)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotateX(0)';
+                this.style.boxShadow = 'var(--card-shadow)';
+            });
+        });
+
+        // Intersection Observer for Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) rotateX(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe codex cards for scroll animations
+        document.querySelectorAll('.group-codex').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px) rotateX(-5deg)';
+            el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(el);
+        });
+
+        // Table Row Hover Enhancement
+        document.querySelectorAll('.comparison-table tr').forEach(row => {
+            row.addEventListener('mouseenter', function() {
+                if (!this.querySelector('th')) {
+                    this.style.background = 'rgba(205, 133, 63, 0.15)';
+                    this.style.transform = 'scale(1.01)';
+                }
+            });
+            
+            row.addEventListener('mouseleave', function() {
+                if (!this.querySelector('th')) {
+                    this.style.background = '';
+                    this.style.transform = 'scale(1)';
+                }
+            });
+        });
+
+        // Bibliography Entry Hover Effects
+        document.querySelectorAll('.bibliography-entry').forEach(entry => {
+            entry.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(10px)';
+                this.style.boxShadow = '0 8px 25px rgba(139, 69, 19, 0.2)';
+            });
+            
+            entry.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+                this.style.boxShadow = '';
+            });
+        });
+
+        // Smooth Scrolling for Internal Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Easter Egg: Click on citation to reveal additional insight
+        document.querySelector('.scholarly-citation').addEventListener('click', function() {
+            const currentText = this.querySelector('.citation-text').textContent;
+            if (!currentText.includes('diversidad')) {
+                this.querySelector('.citation-text').textContent = 
+                    'La diversidad de grupos religiosos en tiempos de Jesús no era una anomalía, sino una respuesta natural a las presiones históricas. Cada grupo desarrolló estrategias específicas de supervivencia cultural, desde la acomodación hasta la resistencia. Esta pluralidad providencial creó el contexto perfecto para un mensaje que trascendiera todas las divisiones sectarias.';
+                this.querySelector('.citation-author').textContent = '— Reflexión Hermenéutica Contemporánea';
+                this.style.background = 'linear-gradient(135deg, rgba(184, 134, 11, 0.15), rgba(128, 0, 32, 0.1))';
+            }
+        });
+
+        // Dynamic Background Pattern on Scroll
+        let ticking = false;
+        
+        function updateBackgroundPattern() {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.1;
+            
+            document.body.style.backgroundPosition = `${rate}px ${rate}px, ${rate}px ${rate + 30}px, ${rate + 30}px ${rate - 30}px, ${rate - 30}px ${rate}px`;
+            ticking = false;
+        }
+        
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateBackgroundPattern);
+                ticking = true;
+            }
+        });
+
+        // Initialize page with first tab active
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.tab-button[data-tab="religious"]').classList.add('active');
+            document.getElementById('religious').classList.add('active');
+        });
+    </script>
+</body>
+</html>

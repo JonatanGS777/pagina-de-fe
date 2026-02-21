@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exégesis del Capítulo 3 de Cantar de los Cantares</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6a1b9a;
+            --secondary: #e84a5f;
+            --accent1: #d4af37;
+            --accent2: #2e8b57;
+            --accent3: #9c27b0;
+            --accent4: #b71c1c;
+            --light: #f9f5eb;
+            --dark: #433a3f;
+            --cream: #f8f3e6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--accent3));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        .nav-container {
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        
+        .nav-item {
+            padding: 0.8rem 1.5rem;
+            margin: 0.3rem;
+            border-radius: 30px;
+            color: var(--dark);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .nav-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .nav-item:nth-child(1) {
+            background-color: rgba(106, 27, 154, 0.1);
+        }
+        .nav-item:nth-child(1):hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .nav-item:nth-child(2) {
+            background-color: rgba(232, 74, 95, 0.1);
+        }
+        .nav-item:nth-child(2):hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .nav-item:nth-child(3) {
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+        .nav-item:nth-child(3):hover {
+            background-color: var(--accent1);
+            color: white;
+        }
+        
+        .nav-item:nth-child(4) {
+            background-color: rgba(46, 139, 87, 0.1);
+        }
+        .nav-item:nth-child(4):hover {
+            background-color: var(--accent2);
+            color: white;
+        }
+        
+        .nav-item:nth-child(5) {
+            background-color: rgba(156, 39, 176, 0.1);
+        }
+        .nav-item:nth-child(5):hover {
+            background-color: var(--accent3);
+            color: white;
+        }
+        
+        section {
+            margin: 3rem 0;
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+        }
+        
+        #resumen::before {
+            background-color: var(--primary);
+        }
+        
+        #analisis-linguistico::before {
+            background-color: var(--secondary);
+        }
+        
+        #analisis-historico::before {
+            background-color: var(--accent1);
+        }
+        
+        #analisis-teologico::before {
+            background-color: var(--accent2);
+        }
+        
+        #enfoques::before {
+            background-color: var(--accent3);
+        }
+        
+        #referencias::before {
+            background-color: var(--accent4);
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            border-bottom: 2px dashed rgba(0, 0, 0, 0.1);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-size: 1.6rem;
+            margin: 1.8rem 0 1rem;
+            color: var(--primary);
+        }
+        
+        h4 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.8rem;
+            color: var(--secondary);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .resaltado {
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .hebreo {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--accent3);
+            direction: rtl;
+            unicode-bidi: embed;
+            margin: 0 5px;
+        }
+        
+        .transliteracion {
+            font-style: italic;
+            color: var(--accent1);
+            font-weight: 500;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .purple-header {
+            background-color: var(--primary);
+        }
+        
+        .pink-header {
+            background-color: var(--secondary);
+        }
+        
+        .gold-header {
+            background-color: var(--accent1);
+            color: var(--dark);
+        }
+        
+        .green-header {
+            background-color: var(--accent2);
+        }
+        
+        .tema {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .tema:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tema h3 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        .tema-1 {
+            background-color: rgba(106, 27, 154, 0.05);
+            border-left: 5px solid var(--primary);
+        }
+        
+        .tema-1 h3 {
+            background-color: var(--primary);
+        }
+        
+        .tema-2 {
+            background-color: rgba(232, 74, 95, 0.05);
+            border-left: 5px solid var(--secondary);
+        }
+        
+        .tema-2 h3 {
+            background-color: var(--secondary);
+        }
+        
+        .tema-3 {
+            background-color: rgba(212, 175, 55, 0.05);
+            border-left: 5px solid var(--accent1);
+        }
+        
+        .tema-3 h3 {
+            background-color: var(--accent1);
+            color: var(--dark);
+        }
+        
+        .tema-4 {
+            background-color: rgba(46, 139, 87, 0.05);
+            border-left: 5px solid var(--accent2);
+        }
+        
+        .tema-4 h3 {
+            background-color: var(--accent2);
+        }
+        
+        .cita {
+            padding: 1.2rem 1.8rem;
+            background-color: rgba(0, 0, 0, 0.03);
+            border-left: 3px solid var(--secondary);
+            margin: 1.5rem 0;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .cita::before {
+            content: '"';
+            font-size: 4rem;
+            color: rgba(0, 0, 0, 0.08);
+            position: absolute;
+            top: -15px;
+            left: 10px;
+            font-family: Georgia, serif;
+        }
+        
+        .btn-expand {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 1.3rem 0;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-expand:hover {
+            background-color: var(--accent3);
+            transform: translateY(-2px);
+        }
+        
+        .btn-expand i {
+            margin-right: 0.5rem;
+        }
+        
+        .hidden-content {
+            display: none;
+        }
+        
+        .show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 2.5rem 0;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .image-container figcaption {
+            margin-top: 1rem;
+            font-style: italic;
+            color: var(--dark);
+            opacity: 0.8;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .termino {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: rgba(249, 245, 235, 0.7);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-top: 3px solid var(--accent3);
+        }
+        
+        .termino h4 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 0.5rem;
+        }
+        
+        .columnas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .columna {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .comparacion {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .lado {
+            flex: 1;
+            min-width: 280px;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .lado-judio {
+            background-color: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--accent1);
+        }
+        
+        .lado-cristiano {
+            background-color: rgba(106, 27, 154, 0.1);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .lado h4 {
+            margin-top: 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .lado ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .lado li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .lado-judio li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--accent1);
+        }
+        
+        .lado-cristiano li::before {
+            content: '✚';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+        
+        .referencias {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: rgba(0, 0, 0, 0.02);
+            border-radius: 8px;
+        }
+        
+        .referencias h3 {
+            margin-top: 0;
+            color: var(--accent4);
+        }
+        
+        .referencias ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .referencias li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .referencias li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent4);
+            font-weight: bold;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            background-color: var(--accent3);
+        }
+        
+        /* Estilos para móviles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            .nav-item {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            h3 {
+                font-size: 1.4rem;
+            }
+            
+            .comparacion {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exégesis del Capítulo 3 de Cantar de los Cantares</h1>
+        <p>Un análisis profundo del amor y la búsqueda entre los amados en esta joya poética bíblica</p>
+    </header>
+    
+    <div class="nav-container">
+        <nav class="nav">
+            <a href="#resumen" class="nav-item"><i class="fas fa-book"></i> Resumen</a>
+            <a href="#analisis-linguistico" class="nav-item"><i class="fas fa-language"></i> Análisis Lingüístico</a>
+            <a href="#analisis-historico" class="nav-item"><i class="fas fa-history"></i> Análisis Histórico</a>
+            <a href="#analisis-teologico" class="nav-item"><i class="fas fa-pray"></i> Análisis Teológico</a>
+            <a href="#enfoques" class="nav-item"><i class="fas fa-balance-scale"></i> Enfoques Interpretativos</a>
+            <a href="#referencias" class="nav-item"><i class="fas fa-scroll"></i> Referencias</a>
+        </nav>
+    </div>
+    
+    <div class="container">
+        <section id="resumen">
+            <h2><i class="fas fa-book"></i> Resumen del Capítulo</h2>
+            
+            <p>El capítulo 3 de Cantar de los Cantares se divide en dos escenas poéticas. En los versículos 1-5, la voz femenina describe cómo "por las noches" busca a su amado en su lecho y por la ciudad, hasta encontrarlo y llevarlo a la casa de su madre. En los versículos 6-11, se presenta una escena de cortejo real: una procesión nupcial con el rey Salomón, sesenta guerreros escoltando un palanquín (litera o carroza) adornado con perfumes, y una invitación a las "hijas de Sión" a contemplar al rey con la corona del día de su boda.</p>
+            
+            <div class="image-container">
+                <img src="images/cantares3_dos_escenas.jpg" alt="Dos escenas del Cantar de los Cantares 3">
+                <figcaption>Las dos escenas del capítulo 3: la búsqueda nocturna de la amada (izquierda) y la procesión real de Salomón (derecha)</figcaption>
+            </div>
+            
+            <div class="card">
+                <div class="card-header purple-header">
+                    Estructura del Capítulo 3
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Primera escena (versículos 1-5):</strong> La búsqueda nocturna
+                            <ul>
+                                <li>La amada busca a su amado en su lecho (v. 1)</li>
+                                <li>Sale a buscarlo por la ciudad (v. 2)</li>
+                                <li>Encuentra a los guardias de la ciudad (v. 3)</li>
+                                <li>Halla a su amado y lo lleva a casa de su madre (v. 4)</li>
+                                <li>Conjura a las "hijas de Jerusalén" a no despertar al amor (v. 5)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Segunda escena (versículos 6-11):</strong> La procesión nupcial
+                            <ul>
+                                <li>Admiración por la que sube del desierto como columna de humo (v. 6)</li>
+                                <li>Descripción de la litera de Salomón y su guardia (vv. 7-8)</li>
+                                <li>El palanquín construido por Salomón (vv. 9-10)</li>
+                                <li>Invitación a contemplar al rey coronado en su boda (v. 11)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="analisis-linguistico">
+            <h2><i class="fas fa-language"></i> Análisis Lingüístico del Texto Hebreo</h2>
+            
+            <p>El lenguaje original hebreo de Cantar de los Cantares 3 está cargado de matices poéticos. Algunos términos clave y expresiones merecen atención especial:</p>
+            
+            <div class="termino">
+                <h4>"Por las noches" / "en mi lecho por las noches" (verso 1)</h4>
+                <p>En hebreo se lee <span class="hebreo">בַּלֵּילוֹת</span> <span class="transliteracion">(bal-lēyłōṯ)</span>, literalmente "en las noches". El uso del plural sugiere repetición o duración. Puede entenderse como "noche tras noche" o "durante las largas horas de la noche". Esto indica que la amada ha buscado a su amado en más de una noche o durante toda la noche, enfatizando la persistencia de su anhelo.</p>
+            </div>
+            
+            <div class="termino">
+                <h4>"Al que ama mi alma" (vv.1-4)</h4>
+                <p>Esta frase se repite cuatro veces en los versículos 1-4 como <span class="hebreo">אֶת שֶׁאָהֲבָה נַפְשִׁי</span> <span class="transliteracion">(et she'ahavá nafshí)</span>. En hebreo <span class="hebreo">נֶפֶשׁ</span> <span class="transliteracion">(nefesh)</span> literalmente es "alma" o "ser interior", pero funciona como un pronombre enfático de primera persona. La expresión significa "aquél a quien mi alma ama" o simplemente "mi amado". Su repetición refuerza la intensidad del amor de la joven por su amado. El uso de "mi alma" denota que este amor proviene de lo más profundo de ella, implicando una entrega personal total.</p>
+            </div>
+            
+            <div class="image-container">
+                <img src="images/cantares3_expresiones_hebreas.jpg" alt="Expresiones hebreas de Cantar de los Cantares 3">
+                <figcaption>Representación visual de las principales expresiones hebreas en Cantar 3, mostrando la estructura poética y las repeticiones significativas</figcaption>
+            </div>
+            
+            <div class="termino">
+                <h4>"Busqué… lo busqué" (vv.1-2)</h4>
+                <p>El verbo <span class="transliteracion">bqš</span> <span class="hebreo">בִּקֵּשׁ</span> <span class="transliteracion">(biqqēsh)</span> significa "buscar con diligencia". Implica un acto consciente y esforzado de búsqueda. La insistencia "lo busqué y no lo hallé" sugiere la ansiedad típica del amor: en el poema, la amada teme la ausencia del amado y emprende una búsqueda activa aun en la noche.</p>
+            </div>
+            
+            <button class="btn-expand" onclick="toggleContent('linguistico-content')">
+                <i class="fas fa-plus-circle"></i> Ver más análisis lingüístico
+            </button>
+            
+            <div id="linguistico-content" class="hidden-content">
+                <div class="termino">
+                    <h4>"Me levanté… recorrí la ciudad… por las calles y plazas" (v.2)</h4>
+                    <p>Estas frases describen un movimiento nocturno por la ciudad. La palabra <span class="hebreo">שׁוּק</span> <span class="transliteracion">(shuq)</span> refiere a plazas o mercados, y <span class="hebreo">רְחֹבוֹת</span> <span class="transliteracion">(reẖovot)</span> a calles amplias. El hebreo transmite la idea de una búsqueda apresurada ("Me levantaré ahora mismo", "<span class="hebreo">אָקוּמָה נָּא</span> <span class="transliteracion">(aqumá na)</span>"). Es notable que una joven recorra la ciudad de noche; esto añade un tono onírico o extraordinario al relato, y muchos comentaristas sugieren que esta escena podría ser un sueño o anhelo más que un evento literal.</p>
+                </div>
+                
+                <div class="termino">
+                    <h4>"Los centinelas que hacen la ronda por la ciudad" (v.3)</h4>
+                    <p>"Centinelas" traduce <span class="hebreo">שֹׁמְרִים</span> <span class="transliteracion">(shomrím)</span>, plural de <span class="transliteracion">shomer</span>, guardián. Indica guardias nocturnos patrullando la ciudad, una imagen realista de seguridad urbana en la antigüedad. La amada les pregunta por su amado, lo que refleja la desesperación de su búsqueda. Lingüísticamente, su aparición súbita y breve (v.3) transmite la rapidez con que ella sigue adelante: "Me encontraron los centinelas… (les pregunté) '¿Han visto al que ama mi alma?'". No se detalla respuesta; inmediatamente en v.4 ella encuentra a su amado. Esto sugiere que, en el poema, la ayuda de terceros es mínima: la unión de los amantes ocurre casi por providencia más que por guía humana.</p>
+                </div>
+                
+                <div class="termino">
+                    <h4>"Lo agarré y no lo solté" (v.4)</h4>
+                    <p>Cuando finalmente la amada encuentra al amado, dice <span class="hebreo">אֲחַזְתִּיו ולא אַרְפֶּנּוּ</span> <span class="transliteracion">(ajaẓtív velō 'arpennú)</span>. El verbo <span class="transliteracion">'ahaz</span> <span class="hebreo">אָחַז</span> significa "asir con fuerza" o "sujetar firmemente". Indica que ella lo abraza con determinación para no perderlo de nuevo. Esta expresión gráfica comunica la pasión y la determinación de la joven por retener a su amado. Luego añade que lo llevó a la "casa de mi madre, al aposento de la que me concibió". Esa frase sugiere intimidad y legitimidad (la casa materna como espacio seguro); en la poesía del Antiguo Oriente, la "casa de la madre" simboliza el lugar de amor y nacimiento, quizás aquí insinuando la consumación del encuentro en un entorno familiar y seguro.</p>
+                </div>
+                
+                <div class="termino">
+                    <h4>"Os conjuro, hijas de Jerusalén, por las gacelas y ciervas del campo…" (v.5)</h4>
+                    <p>Esta es una fórmula refrán repetida en el libro (también en 2:7 y 8:4). "Conjuro" traduce <span class="hebreo">הִשְׁבַּעְתִּי אֶתְכֶם</span> <span class="transliteracion">(hishba'tí etjém)</span>, literalmente "les hago jurar". Es un solemne ruego a las "hijas de Jerusalén" (personajes corales femeninos) de no despertar el amor hasta que quiera nacer por sí mismo. Curiosamente, la fórmula invoca a "las gacelas <span class="transliteracion">(ṣəvā'ōt)</span> y las ciervas <span class="transliteracion">('ayalōt)</span> del campo" en lugar de invocar a Dios directamente. Esto posiblemente evita trivializar el nombre divino en un contexto amoroso, usando imágenes naturales como testigos del juramento. Las gacelas y ciervos, animales asociados a la delicadeza y libertad en la poesía, realzan la pureza y espontaneidad del amor: no debe forzarse ni apresurarse.</p>
+                </div>
+                
+                <div class="termino">
+                    <h4>"¿Quién es ésta que sube del desierto, como columnas de humo, perfumada de mirra e incienso...?" (v.6)</h4>
+                    <p>En hebreo inicia con <span class="hebreo">מִי זֹאת עֹלָה מִן-הַמִּדְבָּר</span> <span class="transliteracion">(mi zot 'olá min-hamidbar)</span>. La expresión "¿Quién es ésta…?" introduce con admiración la visión de una figura que viene del desierto. "Columnas de humo" (como las de incienso quemado) y las especias aromáticas (mirra y <span class="transliteracion">levonáh</span>, incienso) evocan una procesión perfumada. Estas palabras sugieren un desfile ceremonial o boda real. El hebreo <span class="hebreo">כְּתִימֳרוֹת עָשָׁן</span> <span class="transliteracion">(ketimrot ashan)</span> literalmente "como pilares de humo" indica humo denso elevándose, imagen de un sahumerio abundante, típico en bodas o rituales. El desierto <span class="transliteracion">(midbar)</span> alude quizá a un viaje nupcial que llega a la ciudad (Jerusalén) desde lejos, o es una imagen evocativa de la aparición repentina de la procesión.</p>
+                </div>
+                
+                <div class="termino">
+                    <h4>"La litera de Salomón" (v.7)</h4>
+                    <p>"He aquí la litera de Salomón, sesenta valientes alrededor de ella…". Litera traduce <span class="hebreo">מִטָּה</span> <span class="transliteracion">(mittáh)</span> que suele significar "lecho". Algunos traducen "carruaje" o "palanquín". En el v.9 aparece otro término singular: <span class="hebreo">אַפִּרְיוֹן</span> <span class="transliteracion">(appiryon)</span>, traducido como "carro nupcial, palanquín o litera". <span class="transliteracion">Appiryon</span> sólo aparece aquí en toda la Biblia, por lo que su significado se basa en contextos similares y traducciones antiguas. La Septuaginta griega lo traduce <span class="transliteracion">phoreion</span> (de <span class="transliteracion">pherō</span>, llevar), es decir, un vehículo portátil. Probablemente se refiere a una litera adornada para transportar a la novia o al novio en la boda.</p>
+                </div>
+                
+                <div class="termino">
+                    <h4>"Sesenta valientes con espadas… por los temores nocturnos" (v.7-8)</h4>
+                    <p>La guardia de honor son <span class="hebreo">שִׁשִּׁים גִּבּוֹרִים</span> <span class="transliteracion">(shishím gibborím)</span> – sesenta guerreros valerosos. <span class="transliteracion">Gibbor</span> implica un hombre fuerte o héroe. Van armados con espadas, "diestros en la guerra", listos contra "temores de la noche". Esta última frase sugiere protección frente a peligros nocturnos (bandoleros, animales o cualquier amenaza durante la procesión nocturna). El número sesenta puede ser simbólico de plenitud de seguridad. Algunos comentaristas judíos clásicos alegorizaron que estos 60 guardias aluden a los 60 caracteres (letras) de la bendición sacerdotal que protegen a Israel, aunque en el sentido simple aquí refuerza la pompa real y la seguridad en la procesión nupcial.</p>
+                </div>
+                
+                <div class="termino">
+                    <h4>"Corona con que le coronó su madre el día de su boda" (v.11)</h4>
+                    <p>"Corona" en hebreo es <span class="hebreo">עֲטָרָה</span> <span class="transliteracion">(ataráh)</span>, que puede referir a una corona real o guirnalda festiva. El texto destaca que es la corona que la madre del rey (en contexto literal, Betsabé, madre de Salomón) le impuso en el día de su matrimonio. Esto alude a una antigua costumbre nupcial: en diversas culturas del oriente medio y el Mediterráneo, era tradición colocar coronas o guirnaldas tanto al novio como a la novia en la ceremonia de bodas. En el Talmud y otras fuentes se menciona el uso de coronas nupciales, luego prohibidas tras la destrucción del Templo por señal de luto. Esta corona especial realza la alegría y honor del día ("el día del gozo de su corazón", v.11).</p>
+                </div>
+                
+                <div class="termino">
+                    <h4>"Hijas de Sión" (v.11) vs. "Hijas de Jerusalén"</h4>
+                    <p>A lo largo del Cantar se alude a un coro femenino llamado "hijas de Jerusalén" (2:7, 3:5, 5:8, etc.), pero en 3:11 se dice "hijas de Sión". Esta variación probablemente es estilística, ya que Sión y Jerusalén suelen usarse casi intercambiablemente en poesía bíblica. "Hijas de Sión" enfatiza la identidad de Jerusalén como ciudad santa (Sión es el monte del Templo). El llamado "salid a ver" sugiere una invitación a las jóvenes de la ciudad para admirar la procesión del rey en su boda, un evento público de gozo. Esto crea un cierre festivo al capítulo, en contraste con la escena íntima inicial.</p>
+                </div>
+            </div>
+            
+            <p class="resaltado">En síntesis, el análisis filológico muestra que el lenguaje de Cantar 3, aunque aparentemente sencillo, emplea símbolos ricos y términos únicos (como <span class="transliteracion">appiryon</span>) para comunicar la intensidad del amor (a través de repeticiones como "aquél a quien ama mi alma") y la solemnidad de la unión nupcial (coronas, perfumes, guardias). Cada detalle lingüístico, desde la pluralidad de "noches" hasta la mención de la madre y Sión, añade capas de significado en el contexto original de la poesía hebrea.</p>
+        </section>
+        
+        <section id="analisis-historico">
+            <h2><i class="fas fa-history"></i> Análisis Histórico y Contextual</h2>
+            
+            <div class="card">
+                <div class="card-header gold-header">
+                    Autoría y fecha
+                </div>
+                <div class="card-body">
+                    <p>Tradicionalmente, el Cantar se atribuye al rey Salomón (siglo X a.C.), mencionado por nombre en 3:7,9,11. Sin embargo, muchos expertos modernos creen que pudo ser escrito o compilado posteriormente (posiblemente entre los siglos VI y IV a.C.), dado su lenguaje tardío y estilo único. De cualquier modo, el libro refleja costumbres del antiguo Israel y sus vecinos en relación al amor y el matrimonio.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header gold-header">
+                    Género literario
+                </div>
+                <div class="card-body">
+                    <p>Es parte de la poesía amorosa del Antiguo Oriente. Hallazgos de poemas de amor egipcios (especialmente del período Ramsés, s. XIII a.C.) revelan motivos similares: la amada que busca al amado al atardecer o en sueños, uso de perfumes, comparaciones del amado con rey, etc. Por ejemplo, ciertas canciones egipcias describen a la enamorada deambulando por la ciudad en pos de su amante o hablando con su corazón durante la noche. Esto sugiere que el Cantar se nutre de un ambiente cultural más amplio de poesía erótica sagrada, reelaborando imágenes conocidas (ciudad nocturna, guardias, procesión nupcial) en una forma singularmente bíblica.</p>
+                </div>
+            </div>
+            
+            <div class="image-container">
+                <img src="images/cantares3_contexto_historico.jpg" alt="Contexto histórico de Cantar de los Cantares">
+                <figcaption>Izquierda: Representación de un palanquín o litera antigua para bodas ceremoniales, similar al descrito en el Cantar. Derecha: Una antigua ciudad amurallada con guardias de noche, contexto de la búsqueda nocturna.</figcaption>
+            </div>
+            
+            <div class="columnas">
+                <div class="columna">
+                    <h3>Vida cotidiana en la época</h3>
+                    <p>La escena de la búsqueda nocturna (3:1-4) refleja la inquietud amorosa más que una costumbre literal. En la vida real, no era común ni seguro que una joven saliera sola de noche. Su acción es extraordinaria, posiblemente indicando una visión onírica.</p>
+                    
+                    <p>Algunos comentaristas sugieren que estos versículos narran un sueño o fantasía de la protagonista durante la noche previa a la boda, reflejando su temor de perder a su amado. La abrupta aparición de los guardias y la repentina unión con el amado apoyan la idea de un relato onírico o simbólico.</p>
+                    
+                    <p>Históricamente, las ciudades amuralladas como Jerusalén sí tenían centinelas nocturnos; su mención agrega realismo: la seguridad urbana era un aspecto importante de la vida comunitaria en la antigüedad.</p>
+                </div>
+                
+                <div class="columna">
+                    <h3>Costumbres nupciales</h3>
+                    <p>Los versículos 6-11 claramente retratan una boda, probablemente real. En la antigua Israel y regiones cercanas, las bodas eran eventos públicos y fastuosos, especialmente si se trataba de familias nobles o reales.</p>
+                    
+                    <p>La descripción de un palanquín decorado sugiere la práctica de llevar a la novia (o al novio) en una litera adornada hasta el lugar de la ceremonia. Fuentes históricas indican que en algunas culturas semíticas se confeccionaban literas para transportar a la novia, acompañada de antorchas, perfumes e incluso guardias si era una familia rica.</p>
+                    
+                    <p>El uso abundante de mirra e incienso (v.6) es verosímil: estas resinas aromáticas de alto costo eran usadas en celebraciones especiales, incluidas bodas, como signo de alegría y de oración.</p>
+                </div>
+            </div>
+            
+            <button class="btn-expand" onclick="toggleContent('historico-content')">
+                <i class="fas fa-plus-circle"></i> Ver más análisis histórico
+            </button>
+            
+            <div id="historico-content" class="hidden-content">
+                <h3>Salomón y la ambientación real</h3>
+                <p>La mención de Salomón podría ser literaria (el poema usa la figura del gran rey como arquetipo del esposo ideal o para dar esplendor). Sin embargo, también es posible que el poema originalmente celebrara una boda real concreta en Jerusalén, quizá inspirada en las bodas de Salomón o de otro rey davídico.</p>
+                
+                <p>En la Biblia, el Salmo 45 es un cántico nupcial real con ciertos paralelos (perfumes, hijas de reyes, gozo nupcial), lo que muestra que las bodas reales eran ocasión de poesía exaltada. Cantar 3:6-11 se alinea con ese género de epitalamio real (canto de bodas), describiendo la llegada del novio como rey glorioso.</p>
+                
+                <p>Algunos estudiosos sugieren que 3:6-11 pudo ser originalmente un poema independiente celebrando una boda, integrado luego en el Cantar. Incluso se ha propuesto que podría leerse con cierto tono irónico o crítico hacia Salomón (por ejemplo, notando su ostentación), aunque la interpretación más directa es festiva y admirativa.</p>
+                
+                <h3>Simbolismos de la época</h3>
+                <p>La imagen de "subir del desierto como columna de humo" (v.6) evocaría para un israelita recuerdos del Éxodo (la columna de nube y fuego en el desierto). Históricamente, el desierto es escenario de la unión entre Dios e Israel (Jer 2:2 habla del amor de Israel en el desierto). Aunque aquí primariamente es una escena nupcial humana, el lenguaje está cargado de resonancias que un público antiguo podría captar.</p>
+                
+                <p>Asimismo, "el día de la boda" era considerado el día de máxima alegría personal (y en literatura rabínica posteriormente se comparó con la entrega de la Ley en el Sinaí, como se verá).</p>
+                
+                <h3>Corona nupcial y rol de la madre</h3>
+                <p>Colocar coronas o guirnaldas a los novios era común. En la antigua Judea, según el Talmud (Sotah 49a), existió la costumbre de coronar a los novios con guirnaldas florales o diademas, símbolo de gozo, hasta que esa práctica cesó tras la destrucción de Jerusalén (70 d.C.) como señal de duelo nacional.</p>
+                
+                <p>Que el poema diga "la corona con que le coronó su madre" sugiere una tradición en la cual la madre del novio (especialmente si es reina madre, en contexto real) colocaba una corona festiva al hijo. En la monarquía davídica, la Gebirá (reina madre) tenía un estatus especial; por ejemplo, Betsabé recibió honores en el trono de Salomón (1 Re 2:19).</p>
+                
+                <p>Históricamente, no sabemos si Betsabé coronó personalmente a Salomón en su boda, pero poéticamente esta imagen exalta la felicidad familiar y la continuidad dinástica: la madre que una vez colocó la corona real al rey en su coronación (Betsabé influyó en la entronización de Salomón) ahora lo corona en su boda, consolidando la línea real con la nueva unión.</p>
+                
+                <h3>Uso litúrgico y conmemorativo</h3>
+                <p>En el judaísmo posterior, el Cantar de los Cantares llegó a leerse en la liturgia de Pésaj (Pascua), celebrando la primavera. Esto indica que la audiencia judía asoció su temática de amor con el tiempo de primavera y liberación (Pésaj conmemora el Éxodo, interpretado alegóricamente como romance entre Dios e Israel).</p>
+                
+                <p>Es probable que ya en época postexílica vieran en imágenes como "sube del desierto" (3:6) alusiones al Éxodo, reforzando la importancia histórica-simbólica de pasajes como éste.</p>
+            </div>
+            
+            <p class="resaltado">En suma, el capítulo 3 refleja costumbres nupciales antiguas (procesiones, coronas, guardias, perfumes) y utiliza elementos de la vida cotidiana (guardias urbanos, casa materna) en un contexto idealizado. Pinta una escena que combinaría lo íntimo (la búsqueda personal del amado) con lo público (la celebración matrimonial colectiva). Históricamente, nos transporta a un mundo donde el amor se celebra con gran ceremonia y donde las expresiones de afecto se entrelazan con simbolismos sociales y religiosos propios de la cultura bíblica antigua.</p>
+        </section>
+        
+        <section id="analisis-teologico">
+            <h2><i class="fas fa-pray"></i> Análisis Teológico y Espiritual</h2>
+            
+            <p>Aunque a primera vista el Cantar es poesía amorosa humana, a lo largo de los siglos ha sido leído con profundos significados espirituales. El capítulo 3, en particular, ha inspirado interpretaciones teológicas que van desde lecturas alegóricas tradicionales hasta reflexiones místicas sobre la relación del alma con lo divino:</p>
+            
+            <div class="tema tema-4">
+                <h3>Significado en el contexto del canon bíblico</h3>
+                
+                <p>La inclusión del Cantar de los Cantares en la Biblia planteó desde antiguo la pregunta de su mensaje espiritual, dada la ausencia de referencias explícitas a Dios. Teológicamente, se entendió que exaltaba la bondad del amor creado por Dios.</p>
+                
+                <p>En una lectura literal teológica, este libro celebra el amor conyugal puro como parte del diseño divino (afirmando la bondad de la sexualidad en el matrimonio). Bajo esta luz, Cantar 3 muestra la búsqueda, encuentro y compromiso entre los amantes como algo valioso en sí mismo, reflejando la fidelidad y el anhelo que Dios desea en el amor humano.</p>
+                
+                <p>Algunos teólogos modernos subrayan que el amor erótico aquí descrito, lejos de ser profano, apunta al ideal del Génesis donde "los dos serán una sola carne" en sinceridad y entrega mutua, lo cual es en última instancia obra de Dios.</p>
+            </div>
+            
+            <div class="image-container">
+                <img src="images/cantares3_interpretacion_alegorica.jpg" alt="Interpretación alegórica del Cantar de los Cantares">
+                <figcaption>Representación alegórica del Cantar de los Cantares. Izquierda: tradición judía de ver a la amada como Israel. Derecha: tradición cristiana de la amada como la Iglesia. Ambas interpretaciones ven en el texto una historia de amor divino.</figcaption>
+            </div>
+            
+            <div class="tema tema-4">
+                <h3>Interpretación alegórica (Dios y su pueblo/Iglesia)</h3>
+                
+                <p>La interpretación teológica clásica (tanto judía como cristiana) ha sido alegórica: el amado representa a Dios (Yahvé en la lectura judía; Cristo en la cristiana) y la amada representa al pueblo de Dios (Israel o la Iglesia). Con este enfoque, el capítulo 3 adquiere un rico simbolismo espiritual.</p>
+                
+                <div class="cita">
+                    En sentido espiritual, los anhelos nocturnos de la amada por su amado (vv.1-4) reflejan la búsqueda del alma por Dios. Los místicos cristianos compararon esta "noche oscura" con períodos de sequedad espiritual en los que el alma, sintiendo la ausencia de Dios, lo busca con dolor hasta hallar de nuevo la presencia del Amado.
+                </div>
+                
+                <button class="btn-expand" onclick="toggleContent('alegorico-content')">
+                    <i class="fas fa-plus-circle"></i> Ver más sobre interpretación alegórica
+                </button>
+                
+                <div id="alegorico-content" class="hidden-content">
+                    <p>Por ejemplo, San Juan de la Cruz, influido por el Cantar, describe el alma buscando a Dios "de noche" en su poema Noche oscura del alma. Teológicamente, esto enseña el valor de la búsqueda perseverante de Dios, incluso cuando Él parece ausente. La "voz" de la Iglesia o el alma dice: "lo busqué y no lo hallé… hasta que lo encontré".</p>
+                    
+                    <p>Padres de la Iglesia como Orígenes vieron aquí la dinámica del amor divino: Dios a veces esconde su rostro para encender en el alma un deseo más fuerte de Él. Cuando la amada encuentra al amado y lo lleva a la casa materna, alegóricamente se entiende como traer a Dios al corazón propio o a la comunidad de fe, renovando la comunión íntima.</p>
+                    
+                    <p>Los centinelas en sentido espiritual podrían simbolizar a los guías o maestros espirituales (profetas, apóstoles, pastores) que ayudan al alma/Israel en su búsqueda de Dios, aunque en 3:3 su papel es mínimo. Algunos comentaristas cristianos antiguos pensaron en los "guardias" como los ángeles o ministros que custodian la ciudad de Dios (la Iglesia) y ayudan a las almas, o incluso como la "Ley y los Profetas" que orientan hacia Cristo. En la exégesis, estos detalles se aplicaban libremente para edificación espiritual.</p>
+                    
+                    <p>La segunda escena (vv.6-11), leída alegóricamente, se convirtió en una imagen teológica de la gloria y el gozo de la unión de Dios con su pueblo. En la tradición judía, la boda de Salomón se interpretó como el pacto del Sinaí (Dios desposando a Israel) y la construcción del Templo (morada de Dios entre su pueblo).</p>
+                    
+                    <p>En la tradición cristiana, se vio como figura de Cristo el Rey en su "día de bodas", entendido ya sea como la Encarnación (cuando el Hijo de Dios tomó nuestra carne, "desposándose" con la humanidad), o como la Pasión (cuando Cristo, coronado de espinas por nosotros, realiza la redención que une a la Iglesia consigo), o incluso como la parusía futura (las "Bodas del Cordero" de Apocalipsis 19:7).</p>
+                    
+                    <p>Muchos padres latinos y medievales asociaron "el día de su boda" con la Encarnación o la venida de Cristo a la Iglesia, y "el día del gozo de su corazón" con la salvación realizada en la Cruz o con la entrada triunfante de almas en la gloria.</p>
+                    
+                    <p>En una interpretación cristológica, el rey Salomón aquí es tipo de Cristo, y la corona dada por su madre apunta a varias ideas teológicas: algunos, como Juan Gill, entendieron "su madre" en sentido alegórico como la humanidad misma, ya que Cristo es "Hijo del Hombre" y toda alma creyente que hace la voluntad de Dios es su madre y hermana (cf. Mt 12:50). Es decir, cada vez que aceptamos a Cristo por fe, "coronamos" a Cristo en nuestro corazón, reconociéndolo Rey y Esposo.</p>
+                    
+                    <p>Este tipo de interpretación ve en la boda una metáfora de la conversión o del vínculo personal con Cristo: la Iglesia (y cada alma) adorna a Cristo con gloria cuando se une a Él. Por otro lado, en la espiritualidad católica mariana, a veces se ha visto a María (madre de Jesús) como la "madre" que corona a Cristo en su Encarnación, haciéndolo rey en su humildad humana. No es la interpretación más común, pero muestra la plasticidad alegórica del texto.</p>
+                </div>
+            </div>
+            
+            <div class="tema tema-4">
+                <h3>Dimensión mística personal</h3>
+                
+                <p>Más allá de la alegoría colectiva (Dios–Israel/Iglesia), los comentaristas cristianos, especialmente desde Orígenes, han leído el Cantar también como el diálogo entre Cristo y el alma individual.</p>
+                
+                <p>Orígenes propuso una triple interpretación: histórica (Salomón y su esposa), eclesiástica (Cristo-Iglesia) y mística/personal (Cristo-alma). En la lectura mística, Cantar 3 representa la experiencia del alma en su camino de unión con Dios.</p>
+                
+                <div class="cita">
+                    Los maestros espirituales señalan la noche oscura del alma en la que Dios parece ausente pero el alma lo busca (vv.1-2, etapa de purificación y desierto espiritual), luego la iluminación cuando encuentra a Dios brevemente (v.4, gozo de unión en oración contemplativa: "lo atrapé y no lo soltaré"), seguida de una exhortación a la paciencia en el amor (v.5, no forzar la experiencia mística hasta que Dios disponga).
+                </div>
+                
+                <p>Finalmente, la procesión real (vv.6-11) prefigura la unión transformante: el alma es elevada en el "carruaje" de contemplación, rodeada de virtudes (los 60 valientes pueden verse como virtudes o ángeles protectores), llena del perfume de las gracias del Espíritu Santo (mirra e incienso), hasta que llega a la plena unión nupcial con el Rey divino, celebrada con júbilo.</p>
+            </div>
+            
+            <div class="tema tema-4">
+                <h3>"No despertéis el amor hasta que quiera" (v.5) en teología espiritual</h3>
+                
+                <p>Esta frase refrán adquiere un matiz teológico: enseña el respeto por el ritmo del amor verdadero, aplicable tanto al amor humano (no precipitar la consumación antes del momento debido, lo que muchos interpretan como una llamada a la castidad prematrimonial y la paciencia en el noviazgo) como al amor divino (no forzar consolaciones espirituales ni visiones místicas, sino esperar los tiempos de Dios).</p>
+                
+                <p>Los padres de la Iglesia veían aquí una exhortación ética: el amor, para que sea genuino, debe madurar libremente bajo la gracia, no por presión externa. Desde una perspectiva teológica moral, este versículo respalda la idea de que el amor es un don que surge voluntaria y naturalmente, ya sea el amor entre esposos guiado por Dios, o el amor del alma hacia Dios suscitado por la gracia en el momento oportuno.</p>
+            </div>
+            
+            <p class="resaltado">En conclusión, en el plano teológico-espiritual, Cantar 3 se ha entendido como mucho más que poesía romántica: es un ícono del amor divino. Sus imágenes de ausencia y encuentro hablan de la relación entre Dios y el ser humano – un Dios que a veces oculta su rostro para ser buscado y que finalmente se revela con gozo.</p>
+            
+            <p class="resaltado">El capítulo refleja la alegría nupcial que en última instancia apunta a la alegría de Dios por unirse con su pueblo/redimidos ("el día del gozo de su corazón", v.11, se aplica a Dios mismo regocijándose con los suyos). Por eso, teológicamente el Cantar fue llamado por rabinos y santos "el Santo de los Santos" de la Escritura, donde bajo el velo del amor humano se contempla el misterio del amor de Dios.</p>
+        </section>
+        
+        <section id="enfoques">
+            <h2><i class="fas fa-balance-scale"></i> Enfoques Interpretativos: Tradición Judía vs. Tradición Cristiana</h2>
+            
+            <p>A lo largo de la historia, judíos y cristianos han ofrecido lecturas ricas y a veces divergentes de Cantar de los Cantares. El capítulo 3, con su combinación de intimidad y pompa, recibió interpretaciones particulares en ambas tradiciones. A continuación comparamos estos enfoques exegéticos:</p>
+            
+            <div class="image-container">
+                <img src="images/cantares3_comparacion_tradiciones.jpg" alt="Comparación de interpretaciones judías y cristianas">
+                <figcaption>Representación comparativa de cómo las tradiciones judía y cristiana han interpretado los símbolos clave de Cantar de los Cantares 3</figcaption>
+            </div>
+            
+            <div class="comparacion">
+                <div class="lado lado-judio">
+                    <h4>Tradición Judía</h4>
+                    
+                    <p>La tradición judía, desde épocas tempranas, ha sostenido que el Cantar es una alegoría del amor entre Hashem (Dios) e Israel. Ningún otro libro bíblico recibió un tratamiento alegórico tan consistente en el judaísmo rabínico.</p>
+                    
+                    <h5>Midrash y Targum</h5>
+                    <p>Los sabios del Midrash interpretaron prácticamente cada detalle del texto como referencia a eventos o realidades espirituales de la historia de Israel. Por ejemplo, el Midrash Rabbah sobre Cantar 3 lee la búsqueda nocturna de la amada (Israel) como las generaciones que buscaban a Dios en tiempos difíciles.</p>
+                    
+                    <p>Un midrash identifica a "el que ama mi alma" con Moisés, y a los "centinelas" con la tribu de Leví, sugiriendo que Israel halló al amado (Dios) a través de la guía de Moisés y los levitas (quienes enseñaban la Torá).</p>
+                    
+                    <h5>Alusión al Éxodo y Sinaí</h5>
+                    <p>Un pilar de la interpretación judía es ver en el Cantar la historia de Israel desde el Éxodo en adelante. Así, la frase "¿Quién es ésta que sube del desierto como columnas de humo…?" (3:6) se relaciona con Israel saliendo de Egipto por el desierto, guiado por la columna de nube y fuego de Dios.</p>
+                    
+                    <div class="cita">
+                        "El día de su boda: el día de la entrega de la Torá, cuando [Israel] coronó a Dios como su rey y aceptó su yugo" - Rashi
+                    </div>
+                    
+                    <button class="btn-expand" onclick="toggleContent('judio-content')">
+                        <i class="fas fa-plus-circle"></i> Ver más tradición judía
+                    </button>
+                    
+                    <div id="judio-content" class="hidden-content">
+                        <h5>La boda como pacto divino</h5>
+                        <p>Los sabios identificaron el "día de la boda" (3:11) con el día en que Israel recibió la Torá en el Monte Sinaí. Decían: "'El día de su boda' – este es el Sinaí". En esa interpretación, Dios (el Rey) se desposó con Israel dándole la Ley; la Torá fue la ketubá (contrato matrimonial) del enlace.</p>
+                        
+                        <p>Por tanto, la corona que la "madre" pone al rey (v.11) se entiende como la corona que Israel puso a Dios aceptándolo como Rey en Sinaí. De hecho, Rashi comenta: "El día de su boda: el día de la entrega de la Torá, cuando [Israel] coronó a Dios como su rey y aceptó su yugo".</p>
+                        
+                        <p>Aquí "su madre" es interpretada metafóricamente como la comunidad de Israel misma que, al decir "haremos y escucharemos", coronó a Dios. Otra escuela rabínica aplica "el día del gozo de su corazón" (3:11b) a la dedicación del Templo de Salomón en Jerusalén, visto como la consumación del pacto (Dios habitando en medio de Israel, su esposa).</p>
+                        
+                        <p>Incluso hay midrashim que extienden la alegoría hasta los días mesiánicos: algunos leían "el día de su boda" como los tiempos venideros del Mesías, cuando el amor Dios-Israel se manifestará en plenitud.</p>
+                        
+                        <h5>Significado de personajes y objetos</h5>
+                        <ul>
+                            <li>La amante es Israel; el amado es Dios. Israel dice "lo busqué y no lo hallé" evocando períodos de distancia de Dios (exilio, crisis) y "lo encontré" alude a momentos de salvación (Éxodo, retornos del exilio).</li>
+                            <li>Los centinelas (3:3) fueron explicados de varias maneras: líderes de Israel, profetas, o incluso ángeles guardianes de las murallas celestiales. Un Midrash los identifica, como vimos, con los levitas purificando al pueblo en el desierto.</li>
+                            <li>La litera/palanquín de Salomón (3:7,9) se interpretó como símbolo del Arca de la Alianza o el Tabernáculo donde Dios se manifestaba. Un comentario midráshico dice que "apiryon" (palanquín) alude al Arca del pacto, hecha de madera de Acacia (madera resistente como el cedro del Líbano).</li>
+                            <li>Los 60 valientes fueron alegorizados como múltiples conjuntos de 60 en la fe judía: además de las 60 letras de la bendición sacerdotal, se mencionaron las 60 míriadas de Israel (600,000 hombres) presentes en Sinaí protegidos por la Torá, o los 60 tratados del Talmud que circundan la presencia divina.</li>
+                            <li>"Hijas de Jerusalén/Sión" representan a las naciones o a los propios israelitas llamados a contemplar las maravillas de Dios. En 3:11, cuando dice "salid, hijas de Sión, y ved al rey Salomón…", el Midrash invita a contemplar a Dios en su gloria mesiánica.</li>
+                        </ul>
+                        
+                        <h5>Comentarios medievales judíos</h5>
+                        <p>Rabinos como Rashi (s. XI) siguieron la línea midráshica, punto por punto. Otros, como Abraham Ibn Ezra (s. XII), intentaron equilibrar la alegoría con el sentido literal. Ibn Ezra es notable porque en su comentario al Cantar realiza una "triple ronda" de análisis: primero filológico, luego literal (explicando el poema como drama amoroso humano) y finalmente midráshico/espiritual.</p>
+                        
+                        <p>Reconoce el valor del amor humano en el nivel sencillo, pero concluye que la verdadera intención es alegórica, dado lo "sagrado" del texto. Esta convicción venía en parte respaldada por la famosa sentencia de Rabí Akiva en el siglo II: "¡Dios no lo quiera! Ningún israelita dudó jamás que el Cantar de los Cantares manara pureza. Porque todos los Escritos son santos, pero el Cantar de los Cantares es santísimo".</p>
+                    </div>
+                </div>
+                
+                <div class="lado lado-cristiano">
+                    <h4>Tradición Cristiana</h4>
+                    
+                    <p>La tradición cristiana temprana heredó en parte la visión alegórica judía y la reorientó hacia Cristo y la Iglesia. No obstante, también introdujo matices nuevos, incluyendo interpretaciones morales y místicas.</p>
+                    
+                    <h5>Los Padres de la Iglesia (siglos II-V)</h5>
+                    <p>Ya en el siglo II, san Hipólito de Roma comentó el Cantar viendo a Cristo como el Esposo y a la Iglesia como la Esposa. Pero el gran pionero fue Orígenes de Alejandría (s. III), quien escribió el primer comentario cristiano extenso sobre el libro.</p>
+                    
+                    <p>Orígenes, influido por la escuela alegórica de interpretación, sostuvo que nada en el Cantar debía leerse carnalmente, sino espiritualmente. Él sistematizó la idea de que el amado es Cristo y la amada es la Iglesia y/o el alma fiel.</p>
+                    
+                    <div class="cita">
+                        En Cantar 3, la Iglesia anhela a Cristo en la noche de este mundo; sus pastores (obispos, sacerdotes) serían los "guardias" que ayudan pero solo Cristo sacia.
+                    </div>
+                    
+                    <button class="btn-expand" onclick="toggleContent('cristiano-content')">
+                        <i class="fas fa-plus-circle"></i> Ver más tradición cristiana
+                    </button>
+                    
+                    <div id="cristiano-content" class="hidden-content">
+                        <p>El encuentro al llevarlo a "la casa de mi madre" Orígenes lo leyó como la Iglesia primitiva (la madre de cada cristiano es la Iglesia Madre) o el alma introduciendo a Cristo en lo íntimo de su ser.</p>
+                        
+                        <p>El juramento por las gacelas (v.5) lo interpretó moralmente: la Iglesia aconseja moderación y pureza a las almas, que no despierten pasiones desordenadas sino que esperen la voluntad de Dios.</p>
+                        
+                        <p>La escena de Salomón con la litera y la corona la aplicó a Cristo triunfante: Orígenes llegó a sugerir que la litera era la cruz y los perfumes la adoración de la Iglesia, pero la mayoría de los padres la entendieron más como la pompa espiritual de Cristo Rey llevando a su Esposa (la Iglesia) en triunfo.</p>
+                        
+                        <p>Orígenes también introdujo la interpretación triple (histórica, eclesial, mística) ya mencionada, permitiendo así que el texto se aplicara al creyente individual. Su influencia fue enorme: san Jerónimo y san Ambrosio continuaron promoviendo la lectura alegórica, y esta se volvió la interpretación estándar.</p>
+                        
+                        <h5>Época medieval latina</h5>
+                        <p>Durante la Edad Media cristiana, el Cantar de los Cantares fue quizás el libro más comentado alegóricamente (junto con Apocalipsis). Se le consideraba un texto místico por excelencia.</p>
+                        
+                        <p>Un ejemplo destacado es Bernardo de Claraval (s. XII), quien predicó 86 sermones solo sobre los dos primeros capítulos del Cantar, extrayendo enseñanzas espirituales minuciosas. Los medievales a menudo distinguían cuatro sentidos de la Escritura (literal, alegórico, moral, anagógico).</p>
+                        
+                        <p>El sentido literal aceptaba que describía el amor conyugal ideal (aunque se enfocaban poco en él). El sentido alegórico veía a Cristo e Iglesia. Por ejemplo, la procesión real la veían como la Iglesia triunfante acompañando a Cristo, o a Cristo viniendo con sus apóstoles.</p>
+                        
+                        <p>El sentido moral se centraba en el amor del alma a Cristo, y las virtudes. Así, la búsqueda nocturna se predicaba como imagen de la oración perseverante, la retención del amado como la práctica de la presencia de Dios, las "noches" como las pruebas del creyente.</p>
+                        
+                        <p>El sentido anagógico (místico-escatológico) aplicaba Cantar 3 a la visión del cielo: el alma al fin encuentra al Esposo y se realiza la "boda mística" eterna, prefigurando las bodas del Cordero del fin de los tiempos.</p>
+                        
+                        <h5>Aporte de los místicos cristianos</h5>
+                        <p>Además de Bernardo, místicos renombrados como Francisco de Asís, Juan de la Cruz, Teresa de Ávila y muchos otros usaron el Cantar como lenguaje para sus experiencias. Fray Luis de León (s. XVI) incluso tradujo y comentó el Cantar en español con énfasis en el simbolismo espiritual.</p>
+                        
+                        <p>San Juan de la Cruz en su Cántico Espiritual parafrasea pasajes del Cantar, reflejando a Cristo como Esposo. Para estos autores, la amada del capítulo 3 es el alma que en la "noche oscura" purga sus apegos y, tras buscar a su Amado con "ansias en el pecho", al fin goza de unión transformante.</p>
+                        
+                        <p>Teresa de Ávila, en su Moradas, alude a esa unión como "desposorio espiritual" preparatorio para el "matrimonio espiritual", imágenes tomadas del Cantar. Así, la tradición mística cristiana lee Cantar 3 como un mapa de la unión alma-Dios: búsqueda purgativa, encuentro iluminativo, matrimonio unitivo.</p>
+                        
+                        <h5>Relecturas posteriores</h5>
+                        <p>La Reforma protestante inicialmente mantuvo la alegoría (Lutero, aunque más moderado, aún veía en el Cantar a Salomón figurando a Cristo y la Sulamita a Israel/Iglesia). Sin embargo, con el avance de la teología moderna, se empezó a valorar más el sentido literal: el Cantar como celebración del amor conyugal dado por Dios, sin necesidad de forzar alegorías en cada detalle.</p>
+                        
+                        <p>Comentarios contemporáneos muchas veces hacen una lectura teológica contextualizada: reconocen la belleza del amor humano del texto y extraen principios (fidelidad, búsqueda mutua, respeto de tiempos, etc.) que reflejan verdades sobre el amor de Dios, pero sin anular la realidad erótica del poema. Aun así, la herencia alegórica sigue presente en la predicación y canto cristiano.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="resaltado">En resumen, la tradición cristiana, especialmente patrística y medieval, convierte a Cantar 3 en un relato de Cristo y su Esposa (Iglesia o alma). Coincide con la visión judía en ver al texto hablando del amor divino, pero difiere en los personajes: para los cristianos, Jesucristo es el centro (Salomón es tipo de Cristo, el verdadero Rey de paz y sabiduría), y la amada representa colectivamente al nuevo Israel (la Iglesia) o al individuo en gracia.</p>
+            
+            <p class="resaltado">Ambas tradiciones sin embargo comparten una intuición profunda: este capítulo expresa la pasión del amor verdadero, que trasciende el nivel humano y apunta al misterio del Amor de Dios, un amor que busca y se deja encontrar, que protege y se regocija en una unión íntima con los suyos. Esa convergencia explica por qué, a pesar de sus diferencias, judíos y cristianos veneran el Cantar de los Cantares como un tesoro sagrado donde el lenguaje del amor humano se sublima para hablar de lo divino.</p>
+        </section>
+        
+        <section id="referencias">
+            <h2><i class="fas fa-scroll"></i> Referencias Académicas y Comentarios Especializados</h2>
+            
+            <p>Para enriquecer el análisis anterior, se han integrado aportes de diversos estudios bíblicos y comentarios exegéticos de renombre:</p>
+            
+            <div class="referencias">
+                <h3>Referencias citadas</h3>
+                <ul>
+                    <li>Midrash Rabá, Shir HaShirim Rabá 3:11 – Interpretación alegórica del "día de su boda" como Sinaí.</li>
+                    <li>Biblia de Estudio NET – Notas sobre Cantar 3: análisis lingüístico (e.g., nafshi "mi alma" como pronombre enfático).</li>
+                    <li>Orígenes, Homilías sobre el Cantar – (Resumen en González Campa 2017) triple interpretación: histórica, eclesial y mística.</li>
+                    <li>Rabí Akiva citado en Talmud de Jerusalén, Yadayim 3:5 – "Cantar de los Cantares es el Santo de los Santos".</li>
+                    <li>J. Paul Tanner, "The History of Interpretation of the Song of Songs" (biblioteca digital) – Revisión de enfoques alegóricos judíos y cristianos.</li>
+                    <li>John Gill, Exposición de Cantar 3:11 – Nota sobre la costumbre de coronas nupciales en bodas judías antiguas.</li>
+                    <li>Tom Gledhill, The Message of the Song of Songs (BST, 1994) – Comentario citado sobre "en las noches" (Heb. balailot) significando "noche tras noche".</li>
+                    <li>Midrash Rabá, Shir HaShirim Rabá 3:7 – Alegorización de los 60 valientes como letras de la bendición sacerdotal.</li>
+                    <li>Baruch Alster, "Deepening Love in the Song of Songs" (TheTorah.com, 2019) – Análisis literario señalando contrastes temáticos en 3:6-11.</li>
+                    <li>Roland E. Murphy, The Song of Songs (Hermeneia, 1990) – Introducción que recoge la influencia de Orígenes y la línea alegórica cristiana.</li>
+                </ul>
+            </div>
+            
+            <p class="resaltado">En conclusión, el capítulo 3 de Cantar de los Cantares ha sido analizado aquí teniendo en cuenta el significado de sus palabras hebreas, la cultura que las engendró, las lecturas espirituales que inspiraron y la riqueza interpretativa tanto judía como cristiana. Este poema milenario, con su lenguaje sensual y sagrado a la vez, se revela así como una fuente inagotable de reflexión: celebra el amor humano en su belleza y, al mismo tiempo, sirve de espejo para comprender el Amor de Dios por el ser humano.</p>
+            
+            <p class="resaltado">Las interpretaciones académicas y tradicionales convergen en destacar la profundidad simbólica de este capítulo – desde el lecho buscador en la noche hasta la radiante procesión nupcial – como expresión poética de verdades universales sobre el amor, la fe y la comunión entre el cielo y la tierra.</p>
+        </section>
+    </div>
+    
+    <footer>
+        <p>Exégesis del Capítulo 3 de Cantar de los Cantares | Un estudio sobre el amor humano y el amor divino en la poesía bíblica</p>
+    </footer>
+    
+    <div class="scroll-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            if (content.classList.contains('hidden-content')) {
+                content.classList.remove('hidden-content');
+                content.classList.add('show');
+                const button = content.previousElementSibling;
+                button.innerHTML = `<i class="fas fa-minus-circle"></i> Mostrar menos`;
+            } else {
+                content.classList.remove('show');
+                content.classList.add('hidden-content');
+                const button = content.previousElementSibling;
+                button.innerHTML = `<i class="fas fa-plus-circle"></i> Ver más`;
+            }
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Highlight current section in navbar based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').substring(1) === current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

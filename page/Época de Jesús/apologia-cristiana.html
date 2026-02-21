@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apología Cristiana | Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+    :root {
+    --primary-color: #102a43;        /* Azul profundo – misterio divino */
+    --secondary-color: #486581;      /* Azul pizarra – estabilidad teológica */
+    --accent-color: #0f766e;         /* Verde turquesa oscuro – renuevo espiritual */
+    --background-color: #f1f5f9;     /* Niebla suave – pureza reflexiva */
+    --text-color: #1e293b;           /* Azul grisáceo – claridad académica */
+    --light-accent: #e0f2f1;         /* Verde hielo – detalle sereno */
+    --gold-accent: #eab308;          /* Oro radiante – sabiduría revelada */
+    --card-bg: #ffffff;
+    --heading-color: #0f172a;
+    --border-light: #cbd5e1;
+    --shadow-soft: 0 8px 16px rgba(16, 42, 67, 0.08);
+    --gradient-blue: linear-gradient(135deg, #0f172a 0%, #3b82f6 100%);
+    --gradient-hover: linear-gradient(135deg, #1e40af 0%, #60a5fa 100%);
+    --transition-smooth: all 0.3s ease-in-out;
+    --font-primary: 'Spectral', serif;
+    --font-heading: 'Raleway', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.03) 0%, transparent 700px),
+                radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 700px);
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--gradient-blue);
+            color: white;
+            padding: 1.2rem 0;
+            box-shadow: var(--shadow-soft);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 55px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .breadcrumb {
+            background-color: white;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        .breadcrumb-nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .breadcrumb-nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        .breadcrumb-nav i {
+            color: var(--secondary-color);
+            font-size: 0.7rem;
+        }
+
+      .hero {
+    padding: 6rem 0;
+    background: 
+        linear-gradient(rgba(16, 42, 67, 0.7), rgba(16, 42, 67, 0.7)),
+        url('./images/apolegetica.png') center / cover no-repeat;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="white" opacity="0.05" /></svg>');
+            background-size: 20px 20px;
+            opacity: 0.2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 6px rgba(15, 23, 42, 0.1);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.2);
+            background: #0d9668;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 5rem 0;
+        }
+
+        /* Info Blocks */
+        .info-blocks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .info-block {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+
+        .info-block:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .info-block-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-blue);
+        }
+
+        .info-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--light-accent);
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .info-block:nth-child(2) .info-icon {
+            color: var(--primary-color);
+            background: rgba(30, 58, 138, 0.1);
+        }
+
+        .info-block:nth-child(3) .info-icon {
+            color: var(--gold-accent);
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        .info-block-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--heading-color);
+            font-weight: 600;
+        }
+
+        .info-block-text {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 1rem auto 0;
+        }
+
+        .section-title h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--heading-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            font-family: var(--font-primary);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-color);
+            opacity: 0.8;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* Question Accordion */
+        .question-section {
+            margin-bottom: 5rem;
+        }
+
+        .question-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .question-card {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+
+        .question-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition-smooth);
+            border-bottom: 1px solid transparent;
+        }
+
+        .question-header:hover {
+            background-color: rgba(59, 130, 246, 0.05);
+        }
+
+        .question-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--heading-color);
+            padding-right: 2rem;
+        }
+
+        .question-icon {
+            color: var(--secondary-color);
+            transition: var(--transition-smooth);
+            font-size: 1.2rem;
+        }
+
+        .question-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .question-body-inner {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        .question-body-inner p {
+            margin-bottom: 1rem;
+        }
+
+        .question-card.active .question-header {
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .question-card.active .question-icon {
+            transform: rotate(180deg);
+        }
+
+        .question-card.active .question-body {
+            max-height: 1000px;
+        }
+
+        .scripture {
+            background-color: var(--light-accent);
+            padding: 1rem;
+            border-left: 3px solid var(--accent-color);
+            margin: 1.5rem 0;
+            font-style: italic;
+            font-family: var(--font-primary);
+        }
+
+        .scripture-ref {
+            font-weight: 700;
+            color: var(--heading-color);
+            margin-top: 0.5rem;
+            display: block;
+            text-align: right;
+        }
+
+        /* Book Recommendations */
+        .book-section {
+            background-color: #f1f5f9;
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .book-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .book-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .book-category {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--gradient-blue);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .book-category.classic {
+            background: var(--gradient-blue);
+        }
+
+        .book-category.contemporary {
+            background: var(--gradient-green);
+        }
+
+        .book-image {
+            height: 180px;
+            width: 100%;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            background: var(--gradient-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="white" opacity="0.1" /></svg>');
+            background-size: 20px 20px;
+        }
+
+        .book-icon {
+            position: relative;
+            z-index: 1;
+        }
+
+        .book-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--heading-color);
+            font-weight: 700;
+        }
+
+        .book-author {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .book-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .book-link {
+            display: inline-block;
+            padding: 0.7rem 1.2rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .book-link:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Testimonial */
+        .testimonial-section {
+            padding: 5rem 0;
+        }
+
+        .testimonial-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            padding: 3rem;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            text-align: center;
+        }
+
+        .testimonial-icon {
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-text {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--heading-color);
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+        }
+
+        .testimonial-position {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient-blue);
+            padding: 5rem 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="white" opacity="0.05" /></svg>');
+            background-size: 20px 20px;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .cta-text {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            background: var(--light-accent);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: white;
+            padding: 4rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h4 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .footer-column p {
+            line-height: 1.7;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a i {
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+            color: white;
+        }
+
+        .social-icon:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .testimonial-container {
+                padding: 2rem;
+            }
+            
+            .testimonial-text {
+                font-size: 1.2rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+            
+            .info-blocks,
+            .book-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle,
+            .cta-text {
+                font-size: 1rem;
+            }
+            
+            .info-block,
+            .testimonial-container {
+                padding: 1.5rem;
+            }
+            
+            .question-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="../../images/EMD.png" alt="Logo EMD">
+                <div class="logo-text">
+                    <div>Ministerio</div>
+                    <div>"La Gloria es del Señor"</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="../../index.html">Inicio</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="../index.html">Época de Jesús</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Apología Cristiana</span>
+            </nav>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-title">Apología Cristiana</h1>
+            <p class="hero-subtitle">Defendiendo la fe cristiana con fundamentos bíblicos, históricos y filosóficos, equipándote con respuestas a las preguntas más desafiantes</p>
+            <a href="#preguntas" class="hero-cta">Explorar Respuestas</a>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="info-blocks">
+                <div class="info-block fade-in-up">
+                    <div class="info-block-accent"></div>
+                    <div class="info-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="info-block-title">¿Qué es la Apología?</h3>
+                    <p class="info-block-text">La apología cristiana es la defensa racional y fundamentada de la fe. Deriva del griego "apologia" (ἀπολογία), que significa "dar una defensa". Se enfoca en responder preguntas, objeciones y críticas con argumentos lógicos y evidencias.</p>
+                </div>
+                
+                <div class="info-block fade-in-up delay-1">
+                    <div class="info-block-accent"></div>
+                    <div class="info-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="info-block-title">Base Bíblica</h3>
+                    <p class="info-block-text">La apología tiene su fundamento en la Escritura. 1 Pedro 3:15 nos exhorta: "Santificad a Dios el Señor en vuestros corazones, y estad siempre preparados para presentar defensa con mansedumbre y reverencia ante todo el que os demande razón de la esperanza que hay en vosotros."</p>
+                </div>
+                
+                <div class="info-block fade-in-up delay-2">
+                    <div class="info-block-accent"></div>
+                    <div class="info-icon">
+                        <i class="fas fa-arrows-to-circle"></i>
+                    </div>
+                    <h3 class="info-block-title">Propósito</h3>
+                    <p class="info-block-text">La apología cristiana busca demostrar la racionalidad de la fe, eliminar obstáculos intelectuales para los que buscan a Dios, fortalecer la fe de los creyentes y presentar una defensa coherente de la cosmovisión cristiana en la plaza pública de ideas.</p>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <h2>Preguntas Fundamentales</h2>
+                <p>Respuestas bíblicas y razonadas a las interrogantes más desafiantes para la fe cristiana</p>
+            </div>
+        </div>
+
+        <section class="question-section" id="preguntas">
+            <div class="container question-container">
+                <!-- Question 1 -->
+                <div class="question-card fade-in-up">
+                    <div class="question-header">
+                        <h3 class="question-title">¿Cómo puede existir un Dios bueno cuando hay tanto sufrimiento en el mundo?</h3>
+                        <div class="question-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="question-body">
+                        <div class="question-body-inner">
+                            <p>El problema del sufrimiento es quizás uno de los desafíos más profundos para la fe cristiana. C.S. Lewis, en su obra "El Problema del Dolor", aborda esta cuestión reconociendo que "el dolor sería un problema insoluble si el cristianismo no fuera verdadero." La respuesta cristiana se desarrolla en varios niveles:</p>
+                            
+                            <p><strong>1. El libre albedrío humano:</strong> Dios creó a los seres humanos con libertad genuina para elegir el bien o el mal. Gran parte del sufrimiento en el mundo proviene de las decisiones equivocadas de las personas. Sin libertad, no existiría el amor auténtico, pero la libertad implica la posibilidad del mal.</p>
+                            
+                            <p><strong>2. El mundo caído:</strong> La teología cristiana enseña que vivimos en un mundo que ha caído de su estado original perfecto. La naturaleza misma está "sujeta a vanidad", como explica Pablo en Romanos 8.</p>
+                            
+                            <div class="scripture">
+                                "Porque sabemos que toda la creación gime a una, y a una está con dolores de parto hasta ahora."
+                                <span class="scripture-ref">Romanos 8:22</span>
+                            </div>
+                            
+                            <p><strong>3. El propósito redentor del sufrimiento:</strong> El cristianismo no niega el sufrimiento, sino que afirma que Dios puede usarlo con propósitos redentores, desarrollando el carácter y la fe.</p>
+                            
+                            <p><strong>4. La solidaridad divina en el sufrimiento:</strong> En Cristo, Dios mismo entró en nuestro sufrimiento. Jesús experimentó el rechazo, la traición, la tortura y la muerte. Dios no es indiferente a nuestro dolor; lo ha experimentado.</p>
+                            
+                            <p><strong>5. La promesa de redención final:</strong> El cristianismo promete que el sufrimiento no tendrá la última palabra. Habrá una renovación cósmica donde "enjugará Dios toda lágrima de los ojos" (Apocalipsis 21:4).</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="question-card fade-in-up delay-1">
+                    <div class="question-header">
+                        <h3 class="question-title">¿Es razonable creer en los milagros en una era científica?</h3>
+                        <div class="question-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="question-body">
+                        <div class="question-body-inner">
+                            <p>La tensión entre ciencia y milagros es más aparente que real. La ciencia estudia cómo funciona normalmente el mundo natural mediante procesos regulares y repetibles. Los milagros, por definición, son eventos extraordinarios que trascienden estas regularidades debido a la intervención divina.</p>
+                            
+                            <p><strong>1. Los milagros no contradicen la ciencia:</strong> Un milagro no es una violación de las leyes naturales, sino la intervención de un agente con poder superior. C.S. Lewis lo ilustra así: si pongo un billete de $100 en una caja cerrada y luego la abro para encontrar dos billetes de $100, no se han violado las leyes de la aritmética; más bien, alguien ha intervenido.</p>
+                            
+                            <p><strong>2. El prejuicio anti-sobrenatural:</strong> La negación a priori de los milagros a menudo se basa en un prejuicio filosófico (naturalismo) más que en evidencia científica. Si Dios existe, los milagros son posibles.</p>
+                            
+                            <div class="scripture">
+                                "Entonces, ¿por qué os parece a vosotros cosa increíble que Dios resucite a los muertos?"
+                                <span class="scripture-ref">Hechos 26:8</span>
+                            </div>
+                            
+                            <p><strong>3. Evidencia histórica:</strong> La evidencia histórica para ciertos milagros, particularmente la resurrección de Jesús, es sorprendentemente fuerte cuando se evalúa según los criterios históricos estándar. El cambio radical en los discípulos, que pasaron de estar escondidos por miedo a proclamar audazmente el evangelio, sugiere que experimentaron algo extraordinario.</p>
+                            
+                            <p><strong>4. Testimonios contemporáneos:</strong> Existen numerosos testimonios de eventos milagrosos en la actualidad, muchos con evidencia médica o testimonial significativa, que sugieren que la era de los milagros no ha terminado.</p>
+                            
+                            <p><strong>5. La compatibilidad con la cosmovisión cristiana:</strong> Los milagros son consistentes con la visión cristiana de un Dios personal que creó el universo y sigue interactuando con él. No son anomalías inexplicables, sino señales del Reino de Dios irrumpiendo en el mundo presente.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="question-card fade-in-up delay-2">
+                    <div class="question-header">
+                        <h3 class="question-title">¿Cómo sabemos que la Biblia es confiable y no simplemente un libro humano?</h3>
+                        <div class="question-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="question-body">
+                        <div class="question-body-inner">
+                            <p>La confiabilidad de la Biblia se puede evaluar desde múltiples perspectivas:</p>
+                            
+                            <p><strong>1. Evidencia manuscrita:</strong> El Nuevo Testamento cuenta con más de 5,800 manuscritos griegos, algunos datando del siglo II. Esta abundancia de manuscritos permite a los eruditos reconstruir el texto original con extraordinaria precisión. Ningún otro documento de la antigüedad se acerca a este nivel de atestación manuscrita.</p>
+                            
+                            <p><strong>2. Confirmación arqueológica:</strong> Las excavaciones arqueológicas han confirmado repetidamente la precisión histórica y geográfica de los relatos bíblicos. Lugares, personas y eventos mencionados en la Biblia continúan siendo verificados por hallazgos arqueológicos.</p>
+                            
+                            <p><strong>3. Coherencia interna:</strong> A pesar de ser escrita por aproximadamente 40 autores diferentes durante un período de 1,500 años, la Biblia mantiene una asombrosa coherencia temática y teológica.</p>
+                            
+                            <div class="scripture">
+                                "Toda la Escritura es inspirada por Dios, y útil para enseñar, para redargüir, para corregir, para instruir en justicia."
+                                <span class="scripture-ref">2 Timoteo 3:16</span>
+                            </div>
+                            
+                            <p><strong>4. Cumplimiento profético:</strong> Numerosas profecías bíblicas han sido cumplidas con precisión, incluyendo predicciones detalladas sobre la venida del Mesías escritas siglos antes del nacimiento de Jesús.</p>
+                            
+                            <p><strong>5. Impacto transformador:</strong> A lo largo de los siglos, las enseñanzas bíblicas han demostrado un poder transformador en individuos y sociedades, sugiriendo que es más que simples palabras humanas.</p>
+                            
+                            <p><strong>6. Testimonio del Espíritu Santo:</strong> Para los creyentes, el testimonio interno del Espíritu Santo confirma la autoridad divina de las Escrituras, permitiéndoles reconocer la voz de Dios en sus páginas.</p>
+                            
+                            <p>Como señala Josh McDowell en "Evidencia que exige un veredicto", la Biblia ha soportado siglos de escrutinio crítico y continúa resistiendo los intentos de desacreditarla, sugiriendo que su origen trasciende lo meramente humano.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 4 -->
+                <div class="question-card fade-in-up delay-3">
+                    <div class="question-header">
+                        <h3 class="question-title">¿Jesús realmente existió o es un personaje mítico?</h3>
+                        <div class="question-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="question-body">
+                        <div class="question-body-inner">
+                            <p>La existencia histórica de Jesús es aceptada por virtualmente todos los historiadores serios, independientemente de su afiliación religiosa. La evidencia incluye:</p>
+                            
+                            <p><strong>1. Fuentes romanas:</strong> Historiadores romanos como Tácito (Anales, 15.44) y Suetonio (Vida de Claudio, 25.4) mencionan a Jesús y a los primeros cristianos. Tácito, escribiendo alrededor del 116 d.C., se refiere a "Christus" quien fue ejecutado por Poncio Pilato durante el reinado de Tiberio.</p>
+                            
+                            <p><strong>2. Fuentes judías:</strong> El historiador judío Flavio Josefo menciona a Jesús dos veces en sus "Antigüedades Judías" (18.3.3 y 20.9.1), escritas alrededor del 93-94 d.C. La referencia en 20.9.1 a "Santiago, hermano de Jesús llamado Cristo" es ampliamente reconocida como auténtica incluso por eruditos escépticos.</p>
+                            
+                            <p><strong>3. Fuentes sirias:</strong> Mara bar Serapión, un estoico sirio, escribió una carta a su hijo (alrededor del 73 d.C.) mencionando a "el sabio rey de los judíos" que fue ejecutado.</p>
+                            
+                            <p><strong>4. Las Epístolas de Pablo:</strong> Escritas entre 48-64 d.C., apenas 15-30 años después de la crucifixión, y ampliamente reconocidas como auténticas incluso por eruditos críticos.</p>
+                            
+                            <div class="scripture">
+                                "Porque primeramente os he enseñado lo que asimismo recibí: Que Cristo murió por nuestros pecados, conforme a las Escrituras; y que fue sepultado, y que resucitó al tercer día, conforme a las Escrituras."
+                                <span class="scripture-ref">1 Corintios 15:3-4</span>
+                            </div>
+                            
+                            <p><strong>5. Los Evangelios:</strong> Aunque algunos cuestionan detalles específicos, la mayoría de los historiadores reconocen que los evangelios contienen un núcleo histórico sustancial.</p>
+                            
+                            <p><strong>6. El criterio de dificultad:</strong> Los evangelios contienen detalles embarazosos (como la traición de Judas o las negaciones de Pedro) que difícilmente habrían sido inventados.</p>
+                            
+                            <p>El historiador no cristiano Bart Ehrman afirma: "La opinión de que Jesús existió está sostenida por virtualmente cada experto en el planeta." La teoría del mito de Jesús carece de credibilidad académica seria.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 5 -->
+                <div class="question-card fade-in-up delay-4">
+                    <div class="question-header">
+                        <h3 class="question-title">¿No son todas las religiones esencialmente lo mismo?</h3>
+                        <div class="question-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="question-body">
+                        <div class="question-body-inner">
+                            <p>Aunque las tradiciones religiosas del mundo comparten algunos valores morales comunes, difieren fundamentalmente en sus afirmaciones centrales sobre la naturaleza de Dios, la humanidad y la salvación:</p>
+                            
+                            <p><strong>1. Concepciones diferentes de Dios:</strong> El cristianismo afirma un Dios personal y trinitario; el islam enseña un monoteísmo estricto; el hinduismo abarca desde el monoteísmo hasta el politeísmo; el budismo tradicional es no teísta; el taoísmo ve lo divino como un principio impersonal.</p>
+                            
+                            <p><strong>2. Visiones opuestas de Jesús:</strong> Para los cristianos, Jesús es Dios encarnado y salvador; para los musulmanes, un profeta pero no divino; para hindúes, posiblemente un avatar entre muchos; para budistas, potencialmente un maestro iluminado.</p>
+                            
+                            <div class="scripture">
+                                "Yo soy el camino, y la verdad, y la vida; nadie viene al Padre, sino por mí."
+                                <span class="scripture-ref">Juan 14:6</span>
+                            </div>
+                            
+                            <p><strong>3. Caminos incompatibles hacia la salvación:</strong> El cristianismo enseña la salvación por gracia mediante la fe en Cristo; el islam enfatiza la sumisión a Alá y las buenas obras; el hinduismo generalmente enfatiza el karma y la reencarnación; el budismo busca la liberación del sufrimiento a través del Noble Camino Óctuple.</p>
+                            
+                            <p><strong>4. Diferentes visiones del problema humano:</strong> El cristianismo identifica el pecado como la separación de Dios; el budismo ve la ignorancia y el deseo como la raíz del sufrimiento; el hinduismo identifica el apego y la ilusión como los problemas fundamentales.</p>
+                            
+                            <p><strong>5. Afirmaciones exclusivas:</strong> Muchas religiones hacen afirmaciones que, por lógica, no pueden ser simultáneamente verdaderas. Si Jesús es Dios encarnado como afirma el cristianismo, entonces las religiones que niegan su divinidad están equivocadas en ese punto central.</p>
+                            
+                            <p>Como observó G.K. Chesterton: "La verdad es que las grandes religiones del mundo no sólo difieren en detalles pequeños, sino que son absolutamente distintas en la atmósfera y la actitud." El cristianismo no es simplemente una variación de un tema religioso universal, sino que hace afirmaciones únicas sobre la naturaleza de Dios, la condición humana y el camino hacia Dios.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 6 -->
+                <div class="question-card fade-in-up delay-4">
+                    <div class="question-header">
+                        <h3 class="question-title">¿Cómo reconciliar la ciencia y la fe cristiana?</h3>
+                        <div class="question-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="question-body">
+                        <div class="question-body-inner">
+                            <p>Lejos de ser enemigos naturales, la ciencia y la fe cristiana pueden coexistir armoniosamente. A lo largo de la historia, muchos grandes científicos han sido cristianos devotos, viendo en el orden natural un reflejo de la racionalidad divina.</p>
+                            
+                            <p><strong>1. Dominios complementarios:</strong> Ciencia y fe abordan diferentes tipos de preguntas. La ciencia se ocupa del "cómo" de los procesos naturales, mientras que la fe responde al "por qué" del propósito y significado. Como señaló Stephen Jay Gould, representan "magisteria no superpuestos".</p>
+                            
+                            <div class="scripture">
+                                "Los cielos cuentan la gloria de Dios, y el firmamento anuncia la obra de sus manos. Un día emite palabra a otro día, y una noche a otra noche declara sabiduría."
+                                <span class="scripture-ref">Salmo 19:1-2</span>
+                            </div>
+                            
+                            <p><strong>2. Compatibilidad histórica:</strong> Figuras clave en el desarrollo científico como Nicolás Copérnico, Johannes Kepler, Isaac Newton, Michael Faraday y James Clerk Maxwell eran cristianos que veían sus descubrimientos como reveladores de la mente de Dios.</p>
+                            
+                            <p><strong>3. Variedad de interpretaciones:</strong> Existen diversas perspectivas cristianas sobre cuestiones como la edad de la Tierra o la evolución. Algunos adoptan interpretaciones literales de Génesis, mientras otros ven los relatos de la creación como expresiones teológicas compatibles con descubrimientos científicos modernos.</p>
+                            
+                            <p><strong>4. Fundamentos filosóficos:</strong> La cosmovisión cristiana, con su énfasis en un Dios racional que creó un universo comprensible, proporcionó el marco filosófico para el desarrollo de la ciencia moderna. La expectativa de orden, regularidad y comprensibilidad en la naturaleza surge naturalmente de la creencia en un Creador racional.</p>
+                            
+                            <p><strong>5. El paradigma de la humildad:</strong> Tanto la ciencia como la fe cristiana auténtica valoran la humildad intelectual. La ciencia reconoce sus propias limitaciones y naturaleza provisional, mientras que la fe reconoce los misterios divinos que trascienden la comprensión humana.</p>
+                            
+                            <p>Como observó Francis Collins, director del Proyecto Genoma Humano y cristiano comprometido: "La ciencia es la única forma de entender el mundo natural, y la fe cristiana es la única forma de entrar en una relación personal con Dios. Las dos son enteramente compatibles, dado que Dios ha revelado tanto su naturaleza como su será tanto a través del libro de las Escrituras como del libro de la naturaleza."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 7 -->
+                <div class="question-card fade-in-up delay-4">
+                    <div class="question-header">
+                        <h3 class="question-title">¿Por qué hay tantas denominaciones cristianas si la verdad es una?</h3>
+                        <div class="question-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="question-body">
+                        <div class="question-body-inner">
+                            <p>La multiplicidad de denominaciones cristianas representa un desafío apologético frecuente. Sin embargo, un análisis más profundo revela varios factores que ayudan a contextualizar esta realidad:</p>
+                            
+                            <p><strong>1. Unidad en lo esencial:</strong> A pesar de sus diferencias, las principales denominaciones cristianas históricas mantienen acuerdo en las doctrinas centrales expresadas en los credos ecuménicos: la Trinidad, la encarnación, la muerte y resurrección de Cristo, y la salvación por gracia mediante la fe.</p>
+                            
+                            <div class="scripture">
+                                "Un cuerpo, y un Espíritu, como fuisteis también llamados en una misma esperanza de vuestra vocación; un Señor, una fe, un bautismo, un Dios y Padre de todos, el cual es sobre todos, y por todos, y en todos."
+                                <span class="scripture-ref">Efesios 4:4-6</span>
+                            </div>
+                            
+                            <p><strong>2. Diversidad en lo no esencial:</strong> Muchas divisiones denominacionales se relacionan con diferencias en gobierno eclesiástico, prácticas sacramentales, énfasis teológicos o interpretaciones de pasajes bíblicos ambiguos. Como observó Agustín: "En lo esencial, unidad; en lo no esencial, libertad; en todo, caridad."</p>
+                            
+                            <p><strong>3. Factores históricos y culturales:</strong> Muchas divisiones reflejan contextos históricos específicos, influencias culturales, o circunstancias políticas más que desacuerdos teológicos profundos. Las iglesias nacionales europeas, por ejemplo, a menudo surgieron de necesidades políticas tanto como de convicciones doctrinales.</p>
+                            
+                            <p><strong>4. La condición humana:</strong> Las divisiones también reflejan la realidad del pecado y las limitaciones humanas. Pablo mismo reconoció esta tendencia en la iglesia primitiva de Corinto, donde algunos seguían a Pablo, otros a Apolos, y otros a Cefas.</p>
+                            
+                            <p><strong>5. Compensaciones positivas:</strong> La diversidad denominacional, aunque imperfecta, ha permitido diferentes expresiones culturales de fe, diversos énfasis teológicos que enriquecen la comprensión global, y protección contra la corrupción universal que podría afectar a una estructura monolítica.</p>
+                            
+                            <p>Como señaló C.S. Lewis en "Mero Cristianismo", las denominaciones son como habitaciones en una casa grande. "La habitación donde entres primero es donde debes estar por ahora... Pero desde esa habitación tienes acceso a toda la casa. Si puedes, una vez entrado en tu habitación, ser amable con quienes escogieron puertas diferentes y reconocer que sus habitaciones son habitaciones, entonces comenzarás a descubrir si esa sala mayor, la sala de todos, es para ti."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 8 -->
+                <div class="question-card fade-in-up delay-4">
+                    <div class="question-header">
+                        <h3 class="question-title">¿Si Dios es omnisciente y conoce el futuro, tenemos realmente libre albedrío?</h3>
+                        <div class="question-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="question-body">
+                        <div class="question-body-inner">
+                            <p>La aparente tensión entre la omnisciencia divina y el libre albedrío humano representa uno de los desafíos filosóficos más profundos de la teología. Sin embargo, existen varios enfoques que sugieren que ambas realidades pueden coexistir:</p>
+                            
+                            <p><strong>1. Conocimiento no implica causación:</strong> El conocimiento previo de Dios no necesariamente causa nuestras decisiones. Saber que algo sucederá no es lo mismo que hacer que suceda. Un observador en una colina que ve dos autos dirigiéndose hacia una intersección puede saber que chocarán, pero ese conocimiento no causa el accidente.</p>
+                            
+                            <div class="scripture">
+                                "Elegid hoy a quién sirváis; si a los dioses a quienes sirvieron vuestros padres... o a los dioses de los amorreos... pero yo y mi casa serviremos a Jehová."
+                                <span class="scripture-ref">Josué 24:15</span>
+                            </div>
+                            
+                            <p><strong>2. La perspectiva eterna de Dios:</strong> Dios existe fuera del tiempo y ve toda la historia simultáneamente. Su conocimiento de nuestras decisiones futuras es comparable a alguien que ve toda una carretera desde una montaña, mientras el viajero en el camino solo ve el tramo inmediato. Esta perspectiva eterna permite que Dios conozca decisiones que para nosotros aún son libremente elegidas.</p>
+                            
+                            <p><strong>3. La compatibilidad filosófica:</strong> Filósofos como Alvin Plantinga han argumentado que la omnisciencia divina y el libre albedrío son lógicamente compatibles. La imposibilidad lógica sería que "Dios sabe que X ocurrirá y X no ocurre", pero no que "Dios sabe que X ocurrirá libremente y X ocurre libremente".</p>
+                            
+                            <p><strong>4. Testimonio bíblico:</strong> Las Escrituras constantemente presentan a los humanos como seres moralmente responsables de sus decisiones, al tiempo que afirman la soberanía y omnisciencia divinas. Esta tensión paradójica sugiere una compatibilidad más profunda que nuestras categorías lógicas pueden expresar plenamente.</p>
+                            
+                            <p><strong>5. El misterio divino:</strong> Algunas cuestiones trascienden nuestra capacidad de comprensión completa. Como expresó Agustín: "Si lo comprendes, no es Dios." La aparente paradoja puede reflejar las limitaciones de nuestro entendimiento más que una contradicción real.</p>
+                            
+                            <p>Como señaló Plantinga: "No hay razón para suponer que lo que Dios puede conocer está limitado por lo que puedo imaginar que Él conoce." La fe cristiana mantiene tanto la soberanía y omnisciencia divinas como la responsabilidad moral humana, reconociendo que el misterio de su interacción puede trascender nuestra comprensión completa pero no implica contradicción lógica.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 9 -->
+                <div class="question-card fade-in-up delay-4">
+                    <div class="question-header">
+                        <h3 class="question-title">¿Por qué la Biblia contiene pasajes violentos, especialmente en el Antiguo Testamento?</h3>
+                        <div class="question-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="question-body">
+                        <div class="question-body-inner">
+                            <p>Los pasajes violentos del Antiguo Testamento, particularmente los que describen el herem o "destrucción total" en las conquistas israelitas, representan un desafío significativo para muchos lectores. Sin embargo, varias consideraciones pueden ayudarnos a entender estos textos en su contexto apropiado:</p>
+                            
+                            <p><strong>1. Contextualización histórica:</strong> El Antiguo Testamento refleja un período histórico brutal donde la supervivencia nacional frecuentemente dependía de la fuerza militar. Los mandatos divinos deben entenderse dentro del contexto de las brutales realidades geopolíticas del antiguo Cercano Oriente.</p>
+                            
+                            <div class="scripture">
+                                "Porque mis pensamientos no son vuestros pensamientos, ni vuestros caminos mis caminos, dijo Jehová. Como son más altos los cielos que la tierra, así son mis caminos más altos que vuestros caminos, y mis pensamientos más que vuestros pensamientos."
+                                <span class="scripture-ref">Isaías 55:8-9</span>
+                            </div>
+                            
+                            <p><strong>2. Revelación progresiva:</strong> La Biblia presenta una revelación progresiva que culmina en Cristo. Jesús mismo reinterpreta aspectos de la ley mosaica ("Habéis oído... pero yo os digo") y enfatiza el amor incluso hacia los enemigos, proporcionando la lente definitiva para interpretar textos anteriores.</p>
+                            
+                            <p><strong>3. Propósito moral y teológico:</strong> Los mandatos de destrucción se dirigen específicamente contra culturas cananeas involucradas en prácticas como el sacrificio infantil. Representaban juicios divinos limitados contra extrema corrupción moral, no licencia general para violencia.</p>
+                            
+                            <p><strong>4. Lectura literaria apropiada:</strong> Los estudiosos señalan que las narrativas de conquista emplean hipérbole literaria común en los relatos de guerra antiguos. La evidencia arqueológica y las narrativas posteriores sugieren que la destrucción no fue tan completa como sugiere el lenguaje retórico.</p>
+                            
+                            <p><strong>5. La cruz como clave hermenéutica:</strong> En la cruz, Dios mismo absorbe la violencia en lugar de infligirla. Cristo revela que el camino divino definitivo no es la conquista violenta sino el sacrificio redentor. Como señaló Miroslav Volf: "La cruz es el fin de la violencia sagrada."</p>
+                            
+                            <p>Como observó el teólogo N.T. Wright: "La Biblia no es un libro de recetas de moralidad atemporal, sino la historia de cómo Dios hizo pacto con un pueblo específico con el propósito final de redimir a toda la creación." Los pasajes violentos representan etapas específicas en esta narrativa más amplia que debe leerse a la luz de su culminación en Cristo, quien rechazó la violencia incluso ante sus propios enemigos.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 10 -->
+                <div class="question-card fade-in-up delay-4">
+                    <div class="question-header">
+                        <h3 class="question-title">¿Cómo puede la resurrección de Jesús ser históricamente creíble?</h3>
+                        <div class="question-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="question-body">
+                        <div class="question-body-inner">
+                            <p>La resurrección de Jesús es la afirmación central del cristianismo. Aunque involucra un evento sobrenatural, existe un caso histórico sólido que apoya su credibilidad, basado en varios hechos bien establecidos:</p>
+                            
+                            <p><strong>1. La tumba vacía:</strong> Incluso los críticos tempranos del cristianismo admitían que la tumba estaba vacía, ofreciendo explicaciones alternativas (como el robo del cuerpo) en lugar de negar el hecho básico. Si las autoridades hubieran tenido el cuerpo, podrían haber aplastado fácilmente el movimiento cristiano exhibiéndolo.</p>
+                            
+                            <div class="scripture">
+                                "Pero el ángel, respondiendo, dijo a las mujeres: No temáis vosotras; porque yo sé que buscáis a Jesús, el que fue crucificado. No está aquí, pues ha resucitado, como dijo. Venid, ved el lugar donde fue puesto el Señor."
+                                <span class="scripture-ref">Mateo 28:5-6</span>
+                            </div>
+                            
+                            <p><strong>2. Las apariciones post-mortem:</strong> Múltiples testigos, en diferentes ocasiones y circunstancias, afirmaron haber visto a Jesús resucitado. Pablo enumera estos testigos en 1 Corintios 15, incluyendo un grupo de más de 500 personas, muchas de las cuales aún vivían cuando escribió. Las alucinaciones colectivas no explican adecuadamente estas diversas experiencias.</p>
+                            
+                            <p><strong>3. La transformación de los discípulos:</strong> Los seguidores de Jesús pasaron de estar aterrorizados y escondidos tras la crucifixión a proclamar audazmente su resurrección, incluso ante amenazas de tortura y muerte. Este cambio radical requiere una explicación convincente.</p>
+                            
+                            <p><strong>4. El origen de la iglesia cristiana:</strong> El movimiento cristiano emergió en Jerusalén, precisamente donde las afirmaciones sobre la resurrección podrían haber sido más fácilmente refutadas si fueran falsas. Sin embargo, miles de judíos se convirtieron en el corazón del judaísmo del primer siglo.</p>
+                            
+                            <p><strong>5. La veneración del domingo:</strong> Los primeros cristianos, siendo judíos devotos, cambiaron su día de adoración del sábado al domingo (primer día de la semana). Un cambio tan significativo en la práctica religiosa judía requiere un evento transformador que ocurriera en domingo.</p>
+                            
+                            <p>Como concluye N.T. Wright después de un extenso análisis histórico: "La única explicación que hace justicia a todos los hechos es que Jesús realmente fue resucitado corporalmente de entre los muertos." Incluso el historiador agnóstico Gerd Lüdemann admite: "Puede establecerse como un hecho históricamente cierto que Pedro y los discípulos tuvieron experiencias después de la muerte de Jesús, en las que Jesús se les apareció como el Cristo resucitado."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="book-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Recursos Recomendados</h2>
+                    <p>Obras fundamentales para profundizar en la apología cristiana</p>
+                </div>
+                
+                <div class="book-container">
+                    <!-- Book 1 -->
+                    <div class="book-card fade-in-up">
+                        <div class="book-category classic">Clásico</div>
+                        <div class="book-image">
+                            <i class="fas fa-book book-icon"></i>
+                        </div>
+                        <div class="book-content">
+                            <h3 class="book-title">Mero Cristianismo</h3>
+                            <p class="book-author">C.S. Lewis</p>
+                            <p class="book-description">Desarrollado a partir de una serie de charlas radiofónicas durante la Segunda Guerra Mundial, este libro presenta una defensa racional de la fe cristiana basada en la ley moral y el anhelo humano universal de justicia y significado.</p>
+                            <a href="https://ibitibi.org/wp-content/uploads/2017/03/MeroCristianismoC.S.Lewis_.pdf" class="book-link">Más Información</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Book 2 -->
+                    <div class="book-card fade-in-up delay-1">
+                        <div class="book-category classic">Clásico</div>
+                        <div class="book-image">
+                            <i class="fas fa-book book-icon"></i>
+                        </div>
+                        <div class="book-content">
+                            <h3 class="book-title">El Problema del Dolor</h3>
+                            <h4 class="book-author">C.S. Lewis</h4>
+                            <p class="book-description">Lewis aborda uno de los mayores obstáculos para la fe: la existencia del sufrimiento. Explora cómo un Dios bueno y omnipotente puede permitir el dolor, ofreciendo una perspectiva cristiana profundamente reflexiva.</p>
+                            <a href="https://peregrinodeloabsoluto.wordpress.com/wp-content/uploads/2020/06/el-problema-del-dolor-clive-staples-lewis.pdf" class="book-link">Más Información</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Book 3 -->
+                    <div class="book-card fade-in-up delay-2">
+                        <div class="book-category classic">Clásico</div>
+                        <div class="book-image">
+                            <i class="fas fa-book book-icon"></i>
+                        </div>
+                        <div class="book-content">
+                            <h3 class="book-title">Guia Holman</h3>
+                            <h4 class="book-author">Doug Powell</h4>
+                            <p class="book-description">A través de la Guía Holman de Apologética Cristiana, el lector podrá conocer las diversas maneras que idearon los cristianos para comunicar a otras personas el valor de su fe y su esperanza, apoyándose en la razón y las evidencias. Este es un libro de apologética (ciencia que expone las pruebas y fundamentos de la verdad de nuestra fe en Cristo) en una clave diferente. Doug Powell recoge una larga tradición de enfoques apologéticos y los presenta para nuestros días.</p>
+                            <a href="https://www.elolivo.net/LIBROS/Powell-GuiaHolmanDeApologeticaCristiana.pdf" class="book-link">Más Información</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Book 4 -->
+                    <div class="book-card fade-in-up delay-3">
+                        <div class="book-category contemporary">Contemporáneo</div>
+                        <div class="book-image" style="background: var(--gradient-green);">
+                            <i class="fas fa-book book-icon"></i>
+                        </div>
+                        <div class="book-content">
+                            <h3 class="book-title">Evidencia que exige un veredicto</h3>
+                            <h4 class="book-author">Josh McDowell y Sean McDowell</h4>
+                            <p class="book-description">Una obra exhaustiva que presenta evidencias históricas, textuales y arqueológicas para la fiabilidad de las Escrituras y las afirmaciones del cristianismo, equipando a los creyentes para defender su fe.</p>
+                            <a href="https://ibvictoria.cl/wp-content/uploads/2013/07/josh-mcdowell-evidencia-que-exige-un-veredicto-libro-completo.pdf" class="book-link">Más Información</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Book 5 -->
+                    <div class="book-card fade-in-up delay-4">
+                        <div class="book-category contemporary">Contemporáneo</div>
+                        <div class="book-image" style="background: var(--gradient-green);">
+                            <i class="fas fa-book book-icon"></i>
+                        </div>
+                        <div class="book-content">
+                            <h3 class="book-title">El Caso de Cristo</h3>
+                            <h4 class="book-author">Lee Strobel</h4>
+                            <p class="book-description">Un ex periodista legal y ateo narra su investigación sobre la evidencia histórica de Jesús, entrevistando a expertos en diversos campos para examinar la credibilidad de los evangelios y la resurrección.</p>
+                            <a href="https://tesoroscristianos.co/wp-content/uploads/2020/07/Lee-Strobel-El-Caso-del-Jesus-Verdadero.pdf" class="book-link">Más Información</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Book 6 -->
+                    <div class="book-card fade-in-up delay-4">
+                        <div class="book-category classic">Clásico</div>
+                        <div class="book-image">
+                            <i class="fas fa-book book-icon"></i>
+                        </div>
+                        <div class="book-content">
+                            <h3 class="book-title">Introducción a la Apologética Cristiana</h3>
+                            <h4 class="book-author">Antonio Cruz</h4>
+                            <p class="book-description">Antonio Cruz Suárez nacido en Úbeda, Jaén, España. Licenciado y 
+Doctorado en Ciencias Biológicas por la Universidad de Barcelona. 
+Doctorado en Ministerio por la “Theological University of America” de 
+Cedar Rapids (Iowa). Ha sido Catedrático de Bachillerato en Ciencias 
+Naturales y Jefe del Seminario de Experimentales. Ha recibido 
+reconocimientos de la Universidad Autónoma de Honduras, Universidad 
+Autónoma de Yucatán (México) y Universidad Mariano Gálvez de 
+Guatemala. Fue profesor del Centro de Estudios Teológicos en Barcelona. 
+Asimismo trabajó en FLET “Facultad Latinoamericana de Estudios 
+Teológicos” en el área de Maestría. Ha impartido seminarios, conferencias, 
+y predicaciones en centenares de iglesias e instituciones religiosas en 
+España, Canadá, Estados Unidos y toda Latinoamérica.</p>
+                            <a href="https://www.academia.edu/119762785/Introducción_a_la_Apologética_Cristiana_Antonio_Cruz" class="book-link">Más Información</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="testimonial-section">
+            <div class="container">
+                <div class="testimonial-container fade-in-up">
+                    <div class="testimonial-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Estoy convencido de que la verdad puede sostenerse por sí misma, y que el cristianismo no debe evitar el escrutinio riguroso. Al contrario, invita al examen lógico y a la investigación histórica, manteniendo su integridad intelectual mientras ofrece respuestas a las preguntas más profundas de la existencia humana."
+                    </p>
+                    <div class="testimonial-author">
+                        C.S. Lewis
+                    </div>
+                    <div class="testimonial-position">
+                        Autor de "Mero Cristianismo"
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container cta-content">
+                <h2 class="cta-title">Prepárate para Defender tu Fe</h2>
+                <p class="cta-text">Explora nuestros estudios bíblicos en profundidad para estar "siempre preparados para presentar defensa con mansedumbre y reverencia"</p>
+                <a href="https://www-cslewisinstitute-org.translate.goog/basic-apologetics-course/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc" class="cta-button">Explorar Estudios</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Acerca de Nosotros</h4>
+                    <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza bíblica y la formación espiritual sólida basada en las Escrituras.</p>
+                    <div class="footer-social">
+                         <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                         <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="../../index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                        <li><a href="../index.html"><i class="fas fa-history"></i> Época de Jesús</a></li>
+                        <li><a href="contexto-historico.html"><i class="fas fa-landmark"></i> Contexto Histórico</a></li>
+                        <li><a href="grupos-religiosos.html"><i class="fas fa-users"></i> Grupos Religiosos</a></li>
+                        <li><a href="recursos-academicos.html"><i class="fas fa-graduation-cap"></i> Estudios de Contexto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +1 787-345-6940</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i>ministeriolagloriaesdelsenor7@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Question Accordion
+        const questionCards = document.querySelectorAll('.question-card');
+        
+        questionCards.forEach(card => {
+            const header = card.querySelector('.question-header');
+            const body = card.querySelector('.question-body');
+            const bodyContent = card.querySelector('.question-body-inner');
+            
+            header.addEventListener('click', () => {
+                // Close all other cards
+                questionCards.forEach(otherCard => {
+                    if (otherCard !== card && otherCard.classList.contains('active')) {
+                        otherCard.classList.remove('active');
+                        otherCard.querySelector('.question-body').style.maxHeight = '0';
+                    }
+                });
+                
+                // Toggle current card
+                card.classList.toggle('active');
+                
+                if (card.classList.contains('active')) {
+                    body.style.maxHeight = bodyContent.scrollHeight + 'px';
+                } else {
+                    body.style.maxHeight = '0';
+                }
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe fade-in elements
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Book Card Hover Effect
+        document.querySelectorAll('.book-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '';
+            });
+        });
+    </script>
+</body>
+</html>

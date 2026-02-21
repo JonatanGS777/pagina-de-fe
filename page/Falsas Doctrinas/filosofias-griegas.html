@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filosofías Griegas y su Influencia en la Biblia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #7b2240;
+            --secondary-color: #d6a929;
+            --accent-color: #3a7ca5;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gradient-bg: linear-gradient(135deg, rgba(123, 34, 64, 0.9) 0%, rgba(214, 169, 41, 0.9) 100%);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.06);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: var(--gradient-bg);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo img {
+            height: 60px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .nav-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: var(--transition);
+            display: block;
+            padding: 0.5rem;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-item-has-children {
+            position: relative;
+        }
+        
+        .menu-item-has-children > a {
+            display: flex;
+            align-items: center;
+        }
+        
+        .menu-item-has-children > a::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-left: 0.5rem;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+        
+        .menu-item-has-children:hover > a::after {
+            transform: rotate(180deg);
+        }
+        
+        .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: 8px;
+            padding: 0.8rem 0;
+            display: none;
+            z-index: 100;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .sub-menu li {
+            width: 100%;
+        }
+        
+        .sub-menu a {
+            padding: 0.7rem 1.2rem;
+            font-size: 0.9rem;
+            width: 100%;
+            color: var(--dark-color);
+        }
+        
+        .sub-menu a:hover {
+            background-color: rgba(123, 34, 64, 0.05);
+            color: var(--primary-color);
+        }
+        
+        .sub-menu a::after {
+            display: none;
+        }
+        
+        .menu-item-has-children:hover .sub-menu {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .sub-menu a.active {
+            color: var(--primary-color);
+            font-weight: 600;
+            background-color: rgba(123, 34, 64, 0.05);
+        }
+
+        .hero {
+            height: 50vh;
+            background-image: url('/api/placeholder/1200/800');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-bg);
+            opacity: 0.85;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            max-width: 700px;
+        }
+
+        main {
+            padding: 4rem 0;
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 25%;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 6rem;
+            margin-bottom: 4rem;
+        }
+
+        .philosophy-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            position: relative;
+        }
+
+        .philosophy-card:nth-child(even) {
+            direction: rtl;
+        }
+
+        .philosophy-card:nth-child(even) .philosophy-content {
+            direction: ltr;
+        }
+
+        .philosophy-img {
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: var(--box-shadow);
+            height: 100%;
+            min-height: 300px;
+        }
+
+        .philosophy-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .philosophy-card:hover .philosophy-img img {
+            transform: scale(1.05);
+        }
+
+        .philosophy-content {
+            padding: 1rem;
+        }
+
+        .philosophy-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .philosophy-content h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .philosophy-content p {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        .bible-reference {
+            background-color: rgba(123, 34, 64, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            position: relative;
+        }
+
+        .bible-reference::before {
+            content: '\201C';
+            font-size: 3rem;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            color: var(--primary-color);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .bible-reference p {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .bible-reference cite {
+            display: block;
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 5rem 0;
+            margin-top: 4rem;
+            background-color: #f9f9f9;
+        }
+
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-container {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: auto;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            transform: translateY(50%);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            left: -30px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            right: -30px;
+        }
+
+        .timeline-date {
+            position: absolute;
+            top: 0;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-date {
+            left: -150px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-date {
+            right: -150px;
+        }
+
+        .timeline-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        .timeline-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .comparison {
+            padding: 4rem 0;
+            background-color: #f5f5f5;
+        }
+
+        .comparison-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .comparison-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .conclusion {
+            padding: 5rem 0;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .conclusion h2 {
+            margin-bottom: 2rem;
+        }
+
+        .conclusion p {
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .original-greek {
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            color: var(--accent-color);
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+            border-bottom: 1px dotted var(--primary-color);
+        }
+
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--dark-color);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .tooltip .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--dark-color) transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-col a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-col a:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        @media (max-width: 992px) {
+            .philosophy-card {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .philosophy-card:nth-child(even) {
+                direction: ltr;
+            }
+            
+            .philosophy-img {
+                min-height: 250px;
+            }
+            
+            .timeline-container::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 80px;
+            }
+            
+            .timeline-item:nth-child(odd) {
+                margin-left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 21px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-date,
+            .timeline-item:nth-child(even) .timeline-date {
+                left: 0;
+                top: -30px;
+                width: 100%;
+                text-align: left;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 280px;
+                height: 100vh;
+                background-color: var(--dark-color);
+                z-index: 1000;
+                transition: right 0.3s ease;
+                padding: 2rem;
+                overflow-y: auto;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            nav li {
+                width: 100%;
+            }
+            
+            nav a {
+                padding: 1rem 0;
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav a::after {
+                display: none;
+            }
+            
+            .menu-item-has-children > a {
+                justify-content: space-between;
+            }
+            
+            /* Mobile indicator for dropdown instead of arrow */
+            .menu-item-has-children > a::after {
+                content: '\f054';
+                transition: var(--transition);
+            }
+            
+            .menu-item-has-children.active > a::after {
+                transform: rotate(90deg);
+            }
+            
+            .sub-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.2);
+                border-radius: 0;
+                padding-left: 1rem;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                transform: none;
+                opacity: 1;
+                display: block;
+            }
+            
+            .menu-item-has-children.active > .sub-menu {
+                max-height: 500px;
+            }
+            
+            .sub-menu a {
+                color: #ddd;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            .sub-menu a:hover, 
+            .sub-menu a.active {
+                background-color: rgba(255, 255, 255, 0.05);
+                color: var(--secondary-color);
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .intro p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="../../images/EMD.png" alt="Logo EMD">
+                <div class="logo-text">
+                    <div>Ministerio</div>
+                    <div>"La Gloria es del Señor"</div>
+                </div>
+            </div>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Inicio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero" style="background-image: url('../Falsas Doctrinas/images/filosofia-griega.jpg');">
+        <div class="container hero-content">
+            <h1>Filosofías Griegas y su Influencia en la Biblia</h1>
+            <p>Un análisis profundo de cómo las principales corrientes filosóficas del mundo helenístico fueron incorporadas e influyeron en la interpretación de las Escrituras y el cristianismo primitivo.</p>
+        </div>
+    </div>
+
+    <main>
+        <!-- Nueva tabla de contenidos con estilo diferente -->
+        <section class="container" style="margin-top: 0; padding-top: 0;">
+            <div class="content-navigator" style="position: sticky; top: 90px; z-index: 900;">
+                <div style="display: flex; justify-content: space-between; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <a href="#platonismo" class="tab-link" style="flex: 1; text-align: center; color: white; text-decoration: none; padding: 15px 5px; font-weight: 600; letter-spacing: 0.5px; transition: all 0.3s ease; position: relative; overflow: hidden; font-size: 0.95rem;">
+                        <i class="fas fa-brain" style="display: block; margin-bottom: 8px; font-size: 1.2rem;"></i>
+                        Platonismo
+                    </a>
+                    <a href="#neoplatonismo" class="tab-link" style="flex: 1; text-align: center; color: white; text-decoration: none; padding: 15px 5px; font-weight: 600; letter-spacing: 0.5px; transition: all 0.3s ease; position: relative; overflow: hidden; font-size: 0.95rem;">
+                        <i class="fas fa-star" style="display: block; margin-bottom: 8px; font-size: 1.2rem;"></i>
+                        Neoplatonismo
+                    </a>
+                    <a href="#epicureismo" class="tab-link" style="flex: 1; text-align: center; color: white; text-decoration: none; padding: 15px 5px; font-weight: 600; letter-spacing: 0.5px; transition: all 0.3s ease; position: relative; overflow: hidden; font-size: 0.95rem;">
+                        <i class="fas fa-wine-glass-alt" style="display: block; margin-bottom: 8px; font-size: 1.2rem;"></i>
+                        Epicureísmo
+                    </a>
+                    <a href="#estoicismo" class="tab-link" style="flex: 1; text-align: center; color: white; text-decoration: none; padding: 15px 5px; font-weight: 600; letter-spacing: 0.5px; transition: all 0.3s ease; position: relative; overflow: hidden; font-size: 0.95rem;">
+                        <i class="fas fa-balance-scale" style="display: block; margin-bottom: 8px; font-size: 1.2rem;"></i>
+                        Estoicismo
+                    </a>
+                    <a href="#cronologia" class="tab-link" style="flex: 1; text-align: center; color: white; text-decoration: none; padding: 15px 5px; font-weight: 600; letter-spacing: 0.5px; transition: all 0.3s ease; position: relative; overflow: hidden; font-size: 0.95rem;">
+                        <i class="fas fa-history" style="display: block; margin-bottom: 8px; font-size: 1.2rem;"></i>
+                        Cronología
+                    </a>
+                    <a href="#conclusiones" class="tab-link" style="flex: 1; text-align: center; color: white; text-decoration: none; padding: 15px 5px; font-weight: 600; letter-spacing: 0.5px; transition: all 0.3s ease; position: relative; overflow: hidden; font-size: 0.95rem;">
+                        <i class="fas fa-book-open" style="display: block; margin-bottom: 8px; font-size: 1.2rem;"></i>
+                        Conclusiones
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <style>
+            .tab-link::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background-color: white;
+                transform: scaleX(0);
+                transition: transform 0.3s ease;
+            }
+            
+            .tab-link:hover::after {
+                transform: scaleX(1);
+            }
+            
+            .tab-link:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+            
+            @media (max-width: 768px) {
+                .content-navigator {
+                    top: 70px;
+                }
+                
+                .tab-link {
+                    font-size: 0.75rem !important;
+                    padding: 10px 2px !important;
+                }
+                
+                .tab-link i {
+                    font-size: 1rem !important;
+                }
+            }
+        </style>
+        <section class="container intro">
+            <h2>Introducción</h2>
+            <div style="border-left: 4px solid var(--primary-color); padding-left: 20px; margin-bottom: 25px;">
+                <p style="font-size: 1.15rem; line-height: 1.8; text-align: justify; margin-bottom: 20px; font-weight: 300; letter-spacing: 0.3px;">La interacción entre la filosofía griega y la fe judeo-cristiana constituye uno de los encuentros culturales e intelectuales más trascendentales en la configuración del pensamiento occidental. Durante el período helenístico y romano (siglos III a.C. al V d.C.), las corrientes filosóficas griegas —principalmente el Platonismo, Neoplatonismo, Epicureísmo y Estoicismo— ejercieron una influencia determinante en la hermenéutica escritural y el desarrollo sistemático de la teología cristiana primitiva.</p>
+                <p style="font-size: 1.15rem; line-height: 1.8; text-align: justify; font-weight: 300; letter-spacing: 0.3px;">El presente estudio examina metódicamente la incorporación de estos sistemas filosóficos en el pensamiento bíblico, analizando su doble impacto: por un lado, como instrumentos que enriquecieron y profundizaron la comprensión teológica; por otro, como elementos que ocasionalmente desviaron la interpretación de sus raíces hermenéuticas hebreas originales. La investigación aborda tanto el análisis textual de pasajes bíblicos que evidencian esta interacción conceptual, como el examen de los procesos históricos y contextuales que facilitaron este diálogo entre revelación y razón filosófica.</p>
+            </div>
+        </section>
+
+        <section class="container philosophy-grid">
+            <div class="philosophy-card">
+                <div class="philosophy-img">
+                    <img src="../Falsas Doctrinas/images/platonismo.jpg" alt="Platonismo">
+                </div>
+                <div class="philosophy-content" id="platonismo">
+                    <h3>Platonismo</h3>
+                    <h4>El mundo de las ideas y el dualismo cuerpo-alma</h4>
+                    <p>El platonismo, fundado por Platón (427-347 a.C.), propone la existencia de dos realidades: el mundo sensible (material y cambiante) y el mundo inteligible (eterno e inmutable). Esta filosofía estableció un dualismo entre el cuerpo como prisión temporal y el alma como entidad inmortal y superior.</p>
+                    <p>En su <span class="tooltip">Teoría de las Ideas<span class="tooltip-text">Según Platón, las Ideas o Formas son realidades inmateriales, eternas y perfectas que constituyen la verdadera realidad.</span></span>, Platón sostenía que lo que percibimos con nuestros sentidos son apenas sombras imperfectas de las formas ideales. Esta concepción influyó profundamente en la interpretación espiritual y alegórica de las Escrituras que desarrollaron los primeros exégetas cristianos.</p>
+                    
+                    <div class="bible-reference">
+                        <p>"Ahora vemos por espejo, oscuramente; mas entonces veremos cara a cara. Ahora conozco en parte; pero entonces conoceré como fui conocido."</p>
+                        <cite>1 Corintios 13:12</cite>
+                    </div>
+                    
+                    <p>Este dualismo platónico entre lo material e inmaterial fue interpretado por muchos Padres de la Iglesia como compatible con la distinción bíblica entre espíritu y carne, aunque la visión hebrea original era más unitaria.</p>
+                </div>
+            </div>
+
+            <div class="philosophy-card">
+                <div class="philosophy-img">
+                    <img src="../Falsas Doctrinas/images/neoplatonismo.jpg" alt="Neoplatonismo">
+                </div>
+                <div class="philosophy-content" id="neoplatonismo">
+                    <h3>Neoplatonismo</h3>
+                    <h4>La emanación divina y la jerarquía espiritual</h4>
+                    <p>El neoplatonismo, desarrollado principalmente por Plotino (205-270 d.C.), tomó las ideas de Platón y las reformuló en un sistema que enfatizaba la emanación del mundo desde el Uno (la divinidad suprema). Esta filosofía proponía una jerarquía descendente de realidades: el Uno, el Intelecto, el Alma y finalmente el mundo material.</p>
+                    <p>Esta visión jerárquica influyó en la concepción cristiana de los ángeles y la estructura del cosmos, así como en la interpretación mística de la relación entre Dios y la creación. Pensadores cristianos como San Agustín fueron profundamente influenciados por el neoplatonismo en su comprensión de Dios como Ser Supremo inmaterial.</p>
+                    
+                    <div class="bible-reference">
+                        <p>"En el principio era el <span class="original-greek">Logos</span>, y el <span class="original-greek">Logos</span> estaba con Dios, y el <span class="original-greek">Logos</span> era Dios. Este estaba en el principio con Dios. Todas las cosas por él fueron hechas, y sin él nada de lo que ha sido hecho, fue hecho."</p>
+                        <cite>Juan 1:1-3</cite>
+                    </div>
+                    
+                    <p>La concepción del <span class="original-greek">Logos</span> (Verbo) en el Evangelio de Juan muestra similitudes con ideas neoplatónicas, aunque reinterpretadas desde una perspectiva cristocéntrica única que identifica al <span class="original-greek">Logos</span> con Cristo.</p>
+                </div>
+            </div>
+
+            <div class="philosophy-card">
+                <div class="philosophy-img">
+                    <img src="../Falsas Doctrinas/images/epicureismo.jpg" alt="Epicureísmo">
+                </div>
+                <div class="philosophy-content" id="epicureismo">
+                    <h3>Epicureísmo</h3>
+                    <h4>La búsqueda de la felicidad y la ausencia de temor</h4>
+                    <p>Fundado por Epicuro (341-270 a.C.), el epicureísmo proponía que el objetivo de la vida era alcanzar la <span class="original-greek">ataraxia</span> (tranquilidad) y la <span class="original-greek">aponía</span> (ausencia de dolor). Para lograrlo, Epicuro recomendaba liberar al ser humano de dos grandes miedos: el temor a los dioses y el temor a la muerte.</p>
+                    <p>A diferencia del hedonismo vulgar, Epicuro abogaba por placeres simples y sostenibles, valorando particularmente la amistad y el conocimiento. Esta filosofía materialista y atomista se enfrentó directamente con el pensamiento cristiano en lo referente a la providencia divina y la inmortalidad del alma.</p>
+                    
+                    <div class="bible-reference">
+                        <p>"Entonces los estoicos y los epicúreos entablaron diálogo con él. Algunos decían: «¿Qué querrá decir este charlatán?» Y otros: «Parece ser predicador de divinidades extranjeras». Porque les anunciaba a Jesús y la resurrección."</p>
+                        <cite>Hechos 17:18</cite>
+                    </div>
+                    
+                    <p>Pablo se enfrentó directamente a filósofos epicúreos en el Areópago de Atenas. La negación epicúrea de la intervención divina y de la vida después de la muerte contrastaba fuertemente con el mensaje cristiano de la resurrección, razón por la cual muchos epicúreos rechazaron la predicación de Pablo.</p>
+                </div>
+            </div>
+
+            <div class="philosophy-card">
+                <div class="philosophy-img">
+                    <img src="../Falsas Doctrinas/images/estoicismo.jpg" alt="Estoicismo">
+                </div>
+                <div class="philosophy-content" id="estoicismo">
+                    <h3>Estoicismo</h3>
+                    <h4>La vida conforme a la razón y la virtud</h4>
+                    <p>El estoicismo, fundado por Zenón de Citio (336-264 a.C.), defendía que la felicidad se alcanza viviendo de acuerdo con la naturaleza y la razón universal (<span class="original-greek">logos</span>). Los estoicos creían en un universo determinado por la providencia divina, donde la virtud y la autodisciplina eran esenciales para alcanzar la verdadera libertad interior.</p>
+                    <p>De todas las escuelas filosóficas griegas, el estoicismo presentaba mayores puntos de convergencia con el cristianismo primitivo. Su énfasis en la virtud, la moderación y la providencia divina resonaba con las enseñanzas éticas cristianas, mientras que su concepción del <span class="original-greek">logos</span> como principio ordenador del universo ofrecía un puente conceptual para la comprensión del rol de Cristo.</p>
+                    
+                    <div class="bible-reference">
+                        <p>"Todas las cosas me son lícitas, pero no todas convienen; todas las cosas me son lícitas, pero yo no me dejaré dominar de ninguna."</p>
+                        <cite>1 Corintios 6:12</cite>
+                    </div>
+                    
+                    <p>La ética de Pablo, con su énfasis en el autocontrol y la moderación, muestra paralelismos con la ética estoica, aunque fundamentada en la gracia divina más que en la autosuficiencia. Algunos eruditos han sugerido que Pablo estaba familiarizado con el estoicismo debido a su educación en Tarso, un centro importante de la filosofía estoica.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="timeline" id="cronologia" style="background: linear-gradient(135deg, #f9f9f9 0%, #f2f2f2 100%); overflow: hidden;">
+            <div class="container timeline-header">
+                <h2 style="text-align: center; font-size: 2.8rem; margin-bottom: 3rem; color: var(--primary-color); font-weight: 700; letter-spacing: -1px;">
+                    <span style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Cronología de la Influencia Filosófica</span>
+                </h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto 4rem; font-size: 1.2rem; color: #555; font-weight: 300;">Momentos clave en la integración de la filosofía griega en el pensamiento bíblico y cristiano</p>
+            </div>
+            
+            <div class="container">
+                <div style="position: relative; display: flex; flex-direction: column; max-width: 1000px; margin: 0 auto;">
+                    <!-- Línea central -->
+                    <div style="position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color)); transform: translateX(-50%); z-index: 1;"></div>
+                    
+                    <!-- Evento 1 -->
+                    <div style="display: flex; margin-bottom: 6rem; position: relative; z-index: 2;">
+                        <div style="flex: 1; padding-right: 3rem; text-align: right;">
+                            <div style="background-color: white; border-radius: 16px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transform: perspective(1000px) rotateY(-3deg); transition: all 0.3s ease;">
+                                <h3 style="color: var(--primary-color); font-size: 1.6rem; margin-bottom: 1rem; font-weight: 600;">Traducción de la Septuaginta</h3>
+                                <p style="color: #444; line-height: 1.7; margin-bottom: 0;">La traducción de las Escrituras hebreas al griego (Septuaginta) marca el primer contacto significativo entre el pensamiento hebreo y el helenístico. Los traductores utilizaron términos filosóficos griegos para expresar conceptos teológicos hebreos.</p>
+                            </div>
+                        </div>
+                        <div style="width: 120px; display: flex; flex-direction: column; align-items: center; z-index: 3;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-weight: 700; box-shadow: 0 5px 15px rgba(123, 34, 64, 0.3);">
+                                <span style="font-size: 1.1rem;">250 a.C.</span>
+                            </div>
+                            <div style="height: 140px; overflow: hidden;">
+                                <div style="width: 2px; height: 100%; background-color: transparent;"></div>
+                            </div>
+                        </div>
+                        <div style="flex: 1;"></div>
+                    </div>
+                    
+                    <!-- Evento 2 -->
+                    <div style="display: flex; margin-bottom: 6rem; position: relative; z-index: 2;">
+                        <div style="flex: 1;"></div>
+                        <div style="width: 120px; display: flex; flex-direction: column; align-items: center; z-index: 3;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-weight: 700; box-shadow: 0 5px 15px rgba(123, 34, 64, 0.3);">
+                                <span style="font-size: 0.9rem;">20 a.C. - 50 d.C.</span>
+                            </div>
+                            <div style="height: 140px; overflow: hidden;">
+                                <div style="width: 2px; height: 100%; background-color: transparent;"></div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; padding-left: 3rem;">
+                            <div style="background-color: white; border-radius: 16px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transform: perspective(1000px) rotateY(3deg); transition: all 0.3s ease;">
+                                <h3 style="color: var(--primary-color); font-size: 1.6rem; margin-bottom: 1rem; font-weight: 600;">Filón de Alejandría</h3>
+                                <p style="color: #444; line-height: 1.7; margin-bottom: 0;">Filósofo judío que intentó armonizar la Torá con el platonismo. Su método alegórico de interpretación y su concepto del <span class="original-greek">logos</span> influyeron posteriormente en los Padres de la Iglesia y en el evangelio de Juan.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Evento 3 -->
+                    <div style="display: flex; margin-bottom: 6rem; position: relative; z-index: 2;">
+                        <div style="flex: 1; padding-right: 3rem; text-align: right;">
+                            <div style="background-color: white; border-radius: 16px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transform: perspective(1000px) rotateY(-3deg); transition: all 0.3s ease;">
+                                <h3 style="color: var(--primary-color); font-size: 1.6rem; margin-bottom: 1rem; font-weight: 600;">Pablo en el Areópago</h3>
+                                <p style="color: #444; line-height: 1.7; margin-bottom: 0;">El discurso de Pablo en Atenas (Hechos 17) representa el primer encuentro directo documentado entre el cristianismo primitivo y la filosofía griega. Pablo se dirige específicamente a estoicos y epicúreos, adaptando su discurso a conceptos comprensibles para su audiencia.</p>
+                            </div>
+                        </div>
+                        <div style="width: 120px; display: flex; flex-direction: column; align-items: center; z-index: 3;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-weight: 700; box-shadow: 0 5px 15px rgba(123, 34, 64, 0.3);">
+                                <span style="font-size: 1.1rem;">50-60 d.C.</span>
+                            </div>
+                            <div style="height: 140px; overflow: hidden;">
+                                <div style="width: 2px; height: 100%; background-color: transparent;"></div>
+                            </div>
+                        </div>
+                        <div style="flex: 1;"></div>
+                    </div>
+                    
+                    <!-- Evento 4 -->
+                    <div style="display: flex; margin-bottom: 6rem; position: relative; z-index: 2;">
+                        <div style="flex: 1;"></div>
+                        <div style="width: 120px; display: flex; flex-direction: column; align-items: center; z-index: 3;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-weight: 700; box-shadow: 0 5px 15px rgba(123, 34, 64, 0.3);">
+                                <span style="font-size: 1.1rem;">90-100 d.C.</span>
+                            </div>
+                            <div style="height: 140px; overflow: hidden;">
+                                <div style="width: 2px; height: 100%; background-color: transparent;"></div>
+                            </div>
+                        </div>
+                        <div style="flex: 1; padding-left: 3rem;">
+                            <div style="background-color: white; border-radius: 16px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transform: perspective(1000px) rotateY(3deg); transition: all 0.3s ease;">
+                                <h3 style="color: var(--primary-color); font-size: 1.6rem; margin-bottom: 1rem; font-weight: 600;">Evangelio de Juan</h3>
+                                <p style="color: #444; line-height: 1.7; margin-bottom: 0;">El prólogo del Evangelio de Juan introduce el concepto de <span class="original-greek">logos</span>, término filosófico conocido por estoicos y platónicos, reinterpretándolo como Cristo encarnado y creando un puente entre la revelación cristiana y el pensamiento griego.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Evento 5 -->
+                    <div style="display: flex; margin-bottom: 6rem; position: relative; z-index: 2;">
+                        <div style="flex: 1; padding-right: 3rem; text-align: right;">
+                            <div style="background-color: white; border-radius: 16px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transform: perspective(1000px) rotateY(-3deg); transition: all 0.3s ease;">
+                                <h3 style="color: var(--primary-color); font-size: 1.6rem; margin-bottom: 1rem; font-weight: 600;">Clemente y Orígenes de Alejandría</h3>
+                                <p style="color: #444; line-height: 1.7; margin-bottom: 0;">Estos Padres de la Iglesia desarrollaron una interpretación alegórica de las Escrituras fuertemente influenciada por el platonismo. Orígenes, en particular, utilizó métodos filosóficos griegos para sistematizar la teología cristiana.</p>
+                            </div>
+                        </div>
+                        <div style="width: 120px; display: flex; flex-direction: column; align-items: center; z-index: 3;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-weight: 700; box-shadow: 0 5px 15px rgba(123, 34, 64, 0.3);">
+                                <span style="font-size: 1.1rem;">150-215 d.C.</span>
+                            </div>
+                            <div style="height: 140px; overflow: hidden;">
+                                <div style="width: 2px; height: 100%; background-color: transparent;"></div>
+                            </div>
+                        </div>
+                        <div style="flex: 1;"></div>
+                    </div>
+                    
+                    <!-- Evento 6 -->
+                    <div style="display: flex; position: relative; z-index: 2;">
+                        <div style="flex: 1;"></div>
+                        <div style="width: 120px; display: flex; flex-direction: column; align-items: center; z-index: 3;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-weight: 700; box-shadow: 0 5px 15px rgba(123, 34, 64, 0.3);">
+                                <span style="font-size: 1.1rem;">354-430 d.C.</span>
+                            </div>
+                        </div>
+                        <div style="flex: 1; padding-left: 3rem;">
+                            <div style="background-color: white; border-radius: 16px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transform: perspective(1000px) rotateY(3deg); transition: all 0.3s ease;">
+                                <h3 style="color: var(--primary-color); font-size: 1.6rem; margin-bottom: 1rem; font-weight: 600;">San Agustín de Hipona</h3>
+                                <p style="color: #444; line-height: 1.7; margin-bottom: 0;">Inicialmente influenciado por el maniqueísmo y luego por el neoplatonismo, Agustín integró elementos de la filosofía platónica en su teología cristiana, particularmente en su concepción de Dios, el alma y la teoría del conocimiento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <script>
+                // Animación al hacer scroll
+                const timelineElements = document.querySelectorAll('.timeline [style*="perspective"]');
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.transform = entry.target.style.transform.includes('-3deg') 
+                                ? 'perspective(1000px) rotateY(-1deg)' 
+                                : 'perspective(1000px) rotateY(1deg)';
+                            entry.target.style.boxShadow = '0 15px 40px rgba(0,0,0,0.12)';
+                        } else {
+                            entry.target.style.transform = entry.target.style.transform.includes('-1deg')
+                                ? 'perspective(1000px) rotateY(-3deg)'
+                                : 'perspective(1000px) rotateY(3deg)';
+                            entry.target.style.boxShadow = '0 10px 30px rgba(0,0,0,0.08)';
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                timelineElements.forEach(el => {
+                    observer.observe(el);
+                });
+            </script>
+        </section>
+
+        <section class="comparison" id="comparativa">
+            <div class="container comparison-header">
+                <h2>Comparativa de Conceptos</h2>
+                <p>Un análisis de cómo los conceptos filosóficos griegos fueron adoptados y transformados por el pensamiento bíblico</p>
+            </div>
+            <div class="container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Concepto Filosófico</th>
+                            <th>Interpretación Griega</th>
+                            <th>Adaptación Bíblica/Cristiana</th>
+                            <th>Pasajes Relevantes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="original-greek">Logos</span> (Razón/Verbo)</td>
+                            <td>Para los estoicos: principio racional que ordena el cosmos. Para Heráclito: ley universal que gobierna todo cambio.</td>
+                            <td id="logos">En Juan: Cristo preexistente, agente de la creación y revelación divina encarnada.</td>
+                            <td>Juan 1:1-14, Colosenses 1:15-17</td>
+                        </tr>
+                        <tr>
+                            <td>Dualismo cuerpo-alma</td>
+                            <td>Platón: el cuerpo como prisión temporal del alma inmortal. La materia como limitación e imperfección.</td>
+                            <td id="dualismo">Reinterpretado como tensión entre carne (tendencia al pecado) y espíritu. El cuerpo no es inherentemente malo sino corrompido por el pecado.</td>
+                            <td>Gálatas 5:16-17, Romanos 7:14-25</td>
+                        </tr>
+                        <tr>
+                            <td><span class="original-greek">Pneuma</span> (Espíritu/Aliento)</td>
+                            <td>Para los estoicos: fuerza vital material que permea el cosmos como fuego divino.</td>
+                            <td>El Espíritu Santo como persona divina. Fuerza transformadora de Dios actuando en los creyentes.</td>
+                            <td>Juan 14:26, Hechos 2:1-4</td>
+                        </tr>
+                        <tr>
+                            <td>Virtud (<span class="original-greek">Areté</span>)</td>
+                            <td>Para epicúreos: medio para alcanzar el placer sereno. Para estoicos: bien supremo en sí misma.</td>
+                            <td id="virtud">Transformada en fruto del Espíritu. No depende del esfuerzo humano sino de la gracia.</td>
+                            <td>Gálatas 5:22-23, Filipenses 4:8</td>
+                        </tr>
+                        <tr>
+                            <td>Inmortalidad</td>
+                            <td>Platón: inherente al alma racional que existe antes y después de su unión con el cuerpo.</td>
+                            <td>No inherente al alma humana sino don divino. Enfoque en la resurrección corporal más que en la inmortalidad del alma.</td>
+                            <td>1 Corintios 15:50-54, 1 Timoteo 6:16</td>
+                        </tr>
+                        <tr>
+                            <td>Providencia</td>
+                            <td>Estoicos: determinismo cósmico. El sabio acepta el destino con ecuanimidad.</td>
+                            <td id="providencia">Plan divino personal y relacional. Dios interviene activamente en la historia por amor a la humanidad.</td>
+                            <td>Romanos 8:28, Efesios 1:11</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="container" id="advertencia">
+            <div class="bible-reference" style="margin: 4rem auto; max-width: 800px;">
+                <p>Mirad que nadie os engañe por medio de filosofías y huecas sutilezas, según las tradiciones de los hombres, conforme a los rudimentos del mundo, y no según Cristo.</p>
+                <cite>Colosenses 2:8</cite>
+            </div>
+        </section>
+
+        <section class="conclusion" style="background-color: #f9f9f9; padding: 5rem 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee;" id="conclusiones">
+            <div class="container">
+                <h2 style="position: relative; display: inline-block; margin-bottom: 2.5rem; font-size: 2.4rem;">Conclusiones</h2>
+                <div style="border-left: 4px solid var(--primary-color); padding-left: 20px; margin-bottom: 25px;">
+                    <p style="font-size: 1.15rem; line-height: 1.8; text-align: justify; margin-bottom: 20px; font-weight: 300; letter-spacing: 0.3px;">La relación entre la filosofía helenística y la revelación bíblica presenta una complejidad multidimensional que trasciende la simple asimilación o rechazo. El análisis histórico demuestra que ciertos elementos filosóficos funcionaron efectivamente como "pedagogos" (<em>paidagōgós</em>, Gálatas 3:24) que prepararon el terreno conceptual para las verdades cristianas, mientras otros constituyeron desafíos significativos para la integridad doctrinal de la fe apostólica.</p>
+                    
+                    <p style="font-size: 1.15rem; line-height: 1.8; text-align: justify; margin-bottom: 20px; font-weight: 300; letter-spacing: 0.3px;">La admonición del apóstol Pablo en Colosenses 2:8 contra ser "engañado por filosofías y huecas sutilezas" no debe interpretarse como un rechazo categórico del pensamiento filosófico <em>per se</em>, sino como una advertencia contra cualquier sistema epistemológico que desplace la centralidad de Cristo en la cosmovisión cristiana. Esta postura equilibrada permite el diálogo con la filosofía mientras mantiene la primacía de la revelación divina.</p>
+                    
+                    <p style="font-size: 1.15rem; line-height: 1.8; text-align: justify; margin-bottom: 20px; font-weight: 300; letter-spacing: 0.3px;">Los primeros teólogos cristianos no adoptaron acrítica y pasivamente los conceptos filosóficos griegos, sino que implementaron una transformación hermenéutica profunda a la luz de la revelación cristocéntrica. Un caso paradigmático es la reinterpretación radical del concepto estoico del <span class="original-greek">logos</span> en el prólogo joánico, donde adquiere una dimensión personal, encarnacional y salvífica ausente en la concepción helenística.</p>
+                    
+                    <p style="font-size: 1.15rem; line-height: 1.8; text-align: justify; margin-bottom: 20px; font-weight: 300; letter-spacing: 0.3px;">La intersección histórica entre fe y filosofía establece un precedente metodológico sobre la importancia del diálogo crítico con las corrientes intelectuales de cada época. Si bien la verdad divina puede articularse mediante diversos lenguajes conceptuales culturalmente situados, la cristología y la autoridad escritural deben mantenerse como principios hermenéuticos normativos para cualquier inculturación teológica válida.</p>
+                    
+                    <p style="font-size: 1.15rem; line-height: 1.8; text-align: justify; font-weight: 300; letter-spacing: 0.3px;">El análisis de estas influencias filosóficas en la interpretación bíblica proporciona herramientas hermenéuticas para discernir entre los elementos esenciales de la revelación divina y las formulaciones culturalmente contingentes mediante las cuales se ha expresado a lo largo de la historia eclesiástica. Esta distinción crítica contribuye al desarrollo de una fe teológicamente fundamentada, históricamente informada y reflexivamente articulada, capaz de mantener un diálogo fructífero con el pensamiento contemporáneo.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Ministerio EMD</h4>
+                    <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
+                    <div class="social-links">
+                         <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                         <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="../Figuras Bíblicas/at-a-nt.html">Figuras Bíblicas</a></li>
+                        <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                        <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Estudios Exegéticos</a></li>
+                        <li><a href="../Tiempo del Fin/introduccion.html">Tiempo del Fin</a></li>
+                        <li><a href="../Época de Jesús/estudio-contemporaneo.html">Época de Jesús</a></li>
+                        <li><a href="../Estudios Bíblicos/doctrina-basica.html">Estudios Bíblicos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio</li>
+                        <li><i class="fas fa-phone"></i> +1 787-345-6940</li>
+                        <li><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                      <h4>Nota Aclaratoria</h4>
+                    <ul>
+                        <li>Todos los recursos de esta página son gratuitos y para la edificación de los creyentes</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+        
+        // Manejo de menús desplegables en móvil
+        document.querySelectorAll('.menu-item-has-children > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                // Solo en modo móvil
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.parentNode.classList.toggle('active');
+                    
+                    // Cierra otros submenús
+                    document.querySelectorAll('.menu-item-has-children').forEach(menuItem => {
+                        if (menuItem !== this.parentNode && menuItem.classList.contains('active')) {
+                            menuItem.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Cierra el menú al hacer clic en un enlace de submenu
+        document.querySelectorAll('.sub-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('nav').classList.remove('active');
+                document.querySelectorAll('.menu-item-has-children').forEach(menuItem => {
+                    menuItem.classList.remove('active');
+                });
+            });
+        });
+        
+        // Cierra el menú al hacer clic fuera de él
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navToggle = document.querySelector('.nav-toggle');
+            
+            if (!nav.contains(event.target) && event.target !== navToggle) {
+                nav.classList.remove('active');
+                document.querySelectorAll('.menu-item-has-children').forEach(menuItem => {
+                    menuItem.classList.remove('active');
+                });
+            }
+        });
+
+        // Efecto de scroll suave para los enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

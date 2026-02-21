@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Arqueología Bíblica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cinzel', 'Times New Roman', serif;
+            background: 
+                radial-gradient(circle at 20% 20%, #2d1810 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, #3d2415 0%, transparent 50%),
+                linear-gradient(135deg, #1a0f08 0%, #2d1810 50%, #3d2415 100%);
+            color: #e6d3a7;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .dust-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #d4af37;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float-particle 15s linear infinite;
+        }
+
+        @keyframes float-particle {
+            0% { 
+                transform: translateY(100vh) translateX(0px) scale(0);
+                opacity: 0;
+            }
+            10% { opacity: 0.6; transform: translateY(90vh) translateX(10px) scale(1); }
+            90% { opacity: 0.6; transform: translateY(10vh) translateX(-10px) scale(1); }
+            100% { 
+                transform: translateY(-10vh) translateX(0px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .laboratory-header {
+            background: 
+                linear-gradient(135deg, #1a0f08 0%, #2d1810 50%, #3d2415 100%);
+            padding: 40px;
+            text-align: center;
+            border-bottom: 4px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            position: relative;
+            z-index: 10;
+        }
+
+        .lab-title {
+            font-size: 3.5em;
+            color: #d4af37;
+            margin-bottom: 15px;
+            text-shadow: 
+                0 0 20px rgba(212, 175, 55, 0.8),
+                2px 2px 4px rgba(0,0,0,0.8);
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .lab-subtitle {
+            font-size: 1.3em;
+            color: #c9a96e;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .progress-container {
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid #d4af37;
+            border-radius: 25px;
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 600px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 20px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            margin: 0 20px;
+            overflow: hidden;
+            border: 1px solid #d4af37;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #d4af37, #f4e4bc, #d4af37);
+            background-size: 200% 100%;
+            animation: progress-shimmer 2s ease infinite;
+            width: 0%;
+            transition: width 0.8s ease;
+            border-radius: 10px;
+        }
+
+        @keyframes progress-shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .score-display {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #d4af37;
+        }
+
+        .excavation-site {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .artifact-container {
+            background: 
+                linear-gradient(145deg, #4a3424 0%, #3d2415 50%, #2d1810 100%);
+            border: 4px solid #8b6914;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.8),
+                inset 0 0 50px rgba(212, 175, 55, 0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .artifact-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 20px,
+                    rgba(212, 175, 55, 0.05) 20px,
+                    rgba(212, 175, 55, 0.05) 40px
+                );
+            pointer-events: none;
+        }
+
+        .question-number {
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+            color: #1a0f08;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.1em;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+            border: 2px solid #8b6914;
+        }
+
+        .riddle-scroll {
+            background: 
+                linear-gradient(145deg, #f4e4bc 0%, #e6d3a7 50%, #d4c5a2 100%);
+            color: #2d1810;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #8b6914;
+            box-shadow: 
+                0 15px 35px rgba(0,0,0,0.6),
+                inset 0 0 20px rgba(139, 105, 20, 0.2);
+            position: relative;
+            transform: perspective(1000px) rotateX(2deg);
+        }
+
+        .riddle-scroll::before {
+            content: '📜';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            font-size: 3em;
+            transform: rotate(-15deg);
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+        }
+
+        .riddle-text {
+            font-size: 1.4em;
+            line-height: 1.6;
+            text-align: center;
+            font-weight: 600;
+            color: #2d1810;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
+            margin: 20px 0;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .option-card {
+            background: linear-gradient(135deg, #e6d3a7 0%, #d4c5a2 100%);
+            color: #2d1810;
+            padding: 20px;
+            border: 3px solid #8b6914;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1em;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .option-card:hover {
+            transform: translateY(-8px) scale(1.05);
+            border-color: #d4af37;
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .option-card:hover::before {
+            left: 100%;
+        }
+
+        .option-card.correct {
+            background: linear-gradient(135deg, #48cc48 0%, #2e8b2e 100%);
+            color: white;
+            border-color: #228b22;
+            animation: correct-pulse 0.6s ease;
+        }
+
+        .option-card.incorrect {
+            background: linear-gradient(135deg, #cc4848 0%, #8b2e2e 100%);
+            color: white;
+            border-color: #8b2222;
+            animation: incorrect-shake 0.6s ease;
+        }
+
+        @keyframes correct-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes incorrect-shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .explanation-panel {
+            background: linear-gradient(135deg, #1a0f08 0%, #2d1810 100%);
+            color: #e6d3a7;
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #d4af37;
+            margin: 20px 0;
+            display: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .explanation-panel.show {
+            display: block;
+            animation: fade-in 0.5s ease;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .explanation-title {
+            color: #d4af37;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .verse-reference {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #d4af37;
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        .next-button {
+            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+            color: #1a0f08;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+            border: 2px solid #8b6914;
+        }
+
+        .next-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.6);
+        }
+
+        .next-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .final-results {
+            background: linear-gradient(135deg, #1a0f08 0%, #2d1810 100%);
+            border: 4px solid #d4af37;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.8);
+            display: none;
+        }
+
+        .final-results.show {
+            display: block;
+            animation: results-appear 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes results-appear {
+            0% { 
+                transform: scale(0.3) rotate(-10deg);
+                opacity: 0;
+            }
+            100% { 
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .results-title {
+            font-size: 3em;
+            color: #d4af37;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .final-score {
+            font-size: 2em;
+            margin: 20px 0;
+            color: #e6d3a7;
+        }
+
+        .achievement-badge {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            border: 4px solid #d4af37;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+        }
+
+        .badge-master { background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); }
+        .badge-scholar { background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%); }
+        .badge-student { background: linear-gradient(135deg, #cd7f32 0%, #e6ac66 100%); }
+
+        .restart-button {
+            background: linear-gradient(135deg, #8b6914 0%, #d4af37 100%);
+            color: #1a0f08;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 20px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 10px;
+            box-shadow: 0 6px 15px rgba(139, 105, 20, 0.4);
+        }
+
+        .timer-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid #d4af37;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #d4af37;
+        }
+
+        .hidden { display: none !important; }
+
+        @media (max-width: 768px) {
+            .lab-title { font-size: 2.5em; }
+            .options-grid { grid-template-columns: 1fr; }
+            .excavation-site { padding: 20px; }
+            .artifact-container { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="dust-particles" id="dustParticles"></div>
+
+    <header class="laboratory-header">
+        <h1 class="lab-title">🏺 Laboratorio de Arqueología Bíblica</h1>
+        <p class="lab-subtitle">Descubre los secretos ocultos en pergaminos ancestrales</p>
+        
+        <div class="progress-container">
+            <span class="score-display">Pergaminos: <span id="currentQuestion">0</span>/30</span>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span class="score-display">Puntos: <span id="scoreDisplay">0</span></span>
+        </div>
+    </header>
+
+    <div class="excavation-site">
+        <div class="timer-container" id="timer">⏱️ 30</div>
+        
+        <div class="artifact-container" id="questionContainer">
+            <div class="question-number" id="questionNumber">Pergamino #1</div>
+            
+            <div class="riddle-scroll">
+                <div class="riddle-text" id="riddleText">
+                    Cargando pergamino antiguo...
+                </div>
+            </div>
+
+            <div class="options-grid" id="optionsGrid">
+                <!-- Las opciones se generarán dinámicamente -->
+            </div>
+
+            <div class="explanation-panel" id="explanationPanel">
+                <div class="explanation-title" id="explanationTitle">💡 Revelación Arqueológica</div>
+                <p id="explanationText"></p>
+                <div class="verse-reference" id="verseReference"></div>
+            </div>
+
+            <button class="next-button" id="nextButton" onclick="nextQuestion()" disabled>
+                Continuar Excavación ⚡
+            </button>
+        </div>
+
+        <div class="final-results" id="finalResults">
+            <h2 class="results-title">🏆 Expedición Completada</h2>
+            <div class="achievement-badge" id="achievementBadge">🎖️</div>
+            <div class="final-score">
+                Puntuación Final: <span id="finalScore">0</span>/100
+            </div>
+            <p id="achievementText"></p>
+            <button class="restart-button" onclick="restartGame()">🔄 Nueva Expedición</button>
+            <button class="restart-button" onclick="shareResults()">📤 Compartir Logros</button>
+        </div>
+    </div>
+
+    <script>
+        const riddles = [
+            {
+                question: "Soy el primer hombre creado del polvo, en un jardín perfecto fui colocado. Mi desobediencia trajo el pecado, ¿quién soy en la historia sagrada?",
+                options: ["Adán", "Enoc", "Set", "Abel"],
+                correct: 0,
+                explanation: "Adán fue el primer hombre creado por Dios del polvo de la tierra y colocado en el jardín del Edén.",
+                verse: "Entonces Jehová Dios formó al hombre del polvo de la tierra, y sopló en su nariz aliento de vida, y fue el hombre un ser viviente. - Génesis 2:7"
+            },
+            {
+                question: "Con una vara se convirtió en serpiente, las aguas en sangre fueron cambiantes. Diez plagas sobre Egipto envié, ¿quién soy que al pueblo libré?",
+                options: ["Josué", "Aarón", "Moisés", "Samuel"],
+                correct: 2,
+                explanation: "Moisés fue el libertador de Israel quien realizó milagros ante Faraón y guió al pueblo fuera de Egipto.",
+                verse: "Y Moisés y Aarón hicieron todos estos prodigios delante de Faraón. - Éxodo 11:10"
+            },
+            {
+                question: "Pequeño soy entre mis hermanos, pero al gigante derroté con cinco piedras lisas. El rey me ungió después, ¿quién soy que con valor brillé?",
+                options: ["Jonatán", "Saúl", "David", "Salomón"],
+                correct: 2,
+                explanation: "David, siendo joven pastor, derrotó al gigante Goliat con una honda y una piedra, y después fue ungido rey.",
+                verse: "Y David venció al filisteo con honda y piedra; e hirió al filisteo y lo mató, sin tener David espada en su mano. - 1 Samuel 17:50"
+            },
+            {
+                question: "Mis cabellos eran mi fuerza, con quijada de asno mil derroté. Una mujer me engañó, mi poder perdí, ¿quién soy que al final triunfé?",
+                options: ["Gedeón", "Jefté", "Sansón", "Barac"],
+                correct: 2,
+                explanation: "Sansón fue un juez de Israel cuya fuerza sobrenatural residía en sus cabellos largos, traicionado por Dalila.",
+                verse: "Y le dijo ella: ¡Sansón, los filisteos sobre ti! Y luego que despertó él de su sueño, se dijo: Esta vez saldré como las otras y me escaparé. Pero él no sabía que Jehová ya se había apartado de él. - Jueces 16:20"
+            },
+            {
+                question: "En el vientre de un gran pez tres días estuve, a Nínive predicar no quise. Pero Dios me alcanzó en el mar, ¿quién soy que al final obedecí?",
+                options: ["Eliseo", "Ezequiel", "Jonás", "Habacuc"],
+                correct: 2,
+                explanation: "Jonás fue el profeta que huyó de la presencia de Dios y fue tragado por un gran pez durante tres días.",
+                verse: "Y estuvo Jonás en el vientre del pez tres días y tres noches. - Jonás 1:17"
+            },
+            {
+                question: "Soy la primera mujer creada, del hombre fui tomada. En el jardín fui engañada, ¿quién soy que la tentación acepté?",
+                options: ["Sara", "Rebeca", "Eva", "Raquel"],
+                correct: 2,
+                explanation: "Eva fue la primera mujer, creada de la costilla de Adán, quien fue tentada por la serpiente en el Edén.",
+                verse: "Y de la costilla que Jehová Dios tomó del hombre, hizo una mujer, y la trajo al hombre. - Génesis 2:22"
+            },
+            {
+                question: "Tres amigos tengo fieles, al horno de fuego fuimos echados. Pero un cuarto apareció, ¿quiénes somos que fuimos salvados?",
+                options: ["Sadrac, Mesac y Abed-nego", "Pedro, Jacobo y Juan", "Abraham, Isaac y Jacob", "Moisés, Aarón y Miriam"],
+                correct: 0,
+                explanation: "Sadrac, Mesac y Abed-nego fueron los tres jóvenes hebreos que se negaron a adorar la estatua de Nabucodonosor.",
+                verse: "Respondió el rey y dijo: He aquí yo veo cuatro varones sueltos, que se pasean en medio del fuego sin sufrir ningún daño; y el aspecto del cuarto es semejante a hijo de los dioses. - Daniel 3:25"
+            },
+            {
+                question: "Doce tribus de mi nombre salieron, mis hijos me causaron dolor. Pero al menor más amé, ¿quién soy que en Egipto acabé?",
+                options: ["Abraham", "Isaac", "Jacob", "José"],
+                correct: 2,
+                explanation: "Jacob, luego llamado Israel, fue el padre de las doce tribus. Amaba especialmente a José y Benjamín.",
+                verse: "Y amaba Israel a José más que a todos sus hijos, porque lo había tenido en su vejez. - Génesis 37:3"
+            },
+            {
+                question: "Soy una reina que mi pueblo salvé, mi vida arriesgué ante el rey. 'Si perezco, que perezca' dije, ¿quién soy que por ayuno actué?",
+                options: ["Débora", "Ester", "Rut", "Ana"],
+                correct: 1,
+                explanation: "Ester fue la reina judía que salvó a su pueblo del plan malvado de Amán, arriesgando su vida ante el rey Asuero.",
+                verse: "Y si perezco, que perezca. - Ester 4:16"
+            },
+            {
+                question: "En el templo como niño ministré, al Señor desde joven serví. Una voz en la noche escuché, ¿quién soy que 'Habla, que tu siervo oye' dije?",
+                options: ["Elí", "Samuel", "Natán", "Gad"],
+                correct: 1,
+                explanation: "Samuel fue llamado por Dios desde niño cuando servía en el templo bajo la tutela del sacerdote Elí.",
+                verse: "Y vino Jehová y se paró, y llamó como las otras veces: ¡Samuel, Samuel! Entonces Samuel dijo: Habla, porque tu siervo oye. - 1 Samuel 3:10"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let timeLeft = 30;
+        let timer;
+        let gameStarted = false;
+
+        function createDustParticles() {
+            const container = document.getElementById('dustParticles');
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestionIndex) / riddles.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex;
+            document.getElementById('scoreDisplay').textContent = score;
+        }
+
+        function displayQuestion() {
+            if (currentQuestionIndex >= riddles.length) {
+                showFinalResults();
+                return;
+            }
+
+            const riddle = riddles[currentQuestionIndex];
+            document.getElementById('questionNumber').textContent = `Pergamino #${currentQuestionIndex + 1}`;
+            document.getElementById('riddleText').textContent = riddle.question;
+            
+            const optionsGrid = document.getElementById('optionsGrid');
+            optionsGrid.innerHTML = '';
+            
+            riddle.options.forEach((option, index) => {
+                const optionCard = document.createElement('div');
+                optionCard.className = 'option-card';
+                optionCard.textContent = option;
+                optionCard.onclick = () => selectAnswer(index);
+                optionsGrid.appendChild(optionCard);
+            });
+
+            document.getElementById('explanationPanel').classList.remove('show');
+            document.getElementById('nextButton').disabled = true;
+            
+            // Reset timer
+            timeLeft = 30;
+            startTimer();
+        }
+
+        function startTimer() {
+            clearInterval(timer);
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').innerHTML = `⏱️ ${timeLeft}`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    // Auto-select wrong answer if time runs out
+                    const cards = document.querySelectorAll('.option-card');
+                    cards.forEach(card => card.onclick = null);
+                    cards[0].classList.add('incorrect');
+                    showExplanation(false);
+                }
+            }, 1000);
+        }
+
+        function selectAnswer(selectedIndex) {
+            clearInterval(timer);
+            const riddle = riddles[currentQuestionIndex];
+            const cards = document.querySelectorAll('.option-card');
+            
+            // Disable all clicks
+            cards.forEach(card => card.onclick = null);
+            
+            // Show correct answer
+            cards[riddle.correct].classList.add('correct');
+            
+            if (selectedIndex === riddle.correct) {
+                score += 10;
+                // Bonus points for time remaining
+                score += Math.max(0, timeLeft);
+                showExplanation(true);
+            } else {
+                cards[selectedIndex].classList.add('incorrect');
+                showExplanation(false);
+            }
+            
+            updateProgress();
+        }
+
+        function showExplanation(isCorrect) {
+            const riddle = riddles[currentQuestionIndex];
+            const panel = document.getElementById('explanationPanel');
+            
+            document.getElementById('explanationTitle').textContent = 
+                isCorrect ? '✅ ¡Descubrimiento Exitoso!' : '❌ Pergamino Cifrado';
+            document.getElementById('explanationText').textContent = riddle.explanation;
+            document.getElementById('verseReference').textContent = riddle.verse;
+            
+            panel.classList.add('show');
+            document.getElementById('nextButton').disabled = false;
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            displayQuestion();
+        }
+
+        function showFinalResults() {
+            document.getElementById('questionContainer').classList.add('hidden');
+            const resultsDiv = document.getElementById('finalResults');
+            
+            let achievement, achievementText, badgeClass;
+            
+            if (score >= 400) {
+                achievement = '🏆';
+                achievementText = '¡Arqueólogo Maestro! Dominas las Escrituras con sabiduría excepcional.';
+                badgeClass = 'badge-master';
+            } else if (score >= 250) {
+                achievement = '🥈';
+                achievementText = '¡Erudito Bíblico! Tu conocimiento de la Palabra es sólido.';
+                badgeClass = 'badge-scholar';
+            } else {
+                achievement = '🥉';
+                achievementText = '¡Estudiante Dedicado! Continúa explorando los tesoros bíblicos.';
+                badgeClass = 'badge-student';
+            }
+            
+            document.getElementById('achievementBadge').textContent = achievement;
+            document.getElementById('achievementBadge').className = `achievement-badge ${badgeClass}`;
+            document.getElementById('finalScore').textContent = score;
+            document.getElementById('achievementText').textContent = achievementText;
+            
+            resultsDiv.classList.add('show');
+        }
+
+        function restartGame() {
+            currentQuestionIndex = 0;
+            score = 0;
+            timeLeft = 30;
+            clearInterval(timer);
+            
+            document.getElementById('questionContainer').classList.remove('hidden');
+            document.getElementById('finalResults').classList.remove('show');
+            
+            updateProgress();
+            displayQuestion();
+        }
+
+        function shareResults() {
+            const text = `¡Completé los 30 pergaminos del Laboratorio de Arqueología Bíblica con ${score} puntos! 🏺📜 ¿Puedes superar mi puntuación?`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Laboratorio de Arqueología Bíblica',
+                    text: text,
+                    url: window.location.href
+                });
+            } else {
+                // Fallback - copy to clipboard
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('¡Resultado copiado al portapapeles! 📋');
+                });
+            }
+        }
+
+        // Initialize game
+        window.onload = function() {
+            createDustParticles();
+            updateProgress();
+            displayQuestion();
+        };
+    </script>
+</body>
+</html>

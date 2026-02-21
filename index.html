@@ -1,0 +1,2280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+    --primary-color: #1a1410;        /* Tinta profunda – autoridad y solemnidad */
+    --secondary-color: #b89a5f;      /* Oro antiguo – digno y cálido */
+    --accent-color: #6b4f2a;         /* Sepia oscuro – calidez sin exceso */
+    --background-color: #f7f4ed;     /* Pergamino cálido – evoca manuscritos */
+    --text-color: #2d2010;           /* Sepia tinta – lectura refinada */
+    --light-accent: #ede5d8;         /* Pergamino claro – soporte visual */
+    --gold-accent: #c9aa6a;          /* Oro iluminado – íconos y detalles */
+    --dark-color: #0e0c0a;           /* Negro tinta – máxima profundidad */
+    --gradient-bg: linear-gradient(160deg, #0e0c0a 0%, #1f1a14 100%);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(0, 0, 0, 0.04);
+}
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            overflow-x: hidden;
+        }
+
+        /* 🔄 LOADING SCREEN INICIAL */
+        .initial-loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            color: white;
+        }
+
+        .loading-logo {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        .loading-logo i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .loading-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 📄 CONTENIDO PRINCIPAL (OCULTO HASTA AUTENTICACIÓN) */
+        .main-content {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .main-content.authenticated {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        header {
+            background: rgba(14, 12, 10, 0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: white;
+            padding: 1.1rem 0;
+            border-bottom: 1px solid rgba(184, 154, 95, 0.25);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo img {
+            height: 60px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+        
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.25;
+            letter-spacing: 0.04em;
+            font-size: 1.05rem;
+        }
+
+        /* 🎯 WIDGET FLOTANTE DE USUARIO */
+        .floating-user-widget {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 2000;
+            
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .floating-user-widget.authenticated {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .user-fab {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(94, 75, 139, 0.3);
+            transition: var(--transition);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .user-fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(94, 75, 139, 0.4);
+        }
+
+        .user-fab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%) rotate(45deg);
+            transition: transform 0.6s;
+        }
+
+        .user-fab:hover::before {
+            transform: translateX(100%) rotate(45deg);
+        }
+
+        .user-fab-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+
+        .user-fab-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .user-fab-avatar .default-avatar {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .online-indicator {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            width: 16px;
+            height: 16px;
+            background: #10b981;
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            animation: pulse-online 2s infinite;
+        }
+
+        @keyframes pulse-online {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .floating-user-panel {
+            position: absolute;
+            top: 70px;
+            right: 0;
+            width: 320px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-20px) scale(0.95);
+            transition: var(--transition);
+            overflow: hidden;
+            z-index: 2001;
+        }
+
+        .floating-user-widget.active .floating-user-panel {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .user-panel-header {
+            padding: 30px 25px;
+            background: var(--gradient-bg);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .user-panel-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .user-avatar-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+
+        .user-avatar-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .user-avatar-large .default-avatar {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .user-name-display {
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .user-email-display {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .user-stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 25px;
+            background: var(--light-accent);
+            margin: 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .user-menu {
+            padding: 15px 0;
+        }
+
+        .user-menu-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 25px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .user-menu-item:hover {
+            background: rgba(94, 75, 139, 0.08);
+            color: var(--primary-color);
+        }
+
+        .user-menu-item i {
+            width: 20px;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+
+        .user-menu-divider {
+            height: 1px;
+            background: rgba(94, 75, 139, 0.1);
+            margin: 8px 0;
+        }
+
+        .logout-item {
+            color: #dc2626 !important;
+        }
+
+        .logout-item:hover {
+            background: rgba(220, 38, 38, 0.05) !important;
+        }
+
+        .logout-item i {
+            color: #dc2626 !important;
+        }
+
+        .admin-access-item {
+            background: linear-gradient(135deg, rgba(42, 36, 59, 0.05), rgba(94, 75, 139, 0.05)) !important;
+            border-left: 3px solid #d4af37 !important;
+            color: var(--dark-color) !important;
+            font-weight: 600 !important;
+        }
+
+        .admin-access-item:hover {
+            background: linear-gradient(135deg, rgba(42, 36, 59, 0.1), rgba(94, 75, 139, 0.1)) !important;
+            color: var(--dark-color) !important;
+            transform: translateX(3px);
+        }
+
+        .admin-access-item i {
+            color: #d4af37 !important;
+        }
+
+        .admin-access-item:hover i {
+            color: #b8941f !important;
+        }
+
+        /* 🌟 BARRA LATERAL DE COMUNIDAD - ESTILO ORIGINAL */
+        .community-sidebar {
+            position: fixed;
+            right: -400px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 380px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 20px 0 0 20px;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(94, 75, 139, 0.1);
+            z-index: 1500;
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .community-sidebar.active {
+            right: 0;
+        }
+
+        .community-toggle {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 120px;
+            background: var(--gradient-bg);
+            border-radius: 25px 0 0 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: -5px 0 15px rgba(94, 75, 139, 0.2);
+            z-index: 1501;
+            transition: var(--transition);
+            color: white;
+            font-weight: 600;
+            gap: 8px;
+        }
+
+        .community-toggle:hover {
+            background: linear-gradient(135deg, rgba(94, 75, 139, 1) 0%, rgba(209, 163, 95, 1) 100%);
+            transform: translateY(-50%) translateX(-5px);
+        }
+
+        .community-toggle i {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-5px); }
+            60% { transform: translateY(-3px); }
+        }
+
+        .community-toggle .toggle-text {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .community-content {
+            padding: 30px 25px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .community-header-sidebar {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .community-icon-sidebar {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin: 0 auto 15px;
+            box-shadow: 0 8px 20px rgba(94, 75, 139, 0.3);
+        }
+
+        .community-header-sidebar h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            color: var(--dark-color);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .community-header-sidebar p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .community-features-sidebar {
+            margin-bottom: 25px;
+        }
+
+        .feature-item-sidebar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            background: rgba(94, 75, 139, 0.05);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border-left: 3px solid var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .feature-item-sidebar:hover {
+            background: rgba(94, 75, 139, 0.1);
+            transform: translateX(5px);
+        }
+
+        .feature-item-sidebar i {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            width: 20px;
+        }
+
+        .feature-item-sidebar span {
+            font-weight: 500;
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+        .community-stats-sidebar {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background: var(--light-accent);
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-sidebar {
+            text-align: center;
+        }
+
+        .stat-number-sidebar {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+
+        .stat-label-sidebar {
+            font-size: 0.75rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .loading-spinner-sidebar {
+            color: var(--primary-color);
+            animation: spin 1s linear infinite;
+        }
+
+        .community-btn-sidebar {
+            display: block;
+            width: 100%;
+            background: var(--gradient-bg);
+            color: white;
+            padding: 14px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            box-shadow: 0 6px 15px rgba(94, 75, 139, 0.2);
+            text-align: center;
+        }
+
+        .community-btn-sidebar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(94, 75, 139, 0.3);
+        }
+
+        .community-btn-sidebar i {
+            margin-right: 8px;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .nav-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: rgba(255, 255, 255, 0.78);
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            font-size: 0.78rem;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            transition: var(--transition);
+            display: block;
+            padding: 0.5rem;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .forum-link {
+            background: rgba(255, 255, 255, 0.15) !important;
+            border-radius: 8px !important;
+            padding: 8px 16px !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            transition: var(--transition) !important;
+        }
+
+        .forum-link:hover {
+            background: rgba(255, 255, 255, 0.25) !important;
+            transform: translateY(-2px) !important;
+            border-color: rgba(255, 255, 255, 0.4) !important;
+        }
+
+        .forum-link i {
+            margin-right: 6px;
+        }
+        
+        /* Dropdown Styles */
+        .menu-item-has-children {
+            position: relative;
+        }
+        
+        .menu-item-has-children > a {
+            display: flex;
+            align-items: center;
+        }
+        
+        .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: 8px;
+            padding: 0.8rem 0;
+            display: none;
+            z-index: 100;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .sub-menu li {
+            width: 100%;
+        }
+        
+        .sub-menu a {
+            padding: 0.7rem 1.2rem;
+            font-size: 0.9rem;
+            width: 100%;
+            color: var(--dark-color);
+        }
+        
+        .sub-menu a:hover {
+            background-color: rgba(123, 34, 64, 0.05);
+            color: var(--primary-color);
+        }
+        
+        .sub-menu a::after {
+            display: none;
+        }
+        
+        .menu-item-has-children:hover .sub-menu {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* ── Animaciones de entrada escalonadas ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes lineExpand {
+            from { width: 0; }
+            to   { width: 60px; }
+        }
+
+        .hero {
+            height: 92vh;
+            min-height: 580px;
+            background-image: url('images/hero-ministerio.jpg');
+            background-size: cover;
+            background-position: center top;
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Capa oscura base */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                160deg,
+                rgba(14, 12, 10, 0.82) 0%,
+                rgba(20, 16, 12, 0.70) 60%,
+                rgba(14, 12, 10, 0.78) 100%
+            );
+            z-index: 1;
+        }
+
+        /* Textura de grano sutil */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            opacity: 0.5;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 720px;
+            padding-left: 0.5rem;
+        }
+
+        /* Línea decorativa dorada */
+        .hero-rule {
+            display: block;
+            height: 1px;
+            background: var(--secondary-color);
+            margin-bottom: 2.2rem;
+            animation: lineExpand 0.9s cubic-bezier(0.25, 0.8, 0.25, 1) 0.1s both;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 6vw, 4.6rem);
+            font-weight: 600;
+            font-style: italic;
+            line-height: 1.12;
+            letter-spacing: 0.01em;
+            margin-bottom: 1.6rem;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+            animation: fadeUp 0.9s cubic-bezier(0.25, 0.8, 0.25, 1) 0.3s both;
+        }
+
+        .hero p {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.75;
+            margin-bottom: 2.8rem;
+            color: rgba(255, 255, 255, 0.80);
+            letter-spacing: 0.02em;
+            max-width: 560px;
+            animation: fadeUp 0.9s cubic-bezier(0.25, 0.8, 0.25, 1) 0.55s both;
+        }
+
+        .hero-buttons {
+            animation: fadeUp 0.9s cubic-bezier(0.25, 0.8, 0.25, 1) 0.8s both;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 0.85rem 2.2rem;
+            border-radius: 2px;
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            transition: var(--transition);
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--secondary-color);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+            background-color: transparent;
+        }
+        
+        .sections {
+            padding: 6rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .section-title h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.6rem;
+            font-weight: 600;
+            font-style: italic;
+            display: inline-block;
+            position: relative;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .section-title p {
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-img {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s;
+        }
+        
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 2rem;
+        }
+        
+        .card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7rem;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+        
+        .card-text {
+            margin-bottom: 1.8rem;
+            color: #555;
+        }
+        
+        .bible-verse {
+            background-color: rgba(123, 34, 64, 0.05);
+            padding: 3rem;
+            border-radius: 16px;
+            margin: 6rem 0;
+            position: relative;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .bible-verse::before {
+            content: '\201C';
+            font-size: 6rem;
+            position: absolute;
+            top: -30px;
+            left: 30px;
+            color: var(--primary-color);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        
+        .verse-text {
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        
+        .verse-ref {
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-bg);
+            transition: var(--transition);
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature:hover::before {
+            height: 100%;
+            opacity: 0.05;
+            z-index: -1;
+        }
+        
+        .feature i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .feature:hover i {
+            transform: scale(1.2);
+        }
+        
+        .feature h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h4 {
+           font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-col a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-col a:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .floating-user-widget {
+                right: 15px;
+                top: 80px;
+            }
+
+            .user-fab {
+                width: 50px;
+                height: 50px;
+            }
+
+            .user-fab-avatar {
+                width: 38px;
+                height: 38px;
+            }
+
+            .floating-user-panel {
+                width: 280px;
+                right: 0;
+            }
+
+            .community-sidebar {
+                width: 100%;
+                right: -100%;
+                top: 0;
+                transform: none;
+                height: 100vh;
+                border-radius: 0;
+            }
+
+            .community-toggle {
+                right: 10px;
+                top: 200px;
+                width: 45px;
+                height: 100px;
+            }
+
+            .community-toggle i {
+                font-size: 1.3rem;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 280px;
+                height: 100vh;
+                background-color: var(--dark-color);
+                z-index: 2500;
+                transition: right 0.3s ease;
+                padding: 2rem;
+                overflow-y: auto;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            nav li {
+                width: 100%;
+            }
+            
+            nav a {
+                padding: 1rem 0;
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav a::after {
+                display: none;
+            }
+            
+            .menu-item-has-children > a {
+                justify-content: space-between;
+            }
+            
+            .menu-item-has-children > a::after {
+                display: block;
+                content: '+';
+                transition: var(--transition);
+            }
+            
+            .menu-item-has-children.active > a::after {
+                transform: rotate(45deg);
+            }
+            
+            .sub-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.2);
+                border-radius: 0;
+                padding-left: 1rem;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                transform: none;
+                opacity: 1;
+            }
+            
+            .menu-item-has-children.active > .sub-menu {
+                max-height: 500px;
+            }
+            
+            .menu-item-has-children:hover .sub-menu {
+                display: none;
+                transform: none;
+            }
+            
+            .menu-item-has-children.active .sub-menu {
+                display: block;
+            }
+            
+            .sub-menu a {
+                color: #ddd;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            .sub-menu a:hover {
+                background-color: rgba(255, 255, 255, 0.05);
+                color: var(--secondary-color);
+            }
+            
+            .hero {
+                height: auto;
+                padding: 6rem 0;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .card-content {
+                padding: 1.5rem;
+            }
+            
+            .bible-verse {
+                padding: 2rem;
+            }
+            
+            .verse-text {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .floating-user-widget {
+                right: 10px;
+                top: 70px;
+            }
+
+            .user-fab {
+                width: 45px;
+                height: 45px;
+            }
+
+            .user-fab-avatar {
+                width: 35px;
+                height: 35px;
+            }
+
+            .floating-user-panel {
+                width: 250px;
+                right: 0; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 🔄 PANTALLA DE LOADING INICIAL -->
+    <div id="initial-loading" class="initial-loading">
+        <div class="loading-logo">
+            <i class="fas fa-bible"></i>
+        </div>
+        <div class="loading-text">Verificando acceso...</div>
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- 📄 CONTENIDO PRINCIPAL (SOLO PARA USUARIOS AUTENTICADOS) -->
+    <div id="main-content" class="main-content">
+        <div id="floating-user-widget" class="floating-user-widget">
+            <div class="user-fab" id="user-fab">
+                <div class="user-fab-avatar">
+                    <img id="user-photo-fab" style="display: none;" alt="Tu foto">
+                    <div id="default-avatar-fab" class="default-avatar">U</div>
+                </div>
+                <div class="online-indicator"></div>
+            </div>
+            
+            <div class="floating-user-panel" id="floating-user-panel">
+                <div class="user-panel-header">
+                    <div class="user-avatar-large">
+                        <img id="user-photo-large" style="display: none;" alt="Tu foto">
+                        <div id="default-avatar-large" class="default-avatar">U</div>
+                    </div>
+                    <div id="user-name-display" class="user-name-display">Usuario</div>
+                    <div id="user-email-display" class="user-email-display">email@ejemplo.com</div>
+                </div>
+                
+                <div class="user-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="visit-count-widget">0</span>
+                        <span class="stat-label">Visitas</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="days-member-widget">0</span>
+                        <span class="stat-label">Días</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="last-visit-widget">Hoy</span>
+                        <span class="stat-label">Última</span>
+                    </div>
+                </div>
+                
+                <div class="user-menu">
+                    <a href="auth/profile.html" class="user-menu-item">
+                        <i class="fas fa-user"></i>
+                        <span>Mi Perfil</span>
+                    </a>
+                    <a href="./Comunidad/favorites.html" class="user-menu-item">
+                        <i class="fas fa-bookmark"></i>
+                        <span>Mis Favoritos</span>
+                    </a>
+                    <div class="user-menu-divider"></div>
+                    <button id="admin-access-main" class="user-menu-item admin-access-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Panel de Admin</span>
+                    </button>
+                    <div class="user-menu-divider"></div>
+                    <button id="logout-btn" class="user-menu-item logout-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Cerrar Sesión</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🌟 BARRA DE COMUNIDAD - ESTILO ORIGINAL CON FUNCIONALIDAD INTEGRADA -->
+        <div class="community-toggle" id="home-community-toggle">
+            <i class="fas fa-users"></i>
+            <span class="toggle-text">Comunidad</span>
+        </div>
+
+        <div class="community-sidebar" id="home-community-sidebar">
+            <div class="community-content">
+                <div class="community-header-sidebar">
+                    <div class="community-icon-sidebar">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Comunidad de Fe</h3>
+                    <p>Únete y crece junto a nosotros</p>
+                </div>
+                
+                <div class="community-features-sidebar">
+                    <div class="feature-item-sidebar">
+                        <i class="fas fa-bible"></i>
+                        <span>Estudios bíblicos grupales</span>
+                    </div>
+                    <div class="feature-item-sidebar">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Preguntas y respuestas</span>
+                    </div>
+                    <div class="feature-item-sidebar">
+                        <i class="fas fa-heart"></i>
+                        <span>Testimonios de fe</span>
+                    </div>
+                    <div class="feature-item-sidebar">
+                        <i class="fas fa-praying-hands"></i>
+                        <span>Peticiones de oración</span>
+                    </div>
+                </div>
+                
+                <div class="community-stats-sidebar">
+                    <div class="stat-sidebar">
+                        <span class="stat-number-sidebar" id="home-topics-count">
+                            <i class="loading-spinner-sidebar fas fa-spinner fa-spin" style="display: none; font-size: 1rem;"></i>
+                            <span class="stat-value">3</span>
+                        </span>
+                        <span class="stat-label-sidebar">Temas</span>
+                    </div>
+                    <div class="stat-sidebar">
+                        <span class="stat-number-sidebar" id="home-comments-count">
+                            <i class="loading-spinner-sidebar fas fa-spinner fa-spin" style="display: none; font-size: 1rem;"></i>
+                            <span class="stat-value">12</span>
+                        </span>
+                        <span class="stat-label-sidebar">Comentarios</span>
+                    </div>
+                    <div class="stat-sidebar">
+                        <span class="stat-number-sidebar">1</span>
+                        <span class="stat-label-sidebar">En línea</span>
+                    </div>
+                </div>
+                
+                <a href="./Comunidad/forum.html" class="community-btn-sidebar">
+                    <i class="fas fa-comments"></i>
+                    Explorar Comunidad
+                </a>
+            </div>
+        </div>
+
+        <header>
+            <div class="container header-content">
+                <div class="logo">
+                    <img src="images/EMD.png" alt="Logo EMD">
+                    <div class="logo-text">
+                        <div>Ministerio</div>
+                        <div>"La Gloria es del Señor"</div>
+                    </div>
+                </div>
+                
+                <div class="header-actions">
+                    <button class="nav-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+                
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li class="menu-item-has-children">
+                            <a href="#">Figuras Bíblicas</a>
+                            <ul class="sub-menu">
+                                <li><a href="page/Figuras Bíblicas/at-a-nt.html">AT a NT</a></li>
+                                <li><a href="page/Figuras Bíblicas/nombres-simbologia.html">Los nombres y su simbología</a></li>
+                                <li><a href="page/Figuras Bíblicas/templo-figuras.html">Templo y sus Figuras</a></li>
+                                <li><a href="page/Figuras Bíblicas/sacrificios-figuras.html">Sacrificios y su Figuras</a></li>
+                                <li><a href="page/Figuras Bíblicas/tipologia-cantares.html">Tipología Cantares</a></li>
+                                <li><a href="page/Figuras Bíblicas/figuras-cristo.html">Figuras de Cristo</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="#">Falsas Doctrinas</a>
+                            <ul class="sub-menu">
+                                <li><a href="page/Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                                <li><a href="page/Falsas Doctrinas/gnosticismos.html">Gnosticismos en la Biblia</a></li>
+                                <li><a href="page/Falsas Doctrinas/filosofias-griegas.html">Filosofías Griegas</a></li>
+                                <li><a href="page/Falsas Doctrinas/masoneria.html">Masonería</a></li>
+                                <li><a href="page/Falsas Doctrinas/sociedades-secretas.html">Sociedades Secretas</a></li>
+                                <li><a href="page/Falsas Doctrinas/sectas-anticristianas.html">Sectas Anticristianas</a></li>
+                                <li><a href="page/Falsas Doctrinas/pseudoprofetas.html">Pseudoprofetas</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="#">Estudios Exegéticos</a>
+                            <ul class="sub-menu">
+                                <li><a href="page/Estudios Exegéticos/temas-exegeticos.html">Temas Exegéticos</a></li>
+                                <li><a href="page/Estudios Exegéticos/idiomas-biblia.html">Hebreo, Arameo y Griego en la Biblia</a></li>
+                                <li><a href="page/Estudios Exegéticos/enlaces-recursos.html">Enlaces de Recursos</a></li>
+                                <li><a href="page/Estudios Exegéticos/diccionarios-comentarios.html">Diccionarios y Comentarios</a></li>
+                                <li><a href="page/Estudios Exegéticos/software-biblico.html">Software Bíblicos</a></li>
+                                <li><a href="page/Estudios Exegéticos/meditacion-palabra.html">Meditación en la Palabra</a></li>
+                                <li><a href="page/Estudios Exegéticos/lectura-anual.html">Lectura Anual</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="#">Tiempo del Fin</a>
+                            <ul class="sub-menu">
+                                <li><a href="page/Tiempo del Fin/introduccion.html">Introducción al tiempo del fin</a></li>
+                                <li><a href="page/Tiempo del Fin/escatologia.html">Escatología</a></li>
+                                <li><a href="page/Tiempo del Fin/profecias-cumplidas.html">Profecías Cumplidas</a></li>
+                                <li><a href="page/Tiempo del Fin/nuevo-orden-mundial.html">Nuevo Orden Mundial</a></li>
+                                <li><a href="page/Tiempo del Fin/noticias-fin.html">Noticias del Fin</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="#">Época de Jesús</a>
+                            <ul class="sub-menu">
+                                <li><a href="page/Época de Jesús/estudio-contemporaneo.html">Estudio Contemporáneo</a></li>
+                                <li><a href="page/Época de Jesús/contexto-historico.html">Contexto Histórico</a></li>
+                                <li><a href="page/Época de Jesús/grupos-religiosos.html">Grupos religiosos</a></li>
+                                <li><a href="page/Época de Jesús/recursos-academicos.html">Estudios de Contexto</a></li>
+                                <li><a href="page/Época de Jesús/apologia-cristiana.html">Apología Cristiana</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="#">Estudios Bíblicos</a>
+                            <ul class="sub-menu">
+                                <li><a href="page/Estudios Bíblicos/doctrina-basica.html">Doctrina Básica</a></li>
+                                <li><a href="page/Estudios Bíblicos/doctrina-intermedia.html">Doctrina intermedia</a></li>
+                                <li><a href="page/Estudios Bíblicos/doctrina-avanzada.html">Doctrina Avanzada</a></li>
+                                <li><a href="page/Estudios Bíblicos/revelacion-espiritu.html">Revelación del Espíritu</a></li>
+                                <li><a href="page/Estudios Bíblicos/devocionales.html">Devocionales</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="container hero-content">
+                <span class="hero-rule"></span>
+                <h1>Bienvenido al Ministerio<br>"La Gloria es del Señor"</h1>
+                <p>Un espacio dedicado a la enseñanza de la Palabra de Dios para edificación, exhortación y consuelo de la Iglesia del Señor.</p>
+                <div class="hero-buttons">
+                    <a href="#estudios" class="btn">Conoce Más</a>
+                    <a href="nuestras-ensenanzas/index.html" class="btn btn-outline">Nuestras Enseñanzas</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="sections">
+            <div class="container">
+                <div class="section-title" id="estudios">
+                    <h2>Nuestros Estudios Bíblicos</h2>
+                    <p>Descubre recursos profundos para conocer mejor la Palabra de Dios</p>
+                </div>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="images/figuras-biblicas.jpg" alt="Figuras Bíblicas">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Figuras Bíblicas</h3>
+                            <p class="card-text">Explora el significado profundo de las figuras y personajes más importantes de la Biblia.</p>
+                            <a href="page/Figuras Bíblicas/at-a-nt.html" class="btn">Leer Más</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="images/estudios-exgeticos.jpg" alt="Estudios Exegéticos">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Estudios Exegéticos</h3>
+                            <p class="card-text">Descubre la profundidad de las Escrituras a través del análisis detallado de los textos originales.</p>
+                            <a href="page/Estudios Exegéticos/temas-exegeticos.html" class="btn">Leer Más</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="images/estudios-biblicos.jpg" alt="Estudios Bíblicos">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Estudios Bíblicos</h3>
+                            <p class="card-text">Sumérgete en las enseñanzas fundamentales de la fe cristiana a través de estudios bíblicos profundos.</p>
+                            <a href="page/Estudios Bíblicos/doctrina-basica.html" class="btn">Leer Más</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bible-verse">
+                    <p class="verse-text">"Y todo lo que hagáis, hacedlo de corazón, como para el Señor y no para los hombres; sabiendo que del Señor recibiréis la recompensa de la herencia, porque a Cristo el Señor servís."</p>
+                    <p class="verse-ref">Colosenses 3:23-24</p>
+                </div>
+
+                <div class="section-title">
+                    <h2>Por Qué Elegirnos</h2>
+                    <p>Comprometidos con la enseñanza bíblica y la vida en el Espíritu</p>
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-bible"></i>
+                        <h3>Enseñanza Bíblica</h3>
+                        <p>Nuestras enseñanzas están fundamentadas en la Palabra de Dios, sin añadir ni quitar.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-hands-praying"></i>
+                        <h3>Vida de Oración</h3>
+                        <p>Enfatizamos la importancia de una relación íntima con Dios a través de la oración.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-church"></i>
+                        <h3>Comunidad de Fe</h3>
+                        <p>Somos una familia que crece junta en el conocimiento y la gracia de nuestro Señor.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-dove"></i>
+                        <h3>Dirección del Espíritu</h3>
+                        <p>Creemos en la guía continua del Espíritu Santo en nuestras vidas y ministerio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-col">
+                        <h4>Ministerio EMD</h4>
+                        <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/profile.php?id=61577956191110"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Enlaces Rápidos</h4>
+                        <ul>
+                            <li><a href="page/Figuras Bíblicas/at-a-nt.html">Figuras Bíblicas</a></li>
+                            <li><a href="page/Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                            <li><a href="page/Estudios Exegéticos/temas-exegeticos.html">Estudios Exegéticos</a></li>
+                            <li><a href="page/Tiempo del Fin/introduccion.html">Tiempo del Fin</a></li>
+                            <li><a href="page/Época de Jesús/estudio-contemporaneo.html">Época de Jesús</a></li>
+                            <li><a href="page/Estudios Bíblicos/doctrina-basica.html">Estudios Bíblicos</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio, San Juan, Puerto Rico</li>
+                            <li><i class="fas fa-phone"></i> +1 787-345-6940</li>
+                            <li><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                          <h4>Nota Aclaratoria</h4>
+                        <ul>
+                            <li>Todos los recursos de esta página son gratuitos y para la edificación de los creyentes</li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Sistema</h4>
+                        <ul>
+                            <li><a href="#" id="footer-admin-access" style="opacity: 0.7; font-size: 0.85rem;">Administración</a></li>
+                            <li style="font-size: 0.8rem; color: #666;">v2025.1.0</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 🔥 SISTEMA PRINCIPAL CON INTEGRACIÓN CORREGIDA DE COMUNIDAD -->
+    <script type="module">
+        import { initializeAuth, handleRedirectResult, getCurrentUser, logout } from './js/auth.js';
+
+        // 🔐 SISTEMA DE PÁGINA PRINCIPAL CON COMUNIDAD INTEGRADA (CORREGIDO)
+        const ProtectedIndexPage = {
+            isCheckingAuth: true,
+            communityInitialized: false,
+            communityToggleHandled: false, // 🔧 NUEVO: Evitar múltiples listeners
+            
+            // 🚀 INICIALIZAR VERIFICACIÓN DE ACCESO
+            async init() {
+                console.log('🔐 Inicializando página principal protegida...');
+                
+                // Configurar listener de autenticación
+                this.setupAuthListener();
+                
+                // Verificar resultado de redirección al cargar
+                await handleRedirectResult();
+                
+                console.log('✅ Sistema de verificación inicializado');
+            },
+
+            // 👂 CONFIGURAR LISTENER DE AUTENTICACIÓN
+            setupAuthListener() {
+                initializeAuth((user) => {
+                    console.log('🔄 Cambio de estado de autenticación detectado');
+                    
+                    if (user) {
+                        console.log('✅ Usuario autenticado:', user.email);
+                        this.handleAuthenticatedUser(user);
+                    } else {
+                        console.log('❌ Usuario no autenticado, redirigiendo...');
+                        this.redirectToAccess();
+                    }
+                });
+            },
+
+            // ✅ MANEJAR USUARIO AUTENTICADO
+            async handleAuthenticatedUser(user) {
+                console.log('✅ Mostrando contenido para usuario autenticado');
+                
+                // Ocultar loading
+                this.hideLoading();
+                
+                // Mostrar contenido principal
+                this.showMainContent();
+                
+                // Configurar la interfaz de usuario
+                this.setupUserInterface(user);
+                
+                // Configurar funcionalidades principales
+                this.setupPageFeatures();
+                
+                // 🌟 INICIALIZAR COMUNIDAD CON DELAY PARA EVITAR CONFLICTOS
+                setTimeout(async () => {
+                    await this.initializeCommunitySystem();
+                }, 300);
+                
+                this.isCheckingAuth = false;
+            },
+
+            // 🚀 REDIRIGIR A PÁGINA DE ACCESO
+            redirectToAccess() {
+                console.log('🚀 Redirigiendo a página de acceso...');
+                setTimeout(() => {
+                    window.location.href = 'access.html';
+                }, 1000);
+            },
+
+            // 🔄 OCULTAR LOADING
+            hideLoading() {
+                const loadingScreen = document.getElementById('initial-loading');
+                if (loadingScreen) {
+                    loadingScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                    }, 500);
+                }
+            },
+
+            // 📄 MOSTRAR CONTENIDO PRINCIPAL
+            showMainContent() {
+                const mainContent = document.getElementById('main-content');
+                if (mainContent) {
+                    mainContent.classList.add('authenticated');
+                }
+            },
+
+            // 🎯 CONFIGURAR INTERFAZ DE USUARIO
+            setupUserInterface(user) {
+                console.log('🎯 Configurando interfaz para:', user.displayName);
+                
+                // Actualizar widget de usuario
+                const widget = document.getElementById('floating-user-widget');
+                if (widget) {
+                    widget.classList.add('authenticated');
+                }
+                
+                // Actualizar información del usuario
+                this.updateUserInfo(user);
+                
+                // Configurar fotos de perfil
+                this.updateProfilePhotos(user);
+                
+                // Actualizar estadísticas
+                this.updateUserStats();
+            },
+
+            // 📝 ACTUALIZAR INFORMACIÓN DEL USUARIO
+            updateUserInfo(user) {
+                const nameDisplay = document.getElementById('user-name-display');
+                const emailDisplay = document.getElementById('user-email-display');
+                
+                if (nameDisplay) {
+                    nameDisplay.textContent = user.displayName || 'Usuario';
+                }
+                
+                if (emailDisplay) {
+                    emailDisplay.textContent = user.email || '';
+                }
+            },
+
+            // 📸 ACTUALIZAR FOTOS DE PERFIL
+            updateProfilePhotos(user) {
+                const photoFab = document.getElementById('user-photo-fab');
+                const photoLarge = document.getElementById('user-photo-large');
+                const defaultFab = document.getElementById('default-avatar-fab');
+                const defaultLarge = document.getElementById('default-avatar-large');
+                
+                if (user.photoURL && user.photoURL.trim() !== '') {
+                    // Usar foto real de Google
+                    if (photoFab) {
+                        photoFab.src = user.photoURL;
+                        photoFab.style.display = 'block';
+                        photoFab.onerror = () => this.fallbackToAvatar(user);
+                    }
+                    
+                    if (photoLarge) {
+                        photoLarge.src = user.photoURL;
+                        photoLarge.style.display = 'block';
+                        photoLarge.onerror = () => this.fallbackToAvatar(user);
+                    }
+                    
+                    if (defaultFab) defaultFab.style.display = 'none';
+                    if (defaultLarge) defaultLarge.style.display = 'none';
+                } else {
+                    this.fallbackToAvatar(user);
+                }
+            },
+
+            // 🎭 FALLBACK A AVATAR
+            fallbackToAvatar(user) {
+                const defaultFab = document.getElementById('default-avatar-fab');
+                const defaultLarge = document.getElementById('default-avatar-large');
+                
+                const firstName = user?.displayName ? user.displayName.split(' ')[0] : 'Usuario';
+                const firstLetter = firstName.charAt(0).toUpperCase();
+                
+                if (defaultFab) {
+                    defaultFab.textContent = firstLetter;
+                    defaultFab.style.display = 'flex';
+                }
+                
+                if (defaultLarge) {
+                    defaultLarge.textContent = firstLetter;
+                    defaultLarge.style.display = 'flex';
+                }
+            },
+
+            // 📊 ACTUALIZAR ESTADÍSTICAS
+            updateUserStats() {
+                const visitCount = localStorage.getItem('visitCount') || '1';
+                const joinDate = localStorage.getItem('joinDate') || new Date().toISOString();
+                
+                const days = Math.floor((new Date() - new Date(joinDate)) / (1000 * 60 * 60 * 24));
+                const daysMember = days === 0 ? 'Nuevo' : days.toString();
+                
+                const elements = {
+                    'visit-count-widget': visitCount,
+                    'days-member-widget': daysMember,
+                    'last-visit-widget': 'Ahora'
+                };
+                
+                Object.entries(elements).forEach(([id, value]) => {
+                    const element = document.getElementById(id);
+                    if (element) element.textContent = value;
+                });
+            },
+
+            // 🔧 CONFIGURAR FUNCIONALIDADES PRINCIPALES
+            setupPageFeatures() {
+                console.log('🔧 Configurando funcionalidades principales...');
+                
+                // Configurar widget de usuario
+                this.setupUserWidget();
+                
+                // Configurar menú móvil
+                this.setupMobileMenu();
+                
+                // Configurar acceso de administrador
+                this.setupAdminAccess();
+                
+                // Configurar logout
+                this.setupLogout();
+                
+                console.log('✅ Funcionalidades principales configuradas');
+            },
+
+            // 🌟 INICIALIZAR SISTEMA DE COMUNIDAD CORREGIDO
+            async initializeCommunitySystem() {
+                if (this.communityInitialized) {
+                    console.log('⚠️ Sistema de comunidad ya inicializado');
+                    return;
+                }
+
+                console.log('🌟 Inicializando sistema de comunidad corregido...');
+                
+                try {
+                    // 1. Configurar SOLO el toggle básico del index
+                    this.setupPrimaryCommunityToggle();
+                    
+                    // 2. Verificar si comunidad.js está disponible y configurar integración
+                    setTimeout(() => {
+                        this.setupCommunityModuleIntegration();
+                    }, 100);
+                    
+                    // 3. Actualizar estadísticas de comunidad
+                    this.updateCommunityStats();
+                    
+                    this.communityInitialized = true;
+                    console.log('✅ Sistema de comunidad inicializado correctamente');
+                    
+                } catch (error) {
+                    console.warn('⚠️ Error inicializando comunidad:', error);
+                }
+            },
+
+            // 🔄 CONFIGURAR TOGGLE PRINCIPAL DE COMUNIDAD (SIN DUPLICACIÓN)
+            setupPrimaryCommunityToggle() {
+                if (this.communityToggleHandled) {
+                    console.log('⚠️ Toggle de comunidad ya configurado');
+                    return;
+                }
+
+                console.log('🔄 Configurando toggle principal de comunidad...');
+                
+                const communityToggle = document.getElementById('home-community-toggle');
+                const communitySidebar = document.getElementById('home-community-sidebar');
+
+                if (!communityToggle || !communitySidebar) {
+                    console.warn('⚠️ Elementos de comunidad no encontrados');
+                    return;
+                }
+
+                // 🎯 CONFIGURAR UN SOLO LISTENER PRINCIPAL
+                communityToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    console.log('🖱️ Toggle de comunidad clickeado');
+                    
+                    // ✅ SOLO ALTERNAR LA CLASE AQUÍ (no más duplicación)
+                    const isCurrentlyActive = communitySidebar.classList.contains('active');
+                    
+                    if (isCurrentlyActive) {
+                        communitySidebar.classList.remove('active');
+                        console.log('📤 Panel de comunidad cerrado');
+                        
+                        // Disparar evento de cierre
+                        window.dispatchEvent(new CustomEvent('communityClosed'));
+                    } else {
+                        communitySidebar.classList.add('active');
+                        console.log('📥 Panel de comunidad abierto');
+                        
+                        // Disparar evento de apertura (sin hacer otro toggle)
+                        window.dispatchEvent(new CustomEvent('communityToggled', {
+                            detail: { isOpen: true }
+                        }));
+                    }
+                });
+
+                // Cerrar sidebar al hacer clic fuera
+                document.addEventListener('click', (event) => {
+                    if (!communitySidebar.contains(event.target) && 
+                        !communityToggle.contains(event.target) &&
+                        communitySidebar.classList.contains('active')) {
+                        
+                        communitySidebar.classList.remove('active');
+                        console.log('📤 Panel cerrado por clic externo');
+                        
+                        window.dispatchEvent(new CustomEvent('communityClosed'));
+                    }
+                });
+
+                this.communityToggleHandled = true;
+                console.log('✅ Toggle principal de comunidad configurado');
+            },
+
+            // 🔗 CONFIGURAR INTEGRACIÓN CON MÓDULO DE COMUNIDAD
+            setupCommunityModuleIntegration() {
+                console.log('🔗 Verificando disponibilidad del módulo de comunidad...');
+                
+                try {
+                    // Verificar si CommunityModule está disponible
+                    if (window.CommunityModule && typeof window.CommunityModule === 'object') {
+                        console.log('✅ CommunityModule encontrado, configurando integración...');
+                        
+                        // ⚠️ IMPORTANTE: NO permitir que el módulo haga su propio toggle
+                        // Solo configurar listeners para eventos
+                        this.setupCommunityEventListeners();
+                        
+                        // Notificar al módulo que puede inicializar sin configurar su propio toggle
+                        if (typeof window.CommunityModule.initWithoutToggle === 'function') {
+                            window.CommunityModule.initWithoutToggle();
+                        } else if (typeof window.CommunityModule.init === 'function') {
+                            // Si no tiene initWithoutToggle, advertir sobre posible conflicto
+                            console.warn('⚠️ CommunityModule podría crear toggle duplicado');
+                            window.CommunityModule.init();
+                        }
+                        
+                    } else {
+                        console.log('📊 CommunityModule no disponible, usando solo sistema básico');
+                    }
+                } catch (error) {
+                    console.warn('⚠️ Error configurando integración:', error);
+                }
+            },
+
+            // ⚡ CONFIGURAR LISTENERS DE EVENTOS DE COMUNIDAD
+            setupCommunityEventListeners() {
+                console.log('⚡ Configurando listeners de eventos de comunidad...');
+                
+                // Escuchar eventos del toggle
+                window.addEventListener('communityToggled', (event) => {
+                    console.log('🔄 Evento communityToggled recibido:', event.detail);
+                    
+                    // Notificar a comunidad.js si está disponible (sin hacer toggle)
+                    if (window.CommunityModule && typeof window.CommunityModule.onToggleEvent === 'function') {
+                        window.CommunityModule.onToggleEvent(event.detail.isOpen);
+                    }
+                });
+
+                // Escuchar eventos de cierre
+                window.addEventListener('communityClosed', () => {
+                    console.log('🔄 Evento communityClosed recibido');
+                    
+                    if (window.CommunityModule && typeof window.CommunityModule.onCloseEvent === 'function') {
+                        window.CommunityModule.onCloseEvent();
+                    }
+                });
+
+                console.log('✅ Listeners de eventos configurados');
+            },
+
+            // 📊 ACTUALIZAR ESTADÍSTICAS DE COMUNIDAD
+            updateCommunityStats() {
+                console.log('📊 Actualizando estadísticas de comunidad...');
+                
+                try {
+                    // Intentar obtener estadísticas del módulo de comunidad
+                    let topicsCount = '3';
+                    let commentsCount = '12';
+                    
+                    if (window.CommunityModule && typeof window.CommunityModule.getStats === 'function') {
+                        const stats = window.CommunityModule.getStats();
+                        topicsCount = stats.topics || topicsCount;
+                        commentsCount = stats.comments || commentsCount;
+                        console.log('📊 Estadísticas obtenidas de CommunityModule:', stats);
+                    } else {
+                        // Usar datos del localStorage si están disponibles
+                        topicsCount = localStorage.getItem('community_topics') || topicsCount;
+                        commentsCount = localStorage.getItem('community_comments') || commentsCount;
+                        console.log('📊 Usando estadísticas guardadas o por defecto');
+                    }
+                    
+                    // Actualizar elementos en la página
+                    const topicsElement = document.querySelector('#home-topics-count .stat-value');
+                    const commentsElement = document.querySelector('#home-comments-count .stat-value');
+                    
+                    if (topicsElement) {
+                        topicsElement.textContent = topicsCount;
+                    }
+                    
+                    if (commentsElement) {
+                        commentsElement.textContent = commentsCount;
+                    }
+                    
+                    console.log('✅ Estadísticas actualizadas:', { topicsCount, commentsCount });
+                    
+                } catch (error) {
+                    console.warn('⚠️ Error actualizando estadísticas:', error);
+                }
+            },
+
+            // 🎯 CONFIGURAR WIDGET DE USUARIO
+            setupUserWidget() {
+                const userFab = document.getElementById('user-fab');
+                const widget = document.getElementById('floating-user-widget');
+                
+                if (!userFab || !widget) return;
+                
+                // Limpiar eventos anteriores
+                const newUserFab = userFab.cloneNode(true);
+                userFab.parentNode.replaceChild(newUserFab, userFab);
+                
+                newUserFab.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    widget.classList.toggle('active');
+                });
+                
+                // Cerrar widget al hacer clic fuera
+                document.addEventListener('click', (event) => {
+                    if (!widget.contains(event.target) && widget.classList.contains('active')) {
+                        widget.classList.remove('active');
+                    }
+                });
+                
+                // Cerrar con escape
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape' && widget.classList.contains('active')) {
+                        widget.classList.remove('active');
+                    }
+                });
+            },
+
+            // 📱 CONFIGURAR MENÚ MÓVIL
+            setupMobileMenu() {
+                const navToggle = document.querySelector('.nav-toggle');
+                const nav = document.querySelector('nav');
+
+                if (!navToggle || !nav) return;
+
+                // Limpiar eventos anteriores
+                const newNavToggle = navToggle.cloneNode(true);
+                navToggle.parentNode.replaceChild(newNavToggle, navToggle);
+
+                newNavToggle.addEventListener('click', () => {
+                    nav.classList.toggle('active');
+                });
+
+                nav.addEventListener('click', (e) => {
+                    if (window.innerWidth > 768) return;
+                    const toggleLink = e.target.closest('.menu-item-has-children > a');
+                    if (toggleLink) {
+                        e.preventDefault();
+                        toggleLink.parentNode.classList.toggle('active');
+                    }
+                });
+                
+                document.addEventListener('click', (event) => {
+                    if (!nav.contains(event.target) && !newNavToggle.contains(event.target)) {
+                        nav.classList.remove('active');
+                    }
+                });
+            },
+
+            // 🛡️ CONFIGURAR ACCESO DE ADMINISTRADOR
+            setupAdminAccess() {
+                const adminAccessMain = document.getElementById('admin-access-main');
+                const footerAdminAccess = document.getElementById('footer-admin-access');
+
+                const redirectToAdmin = () => {
+                    console.log('🔑 Redirigiendo a panel de administrador...');
+                    window.location.href = 'admin.html';
+                };
+
+                if (adminAccessMain) {
+                    const newAdminAccessMain = adminAccessMain.cloneNode(true);
+                    adminAccessMain.parentNode.replaceChild(newAdminAccessMain, adminAccessMain);
+                    newAdminAccessMain.addEventListener('click', redirectToAdmin);
+                }
+                
+                if (footerAdminAccess) {
+                    const newFooterAdminAccess = footerAdminAccess.cloneNode(true);
+                    footerAdminAccess.parentNode.replaceChild(newFooterAdminAccess, footerAdminAccess);
+                    newFooterAdminAccess.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        redirectToAdmin();
+                    });
+                }
+
+                // Triple clic en logo para acceso rápido
+                let logoClickCount = 0;
+                let logoClickTimer = null;
+                
+                const logo = document.querySelector('.logo');
+                if (logo) {
+                    logo.addEventListener('click', () => {
+                        logoClickCount++;
+                        
+                        if (logoClickCount === 1) {
+                            logoClickTimer = setTimeout(() => {
+                                logoClickCount = 0;
+                            }, 2000);
+                        }
+                        
+                        if (logoClickCount === 3) {
+                            clearTimeout(logoClickTimer);
+                            logoClickCount = 0;
+                            redirectToAdmin();
+                        }
+                    });
+                }
+            },
+
+            // 🚪 CONFIGURAR LOGOUT
+            setupLogout() {
+                const logoutBtn = document.getElementById('logout-btn');
+                if (!logoutBtn) return;
+                
+                // Limpiar eventos anteriores
+                const newLogoutBtn = logoutBtn.cloneNode(true);
+                logoutBtn.parentNode.replaceChild(newLogoutBtn, logoutBtn);
+                
+                newLogoutBtn.addEventListener('click', async (e) => {
+                    e.preventDefault();
+                    
+                    if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
+                        console.log('🚪 Cerrando sesión...');
+                        
+                        try {
+                            await logout();
+                            // La redirección se maneja automáticamente por el listener
+                        } catch (error) {
+                            console.error('❌ Error cerrando sesión:', error);
+                            alert('Error al cerrar sesión. Intenta nuevamente.');
+                        }
+                    }
+                });
+            }
+        };
+
+        // 🌐 HACER DISPONIBLE GLOBALMENTE
+        window.App = ProtectedIndexPage;
+
+        // 🚀 INICIALIZACIÓN AL CARGAR EL DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('🔐 DOM cargado - verificando autenticación con sistema de comunidad corregido...');
+            ProtectedIndexPage.init();
+        });
+
+        // 🌐 FUNCIONES GLOBALES PARA DEBUG
+        window.ProtectedIndexPage = ProtectedIndexPage;
+        
+        window.checkAuth = () => {
+            const user = getCurrentUser();
+            console.log('👤 Estado de autenticación:', user ? user.email : 'No autenticado');
+            return user;
+        };
+
+        window.testCommunity = () => {
+            console.log('🌟 Testing sistema de comunidad...');
+            ProtectedIndexPage.initializeCommunitySystem();
+        };
+
+        window.refreshCommunityStats = () => {
+            console.log('📊 Refrescando estadísticas de comunidad...');
+            ProtectedIndexPage.updateCommunityStats();
+        };
+
+        window.checkCommunityToggle = () => {
+            console.log('🔧 Estado del toggle de comunidad:', ProtectedIndexPage.communityToggleHandled);
+            console.log('🔧 Sistema inicializado:', ProtectedIndexPage.communityInitialized);
+            const sidebar = document.getElementById('home-community-sidebar');
+            console.log('🔧 Sidebar activo:', sidebar?.classList.contains('active'));
+        };
+
+        console.log('✅ Página principal cargada con sistema de comunidad corregido');
+        console.log('🔧 Funciones disponibles: checkAuth(), testCommunity(), refreshCommunityStats(), checkCommunityToggle()');
+    </script>
+
+    <!-- ✅ CARGAR MAIN.JS AL FINAL -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

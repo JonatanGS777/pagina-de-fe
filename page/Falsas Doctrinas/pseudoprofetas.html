@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudoprofetas a lo largo de la Historia | Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a235a; /* Púrpura profundo */
+            --secondary-color: #008080; /* Teal */
+            --accent-color: #ff9800; /* Ámbar */
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gradient-bg: linear-gradient(135deg, rgba(74, 35, 90, 0.9) 0%, rgba(0, 128, 128, 0.85) 100%);
+            --card-gradient: linear-gradient(135deg, rgba(74, 35, 90, 0.05) 0%, rgba(0, 128, 128, 0.05) 100%);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.06);
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: var(--gradient-bg);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo img {
+            height: 60px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .nav-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: var(--transition);
+            display: block;
+            padding: 0.5rem;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .current-page a {
+            color: var(--accent-color);
+        }
+        
+        .current-page a::after {
+            width: 100%;
+            background-color: var(--accent-color);
+        }
+        
+        /* Dropdown Styles */
+        .menu-item-has-children {
+            position: relative;
+        }
+        
+        .menu-item-has-children > a {
+            display: flex;
+            align-items: center;
+        }
+        
+        .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: 8px;
+            padding: 0.8rem 0;
+            display: none;
+            z-index: 100;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .sub-menu li {
+            width: 100%;
+        }
+        
+        .sub-menu a {
+            padding: 0.7rem 1.2rem;
+            font-size: 0.9rem;
+            width: 100%;
+            color: var(--dark-color);
+        }
+        
+        .sub-menu a:hover {
+            background-color: rgba(74, 35, 90, 0.05);
+            color: var(--primary-color);
+        }
+        
+        .sub-menu a::after {
+            display: none;
+        }
+        
+        .menu-item-has-children:hover .sub-menu {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background-image: url('./images/falsosprofetas.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            z-index: 1;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        
+        .divider {
+            height: 4px;
+            width: 80px;
+            background: var(--accent-color);
+            margin: 0 auto 2rem;
+            border-radius: 2px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+        
+        .section-title p {
+            color: #666;
+            font-weight: 300;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 3rem auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: rgba(74, 35, 90, 0.2);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+        
+        .time-container {
+            padding: 1rem 40px;
+            position: relative;
+            width: 50%;
+            animation: fadeIn 1s;
+        }
+        
+        .time-container.left {
+            left: 0;
+        }
+        
+        .time-container.right {
+            left: 50%;
+        }
+        
+        .time-container::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--primary-color);
+            border: 4px solid var(--accent-color);
+            top: 22px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .time-container.right::after {
+            left: -10px;
+        }
+        
+        .time-content {
+            padding: 1.5rem;
+            background: white;
+            position: relative;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            background: var(--card-gradient);
+            border: 1px solid rgba(74, 35, 90, 0.1);
+            transition: var(--transition);
+        }
+        
+        .time-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .time-content::after {
+            content: '';
+            position: absolute;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent transparent transparent white;
+            top: 20px;
+            right: -20px;
+        }
+        
+        .time-container.right .time-content::after {
+            border-color: transparent white transparent transparent;
+            left: -20px;
+            right: auto;
+        }
+        
+        .time-date {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .time-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+        
+        .time-content p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Cards Section */
+        .cards-section {
+            padding: 3rem 0 5rem;
+            background-color: #f9f9f9;
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-flag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.3rem 0.7rem;
+            font-size: 0.8rem;
+            border-radius: 30px;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .card-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        
+        .card-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
+        }
+        
+        .card-content {
+            padding: 1.8rem;
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+        
+        .card-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .card-meta i {
+            color: var(--accent-color);
+            margin-right: 5px;
+        }
+        
+        .card-meta span {
+            margin-right: 1rem;
+        }
+        
+        .card-text {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .card-link i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+        
+        .card-link:hover {
+            color: var(--secondary-color);
+        }
+        
+        .card-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Warning Section */
+        .warning-section {
+            padding: 5rem 0;
+            background: var(--gradient-bg);
+            color: white;
+            text-align: center;
+        }
+        
+        .warning-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .warning-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .warning-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            background-color: #e08700;
+        }
+        
+        .btn-white {
+            background-color: white;
+            color: var(--primary-color);
+        }
+        
+        .btn-white:hover {
+            background-color: #f5f5f5;
+        }
+        
+        /* Scripture Section */
+        .scripture-section {
+            padding: 5rem 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        
+        .scripture-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+        
+        .scripture-content::before {
+            content: '\201C';
+            font-size: 6rem;
+            position: absolute;
+            top: -30px;
+            left: 30px;
+            color: var(--primary-color);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        
+        .scripture-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: #555;
+        }
+        
+        .scripture-ref {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        /* Features/Signs Section */
+        .features-section {
+            padding: 5rem 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature {
+            padding: 2rem;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 3px solid var(--primary-color);
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--card-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .feature:hover .feature-icon {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .feature h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .feature p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Tabla Estilos para la sección de Falsos Maestros */
+        .table-section {
+            padding: 6rem 0;
+            background-color: #f0f2f5;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .table-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%234a235a' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin-top: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: white;
+            position: relative;
+        }
+        
+        .false-teachers-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            color: #333;
+            overflow: hidden;
+            table-layout: fixed;
+        }
+        
+        .false-teachers-table thead {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+        
+        .false-teachers-table th {
+            padding: 1.2rem 1rem;
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            position: relative;
+        }
+        
+        .false-teachers-table th:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+        
+        .false-teachers-table thead:hover th:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        .false-teachers-table tbody tr {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .false-teachers-table tbody tr:last-child {
+            border-bottom: none;
+        }
+        
+        .false-teachers-table tbody tr:hover {
+            background-color: rgba(74, 35, 90, 0.03);
+            transform: translateY(-2px);
+        }
+        
+        .false-teachers-table td {
+            padding: 1.2rem 1rem;
+            vertical-align: top;
+            border: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .teacher-name {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .teacher-name i {
+            margin-right: 10px;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+        }
+        
+        .false-teachers-table ul {
+            padding-left: 1.2rem;
+            margin: 0;
+            list-style-type: none;
+        }
+        
+        .false-teachers-table ul li {
+            position: relative;
+            padding: 0.3rem 0;
+            line-height: 1.4;
+        }
+        
+        .false-teachers-table ul li:before {
+            content: '•';
+            position: absolute;
+            left: -1rem;
+            color: var(--accent-color);
+        }
+        
+        .consequence-tag {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .consequence-tag.severe {
+            background-color: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+            border: 1px solid rgba(220, 53, 69, 0.2);
+        }
+        
+        .consequence-tag.moderate {
+            background-color: rgba(255, 152, 0, 0.1);
+            color: #ff9800;
+            border: 1px solid rgba(255, 152, 0, 0.2);
+        }
+        
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resource-link:hover {
+            transform: translateY(-3px) rotate(360deg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Animación para las filas al cargar la página */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .false-teachers-table tbody tr {
+            animation: fadeInUp 0.6s ease backwards;
+        }
+        
+        .false-teachers-table tbody tr:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+        
+        .false-teachers-table tbody tr:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .false-teachers-table tbody tr:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+        
+        .false-teachers-table tbody tr:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+        
+        .false-teachers-table tbody tr:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+        
+        .false-teachers-table tbody tr:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            color: var(--accent-color);
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-col a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-col a:hover {
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Responsive Design para la tabla */
+        @media (max-width: 992px) {
+            .false-teachers-table {
+                display: block;
+            }
+            
+            .false-teachers-table thead {
+                display: none;
+            }
+            
+            .false-teachers-table tbody {
+                display: block;
+            }
+            
+            .false-teachers-table tr {
+                display: block;
+                margin-bottom: 1.5rem;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+                overflow: hidden;
+            }
+            
+            .false-teachers-table td {
+                display: block;
+                text-align: right;
+                padding: 0.8rem 1rem;
+                position: relative;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+            
+            .false-teachers-table td:last-child {
+                border-bottom: none;
+            }
+            
+            .false-teachers-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 1rem;
+                font-weight: 700;
+                text-align: left;
+                color: var(--primary-color);
+            }
+            
+            .teacher-name {
+                justify-content: flex-end;
+            }
+            
+            .teacher-name i {
+                order: 2;
+                margin-right: 0;
+                margin-left: 10px;
+            }
+            
+            .false-teachers-table ul {
+                text-align: left;
+            }
+            
+            .resource-link {
+                margin-right: 0;
+            }
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 280px;
+                height: 100vh;
+                background-color: var(--dark-color);
+                z-index: 1000;
+                transition: right 0.3s ease;
+                padding: 2rem;
+                overflow-y: auto;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            nav li {
+                width: 100%;
+            }
+            
+            nav a {
+                padding: 1rem 0;
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav a::after {
+                display: none;
+            }
+            
+            .menu-item-has-children > a {
+                justify-content: space-between;
+            }
+            
+            .menu-item-has-children > a::after {
+                display: block;
+                content: '+';
+                transition: var(--transition);
+            }
+            
+            .menu-item-has-children.active > a::after {
+                transform: rotate(45deg);
+            }
+            
+            .sub-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.2);
+                border-radius: 0;
+                padding-left: 1rem;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                transform: none;
+                opacity: 1;
+            }
+            
+            .menu-item-has-children.active > .sub-menu {
+                max-height: 500px;
+            }
+            
+            .menu-item-has-children:hover .sub-menu {
+                display: none;
+                transform: none;
+            }
+            
+            .menu-item-has-children.active .sub-menu {
+                display: block;
+            }
+            
+            .sub-menu a {
+                color: #ddd;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            .sub-menu a:hover {
+                background-color: rgba(255, 255, 255, 0.05);
+                color: var(--accent-color);
+            }
+            
+            .hero {
+                padding: 70px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .time-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .time-container.right {
+                left: 0;
+            }
+            
+            .time-container.left::after, 
+            .time-container.right::after {
+                left: 20px;
+            }
+            
+            .time-container.left .time-content::after,
+            .time-container.right .time-content::after {
+                border-color: transparent white transparent transparent;
+                left: -20px;
+                right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="../../../images/EMD.png" alt="Logo EMD">
+                <div class="logo-text">
+                    <div>Ministerio</div>
+                    <div>"La Gloria es del Señor"</div>
+                </div>
+            </div>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../../../index.html">Inicio</a></li>
+                    <li class="menu-item-has-children">
+                        <a>Figuras Bíblicas</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Figuras Bíblicas/at-a-nt.html">AT a NT</a></li>
+                            <li><a href="../Figuras Bíblicas/nombres-simbologia.html">Los nombres y su simbología</a></li>
+                            <li><a href="../Figuras Bíblicas/templo-figuras.html">Templo y sus Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/sacrificios-figuras.html">Sacrificios y su Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/tipologia-cantares.html">Tipología Cantares</a></li>
+                            <li><a href="../Figuras Bíblicas/figuras-cristo.html">Figuras de Cristo</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children current-page">
+                        <a>Falsas Doctrinas</a>
+                        <ul class="sub-menu">
+                            <li><a href="falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                            <li><a href="gnosticismos.html">Gnosticismos en la Biblia</a></li>
+                            <li><a href="filosofias-griegas.html">Filosofías Griegas</a></li>
+                            <li><a href="masoneria.html">Masonería</a></li>
+                            <li><a href="sociedades-secretas.html">Sociedades Secretas</a></li>
+                            <li><a href="sectas-anticristianas.html">Sectas Anticristianas</a></li>
+                            <li class="current-page"><a href="pseudoprofetas.html">Pseudoprofetas</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Estudios Exegéticos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Temas Exegéticos</a></li>
+                            <li><a href="../Estudios Exegéticos/idiomas-biblia.html">Hebreo, Arameo y Griego en la Biblia</a></li>
+                            <li><a href="../Estudios Exegéticos/enlaces-recursos.html">Enlaces de Recursos</a></li>
+                            <li><a href="../Estudios Exegéticos/diccionarios-comentarios.html">Diccionarios y Comentarios</a></li>
+                            <li><a href="../Estudios Exegéticos/software-biblico.html">Software Bíblicos</a></li>
+                            <li><a href="../Estudios Exegéticos/meditacion-palabra.html">Meditación en la Palabra</a></li>
+                            <li><a href="../Estudios Exegéticos/lectura-anual.html">Lectura Anual</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Tiempo del Fin</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Tiempo del Fin/introduccion.html">Introducción al tiempo del fin</a></li>
+                            <li><a href="../Tiempo del Fin/escatologia.html">Escatología</a></li>
+                            <li><a href="../Tiempo del Fin/profecias-cumplidas.html">Profecías Cumplidas</a></li>
+                            <li><a href="../Tiempo del Fin/nuevo-orden-mundial.html">Nuevo Orden Mundial</a></li>
+                            <li><a href="../Tiempo del Fin/noticias-fin.html">Noticias del Fin</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Época de Jesús</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Época de Jesús/estudio-contemporaneo.html">Estudio Contemporáneo</a></li>
+                            <li><a href="../Época de Jesús/contexto-historico.html">Contexto Histórico</a></li>
+                            <li><a href="../Época de Jesús/grupos-religiosos.html">Grupos religiosos</a></li>
+                            <li><a href="../Época de Jesús/recursos-academicos.html">Estudios de Contexto</a></li>
+                            <li><a href="../Época de Jesús/apologia-cristiana.html">Apología Cristiana</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Estudios Bíblicos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Bíblicos/doctrina-basica.html">Doctrina Básica</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-intermedia.html">Doctrina intermedia</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-avanzada.html">Doctrina Avanzada</a></li>
+                            <li><a href="../Estudios Bíblicos/revelacion-espiritu.html">Revelación del Espíritu</a></li>
+                            <li><a href="../Estudios Bíblicos/devocionales.html">Devocionales</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Pseudoprofetas a lo largo de la Historia</h1>
+            <div class="divider"></div>
+            <p>Un análisis histórico y bíblico de aquellos que se han proclamado como mesías o profetas pero cuyos mensajes contradicen las enseñanzas cristianas fundamentales.</p>
+        </div>
+    </section>
+
+    <section class="main-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Qué dice la Biblia sobre los falsos profetas?</h2>
+                <p>La Escritura nos advierte claramente acerca de aquellos que se presentarán como portadores de la verdad divina pero cuyo mensaje conduce al error.</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="time-container left">
+                    <div class="time-content">
+                        <span class="time-date">Antiguo Testamento</span>
+                        <h3>Las advertencias de Moisés</h3>
+                        <p>En Deuteronomio 13:1-5, Moisés advirtió al pueblo sobre profetas que realizarían señales y prodigios pero incitarían a seguir a otros dioses. La prueba definitiva era si su mensaje conducía a apartarse del Dios verdadero.</p>
+                    </div>
+                </div>
+                <div class="time-container right">
+                    <div class="time-content">
+                        <span class="time-date">Profetas Mayores</span>
+                        <h3>Conflictos con falsos profetas</h3>
+                        <p>Jeremías enfrentó a numerosos profetas que proclamaban paz cuando venía juicio (Jeremías 23:16-17). Ezequiel también condenó a aquellos que profetizaban "de su propio corazón" (Ezequiel 13:2-3).</p>
+                    </div>
+                </div>
+                <div class="time-container left">
+                    <div class="time-content">
+                        <span class="time-date">Jesús</span>
+                        <h3>La advertencia de Cristo</h3>
+                        <p>"Guardaos de los falsos profetas, que vienen a vosotros con vestidos de ovejas, pero por dentro son lobos rapaces" (Mateo 7:15). Jesús también predijo que muchos falsos cristos y falsos profetas surgirían y realizarían grandes señales (Mateo 24:24).</p>
+                    </div>
+                </div>
+                <div class="time-container right">
+                    <div class="time-content">
+                        <span class="time-date">Epístolas</span>
+                        <h3>Advertencias apostólicas</h3>
+                        <p>Pablo advirtió sobre "lobos rapaces" que no perdonarían al rebaño (Hechos 20:29-30). Pedro y Juan advirtieron sobre falsos maestros que introducirían "herejías destructoras" (2 Pedro 2:1) y cómo poner a prueba los espíritus (1 Juan 4:1).</p>
+                    </div>
+                </div>
+                <div class="time-container left">
+                    <div class="time-content">
+                        <span class="time-date">Apocalipsis</span>
+                        <h3>El fin de los tiempos</h3>
+                        <p>Juan advierte sobre el falso profeta que realizará grandes señales para engañar a los habitantes de la tierra (Apocalipsis 13:13-14), presentando esta figura como parte del triunvirato satánico.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cards-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pseudoprofetas Históricos</h2>
+                <p>A lo largo de la historia, numerosos individuos han proclamado ser el mesías o profetas divinos, desviando a muchos de la verdadera fe.</p>
+            </div>
+            <div class="cards-container">
+                <div class="card">
+                    <span class="card-flag">Antigüedad</span>
+                    <div class="card-img">
+                        <img src="./images/simon-el-mago.jpg" alt="Simón el Mago">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Simón el Mago</h3>
+                        <div class="card-meta">
+                            <span><i class="fas fa-calendar"></i> Siglo I</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Samaria</span>
+                        </div>
+                        <p class="card-text">Mencionado en Hechos 8, se proclamaba como "la gran potencia de Dios". Intentó comprar el poder del Espíritu Santo, dando origen al término "simonía" para la compra de oficios eclesiásticos.</p>
+                        <a href="https://www.gotquestions.org/Espanol/Simon-el-Mago.html" class="card-link" target="_blank">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <span class="card-flag">Medieval</span>
+                    <div class="card-img">
+                        <img src="./images/montano.jpg" alt="Montano">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Montano</h3>
+                        <div class="card-meta">
+                            <span><i class="fas fa-calendar"></i> Siglo II</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Frigia</span>
+                        </div>
+                        <p class="card-text">Fundador del montanismo, afirmaba ser el "Paráclito" prometido por Jesús. Junto con sus profetisas Priscila y Maximila, predicaba un ascetismo extremo y anunciaba el inminente fin del mundo.</p>
+                        <a href="https://www.mercaba.org/Rialp/M/montano_y_montanismo.htm" class="card-link" target="_blank">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <span class="card-flag">Moderno</span>
+                    <div class="card-img">
+                        <img src="./images/joseph-smith.jpg" alt="Joseph Smith">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Joseph Smith</h3>
+                        <div class="card-meta">
+                            <span><i class="fas fa-calendar"></i> 1805-1844</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Estados Unidos</span>
+                        </div>
+                        <p class="card-text">Fundador del mormonismo, afirmaba haber recibido revelaciones divinas y traducido el Libro de Mormón de planchas de oro. Sus enseñanzas sobre Dios y la salvación contradicen doctrinas cristianas fundamentales.</p>
+                        <a href="https://www.bbc.com/mundo/articles/c88yz4g1n28o" class="card-link" target="_blank">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <span class="card-flag">Contemporáneo</span>
+                    <div class="card-img">
+                        <img src="./images/sun-myung-moon.jpg" alt="Sun Myung Moon">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Sun Myung Moon</h3>
+                        <div class="card-meta">
+                            <span><i class="fas fa-calendar"></i> 1920-2012</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Corea</span>
+                        </div>
+                        <p class="card-text">Fundador de la Iglesia de la Unificación, se proclamó como el "Señor del Segundo Advenimiento". Enseñaba que Cristo no completó su misión y que él había venido a finalizar la obra de redención.</p>
+                        <a href="https://www.abc.es/20120922/sociedad/abci-secta-moon-unificacion-201209191713.html" class="card-link" target="_blank">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <span class="card-flag">Contemporáneo</span>
+                    <div class="card-img">
+                        <img src="./images/jose-luis-miranda.jpg" alt="José Luis de Jesús Miranda">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">José Luis de Jesús Miranda</h3>
+                        <div class="card-meta">
+                            <span><i class="fas fa-calendar"></i> 1946-2013</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Puerto Rico</span>
+                        </div>
+                        <p class="card-text">Fundador de Creciendo en Gracia, se proclamó primero como el apóstol Pablo reencarnado, luego como Jesucristo y finalmente como el Anticristo. Enseñaba que el pecado no existía para sus seguidores.</p>
+                        <a href="https://www.eltiempo.com/cultura/gente/jose-luis-de-jesus-miranda-historia-del-anticristo-de-creciendo-en-gracia-756874" class="card-link" target="_blank">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <span class="card-flag">Contemporáneo</span>
+                    <div class="card-img">
+                        <img src="./images/david-koresh.jpg" alt="David Koresh">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">David Koresh</h3>
+                        <div class="card-meta">
+                            <span><i class="fas fa-calendar"></i> 1959-1993</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Estados Unidos</span>
+                        </div>
+                        <p class="card-text">Líder de los Davidianos en Waco, Texas, se proclamó como el "Cordero de Dios" capaz de abrir los Siete Sellos del Apocalipsis. Su interpretación apocalíptica culminó en un trágico asedio en 1993.</p>
+                        <a href="https://www.perfil.com/noticias/sociedad/apocalipsis-pedofilia-y-un-haren-quien-fue-david-koresh-el-pastor-que-provoco-la-masacre-de-waco.phtml" class="card-link" target="_blank">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nueva Sección: Otros Falsos Maestros (Tabla) -->
+    <section class="table-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Otros Falsos Maestros</h2>
+                <p>Tabla comparativa de otros líderes religiosos que han promovido enseñanzas contrarias a la fe cristiana.</p>
+            </div>
+            
+            <div class="table-container">
+                <table class="false-teachers-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Período</th>
+                            <th>Movimiento</th>
+                            <th>Enseñanzas Falsas</th>
+                            <th>Consecuencias</th>
+                            <th>Recursos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Nombre">
+                                <div class="teacher-name">
+                                    <i class="fas fa-user-times"></i>
+                                    <span>Jim Jones</span>
+                                </div>
+                            </td>
+                            <td data-label="Período">1931-1978</td>
+                            <td data-label="Movimiento">Templo del Pueblo</td>
+                            <td data-label="Enseñanzas Falsas">
+                                <ul>
+                                    <li>Se proclamó como encarnación de Cristo</li>
+                                    <li>Mezcla de socialismo, comunismo y cristianismo</li>
+                                    <li>Doctrina del "suicidio revolucionario"</li>
+                                </ul>
+                            </td>
+                            <td data-label="Consecuencias">
+                                <span class="consequence-tag severe">Suicidio masivo de 909 personas en Jonestown, Guyana</span>
+                            </td>
+                            <td data-label="Recursos">
+                                <a href="https://www.bbc.com/mundo/noticias-46174209" target="_blank" class="resource-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">
+                                <div class="teacher-name">
+                                    <i class="fas fa-user-times"></i>
+                                    <span>Charles Taze Russell</span>
+                                </div>
+                            </td>
+                            <td data-label="Período">1852-1916</td>
+                            <td data-label="Movimiento">Testigos de Jehová</td>
+                            <td data-label="Enseñanzas Falsas">
+                                <ul>
+                                    <li>Negación de la Trinidad</li>
+                                    <li>Negación de la deidad de Cristo</li>
+                                    <li>Numerosas predicciones fallidas del fin del mundo</li>
+                                    <li>Traducción alterada de las Escrituras</li>
+                                </ul>
+                            </td>
+                            <td data-label="Consecuencias">
+                                <span class="consequence-tag moderate">Millones de seguidores actuales con doctrina tergiversada</span>
+                            </td>
+                            <td data-label="Recursos">
+                                <a href="https://www.coalicionporelevangelio.org/articulo/falsos-maestros-charles-taze-russell//" target="_blank" class="resource-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">
+                                <div class="teacher-name">
+                                    <i class="fas fa-user-times"></i>
+                                    <span>Ellen G. White</span>
+                                </div>
+                            </td>
+                            <td data-label="Período">1827-1915</td>
+                            <td data-label="Movimiento">Adventistas del Séptimo Día</td>
+                            <td data-label="Enseñanzas Falsas">
+                                <ul>
+                                    <li>Afirmaciones de visiones y revelaciones divinas</li>
+                                    <li>Observancia sabática como necesaria para salvación</li>
+                                    <li>Doctrina del "sueño del alma" (no hay consciencia inmediata después de la muerte)</li>
+                                    <li>Teología de la "investigación del juicio"</li>
+                                </ul>
+                            </td>
+                            <td data-label="Consecuencias">
+                                <span class="consequence-tag moderate">Sus escritos equiparados a las Escrituras por muchos seguidores</span>
+                            </td>
+                            <td data-label="Recursos">
+                                <a href="https://www.gotquestions.org/espanol/Ellen-G-White.html" target="_blank" class="resource-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">
+                                <div class="teacher-name">
+                                    <i class="fas fa-user-times"></i>
+                                    <span>L. Ron Hubbard</span>
+                                </div>
+                            </td>
+                            <td data-label="Período">1911-1986</td>
+                            <td data-label="Movimiento">Cienciología</td>
+                            <td data-label="Enseñanzas Falsas">
+                                <ul>
+                                    <li>Concepto del "thetán" en lugar del alma</li>
+                                    <li>Teoría de los "engramas" como fuente de problemas</li>
+                                    <li>Doctrina de Xenu y alienígenas</li>
+                                    <li>Técnicas de "auditing" como camino a la salvación</li>
+                                </ul>
+                            </td>
+                            <td data-label="Consecuencias">
+                                <span class="consequence-tag moderate">Organización coercitiva con millones en activos y acusaciones de abuso</span>
+                            </td>
+                            <td data-label="Recursos">
+                                <a href="https://www.gq.com.mx/estilo-de-vida/articulo/que-es-la-cienciologia-y-por-que-nunca-deberias-formar-parte-de-esa-religion" target="_blank" class="resource-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">
+                                <div class="teacher-name">
+                                    <i class="fas fa-user-times"></i>
+                                    <span>Marshall Applewhite</span>
+                                </div>
+                            </td>
+                            <td data-label="Período">1931-1997</td>
+                            <td data-label="Movimiento">Heaven's Gate</td>
+                            <td data-label="Enseñanzas Falsas">
+                                <ul>
+                                    <li>Mezcla de cristianismo con OVNI-logía</li>
+                                    <li>Creencia en "subir de nivel" a través del suicidio</li>
+                                    <li>Afirmación de ser la encarnación de Jesús</li>
+                                    <li>Doctrina de que los cuerpos son "vehículos" desechables</li>
+                                </ul>
+                            </td>
+                            <td data-label="Consecuencias">
+                                <span class="consequence-tag severe">Suicidio masivo de 39 miembros en 1997</span>
+                            </td>
+                            <td data-label="Recursos">
+                                <a href="https://www.revistaquestaodeciencia.com.br/espanol/2019/03/22/supercheria-religion-y-supresion-de-la-libertad" target="_blank" class="resource-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nombre">
+                                <div class="teacher-name">
+                                    <i class="fas fa-user-times"></i>
+                                    <span>Sathya Sai Baba</span>
+                                </div>
+                            </td>
+                            <td data-label="Período">1926-2011</td>
+                            <td data-label="Movimiento">Organización Sathya Sai</td>
+                            <td data-label="Enseñanzas Falsas">
+                                <ul>
+                                    <li>Afirmación de ser encarnación divina de Shiva</li>
+                                    <li>Mezcla sincrética de todas las religiones</li>
+                                    <li>Supuesta realización de milagros (desacreditados)</li>
+                                    <li>Doctrina de ser el avatar de la era</li>
+                                </ul>
+                            </td>
+                            <td data-label="Consecuencias">
+                                <span class="consequence-tag moderate">Millones de seguidores, gran fortuna acumulada, divinización de un hombre</span>
+                            </td>
+                            <td data-label="Recursos">
+                                <a href="https://www.bbc.com/mundo/noticias/2011/04/110424_sai_baba_obituario_rg" target="_blank" class="resource-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="warning-section">
+        <div class="container warning-content">
+            <h2 class="warning-title">Señales de Alerta</h2>
+            <p class="warning-text">Jesucristo nos advirtió que en los últimos tiempos surgirían falsos profetas capaces de realizar señales y prodigios tan impresionantes que podrían engañar incluso a los escogidos. Es fundamental conocer las características que los identifican para no ser desviados del camino verdadero.</p>
+            <a href="#discernimiento" class="btn btn-white">Aprender a Discernir</a>
+        </div>
+    </section>
+
+    <section class="scripture-section">
+        <div class="container">
+            <div class="scripture-content">
+                <p class="scripture-text">"Porque se levantarán falsos Cristos, y falsos profetas, y harán grandes señales y prodigios, de tal manera que engañarán, si fuere posible, aun a los escogidos. Ya os lo he dicho antes."</p>
+                <p class="scripture-ref">Mateo 24:24-25</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" id="discernimiento">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cómo Discernir un Falso Profeta</h2>
+                <p>La Biblia nos ofrece criterios claros para identificar a aquellos que pretenden hablar en nombre de Dios pero no son enviados por Él.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Contradicen la Escritura</h3>
+                    <p>Un verdadero profeta nunca contradirá la Palabra de Dios revelada en las Escrituras. Cualquier mensaje que se oponga a las verdades bíblicas fundamentales debe ser rechazado (Gálatas 1:8-9).</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-cross"></i>
+                    </div>
+                    <h3>Niegan a Cristo</h3>
+                    <p>Los falsos profetas a menudo distorsionan la naturaleza y obra de Jesucristo, negando su deidad, humanidad, o la suficiencia de su sacrificio expiatorio (1 Juan 4:1-3).</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Motivación por Ganancias</h3>
+                    <p>El deseo de enriquecimiento personal es una señal común de falsos maestros. Pedro advirtió sobre aquellos que "por avaricia harán mercadería de vosotros con palabras fingidas" (2 Pedro 2:3).</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Culto a la Personalidad</h3>
+                    <p>Los falsos profetas frecuentemente centran la atención en sí mismos en lugar de en Cristo, cultivando seguidores personales y exigiendo lealtad absoluta (Hechos 20:30).</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-unlock-alt"></i>
+                    </div>
+                    <h3>Conocimiento Secreto</h3>
+                    <p>La afirmación de poseer revelaciones exclusivas o conocimiento secreto no disponible para otros creyentes es una característica común de los falsos maestros (Colosenses 2:18).</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Frutos Espirituales</h3>
+                    <p>Jesús enseñó que podríamos reconocer a los falsos profetas por sus frutos (Mateo 7:15-20). Sus vidas y ministerios carecen del fruto del Espíritu y revelan motivaciones carnales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Ministerio EMD</h4>
+                    <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
+                    <div class="social-links">
+                         <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                         <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="../Figuras Bíblicas/at-a-nt.html">Figuras Bíblicas</a></li>
+                        <li><a href="falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                        <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Estudios Exegéticos</a></li>
+                        <li><a href="../Tiempo del Fin/introduccion.html">Tiempo del Fin</a></li>
+                        <li><a href="../Época de Jesús/estudio-contemporaneo.html">Época de Jesús</a></li>
+                        <li><a href="../Estudios Bíblicos/doctrina-basica.html">Estudios Bíblicos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio</li>
+                        <li><i class="fas fa-phone"></i> +1 787-345-6940</li>
+                        <li><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Nota Aclaratoria</h4>
+                    <ul>
+                        <li>Todos los recursos de esta página son gratuitos y para la edificación de los creyentes</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+        
+        // Manejo de menús desplegables en móvil
+        document.querySelectorAll('.menu-item-has-children > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                // Solo en modo móvil
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.parentNode.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Cierra el menú al hacer clic en un enlace de submenu
+        document.querySelectorAll('.sub-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('nav').classList.remove('active');
+            });
+        });
+        
+        // Cierra el menú al hacer clic fuera de él
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navToggle = document.querySelector('.nav-toggle');
+            
+            if (!nav.contains(event.target) && event.target !== navToggle) {
+                nav.classList.remove('active');
+            }
+        });
+        
+        // Scroll Reveal para elementos de timeline
+        document.addEventListener('DOMContentLoaded', function() {
+            const timeContainers = document.querySelectorAll('.time-container');
+            
+            function checkScroll() {
+                const triggerBottom = window.innerHeight * 0.8;
+                
+                timeContainers.forEach(container => {
+                    const containerTop = container.getBoundingClientRect().top;
+                    
+                    if (containerTop < triggerBottom) {
+                        container.style.opacity = '1';
+                        container.style.transform = 'translateY(0)';
+                    } else {
+                        container.style.opacity = '0';
+                        container.style.transform = 'translateY(20px)';
+                    }
+                });
+            }
+            
+            // Inicializar
+            timeContainers.forEach(container => {
+                container.style.opacity = '0';
+                container.style.transform = 'translateY(20px)';
+                container.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Verificar al cargar la página
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sectas Anticristianas | Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Azul profundo */
+            --secondary-color: #8e44ad; /* Púrpura suave */
+            --accent-color: #1abc9c; /* Turquesa */
+            --warning-color: #e74c3c; /* Rojo para advertencias */
+            --light-color: #f8f9fa;
+            --dark-color: #2c3e50;
+            --gradient-bg: linear-gradient(135deg, rgba(44, 62, 80, 0.95) 0%, rgba(142, 68, 173, 0.85) 100%);
+            --card-gradient: linear-gradient(135deg, rgba(44, 62, 80, 0.85) 0%, rgba(142, 68, 173, 0.75) 100%);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.06);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: var(--gradient-bg);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo img {
+            height: 60px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .nav-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: var(--transition);
+            display: block;
+            padding: 0.5rem;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Dropdown Styles */
+        .menu-item-has-children {
+            position: relative;
+        }
+        
+        .menu-item-has-children > a {
+            display: flex;
+            align-items: center;
+        }
+        
+        .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: 10px;
+            padding: 0.8rem 0;
+            display: none;
+            z-index: 100;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .sub-menu li {
+            width: 100%;
+        }
+        
+        .sub-menu a {
+            padding: 0.7rem 1.2rem;
+            font-size: 0.9rem;
+            width: 100%;
+            color: var(--dark-color);
+        }
+        
+        .sub-menu a:hover {
+            background-color: rgba(26, 188, 156, 0.1);
+            color: var(--accent-color);
+        }
+        
+        .sub-menu a::after {
+            display: none;
+        }
+        
+        .menu-item-has-children:hover .sub-menu {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Estilos específicos para la página de Sectas */
+        .page-header {
+            background-image: url("images/sectas.png");
+            background-size: contain;
+            color: white;
+            padding: 5rem 0;
+            margin-bottom: 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0,0 L100,0 L100,100 L0,100 Z" f');
+            background-size: 30px 30px;
+            opacity: 0.3;
+        }
+        
+        .page-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .disclaimer {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 25px auto 0;
+            max-width: 800px;
+            font-style: italic;
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+        
+        .sectas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .secta-card {
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .secta-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            background: var(--card-gradient);
+            color: white;
+            padding: 25px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-header::after {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            top: -75px;
+            right: -75px;
+            border-radius: 50%;
+        }
+        
+        .card-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card-header .warning-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            z-index: 2;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .card-body ul {
+            list-style-type: none;
+            margin-left: 0;
+        }
+        
+        .card-body li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .card-body li::before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+        }
+        
+        .additional-info {
+            background-color: rgba(44, 62, 80, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .additional-info::before {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(142, 68, 173, 0.05) 0%, rgba(142, 68, 173, 0) 70%);
+            top: -50px;
+            left: -50px;
+            border-radius: 50%;
+        }
+        
+        .additional-info h3 {
+            color: var(--secondary-color);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .observaciones {
+            background-color: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .observaciones::before {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(26, 188, 156, 0.05) 0%, rgba(26, 188, 156, 0) 70%);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+        }
+        
+        .observaciones h2 {
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            padding-bottom: 12px;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+        }
+        
+        .observaciones h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+        }
+        
+        .observaciones ul {
+            list-style-type: none;
+        }
+        
+        .observaciones li {
+            margin-bottom: 18px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .observaciones li::before {
+            content: "❗";
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            color: var(--warning-color);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            text-decoration: none;
+            z-index: 99;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(142, 68, 173, 0.3);
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--accent-color));
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .footer-col h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            color: var(--accent-color);
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-col a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-col a:hover {
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(26, 188, 156, 0.3);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 280px;
+                height: 100vh;
+                background-color: var(--dark-color);
+                z-index: 1000;
+                transition: right 0.3s ease;
+                padding: 2rem;
+                overflow-y: auto;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            nav li {
+                width: 100%;
+            }
+            
+            nav a {
+                padding: 1rem 0;
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav a::after {
+                display: none;
+            }
+            
+            .menu-item-has-children > a {
+                justify-content: space-between;
+            }
+            
+            /* Mobile indicator for dropdown instead of arrow */
+            .menu-item-has-children > a::after {
+                display: block;
+                content: '+';
+                transition: var(--transition);
+            }
+            
+            .menu-item-has-children.active > a::after {
+                transform: rotate(45deg);
+            }
+            
+            .sub-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.2);
+                border-radius: 0;
+                padding-left: 1rem;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                transform: none;
+                opacity: 1;
+            }
+            
+            .menu-item-has-children.active > .sub-menu {
+                max-height: 500px;
+            }
+            
+            .menu-item-has-children:hover .sub-menu {
+                display: none;
+                transform: none;
+            }
+            
+            .menu-item-has-children.active .sub-menu {
+                display: block;
+            }
+            
+            .sub-menu a {
+                color: #ddd;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            .sub-menu a:hover {
+                background-color: rgba(255, 255, 255, 0.05);
+                color: var(--accent-color);
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .sectas-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .observaciones {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="../../images/EMD.png" alt="Logo EMD">
+                <div class="logo-text">
+                    <div>Ministerio</div>
+                    <div>"La Gloria es del Señor"</div>
+                </div>
+            </div>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Inicio</a></li>
+                    <li class="menu-item-has-children">
+                        <a>Figuras Bíblicas</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Figuras Bíblicas/at-a-nt.html">AT a NT</a></li>
+                            <li><a href="../Figuras Bíblicas/nombres-simbologia.html">Los nombres y su simbología</a></li>
+                            <li><a href="../Figuras Bíblicas/templo-figuras.html">Templo y sus Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/sacrificios-figuras.html">Sacrificios y su Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/tipologia-cantares.html">Tipología Cantares</a></li>
+                            <li><a href="../Figuras Bíblicas/figuras-cristo.html">Figuras de Cristo</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Falsas Doctrinas</a>
+                        <ul class="sub-menu">
+                            <li><a href="falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                            <li><a href="gnosticismos.html">Gnosticismos en la Biblia</a></li>
+                            <li><a href="filosofias-griegas.html">Filosofías Griegas</a></li>
+                            <li><a href="masoneria.html">Masonería</a></li>
+                            <li><a href="sociedades-secretas.html">Sociedades Secretas</a></li>
+                            <li><a href="sectas-anticristianas.html">Sectas Anticristianas</a></li>
+                            <li><a href="pseudoprofetas.html">Pseudoprofetas</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Estudios Exegéticos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Temas Exegéticos</a></li>
+                            <li><a href="../Estudios Exegéticos/idiomas-biblia.html">Hebreo, Arameo y Griego en la Biblia</a></li>
+                            <li><a href="../Estudios Exegéticos/enlaces-recursos.html">Enlaces de Recursos</a></li>
+                            <li><a href="../Estudios Exegéticos/diccionarios-comentarios.html">Diccionarios y Comentarios</a></li>
+                            <li><a href="../Estudios Exegéticos/software-biblico.html">Software Bíblicos</a></li>
+                            <li><a href="../Estudios Exegéticos/meditacion-palabra.html">Meditación en la Palabra</a></li>
+                            <li><a href="../Estudios Exegéticos/lectura-anual.html">Lectura Anual</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Tiempo del Fin</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Tiempo del Fin/introduccion.html">Introducción al tiempo del fin</a></li>
+                            <li><a href="../Tiempo del Fin/escatologia.html">Escatología</a></li>
+                            <li><a href="../Tiempo del Fin/profecias-cumplidas.html">Profecías Cumplidas</a></li>
+                            <li><a href="../Tiempo del Fin/nuevo-orden-mundial.html">Nuevo Orden Mundial</a></li>
+                            <li><a href="../Tiempo del Fin/noticias-fin.html">Noticias del Fin</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Época de Jesús</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Época de Jesús/estudio-contemporaneo.html">Estudio Contemporáneo</a></li>
+                            <li><a href="../Época de Jesús/contexto-historico.html">Contexto Histórico</a></li>
+                            <li><a href="../Época de Jesús/grupos-religiosos.html">Grupos religiosos</a></li>
+                            <li><a href="../Época de Jesús/recursos-academicos.html">Estudios de Contexto</a></li>
+                            <li><a href="../Época de Jesús/apologia-cristiana.html">Apología Cristiana</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Estudios Bíblicos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Bíblicos/doctrina-basica.html">Doctrina Básica</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-intermedia.html">Doctrina intermedia</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-avanzada.html">Doctrina Avanzada</a></li>
+                            <li><a href="../Estudios Bíblicos/revelacion-espiritu.html">Revelación del Espíritu</a></li>
+                            <li><a href="../Estudios Bíblicos/devocionales.html">Devocionales</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-exclamation-triangle"></i> Sectas Anticristianas</h1>
+            <p>Información sobre 15 grupos religiosos cuyas enseñanzas contradicen los principios fundamentales del protestantismo bíblico</p>
+            <div class="disclaimer">
+                <p>Esta información es presentada con propósito educativo. Cada individuo tiene libertad de creer o no la información presentada.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="sectas-grid">
+            <!-- Testigos de Jehová -->
+            <div class="secta-card">
+                <div class="card-header">
+                    <h2>Testigos de Jehová</h2>
+                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Niegan la Trinidad y la deidad plena de Cristo.</li>
+                        <li>Enseñan que Jesús es el arcángel Miguel.</li>
+                    </ul>
+                    <div class="additional-info">
+                        <h3>Información adicional:</h3>
+                        <p>Fundados por Charles Taze Russell en 1870, publican la revista "La Atalaya" y su propia traducción de la Biblia (Traducción del Nuevo Mundo). Rechazan transfusiones de sangre y celebraciones como Navidad y cumpleaños por considerarlas paganas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mormones -->
+            <div class="secta-card">
+                <div class="card-header">
+                    <h2>Iglesia de Jesucristo de los Santos de los Últimos Días (Mormones)</h2>
+                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Creen en la exaltación de los hombres como dioses.</li>
+                        <li>Aceptan el Libro de Mormón como Escritura inspirada.</li>
+                    </ul>
+                    <div class="additional-info">
+                        <h3>Información adicional:</h3>
+                        <p>Fundada por Joseph Smith en 1830, quien afirmó recibir revelaciones del ángel Moroni. Además del Libro de Mormón, consideran autoritativos "Doctrina y Convenios" y "La Perla de Gran Precio". Practican bautismos por los muertos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ciencia Cristiana -->
+            <div class="secta-card">
+                <div class="card-header">
+                    <h2>Ciencia Cristiana</h2>
+                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Niegan la realidad del pecado, la enfermedad y la muerte.</li>
+                        <li>Rechazan la expiación sustitutiva de Cristo.</li>
+                    </ul>
+                    <div class="additional-info">
+                        <h3>Información adicional:</h3>
+                        <p>Fundada por Mary Baker Eddy en 1879. Su texto principal es "Ciencia y Salud con Clave de las Escrituras". Enseñan que la enfermedad es una ilusión que puede ser superada con la comprensión espiritual correcta, rechazando frecuentemente tratamientos médicos convencionales.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Iglesia de la Unificación -->
+            <div class="secta-card">
+                <div class="card-header">
+                    <h2>Iglesia de la Unificación (Moonies)</h2>
+                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Fundada por Sun Myung Moon, quien afirmaba ser el nuevo Mesías.</li>
+                        <li>Enseñanza contraria a la suficiencia de la obra de Cristo.</li>
+                    </ul>
+                    <div class="additional-info">
+                        <h3>Información adicional:</h3>
+                        <p>Establecida en Corea del Sur en 1954. Su texto sagrado es "El Principio Divino". Conocidos por sus matrimonios masivos arreglados. Combina elementos del cristianismo con conceptos del confucianismo y otras tradiciones orientales.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gnosticismo moderno -->
+            <div class="secta-card">
+                <div class="card-header">
+                    <h2>Gnosticismo moderno</h2>
+                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Niegan la encarnación real y la humanidad de Cristo.</li>
+                        <li>Proponen salvación por conocimiento esotérico.</li>
+                    </ul>
+                    <div class="additional-info">
+                        <h3>Información adicional:</h3>
+                        <p>Incluye movimientos como la Rosa Cruz y algunos aspectos de la Nueva Era. Sostiene que existe un conocimiento secreto que libera al espíritu humano del mundo material, considerado como imperfecto o malvado. Combina elementos cristianos con filosofías esotéricas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Universalismo unitario -->
+            <div class="secta-card">
+                <div class="card-header">
+                    <h2>Unidad de todas las religiones / Universalismo unitario</h2>
+                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Niegan la exclusividad de Cristo como medio de salvación.</li>
+                        <li>Rechazan el juicio eterno y el infierno.</li>
+                    </ul>
+                    <div class="additional-info">
+                        <h3>Información adicional:</h3>
+                        <p>El unitarismo rechaza la Trinidad, mientras que el universalismo afirma que todas las personas serán finalmente reconciliadas con Dios. La Asociación Universalista Unitaria actual (formada en 1961) promueve la búsqueda espiritual personal sin adherirse a un credo específico.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nueva Era -->
+            <div class="secta-card">
+                <div class="card-header">
+                    <h2>Nueva Era (New Age)</h2>
+                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Funde elementos orientales, ocultismo y panteísmo.</li>
+                        <li>Promueve la divinización del ser humano.</li>
+                    </ul>
+                    <div class="additional-info">
+                        <h3>Información adicional:</h3>
+                        <p>Movimiento espiritual occidental surgido en la década de 1970. Incorpora elementos como la astrología, cristaloterapia, meditación trascendental y canalizaciones. Difunde la idea de una "Era de Acuario" donde la humanidad alcanzaría una nueva conciencia espiritual.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cienciología -->
+            <div class="secta-card">
+                <div class="card-header">
+                    <h2>Iglesia de la Cienciología</h2>
+                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Enseñanzas esotéricas, centradas en la "limpieza" espiritual mediante técnicas psicológicas.</li>
+                        <li>Niega toda doctrina cristiana fundamental.</li>
+                    </ul>
+                    <div class="additional-info">
+                        <h3>Información adicional:</h3>
+                        <p>Fundada por L. Ron Hubbard en 1954. Su texto principal es "Dianética". Utiliza un proceso llamado "auditing" para eliminar "engramas" (traumas mentales). Sus enseñanzas avanzadas incluyen una cosmología que involucra a un gobernante galáctico llamado Xenu.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Raelismo -->
+            <div class="secta-card">
+                <div class="card-header">
+                    <h2>Raelismo</h2>
+                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Cree que los humanos fueron creados por extraterrestres (Elohim).</li>
+                        <li>Niega la creación divina y la revelación bíblica.</li>
+                    </ul>
+                    <div class="additional-info">
+                        <h3>Información adicional:</h3>
+                        <p>Fundado por Claude Vorilhon (Raël) en 1974, quien afirma haber sido contactado por extraterrestres. Reinterpreta los textos religiosos como malentendidos de tecnología alienígena avanzada. Promueve la clonación humana como medio para alcanzar la inmortalidad.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movimiento Gnóstico Moderno -->
+            <div class="secta-card">
+                <div class="card-header">
+                    <h2>Movimiento Gnóstico Moderno</h2>
+                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Reinterpreta a Cristo como un maestro iluminado, no como Dios encarnado.</li>
+                        <li>Rechaza la Biblia como revelación exclusiva de Dios.</li>
+                    </ul>
+                    <div class="additional-info">
+                        <h3>Información adicional:</h3>
+                        <p>Reavivamiento contemporáneo de antiguas enseñanzas gnósticas. Promovido por figuras como Samael Aun Weor. Combina elementos esotéricos, astrología, alquimia espiritual y prácticas de meditación. Enseña que la salvación viene por el auto-conocimiento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Iglesia Mundial de Dios -->
+            <div class="secta-card">
+                <div class="card-header">
+                    <h2>Iglesia Mundial de Dios (antigua línea de Herbert W. Armstrong)</h2>
+                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Enseñanzas heréticas sobre el plan de salvación y el sábado.</li>
+                        <li>Enseñaban antiguamente un semi-arrianismo.</li>
+                    </ul>
+                    <div class="additional-info">
+                        <h3>Información adicional:</h3>
+                        <p>Fundada por Herbert W. Armstrong en 1933. Publicaba la revista "The Plain Truth". Después de la muerte de Armstrong en 1986, la organización principal rechazó muchas de sus enseñanzas heterodoxas, aunque varias organizaciones derivadas mantienen las doctrinas originales.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Espiritismo -->
+            <div class="secta-card">
+                <div class="card-header">
+                    <h2>Espiritismo (Ej. Allan Kardec)</h2>
+                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Niega las doctrinas del juicio, infierno y salvación por gracia.</li>
+                        <li>Promueve contacto con los muertos, prohibido en la Biblia.</li>
+                    </ul>
+                    <div class="additional-info">
+                        <h3>Información adicional:</h3>
+                        <p>Sistematizado por Allan Kardec (Hippolyte Léon Denizard Rivail) en el siglo XIX. Sus textos principales incluyen "El Libro de los Espíritus" y "El Evangelio según el Espiritismo". Enseña la reencarnación como medio de progresión espiritual y la comunicación con espíritus mediante médiums.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Iglesia de Dios Sociedad Misionera Mundial -->
+            <div class="secta-card">
+                <div class="card-header">
+                    <h2>Iglesia de Dios Sociedad Misionera Mundial</h2>
+                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Enseña que Dios es una mujer (dios madre).</li>
+                        <li>Tiene prácticas autoritarias y doctrinas no bíblicas.</li>
+                    </ul>
+                    <div class="additional-info">
+                        <h3>Información adicional:</h3>
+                        <p>Fundada en Corea del Sur por Ahn Sahng-hong en 1964. Después de su muerte, Zhang Gil-jah fue presentada como "Dios Madre". Enfatizan la celebración de festividades del Antiguo Testamento y rechazan la celebración del domingo, promoviendo el sábado como día de adoración.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nación del Islam -->
+            <div class="secta-card">
+                <div class="card-header">
+                    <h2>Nación del Islam</h2>
+                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Rechaza la divinidad de Cristo.</li>
+                        <li>Fusiona Islam con elementos raciales y políticos antagónicos al evangelio.</li>
+                    </ul>
+                    <div class="additional-info">
+                        <h3>Información adicional:</h3>
+                        <p>Fundada por Wallace Fard Muhammad en 1930 y desarrollada por Elijah Muhammad. Enseña que los negros son la raza original y superior. Difiere significativamente del Islam tradicional. Figuras prominentes incluyen a Malcolm X (quien posteriormente se convirtió al Islam sunita) y Louis Farrakhan.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movimiento Humanista Secular -->
+            <div class="secta-card">
+                <div class="card-header">
+                    <h2>Movimiento Humanista Secular</h2>
+                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Aunque no una secta religiosa formal, propone una cosmovisión atea.</li>
+                        <li>Niega toda necesidad de Dios o salvación.</li>
+                    </ul>
+                    <div class="additional-info">
+                        <h3>Información adicional:</h3>
+                        <p>Consolidado con el "Manifiesto Humanista" (1933) y sus sucesivas actualizaciones. Promueve la razón, la ciencia y la ética secular sin referencia a creencias sobrenaturales. Organizaciones como la Asociación Humanista Americana y la Unión Ética promueven esta visión del mundo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="observaciones">
+            <h2><i class="fas fa-exclamation-circle"></i> Observaciones</h2>
+            <ul>
+                <li>Estas agrupaciones están <strong>catalogadas como sectas o movimientos pseudo-cristianos</strong> porque <strong>usan lenguaje bíblico o cristiano</strong> pero <strong>niegan doctrinas centrales del evangelio bíblico</strong>.</li>
+                <li>Desde una perspectiva protestante clásica (sola Scriptura, sola fide, sola gratia, solus Christus, soli Deo gloria), estos grupos <strong>violan uno o más pilares fundamentales</strong> de la fe.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Ministerio EMD</h4>
+                    <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
+                    <div class="social-links">
+                         <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                         <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="../Figuras Bíblicas/at-a-nt.html">Figuras Bíblicas</a></li>
+                        <li><a href="falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                        <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Estudios Exegéticos</a></li>
+                        <li><a href="../Tiempo del Fin/introduccion.html">Tiempo del Fin</a></li>
+                        <li><a href="../Época de Jesús/estudio-contemporaneo.html">Época de Jesús</a></li>
+                        <li><a href="../Estudios Bíblicos/doctrina-basica.html">Estudios Bíblicos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio</li>
+                        <li><i class="fas fa-phone"></i> +1 787-345-6940</li>
+                        <li><i class="fas fa-envelope"></i> yonatanguerrero555@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Nota Aclaratoria</h4>
+                    <ul>
+                        <li>Todos los recursos de esta página son gratuitos y para la edificación de los creyentes</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+        
+        // Manejo de menús desplegables en móvil
+        document.querySelectorAll('.menu-item-has-children > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                // Solo en modo móvil
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.parentNode.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Cierra el menú al hacer clic en un enlace de submenu
+        document.querySelectorAll('.sub-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('nav').classList.remove('active');
+            });
+        });
+        
+        // Cierra el menú al hacer clic fuera de él
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navToggle = document.querySelector('.nav-toggle');
+            
+            if (!nav.contains(event.target) && event.target !== navToggle) {
+                nav.classList.remove('active');
+            }
+        });
+        
+        // Script para el botón "Volver arriba"
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = "flex";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        });
+
+        // Ocultar el botón inicialmente
+        backToTopButton.style.display = "none";
+    </script>
+</body>
+</html>

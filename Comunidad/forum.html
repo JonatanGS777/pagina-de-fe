@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad - Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a1410;
+            --secondary-color: #b89a5f;
+            --accent-color: #6b4f2a;
+            --background-color: #f7f4ed;
+            --text-color: #2d2010;
+            --light-accent: #ede5d8;
+            --gold-accent: #c9aa6a;
+            --dark-color: #0e0c0a;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --gradient-bg: linear-gradient(160deg, #0e0c0a 0%, #1f1a14 100%);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --box-shadow: 0 12px 24px rgba(0, 0, 0, 0.07), 0 6px 12px rgba(0, 0, 0, 0.03);
+            --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            background: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Header simplificado */
+        .forum-header {
+            background: rgba(14, 12, 10, 0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: white;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(184, 154, 95, 0.25);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .forum-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .forum-title h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .forum-title .icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .back-to-home {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .back-to-home:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* Container principal */
+        .forum-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+        }
+
+        /* Sidebar */
+        .forum-sidebar {
+            background: white;
+            border-radius: 4px;
+            padding: 25px;
+            box-shadow: var(--card-shadow);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+            border: 1px solid rgba(184, 154, 95, 0.15);
+        }
+
+        .sidebar-section {
+            margin-bottom: 28px;
+        }
+
+        .sidebar-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 12px;
+            margin-bottom: 5px;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid rgba(184, 154, 95, 0.15);
+            user-select: none;
+            position: relative;
+        }
+
+        .category-item:hover,
+        .category-item.active {
+            background: rgba(184, 154, 95, 0.07);
+            border-color: rgba(184, 154, 95, 0.4);
+        }
+
+        .category-item.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--secondary-color);
+        }
+
+        .category-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .category-icon {
+            width: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            font-size: 0.82rem;
+            flex-shrink: 0;
+        }
+
+        .category-details h4 {
+            font-weight: 400;
+            color: var(--primary-color);
+            font-size: 0.88rem;
+        }
+
+        .category-details p {
+            font-size: 0.75rem;
+            color: #a0917e;
+            margin-top: 1px;
+        }
+
+        .category-count {
+            background: transparent;
+            color: var(--secondary-color);
+            border: 1px solid rgba(184, 154, 95, 0.35);
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-size: 0.7rem;
+            font-weight: 400;
+            min-width: 22px;
+            text-align: center;
+        }
+
+        .new-topic-btn {
+            width: 100%;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border: 1px solid var(--primary-color);
+            padding: 13px 20px;
+            border-radius: 2px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .new-topic-btn:hover {
+            background: transparent;
+            color: var(--primary-color);
+        }
+
+        /* Área principal del foro */
+        .forum-main {
+            background: white;
+            border-radius: 4px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            border: 1px solid rgba(184, 154, 95, 0.12);
+        }
+
+        .forum-header-bar {
+            background: var(--background-color);
+            border-bottom: 1px solid rgba(184, 154, 95, 0.2);
+            color: var(--primary-color);
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .forum-header-bar h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: 0.01em;
+        }
+
+        .forum-stats {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        .forum-controls {
+            padding: 20px 25px;
+            border-bottom: 2px solid var(--light-accent);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--light-accent);
+            padding: 8px 15px;
+            border-radius: 25px;
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .search-input {
+            background: none;
+            border: none;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            width: 100%;
+        }
+
+        .search-input::placeholder {
+            color: #999;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            padding: 7px 14px;
+            background: none;
+            border: 1px solid rgba(184, 154, 95, 0.3);
+            border-radius: 2px;
+            color: #a0917e;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Lato', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            user-select: none;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        /* Lista de temas */
+        .topics-list {
+            padding: 25px;
+        }
+
+        .topic-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid var(--light-accent);
+            border-radius: 12px;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .topic-item:hover {
+            border-color: rgba(184, 154, 95, 0.45);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .topic-item.active-topic {
+            border: 1px solid rgba(184, 154, 95, 0.5);
+            background-color: rgba(184, 154, 95, 0.04);
+        }
+
+        .topic-item.active-topic::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--secondary-color);
+            border-radius: 2px 0 0 2px;
+        }
+
+        .topic-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .topic-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .topic-avatar .default-avatar {
+            width: 100%;
+            height: 100%;
+            background: var(--light-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .topic-content {
+            flex: 1;
+        }
+
+        .topic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .topic-title {
+            font-weight: 600;
+            color: var(--dark-color);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .topic-category {
+            background: rgba(184, 154, 95, 0.1);
+            color: var(--secondary-color);
+            padding: 3px 8px;
+            border-radius: 2px;
+            font-size: 0.68rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .topic-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .topic-preview {
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .topic-stats {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        .topic-stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .topic-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .topic-item:hover .topic-actions {
+            opacity: 1;
+        }
+
+        .action-btn {
+            padding: 6px 10px;
+            background: none;
+            border: 1px solid var(--light-accent);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.8rem;
+            color: var(--text-color);
+        }
+
+        .action-btn:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .action-btn.liked {
+            color: #e74c3c;
+            border-color: #e74c3c;
+        }
+
+        .action-btn.bookmarked {
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        /* Estado vacío */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            color: var(--light-accent);
+            margin-bottom: 20px;
+        }
+
+        .empty-state h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .empty-state p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* Modal para nuevo tema */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(42, 36, 59, 0.8);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transform: scale(0.9);
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-accent);
+        }
+
+        .modal-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin: 0;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #999;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 5px;
+        }
+
+        .close-modal:hover {
+            color: var(--danger-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--light-accent);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background: white;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(94, 75, 139, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-bg);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(94, 75, 139, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--light-accent);
+            color: var(--text-color);
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary-color);
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .forum-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px 15px;
+            }
+
+            .forum-sidebar {
+                position: static;
+                order: 2;
+            }
+
+            .header-content {
+                padding: 0 15px;
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .forum-title h1 {
+                font-size: 1.5rem;
+            }
+
+            .forum-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-container {
+                max-width: none;
+            }
+
+            .filter-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .topic-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .topic-header {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+
+            .topic-stats {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .modal-content {
+                margin: 20px;
+                width: calc(100% - 40px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .forum-header {
+                padding: 15px 0;
+            }
+
+            .forum-title .icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .topic-item {
+                padding: 15px;
+            }
+
+            .category-item {
+                padding: 10px 12px;
+            }
+
+            .modal-content {
+                padding: 20px;
+            }
+        }
+
+        /* Animaciones */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in {
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="forum-header">
+        <div class="header-content">
+            <div class="forum-title">
+                <div class="icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div>
+                    <h1>Comunidad de Fe</h1>
+                    <p style="margin: 0; opacity: 0.9; font-size: 0.9rem;">Compartiendo la Palabra en comunidad</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../index.html" class="back-to-home">
+                    <i class="fas fa-home"></i>
+                    Volver al ministerio
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="forum-container">
+        <!-- Sidebar -->
+        <aside class="forum-sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-title">
+                    <i class="fas fa-plus-circle"></i>
+                    Nuevo Tema
+                </div>
+                <button class="new-topic-btn" onclick="openNewTopicModal()">
+                    <i class="fas fa-edit"></i>
+                    Crear Tema
+                </button>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">
+                    <i class="fas fa-list"></i>
+                    Categorías
+                </div>
+                <div id="categories-list">
+                    <div class="category-item active" data-category="all" role="button" tabindex="0" aria-label="Ver todos los temas">
+                        <div class="category-info">
+                            <div class="category-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="category-details">
+                                <h4>Todos los temas</h4>
+                                <p>Ver todas las discusiones</p>
+                            </div>
+                        </div>
+                        <span class="category-count" id="count-all">0</span>
+                    </div>
+
+                    <div class="category-item" data-category="estudios" role="button" tabindex="0" aria-label="Estudios Bíblicos">
+                        <div class="category-info">
+                            <div class="category-icon">
+                                <i class="fas fa-bible"></i>
+                            </div>
+                            <div class="category-details">
+                                <h4>Estudios Bíblicos</h4>
+                                <p>Profundizando en la Palabra</p>
+                            </div>
+                        </div>
+                        <span class="category-count" id="count-estudios">0</span>
+                    </div>
+
+                    <div class="category-item" data-category="preguntas" role="button" tabindex="0" aria-label="Preguntas y Respuestas">
+                        <div class="category-info">
+                            <div class="category-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <div class="category-details">
+                                <h4>Preguntas y Respuestas</h4>
+                                <p>Dudas sobre la fe</p>
+                            </div>
+                        </div>
+                        <span class="category-count" id="count-preguntas">0</span>
+                    </div>
+
+                    <div class="category-item" data-category="testimonios" role="button" tabindex="0" aria-label="Testimonios">
+                        <div class="category-info">
+                            <div class="category-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="category-details">
+                                <h4>Testimonios</h4>
+                                <p>Experiencias de fe</p>
+                            </div>
+                        </div>
+                        <span class="category-count" id="count-testimonios">0</span>
+                    </div>
+
+                    <div class="category-item" data-category="oracion" role="button" tabindex="0" aria-label="Peticiones de Oración">
+                        <div class="category-info">
+                            <div class="category-icon">
+                                <i class="fas fa-praying-hands"></i>
+                            </div>
+                            <div class="category-details">
+                                <h4>Peticiones de Oración</h4>
+                                <p>Orando juntos</p>
+                            </div>
+                        </div>
+                        <span class="category-count" id="count-oracion">0</span>
+                    </div>
+
+                    <div class="category-item" data-category="general" role="button" tabindex="0" aria-label="Conversación General">
+                        <div class="category-info">
+                            <div class="category-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="category-details">
+                                <h4>Conversación General</h4>
+                                <p>Charlas fraternas</p>
+                            </div>
+                        </div>
+                        <span class="category-count" id="count-general">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">
+                    <i class="fas fa-chart-line"></i>
+                    Estadísticas
+                </div>
+                <div style="font-size: 0.9rem; color: #666;">
+                    <p><strong id="total-topics">0</strong> temas en total</p>
+                    <p><strong id="total-comments">0</strong> comentarios</p>
+                    <p><strong id="active-users">1</strong> miembro conectado</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Área principal -->
+        <main class="forum-main">
+            <div class="forum-header-bar">
+                <h2 id="current-category-title">Todos los Temas</h2>
+                <div class="forum-stats">
+                    <span><i class="fas fa-comments"></i> <span id="header-topics-count">0</span> temas</span>
+                    <span><i class="fas fa-users"></i> Comunidad activa</span>
+                </div>
+            </div>
+
+            <div class="forum-controls">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="search-input" placeholder="Buscar en los temas..." id="search-input">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="recent" role="button" aria-label="Mostrar temas recientes">
+                        <i class="fas fa-clock"></i> Recientes
+                    </button>
+                    <button class="filter-btn" data-filter="popular" role="button" aria-label="Mostrar temas populares">
+                        <i class="fas fa-fire"></i> Populares
+                    </button>
+                    <button class="filter-btn" data-filter="unanswered" role="button" aria-label="Mostrar temas sin responder">
+                        <i class="fas fa-comment-slash"></i> Sin responder
+                    </button>
+                </div>
+            </div>
+
+            <div class="topics-list" id="topics-container">
+                <!-- Los temas se cargarán aquí dinámicamente -->
+                <div class="empty-state" id="empty-state">
+                    <i class="fas fa-comments"></i>
+                    <h3>¡Inicia la conversación!</h3>
+                    <p>Sé el primero en compartir un tema de discusión en nuestra comunidad de fe. Comparte tus reflexiones, preguntas o testimonios.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para nuevo tema -->
+    <div class="modal-overlay" id="new-topic-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Crear Nuevo Tema</h3>
+                <button class="close-modal" onclick="closeNewTopicModal()" aria-label="Cerrar modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <form id="new-topic-form">
+                <div class="form-group">
+                    <label class="form-label" for="topic-title">Título del tema *</label>
+                    <input type="text" id="topic-title" class="form-input" placeholder="Escribe un título descriptivo..." required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="topic-category">Categoría *</label>
+                    <select id="topic-category" class="form-select" required>
+                        <option value="">Selecciona una categoría</option>
+                        <option value="estudios">Estudios Bíblicos</option>
+                        <option value="preguntas">Preguntas y Respuestas</option>
+                        <option value="testimonios">Testimonios</option>
+                        <option value="oracion">Peticiones de Oración</option>
+                        <option value="general">Conversación General</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="topic-content">Contenido del tema *</label>
+                    <textarea id="topic-content" class="form-textarea" placeholder="Comparte tu reflexión, pregunta o testimonio..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="topic-verse">Versículo relacionado (opcional)</label>
+                    <input type="text" id="topic-verse" class="form-input" placeholder="Ej: Juan 3:16">
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeNewTopicModal()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Publicar Tema
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 🔧 SOLUCIÓN: Carga directa del script sin inyección dinámica -->
+    <script type="module" src="./js/forum.js"></script>
+</body>
+</html>

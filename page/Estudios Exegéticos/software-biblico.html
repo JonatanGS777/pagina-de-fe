@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Bíblico - Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a3a5f; /* Azul profundo */
+            --secondary-color: #4a90e2; /* Azul celeste */
+            --accent-color: #ff9d3b; /* Naranja ámbar */
+            --hebrew-color: #8c6246; /* Tono marrón para hebreo */
+            --aramaic-color: #677e52; /* Verde oliva para arameo */
+            --greek-color: #6457a6; /* Púrpura para griego */
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gradient-bg: linear-gradient(135deg, rgba(26, 58, 95, 0.95) 0%, rgba(74, 144, 226, 0.95) 100%);
+            --card-gradient: linear-gradient(to bottom right, rgba(26, 58, 95, 0.05), rgba(74, 144, 226, 0.1));
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08), 0 6px 6px rgba(0, 0, 0, 0.05);
+            --box-shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.12), 0 10px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+           font-family: 'Cormorant Garamond', serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: var(--gradient-bg);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo img {
+            height: 60px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+        
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .nav-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            transition: var(--transition);
+            display: block;
+            padding: 0.5rem;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Dropdown Styles */
+        .menu-item-has-children {
+            position: relative;
+        }
+        
+        .menu-item-has-children > a {
+            display: flex;
+            align-items: center;
+        }
+        
+        .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: 8px;
+            padding: 0.8rem 0;
+            display: none;
+            z-index: 100;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .sub-menu li {
+            width: 100%;
+        }
+        
+        .sub-menu a {
+            padding: 0.7rem 1.2rem;
+            font-size: 0.9rem;
+            width: 100%;
+            color: var(--dark-color);
+        }
+        
+        .sub-menu a:hover {
+            background-color: rgba(26, 58, 95, 0.05);
+            color: var(--primary-color);
+        }
+        
+        .sub-menu a::after {
+            display: none;
+        }
+        
+        .menu-item-has-children:hover .sub-menu {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Página de Software Bíblico Específicos */
+        .page-header {
+            background: none;
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('./images/software.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 1;
+            background-color: rgba(0,0,0,0.4);
+            background-blend-mode: overlay;
+            z-index: -1;
+        }
+        
+        .page-header-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            color: white;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+        }
+        
+        
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .page-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Sección de Contenido */
+        .content-section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            display: inline-block;
+            position: relative;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .section-title p {
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        
+        /* Tarjetas de software */
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .software-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.06);
+            background: var(--card-gradient);
+        }
+        
+        .software-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .software-card-header {
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+        
+        .software-card-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            background-color: rgba(74, 144, 226, 0.1);
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .software-card:hover .software-card-icon {
+            transform: scale(1.1);
+            color: var(--secondary-color);
+        }
+        
+        .software-card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .software-card-subtitle {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .software-card-body {
+            padding: 1.5rem 2rem;
+        }
+        
+        .software-feature-list {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .software-feature-list li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            padding-left: 1.8rem;
+        }
+        
+        .software-feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .software-feature-list li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+        
+        .software-card-footer {
+            padding: 0 2rem 2rem;
+            text-align: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            background-color: var(--primary-color);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        /* Sección de guía de instalación */
+        .installation-guide {
+            background-color: #f8f9fa;
+            padding: 5rem 0;
+            border-radius: 20px;
+            margin: 3rem 0;
+        }
+        
+        .installation-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .installation-step {
+            position: relative;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .installation-step:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+        }
+        
+        .installation-step h3 {
+            margin-bottom: 1rem;
+            padding-top: 0.5rem;
+            color: var(--primary-color);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Sección de comparación */
+        .comparison-section {
+            margin: 4rem 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: rgba(0,0,0,0.02);
+        }
+        
+        .comparison-table tr:hover {
+            background-color: rgba(74, 144, 226, 0.05);
+        }
+        
+        /* Características especiales */
+        .icon-box {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+        
+        .icon-box-icon {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-right: 1.5rem;
+        }
+        
+        .icon-box-content h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Sección de recursos */
+        .resources-section {
+            margin: 4rem 0;
+        }
+        
+        .resources-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .resource-card {
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .resource-card-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .resource-card-title {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .resource-card-type {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: rgba(74, 144, 226, 0.1);
+            color: var(--secondary-color);
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .resource-card-description {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .resource-card-footer {
+            margin-top: auto;
+        }
+        
+        /* Versiones de idioma */
+        .language-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1rem;
+        }
+        
+        .language-tab {
+            padding: 0.8rem 1.5rem;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            border-radius: 5px 5px 0 0;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            background-color: #f5f5f5;
+        }
+        
+        .language-tab.active {
+            color: white;
+        }
+        
+        .language-tab:nth-child(1) {
+            color: var(--hebrew-color);
+        }
+        
+        .language-tab:nth-child(2) {
+            color: var(--aramaic-color);
+        }
+        
+        .language-tab:nth-child(3) {
+            color: var(--greek-color);
+        }
+        
+        .language-tab:nth-child(1).active {
+            background-color: var(--hebrew-color);
+            color: white;
+        }
+        
+        .language-tab:nth-child(2).active {
+            background-color: var(--aramaic-color);
+            color: white;
+        }
+        
+        .language-tab:nth-child(3).active {
+            background-color: var(--greek-color);
+            color: white;
+        }
+        
+        .language-tab:hover:not(.active) {
+            background-color: #eaeaea;
+        }
+        
+        .language-content {
+            display: none;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .language-content.active {
+            display: block;
+        }
+        
+        .language-content h3 {
+            margin-bottom: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .hebrew-content h3 {
+            color: var(--hebrew-color);
+        }
+        
+        .aramaic-content h3 {
+            color: var(--aramaic-color);
+        }
+        
+        .greek-content h3 {
+            color: var(--greek-color);
+        }
+        
+        /* Cita bíblica */
+        .bible-verse {
+            background-color: rgba(26, 58, 95, 0.05);
+            padding: 3rem;
+            border-radius: 16px;
+            margin: 4rem 0;
+            position: relative;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .bible-verse::before {
+            content: '\201C';
+            font-size: 6rem;
+            position: absolute;
+            top: -30px;
+            left: 30px;
+            color: var(--accent-color);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        
+        .verse-text {
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 300;
+            line-height: 1.8;
+            font-family: 'Merriweather', serif;
+        }
+        
+        .verse-ref {
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            margin: 4rem 0;
+        }
+        
+        .accordion {
+            margin-top: 2rem;
+        }
+        
+        .accordion-item {
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .accordion-header {
+            padding: 1.5rem;
+            background-color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .accordion-header:hover {
+            background-color: rgba(74, 144, 226, 0.05);
+        }
+        
+        .accordion-title {
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-color);
+        }
+        
+        .accordion-icon {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        .accordion-content {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: white;
+        }
+        
+        .accordion-content-inner {
+            padding: 0 0 1.5rem;
+        }
+        
+        .accordion-item.active .accordion-header {
+            background-color: rgba(74, 144, 226, 0.1);
+        }
+        
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        .accordion-item.active .accordion-content {
+            max-height: 1000px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            color: var(--accent-color);
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-col a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-col a:hover {
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 280px;
+                height: 100vh;
+                background-color: var(--dark-color);
+                z-index: 1000;
+                transition: right 0.3s ease;
+                padding: 2rem;
+                overflow-y: auto;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            nav li {
+                width: 100%;
+            }
+            
+            nav a {
+                padding: 1rem 0;
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav a::after {
+                display: none;
+            }
+            
+            .menu-item-has-children > a {
+                justify-content: space-between;
+            }
+            
+            /* Mobile indicator for dropdown instead of arrow */
+            .menu-item-has-children > a::after {
+                display: block;
+                content: '+';
+                transition: var(--transition);
+            }
+            
+            .menu-item-has-children.active > a::after {
+                transform: rotate(45deg);
+            }
+            
+            .sub-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.2);
+                border-radius: 0;
+                padding-left: 1rem;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                transform: none;
+                opacity: 1;
+            }
+            
+            .menu-item-has-children.active > .sub-menu {
+                max-height: 500px;
+            }
+            
+            .menu-item-has-children:hover .sub-menu {
+                display: none;
+                transform: none;
+            }
+            
+            .menu-item-has-children.active .sub-menu {
+                display: block;
+            }
+            
+            .sub-menu a {
+                color: #ddd;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            .sub-menu a:hover {
+                background-color: rgba(255, 255, 255, 0.05);
+                color: var(--accent-color);
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .page-header {
+                padding: 3rem 0;
+            }
+            
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            
+            .language-tabs {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .language-tab {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="../../../images/EMD.png" alt="Logo EMD">
+                <div class="logo-text">
+                    <div>Ministerio</div>
+                    <div>"La Gloria es del Señor"</div>
+                </div>
+            </div>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../../../index.html">Inicio</a></li>
+                    <li class="menu-item-has-children">
+                        <a>Figuras Bíblicas</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Figuras Bíblicas/at-a-nt.html">AT a NT</a></li>
+                            <li><a href="../Figuras Bíblicas/nombres-simbologia.html">Los nombres y su simbología</a></li>
+                            <li><a href="../Figuras Bíblicas/templo-figuras.html">Templo y sus Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/sacrificios-figuras.html">Sacrificios y su Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/tipologia-cantares.html">Tipología Cantares</a></li>
+                            <li><a href="../Figuras Bíblicas/figuras-cristo.html">Figuras de Cristo</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Falsas Doctrinas</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                            <li><a href="../Falsas Doctrinas/gnosticismos.html">Gnosticismos en la Biblia</a></li>
+                            <li><a href="../Falsas Doctrinas/filosofias-griegas.html">Filosofías Griegas</a></li>
+                            <li><a href="../Falsas Doctrinas/masoneria.html">Masonería</a></li>
+                            <li><a href="../Falsas Doctrinas/sociedades-secretas.html">Sociedades Secretas</a></li>
+                            <li><a href="../Falsas Doctrinas/sectas-anticristianas.html">Sectas Anticristianas</a></li>
+                            <li><a href="../Falsas Doctrinas/pseudoprofetas.html">Pseudoprofetas</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Estudios Exegéticos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Temas Exegéticos</a></li>
+                            <li><a href="../Estudios Exegéticos/idiomas-biblia.html">Hebreo, Arameo y Griego en la Biblia</a></li>
+                            <li><a href="../Estudios Exegéticos/enlaces-recursos.html">Enlaces de Recursos</a></li>
+                            <li><a href="../Estudios Exegéticos/diccionarios-comentarios.html">Diccionarios y Comentarios</a></li>
+                            <li><a href="../Estudios Exegéticos/software-biblico.html">Software Bíblicos</a></li>
+                            <li><a href="../Estudios Exegéticos/meditacion-palabra.html">Meditación en la Palabra</a></li>
+                            <li><a href="../Estudios Exegéticos/lectura-anual.html">Lectura Anual</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Tiempo del Fin</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Tiempo del Fin/introduccion.html">Introducción al tiempo del fin</a></li>
+                            <li><a href="../Tiempo del Fin/escatologia.html">Escatología</a></li>
+                            <li><a href="../Tiempo del Fin/profecias-cumplidas.html">Profecías Cumplidas</a></li>
+                            <li><a href="../Tiempo del Fin/nuevo-orden-mundial.html">Nuevo Orden Mundial</a></li>
+                            <li><a href="../Tiempo del Fin/noticias-fin.html">Noticias del Fin</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Época de Jesús</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Época de Jesús/estudio-contemporaneo.html">Estudio Contemporáneo</a></li>
+                            <li><a href="../Época de Jesús/contexto-historico.html">Contexto Histórico</a></li>
+                            <li><a href="../Época de Jesús/grupos-religiosos.html">Grupos religiosos</a></li>
+                            <li><a href="../Época de Jesús/recursos-academicos.html">Estudios de Contexto</a></li>
+                            <li><a href="../Época de Jesús/apologia-cristiana.html">Apología Cristiana</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Estudios Bíblicos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Bíblicos/doctrina-basica.html">Doctrina Básica</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-intermedia.html">Doctrina intermedia</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-avanzada.html">Doctrina Avanzada</a></li>
+                            <li><a href="../Estudios Bíblicos/revelacion-espiritu.html">Revelación del Espíritu</a></li>
+                            <li><a href="../Estudios Bíblicos/devocionales.html">Devocionales</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container page-header-content">
+            <h1 class="page-title">Software Bíblico: Proyecto SWORD</h1>
+            <p class="page-description">Descubre las herramientas digitales más potentes para el estudio profundo de la Palabra de Dios en los idiomas originales y traducciones.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Herramientas del Proyecto SWORD</h2>
+                <p>El Proyecto SWORD ofrece un conjunto de software libre para el estudio bíblico avanzado, permitiendo acceso a múltiples traducciones, comentarios y recursos.</p>
+            </div>
+            
+            <div class="software-grid">
+                <div class="software-card">
+                    <div class="software-card-header">
+                        <div class="software-card-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3 class="software-card-title">Xiphos</h3>
+                        <p class="software-card-subtitle">Para Windows y Linux</p>
+                    </div>
+                    <div class="software-card-body">
+                        <ul class="software-feature-list">
+                            <li>Interfaz gráfica avanzada e intuitiva</li>
+                            <li>Búsquedas exhaustivas en múltiples traducciones</li>
+                            <li>Comparación de versículos lado a lado</li>
+                            <li>Visualización de comentarios y diccionarios</li>
+                            <li>Integración de mapas bíblicos</li>
+                        </ul>
+                    </div>
+                    <div class="software-card-footer">
+                        <a href="http://xiphos.org/" class="btn" target="_blank">Descargar</a>
+                    </div>
+                </div>
+                
+                <div class="software-card">
+                    <div class="software-card-header">
+                        <div class="software-card-icon">
+                            <i class="fas fa-cross"></i>
+                        </div>
+                        <h3 class="software-card-title">BibleTime</h3>
+                        <p class="software-card-subtitle">Multiplataforma</p>
+                    </div>
+                    <div class="software-card-body">
+                        <ul class="software-feature-list">
+                            <li>Disponible para Windows, Mac y Linux</li>
+                            <li>Interfaz personalizable</li>
+                            <li>Estudio por libro, capítulo y versículo</li>
+                            <li>Sistema de marcado y anotaciones</li>
+                            <li>Gestión avanzada de módulos</li>
+                        </ul>
+                    </div>
+                    <div class="software-card-footer">
+                        <a href="https://bibletime.info/" class="btn" target="_blank">Descargar</a>
+                    </div>
+                </div>
+                
+                <div class="software-card">
+                    <div class="software-card-header">
+                        <div class="software-card-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="software-card-title">AndBible</h3>
+                        <p class="software-card-subtitle">Para Android</p>
+                    </div>
+                    <div class="software-card-body">
+                        <ul class="software-feature-list">
+                            <li>Aplicación móvil completa para estudio bíblico</li>
+                            <li>Lectura offline completa</li>
+                            <li>Textos en hebreo y griego con análisis</li>
+                            <li>Sincronización de notas y marcadores</li>
+                            <li>Lectura diaria programable</li>
+                        </ul>
+                    </div>
+                    <div class="software-card-footer">
+                        <a href="https://play.google.com/store/apps/details?id=net.bible.android.activity" class="btn" target="_blank">Descargar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bible-verse">
+                <p class="verse-text">"Lámpara es a mis pies tu palabra, y lumbrera a mi camino."</p>
+                <p class="verse-ref">Salmos 119:105</p>
+            </div>
+            
+            <div class="section-title">
+                <h2>Guía de Instalación</h2>
+                <p>Sigue estos pasos para instalar y configurar las herramientas SWORD en tu dispositivo</p>
+            </div>
+            
+            <div class="installation-guide">
+                <div class="container">
+                    <div class="installation-steps">
+                        <div class="installation-step">
+                            <div class="step-number">1</div>
+                            <h3>Descargar el Software</h3>
+                            <p>Selecciona el programa que mejor se adapte a tus necesidades desde los enlaces oficiales que proporcionamos arriba.</p>
+                        </div>
+                        
+                        <div class="installation-step">
+                            <div class="step-number">2</div>
+                            <h3>Instalar la Aplicación</h3>
+                            <p>Ejecuta el instalador y sigue las instrucciones en pantalla. En sistemas Linux, puedes usar los repositorios oficiales:</p>
+                            <pre><code>sudo apt install bibletime</code></pre>
+                        </div>
+                        
+                        <div class="installation-step">
+                            <div class="step-number">3</div>
+                            <h3>Instalar Módulos</h3>
+                            <p>Abre la aplicación y ve a la sección de administración de módulos para descargar Biblias, comentarios y diccionarios.</p>
+                        </div>
+                        
+                        <div class="installation-step">
+                            <div class="step-number">4</div>
+                            <h3>Configurar el Entorno</h3>
+                            <p>Personaliza la interfaz, establece tus traducciones preferidas y configura las herramientas de estudio según tus necesidades.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-title">
+                <h2>Comparación de Aplicaciones</h2>
+                <p>Encuentra la herramienta SWORD que mejor se adapte a tus necesidades de estudio</p>
+            </div>
+            
+            <div class="comparison-section">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Xiphos</th>
+                            <th>BibleTime</th>
+                            <th>AndBible</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Plataformas</td>
+                            <td>Windows, Linux</td>
+                            <td>Windows, Mac, Linux</td>
+                            <td>Android</td>
+                        </tr>
+                        <tr>
+                            <td>Soporte de Textos Originales</td>
+                            <td>Completo</td>
+                            <td>Completo</td>
+                            <td>Completo</td>
+                        </tr>
+                        <tr>
+                            <td>Análisis Morfológico</td>
+                            <td>Avanzado</td>
+                            <td>Avanzado</td>
+                            <td>Básico</td>
+                        </tr>
+                        <tr>
+                            <td>Notas Personales</td>
+                            <td>Sí</td>
+                            <td>Sí</td>
+                            <td>Sí</td>
+                        </tr>
+                        <tr>
+                            <td>Mapas Bíblicos</td>
+                            <td>Incluidos</td>
+                            <td>Descargables</td>
+                            <td>Básicos</td>
+                        </tr>
+                        <tr>
+                            <td>Uso Offline</td>
+                            <td>Completo</td>
+                            <td>Completo</td>
+                            <td>Completo</td>
+                        </tr>
+                        <tr>
+                            <td>Interfaz Personalizable</td>
+                            <td>Moderada</td>
+                            <td>Alta</td>
+                            <td>Básica</td>
+                        </tr>
+                        <tr>
+                            <td>Requisitos del Sistema</td>
+                            <td>Moderados</td>
+                            <td>Bajos</td>
+                            <td>Muy bajos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="section-title">
+                <h2>Características Principales</h2>
+                <p>Descubre las funcionalidades que hacen de las herramientas SWORD opciones ideales para el estudio bíblico</p>
+            </div>
+            
+            <div class="container">
+                <div class="row">
+                    <div class="icon-box">
+                        <div class="icon-box-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="icon-box-content">
+                            <h4>Estudio de Idiomas Originales</h4>
+                            <p>Accede a los textos bíblicos en hebreo, arameo y griego con herramientas morfológicas y léxicas que permiten un análisis profundo del texto original.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="icon-box">
+                        <div class="icon-box-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="icon-box-content">
+                            <h4>Búsquedas Avanzadas</h4>
+                            <p>Realiza búsquedas por palabra, frase, Strong, raíz lingüística y más, con opciones para refinar los resultados según tus necesidades de estudio.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="icon-box">
+                        <div class="icon-box-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="icon-box-content">
+                            <h4>Biblioteca de Recursos</h4>
+                            <p>Accede a una amplia colección de comentarios, diccionarios, léxicos y herramientas de referencia para enriquecer tu estudio bíblico.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="icon-box">
+                        <div class="icon-box-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <div class="icon-box-content">
+                            <h4>Comparación de Versiones</h4>
+                            <p>Visualiza múltiples traducciones simultáneamente para obtener una comprensión más completa del texto bíblico y sus matices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-title">
+                <h2>Módulos por Idioma</h2>
+                <p>SWORD ofrece recursos en los idiomas originales de las Escrituras</p>
+            </div>
+            
+            <div class="language-tabs">
+                <div class="language-tab active" data-tab="hebrew">Hebreo</div>
+                <div class="language-tab" data-tab="aramaic">Arameo</div>
+                <div class="language-tab" data-tab="greek">Griego</div>
+            </div>
+            
+            <div class="language-content hebrew-content active">
+                <h3>Recursos en Hebreo</h3>
+                <p>El hebreo es el idioma principal del Antiguo Testamento. Con las herramientas SWORD, puedes:</p>
+                <ul>
+                    <li><strong>Texto Masorético:</strong> Accede al texto hebreo con puntuación y acentos.</li>
+                    <li><strong>Concordancia Strong:</strong> Consulta el significado de cada palabra hebrea.</li>
+                    <li><strong>Análisis morfológico:</strong> Estudia las formas verbales, sustantivos y construcciones.</li>
+                    <li><strong>Léxicos especializados:</strong> BDB, HALOT y más recursos para profundizar.</li>
+                    <li><strong>Audio de pronunciación:</strong> Aprende a pronunciar correctamente el texto bíblico.</li>
+                </ul>
+                <p>Los módulos hebreos te permiten estudiar desde el Génesis hasta Malaquías en el idioma original, con herramientas que facilitan la comprensión incluso si no tienes un conocimiento avanzado del idioma.</p>
+            </div>
+            
+            <div class="language-content aramaic-content">
+                <h3>Recursos en Arameo</h3>
+                <p>El arameo aparece en secciones del Antiguo Testamento, principalmente en Daniel y Esdras. Las herramientas incluyen:</p>
+                <ul>
+                    <li><strong>Textos arameos:</strong> Fragmentos bíblicos en su idioma original.</li>
+                    <li><strong>Concordancia:</strong> Referencias cruzadas para palabras arameas.</li>
+                    <li><strong>Traducciones interlineales:</strong> Texto arameo con traducción paralela.</li>
+                    <li><strong>Recursos targúmicos:</strong> Acceso a traducciones antiguas arameas.</li>
+                </ul>
+                <p>Aunque el arameo ocupa una porción menor de las Escrituras, estos recursos te permiten estudiar importantes pasajes proféticos y históricos en su idioma original.</p>
+            </div>
+            
+            <div class="language-content greek-content">
+                <h3>Recursos en Griego</h3>
+                <p>El griego koiné es el idioma del Nuevo Testamento. Las herramientas SWORD ofrecen:</p>
+                <ul>
+                    <li><strong>Texto Griego:</strong> Diferentes ediciones críticas (NA28, SBL, Byzantine, etc.).</li>
+                    <li><strong>Análisis gramatical:</strong> Declensiones, conjugaciones y sintaxis detallada.</li>
+                    <li><strong>Léxicos completos:</strong> BDAG, Louw-Nida, Thayer y otros recursos.</li>
+                    <li><strong>Diagramas sintácticos:</strong> Visualización de la estructura de las oraciones.</li>
+                    <li><strong>Análisis discursivo:</strong> Herramientas para estudiar la retórica del texto.</li>
+                </ul>
+                <p>Los módulos griegos te permiten profundizar en el estudio del Nuevo Testamento, facilitando el acceso a herramientas que normalmente solo estarían disponibles para eruditos académicos.</p>
+            </div>
+            
+            <div class="section-title">
+                <h2>Recursos Adicionales</h2>
+                <p>Enlaces y materiales complementarios para aprovechar al máximo las herramientas SWORD</p>
+            </div>
+            
+            <div class="resources-section">
+                <div class="resources-list">
+                    <div class="resource-card">
+                        <div class="resource-card-header">
+                            <h3 class="resource-card-title">CrossWire Bible Society</h3>
+                            <span class="resource-card-type">Sitio Oficial</span>
+                        </div>
+                        <div class="resource-card-description">
+                            <p>Organización matriz detrás del Proyecto SWORD. Ofrece documentación completa, módulos y soporte.</p>
+                        </div>
+                        <div class="resource-card-footer">
+                            <a href="https://www.crosswire.org/" class="btn btn-outline" target="_blank">Visitar Sitio</a>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-card-header">
+                            <h3 class="resource-card-title">Módulos Adicionales</h3>
+                            <span class="resource-card-type">Repositorio</span>
+                        </div>
+                        <div class="resource-card-description">
+                            <p>Colección de módulos bíblicos, comentarios, diccionarios y más recursos para instalar en tus aplicaciones SWORD.</p>
+                        </div>
+                        <div class="resource-card-footer">
+                            <a href="https://www.crosswire.org/sword/modules/index.jsp" class="btn btn-outline" target="_blank">Explorar Módulos</a>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-card-header">
+                            <h3 class="resource-card-title">Tutoriales en Video</h3>
+                            <span class="resource-card-type">Canal YouTube</span>
+                        </div>
+                        <div class="resource-card-description">
+                            <p>Colección de videos instructivos sobre cómo instalar, configurar y utilizar eficazmente las distintas aplicaciones SWORD.</p>
+                        </div>
+                        <div class="resource-card-footer">
+                            <a href="https://www.youtube.com/user/CrosswireBibleSociety" class="btn btn-outline" target="_blank">Ver Tutoriales</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-title">
+                <h2>Preguntas Frecuentes</h2>
+                <p>Respuestas a las dudas más comunes sobre las herramientas SWORD</p>
+            </div>
+            
+            <div class="faq-section">
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3 class="accordion-title">¿Es gratuito el software SWORD?</h3>
+                            <div class="accordion-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p>Sí, todas las herramientas principales del Proyecto SWORD son de código abierto y gratuitas. Esto incluye Xiphos, BibleTime, AndBible y otras. La filosofía del proyecto es hacer que el estudio bíblico profundo sea accesible para todos, independientemente de los recursos económicos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3 class="accordion-title">¿Necesito conexión a internet para usar estas aplicaciones?</h3>
+                            <div class="accordion-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p>Solo se necesita conexión a internet para la descarga inicial de la aplicación y de los módulos que desees utilizar. Una vez instalados, todas las herramientas SWORD funcionan completamente offline, lo que las hace ideales para lugares con conectividad limitada.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3 class="accordion-title">¿Necesito saber hebreo o griego para usar estas herramientas?</h3>
+                            <div class="accordion-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p>No es necesario. Las herramientas SWORD están diseñadas para ser útiles tanto para principiantes como para eruditos. Incluyen recursos como números Strong, traducciones interlineales y léxicos que te permiten acceder al significado de los textos originales incluso sin conocimiento previo de los idiomas. Sin embargo, a medida que aprendas más, podrás aprovechar funciones más avanzadas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3 class="accordion-title">¿Puedo crear mis propios módulos o contribuir al proyecto?</h3>
+                            <div class="accordion-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p>Absolutamente. El Proyecto SWORD es una iniciativa de código abierto que acepta contribuciones. Puedes crear tus propios módulos utilizando las herramientas disponibles en la documentación, contribuir con código a las aplicaciones, o ayudar con traducciones y documentación. Visita el sitio oficial de CrossWire para obtener más información sobre cómo involucrarte.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Ministerio EMD</h4>
+                    <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
+                    <div class="social-links">
+                         <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                         <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="../Figuras Bíblicas/at-a-nt.html">Figuras Bíblicas</a></li>
+                        <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                        <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Estudios Exegéticos</a></li>
+                        <li><a href="../Tiempo del Fin/introduccion.html">Tiempo del Fin</a></li>
+                        <li><a href="../Época de Jesús/estudio-contemporaneo.html">Época de Jesús</a></li>
+                        <li><a href="../Estudios Bíblicos/doctrina-basica.html">Estudios Bíblicos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio</li>
+                        <li><i class="fas fa-phone"></i> +1 787-345-6940</li>
+                        <li><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                     <h4>Nota Aclaratoria</h4>
+                    <ul>
+                        <li>Todos los recursos de esta página son gratuitos y para la edificación de los creyentes</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navegación móvil
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+        
+        // Manejo de menús desplegables en móvil
+        document.querySelectorAll('.menu-item-has-children > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                // Solo en modo móvil
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.parentNode.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Cierra el menú al hacer clic en un enlace de submenu
+        document.querySelectorAll('.sub-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('nav').classList.remove('active');
+            });
+        });
+        
+        // Cierra el menú al hacer clic fuera de él
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navToggle = document.querySelector('.nav-toggle');
+            
+            if (!nav.contains(event.target) && event.target !== navToggle) {
+                nav.classList.remove('active');
+            }
+        });
+        
+        // Manejo de pestañas de idiomas
+        document.querySelectorAll('.language-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Desactivar todas las pestañas
+                document.querySelectorAll('.language-tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // Desactivar todos los contenidos
+                document.querySelectorAll('.language-content').forEach(c => {
+                    c.classList.remove('active');
+                });
+                
+                // Activar la pestaña seleccionada
+                this.classList.add('active');
+                
+                // Activar el contenido correspondiente
+                const tabId = this.getAttribute('data-tab');
+                document.querySelector(`.${tabId}-content`).classList.add('active');
+            });
+        });
+        
+        // Manejo de acordeón FAQ
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const item = this.parentNode;
+                const isActive = item.classList.contains('active');
+                
+                // Cerrar todos los items activos
+                document.querySelectorAll('.accordion-item').forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.accordion-content').style.maxHeight = null;
+                });
+                
+                // Si el item no estaba activo, abrirlo
+                if (!isActive) {
+                    item.classList.add('active');
+                    const content = item.querySelector('.accordion-content');
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

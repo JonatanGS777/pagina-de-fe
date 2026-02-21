@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma Detallado | Proyecto Análisis Exegético</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Open+Sans:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            /* Paleta de colores consistente */
+            --forest-green: #1B4332;
+            --sage-green: #2D5A27;
+            --olive-green: #40916C;
+            --mint-green: #52B788;
+            --light-mint: #74C69D;
+            --cream-mint: #B7E4C7;
+            --soft-cream: #D8F3DC;
+            --paper-white: #F8FDF8;
+            --charcoal-black: #2D3748;
+            --slate-gray: #4A5568;
+            --warm-gray: #718096;
+            --light-gray: #A0AEC0;
+            --amber-gold: #D69E2E;
+            --rust-orange: #C05621;
+            --deep-blue: #2B6CB0;
+            
+            /* Gradientes */
+            --gradient-header: linear-gradient(135deg, #1B4332 0%, #2D5A27 50%, #40916C 100%);
+            --gradient-section: linear-gradient(135deg, #F8FDF8 0%, #D8F3DC 100%);
+            --gradient-card: linear-gradient(135deg, #FFFFFF 0%, #F8FDF8 100%);
+            --gradient-accent: linear-gradient(135deg, #52B788 0%, #40916C 100%);
+            
+            /* Sombras */
+            --shadow-light: 0 2px 4px rgba(27, 67, 50, 0.1);
+            --shadow-medium: 0 4px 12px rgba(27, 67, 50, 0.15);
+            --shadow-strong: 0 8px 24px rgba(27, 67, 50, 0.2);
+            --shadow-paper: 0 10px 30px rgba(27, 67, 50, 0.1);
+            
+            /* Tipografía */
+            --font-serif: 'Merriweather', serif;
+            --font-sans: 'Open Sans', sans-serif;
+            --font-mono: 'Source Code Pro', monospace;
+            
+            /* Transiciones */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--paper-white);
+            color: var(--charcoal-black);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Paper texture background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 1px 1px, rgba(27, 67, 50, 0.08) 1px, transparent 0);
+            background-size: 24px 24px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--gradient-header);
+            color: white;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .project-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .project-title {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .breadcrumb-nav {
+            justify-self: center;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .breadcrumb-nav a {
+            color: var(--amber-gold);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb-nav a:hover {
+            color: white;
+        }
+
+        .back-button {
+            background: var(--gradient-accent);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-light);
+            text-decoration: none;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 0;
+            background: var(--gradient-section);
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: var(--slate-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Información general */
+        .overview-section {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .overview-item {
+            background: var(--soft-cream);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--olive-green);
+            text-align: center;
+        }
+
+        .overview-icon {
+            font-size: 2.5rem;
+            color: var(--olive-green);
+            margin-bottom: 1rem;
+        }
+
+        .overview-title {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--forest-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .overview-value {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            color: var(--slate-gray);
+            font-weight: 600;
+        }
+
+        /* Cronograma semanal */
+        .week-section {
+            margin-bottom: 3rem;
+        }
+
+        .week-header {
+            background: var(--gradient-header);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px 16px 0 0;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .week-number {
+            background: var(--amber-gold);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--forest-green);
+        }
+
+        .week-info h2 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .week-info p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .week-deliverable {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--amber-gold);
+        }
+
+        .deliverable-title {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .deliverable-name {
+            font-weight: 600;
+        }
+
+        /* Cronograma de días */
+        .week-content {
+            background: white;
+            border-radius: 0 0 16px 16px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 0;
+        }
+
+        .day-card {
+            padding: 2rem;
+            border-right: 1px solid var(--cream-mint);
+            border-bottom: 1px solid var(--cream-mint);
+            position: relative;
+        }
+
+        .day-card:last-child {
+            border-right: none;
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .day-number {
+            background: var(--olive-green);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-weight: 700;
+        }
+
+        .day-info h3 {
+            font-family: var(--font-serif);
+            color: var(--forest-green);
+            margin-bottom: 0.3rem;
+        }
+
+        .day-info p {
+            color: var(--slate-gray);
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+        }
+
+        .activities-list {
+            list-style: none;
+        }
+
+        .activity-item {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--soft-cream);
+            border-radius: 8px;
+            border-left: 3px solid var(--mint-green);
+            position: relative;
+        }
+
+        .activity-time {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--olive-green);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .activity-title {
+            font-weight: 600;
+            color: var(--forest-green);
+            margin-bottom: 0.3rem;
+        }
+
+        .activity-description {
+            font-size: 0.9rem;
+            color: var(--slate-gray);
+        }
+
+        .activity-priority {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .priority-high {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .priority-medium {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+
+        .priority-low {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+
+        /* Tips y consejos */
+        .tips-section {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .tips-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .tips-header h2 {
+            font-family: var(--font-serif);
+            color: var(--forest-green);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .tip-card {
+            background: var(--gradient-section);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--cream-mint);
+        }
+
+        .tip-icon {
+            font-size: 2rem;
+            color: var(--olive-green);
+            margin-bottom: 1rem;
+        }
+
+        .tip-title {
+            font-family: var(--font-serif);
+            color: var(--forest-green);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .tip-content {
+            color: var(--slate-gray);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gradient-header);
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--amber-gold);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--amber-gold);
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0.8;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .week-header {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .days-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .day-card {
+                border-right: none;
+            }
+        }
+
+        /* Animaciones */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="project-logo">
+                <div class="project-title">
+                    <div>Cronograma Detallado</div>
+                    <div>Análisis Exegético</div>
+                </div>
+            </div>
+            <nav class="breadcrumb-nav">
+                <a href="../../../index.html">Inicio</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="../doctrina-intermedia.html">Doctrina Intermedia</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="../estudios/analisisexgetico.html">Proyecto Análisis</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Cronograma</span>
+            </nav>
+            <a href="../estudios/analisisexgetico.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Volver al Proyecto
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="page-title fade-in">
+                <h1>Cronograma Detallado</h1>
+                <p class="page-subtitle">
+                    Guía día a día para completar exitosamente tu proyecto de análisis exegético en 4 semanas
+                </p>
+            </div>
+
+            <!-- Overview -->
+            <div class="overview-section fade-in">
+                <h2 style="font-family: var(--font-serif); color: var(--forest-green); text-align: center; margin-bottom: 1rem;">
+                    <i class="fas fa-info-circle" style="margin-right: 0.5rem;"></i>
+                    Información General del Proyecto
+                </h2>
+                <p style="text-align: center; color: var(--slate-gray); margin-bottom: 2rem;">
+                    Planifica tu tiempo efectivamente siguiendo este cronograma estructurado
+                </p>
+                
+                <div class="overview-grid">
+                    <div class="overview-item">
+                        <div class="overview-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="overview-title">Duración Total</div>
+                        <div class="overview-value">4 Semanas</div>
+                    </div>
+                    <div class="overview-item">
+                        <div class="overview-icon">
+                            <i class="fas fa-list-ol"></i>
+                        </div>
+                        <div class="overview-title">Pasos Metodológicos</div>
+                        <div class="overview-value">8 Etapas</div>
+                    </div>
+                    <div class="overview-item">
+                        <div class="overview-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="overview-title">Tiempo Estimado</div>
+                        <div class="overview-value">20-25 hrs/semana</div>
+                    </div>
+                    <div class="overview-item">
+                        <div class="overview-icon">
+                            <i class="fas fa-presentation"></i>
+                        </div>
+                        <div class="overview-title">Presentación Final</div>
+                        <div class="overview-value">15-20 minutos</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Semana 1 -->
+            <div class="week-section fade-in">
+                <div class="week-header">
+                    <div class="week-number">1</div>
+                    <div class="week-info">
+                        <h2>Semana 1: Observación y Análisis Textual</h2>
+                        <p>Fundamentos del análisis exegético y estudio del texto original</p>
+                    </div>
+                    <div class="week-deliverable">
+                        <div class="deliverable-title">Entregable</div>
+                        <div class="deliverable-name">Hoja de Observación Textual</div>
+                    </div>
+                </div>
+                <div class="week-content">
+                    <div class="days-grid">
+                        <!-- Día 1 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">1</div>
+                                <div class="day-info">
+                                    <h3>Lunes</h3>
+                                    <p>Inicio del Proyecto</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 11:00 AM</div>
+                                    <div class="activity-title">Selección Final del Texto Bíblico</div>
+                                    <div class="activity-description">Confirma tu texto (8-15 versículos). Revisa criterios de selección y registra tu elección.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">2:00 - 4:00 PM</div>
+                                    <div class="activity-title">Primera Lectura y Observación</div>
+                                    <div class="activity-description">Lee en 3-4 traducciones diferentes. Usa la plantilla de observación inicial.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">7:00 - 8:00 PM</div>
+                                    <div class="activity-title">Organización de Recursos</div>
+                                    <div class="activity-description">Descarga plantillas, organiza herramientas de estudio, prepara workspace.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Día 2 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">2</div>
+                                <div class="day-info">
+                                    <h3>Martes</h3>
+                                    <p>Análisis Léxico</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 12:00 PM</div>
+                                    <div class="activity-title">Identificación de Palabras Clave</div>
+                                    <div class="activity-description">Identifica 5-8 palabras clave. Usa concordancia Strong para números correspondientes.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">2:00 - 5:00 PM</div>
+                                    <div class="activity-title">Estudio Léxico Detallado</div>
+                                    <div class="activity-description">Diccionario VINE, análisis de campo semántico, otros usos bíblicos.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-low">Baja</div>
+                                    <div class="activity-time">7:00 - 8:00 PM</div>
+                                    <div class="activity-title">Revisión y Notas</div>
+                                    <div class="activity-description">Organiza hallazgos léxicos, completa plantilla del paso 2.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Día 3 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">3</div>
+                                <div class="day-info">
+                                    <h3>Miércoles</h3>
+                                    <p>Análisis Gramatical</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 12:00 PM</div>
+                                    <div class="activity-title">Análisis de Formas Verbales</div>
+                                    <div class="activity-description">Tiempo, modo, voz de verbos clave. Uso de herramientas gramaticales.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">2:00 - 4:00 PM</div>
+                                    <div class="activity-title">Estructura Sintáctica</div>
+                                    <div class="activity-description">Relaciones entre cláusulas, conectores lógicos, flujo argumentativo.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-low">Baja</div>
+                                    <div class="activity-time">7:00 - 8:30 PM</div>
+                                    <div class="activity-title">Diagrama de Oración (Opcional)</div>
+                                    <div class="activity-description">Crear diagrama visual de la estructura gramatical del texto.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Día 4 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">4</div>
+                                <div class="day-info">
+                                    <h3>Jueves</h3>
+                                    <p>Investigación Histórica</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 12:00 PM</div>
+                                    <div class="activity-title">Contexto Histórico</div>
+                                    <div class="activity-description">Período histórico, circunstancias del autor, situación política/religiosa.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">2:00 - 4:00 PM</div>
+                                    <div class="activity-title">Geografía y Cultura</div>
+                                    <div class="activity-description">Ubicación geográfica, costumbres culturales, contexto social.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">7:00 - 8:00 PM</div>
+                                    <div class="activity-title">Audiencia Original</div>
+                                    <div class="activity-description">Características de los destinatarios originales del texto.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Día 5 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">5</div>
+                                <div class="day-info">
+                                    <h3>Viernes</h3>
+                                    <p>Consolidación</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 11:00 AM</div>
+                                    <div class="activity-title">Revisión Semanal</div>
+                                    <div class="activity-description">Revisar todos los hallazgos de la semana, identificar gaps.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">2:00 - 4:00 PM</div>
+                                    <div class="activity-title">Completar Entregable</div>
+                                    <div class="activity-description">Finalizar Hoja de Observación Textual con todos los hallazgos.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-low">Baja</div>
+                                    <div class="activity-time">7:00 - 8:00 PM</div>
+                                    <div class="activity-title">Preparación Semana 2</div>
+                                    <div class="activity-description">Revisar tareas para la próxima semana, organizar materiales.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Weekend -->
+                        <div class="day-card" style="background: #f8f9fa;">
+                            <div class="day-header">
+                                <div class="day-number" style="background: var(--amber-gold); color: var(--forest-green);">
+                                    <i class="fas fa-mug-hot"></i>
+                                </div>
+                                <div class="day-info">
+                                    <h3>Fin de Semana</h3>
+                                    <p>Descanso y Reflexión</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item" style="background: #e8f5e8;">
+                                    <div class="activity-priority priority-low">Opcional</div>
+                                    <div class="activity-time">Tiempo libre</div>
+                                    <div class="activity-title">Lectura Devocional</div>
+                                    <div class="activity-description">Lee tu texto seleccionado devotamente, permite que Dios hable a tu corazón.</div>
+                                </li>
+                                <li class="activity-item" style="background: #e8f5e8;">
+                                    <div class="activity-priority priority-low">Opcional</div>
+                                    <div class="activity-time">Flexible</div>
+                                    <div class="activity-title">Revisión Ligera</div>
+                                    <div class="activity-description">Revisión casual de notas, pero principalmente descanso.</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Semana 2 -->
+            <div class="week-section fade-in">
+                <div class="week-header">
+                    <div class="week-number">2</div>
+                    <div class="week-info">
+                        <h2>Semana 2: Contexto e Interpretación</h2>
+                        <p>Análisis del género literario y contexto canónico del pasaje</p>
+                    </div>
+                    <div class="week-deliverable">
+                        <div class="deliverable-title">Entregable</div>
+                        <div class="deliverable-name">Análisis Contextual</div>
+                    </div>
+                </div>
+                <div class="week-content">
+                    <div class="days-grid">
+                        <!-- Día 8 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">8</div>
+                                <div class="day-info">
+                                    <h3>Lunes</h3>
+                                    <p>Género Literario</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 12:00 PM</div>
+                                    <div class="activity-title">Identificación del Género</div>
+                                    <div class="activity-description">Narrativa, poesía, epístola, profecía, etc. Características específicas del género.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">2:00 - 4:00 PM</div>
+                                    <div class="activity-title">Principios Hermenéuticos</div>
+                                    <div class="activity-description">Aplicar principios de interpretación apropiados para el género identificado.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">7:00 - 8:00 PM</div>
+                                    <div class="activity-title">Estructura Literaria</div>
+                                    <div class="activity-description">Analizar la estructura y elementos retóricos del texto.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Día 9 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">9</div>
+                                <div class="day-info">
+                                    <h3>Martes</h3>
+                                    <p>Contexto Inmediato</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 12:00 PM</div>
+                                    <div class="activity-title">Párrafos Vecinos</div>
+                                    <div class="activity-description">Analizar contexto inmediato: antes y después del pasaje seleccionado.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">2:00 - 4:00 PM</div>
+                                    <div class="activity-title">Contexto del Capítulo</div>
+                                    <div class="activity-description">Ubicar el pasaje dentro del capítulo completo y su propósito.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">7:00 - 8:30 PM</div>
+                                    <div class="activity-title">Flujo del Argumento</div>
+                                    <div class="activity-description">Entender cómo el pasaje contribuye al argumento total del libro.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Día 10 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">10</div>
+                                <div class="day-info">
+                                    <h3>Miércoles</h3>
+                                    <p>Contexto Canónico</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 12:00 PM</div>
+                                    <div class="activity-title">Paralelos Bíblicos</div>
+                                    <div class="activity-description">Buscar textos paralelos, referencias cruzadas, temas similares.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">2:00 - 4:00 PM</div>
+                                    <div class="activity-title">Desarrollo Progresivo</div>
+                                    <div class="activity-description">Cómo el tema se desarrolla a través de la Escritura (revelación progresiva).</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">7:00 - 8:00 PM</div>
+                                    <div class="activity-title">Temas Teológicos</div>
+                                    <div class="activity-description">Identificar temas teológicos principales y su desarrollo bíblico.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Día 11 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">11</div>
+                                <div class="day-info">
+                                    <h3>Jueves</h3>
+                                    <p>Interpretación Preliminar</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 12:00 PM</div>
+                                    <div class="activity-title">Síntesis de Hallazgos</div>
+                                    <div class="activity-description">Integrar todos los elementos de las semanas 1 y 2 en una visión coherente.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">2:00 - 4:00 PM</div>
+                                    <div class="activity-title">Mensaje Central Preliminar</div>
+                                    <div class="activity-description">Formular interpretación preliminar del mensaje central del texto.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">7:00 - 8:00 PM</div>
+                                    <div class="activity-title">Consulta de Comentarios</div>
+                                    <div class="activity-description">Consultar 2-3 comentarios de referencia para verificar interpretación.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Día 12 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">12</div>
+                                <div class="day-info">
+                                    <h3>Viernes</h3>
+                                    <p>Consolidación Semana 2</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 11:00 AM</div>
+                                    <div class="activity-title">Revisión Integral</div>
+                                    <div class="activity-description">Revisar toda la investigación contextual y verificar coherencia.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">2:00 - 5:00 PM</div>
+                                    <div class="activity-title">Completar Entregable</div>
+                                    <div class="activity-description">Finalizar Documento de Análisis Contextual con interpretación preliminar.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-low">Baja</div>
+                                    <div class="activity-time">7:00 - 8:00 PM</div>
+                                    <div class="activity-title">Preparación Semana 3</div>
+                                    <div class="activity-description">Planificar actividades de síntesis y aplicación para la próxima semana.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Weekend -->
+                        <div class="day-card" style="background: #f8f9fa;">
+                            <div class="day-header">
+                                <div class="day-number" style="background: var(--amber-gold); color: var(--forest-green);">
+                                    <i class="fas fa-book-reader"></i>
+                                </div>
+                                <div class="day-info">
+                                    <h3>Fin de Semana</h3>
+                                    <p>Reflexión y Meditación</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item" style="background: #e8f5e8;">
+                                    <div class="activity-priority priority-low">Opcional</div>
+                                    <div class="activity-time">Tiempo personal</div>
+                                    <div class="activity-title">Meditación en el Texto</div>
+                                    <div class="activity-description">Medita en los hallazgos hasta ahora, permite que el Espíritu Santo te guíe.</div>
+                                </li>
+                                <li class="activity-item" style="background: #e8f5e8;">
+                                    <div class="activity-priority priority-low">Opcional</div>
+                                    <div class="activity-time">Flexible</div>
+                                    <div class="activity-title">Compartir con Otros</div>
+                                    <div class="activity-description">Comparte informalmente algunos hallazgos con hermanos en la fe.</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Semana 3 -->
+            <div class="week-section fade-in">
+                <div class="week-header">
+                    <div class="week-number">3</div>
+                    <div class="week-info">
+                        <h2>Semana 3: Síntesis y Aplicación</h2>
+                        <p>Integración de hallazgos y desarrollo de aplicaciones contemporáneas</p>
+                    </div>
+                    <div class="week-deliverable">
+                        <div class="deliverable-title">Entregable</div>
+                        <div class="deliverable-name">Documento Final de Análisis</div>
+                    </div>
+                </div>
+                <div class="week-content">
+                    <div class="days-grid">
+                        <!-- Día 15 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">15</div>
+                                <div class="day-info">
+                                    <h3>Lunes</h3>
+                                    <p>Síntesis Interpretativa</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 12:00 PM</div>
+                                    <div class="activity-title">Integración Total</div>
+                                    <div class="activity-description">Sintetizar todos los hallazgos exegéticos en una interpretación coherente.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">2:00 - 4:00 PM</div>
+                                    <div class="activity-title">Mensaje Central Final</div>
+                                    <div class="activity-description">Formular el mensaje central definitivo del texto estudiado.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">7:00 - 8:00 PM</div>
+                                    <div class="activity-title">Puntos Teológicos Clave</div>
+                                    <div class="activity-description">Identificar y articular los puntos teológicos principales del pasaje.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Día 16 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">16</div>
+                                <div class="day-info">
+                                    <h3>Martes</h3>
+                                    <p>Principios Universales</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 12:00 PM</div>
+                                    <div class="activity-title">Extracción de Principios</div>
+                                    <div class="activity-description">Identificar principios universales que trascienden el contexto original.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">2:00 - 4:00 PM</div>
+                                    <div class="activity-title">Validación de Principios</div>
+                                    <div class="activity-description">Verificar que los principios son legítimos y fieles al texto original.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">7:00 - 8:30 PM</div>
+                                    <div class="activity-title">Organización por Temas</div>
+                                    <div class="activity-description">Organizar principios por temas relevantes para aplicación.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Día 17 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">17</div>
+                                <div class="day-info">
+                                    <h3>Miércoles</h3>
+                                    <p>Aplicaciones Específicas</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 12:00 PM</div>
+                                    <div class="activity-title">Aplicaciones Para la Congregación</div>
+                                    <div class="activity-description">Desarrollar aplicaciones específicas para tu congregación local.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">2:00 - 4:00 PM</div>
+                                    <div class="activity-title">Diferentes Audiencias</div>
+                                    <div class="activity-description">Considerar aplicaciones para diferentes grupos: jóvenes, adultos, líderes.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">7:00 - 8:00 PM</div>
+                                    <div class="activity-title">Ilustraciones Contemporáneas</div>
+                                    <div class="activity-description">Desarrollar ilustraciones modernas que conecten con la realidad actual.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Día 18 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">18</div>
+                                <div class="day-info">
+                                    <h3>Jueves</h3>
+                                    <p>Estructura de Presentación</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 12:00 PM</div>
+                                    <div class="activity-title">Bosquejo de Presentación</div>
+                                    <div class="activity-description">Crear bosquejo detallado siguiendo el formato de 15-20 minutos.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">2:00 - 4:00 PM</div>
+                                    <div class="activity-title">Selección de Puntos Clave</div>
+                                    <div class="activity-description">Seleccionar los puntos más importantes para la presentación oral.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">7:00 - 8:00 PM</div>
+                                    <div class="activity-title">Transiciones y Flujo</div>
+                                    <div class="activity-description">Trabajar en transiciones suaves entre secciones de la presentación.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Día 19 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">19</div>
+                                <div class="day-info">
+                                    <h3>Viernes</h3>
+                                    <p>Documento Final</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 12:00 PM</div>
+                                    <div class="activity-title">Redacción del Documento</div>
+                                    <div class="activity-description">Escribir el documento final con análisis completo y aplicaciones.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">2:00 - 4:00 PM</div>
+                                    <div class="activity-title">Revisión y Edición</div>
+                                    <div class="activity-description">Revisar coherencia, gramática, citas y formato del documento.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">7:00 - 8:00 PM</div>
+                                    <div class="activity-title">Preparación Semana 4</div>
+                                    <div class="activity-description">Planificar actividades de preparación de presentación.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Weekend -->
+                        <div class="day-card" style="background: #f8f9fa;">
+                            <div class="day-header">
+                                <div class="day-number" style="background: var(--amber-gold); color: var(--forest-green);">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="day-info">
+                                    <h3>Fin de Semana</h3>
+                                    <p>Aplicación Personal</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item" style="background: #e8f5e8;">
+                                    <div class="activity-priority priority-low">Personal</div>
+                                    <div class="activity-time">Tiempo devocional</div>
+                                    <div class="activity-title">Aplicación Personal Profunda</div>
+                                    <div class="activity-description">Aplica los hallazgos a tu propia vida espiritual antes de enseñar a otros.</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Semana 4 -->
+            <div class="week-section fade-in">
+                <div class="week-header">
+                    <div class="week-number">4</div>
+                    <div class="week-info">
+                        <h2>Semana 4: Presentación Final</h2>
+                        <p>Preparación y presentación ante la congregación</p>
+                    </div>
+                    <div class="week-deliverable">
+                        <div class="deliverable-title">Entregable</div>
+                        <div class="deliverable-name">Presentación en Vivo</div>
+                    </div>
+                </div>
+                <div class="week-content">
+                    <div class="days-grid">
+                        <!-- Día 22 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">22</div>
+                                <div class="day-info">
+                                    <h3>Lunes</h3>
+                                    <p>Materiales de Apoyo</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 12:00 PM</div>
+                                    <div class="activity-title">Crear Presentación Visual</div>
+                                    <div class="activity-description">PowerPoint o material visual de apoyo para la presentación.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">2:00 - 4:00 PM</div>
+                                    <div class="activity-title">Handouts para Congregación</div>
+                                    <div class="activity-description">Preparar material escrito para que la congregación lleve a casa.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">7:00 - 8:00 PM</div>
+                                    <div class="activity-title">Notas del Presentador</div>
+                                    <div class="activity-description">Preparar notas concisas para guiar la presentación oral.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Día 23 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">23</div>
+                                <div class="day-info">
+                                    <h3>Martes</h3>
+                                    <p>Primera Práctica</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 11:00 AM</div>
+                                    <div class="activity-title">Práctica Completa</div>
+                                    <div class="activity-description">Primera práctica completa de 15-20 minutos, cronometrando tiempo.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">2:00 - 3:00 PM</div>
+                                    <div class="activity-title">Ajustes de Contenido</div>
+                                    <div class="activity-description">Ajustar contenido basado en timing y fluidez de la práctica.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">7:00 - 8:00 PM</div>
+                                    <div class="activity-title">Trabajo en Transiciones</div>
+                                    <div class="activity-description">Perfeccionar transiciones y puntos de énfasis.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Día 24 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">24</div>
+                                <div class="day-info">
+                                    <h3>Miércoles</h3>
+                                    <p>Refinamiento</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 11:00 AM</div>
+                                    <div class="activity-title">Segunda Práctica</div>
+                                    <div class="activity-description">Práctica refinada incorporando mejoras de la sesión anterior.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">2:00 - 3:00 PM</div>
+                                    <div class="activity-title">Grabación de Práctica</div>
+                                    <div class="activity-description">Grabarse para evaluar lenguaje corporal y delivery.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-low">Baja</div>
+                                    <div class="activity-time">7:00 - 8:00 PM</div>
+                                    <div class="activity-title">Revisión de Materiales</div>
+                                    <div class="activity-description">Última revisión de materiales visuales y handouts.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Día 25 -->
+                        <div class="day-card">
+                            <div class="day-header">
+                                <div class="day-number">25</div>
+                                <div class="day-info">
+                                    <h3>Jueves</h3>
+                                    <p>Práctica Final</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-high">Alta</div>
+                                    <div class="activity-time">9:00 - 10:30 AM</div>
+                                    <div class="activity-title">Ensayo Final</div>
+                                    <div class="activity-description">Ensayo final completo, simulando condiciones reales de presentación.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-medium">Media</div>
+                                    <div class="activity-time">2:00 - 3:00 PM</div>
+                                    <div class="activity-title">Preparación Técnica</div>
+                                    <div class="activity-description">Probar equipo, verificar proyector, organizar espacio físico.</div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-priority priority-low">Baja</div>
+                                    <div class="activity-time">7:00 - 8:00 PM</div>
+                                    <div class="activity-title">Descanso y Oración</div>
+                                    <div class="activity-description">Tiempo de oración y descanso mental antes de la presentación.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Día 26 -->
+                        <div class="day-card" style="background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c8 100%);">
+                            <div class="day-header">
+                                <div class="day-number" style="background: var(--forest-green); color: var(--amber-gold);">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="day-info">
+                                    <h3>Viernes</h3>
+                                    <p>PRESENTACIÓN FINAL</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item" style="background: linear-gradient(135deg, #ffffff 0%, #f0f8f0 100%); border-left: 3px solid var(--forest-green);">
+                                    <div class="activity-priority" style="background: #c8e6c8; color: #2e7d32;">¡DÍA ESPECIAL!</div>
+                                    <div class="activity-time">Según programación</div>
+                                    <div class="activity-title">Presentación ante la Congregación</div>
+                                    <div class="activity-description">¡El gran día! Presenta tu análisis exegético con confianza y claridad. Dios te ha preparado para este momento.</div>
+                                </li>
+                                <li class="activity-item" style="background: linear-gradient(135deg, #ffffff 0%, #f0f8f0 100%); border-left: 3px solid var(--mint-green);">
+                                    <div class="activity-priority" style="background: #e8f5e8; color: #2e7d32;">Celebración</div>
+                                    <div class="activity-time">Después</div>
+                                    <div class="activity-title">Reflexión y Celebración</div>
+                                    <div class="activity-description">Reflexiona sobre el proceso de aprendizaje y celebra este logro académico y espiritual.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Weekend -->
+                        <div class="day-card" style="background: #f8f9fa;">
+                            <div class="day-header">
+                                <div class="day-number" style="background: var(--amber-gold); color: var(--forest-green);">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="day-info">
+                                    <h3>Fin de Semana</h3>
+                                    <p>Proyecto Completado</p>
+                                </div>
+                            </div>
+                            <ul class="activities-list">
+                                <li class="activity-item" style="background: #e8f5e8;">
+                                    <div class="activity-priority priority-low">Opcional</div>
+                                    <div class="activity-time">A tu ritmo</div>
+                                    <div class="activity-title">Retroalimentación y Evaluación</div>
+                                    <div class="activity-description">Recibir y procesar feedback de la presentación usando la rúbrica.</div>
+                                </li>
+                                <li class="activity-item" style="background: #e8f5e8;">
+                                    <div class="activity-priority priority-low">Opcional</div>
+                                    <div class="activity-time">Reflexivo</div>
+                                    <div class="activity-title">Planificación Futura</div>
+                                    <div class="activity-description">Considerar cómo aplicar estas habilidades exegéticas en el futuro ministerio.</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tips y Consejos -->
+            <div class="tips-section fade-in">
+                <div class="tips-header">
+                    <h2>Consejos para el Éxito</h2>
+                    <p>Recomendaciones clave para maximizar tu aprendizaje y efectividad</p>
+                </div>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="tip-title">Gestión del Tiempo</div>
+                        <div class="tip-content">
+                            <ul style="margin-left: 1rem;">
+                                <li>Dedica 3-4 horas diarias al proyecto</li>
+                                <li>Usa temporizadores para mantenerte enfocado</li>
+                                <li>Toma descansos de 15 minutos cada 2 horas</li>
+                                <li>No dejes todo para el último día</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="tip-title">Herramientas Esenciales</div>
+                        <div class="tip-content">
+                            <ul style="margin-left: 1rem;">
+                                <li>Concordancia Strong (físico o digital)</li>
+                                <li>Diccionario Vine de palabras del NT/AT</li>
+                                <li>2-3 comentarios exegéticos confiables</li>
+                                <li>Software bíblico (Logos, BibleWorks, e-Sword)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="tip-title">Metodología</div>
+                        <div class="tip-content">
+                            <ul style="margin-left: 1rem;">
+                                <li>Sigue los 8 pasos en orden secuencial</li>
+                                <li>Completa cada plantilla cuidadosamente</li>
+                                <li>No te saltes pasos por "falta de tiempo"</li>
+                                <li>Permite que el texto hable por sí mismo</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="tip-title">Aspecto Espiritual</div>
+                        <div class="tip-content">
+                            <ul style="margin-left: 1rem;">
+                                <li>Inicia cada sesión con oración</li>
+                                <li>Depende del Espíritu Santo para iluminación</li>
+                                <li>Mantén humildad ante la Palabra de Dios</li>
+                                <li>Aplica primero a tu vida personal</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="tip-title">Presentación Efectiva</div>
+                        <div class="tip-content">
+                            <ul style="margin-left: 1rem;">
+                                <li>Practica al menos 3 veces en voz alta</li>
+                                <li>Mantén contacto visual con la audiencia</li>
+                                <li>Usa ilustraciones contemporáneas relevantes</li>
+                                <li>Termina con aplicación práctica clara</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="tip-title">Evita Estos Errores</div>
+                        <div class="tip-content">
+                            <ul style="margin-left: 1rem;">
+                                <li>No impongas ideas preconcebidas al texto</li>
+                                <li>Evita alegorizar innecesariamente</li>
+                                <li>No uses un solo comentario como autoridad</li>
+                                <li>No ignores el contexto histórico-cultural</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 Ministerio "La Gloria es del Señor" - Cronograma Detallado del Proyecto de Análisis Exegético</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Intersection Observer para animaciones
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos animados
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling para anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        console.log('Cronograma Detallado cargado exitosamente');
+        console.log('4 semanas de actividades estructuradas');
+        console.log('28 días de actividades planificadas');
+        console.log('Sistema de prioridades implementado');
+        console.log('Consejos y tips incluidos');
+    </script>
+</body>
+</html>

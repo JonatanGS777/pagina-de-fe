@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditación en la Palabra | Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2d3e50; /* Deep indigo */
+            --secondary-color: #3cb4b7; /* Soft teal */
+            --accent-color: #e9b44c; /* Warm gold */
+            --bg-light: #f9f5e9; /* Creamy off-white */
+            --text-color: #333333; /* Rich charcoal */
+            --highlight-color: #e76f51; /* Soft coral */
+            
+            --gradient-light: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent-color) 0%, #f9d071 100%);
+            --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, #384e68 100%);
+            
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), 0 6px 10px rgba(0, 0, 0, 0.03);
+            --box-shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.05);
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo img {
+            height: 60px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+        
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .nav-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: block;
+            padding: 0.5rem;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .meditation-hero {
+            position: relative;
+            padding: 8rem 0;
+            background-image: url('./images/meditar.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .meditation-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(45, 62, 80, 0.85) 0%, rgba(60, 180, 183, 0.7) 100%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 5rem 0;
+        }
+        
+        .content-section {
+            margin-bottom: 5rem;
+        }
+        
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .meditation-intro {
+            max-width: 800px;
+            margin-bottom: 3rem;
+        }
+        
+        .meditation-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Scripture Card */
+        .scripture-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .scripture-card:hover {
+            box-shadow: var(--box-shadow-hover);
+            transform: translateY(-5px);
+        }
+        
+        .scripture-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient-accent);
+        }
+        
+        .scripture-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-style: italic;
+            color: var(--primary-color);
+        }
+        
+        .scripture-reference {
+            text-align: right;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        /* Steps Grid */
+        .meditation-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .step-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .step-card:hover {
+            box-shadow: var(--box-shadow-hover);
+            transform: translateY(-5px);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-accent);
+            color: var(--primary-color);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            border-radius: 50%;
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        .step-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-card p {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 1rem;
+        }
+        
+        .step-card ul {
+            list-style-position: inside;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-card li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Meditation Tool */
+        .meditation-tool {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            box-shadow: var(--box-shadow);
+            margin-top: 3rem;
+        }
+        
+        .tool-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .tool-header h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .tool-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .scripture-selector {
+            padding: 1rem;
+            background-color: rgba(60, 180, 183, 0.05);
+            border-radius: var(--border-radius);
+        }
+        
+        .selector-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .selector-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .selector-group select, 
+        .selector-group input[type="text"],
+        .selector-group input[type="number"] {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-family: 'Nunito', sans-serif;
+            transition: var(--transition);
+        }
+        
+        .selector-group select:focus, 
+        .selector-group input[type="text"]:focus,
+        .selector-group input[type="number"]:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(60, 180, 183, 0.2);
+        }
+        
+        .meditation-display {
+            padding: 1rem;
+            background-color: rgba(233, 180, 76, 0.05);
+            border-radius: var(--border-radius);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .verse-display {
+            flex-grow: 1;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 200px;
+        }
+        
+        .meditation-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .timer-display {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            background-color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .control-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .control-btn:hover {
+            background: var(--secondary-color);
+            transform: scale(1.1);
+        }
+        
+        .timer-btn {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .timer-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+            vertical-align: middle;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .version-info {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+        
+        .search-mode {
+            transition: var(--transition);
+        }
+
+
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 0 1rem;
+            margin-top: 5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            color: var(--accent-color);
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-col a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-col a:hover {
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 280px;
+                height: 100vh;
+                background-color: var(--primary-color);
+                z-index: 1000;
+                transition: right 0.3s ease;
+                padding: 2rem;
+                overflow-y: auto;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            nav li {
+                width: 100%;
+            }
+            
+            nav a {
+                padding: 1rem 0;
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav a::after {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .meditation-hero {
+                padding: 5rem 0;
+            }
+            
+            .tool-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .scripture-selector {
+                order: 2;
+            }
+            
+            .meditation-display {
+                order: 1;
+                margin-bottom: 2rem;
+            }
+            
+            .meditation-controls {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .timer-display {
+                font-size: 1.4rem;
+                padding: 0.4rem 1rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="../../../images/EMD.png" alt="Logo EMD">
+                <div class="logo-text">
+                    <div>Ministerio</div>
+                    <div>"La Gloria es del Señor"</div>
+                </div>
+            </div>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../../../index.html">Inicio</a></li>
+                    <li><a href="temas-exegeticos.html">Temas Exegéticos</a></li>
+                    <li><a href="idiomas-biblia.html">Idiomas Bíblicos</a></li>
+                    <li><a href="enlaces-recursos.html">Enlaces de Recursos</a></li>
+                    <li><a href="diccionarios-comentarios.html">Diccionarios</a></li>
+                    <li><a href="software-biblico.html">Software Bíblico</a></li>
+                    <li><a href="meditacion-palabra.html" class="active">Meditación</a></li>
+                    <li><a href="lectura-anual.html">Lectura Anual</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="meditation-hero">
+        <div class="container hero-content">
+            <h1 class="section-title fade-in">Meditación en la Palabra</h1>
+            <p class="fade-in delay-1">Descubre cómo profundizar en las Escrituras a través de la meditación bíblica, una práctica espiritual que transforma la mente y el corazón.</p>
+            <a href="#que-es" class="btn fade-in delay-2">Comenzar</a>
+            <a href="#herramienta" class="btn btn-outline fade-in delay-2">Herramienta de Meditación</a>
+        </div>
+    </section>
+
+    <section class="main-content">
+        <div class="container">
+            <div class="content-section" id="que-es">
+                <h2>¿Qué es la Meditación Bíblica?</h2>
+                <div class="meditation-intro">
+                    <p>La meditación bíblica es diferente a otras formas de meditación. No consiste en vaciar la mente, sino en llenarla con la Palabra de Dios. Es el arte de reflexionar profundamente sobre las Escrituras, permitiendo que penetren en nuestro corazón y transformen nuestra vida.</p>
+                    <p>En el Salmo 1:2-3, leemos sobre el hombre bienaventurado: <em>"Sino que en la ley de Jehová está su delicia, y en su ley medita de día y de noche. Será como árbol plantado junto a corrientes de aguas, que da su fruto en su tiempo, y su hoja no cae; y todo lo que hace, prosperará."</em></p>
+                </div>
+
+                <div class="scripture-card">
+                    <p class="scripture-text">"Este libro de la ley no se apartará de tu boca, sino que meditarás en él día y noche, para que guardes y hagas conforme a todo lo que en él está escrito; porque entonces harás prosperar tu camino, y todo te saldrá bien."</p>
+                    <p class="scripture-reference">Josué 1:8</p>
+                </div>
+            </div>
+
+            <div class="content-section" id="pasos">
+                <h2>El Proceso de Meditación Bíblica</h2>
+                <p>La meditación bíblica es un proceso que involucra varios aspectos para ayudarte a sumergirte profundamente en la palabra de Dios. Aquí te presentamos un enfoque estructurado:</p>
+
+                <div class="meditation-steps">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Preparación</h3>
+                        <p>Crea un espacio tranquilo y libre de distracciones. Prepara tu corazón a través de la oración, pidiendo al Espíritu Santo que te guíe.</p>
+                        <ul>
+                            <li>Elige un momento específico del día</li>
+                            <li>Encuentra un lugar tranquilo</li>
+                            <li>Apaga dispositivos electrónicos</li>
+                            <li>Ten a mano tu Biblia y un cuaderno</li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Selección</h3>
+                        <p>Elige un pasaje corto de la Escritura. Puede ser un solo versículo o un párrafo breve. Es preferible profundizar en poco contenido que leer superficialmente muchos versículos.</p>
+                        <ul>
+                            <li>Los Salmos son excelentes para comenzar</li>
+                            <li>Los Evangelios revelan la persona de Cristo</li>
+                            <li>Las Epístolas ofrecen enseñanza profunda</li>
+                            <li>Proverbios proporciona sabiduría práctica</li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Lectura</h3>
+                        <p>Lee el pasaje varias veces, lentamente. Permite que cada palabra penetre en tu mente. Lee en voz alta, luego en silencio, cambiando el énfasis en diferentes palabras.</p>
+                        <ul>
+                            <li>Primera lectura: comprensión general</li>
+                            <li>Segunda lectura: identifica palabras clave</li>
+                            <li>Tercera lectura: busca conexiones con otros pasajes</li>
+                            <li>Cuarta lectura: personaliza el mensaje</li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3>Reflexión</h3>
+                        <p>Reflexiona sobre el significado del texto. Hazte preguntas como: ¿Qué me dice este pasaje sobre Dios? ¿Sobre mí mismo? ¿Qué acción me invita a tomar?</p>
+                        <ul>
+                            <li>Observación: ¿Qué dice el texto?</li>
+                            <li>Interpretación: ¿Qué significa?</li>
+                            <li>Aplicación: ¿Cómo me afecta?</li>
+                            <li>Implementación: ¿Qué haré al respecto?</li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">5</div>
+                        <h3>Oración</h3>
+                        <p>Convierte tus reflexiones en oración. Habla con Dios sobre lo que has descubierto y cómo te sientes al respecto. Pide Su ayuda para aplicar lo aprendido.</p>
+                        <ul>
+                            <li>Adoración: Celebra quién es Dios</li>
+                            <li>Confesión: Reconoce tus faltas</li>
+                            <li>Acción de gracias: Expresa gratitud</li>
+                            <li>Súplica: Presenta tus peticiones</li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">6</div>
+                        <h3>Contemplación</h3>
+                        <p>Permanece en silencio ante Dios, permitiendo que el mensaje del texto resuene en tu corazón. Escucha atentamente lo que el Espíritu Santo quiere comunicarte.</p>
+                        <ul>
+                            <li>Aquieta tu mente y corazón</li>
+                            <li>Enfócate en la presencia de Dios</li>
+                            <li>Recibe Su amor y sabiduría</li>
+                            <li>Permanece en un estado receptivo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section" id="herramienta">
+                <h2>Herramienta de Meditación con API Bíblica</h2>
+                <p>Usa esta herramienta interactiva para buscar versículos en tiempo real y guiar tu tiempo de meditación en la Palabra:</p>
+
+                <div class="meditation-tool">
+                    <div class="tool-header">
+                        <h3>Búsqueda y Meditación de Versículos</h3>
+                        <p>Búsqueda en tiempo real usando Biblia.com API (Faithlife/Logos)</p>
+                    </div>
+                    <div class="tool-content">
+                        <div class="scripture-selector">
+                            <div class="selector-group">
+                                <label for="search-type">Tipo de búsqueda:</label>
+                                <select id="search-type">
+                                    <option value="reference">Por referencia</option>
+                                    <option value="random">Versículo aleatorio</option>
+                                    <option value="keyword">Por palabra clave</option>
+                                </select>
+                            </div>
+                            
+                            <div id="reference-search" class="search-mode">
+                                <div class="selector-group">
+                                    <label for="book-input">Libro (ej: Juan, Salmos, 1 Corintios):</label>
+                                    <input type="text" id="book-input" placeholder="Juan, Salmos, Romanos...">
+                                    <small style="color: #666; font-size: 0.8rem;">💡 Ejemplos: Juan, Salmos, 1 Corintios, Mateo, Génesis, Romanos</small>
+                                </div>
+                                <div class="selector-group">
+                                    <label for="chapter-input">Capítulo:</label>
+                                    <input type="number" id="chapter-input" min="1" placeholder="3">
+                                </div>
+                                <div class="selector-group">
+                                    <label for="verse-input">Versículo (opcional):</label>
+                                    <input type="text" id="verse-input" placeholder="16 o 16-18">
+                                    <small style="color: #666; font-size: 0.8rem;">💡 Puedes usar: 16 (un versículo) o 16-18 (rango de versículos)</small>
+                                </div>
+                            </div>
+                            
+                            <div id="keyword-search" class="search-mode" style="display: none;">
+                                <div class="selector-group">
+                                    <label for="keyword-input">Palabra clave:</label>
+                                    <input type="text" id="keyword-input" placeholder="ej: amor, esperanza, fe">
+                                </div>
+                            </div>
+                            
+                            <div class="selector-group">
+                                <label for="version-select">Versión:</label>
+                                <select id="version-select">
+                                    <option value="LEB">Lexham English Bible</option>
+                                    <option value="KJV">King James Version</option>
+                                </select>
+                            </div>
+                            
+                            <div class="selector-group">
+                                <button id="search-verse" class="btn">
+                                    <span class="btn-text">Buscar Versículo</span>
+                                    <span class="loading" style="display: none;"></span>
+                                </button>
+                                <button id="test-api" class="btn btn-outline" style="margin-left: 0.5rem;">
+                                    Prueba: Juan 3:16
+                                </button>
+                            </div>
+                            
+                            <div id="message-container"></div>
+                        </div>
+                        
+                        <div class="meditation-display">
+                            <div class="verse-display" id="verse-content">
+                                <div style="text-align: center; color: #666;">
+                                    Selecciona un versículo para comenzar tu meditación
+                                </div>
+                            </div>
+                            <div class="version-info" id="version-info"></div>
+                            <div class="meditation-controls">
+                                <button class="control-btn" id="prev-verse" title="Versículo anterior">
+                                    <i class="fas fa-step-backward"></i>
+                                </button>
+                                <button class="control-btn" id="play-pause" title="Iniciar/Pausar meditación">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <button class="control-btn" id="next-verse" title="Siguiente versículo">
+                                    <i class="fas fa-step-forward"></i>
+                                </button>
+                                <div class="timer-display" id="timer">05:00</div>
+                                <button class="btn" id="set-timer">Ajustar Tiempo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Ministerio "La Gloria es del Señor"</h4>
+                    <p>Ministerio dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
+                    <div class="social-links">
+                         <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                         <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="../../../index.html">Inicio</a></li>
+                        <li><a href="temas-exegeticos.html">Temas Exegéticos</a></li>
+                        <li><a href="idiomas-biblia.html">Idiomas Bíblicos</a></li>
+                        <li><a href="enlaces-recursos.html">Enlaces de Recursos</a></li>
+                        <li><a href="diccionarios-comentarios.html">Diccionarios</a></li>
+                        <li><a href="software-biblico.html">Software Bíblico</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio</li>
+                        <li><i class="fas fa-phone"></i> +1 787-345-6940</li>
+                        <li><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                     <h4>Nota Aclaratoria</h4>
+                    <ul>
+                        <li>Todos los recursos de esta página son gratuitos y para la edificación de los creyentes</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Configuración de la aplicación
+        const CONFIG = {
+            API_BASE_URL: 'https://api.biblia.com/v1',
+            API_KEY: 'c2e999ef756c3c145bbe5d7399773fb9',
+            DEFAULT_BIBLE: 'LEB',
+            TIMER_DEFAULT: 300 // 5 minutos
+        };
+
+        // Mapeo de versiones (solo las que funcionan)
+        const BIBLE_MAPPING = {
+            'LEB': 'LEB',             // Lexham English Bible
+            'KJV': 'KJV'              // King James Version
+        };
+
+        // Estado de la aplicación
+        let appState = {
+            currentVerse: null,
+            timerSeconds: CONFIG.TIMER_DEFAULT,
+            timerInterval: null,
+            isPaused: true,
+            searchHistory: []
+        };
+
+        // Elementos DOM
+        const elements = {
+            searchType: document.getElementById('search-type'),
+            bookInput: document.getElementById('book-input'),
+            chapterInput: document.getElementById('chapter-input'),
+            verseInput: document.getElementById('verse-input'),
+            keywordInput: document.getElementById('keyword-input'),
+            versionSelect: document.getElementById('version-select'),
+            searchButton: document.getElementById('search-verse'),
+            testButton: document.getElementById('test-api'),
+            verseContent: document.getElementById('verse-content'),
+            versionInfo: document.getElementById('version-info'),
+            messageContainer: document.getElementById('message-container'),
+            referenceSearch: document.getElementById('reference-search'),
+            keywordSearch: document.getElementById('keyword-search'),
+            playPause: document.getElementById('play-pause'),
+            timerDisplay: document.getElementById('timer'),
+            setTimerButton: document.getElementById('set-timer'),
+            prevVerse: document.getElementById('prev-verse'),
+            nextVerse: document.getElementById('next-verse'),
+            // Navegación
+            navToggle: document.querySelector('.nav-toggle'),
+            nav: document.querySelector('nav')
+        };
+
+        // Utilidades
+        const utils = {
+            formatTime(seconds) {
+                const mins = Math.floor(seconds / 60);
+                const secs = seconds % 60;
+                return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            },
+
+            showMessage(message, type = 'info') {
+                if (!message) {
+                    elements.messageContainer.innerHTML = '';
+                    return;
+                }
+                elements.messageContainer.innerHTML = `
+                    <div class="${type === 'error' ? 'error-message' : 'success-message'}">
+                        ${message}
+                    </div>
+                `;
+                setTimeout(() => {
+                    elements.messageContainer.innerHTML = '';
+                }, 5000);
+            },
+
+            setLoading(isLoading) {
+                const btnText = elements.searchButton.querySelector('.btn-text');
+                const loading = elements.searchButton.querySelector('.loading');
+                
+                if (isLoading) {
+                    btnText.style.display = 'none';
+                    loading.style.display = 'inline-block';
+                    elements.searchButton.disabled = true;
+                } else {
+                    btnText.style.display = 'inline';
+                    loading.style.display = 'none';
+                    elements.searchButton.disabled = false;
+                }
+            }
+        };
+
+        // API de la Biblia (Biblia.com - Faithlife/Logos)
+        const bibleAPI = {
+            async searchVerse(reference, bibleVersion = CONFIG.DEFAULT_BIBLE) {
+                try {
+                    const mappedBible = BIBLE_MAPPING[bibleVersion] || bibleVersion;
+                    
+                    // Convertir referencia al formato de Biblia.com (ej: "Juan 3:16" -> "John3.16")
+                    const formattedReference = this.formatReference(reference);
+                    const url = `${CONFIG.API_BASE_URL}/bible/content/${mappedBible}.json?passage=${formattedReference}&key=${CONFIG.API_KEY}`;
+                    
+                    console.log('Buscando:', url); // Para debug
+                    
+                    const response = await fetch(url);
+                    
+                    if (!response.ok) {
+                        throw new Error(`Error en la búsqueda: ${response.status} - ${response.statusText}`);
+                    }
+                    
+                    const data = await response.json();
+                    
+                    // Verificar si hay error en la respuesta
+                    if (data.error || !data.text) {
+                        throw new Error(data.error || 'No se encontró el versículo');
+                    }
+                    
+                    return {
+                        success: true,
+                        data: {
+                            reference: reference,
+                            text: data.text,
+                            translation_name: this.getBibleName(bibleVersion),
+                            bible_version: mappedBible
+                        }
+                    };
+                } catch (error) {
+                    console.error('Error en API:', error); // Para debug
+                    return {
+                        success: false,
+                        error: error.message
+                    };
+                }
+            },
+
+            formatReference(reference) {
+                // Convertir referencias del español al inglés y formato de Biblia.com
+                const bookTranslations = {
+                    // Antiguo Testamento
+                    'génesis': 'Genesis',
+                    'genesis': 'Genesis',
+                    'éxodo': 'Exodus',
+                    'exodo': 'Exodus',
+                    'levítico': 'Leviticus',
+                    'levitico': 'Leviticus',
+                    'números': 'Numbers',
+                    'numeros': 'Numbers',
+                    'deuteronomio': 'Deuteronomy',
+                    'josué': 'Joshua',
+                    'josue': 'Joshua',
+                    'jueces': 'Judges',
+                    'rut': 'Ruth',
+                    '1 samuel': '1Samuel',
+                    '2 samuel': '2Samuel',
+                    '1 reyes': '1Kings',
+                    '2 reyes': '2Kings',
+                    '1 crónicas': '1Chronicles',
+                    '2 crónicas': '2Chronicles',
+                    '1 cronicas': '1Chronicles',
+                    '2 cronicas': '2Chronicles',
+                    'esdras': 'Ezra',
+                    'nehemías': 'Nehemiah',
+                    'nehemias': 'Nehemiah',
+                    'ester': 'Esther',
+                    'job': 'Job',
+                    'salmos': 'Psalms',
+                    'salmo': 'Psalms',
+                    'proverbios': 'Proverbs',
+                    'eclesiastés': 'Ecclesiastes',
+                    'eclesiástes': 'Ecclesiastes',
+                    'cantares': 'SongofSongs',
+                    'isaías': 'Isaiah',
+                    'isaias': 'Isaiah',
+                    'jeremías': 'Jeremiah',
+                    'jeremias': 'Jeremiah',
+                    'lamentaciones': 'Lamentations',
+                    'ezequiel': 'Ezekiel',
+                    'daniel': 'Daniel',
+                    'oseas': 'Hosea',
+                    'joel': 'Joel',
+                    'amós': 'Amos',
+                    'amos': 'Amos',
+                    'abdías': 'Obadiah',
+                    'abdias': 'Obadiah',
+                    'jonás': 'Jonah',
+                    'jonas': 'Jonah',
+                    'miqueas': 'Micah',
+                    'nahúm': 'Nahum',
+                    'nahum': 'Nahum',
+                    'habacuc': 'Habakkuk',
+                    'sofonías': 'Zephaniah',
+                    'sofonias': 'Zephaniah',
+                    'hageo': 'Haggai',
+                    'zacarías': 'Zechariah',
+                    'zacarias': 'Zechariah',
+                    'malaquías': 'Malachi',
+                    'malaquias': 'Malachi',
+                    
+                    // Nuevo Testamento
+                    'mateo': 'Matthew',
+                    'marcos': 'Mark',
+                    'lucas': 'Luke',
+                    'juan': 'John',
+                    'hechos': 'Acts',
+                    'romanos': 'Romans',
+                    '1 corintios': '1Corinthians',
+                    '2 corintios': '2Corinthians',
+                    'gálatas': 'Galatians',
+                    'galatas': 'Galatians',
+                    'efesios': 'Ephesians',
+                    'filipenses': 'Philippians',
+                    'colosenses': 'Colossians',
+                    '1 tesalonicenses': '1Thessalonians',
+                    '2 tesalonicenses': '2Thessalonians',
+                    '1 timoteo': '1Timothy',
+                    '2 timoteo': '2Timothy',
+                    'tito': 'Titus',
+                    'filemón': 'Philemon',
+                    'filemon': 'Philemon',
+                    'hebreos': 'Hebrews',
+                    'santiago': 'James',
+                    '1 pedro': '1Peter',
+                    '2 pedro': '2Peter',
+                    '1 juan': '1John',
+                    '2 juan': '2John',
+                    '3 juan': '3John',
+                    'judas': 'Jude',
+                    'apocalipsis': 'Revelation'
+                };
+
+                // Extraer libro, capítulo y versículo
+                const parts = reference.trim().toLowerCase().match(/^(.*?)\s+(\d+)(?::(\d+(?:-\d+)?))?$/);
+                
+                if (!parts) {
+                    return reference; // Devolver original si no se puede parsear
+                }
+
+                const [, bookName, chapter, verse] = parts;
+                const englishBook = bookTranslations[bookName.trim()] || bookName;
+                
+                // Formato de Biblia.com: "John3.16" o "John3" para capítulo completo
+                let formatted = `${englishBook}${chapter}`;
+                if (verse) {
+                    formatted += `.${verse}`;
+                }
+                
+                return formatted;
+            },
+
+            getBibleName(version) {
+                const names = {
+                    'LEB': 'Lexham English Bible',
+                    'KJV': 'King James Version'
+                };
+                return names[version] || version;
+            },
+
+            async getRandomVerse() {
+                const randomVerses = [
+                    'Juan 3:16', 'Salmos 23:1', 'Romanos 8:28', 'Filipenses 4:13',
+                    'Proverbios 3:5-6', 'Isaías 40:31', '1 Corintios 13:4',
+                    'Mateo 6:33', 'Jeremías 29:11', 'Efesios 2:8-9',
+                    'Salmos 46:1', 'Juan 14:6', 'Romanos 12:2', 'Gálatas 2:20',
+                    'Hebreos 11:1', 'Santiago 1:5', 'Apocalipsis 21:4',
+                    'Salmos 119:105', 'Mateo 11:28', 'Juan 1:1'
+                ];
+                
+                const randomRef = randomVerses[Math.floor(Math.random() * randomVerses.length)];
+                return await this.searchVerse(randomRef, elements.versionSelect.value);
+            }
+        };
+
+        // Manejador de búsqueda
+        const searchHandler = {
+            async performSearch() {
+                const searchType = elements.searchType.value;
+                let result;
+
+                utils.setLoading(true);
+                utils.showMessage('');
+
+                try {
+                    switch (searchType) {
+                        case 'reference':
+                            result = await this.searchByReference();
+                            break;
+                        case 'random':
+                            result = await bibleAPI.getRandomVerse();
+                            break;
+                        case 'keyword':
+                            result = await this.searchByKeyword();
+                            break;
+                        default:
+                            throw new Error('Tipo de búsqueda no válido');
+                    }
+
+                    if (result.success) {
+                        this.displayVerse(result.data);
+                        appState.currentVerse = result.data;
+                        appState.searchHistory.push(result.data);
+                        utils.showMessage('¡Versículo cargado correctamente!', 'success');
+                    } else {
+                        utils.showMessage(result.error, 'error');
+                    }
+                } catch (error) {
+                    utils.showMessage('Error inesperado: ' + error.message, 'error');
+                } finally {
+                    utils.setLoading(false);
+                }
+            },
+
+            async searchByReference() {
+                const book = elements.bookInput.value.trim();
+                const chapter = elements.chapterInput.value.trim();
+                const verse = elements.verseInput.value.trim();
+                
+                if (!book) {
+                    throw new Error('Por favor ingresa el nombre del libro');
+                }
+                
+                if (!chapter) {
+                    throw new Error('Por favor ingresa el número del capítulo');
+                }
+                
+                let reference = `${book} ${chapter}`;
+                if (verse) {
+                    reference += `:${verse}`;
+                }
+                
+                // Sugerencias para nombres de libros comunes
+                const bookSuggestions = {
+                    '1co': '1 Corintios',
+                    '2co': '2 Corintios',
+                    '1ti': '1 Timoteo',
+                    '2ti': '2 Timoteo',
+                    '1pe': '1 Pedro',
+                    '2pe': '2 Pedro',
+                    '1jn': '1 Juan',
+                    '2jn': '2 Juan',
+                    '3jn': '3 Juan'
+                };
+                
+                // Normalizar el nombre del libro
+                const normalizedBook = book.toLowerCase();
+                if (bookSuggestions[normalizedBook]) {
+                    reference = `${bookSuggestions[normalizedBook]} ${chapter}`;
+                    if (verse) {
+                        reference += `:${verse}`;
+                    }
+                }
+                
+                console.log('Buscando referencia:', reference);
+                return await bibleAPI.searchVerse(reference, elements.versionSelect.value);
+            },
+
+            async searchByKeyword() {
+                const keyword = elements.keywordInput.value.trim().toLowerCase();
+                
+                if (!keyword) {
+                    throw new Error('Por favor ingresa una palabra clave');
+                }
+                
+                const keywordVerses = {
+                    'amor': ['1 Juan 4:8', '1 Corintios 13:4-7', 'Juan 3:16', 'Romanos 5:8'],
+                    'esperanza': ['Romanos 15:13', 'Jeremías 29:11', 'Salmos 42:5', 'Hebreos 6:19'],
+                    'fe': ['Hebreos 11:1', 'Romanos 10:17', 'Efesios 2:8', 'Habacuc 2:4'],
+                    'paz': ['Juan 14:27', 'Filipenses 4:7', 'Isaías 26:3', 'Romanos 14:17'],
+                    'gozo': ['Nehemías 8:10', 'Salmos 16:11', 'Juan 15:11', 'Gálatas 5:22'],
+                    'sabiduría': ['Proverbios 9:10', 'Santiago 1:5', 'Proverbios 3:5-6', '1 Corintios 1:30'],
+                    'perdón': ['Efesios 4:32', 'Colosenses 3:13', '1 Juan 1:9', 'Mateo 6:14'],
+                    'fortaleza': ['Isaías 40:31', 'Filipenses 4:13', '2 Corintios 12:9', 'Salmos 46:1'],
+                    'oración': ['1 Tesalonicenses 5:17', 'Filipenses 4:6', 'Mateo 6:9', 'Juan 14:13'],
+                    'salvación': ['Romanos 10:9', 'Efesios 2:8-9', 'Juan 3:16', 'Hechos 4:12']
+                };
+                
+                const verses = keywordVerses[keyword];
+                if (!verses) {
+                    throw new Error(`No se encontraron versículos para la palabra "${keyword}". Intenta con: amor, esperanza, fe, paz, gozo, sabiduría, perdón, fortaleza, oración, salvación`);
+                }
+                
+                const randomVerse = verses[Math.floor(Math.random() * verses.length)];
+                return await bibleAPI.searchVerse(randomVerse, elements.versionSelect.value);
+            },
+
+            displayVerse(verseData) {
+                let displayText = '';
+                
+                // La API de Biblia.com devuelve el texto directamente
+                if (verseData.text) {
+                    displayText = verseData.text;
+                } else {
+                    displayText = 'Texto no disponible';
+                }
+                
+                // Limpiar y formatear el texto (remover HTML tags si los hay)
+                displayText = displayText
+                    .replace(/<[^>]*>/g, '') // Remover tags HTML
+                    .replace(/\n/g, '<br>')
+                    .replace(/[\u201c\u201d]/g, '"')
+                    .replace(/[\u2018\u2019]/g, "'")
+                    .trim();
+                
+                elements.verseContent.innerHTML = `
+                    <div>
+                        "${displayText}"
+                        <br><br>
+                        <em>${verseData.reference || 'Referencia no disponible'}</em>
+                    </div>
+                `;
+                
+                elements.versionInfo.textContent = verseData.translation_name || 'Versión de la Biblia';
+            }
+        };
+
+        // Manejador del temporizador
+        const timerHandler = {
+            start() {
+                if (appState.isPaused) {
+                    appState.isPaused = false;
+                    elements.playPause.innerHTML = '<i class="fas fa-pause"></i>';
+                    
+                    appState.timerInterval = setInterval(() => {
+                        appState.timerSeconds--;
+                        this.updateDisplay();
+                        
+                        if (appState.timerSeconds <= 0) {
+                            this.stop();
+                            utils.showMessage('¡Tiempo de meditación completado!', 'success');
+                        }
+                    }, 1000);
+                } else {
+                    this.pause();
+                }
+            },
+
+            pause() {
+                appState.isPaused = true;
+                clearInterval(appState.timerInterval);
+                elements.playPause.innerHTML = '<i class="fas fa-play"></i>';
+            },
+
+            stop() {
+                this.pause();
+                appState.timerSeconds = CONFIG.TIMER_DEFAULT;
+                this.updateDisplay();
+            },
+
+            updateDisplay() {
+                elements.timerDisplay.textContent = utils.formatTime(appState.timerSeconds);
+            },
+
+            setTime() {
+                const newTime = prompt('Ingresa el tiempo en minutos:', Math.floor(appState.timerSeconds / 60));
+                
+                if (newTime !== null && !isNaN(newTime) && newTime > 0) {
+                    appState.timerSeconds = Math.floor(newTime * 60);
+                    this.updateDisplay();
+                }
+            }
+        };
+
+
+
+        // Event Listeners
+        function initializeEventListeners() {
+            // Navegación móvil
+            if (elements.navToggle && elements.nav) {
+                elements.navToggle.addEventListener('click', function() {
+                    elements.nav.classList.toggle('active');
+                });
+            }
+
+            // Cambio de tipo de búsqueda
+            elements.searchType.addEventListener('change', function() {
+                const searchType = this.value;
+                
+                elements.referenceSearch.style.display = searchType === 'reference' ? 'block' : 'none';
+                elements.keywordSearch.style.display = searchType === 'keyword' ? 'block' : 'none';
+            });
+
+            // Búsqueda de versículos
+            elements.searchButton.addEventListener('click', () => {
+                searchHandler.performSearch();
+            });
+
+            // Botón de prueba rápida
+            if (elements.testButton) {
+                elements.testButton.addEventListener('click', async () => {
+                    utils.setLoading(true);
+                    utils.showMessage('Probando conexión con Biblia.com API...', 'info');
+                    
+                    try {
+                        const result = await bibleAPI.searchVerse('Juan 3:16', elements.versionSelect.value);
+                        if (result.success) {
+                            searchHandler.displayVerse(result.data);
+                            appState.currentVerse = result.data;
+                            utils.showMessage('¡API de Biblia.com funcionando correctamente!', 'success');
+                        } else {
+                            utils.showMessage('Error en la prueba: ' + result.error, 'error');
+                        }
+                    } catch (error) {
+                        utils.showMessage('Error de conexión: ' + error.message, 'error');
+                    } finally {
+                        utils.setLoading(false);
+                    }
+                });
+            }
+
+            // Enter key para búsqueda
+            [elements.bookInput, elements.chapterInput, elements.verseInput, elements.keywordInput].forEach(input => {
+                if (input) {
+                    input.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') {
+                            searchHandler.performSearch();
+                        }
+                    });
+                }
+            });
+
+            // Controles del temporizador
+            elements.playPause.addEventListener('click', () => {
+                timerHandler.start();
+            });
+
+            elements.setTimerButton.addEventListener('click', () => {
+                timerHandler.setTime();
+            });
+
+            // Navegación de versículos
+            elements.prevVerse.addEventListener('click', () => {
+                if (appState.searchHistory.length > 1) {
+                    utils.showMessage('Funcionalidad de navegación en desarrollo', 'info');
+                }
+            });
+
+            elements.nextVerse.addEventListener('click', async () => {
+                try {
+                    const result = await bibleAPI.getRandomVerse();
+                    if (result.success) {
+                        searchHandler.displayVerse(result.data);
+                        appState.currentVerse = result.data;
+                        appState.searchHistory.push(result.data);
+                    } else {
+                        utils.showMessage('Error obteniendo versículo: ' + result.error, 'error');
+                    }
+                } catch (error) {
+                    utils.showMessage('Error de conexión: ' + error.message, 'error');
+                }
+            });
+
+
+
+            // Enlaces de navegación suave
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Animaciones al hacer scroll
+        function initializeAnimations() {
+            function revealOnScroll() {
+                const reveals = document.querySelectorAll('.content-section, .step-card');
+                
+                reveals.forEach(item => {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = item.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < windowHeight - elementVisible) {
+                        item.classList.add('fade-in');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Iniciar animaciones al cargar
+        }
+
+        // Inicialización
+        function initialize() {
+            console.log('Inicializando aplicación...');
+            
+            // Inicializar temporizador
+            timerHandler.updateDisplay();
+            
+            // Inicializar event listeners
+            initializeEventListeners();
+            
+            // Inicializar animaciones
+            initializeAnimations();
+            
+            // Cargar un versículo inicial después de un breve retraso
+            setTimeout(async () => {
+                try {
+                    const result = await bibleAPI.getRandomVerse();
+                    if (result.success) {
+                        searchHandler.displayVerse(result.data);
+                        appState.currentVerse = result.data;
+                        appState.searchHistory.push(result.data);
+                        console.log('Versículo inicial cargado correctamente');
+                    } else {
+                        console.log('No se pudo cargar el versículo inicial:', result.error);
+                    }
+                } catch (error) {
+                    console.log('Error cargando versículo inicial:', error);
+                }
+            }, 1000);
+            
+            console.log('Aplicación inicializada correctamente');
+        }
+
+        // Iniciar la aplicación cuando el DOM esté listo
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initialize);
+        } else {
+            initialize();
+        }
+    </script>
+</body>
+</html>

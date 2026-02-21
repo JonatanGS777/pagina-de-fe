@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profecías Bíblicas Cumplidas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4d3b6d; /* Púrpura profundo */
+            --secondary-color: #c3a343; /* Oro antiguo */
+            --accent-color: #39727d; /* Azul verdoso */
+            --background-color: #f9f7f2; /* Marfil */
+            --text-color: #2d2d35; /* Casi negro con toque púrpura */
+            --light-accent: #f0ebdf; /* Crema claro */
+            --gold-accent: #e6c664; /* Oro brillante */
+            --dark-color: #282335; /* Púrpura oscuro casi negro */
+            --gradient-bg: linear-gradient(135deg, rgba(77, 59, 109, 0.9) 0%, rgba(195, 163, 67, 0.9) 100%);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.06);
+            --border-radius: 12px;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 2rem;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Crimson Text', serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            overflow-x: hidden;
+        }
+        
+        /* HEADER STYLES */
+        header {
+            background: var(--gradient-bg);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+        }
+        
+        .logo img {
+            height: 60px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .header-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 0.5rem 1rem;
+            margin-left: 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-button:hover {
+            background-color: var(--gold-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .header-button i {
+            margin-left: 0.25rem;
+            font-size: 0.75rem;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .nav-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: var(--transition);
+            display: block;
+            padding: 0.5rem;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Dropdown Styles */
+        .menu-item-has-children {
+            position: relative;
+        }
+        
+        .menu-item-has-children > a {
+            display: flex;
+            align-items: center;
+        }
+        
+        .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: 8px;
+            padding: 0.8rem 0;
+            display: none;
+            z-index: 100;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .sub-menu li {
+            width: 100%;
+        }
+        
+        .sub-menu a {
+            padding: 0.7rem 1.2rem;
+            font-size: 0.9rem;
+            width: 100%;
+            color: var(--dark-color);
+        }
+        
+        .sub-menu a:hover {
+            background-color: rgba(123, 34, 64, 0.05);
+            color: var(--primary-color);
+        }
+        
+        .sub-menu a::after {
+            display: none;
+        }
+        
+        .menu-item-has-children:hover .sub-menu {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* FOOTER STYLES */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-col a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-col a:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* PROFECÍAS ESPECÍFICAS */
+        .main-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .page-title h1 {
+            font-family: 'Montserrat', serif;
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .page-title .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .intro {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            margin: var(--spacing-lg) 0;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+
+        .filter-btn {
+            background: var(--light-accent);
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .prophecy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: var(--spacing-lg);
+            margin: 40px 0;
+        }
+
+        .prophecy-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+
+        .prophecy-card:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-10px);
+        }
+
+        .prophecy-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: var(--spacing-md);
+            position: relative;
+        }
+
+        .prophecy-card:nth-child(5n+1) .prophecy-header {
+            background-color: #614e42;
+        }
+
+        .prophecy-card:nth-child(5n+2) .prophecy-header {
+            background-color: #705e3f;
+        }
+
+        .prophecy-card:nth-child(5n+3) .prophecy-header {
+            background-color: #816e61;
+        }
+
+        .prophecy-card:nth-child(5n+4) .prophecy-header {
+            background-color: #5d6e59;
+        }
+
+        .prophecy-card:nth-child(5n+5) .prophecy-header {
+            background-color: #9c7a5b;
+        }
+
+        .prophecy-number {
+            position: absolute;
+            top: var(--spacing-md);
+            right: var(--spacing-md);
+            font-size: 2.5rem;
+            font-family: 'Montserrat', serif;
+            opacity: 0.3;
+            font-weight: 600;
+        }
+
+        .prophecy-title {
+            font-family: 'Montserrat', serif;
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+        }
+
+        .prophecy-source {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .prophecy-content {
+            padding: var(--spacing-md);
+            flex-grow: 1;
+        }
+
+        .prophecy-description, .prophecy-fulfillment {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .prophecy-fulfillment {
+            border-left: 3px solid var(--secondary-color);
+            padding-left: var(--spacing-md);
+        }
+
+        .prophecy-cycle {
+            background-color: rgba(0, 0, 0, 0.03);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .prophecy-category {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.2);
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            border-radius: 0 0 var(--border-radius) 0;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 1;
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .prophecy-card {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        /* RESPONSIVE STYLES */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 280px;
+                height: 100vh;
+                background-color: var(--dark-color);
+                z-index: 1000;
+                transition: right 0.3s ease;
+                padding: 2rem;
+                overflow-y: auto;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            nav li {
+                width: 100%;
+            }
+            
+            nav a {
+                padding: 1rem 0;
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav a::after {
+                display: none;
+            }
+            
+            .menu-item-has-children > a {
+                justify-content: space-between;
+            }
+            
+            /* Mobile indicator for dropdown instead of arrow */
+            .menu-item-has-children > a::after {
+                display: block;
+                content: '+';
+                transition: var(--transition);
+            }
+            
+            .menu-item-has-children.active > a::after {
+                transform: rotate(45deg);
+            }
+            
+            .sub-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.2);
+                border-radius: 0;
+                padding-left: 1rem;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                transform: none;
+                opacity: 1;
+            }
+            
+            .menu-item-has-children.active > .sub-menu {
+                max-height: 500px;
+            }
+            
+            .menu-item-has-children:hover .sub-menu {
+                display: none;
+                transform: none;
+            }
+            
+            .menu-item-has-children.active .sub-menu {
+                display: block;
+            }
+            
+            .sub-menu a {
+                color: #ddd;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            .sub-menu a:hover {
+                background-color: rgba(255, 255, 255, 0.05);
+                color: var(--secondary-color);
+            }
+            
+            .page-title h1 {
+                font-size: 2.5rem;
+            }
+            
+            .page-title .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .prophecy-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: var(--spacing-md);
+            }
+            
+            .header-button {
+                display: none; /* Ocultar el botón en vista móvil */
+            }
+            
+            /* Agregar botón en el menú móvil */
+            .mobile-highlight-button {
+                display: block;
+                margin: 1rem 0;
+                background-color: var(--secondary-color);
+                color: var(--dark-color);
+                padding: 0.7rem 1rem;
+                border-radius: 4px;
+                text-align: center;
+                font-weight: 600;
+            }
+            
+            .mobile-highlight-button:hover {
+                background-color: var(--gold-accent);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="../../../../images/EMD.png" alt="Logo EMD">
+                <div class="logo-text">
+                    <div>Ministerio</div>
+                    <div>"La Gloria es del Señor"</div>
+                </div>   
+       </div>
+            
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../../../../index.html">Inicio</a></li>
+                    <li class="menu-item-has-children">
+                        <a>Figuras Bíblicas</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Figuras Bíblicas/at-a-nt.html">AT a NT</a></li>
+                            <li><a href="../Figuras Bíblicas/nombres-simbologia.html">Los nombres y su simbología</a></li>
+                            <li><a href="../Figuras Bíblicas/templo-figuras.html">Templo y sus Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/sacrificios-figuras.html">Sacrificios y su Figuras</a></li>
+                            <li><a href="../iguras Bíblicas/tipologia-cantares.html">Tipología Cantares</a></li>
+                            <li><a href="../Figuras Bíblicas/figuras-cristo.html">Figuras de Cristo</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Falsas Doctrinas</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                            <li><a href="../Falsas Doctrinas/gnosticismos.html">Gnosticismos en la Biblia</a></li>
+                            <li><a href="../Falsas Doctrinas/filosofias-griegas.html">Filosofías Griegas</a></li>
+                            <li><a href="../Falsas Doctrinas/masoneria.html">Masonería</a></li>
+                            <li><a href="../Falsas Doctrinas/sociedades-secretas.html">Sociedades Secretas</a></li>
+                            <li><a href="../Falsas Doctrinas/sectas-anticristianas.html">Sectas Anticristianas</a></li>
+                            <li><a href="../Falsas Doctrinas/pseudoprofetas.html">Pseudoprofetas</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Estudios Exegéticos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Temas Exegéticos</a></li>
+                            <li><a href="../Estudios Exegéticos/idiomas-biblia.html">Hebreo, Arameo y Griego en la Biblia</a></li>
+                            <li><a href="../Estudios Exegéticos/enlaces-recursos.html">Enlaces de Recursos</a></li>
+                            <li><a href="../Estudios Exegéticos/diccionarios-comentarios.html">Diccionarios y Comentarios</a></li>
+                            <li><a href="../Estudios Exegéticos/software-biblico.html">Software Bíblicos</a></li>
+                            <li><a href="../Estudios Exegéticos/meditacion-palabra.html">Meditación en la Palabra</a></li>
+                            <li><a href="../Estudios Exegéticos/lectura-anual.html">Lectura Anual</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Tiempo del Fin</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Tiempo del Fin/introduccion.html">Introducción al tiempo del fin</a></li>
+                            <li><a href="../Tiempo del Fin/escatologia.html">Escatología</a></li>
+                            <li><a href="../Tiempo del Fin/profecias-cumplidas.html">Profecías Cumplidas</a></li>
+                            <li><a href="../Tiempo del Fin/nuevo-orden-mundial.html">Nuevo Orden Mundial</a></li>
+                            <li><a href="../Tiempo del Fin/noticias-fin.html">Noticias del Fin</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Época de Jesús</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Época de Jesús/estudio-contemporaneo.html">Estudio Contemporáneo</a></li>
+                            <li><a href="../Época de Jesús/contexto-historico.html">Contexto Histórico</a></li>
+                            <li><a href="../Época de Jesús/grupos-religiosos.html">Grupos religiosos</a></li>
+                            <li><a href="../Época de Jesús/recursos-academicos.html">Estudios de Contexto</a></li>
+                            <li><a href="../Época de Jesús/apologia-cristiana.html">Apología Cristiana</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Estudios Bíblicos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Bíblicos/doctrina-basica.html">Doctrina Básica</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-intermedia.html">Doctrina intermedia</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-avanzada.html">Doctrina Avanzada</a></li>
+                            <li><a href="../Estudios Bíblicos/revelacion-espiritu.html">Revelación del Espíritu</a></li>
+                            <li><a href="../Estudios Bíblicos/devocionales.html">Devocionales</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="page-title">
+            <h1>Profecías Bíblicas Cumplidas</h1>
+            <div class="subtitle">Un recorrido por las predicciones divinas más asombrosas registradas en las Escrituras</div>
+        </div>
+        
+        <div class="intro fade-in">
+            <p>A lo largo de las Escrituras, numerosas profecías fueron registradas por diversos autores inspirados por Dios, prediciendo acontecimientos futuros que, sorprendentemente, llegaron a materializarse. Este documento recopila 50 de las profecías bíblicas más impactantes y sus ciclos de cumplimiento, demostrando la fascinante conexión entre la palabra profética y la realidad histórica.</p>
+        </div>
+
+        <div class="filters fade-in">
+            <button class="filter-btn active" data-filter="all">Todas</button>
+            <button class="filter-btn" data-filter="antiguo">Antiguo Testamento</button>
+            <button class="filter-btn" data-filter="mesianicas">Mesiánicas</button>
+            <button class="filter-btn" data-filter="naciones">Naciones</button>
+            <button class="filter-btn" data-filter="israel">Israel</button>
+            <button class="filter-btn" data-filter="fin">Tiempos Finales</button>
+        </div>
+
+        <div class="prophecy-grid" id="prophecy-container">
+            <!-- Las tarjetas se generarán con JavaScript -->
+        </div>
+    </div>
+
+    <div class="scroll-top" id="scrollTop">↑</div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Ministerio EMD</h4>
+                    <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="../Figuras Bíblicas/at-a-nt.html">Figuras Bíblicas</a></li>
+                        <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                        <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Estudios Exegéticos</a></li>
+                        <li><a href="../Tiempo del Fin/introduccion.html">Tiempo del Fin</a></li>
+                        <li><a href="../Época de Jesús/estudio-contemporaneo.html">Época de Jesús</a></li>
+                        <li><a href="../Estudios Bíblicos/doctrina-basica.html">Estudios Bíblicos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio, San Juan, Puerto Rico</li>
+                        <li><i class="fas fa-phone"></i> +1787-345-6940</li>
+                        <li><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Horarios</h4>
+                    <ul>
+                        <li>Disponible 24/7</li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Datos de profecías
+        const prophecies = [
+            {
+                id: 1,
+                title: "La Caída de Babilonia",
+                source: "Isaías 13:17-22, Jeremías 51:11-12 (siglo VIII a.C.)",
+                description: "Isaías y Jeremías profetizaron que los medos conquistarían Babilonia, que sus murallas serían derribadas y que la ciudad quedaría desolada para siempre.",
+                fulfillment: "En el 539 a.C., el rey Ciro de Persia, aliado con los medos, conquistó Babilonia desviando el río Éufrates y entrando por el lecho seco. La ciudad nunca recuperó su gloria anterior.",
+                cycle: "Aproximadamente 150-200 años después de la profecía.",
+                category: "naciones"
+            },
+            {
+                id: 2,
+                title: "La Destrucción de Tiro",
+                source: "Ezequiel 26:3-14 (siglo VI a.C.)",
+                description: "Ezequiel predijo que muchas naciones vendrían contra Tiro, que sus muros serían destruidos, sus piedras arrojadas al mar, y el lugar se convertiría en roca desnuda.",
+                fulfillment: "Nabucodonosor sitió Tiro durante 13 años. Más tarde, en el 332 a.C., Alejandro Magno utilizó los escombros de la ciudad continental para construir un camino hacia la isla fortaleza, arrojando literalmente sus piedras al mar. Hoy, pescadores secan sus redes en el lugar, tal como se predijo.",
+                cycle: "Comenzó 15 años después y se completó unos 250 años después de la profecía.",
+                category: "naciones"
+            },
+            {
+                id: 3,
+                title: "El Imperio de Alejandro Magno",
+                source: "Daniel 8:5-8, 21-22 (siglo VI a.C.)",
+                description: "Daniel predijo el surgimiento de un poderoso rey griego cuyo imperio se dividiría en cuatro partes después de su muerte.",
+                fulfillment: "Alejandro Magno conquistó un vasto imperio que, tras su muerte en el 323 a.C., fue dividido entre sus cuatro generales: Casandro, Lisímaco, Seleuco y Ptolomeo.",
+                cycle: "Aproximadamente 200-250 años después de la profecía.",
+                category: "naciones"
+            },
+            {
+                id: 4,
+                title: "La Reconstrucción de Jerusalén",
+                source: "Isaías 44:28 (siglo VIII a.C.)",
+                description: "Isaías mencionó a Ciro por nombre y predijo que él ordenaría la reconstrucción de Jerusalén y del templo, más de 150 años antes del nacimiento de Ciro.",
+                fulfillment: "En el 538 a.C., Ciro el Grande emitió un decreto permitiendo a los judíos regresar a Jerusalén y reconstruir su templo (Esdras 1:1-4).",
+                cycle: "Aproximadamente 150 años después de la profecía.",
+                category: "israel"
+            },
+            {
+                id: 5,
+                title: "La Destrucción de Nínive",
+                source: "Nahúm 1-3 (siglo VII a.C.)",
+                description: "Nahúm profetizó que Nínive, capital del poderoso Imperio Asirio, sería destruida por agua y fuego.",
+                fulfillment: "En el 612 a.C., una coalición de babilonios, medos y escitas conquistó Nínive. Las inundaciones del río Tigris derribaron parte de los muros de la ciudad, permitiendo la entrada de los invasores, quienes después incendiaron la ciudad.",
+                cycle: "Aproximadamente 20-30 años después de la profecía.",
+                category: "naciones"
+            },
+            {
+                id: 6,
+                title: "La Desolación de Edom",
+                source: "Jeremías 49:17-18, Ezequiel 35:1-15 (siglo VI a.C.)",
+                description: "Varios profetas predijeron que la tierra de Edom (región al sur del Mar Muerto) quedaría desolada y deshabitada permanentemente.",
+                fulfillment: "Tras ser conquistada por nabateos y romanos, Edom quedó completamente abandonada en el siglo VII d.C. Hoy es una región árida y deshabitada en el sur de Jordania.",
+                cycle: "Proceso gradual a lo largo de 700 años, completado totalmente hacia el siglo VII d.C.",
+                category: "naciones"
+            },
+            {
+                id: 7,
+                title: "La Devastación de Samaria",
+                source: "Oseas 13:16, Miqueas 1:6-7 (siglo VIII a.C.)",
+                description: "Oseas y Miqueas profetizaron que Samaria sería destruida, sus ídolos destrozados y sus piedras arrojadas al valle.",
+                fulfillment: "En el 722 a.C., Samaria fue conquistada por Asiria tras un sitio de tres años. La ciudad fue completamente destruida y sus habitantes deportados.",
+                cycle: "Aproximadamente 10-20 años después de la profecía.",
+                category: "israel"
+            },
+            {
+                id: 8,
+                title: "El Imperio Romano",
+                source: "Daniel 2:40-43, 7:7 (siglo VI a.C.)",
+                description: "Daniel describió un cuarto imperio (después de Babilonia, Medo-Persia y Grecia) que sería fuerte como el hierro y destrozaría todo a su paso.",
+                fulfillment: "El Imperio Romano emergió como la cuarta potencia mundial, conocido por su fuerza militar, tecnología avanzada y su capacidad para 'aplastar' a sus enemigos.",
+                cycle: "Aproximadamente 500 años después de la profecía, cuando Roma conquistó el mundo mediterráneo.",
+                category: "naciones"
+            },
+            {
+                id: 9,
+                title: "La Destrucción de Jerusalén y el Templo",
+                source: "Mateo 24:1-2, Lucas 21:6 (33 d.C.)",
+                description: "Jesús predijo que el templo de Jerusalén sería destruido completamente, sin que quedara piedra sobre piedra.",
+                fulfillment: "En el año 70 d.C., las legiones romanas bajo el mando de Tito destruyeron Jerusalén y arrasaron el templo. Según el historiador Josefo, el templo fue incendiado y posteriormente desmantelado piedra por piedra para recuperar el oro derretido entre las grietas.",
+                cycle: "37 años después de la profecía.",
+                category: "israel"
+            },
+            {
+                id: 10,
+                title: "La Dispersión de los Judíos",
+                source: "Deuteronomio 28:64-66, Lucas 21:24 (siglo XV a.C. y 33 d.C.)",
+                description: "Moisés y Jesús predijeron que los judíos serían esparcidos por todas las naciones del mundo.",
+                fulfillment: "Tras la destrucción de Jerusalén en el 70 d.C. y la revuelta de Bar Kojba en el 135 d.C., los judíos fueron dispersados por todo el mundo, iniciando la diáspora que duró casi 2000 años.",
+                cycle: "Comenzó 37-100 años después de la profecía de Jesús y continuó durante casi dos milenios.",
+                category: "israel"
+            },
+            {
+                id: 11,
+                title: "Las Profecías Mesiánicas",
+                source: "Miqueas 5:2, Isaías 7:14, 53:1-12 (siglos VIII-VII a.C.)",
+                description: "Numerosas profecías del Antiguo Testamento predijeron detalles específicos sobre el Mesías: nacimiento en Belén, nacimiento virginal, rechazo, crucifixión, resurrección.",
+                fulfillment: "Según los evangelios del Nuevo Testamento, Jesús cumplió más de 300 profecías mesiánicas específicas en su vida, muerte y resurrección.",
+                cycle: "Entre 700-400 años después de las profecías originales.",
+                category: "mesianicas"
+            },
+            {
+                id: 12,
+                title: "La Permanencia de Israel",
+                source: "Jeremías 31:35-37 (siglo VII a.C.)",
+                description: "Jeremías profetizó que el pueblo de Israel continuaría existiendo como nación mientras el sol, la luna y las estrellas continuaran brillando.",
+                fulfillment: "A pesar de 2000 años de persecución, genocidios y exilio, el pueblo judío ha mantenido su identidad y cultura, culminando con el restablecimiento del Estado de Israel en 1948.",
+                cycle: "Continuo a lo largo de 2600 años, con hitos significativos en 1948 y después.",
+                category: "israel"
+            },
+            {
+                id: 13,
+                title: "La Restauración de Israel",
+                source: "Ezequiel 37:21-22, Isaías 11:11-12 (siglos VIII-VI a.C.)",
+                description: "Varios profetas predijeron que los judíos regresarían a su tierra natal desde los cuatro ángulos de la tierra después de una larga dispersión.",
+                fulfillment: "Tras casi 2000 años de diáspora, el Estado de Israel fue restablecido en 1948, y millones de judíos han regresado a su patria ancestral desde más de 100 países.",
+                cycle: "Aproximadamente 2500 años después de la profecía original, con inmigración continua desde 1948.",
+                category: "israel"
+            },
+            {
+                id: 14,
+                title: "El Resurgimiento del Hebreo",
+                source: "Sofonías 3:9, Jeremías 31:23 (siglos VII-VI a.C.)",
+                description: "Los profetas sugirieron que el idioma puro (hebreo) volvería a ser hablado en la tierra de Israel tras el regreso del exilio.",
+                fulfillment: "El hebreo, que había dejado de ser un idioma hablado cotidianamente alrededor del año 200 d.C., fue revivido a finales del siglo XIX y principios del XX por Eliezer Ben-Yehuda y otros. Hoy es el idioma oficial de Israel y lo hablan millones de personas.",
+                cycle: "Aproximadamente 2500 años después de la profecía, con el renacimiento del hebreo moderno.",
+                category: "israel"
+            },
+            {
+                id: 15,
+                title: "La Evangelización Mundial",
+                source: "Mateo 24:14, Marcos 13:10 (33 d.C.)",
+                description: "Jesús predijo que el evangelio sería predicado en todo el mundo, a todas las naciones, antes del fin.",
+                fulfillment: "El cristianismo se ha extendido por todo el planeta, con presencia en prácticamente todas las naciones. Las traducciones bíblicas existen en más de 2000 idiomas, cubriendo más del 95% de la población mundial.",
+                cycle: "Proceso continuo durante 2000 años, con avances significativos en los siglos XIX-XXI.",
+                category: "fin"
+            },
+            {
+                id: 16,
+                title: "La Revolución Científica",
+                source: "Daniel 12:4 (siglo VI a.C.)",
+                description: "Daniel profetizó que en el 'tiempo del fin' muchos correrían de un lado a otro y el conocimiento se aumentaría.",
+                fulfillment: "Los últimos siglos han visto un aumento exponencial en el conocimiento científico y la movilidad humana, con más avances tecnológicos en los últimos 100 años que en toda la historia previa de la humanidad.",
+                cycle: "Aceleración dramática desde el siglo XIX hasta la actualidad.",
+                category: "fin"
+            },
+            {
+                id: 17,
+                title: "El Reverdecimiento de Israel",
+                source: "Isaías 35:1-2, Ezequiel 36:34-36 (siglos VIII-VI a.C.)",
+                description: "Los profetas predijeron que la tierra de Israel, después de siglos de desolación, volvería a florecer como un jardín cuando los judíos regresaran.",
+                fulfillment: "Desde 1948, Israel ha transformado terrenos desérticos en tierras fértiles, plantando más de 250 millones de árboles y desarrollando innovadoras tecnologías agrícolas. La nación es ahora un exportador mundial de productos agrícolas.",
+                cycle: "2500-2700 años después de las profecías originales.",
+                category: "israel"
+            },
+            {
+                id: 18,
+                title: "El Surgimiento de Falsos Profetas",
+                source: "Mateo 24:11, 1 Timoteo 4:1 (siglo I d.C.)",
+                description: "Jesús y Pablo predijeron que surgirían muchos falsos profetas y maestros que engañarían a multitudes.",
+                fulfillment: "A lo largo de los siglos, innumerables líderes religiosos han surgido reclamando revelaciones divinas exclusivas, a menudo con consecuencias trágicas para sus seguidores.",
+                cycle: "Continuo a lo largo de 2000 años, con eventos significativos en cada siglo.",
+                category: "fin"
+            },
+            {
+                id: 19,
+                title: "Desastres Naturales en Aumento",
+                source: "Lucas 21:11, Mateo 24:7 (33 d.C.)",
+                description: "Jesús predijo que los últimos tiempos estarían marcados por un aumento en terremotos, hambrunas y pestilencias en diversos lugares.",
+                fulfillment: "El siglo XX registró un aumento notable en desastres naturales documentados. Las pandemias globales, los terremotos devastadores y las crisis alimentarias han afectado a millones en épocas recientes.",
+                cycle: "Intensificación gradual, con aceleración notoria en los siglos XX y XXI.",
+                category: "fin"
+            },
+            {
+                id: 20,
+                title: "La Gran Apostasía",
+                source: "2 Tesalonicenses 2:3, 2 Timoteo 4:3-4 (siglo I d.C.)",
+                description: "Pablo predijo que antes del fin vendría una gran apostasía o abandono de la fe verdadera, con personas siguiendo maestros que les dijeran lo que querían oír.",
+                fulfillment: "En tiempos modernos se ha visto un alejamiento significativo de las enseñanzas bíblicas tradicionales en muchas iglesias y un aumento en doctrinas que priorizan el bienestar personal sobre la verdad doctrinal.",
+                cycle: "Intensificación gradual desde el siglo XIX, con aceleración en los siglos XX y XXI.",
+                category: "fin"
+            },
+            {
+                id: 21,
+                title: "El Surgimiento de Israel como Potencia Militar",
+                source: "Zacarías 12:6-9 (siglo VI a.C.)",
+                description: "Zacarías predijo que Jerusalén sería 'una copa que hará temblar' y que Israel sería como 'fuego en un haz de leña' entre las naciones circundantes.",
+                fulfillment: "A pesar de su pequeño tamaño, Israel ha desarrollado una de las fuerzas militares más poderosas del mundo, ganando guerras contra coaliciones de países mucho más grandes en 1948, 1967 y 1973.",
+                cycle: "2500 años después de la profecía, especialmente visible desde 1948.",
+                category: "israel"
+            },
+            {
+                id: 22,
+                title: "La Persecución de los Cristianos",
+                source: "Juan 15:20, 2 Timoteo 3:12 (siglo I d.C.)",
+                description: "Jesús y Pablo predijeron que los seguidores de Cristo serían perseguidos.",
+                fulfillment: "A lo largo de los siglos, millones de cristianos han sufrido persecución por su fe. El siglo XX vio más mártires cristianos que todos los siglos anteriores combinados, y esta tendencia continúa hoy en muchas regiones del mundo.",
+                cycle: "Continuo durante 2000 años, con intensificación en el siglo XX.",
+                category: "fin"
+            },
+            {
+                id: 23,
+                title: "Capacidad de Destrucción Global",
+                source: "Mateo 24:22, Apocalipsis 11:18 (siglo I d.C.)",
+                description: "Las escrituras profetizaron un tiempo cuando la humanidad tendría la capacidad de destruir toda vida en la Tierra.",
+                fulfillment: "Con el desarrollo de armas nucleares, químicas y biológicas desde la década de 1940, la humanidad adquirió por primera vez la capacidad técnica de destruir toda vida en el planeta.",
+                cycle: "Casi 2000 años después de la profecía, con la era nuclear a partir de 1945.",
+                category: "fin"
+            },
+            {
+                id: 24,
+                title: "La Globalización",
+                source: "Daniel 12:4, Apocalipsis 13:7 (siglos VI a.C. y I d.C.)",
+                description: "Las escrituras profetizaron un tiempo de interconexión global en los últimos días, permitiendo un control unificado sobre las naciones.",
+                fulfillment: "La revolución digital ha interconectado al mundo como nunca antes, creando un sistema económico global interdependiente y permitiendo sistemas de vigilancia y control sin precedentes.",
+                cycle: "Aceleración dramática desde la década de 1990 con Internet y la revolución digital.",
+                category: "fin"
+            },
+            {
+                id: 25,
+                title: "La Contaminación Global",
+                source: "Apocalipsis 11:18, Isaías 24:5-6 (siglos VIII a.C. y I d.C.)",
+                description: "Las escrituras profetizaron que los humanos 'destruirían la tierra' y que 'la tierra se contaminaría'.",
+                fulfillment: "La contaminación industrial, la deforestación, la extinción masiva de especies y el cambio climático representan amenazas sin precedentes para los ecosistemas planetarios.",
+                cycle: "Aceleración dramática desde la Revolución Industrial, con punto crítico en los siglos XX y XXI.",
+                category: "fin"
+            },
+            {
+                id: 26,
+                title: "El Nacimiento Virginal del Mesías",
+                source: "Isaías 7:14 (siglo VIII a.C.)",
+                description: "Isaías profetizó: 'Por tanto, el Señor mismo os dará señal: He aquí que la virgen concebirá, y dará a luz un hijo, y llamará su nombre Emanuel'.",
+                fulfillment: "Según el Nuevo Testamento (Mateo 1:22-23, Lucas 1:26-35), Jesús nació de María, una virgen, cumpliendo exactamente esta profecía mesiánica.",
+                cycle: "Aproximadamente 700 años después de la profecía.",
+                category: "mesianicas"
+            },
+            {
+                id: 27,
+                title: "El Lugar de Nacimiento del Mesías",
+                source: "Miqueas 5:2 (siglo VIII a.C.)",
+                description: "Miqueas profetizó: 'Pero tú, Belén Efrata, pequeña para estar entre las familias de Judá, de ti me saldrá el que será Señor en Israel; y sus salidas son desde el principio, desde los días de la eternidad'.",
+                fulfillment: "Jesús nació en Belén, tal como registran Mateo 2:1-6 y Lucas 2:1-7, cumpliendo exactamente la profecía sobre el lugar de nacimiento del Mesías.",
+                cycle: "Aproximadamente 700 años después de la profecía.",
+                category: "mesianicas"
+            },
+            {
+                id: 28,
+                title: "La Traición al Mesías por 30 Piezas de Plata",
+                source: "Zacarías 11:12-13 (siglo VI a.C.)",
+                description: "Zacarías profetizó que el Mesías sería valorado en 30 piezas de plata, y que este dinero sería arrojado en la casa del Señor para el alfarero.",
+                fulfillment: "Judas traicionó a Jesús por exactamente 30 piezas de plata (Mateo 26:15). Después, arrepentido, arrojó el dinero en el templo y los sacerdotes lo usaron para comprar el campo del alfarero (Mateo 27:3-10).",
+                cycle: "Aproximadamente 500 años después de la profecía.",
+                category: "mesianicas"
+            },
+            {
+                id: 29,
+                title: "La Crucifixión del Mesías",
+                source: "Salmo 22:16-18, Isaías 53:5-12 (siglos X y VIII a.C.)",
+                description: "El salmista y el profeta Isaías describieron con asombrosa precisión detalles de la crucifixión: manos y pies traspasados, huesos dislocados, extrema sed, y soldados que se repartirían las vestiduras y echarían suertes sobre ellas.",
+                fulfillment: "Todos estos detalles se cumplieron durante la crucifixión de Jesús, como registran los evangelios (Mateo 27, Marcos 15, Lucas 23, Juan 19), siglos antes de que la crucifixión romana se convirtiera en método de ejecución.",
+                cycle: "Entre 700-1000 años después de las profecías.",
+                category: "mesianicas"
+            },
+            {
+                id: 30,
+                title: "La Ausencia de Huesos Rotos del Mesías",
+                source: "Salmo 34:20, Éxodo 12:46 (siglos XV-X a.C.)",
+                description: "Las Escrituras profetizaron que ningún hueso del Mesías sería quebrado, similar al cordero pascual cuya preparación exigía que no se rompiera ninguno de sus huesos.",
+                fulfillment: "Durante la crucifixión, los soldados quebraron las piernas de los dos ladrones para acelerar su muerte, pero no las de Jesús porque ya había fallecido, cumpliendo así esta profecía (Juan 19:32-36).",
+                cycle: "Entre 1000-1500 años después de las profecías.",
+                category: "mesianicas"
+            },
+            {
+                id: 31,
+                title: "La Resurrección del Mesías",
+                source: "Salmo 16:10, Isaías 53:10-12 (siglos X y VIII a.C.)",
+                description: "David profetizó que Dios no dejaría el alma del Santo en el Seol (lugar de los muertos), ni permitiría que su cuerpo viera corrupción. Isaías predijo que después de su muerte, el Siervo de Dios vería la luz y sería exaltado.",
+                fulfillment: "Jesús resucitó al tercer día después de su crucifixión, según registran todos los evangelios y se confirma en múltiples escritos del Nuevo Testamento (1 Corintios 15:3-8).",
+                cycle: "Entre 700-1000 años después de las profecías.",
+                category: "mesianicas"
+            },
+            {
+                id: 32,
+                title: "La Ascensión del Mesías",
+                source: "Salmo 68:18, 110:1 (siglo X a.C.)",
+                description: "David profetizó sobre la ascensión a lo alto y el sentarse a la diestra de Dios, posición de supremo honor y autoridad.",
+                fulfillment: "Cuarenta días después de su resurrección, Jesús ascendió al cielo visiblemente ante sus discípulos (Hechos 1:9-11). El Nuevo Testamento confirma repetidamente que está sentado a la diestra de Dios (Marcos 16:19, Hebreos 1:3).",
+                cycle: "Aproximadamente 1000 años después de la profecía.",
+                category: "mesianicas"
+            },
+            {
+                id: 33,
+                title: "El Derramamiento del Espíritu Santo",
+                source: "Joel 2:28-29 (siglo IX a.C.)",
+                description: "Joel profetizó que Dios derramaría su Espíritu sobre toda carne, y que jóvenes y ancianos, hombres y mujeres, profetizarían y tendrían visiones.",
+                fulfillment: "En Pentecostés, diez días después de la ascensión de Jesús, el Espíritu Santo descendió sobre los discípulos, permitiéndoles hablar en diversas lenguas y profetizar. Pedro citó explícitamente esta profecía de Joel como cumplida en ese momento (Hechos 2:1-21).",
+                cycle: "Aproximadamente 900 años después de la profecía.",
+                category: "antiguo"
+            },
+            {
+                id: 34,
+                title: "La Profecía de las 70 Semanas",
+                source: "Daniel 9:24-27 (siglo VI a.C.)",
+                description: "Daniel recibió una compleja profecía sobre 70 'semanas' (períodos de siete años) que determinarían eventos clave en la historia de Israel, incluyendo la aparición y muerte del Mesías.",
+                fulfillment: "Calculando desde el decreto de Artajerjes para reconstruir Jerusalén (458 o 445 a.C.), las 69 semanas (483 años) conducen precisamente al tiempo del ministerio público de Jesús y su crucifixión, tal como predijo Daniel ('se quitará la vida al Mesías').",
+                cycle: "Aproximadamente 500 años después de la profecía.",
+                category: "mesianicas"
+            },
+            {
+                id: 35,
+                title: "La Caída de Egipto como Potencia Mundial",
+                source: "Ezequiel 29:14-15, 30:12-13 (siglo VI a.C.)",
+                description: "Ezequiel profetizó que Egipto, entonces una de las potencias dominantes del mundo, nunca más se alzaría a gobernar sobre las naciones y se convertiría en 'el más bajo de los reinos'.",
+                fulfillment: "Desde la conquista por Babilonia, seguida por la persa, griega y romana, Egipto nunca recuperó su estatus de potencia mundial. Durante siglos ha estado bajo el dominio de potencias extranjeras (romanos, árabes, mamelucos, otomanos, británicos) hasta su independencia en el siglo XX.",
+                cycle: "Continuo a lo largo de 2500 años hasta el presente.",
+                category: "naciones"
+            },
+            {
+                id: 36,
+                title: "La Destrucción de Sodoma y Gomorra",
+                source: "Génesis 18-19 (siglo XV a.C.)",
+                description: "Dios reveló a Abraham que destruiría Sodoma y Gomorra debido a su extrema perversidad, devastándolas con fuego y azufre del cielo.",
+                fulfillment: "Sodoma y Gomorra fueron completamente destruidas tal como se predijo. Evidencias arqueológicas en el área del Mar Muerto indican una catástrofe repentina en el período apropiado, con altos niveles de azufre y indicios de un intenso calor.",
+                cycle: "Cumplida casi inmediatamente después de la profecía.",
+                category: "antiguo"
+            },
+            {
+                id: 37,
+                title: "El Diluvio Universal",
+                source: "Génesis 6:13-17 (época antediluviana)",
+                description: "Dios reveló a Noé que destruiría la tierra corrompida mediante un diluvio global, instruyéndole construir un arca para preservar a su familia y a los animales.",
+                fulfillment: "Según el relato bíblico, el diluvio ocurrió exactamente como fue predicho, cubriendo toda la tierra habitada. Interesantemente, más de 270 culturas diferentes alrededor del mundo tienen leyendas sobre un gran diluvio, sugiriendo un evento histórico real.",
+                cycle: "Aproximadamente 100 años después de la advertencia a Noé, según la cronología bíblica.",
+                category: "antiguo"
+            },
+            {
+                id: 38,
+                title: "Las Siete Plagas de Egipto",
+                source: "Éxodo 7-12 (siglo XV a.C.)",
+                description: "Dios, a través de Moisés, profetizó una secuencia de diez plagas específicas que afectarían a Egipto para liberar a Israel, incluyendo la conversión del agua en sangre, ranas, piojos, moscas, mortandad del ganado, úlceras, granizo, langostas, tinieblas y muerte de los primogénitos.",
+                fulfillment: "Cada plaga ocurrió exactamente como fue predicha, culminando con la liberación de Israel de la esclavitud egipcia. Algunas evidencias arqueológicas, como el Papiro de Ipuwer, contienen descripciones de calamidades similares a las plagas bíblicas.",
+                cycle: "Cada plaga fue anunciada y cumplida en breve tiempo, en una sucesión de aproximadamente un año.",
+                category: "antiguo"
+            },
+            {
+                id: 39,
+                title: "El Exilio Babilónico de 70 Años",
+                source: "Jeremías 25:11-12, 29:10 (siglo VII a.C.)",
+                description: "Jeremías profetizó que los judíos serían llevados cautivos a Babilonia por exactamente 70 años, después de los cuales regresarían a su tierra.",
+                fulfillment: "El exilio comenzó con la primera deportación en el 605 a.C. y terminó con el decreto de Ciro en el 536/535 a.C., completando precisamente los 70 años predichos por Jeremías.",
+                cycle: "Comenzó poco después de la profecía y se completó exactamente 70 años después, tal como fue predicho.",
+                category: "israel"
+            },
+            {
+                id: 40,
+                title: "La Conquista de Jericó",
+                source: "Josué 6:1-5 (siglo XV a.C.)",
+                description: "Dios profetizó a Josué que los muros de Jericó caerían después de que los israelitas marcharan alrededor de la ciudad durante siete días, con un grito final y el sonido de trompetas.",
+                fulfillment: "Los muros cayeron exactamente como fue predicho, permitiendo la conquista de la ciudad. Excavaciones arqueológicas en Tell es-Sultan (sitio de la antigua Jericó) revelan evidencia de muros caídos hacia afuera (no hacia adentro como sería normal en un asedio) y una destrucción repentina por fuego, consistente con el relato bíblico.",
+                cycle: "Una semana después de la profecía.",
+                category: "antiguo"
+            },
+            {
+                id: 41,
+                title: "La Hambruna en Egipto",
+                source: "Génesis 41:25-32 (siglo XVIII a.C.)",
+                description: "A través de la interpretación de los sueños del Faraón, José profetizó siete años de abundancia seguidos por siete años de hambruna severa que afectaría a Egipto y regiones circundantes.",
+                fulfillment: "La hambruna ocurrió exactamente como fue predicha, afectando no solo a Egipto sino a Canaán y otras regiones vecinas. José, habiendo sido elevado a una posición de autoridad, administró los recursos para salvar a Egipto y a las naciones vecinas, incluyendo a su propia familia.",
+                cycle: "Comenzó después de siete años de abundancia, tal como fue predicho, y duró los siete años pronosticados.",
+                category: "antiguo"
+            },
+            {
+                id: 42,
+                title: "La Desolación de Damasco",
+                source: "Isaías 17:1-3 (siglo VIII a.C.)",
+                description: "Isaías profetizó que Damasco dejaría de ser ciudad y se convertiría en un montón de ruinas.",
+                fulfillment: "En el 732 a.C., el rey asirio Tiglat-Pileser III conquistó Damasco, deportó a sus habitantes y destruyó la ciudad, cumpliendo la profecía. Aunque Damasco fue reconstruida posteriormente (es actualmente una de las ciudades continuamente habitadas más antiguas del mundo), el reino arameo de Damasco nunca recuperó su independencia o poder.",
+                cycle: "Aproximadamente 20 años después de la profecía.",
+                category: "naciones"
+            },
+            {
+                id: 43,
+                title: "La Liberación de los Judíos por Ciro",
+                source: "Isaías 44:28-45:13 (siglo VIII a.C.)",
+                description: "Isaías profetizó por nombre que un rey llamado Ciro liberaría a los judíos de su cautiverio y ordenaría la reconstrucción de Jerusalén y del templo.",
+                fulfillment: "Aproximadamente 150 años después, Ciro el Grande conquistó Babilonia en el 539 a.C. y al año siguiente emitió un decreto permitiendo a los judíos regresar a Jerusalén y reconstruir su templo, tal como fue registrado en Esdras 1:1-4 y confirmado por el Cilindro de Ciro.",
+                cycle: "Aproximadamente 150 años después de la profecía, cuando Ciro emitió su famoso decreto.",
+                category: "israel"
+            },
+            {
+                id: 44,
+                title: "La Destrucción de la Armada de Senaquerib",
+                source: "2 Reyes 19:32-35, Isaías 37:33-37 (siglo VIII a.C.)",
+                description: "Isaías profetizó que el rey asirio Senaquerib no entraría en Jerusalén, no dispararía una flecha contra ella, ni la atacaría con escudos, ni levantaría terraplenes contra ella. En cambio, Dios defendería la ciudad.",
+                fulfillment: "Esa misma noche, según el registro bíblico, 185,000 soldados asirios murieron misteriosamente. Registros asirios (el Prisma de Senaquerib) confirman que, aunque Senaquerib sitió muchas ciudades de Judá, nunca conquista Jerusalén y regresa a Asiria sin conseguir su objetivo.",
+                cycle: "Cumplida en cuestión de horas después de la profecía.",
+                category: "israel"
+            },
+            {
+                id: 45,
+                title: "El Endurecimiento del Corazón de Faraón",
+                source: "Éxodo 4:21, 7:3-4 (siglo XV a.C.)",
+                description: "Dios predijo que endurecería el corazón de Faraón, quien no dejaría salir a los israelitas a pesar de las señales y plagas milagrosas, hasta que finalmente Egipto fuera duramente castigado.",
+                fulfillment: "A pesar de las terribles plagas, Faraón repetidamente se negó a liberar a los israelitas, tal como se había predicho, hasta que la muerte de los primogénitos lo obligó a ceder temporalmente, para luego perseguirlos y sufrir la destrucción de su ejército en el Mar Rojo.",
+                cycle: "Cumplida durante el período de las diez plagas, aproximadamente un año.",
+                category: "antiguo"
+            },
+            {
+                id: 46,
+                title: "El Sufrimiento de Job",
+                source: "Job 1:8-12, 2:3-6 (época patriarcal)",
+                description: "Dios predijo que Job mantendría su integridad y no maldeciría a Dios a pesar de perder sus posesiones, sus hijos y su salud, contrario a lo que Satanás esperaba.",
+                fulfillment: "A pesar de sufrir pérdidas catastróficas y una terrible enfermedad, Job nunca maldijo a Dios, manteniendo su integridad tal como Dios había predicho, aunque sí cuestionó el propósito de su sufrimiento.",
+                cycle: "Cumplida durante el periodo de sufrimiento de Job, posiblemente varios meses.",
+                category: "antiguo"
+            },
+            {
+                id: 47,
+                title: "La Corrupción del Sacerdocio Levítico",
+                source: "1 Samuel 2:27-36 (siglo XI a.C.)",
+                description: "Un profeta anónimo predijo que los dos hijos de Elí (Ofni y Finees) morirían el mismo día, que el linaje sacerdotal de Elí perdería su posición privilegiada, y que Dios levantaría un sacerdote fiel que andaría delante de su ungido.",
+                fulfillment: "Ofni y Finees efectivamente murieron el mismo día en batalla contra los filisteos (1 Samuel 4:11). Más tarde, Salomón destituyó a Abiatar (descendiente de Elí) del sacerdocio (1 Reyes 2:27), y estableció a Sadoc como sumo sacerdote, cumpliendo la profecía completamente.",
+                cycle: "Comenzó pocos años después de la profecía con la muerte de los hijos de Elí, y se completó décadas después durante el reinado de Salomón.",
+                category: "antiguo"
+            },
+            {
+                id: 48,
+                title: "La Victoria de Gedeón sobre Madián",
+                source: "Jueces 7:7, 14-15 (siglo XII a.C.)",
+                description: "Dios profetizó a Gedeón que con sólo 300 hombres derrotaría a un ejército madianita de más de 135,000 guerreros, confirmándolo a través de un sueño que Gedeón escuchó en el campamento enemigo.",
+                fulfillment: "Con una estrategia inusual de trompetas, cántaros y antorchas, los 300 hombres de Gedeón provocaron confusión en el ejército madianita, haciendo que se mataran entre sí y huyeran, resultando en una victoria completa para Israel tal como se había predicho.",
+                cycle: "Cumplida en cuestión de horas o días después de la profecía.",
+                category: "antiguo"
+            },
+            {
+                id: 49,
+                title: "La Conversión de los Gentiles",
+                source: "Isaías 42:6, 49:6, 60:3 (siglo VIII a.C.)",
+                description: "Isaías profetizó que el Mesías sería 'luz para las naciones' (gentiles) y que los gentiles vendrían a Su luz y los reyes al resplandor de Su nacimiento.",
+                fulfillment: "El cristianismo, iniciado en el judaísmo, se extendió rápidamente entre los gentiles como predijeron los profetas. Para el siglo IV, el Imperio Romano oficialmente se había convertido al cristianismo, y hoy la mayoría de los seguidores de Cristo son de origen gentil, no judío.",
+                cycle: "Comenzó en el siglo I con la evangelización de los primeros apóstoles a los gentiles y ha continuado durante los últimos 2000 años.",
+                category: "mesianicas"
+            },
+            {
+                id: 50,
+                title: "El Juicio sobre Edom",
+                source: "Abdías 1:1-21 (siglo VI a.C.)",
+                description: "Abdías profetizó que Edom (descendientes de Esaú) sería completamente destruido por su orgullo y por su hostilidad contra Judá, desapareciendo como nación y sin que quedara remanente de la casa de Esaú.",
+                fulfillment: "Los edomitas fueron conquistados por los babilonios y posteriormente por los nabateos. Para el 100 a.C., habían sido totalmente absorbidos, perdiendo su identidad nacional. Durante la revuelta de Bar Kojba (132-135 d.C.), sus últimos vestigios (idumeos) fueron eliminados, cumpliendo la profecía de su completa extinción.",
+                cycle: "Proceso gradual a lo largo de 500 años, culminando en el siglo II d.C.",
+                category: "naciones"
+            }
+        ];
+
+        // Función para generar las tarjetas de profecías
+        function generateProphecyCards(data) {
+            const container = document.getElementById('prophecy-container');
+            container.innerHTML = '';
+
+            data.forEach((prophecy, index) => {
+                const card = document.createElement('div');
+                card.className = `prophecy-card ${prophecy.category}`;
+                card.setAttribute('data-category', prophecy.category);
+                card.style.animationDelay = `${index * 0.1}s`;
+
+                card.innerHTML = `
+                    <div class="prophecy-header">
+                        <div class="prophecy-number">${String(prophecy.id).padStart(2, '0')}</div>
+                        <div class="prophecy-category">${getCategoryName(prophecy.category)}</div>
+                        <h2 class="prophecy-title">${prophecy.title}</h2>
+                        <div class="prophecy-source">${prophecy.source}</div>
+                    </div>
+                    <div class="prophecy-content">
+                        <div class="prophecy-description">
+                            <p>${prophecy.description}</p>
+                        </div>
+                        <div class="prophecy-fulfillment">
+                            <p><strong>Cumplimiento:</strong> ${prophecy.fulfillment}</p>
+                        </div>
+                        <div class="prophecy-cycle">
+                            <p>${prophecy.cycle}</p>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+                
+                // Animación de entrada con retraso
+                setTimeout(() => {
+                    card.style.opacity = "1";
+                    card.style.transform = "translateY(0)";
+                    card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+                }, 100 + index * 50);
+            });
+        }
+
+        // Obtener nombre legible de categoría
+        function getCategoryName(category) {
+            const names = {
+                'antiguo': 'Antiguo Testamento',
+                'mesianicas': 'Mesiánica',
+                'naciones': 'Naciones',
+                'israel': 'Israel',
+                'fin': 'Tiempo Final'
+            };
+            return names[category] || 'General';
+        }
+
+        // Filtrar tarjetas
+        function filterCards(category) {
+            const cards = document.querySelectorAll('.prophecy-card');
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                    setTimeout(() => {
+                        card.style.opacity = "1";
+                        card.style.transform = "translateY(0)";
+                    }, 100);
+                } else {
+                    card.style.opacity = "0";
+                    card.style.transform = "translateY(20px)";
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        // Inicializar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generar tarjetas
+            generateProphecyCards(prophecies);
+            
+            // Manejar filtros
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remover clase active de todos los botones
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Añadir clase active al botón clickeado
+                    this.classList.add('active');
+                    // Filtrar tarjetas
+                    filterCards(this.getAttribute('data-filter'));
+                });
+            });
+            
+            // Botón de scroll superior
+            const scrollButton = document.getElementById('scrollTop');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    scrollButton.classList.add('visible');
+                } else {
+                    scrollButton.classList.remove('visible');
+                }
+            });
+            
+            scrollButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Manejo del menú móvil
+            document.querySelector('.nav-toggle').addEventListener('click', function() {
+                document.querySelector('nav').classList.toggle('active');
+            });
+            
+            // Manejo de menús desplegables en móvil
+            document.querySelectorAll('.menu-item-has-children > a').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    // Solo en modo móvil
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        this.parentNode.classList.toggle('active');
+                    }
+                });
+            });
+            
+            // Cierra el menú al hacer clic en un enlace de submenu
+            document.querySelectorAll('.sub-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    document.querySelector('nav').classList.remove('active');
+                });
+            });
+            
+            // Cierra el menú al hacer clic fuera de él
+            document.addEventListener('click', function(event) {
+                const nav = document.querySelector('nav');
+                const navToggle = document.querySelector('.nav-toggle');
+                
+                if (!nav.contains(event.target) && event.target !== navToggle) {
+                    nav.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

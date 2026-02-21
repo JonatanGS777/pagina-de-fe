@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Marca de la Bestia: Realidad Tecnológica del 2050</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Fondo animado */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 50%, #1a0033 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, #330011 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, #001133 0%, transparent 50%),
+                        linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #16213e 100%);
+            animation: backgroundShift 15s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(30deg); }
+        }
+
+        /* Partículas flotantes */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #ffffff;
+            border-radius: 50%;
+            animation: float 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+
+        /* Header épico */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(45deg, rgba(0,0,0,0.8), rgba(26,0,51,0.6));
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            padding: 0 20px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ff6b6b, #feca57, #ff9ff3, #54a0ff);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 30px;
+            color: #cccccc;
+            font-weight: 300;
+        }
+
+        .biblical-quote {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .biblical-quote::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .quote-reference {
+            color: #ffd700;
+            font-weight: 600;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        /* Navegación elegante */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 50px;
+            padding: 10px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffd700;
+        }
+
+        /* Contenido principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            margin: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #ffffff, #cccccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Tarjetas de tecnología mejoradas */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .tech-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+
+        .tech-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(255, 215, 0, 0.5);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: all 0.5s;
+        }
+
+        .tech-card:hover::before {
+            left: 100%;
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .tech-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        .tech-card p {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .tech-detail {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 0 20px;
+            margin-top: 20px;
+        }
+
+        .tech-detail.active {
+            max-height: 500px;
+            padding: 20px;
+        }
+
+        .biblical-connection {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.2), rgba(184, 134, 11, 0.2));
+            border-left: 5px solid #DAA520;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 0 15px 15px 0;
+            position: relative;
+        }
+
+        .biblical-connection::before {
+            content: '📖';
+            font-size: 2rem;
+            position: absolute;
+            top: -10px;
+            left: -15px;
+            background: #0a0a0a;
+            padding: 5px;
+            border-radius: 50%;
+        }
+
+        .biblical-connection h4 {
+            color: #DAA520;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Sección de profecías */
+        .prophecy-section {
+            background: radial-gradient(ellipse at center, rgba(139, 0, 0, 0.2) 0%, transparent 70%);
+            padding: 80px 0;
+            margin: 100px 0;
+            border-radius: 30px;
+            position: relative;
+        }
+
+        .prophecy-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .prophecy-card {
+            background: rgba(139, 0, 0, 0.1);
+            border: 2px solid rgba(220, 20, 60, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .prophecy-card:hover {
+            border-color: rgba(220, 20, 60, 0.8);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(220, 20, 60, 0.2);
+        }
+
+        .prophecy-card .verse {
+            font-style: italic;
+            color: #ffcccc;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .prophecy-card .reference {
+            color: #ffd700;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Timeline futurista */
+        .timeline {
+            position: relative;
+            margin: 80px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, #ffd700, #ff6b6b, #ffd700);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffd700;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Llamada a la acción */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 159, 243, 0.1));
+            padding: 80px 40px;
+            text-align: center;
+            border-radius: 30px;
+            margin: 100px 0;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ffd700;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #cccccc;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(255, 69, 0, 0.2), rgba(255, 140, 0, 0.2));
+            border: 2px solid rgba(255, 69, 0, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .warning-box::before {
+            content: '⚠️';
+            font-size: 2rem;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: rgba(255, 69, 0, 0.8);
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .warning-box h4 {
+            color: #ffd700;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 8px 20px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .timeline-content {
+                width: 100%;
+            }
+            
+            .timeline-year {
+                position: relative;
+                left: auto;
+                transform: none;
+                margin: 20px 0;
+            }
+        }
+
+        /* Efectos de scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="particles"></div>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#profecias">Profecías</a></li>
+            <li><a href="#tecnologias">Tecnologías</a></li>
+            <li><a href="#timeline">Cronología</a></li>
+            <li><a href="#advertencia">Advertencia</a></li>
+        </ul>
+    </nav>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>La Marca de la Bestia</h1>
+            <p class="hero-subtitle">Cuando la Profecía Bíblica se Encuentra con la Realidad Tecnológica del 2050</p>
+            
+            <div class="biblical-quote">
+                <p>"Y hacía que a todos, pequeños y grandes, ricos y pobres, libres y esclavos, se les pusiese una <strong>marca en la mano derecha, o en la frente</strong>; y que ninguno pudiese <strong>comprar ni vender</strong>, sino el que tuviese la marca o el nombre de la bestia, o el número de su nombre."</p>
+                <div class="quote-reference">— Apocalipsis 13:16-17</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="profecias" class="section prophecy-section">
+            <h2 class="section-title">Las Profecías se Cumplen</h2>
+            
+            <div class="prophecy-cards">
+                <div class="prophecy-card">
+                    <div class="verse">"Aquí hay sabiduría. El que tiene entendimiento, cuente el número de la bestia, pues es número de hombre, y su número es seiscientos sesenta y seis."</div>
+                    <div class="reference">Apocalipsis 13:18</div>
+                </div>
+                
+                <div class="prophecy-card">
+                    <div class="verse">"Y adoraron al dragón que había dado autoridad a la bestia, y adoraron a la bestia, diciendo: ¿Quién como la bestia, y quién podrá luchar contra ella?"</div>
+                    <div class="reference">Apocalipsis 13:4</div>
+                </div>
+                
+                <div class="prophecy-card">
+                    <div class="verse">"También se le dio boca que hablaba grandes cosas y blasfemias; y se le dio autoridad para actuar cuarenta y dos meses."</div>
+                    <div class="reference">Apocalipsis 13:5</div>
+                </div>
+            </div>
+            
+            <div class="biblical-connection">
+                <h4>🔍 Análisis Profético</h4>
+                <p>Por primera vez en la historia humana, tenemos la capacidad tecnológica real para implementar un sistema global de identificación y control económico como el descrito en Apocalipsis. El documento oficial del Departamento de Defensa de EE.UU. "Cyborg Soldier 2050" revela planes concretos para tecnologías que se alinean sorprendentemente con las descripciones bíblicas de la marca de la bestia.</p>
+            </div>
+        </section>
+
+        <section id="tecnologias" class="section">
+            <h2 class="section-title">Tecnologías del Soldado Cyborg 2050</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #cccccc; margin-bottom: 50px;">
+                Basado en el documento oficial del Departamento de Defensa de EE.UU. (CCDC CBC-TR-1599, Octubre 2019)
+            </p>
+            
+            <div class="tech-grid">
+                <div class="tech-card" onclick="toggleTechDetail('neural-detail')">
+                    <span class="tech-icon">🧠</span>
+                    <h3>Mejora Neural Directa del Cerebro</h3>
+                    <p>Interfaces cerebro-computadora que permiten transferencia bidireccional de datos entre humanos y máquinas.</p>
+                    <div id="neural-detail" class="tech-detail">
+                        <h4>🔗 Conexión Bíblica: "Marca en la Frente"</h4>
+                        <p><strong>Capacidades:</strong> Control mental de drones, comunicación telepática, acceso directo a bases de datos.</p>
+                        <p><strong>Riesgos:</strong> Control mental, vigilancia total, hackeo de pensamientos.</p>
+                        <p><strong>Profecía:</strong> La "marca en la frente" podría ser literalmente un implante neural que controle el pensamiento y la conducta.</p>
+                    </div>
+                </div>
+
+                <div class="tech-card" onclick="toggleTechDetail('ocular-detail')">
+                    <span class="tech-icon">👁️</span>
+                    <h3>Mejoras Oculares Avanzadas</h3>
+                    <p>Reemplazo completo del ojo con sistemas artificiales que ven más allá del espectro humano.</p>
+                    <div id="ocular-detail" class="tech-detail">
+                        <h4>🔗 Identificación y Vigilancia Total</h4>
+                        <p><strong>Capacidades:</strong> Visión infrarroja, rayos X, reconocimiento facial instantáneo, grabación perpetua.</p>
+                        <p><strong>Aplicación:</strong> Identificación automática de individuos "marcados" vs "no marcados".</p>
+                        <p><strong>Control:</strong> Sistema perfecto para separar quién puede "comprar y vender".</p>
+                    </div>
+                </div>
+
+                <div class="tech-card" onclick="toggleTechDetail('muscular-detail')">
+                    <span class="tech-icon">💪</span>
+                    <h3>Control Muscular Optogenético</h3>
+                    <p>Red de sensores subcutáneos que controlan el movimiento muscular mediante luz programada.</p>
+                    <div id="muscular-detail" class="tech-detail">
+                        <h4>🔗 Conexión Bíblica: "Marca en la Mano"</h4>
+                        <p><strong>Tecnología:</strong> Hilos ópticos implantados bajo la piel que controlan músculos específicos.</p>
+                        <p><strong>Control Total:</strong> Movimientos corporales programables desde autoridades centrales.</p>
+                        <p><strong>Profecía:</strong> La "marca en la mano derecha" podría controlar las acciones físicas.</p>
+                    </div>
+                </div>
+
+                <div class="tech-card" onclick="toggleTechDetail('auditory-detail')">
+                    <span class="tech-icon">👂</span>
+                    <h3>Mejoras Auditivas Implantadas</h3>
+                    <p>Reemplazo del oído medio y cóclea para comunicación directa e indetectable.</p>
+                    <div id="auditory-detail" class="tech-detail">
+                        <h4>🔗 Sistema de Comando y Control</h4>
+                        <p><strong>Comunicación Silenciosa:</strong> Recepción directa de órdenes gubernamentales.</p>
+                        <p><strong>Vigilancia:</strong> Grabación automática de todas las conversaciones.</p>
+                        <p><strong>Control Social:</strong> Imposición de narrativas oficiales directamente al cerebro.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h4>Advertencia Profética</h4>
+                <p>El documento oficial del DOD confirma que estas tecnologías <strong>estarán disponibles antes del 2050</strong>. Por primera vez en la historia, tenemos la capacidad técnica exacta para implementar el sistema de control descrito en Apocalipsis 13. La convergencia no es coincidencia.</p>
+            </div>
+        </section>
+
+        <section id="timeline" class="section">
+            <h2 class="section-title">Cronología Hacia el Control Total</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>🏥 Fase Médica</h3>
+                        <p>Introducción como "tratamientos médicos" para veteranos heridos y pacientes con discapacidades. Aceptación social gradual.</p>
+                    </div>
+                    <div class="timeline-year">2025-2030</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>🎯 Adopción Militar</h3>
+                        <p>Implementación en Fuerzas Especiales. Creación de "supersoldados" con ventajas significativas sobre humanos no aumentados.</p>
+                    </div>
+                    <div class="timeline-year">2030-2040</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>🌍 Expansión Civil</h3>
+                        <p>Oferta comercial para ventajas laborales y sociales. Presión social para adoptar las tecnologías para "no quedarse atrás".</p>
+                    </div>
+                    <div class="timeline-year">2040-2045</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>⚡ Sistema Obligatorio</h3>
+                        <p><strong>"Y que ninguno pudiese comprar ni vender, sino el que tuviese la marca"</strong> - Implementación del sistema económico basado en mejoras.</p>
+                    </div>
+                    <div class="timeline-year">2045-2050</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">La Gran Deception</h2>
+            
+            <div class="biblical-connection">
+                <h4>📊 Datos Oficiales del Departamento de Defensa</h4>
+                <p><strong>Documento:</strong> CCDC CBC-TR-1599 "Cyborg Soldier 2050"</p>
+                <p><strong>Fecha:</strong> Octubre 2019</p>
+                <p><strong>Autores:</strong> 6 científicos de instituciones gubernamentales de EE.UU.</p>
+                <p><strong>Clasificación:</strong> Aprobado para liberación pública</p>
+                <p><strong>Objetivo:</strong> "Determinar el potencial de máquinas físicamente integradas en el cuerpo humano para aumentar el rendimiento humano en los próximos 30 años."</p>
+            </div>
+
+            <div class="prophecy-cards">
+                <div class="prophecy-card">
+                    <div class="verse">"Vendrán a ti con halagos y te dirán: 'Esto mejorará tu vida', pero es trampa para tu alma."</div>
+                    <div class="reference">Paráfrasis de Daniel 11:32</div>
+                </div>
+                
+                <div class="prophecy-card">
+                    <div class="verse">"Y engaña a los moradores de la tierra con las señales que se le ha permitido hacer"</div>
+                    <div class="reference">Apocalipsis 13:14</div>
+                </div>
+                
+                <div class="prophecy-card">
+                    <div class="verse">"Y se le permitió infundir aliento a la imagen de la bestia, para que la imagen hablase e hiciese matar a todo el que no la adorase."</div>
+                    <div class="reference">Apocalipsis 13:15</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="advertencia" class="cta-section">
+            <h2>⚠️ Llamado Urgente al Despertar</h2>
+            <p>La tecnología que permitirá el sistema de la marca de la bestia no es futurista - <strong>está siendo desarrollada AHORA</strong> por el gobierno de Estados Unidos y será realidad antes del 2050.</p>
+            
+            <div class="biblical-quote">
+                <p>"Por tanto, velad, porque no sabéis cuándo vendrá el señor de la casa; si al anochecer, o a la medianoche, o al canto del gallo, o a la mañana; para que cuando venga de repente, no os halle durmiendo."</p>
+                <div class="quote-reference">— Marcos 13:35-36</div>
+            </div>
+
+            <div class="warning-box">
+                <h4>🚨 ¿Qué Puedes Hacer Ahora?</h4>
+                <p><strong>1. Fortalece tu fe:</strong> Estudia las profecías bíblicas sobre los tiempos finales</p>
+                <p><strong>2. Mantente informado:</strong> Observa el desarrollo de estas tecnologías</p>
+                <p><strong>3. Rechaza la marca:</strong> Prepárate espiritualmente para resistir el sistema mundial</p>
+                <p><strong>4. Comparte este conocimiento:</strong> Advierte a otros sobre lo que viene</p>
+                <p><strong>5. Busca a Dios:</strong> Solo en Cristo hay salvación y protección</p>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Crear partículas flotantes
+        function createParticles() {
+            const particles = document.querySelector('.particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particles.appendChild(particle);
+            }
+        }
+
+        // Toggle para detalles de tecnología
+        function toggleTechDetail(detailId) {
+            const detail = document.getElementById(detailId);
+            const allDetails = document.querySelectorAll('.tech-detail');
+            
+            // Cerrar otros detalles
+            allDetails.forEach(d => {
+                if (d.id !== detailId) {
+                    d.classList.remove('active');
+                }
+            });
+            
+            // Toggle el actual
+            detail.classList.toggle('active');
+        }
+
+        // Animaciones de scroll
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Smooth scrolling para navegación
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            
+            // Agregar clase reveal a elementos para animación
+            document.querySelectorAll('.section, .tech-card, .prophecy-card').forEach(el => {
+                el.classList.add('reveal');
+            });
+            
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Ejecutar una vez al cargar
+        });
+
+        // Efecto parallax suave en el hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            hero.style.transform = `translateY(${rate}px)`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enlaces y Recursos Bíblicos | Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a266b; /* Violeta profundo - Color principal */
+            --secondary-color: #9b6dc6; /* Lavanda - Color secundario */
+            --accent-color: #d4af37; /* Oro antiguo - Color de acento */
+            --hebrew-color: #cd7f32; /* Bronce - Para elementos hebreos */
+            --aramaic-color: #50c878; /* Esmeralda - Para elementos arameos */
+            --greek-color: #4169e1; /* Azul real - Para elementos griegos */
+            --light-color: #f9f7fd;
+            --dark-color: #31204f;
+            --gradient-bg: linear-gradient(135deg, rgba(74, 38, 107, 0.9) 0%, rgba(155, 109, 198, 0.8) 100%);
+            --gradient-accent: linear-gradient(135deg, rgba(212, 175, 55, 0.9) 0%, rgba(205, 127, 50, 0.8) 100%);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.06);
+            --card-hover: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.1);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: var(--gradient-bg);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo img {
+            height: 60px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: var(--transition);
+            display: block;
+            padding: 0.5rem;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Dropdown Styles */
+        .menu-item-has-children {
+            position: relative;
+        }
+        
+        .menu-item-has-children > a {
+            display: flex;
+            align-items: center;
+        }
+        
+        .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: 8px;
+            padding: 0.8rem 0;
+            display: none;
+            z-index: 100;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .sub-menu li {
+            width: 100%;
+        }
+        
+        .sub-menu a {
+            padding: 0.7rem 1.2rem;
+            font-size: 0.9rem;
+            width: 100%;
+            color: var(--dark-color);
+        }
+        
+        .sub-menu a:hover {
+            background-color: rgba(123, 34, 64, 0.05);
+            color: var(--primary-color);
+        }
+        
+        .sub-menu a::after {
+            display: none;
+        }
+        
+        .menu-item-has-children:hover .sub-menu {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Estilos específicos para la página de recursos */
+        
+        .page-hero {
+            position: relative;
+            background-image: url('./images/image.png');
+            background-size: cover;
+            background-position: center;
+            padding: 6rem 0;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .page-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+        }
+        
+        .page-hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Estilos para la cita bíblica en el hero */
+        .bible-quote-banner {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem 2rem;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .bible-quote-banner p {
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            color: white;
+            line-height: 1.7;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .quote-reference {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--hebrew-color);
+            display: block;
+            text-align: right;
+            margin-top: 0.5rem;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .quote-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--hebrew-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .quote-icon i {
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .bible-quote-banner p {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .bible-quote-banner {
+                padding: 1.2rem;
+            }
+            
+            .bible-quote-banner p {
+                font-size: 1rem;
+            }
+        }
+        
+        .main-content {
+            padding: 5rem 0;
+        }
+        
+        /* Estilos para la sección de mensaje profético */
+        .prophetic-message-section {
+            margin-bottom: 4rem;
+        }
+        
+        .prophetic-message-container {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95) 0%, rgba(142, 68, 173, 0.9) 100%), url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            color: white;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .prophetic-message-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/api/placeholder/100/100');
+            background-repeat: repeat;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .prophetic-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .prophetic-header i {
+            font-size: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-right: 1.5rem;
+            text-shadow: 0 0 15px rgba(255, 165, 0, 0.7);
+        }
+        
+        .prophetic-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .prophetic-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .prophetic-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            padding-left: 2rem;
+            border-left: 3px solid rgba(255, 255, 255, 0.4);
+            font-style: italic;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .scripture-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        
+        .scripture-icon {
+            font-size: 2.5rem;
+            color: var(--hebrew-color);
+            min-width: 60px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .scripture-content {
+            flex: 1;
+        }
+        
+        .scripture-text {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .scripture-reference {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--hebrew-color);
+            text-align: right;
+        }
+        
+        /* Estilos para sección Telegram */
+        .telegram-collections {
+            margin-bottom: 4rem;
+        }
+
+        .telegram-section {
+            margin-bottom: 3rem;
+        }
+
+        .telegram-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(44, 62, 80, 0.1);
+        }
+
+        .telegram-header i {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-right: 1rem;
+        }
+
+        .telegram-header h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .telegram-cards-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .telegram-card {
+            background-color: white;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            border-top: 5px solid var(--accent-color);
+        }
+
+        .telegram-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-hover);
+        }
+
+        .telegram-card.hebrew {
+            border-top-color: var(--hebrew-color);
+        }
+
+        .telegram-card.greek {
+            border-top-color: var(--greek-color);
+        }
+
+        .telegram-card.aramaic {
+            border-top-color: var(--aramaic-color);
+        }
+
+        .telegram-card-content {
+            padding: 1.8rem;
+        }
+
+        .telegram-card-content h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .telegram-card-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            min-height: 70px;
+        }
+
+        .telegram-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .telegram-meta span {
+            display: flex;
+            align-items: center;
+        }
+
+        .telegram-meta i {
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+            opacity: 0.7;
+        }
+
+        .telegram-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .telegram-explore {
+            background: var(--gradient-bg);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            margin-bottom: 5rem;
+            color: white;
+        }
+
+        .telegram-explore-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .telegram-explore-text {
+            flex: 1.5;
+        }
+
+        .telegram-explore-text h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .telegram-explore-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .telegram-explore-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .explore-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1.2rem;
+            border-radius: 50px;
+        }
+
+        .explore-feature i {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        .telegram-explore-image {
+            flex: 1;
+        }
+
+        .telegram-collage {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 1rem;
+            height: 300px;
+        }
+
+        .telegram-collage-item {
+            background-size: cover;
+            background-position: center;
+            border-radius: var(--radius-sm);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .telegram-collage-item:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Estilos para la sección de Palabra de Dios */
+        .word-of-god-section {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.9) 0%, rgba(26, 188, 156, 0.8) 100%), url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 0;
+            color: white;
+            border-radius: var(--radius-lg);
+            margin-bottom: 5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .word-of-god-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/api/placeholder/100/100');
+            background-repeat: repeat;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .scripture-gallery {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            padding: 0 2rem;
+        }
+        
+        .scripture-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            justify-content: center;
+        }
+        
+        .scripture-header i {
+            font-size: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-right: 1.5rem;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        
+        .scripture-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .scripture-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .scripture-card {
+            height: 100%;
+            perspective: 1000px;
+        }
+        
+        .scripture-card-inner {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.6s;
+        }
+        
+        .scripture-card:hover .scripture-card-inner {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .scripture-quotation {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .scripture-quotation i {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.5rem;
+            opacity: 0.7;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .scripture-quotation p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .scripture-ref {
+            text-align: right;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--hebrew-color);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .scripture-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .scripture-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .scripture-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-col a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-col a:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Fondo decorativo con patrón */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(123, 34, 64, 0.1) 20%, transparent 20%);
+            background-size: 20px 20px;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        /* Estilos de Scrollbar personalizado */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--primary-color);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #8f2a4c;
+        }
+        
+        /* Estilos responsivos */
+        @media (max-width: 992px) {
+            .telegram-explore-content {
+                flex-direction: column;
+            }
+            
+            .telegram-collage {
+                width: 100%;
+                height: 250px;
+            }
+            
+            .prophetic-message-container {
+                padding: 2rem;
+            }
+            
+            .prophetic-header h2 {
+                font-size: 1.6rem;
+            }
+            
+            .prophetic-text {
+                font-size: 1.1rem;
+                padding-left: 1.5rem;
+            }
+            
+            .scripture-box {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+            
+            .scripture-icon {
+                margin-bottom: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 280px;
+                height: 100vh;
+                background-color: var(--dark-color);
+                z-index: 1000;
+                transition: right 0.3s ease;
+                padding: 2rem;
+                overflow-y: auto;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            nav li {
+                width: 100%;
+            }
+            
+            nav a {
+                padding: 1rem 0;
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .menu-item-has-children > a {
+                justify-content: space-between;
+            }
+            
+            .menu-item-has-children > a::after {
+                display: block;
+                content: '+';
+                transition: var(--transition);
+            }
+            
+            .menu-item-has-children.active > a::after {
+                transform: rotate(45deg);
+            }
+            
+            .sub-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.2);
+                border-radius: 0;
+                padding-left: 1rem;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                transform: none;
+                opacity: 1;
+            }
+            
+            .menu-item-has-children.active > .sub-menu {
+                max-height: 500px;
+            }
+            
+            .menu-item-has-children:hover .sub-menu {
+                display: none;
+                transform: none;
+            }
+            
+            .menu-item-has-children.active .sub-menu {
+                display: block;
+            }
+            
+            .sub-menu a {
+                color: #ddd;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .page-hero p {
+                font-size: 1rem;
+            }
+            
+            .subscription-form {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .subscription-form input,
+            .subscription-form button {
+                width: 100%;
+                border-radius: 50px;
+            }
+            
+            .telegram-explore {
+                padding: 2rem;
+            }
+            
+            .telegram-explore-text h3 {
+                font-size: 1.6rem;
+            }
+            
+            .telegram-meta {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .telegram-cards-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .telegram-explore-features {
+                gap: 1rem;
+            }
+            
+            .explore-feature {
+                width: 100%;
+            }
+            
+            .telegram-collage {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 1fr);
+            }
+        }
+        
+        /* Animaciones de entrada para elementos */
+        .animate-fade-up {
+            animation: fadeUp 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Delay en las animaciones */
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Estilo para modal de recursos */
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        
+        .modal-backdrop.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: var(--radius-md);
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.4s, opacity 0.4s;
+        }
+        
+        .modal-backdrop.active .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .modal-header {
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #9a2d51 100%);
+            color: white;
+            position: relative;
+        }
+        
+        .modal-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .modal-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .modal-footer {
+            padding: 1.5rem 2rem;
+            background-color: #f9f9f9;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="../../../images/EMD.png" alt="Logo EMD">
+                <div class="logo-text">
+                    <div>Ministerio</div>
+                    <div>"La Gloria es del Señor"</div>
+                </div>
+            </div>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../../../index.html">Inicio</a></li>
+                    <li class="menu-item-has-children">
+                        <a>Figuras Bíblicas</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Figuras Bíblicas/at-a-nt.html">AT a NT</a></li>
+                            <li><a href="../Figuras Bíblicas/nombres-simbologia.html">Los nombres y su simbología</a></li>
+                            <li><a href="../Figuras Bíblicas/templo-figuras.html">Templo y sus Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/sacrificios-figuras.html">Sacrificios y su Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/tipologia-cantares.html">Tipología Cantares</a></li>
+                            <li><a href="../Figuras Bíblicas/figuras-cristo.html">Figuras de Cristo</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Falsas Doctrinas</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                            <li><a href="../Falsas Doctrinas/gnosticismos.html">Gnosticismos en la Biblia</a></li>
+                            <li><a href="../Falsas Doctrinas/filosofias-griegas.html">Filosofías Griegas</a></li>
+                            <li><a href="../Falsas Doctrinas/masoneria.html">Masonería</a></li>
+                            <li><a href="../Falsas Doctrinas/sociedades-secretas.html">Sociedades Secretas</a></li>
+                            <li><a href="../Falsas Doctrinas/sectas-anticristianas.html">Sectas Anticristianas</a></li>
+                            <li><a href="../Falsas Doctrinas/pseudoprofetas.html">Pseudoprofetas</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Estudios Exegéticos</a>
+                        <ul class="sub-menu">
+                            <li><a href="temas-exegeticos.html">Temas Exegéticos</a></li>
+                            <li><a href="idiomas-biblia.html">Hebreo, Arameo y Griego en la Biblia</a></li>
+                            <li><a href="enlaces-recursos.html">Enlaces de Recursos</a></li>
+                            <li><a href="diccionarios-comentarios.html">Diccionarios y Comentarios</a></li>
+                            <li><a href="software-biblico.html">Software Bíblicos</a></li>
+                            <li><a href="meditacion-palabra.html">Meditación en la Palabra</a></li>
+                            <li><a href="lectura-anual.html">Lectura Anual</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Tiempo del Fin</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Tiempo del Fin/introduccion.html">Introducción al tiempo del fin</a></li>
+                            <li><a href="../Tiempo del Fin/escatologia.html">Escatología</a></li>
+                            <li><a href="../Tiempo del Fin/profecias-cumplidas.html">Profecías Cumplidas</a></li>
+                            <li><a href="../Tiempo del Fin/nuevo-orden-mundial.html">Nuevo Orden Mundial</a></li>
+                            <li><a href="../Tiempo del Fin/noticias-fin.html">Noticias del Fin</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Época de Jesús</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Época de Jesús/estudio-contemporaneo.html">Estudio Contemporáneo</a></li>
+                            <li><a href="../Época de Jesús/contexto-historico.html">Contexto Histórico</a></li>
+                            <li><a href="../Época de Jesús/grupos-religiosos.html">Grupos religiosos</a></li>
+                            <li><a href="../Época de Jesús/recursos-academicos.html">Estudios de Contexto</a></li>
+                            <li><a href="../Época de Jesús/apologia-cristiana.html">Apología Cristiana</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Estudios Bíblicos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Bíblicos/doctrina-basica.html">Doctrina Básica</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-intermedia.html">Doctrina intermedia</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-avanzada.html">Doctrina Avanzada</a></li>
+                            <li><a href="../Estudios Bíblicos/revelacion-espiritu.html">Revelación del Espíritu</a></li>
+                            <li><a href="../Estudios Bíblicos/devocionales.html">Devocionales</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1 class="animate-fade-up">Enlaces y Recursos Bíblicos</h1>
+            <p class="animate-fade-up delay-1">Descubre una amplia biblioteca de recursos y herramientas para profundizar en el estudio de la Palabra de Dios.</p>
+            <div class="bible-quote-banner animate-fade-up delay-2">
+                <div class="quote-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"Escudriñad las Escrituras; porque a vosotros os parece que en ellas tenéis la vida eterna; y ellas son las que dan testimonio de mí."</p>
+                <span class="quote-reference">Juan 5:39</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-content">
+        <div class="container">
+            <!-- MENSAJE PROFÉTICO -->
+            <div class="prophetic-message-section animate-fade-up">
+                <div class="prophetic-message-container">
+                    <div class="prophetic-header">
+                        <i class="fas fa-fire"></i>
+                        <h2>Mensaje Profético para el Tiempo Presente</h2>
+                    </div>
+                    <div class="prophetic-content">
+                        <p class="prophetic-text">"En este tiempo de confusión y tinieblas, Mi Palabra permanece como luz inmutable. Estoy levantando una generación de estudiosos que escudriñarán las Escrituras con diligencia y discernimiento, revelando verdades ocultas desde la fundación del mundo. Abriré tesoros de conocimiento para quienes buscan con corazón sincero. Lo que otros han pervertido, Yo lo restauraré a su pureza original. No os conforméis con conocimientos superficiales, sino profundizad en Mi Palabra como quien busca tesoros preciosos."</p>
+                        
+                        <div class="scripture-box">
+                            <div class="scripture-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="scripture-content">
+                                <p class="scripture-text">“Fueron halladas tus palabras, y yo las comí; y tu palabra me fue por gozo y por alegría de mi corazón…”</p>
+                                <p class="scripture-reference">Jeremías 15:16</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INICIO DE LA SECCIÓN DE COLECCIONES DE TELEGRAM -->
+            <div class="telegram-collections">
+                <div class="section-header">
+                    <h2>Colecciones de Telegram</h2>
+                    <p>Accede a miles de recursos bíblicos, libros, comentarios y materiales de estudio a través de estos canales y grupos de Telegram</p>
+                </div>
+                
+                <div class="telegram-explore">
+                    <div class="telegram-explore-content">
+                        <div class="telegram-explore-text">
+                            <h3>Descubre una biblioteca virtual infinita</h3>
+                            <p>Estos canales y grupos de Telegram ofrecen acceso a colecciones completas de recursos cristianos organizados por categorías, completamente gratuitos y accesibles desde cualquier dispositivo.</p>
+                            <p>Únete a comunidades de estudiosos de la Palabra y obtén miles de libros, comentarios bíblicos, concordancias, diccionarios y materiales de estudio que enriquecerán tu comprensión de las Escrituras.</p>
+                            
+                            <div class="telegram-explore-features">
+                                <div class="explore-feature">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span>E-books y PDF</span>
+                                </div>
+                                <div class="explore-feature">
+                                    <i class="fas fa-book-open"></i>
+                                    <span>Comentarios bíblicos</span>
+                                </div>
+                                <div class="explore-feature">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Cursos teológicos</span>
+                                </div>
+                                <div class="explore-feature">
+                                    <i class="fas fa-language"></i>
+                                    <span>Recursos en idiomas originales</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="telegram-explore-image">
+                            <div class="telegram-collage">
+                                <div class="telegram-collage-item" style="background-image: url('/api/placeholder/300/300')"></div>
+                                <div class="telegram-collage-item" style="background-image: url('/api/placeholder/300/300')"></div>
+                                <div class="telegram-collage-item" style="background-image: url('/api/placeholder/300/300')"></div>
+                                <div class="telegram-collage-item" style="background-image: url('/api/placeholder/300/300')"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="telegram-biblias" class="telegram-section">
+                    <div class="telegram-header">
+                        <i class="fas fa-book-bible"></i>
+                        <h3>Biblias y Textos Originales</h3>
+                    </div>
+                    <div class="telegram-cards-wrapper">
+                        <div class="telegram-card hebrew">
+                            <div class="telegram-card-content">
+                                <h4>Biblias Digital</h4>
+                                <p>Colección completa de Biblias en diferentes versiones, traducciones y formatos digitales. Incluye versiones de estudio, interlineales y en idiomas originales.</p>
+                                <div class="telegram-meta">
+                                    <span><i class="fas fa-users"></i> +5.2K miembros</span>
+                                    <span><i class="fas fa-file-alt"></i> +300 archivos</span>
+                                </div>
+                                <a href="https://t.me/BibliasDigital" target="_blank" class="btn btn-primary telegram-btn">
+                                    <i class="fab fa-telegram-plane"></i>
+                                    Unirse a Biblias Digital
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="telegram-card aramaic">
+                            <div class="telegram-card-content">
+                                <h4>Isaías 59:59</h4>
+                                <p>Recursos centrados en el estudio profundo de textos bíblicos, con énfasis en los idiomas originales y análisis exegético del Antiguo y Nuevo Testamento.</p>
+                                <div class="telegram-meta">
+                                    <span><i class="fas fa-users"></i> +3.8K miembros</span>
+                                    <span><i class="fas fa-file-alt"></i> +250 archivos</span>
+                                </div>
+                                <a href="https://t.me/isaias015959" target="_blank" class="btn btn-primary telegram-btn">
+                                    <i class="fab fa-telegram-plane"></i>
+                                    Unirse a Isaías 59:59
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="telegram-card greek">
+                            <div class="telegram-card-content">
+                                <h4>Libros y Biblias</h4>
+                                <p>Amplia colección de biblias de estudio, concordancias, léxicos y herramientas para el estudio de las Escrituras en sus idiomas originales.</p>
+                                <div class="telegram-meta">
+                                    <span><i class="fas fa-users"></i> +7.5K miembros</span>
+                                    <span><i class="fas fa-file-alt"></i> +450 archivos</span>
+                                </div>
+                                <a href="https://t.me/librosybiblias" target="_blank" class="btn btn-primary telegram-btn">
+                                    <i class="fab fa-telegram-plane"></i>
+                                    Unirse a Libros y Biblias
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="telegram-libros" class="telegram-section">
+                    <div class="telegram-header">
+                        <i class="fas fa-book"></i>
+                        <h3>Libros y Comentarios Teológicos</h3>
+                    </div>
+                    <div class="telegram-cards-wrapper">
+                        <div class="telegram-card">
+                            <div class="telegram-card-content">
+                                <h4>Libros de la Sana Doctrina</h4>
+                                <p>Extensa biblioteca digital con literatura teológica clásica y contemporánea. Comentarios bíblicos, teología sistemática y apologética cristiana.</p>
+                                <div class="telegram-meta">
+                                    <span><i class="fas fa-users"></i> +10K miembros</span>
+                                    <span><i class="fas fa-file-alt"></i> +1200 archivos</span>
+                                </div>
+                                <a href="https://t.me/librosdelasanadoctrina" target="_blank" class="btn btn-primary telegram-btn">
+                                    <i class="fab fa-telegram-plane"></i>
+                                    Unirse a Libros de la Sana Doctrina
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="telegram-card">
+                            <div class="telegram-card-content">
+                                <h4>Libros Cristianos PDF</h4>
+                                <p>Repositorio de miles de libros cristianos en formato PDF, organizados por autores, temas y épocas. Recursos de los mejores teólogos y maestros.</p>
+                                <div class="telegram-meta">
+                                    <span><i class="fas fa-users"></i> +12K miembros</span>
+                                    <span><i class="fas fa-file-alt"></i> +2000 archivos</span>
+                                </div>
+                                <a href="https://t.me/Libroscristianopdf" target="_blank" class="btn btn-primary telegram-btn">
+                                    <i class="fab fa-telegram-plane"></i>
+                                    Unirse a Libros Cristianos PDF
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="telegram-card">
+                            <div class="telegram-card-content">
+                                <h4>Iglesia Orgánica</h4>
+                                <p>Recursos orientados al estudio eclesiológico y la iglesia primitiva. Libros sobre discipulado, ministerio y la vida de la iglesia según el Nuevo Testamento.</p>
+                                <div class="telegram-meta">
+                                    <span><i class="fas fa-users"></i> +6.2K miembros</span>
+                                    <span><i class="fas fa-file-alt"></i> +500 archivos</span>
+                                </div>
+                                <a href="https://t.me/iglesiaorganica" target="_blank" class="btn btn-primary telegram-btn">
+                                    <i class="fab fa-telegram-plane"></i>
+                                    Unirse a Iglesia Orgánica
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="telegram-comunidades" class="telegram-section">
+                    <div class="telegram-header">
+                        <i class="fas fa-users"></i>
+                        <h3>Comunidades de Estudio</h3>
+                    </div>
+                    <div class="telegram-cards-wrapper">
+                        <div class="telegram-card">
+                            <div class="telegram-card-content">
+                                <h4>Cristianos Evangélicos Oficial</h4>
+                                <p>Comunidad activa dedicada al intercambio de recursos, discusiones teológicas y materiales de estudio bíblico. Grupo ideal para resolver dudas y compartir conocimiento.</p>
+                                <div class="telegram-meta">
+                                    <span><i class="fas fa-users"></i> +15K miembros</span>
+                                    <span><i class="fas fa-comments"></i> Comunidad activa</span>
+                                </div>
+                                <a href="https://t.me/CRISTIANOSEVANGELICOSOFICIAL" target="_blank" class="btn btn-primary telegram-btn">
+                                    <i class="fab fa-telegram-plane"></i>
+                                    Unirse a Cristianos Evangélicos
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="telegram-card">
+                            <div class="telegram-card-content">
+                                <h4>Estudiantes de la Palabra</h4>
+                                <p>Grupo enfocado en el estudio exegético y hermenéutico de las Escrituras. Ideal para quienes desean profundizar en el análisis de textos bíblicos con rigor académico.</p>
+                                <div class="telegram-meta">
+                                    <span><i class="fas fa-graduation-cap"></i> Nivel avanzado</span>
+                                    <span><i class="fas fa-language"></i> Estudio de originales</span>
+                                </div>
+                                <a href="#" target="_blank" class="btn btn-secondary telegram-btn">
+                                    <i class="fas fa-info-circle"></i>
+                                    Próximamente
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="telegram-card">
+                            <div class="telegram-card-content">
+                                <h4>Recursos Ministeriales</h4>
+                                <p>Canal con materiales específicos para líderes y ministros cristianos. Recursos homiléticos, estudios bíblicos preparados y herramientas para la enseñanza.</p>
+                                <div class="telegram-meta">
+                                    <span><i class="fas fa-book-reader"></i> Recursos ministeriales</span>
+                                    <span><i class="fas fa-user-tie"></i> Para líderes</span>
+                                </div>
+                                <a href="#" target="_blank" class="btn btn-secondary telegram-btn">
+                                    <i class="fas fa-info-circle"></i>
+                                    Próximamente
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+    </section>
+
+    <div class="modal-backdrop" id="resourceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Título del Recurso</h2>
+                <span class="resource-type">Tipo de Recurso</span>
+                <button class="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Descripción</h3>
+                    <p class="resource-full-description">Descripción completa del recurso...</p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Características</h3>
+                    <ul class="resource-features">
+                        <li>Característica 1</li>
+                        <li>Característica 2</li>
+                        <li>Característica 3</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Información Técnica</h3>
+                    <div class="resource-meta">
+                        <div class="resource-meta-item">
+                            <i class="fas fa-language"></i>
+                            <span>Idioma: <strong>Español</strong></span>
+                        </div>
+                        <div class="resource-meta-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Nivel: <strong>Intermedio</strong></span>
+                        </div>
+                        <div class="resource-meta-item">
+                            <i class="fas fa-file"></i>
+                            <span>Formato: <strong>PDF</strong></span>
+                        </div>
+                        <div class="resource-meta-item">
+                            <i class="fas fa-download"></i>
+                            <span>Tamaño: <strong>15MB</strong></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Recursos Relacionados</h3>
+                    <div class="related-resources">
+                        <a href="#" class="related-resource">Recurso relacionado 1</a>
+                        <a href="#" class="related-resource">Recurso relacionado 2</a>
+                        <a href="#" class="related-resource">Recurso relacionado 3</a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-secondary">Ir al Sitio Oficial</a>
+                <a href="#" class="btn btn-primary">Descargar Recurso</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Ministerio EMD</h4>
+                    <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
+                    <div class="social-links">
+                         <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                         <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="../Figuras Bíblicas/at-a-nt.html">Figuras Bíblicas</a></li>
+                        <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                        <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Estudios Exegéticos</a></li>
+                        <li><a href="../Tiempo del Fin/introduccion.html">Tiempo del Fin</a></li>
+                        <li><a href="../Época de Jesús/estudio-contemporaneo.html">Época de Jesús</a></li>
+                        <li><a href="../Estudios Bíblicos/doctrina-basica.html">Estudios Bíblicos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio</li>
+                        <li><i class="fas fa-phone"></i> +1 787-345-6940</li>
+                        <li><i class="fas fa-envelope"></i>ministeriolagloriaesdelsenor7@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Nota Aclaratoria</h4>
+                    <ul>
+                        <li>Todos los recursos de esta página son gratuitos y para la edificación de los creyentes</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+        
+        // Manejo de menús desplegables en móvil
+        document.querySelectorAll('.menu-item-has-children > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                // Solo en modo móvil
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.parentNode.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Cierra el menú al hacer clic en un enlace de submenu
+        document.querySelectorAll('.sub-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('nav').classList.remove('active');
+            });
+        });
+        
+        // Cierra el menú al hacer clic fuera de él
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navToggle = document.querySelector('.nav-toggle');
+            
+            if (!nav.contains(event.target) && event.target !== navToggle) {
+                nav.classList.remove('active');
+            }
+        });
+        
+        // Búsqueda de recursos
+        const searchInput = document.getElementById('resourceSearch');
+        searchInput.addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                searchResources(this.value);
+            }
+        });
+        
+        function searchResources(query) {
+            console.log('Buscando:', query);
+            // Aquí iría la lógica real para buscar recursos según la consulta
+            
+            // Buscar dentro de las tarjetas de telegram
+            const telegramCards = document.querySelectorAll('.telegram-card');
+            let found = false;
+            
+            telegramCards.forEach(card => {
+                const title = card.querySelector('h4').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(query.toLowerCase()) || description.includes(query.toLowerCase())) {
+                    card.style.display = 'block';
+                    found = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Mostrar un mensaje si no se encontraron resultados
+            const noResultsMsg = document.getElementById('no-results-message');
+            if (!found && !noResultsMsg) {
+                const telegramSection = document.querySelector('.telegram-collections');
+                const message = document.createElement('p');
+                message.id = 'no-results-message';
+                message.textContent = 'No se encontraron recursos que coincidan con tu búsqueda.';
+                message.style.textAlign = 'center';
+                message.style.padding = '2rem';
+                message.style.color = '#666';
+                telegramSection.appendChild(message);
+            } else if (found && noResultsMsg) {
+                noResultsMsg.remove();
+            }
+        }
+        
+        // Manejo de ventana modal
+        const modal = document.getElementById('resourceModal');
+        const modalClose = modal.querySelector('.modal-close');
+        
+        // Abrir modal al hacer clic en "Ver recurso"
+        document.querySelectorAll('.view-resource').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const resourceId = this.getAttribute('data-id');
+                showResourceDetails(resourceId);
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Evitar scroll en el body
+            });
+        });
+        
+        // Cerrar modal
+        modalClose.addEventListener('click', function() {
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Restaurar scroll
+        });
+        
+        // Cerrar modal haciendo clic fuera del contenido
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Restaurar scroll
+            }
+        });
+        
+        // Función para mostrar detalles del recurso en el modal
+        function showResourceDetails(id) {
+            console.log('Mostrando detalles del recurso ID:', id);
+            // En una implementación real, aquí cargaríamos los datos del recurso
+            // y actualizaríamos el contenido del modal
+            
+            // Simulación de datos (ejemplo)
+            const resourceData = {
+                title: "Recurso Ejemplo #" + id,
+                type: "Tipo de Recurso",
+                description: "Esta es una descripción detallada del recurso seleccionado. Aquí encontrarás información sobre su contenido, autor, año de publicación y otras características relevantes para ayudarte a decidir si es adecuado para tus necesidades de estudio bíblico. Los recursos han sido cuidadosamente seleccionados para ofrecer la mejor calidad y rigor teológico.",
+                features: [
+                    "Acceso completo a todas las herramientas de estudio",
+                    "Actualizaciones gratuitas de por vida",
+                    "Compatible con dispositivos móviles y de escritorio",
+                    "Interfaz intuitiva y fácil de usar"
+                ],
+                technical: {
+                    language: "Español",
+                    level: "Intermedio",
+                    format: "PDF/Software",
+                    size: "15MB"
+                },
+                related: [
+                    "Concordancia Strong",
+                    "Diccionario Bíblico Ilustrado",
+                    "Curso de Hermenéutica Bíblica"
+                ]
+            };
+            
+            // Actualizar el contenido del modal con los datos del recurso
+            const modalHeader = modal.querySelector('.modal-header');
+            const modalBody = modal.querySelector('.modal-body');
+            
+            // Actualizar encabezado
+            modalHeader.querySelector('h2').textContent = resourceData.title;
+            modalHeader.querySelector('.resource-type').textContent = resourceData.type;
+            
+            // Actualizar descripción
+            modalBody.querySelector('.resource-full-description').textContent = resourceData.description;
+            
+            // Actualizar características
+            const featuresList = modalBody.querySelector('.resource-features');
+            featuresList.innerHTML = '';
+            resourceData.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                featuresList.appendChild(li);
+            });
+            
+            // Actualizar información técnica
+            const techInfo = modalBody.querySelectorAll('.resource-meta-item strong');
+            techInfo[0].textContent = resourceData.technical.language;
+            techInfo[1].textContent = resourceData.technical.level;
+            techInfo[2].textContent = resourceData.technical.format;
+            techInfo[3].textContent = resourceData.technical.size;
+            
+            // Actualizar recursos relacionados
+            const relatedList = modalBody.querySelector('.related-resources');
+            relatedList.innerHTML = '';
+            resourceData.related.forEach(related => {
+                const a = document.createElement('a');
+                a.href = "#";
+                a.className = "related-resource";
+                a.textContent = related;
+                relatedList.appendChild(a);
+            });
+        }
+        
+        // Funcionalidad de formulario de suscripción
+        // Animación para las tarjetas de versículos
+        document.querySelectorAll('.scripture-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.querySelector('.scripture-card-inner').style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.querySelector('.scripture-card-inner').style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Validar formato de email
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+        
+        // Smooth scroll para anclajes internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100, // Offset para dar espacio al header
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animación para elementos al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Detectar elementos para animar al hacer scroll
+            const animatedElements = document.querySelectorAll('.prophetic-message-section, .telegram-card, .section-header, .telegram-explore');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-up');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exégesis Profunda de Romanos 11</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3a36e0;
+            --secondary: #f39c12;
+            --accent1: #e74c3c;
+            --accent2: #16a085;
+            --accent3: #8e44ad;
+            --accent4: #2980b9;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --lightgray: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--lightgray);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--accent4));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        .nav-container {
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        
+        .nav-item {
+            padding: 0.8rem 1.5rem;
+            margin: 0.3rem;
+            border-radius: 30px;
+            color: var(--dark);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .nav-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .nav-item:nth-child(1) {
+            background-color: rgba(58, 54, 224, 0.1);
+        }
+        .nav-item:nth-child(1):hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .nav-item:nth-child(2) {
+            background-color: rgba(243, 156, 18, 0.1);
+        }
+        .nav-item:nth-child(2):hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .nav-item:nth-child(3) {
+            background-color: rgba(231, 76, 60, 0.1);
+        }
+        .nav-item:nth-child(3):hover {
+            background-color: var(--accent1);
+            color: white;
+        }
+        
+        .nav-item:nth-child(4) {
+            background-color: rgba(22, 160, 133, 0.1);
+        }
+        .nav-item:nth-child(4):hover {
+            background-color: var(--accent2);
+            color: white;
+        }
+        
+        .nav-item:nth-child(5) {
+            background-color: rgba(142, 68, 173, 0.1);
+        }
+        .nav-item:nth-child(5):hover {
+            background-color: var(--accent3);
+            color: white;
+        }
+        
+        section {
+            margin: 3rem 0;
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+        }
+        
+        #contexto::before {
+            background-color: var(--primary);
+        }
+        
+        #analisis-literario::before {
+            background-color: var(--secondary);
+        }
+        
+        #temas-teologicos::before {
+            background-color: var(--accent1);
+        }
+        
+        #analisis-linguistico::before {
+            background-color: var(--accent2);
+        }
+        
+        #conclusion::before {
+            background-color: var(--accent3);
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            border-bottom: 2px dashed rgba(0, 0, 0, 0.1);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-size: 1.6rem;
+            margin: 1.5rem 0 1rem;
+            color: var(--dark);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .tema {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .tema:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tema h3 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        .tema-1 {
+            background-color: rgba(58, 54, 224, 0.05);
+            border-left: 5px solid var(--primary);
+        }
+        
+        .tema-1 h3 {
+            background-color: var(--primary);
+        }
+        
+        .tema-2 {
+            background-color: rgba(243, 156, 18, 0.05);
+            border-left: 5px solid var(--secondary);
+        }
+        
+        .tema-2 h3 {
+            background-color: var(--secondary);
+        }
+        
+        .tema-3 {
+            background-color: rgba(231, 76, 60, 0.05);
+            border-left: 5px solid var(--accent1);
+        }
+        
+        .tema-3 h3 {
+            background-color: var(--accent1);
+        }
+        
+        .tema-4 {
+            background-color: rgba(22, 160, 133, 0.05);
+            border-left: 5px solid var(--accent2);
+        }
+        
+        .tema-4 h3 {
+            background-color: var(--accent2);
+        }
+        
+        .termino {
+            margin: 1.5rem 0;
+            padding: 1.2rem;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .termino h4 {
+            font-size: 1.2rem;
+            color: var(--accent4);
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 0.3rem;
+        }
+        
+        .griego {
+            font-style: italic;
+            font-weight: bold;
+            color: var(--accent3);
+        }
+        
+        .cita {
+            padding: 1rem 1.5rem;
+            background-color: rgba(0, 0, 0, 0.02);
+            border-left: 3px solid var(--primary);
+            margin: 1rem 0;
+            font-style: italic;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .blue-header {
+            background-color: var(--primary);
+        }
+        
+        .orange-header {
+            background-color: var(--secondary);
+        }
+        
+        .red-header {
+            background-color: var(--accent1);
+        }
+        
+        .green-header {
+            background-color: var(--accent2);
+        }
+        
+        .estructura {
+            margin: 1.5rem 0;
+        }
+        
+        .estructura-item {
+            padding: 0.8rem 1.2rem;
+            margin: 0.5rem 0;
+            background-color: rgba(0, 0, 0, 0.02);
+            border-radius: 5px;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .estructura-item strong {
+            color: var(--secondary);
+        }
+        
+        .resaltado {
+            font-weight: bold;
+            color: var(--accent1);
+        }
+        
+        .concepto-clave {
+            display: inline-block;
+            background-color: rgba(22, 160, 133, 0.1);
+            color: var(--accent2);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .btn-expand {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 1rem 0;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-expand:hover {
+            background-color: var(--accent4);
+            transform: translateY(-2px);
+        }
+        
+        .btn-expand i {
+            margin-right: 0.5rem;
+        }
+        
+        .hidden-content {
+            display: none;
+        }
+        
+        .show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .figura {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .figura img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .figura figcaption {
+            margin-top: 0.8rem;
+            font-style: italic;
+            color: var(--dark);
+            opacity: 0.8;
+        }
+        
+        .referencias {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: rgba(0, 0, 0, 0.02);
+            border-radius: 8px;
+        }
+        
+        .referencias h3 {
+            margin-top: 0;
+            color: var(--dark);
+        }
+        
+        .referencias ul {
+            list-style-type: none;
+        }
+        
+        .referencias li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .referencias li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            background-color: var(--accent4);
+        }
+        
+        /* Estilos para móviles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            .nav-item {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            h3 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exégesis Profunda de Romanos 11</h1>
+        <p>Un análisis detallado de uno de los capítulos más cruciales de la Epístola a los Romanos</p>
+    </header>
+    
+    <div class="nav-container">
+        <nav class="nav">
+            <a href="#contexto" class="nav-item"><i class="fas fa-history"></i> Contexto Histórico</a>
+            <a href="#analisis-literario" class="nav-item"><i class="fas fa-book-open"></i> Análisis Literario</a>
+            <a href="#temas-teologicos" class="nav-item"><i class="fas fa-church"></i> Temas Teológicos</a>
+            <a href="#analisis-linguistico" class="nav-item"><i class="fas fa-language"></i> Análisis Lingüístico</a>
+            <a href="#conclusion" class="nav-item"><i class="fas fa-scroll"></i> Conclusión</a>
+        </nav>
+    </div>
+    
+    <div class="container">
+        <section id="contexto">
+            <h2><i class="fas fa-history"></i> Contexto Histórico y Lugar en la Carta</h2>
+            
+            <div class="card">
+                <div class="card-header blue-header">
+                    Antecedentes Históricos
+                </div>
+                <div class="card-body">
+                    <p>La Epístola a los Romanos fue escrita por el apóstol Pablo alrededor del año 56-57 d.C., probablemente desde Corinto, dirigida a las iglesias en Roma formadas por creyentes judíos y gentiles. Un factor histórico importante fue la expulsión de los judíos de Roma bajo el emperador Claudio en el año 49 d.C., lo cual provocó que los cristianos gentiles asumieran el liderazgo de las iglesias durante la ausencia de los judíos.</p>
+                    
+                    <p>Al ser revocado el edicto en 54 d.C., los judíos cristianos volvieron para encontrar una iglesia mayoritariamente gentil, generándose tensiones entre ambos grupos. Este trasfondo explica en parte por qué Pablo en Romanos enfatiza la unidad entre judíos y gentiles y aborda el estatus de Israel dentro del plan de Dios.</p>
+                    
+                    <div class="cita">
+                        "La cuestión central de Romanos 11 concierne al estatus y futuro del pueblo de Israel", y Pablo parece tratar este tema para promover la unidad entre facciones judías y gentiles en la iglesia.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header blue-header">
+                    Contexto dentro de la Carta
+                </div>
+                <div class="card-body">
+                    <p>En cuanto al contenido de la carta, Romanos 11 se ubica al final de los capítulos 9–11, una sección donde Pablo analiza la incredulidad de la mayoría de Israel a la luz de la fidelidad de Dios.</p>
+                    
+                    <ul>
+                        <li><strong>Romanos 9:</strong> Pablo mostró que Dios siempre ha obrado por medio de la elección soberana (no todos los descendientes físicos de Abraham son el Israel verdadero de la promesa).</li>
+                        <li><strong>Romanos 10:</strong> Enfatizó la responsabilidad humana: Israel en su mayoría no alcanzó la justicia porque buscó establecerla por obras y rechazó al Mesías, mientras los gentiles obtuvieron justicia por la fe.</li>
+                        <li><strong>Romanos 11:</strong> Responde a la pregunta: ¿significa esta incredulidad que Dios ha cancelado Sus promesas a Israel?</li>
+                    </ul>
+                    
+                    <p>El capítulo 11 es el clímax teológico de la sección, antes de pasar en los capítulos 12–16 a exhortaciones prácticas para la vida conjunta de creyentes de origen judío y gentil. Pablo pretende dejar claro que la situación presente (con muchas naciones gentiles entrando al pueblo de Dios mientras Israel en parte está endurecido) cumple el plan de Dios y acabará en misericordia para todos, de modo que nadie puede jactarse y la iglesia pueda mantenerse unida en humildad.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="analisis-literario">
+            <h2><i class="fas fa-book-open"></i> Análisis Literario de Romanos 11</h2>
+            
+            <h3>Estructura del Capítulo</h3>
+            <p>El capítulo 11 de Romanos puede dividirse en cuatro secciones principales, siguiendo el hilo argumental de Pablo:</p>
+            
+            <div class="estructura">
+                <div class="estructura-item">
+                    <strong>Romanos 11:1-10 – El remanente fiel de Israel:</strong> Pablo inicia preguntando "¿Ha desechado Dios a su pueblo?" (11:1) y responde de inmediato: "¡En ninguna manera!" (lit. "¡De ningún modo!"). Él mismo es israelita creyente, prueba viviente de que Dios no ha rechazado totalmente a Israel.
+                </div>
+                
+                <div class="estructura-item">
+                    <strong>Romanos 11:11-24 – La salvación de los gentiles y la metáfora del olivo:</strong> Pablo pregunta entonces si la caída de Israel es definitiva ("¿Tropezaron para no levantarse?", 11:11). Nuevamente rechaza la idea: la transgresión de Israel ha servido para que la salvación llegue a los gentiles, con el fin de provocarlos a celos (11:11).
+                </div>
+                
+                <div class="estructura-item">
+                    <strong>Romanos 11:25-32 – El "misterio" del plan de Dios y la futura salvación de Israel:</strong> Aquí Pablo revela "este misterio" a sus lectores gentiles para evitar que sean arrogantes (11:25). El misterio revelado es que el endurecimiento que afecta a Israel es parcial y temporal, durando "hasta que haya entrado la plenitud de los gentiles".
+                </div>
+                
+                <div class="estructura-item">
+                    <strong>Romanos 11:33-36 – Doxología final:</strong> Contemplando la grandiosidad de este plan, Pablo irrumpe en alabanza. Proclama la profundidad de las riquezas, la sabiduría y la ciencia de Dios, reconociendo que Sus juicios e "inescrutables sus caminos" (11:33).
+                </div>
+            </div>
+            
+            <div class="figura">
+                <img src="/api/placeholder/700/400" alt="Metáfora del olivo en Romanos 11">
+                <figcaption>La metáfora del olivo cultivado y silvestre (11:17-24) ilustra la inclusión de los gentiles en el pueblo de Dios y la posible reinjertación futura de Israel</figcaption>
+            </div>
+            
+            <h3>Recursos Retóricos y Estilo</h3>
+            
+            <div class="card">
+                <div class="card-header orange-header">
+                    Técnicas Dialécticas
+                </div>
+                <div class="card-body">
+                    <p>El estilo literario de Romanos 11 refleja la técnica dialéctica típica de Pablo. Inicia con una pregunta retórica dramática: "¿Ha desechado Dios a Su pueblo?" (11:1), a la que responde con el enfático "¡En ninguna manera!" –expresión griega <span class="griego">mē génoito</span>, una negación categórica que Pablo usa repetidamente en Romanos para rechazar proposiciones impensables.</p>
+                    
+                    <p>A lo largo del capítulo utiliza este método de diálogo imaginario, planteando objeciones o preguntas para luego refutarlas, manteniendo al lector involucrado en el argumento.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header orange-header">
+                    Argumentos "A Fortiori"
+                </div>
+                <div class="card-body">
+                    <p>Pablo emplea argumentos "a fortiori" (del menor al mayor):</p>
+                    <div class="cita">
+                        "Si la caída de ellos es riqueza del mundo... ¿cuánto más su plenitud?" (11:12)
+                    </div>
+                    <div class="cita">
+                        "Si tú fuiste cortado de lo que por naturaleza es olivo silvestre... ¿cuánto más estos, que son las ramas naturales, serán injertados en su propio olivo?" (11:24)
+                    </div>
+                    <p>Estas expresiones de "¿cuánto más...?" refuerzan la idea de que la futura restauración de Israel traerá bendiciones aún mayores.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header orange-header">
+                    Uso de las Escrituras Hebreas
+                </div>
+                <div class="card-body">
+                    <p>Pablo sustenta sus puntos con numerosas citas del Antiguo Testamento:</p>
+                    <ul>
+                        <li>1 Reyes 19:18 (la historia de Elías y los siete mil fieles) para el concepto de remanente (11:4)</li>
+                        <li>Deuteronomio 29:4 e Isaías 29:10 (espíritu de estupor, 11:8)</li>
+                        <li>Salmo 69:22-23 (maldición sobre los ojos y la mesa, 11:9-10)</li>
+                        <li>Isaías 59:20-21 y 27:9 sobre la venida del Redentor (11:26-27)</li>
+                    </ul>
+                    <p>Estas referencias bíblicas enriquecen la retórica de Pablo, mostrando que su enseñanza no es novedad humana sino que está arraigada en el plan revelado por Dios en las Escrituras.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="temas-teologicos">
+            <h2><i class="fas fa-church"></i> Examen Teológico de los Temas Clave</h2>
+            
+            <div class="tema tema-1">
+                <h3>Elección Divina y Remanente de Israel</h3>
+                
+                <p>Uno de los temas centrales es la elección soberana de Dios y la existencia de un remanente fiel. Pablo insiste en que Dios "no ha rechazado a su pueblo, al cual desde antes conoció" (11:2). La frase "desde antes conoció" alude a la elección previa de Israel por parte de Dios –una relación pactada de antemano.</p>
+                
+                <p>Aun cuando la mayoría de israelitas no han aceptado el evangelio, ello no contradice el plan divino, porque nunca fue el propósito de Dios salvar a todos los judíos por mera pertenencia étnica. Como señala un comentarista, <span class="resaltado">"el propósito eterno de Dios nunca contempló la salvación de cada judío étnico"</span>, sino que Dios siempre ha obrado mediante un remanente escogido dentro de Israel.</p>
+                
+                <button class="btn-expand" onclick="toggleContent('eleccion-content')">
+                    <i class="fas fa-plus-circle"></i> Leer más sobre elección divina
+                </button>
+                
+                <div id="eleccion-content" class="hidden-content">
+                    <p>Pablo ya había enseñado en Romanos 9:6-8 que "no todos los descendientes de Israel son [verdadero] Israel", distinguiendo entre la descendencia meramente natural y los hijos de la promesa.</p>
+                    
+                    <p>A través de la historia bíblica, Dios reiteradamente elige a un remanente para cumplir Sus propósitos:</p>
+                    <ul>
+                        <li>En los días de Elías, "he reservado para Mí siete mil hombres" que no apostataron (11:4)</li>
+                        <li>En tiempos del exilio, un resto volvió a Jerusalén</li>
+                        <li>En el primer siglo, aunque Israel en su mayoría rechazó al Mesías, "también en este tiempo ha quedado un remanente escogido por gracia" (11:5)</li>
+                    </ul>
+                    
+                    <p>La elección aquí es completamente por la gracia de Dios, "y si por gracia, ya no por obras" (11:6). Es decir, el hecho de que algunos judíos (como Pablo mismo) hayan creído en Cristo no se debe a sus méritos ni esfuerzo, sino a la iniciativa misericordiosa de Dios.</p>
+                    
+                    <div class="cita">
+                        "La clave no era la actuación de Israel, sino la elección de Dios"
+                    </div>
+                    
+                    <p>En síntesis, Pablo presenta a Dios como fiel cumplidor de Su pacto mediante un remanente elegido (una "elección de gracia"), asegurando que las promesas a Israel no han caído en el vacío a pesar de la incredulidad de muchos.</p>
+                </div>
+            </div>
+            
+            <div class="tema tema-2">
+                <h3>Endurecimiento de Israel y Juicio Temporal</h3>
+                
+                <p>Otro tema prominente es el endurecimiento parcial de Israel. Pablo reconoce que, junto al remanente creyente, "los demás fueron endurecidos" (11:7). Esta "dureza" o insensibilidad espiritual de gran parte de Israel es presentada a la vez como consecuencia de su incredulidad y como acto judicial de Dios.</p>
+                
+                <p>En 11:8-10 Pablo cita escrituras que atribuyen a Dios el haber dado a Israel "espíritu de estupor, ojos con que no vean" y una "mesa" (sus bendiciones) vuelta trampa para ellos –lenguaje que refleja un juicio divino permitiendo que la obstinación se apodere de aquellos que rechazaron repetidamente Su mensaje.</p>
+                
+                <button class="btn-expand" onclick="toggleContent('endurecimiento-content')">
+                    <i class="fas fa-plus-circle"></i> Leer más sobre el endurecimiento
+                </button>
+                
+                <div id="endurecimiento-content" class="hidden-content">
+                    <p>El verbo griego usado para "endurecer" en 11:7 (<span class="griego">epōrōthēsan</span>) indica "volver insensible, petrificar". De hecho, «"endurecido" (<span class="griego">pōróō</span>) es un término médico para describir una callosidad o ceguera», ilustrando la condición de corazones embotados que ya no responden a la verdad.</p>
+                    
+                    <p>Pablo aclara que este endurecimiento sobre Israel es "en parte", tanto cuantitativamente (no afecta a todo el pueblo, pues algunos sí creen) como temporalmente (no será para siempre). Dios "ha endurecido" a Israel sólo "hasta que" se cumpla cierto propósito en el plan de salvación (11:25).</p>
+                    
+                    <p>¿Cuál es el propósito de ese endurecimiento? Romanos 11 enfatiza que es instrumental y redentor a largo plazo. Por un lado, la caída de Israel abrió la puerta de la fe a los gentiles: "por su transgresión vino la salvación a los gentiles" (11:11). Esto concuerda con la parábola de Jesús del banquete (Mt 22:1-10) donde los invitados originales que rechazan son reemplazados por otros invitados de fuera.</p>
+                    
+                    <p>Sin embargo, este no es el capítulo final para Israel. Pablo describe el endurecimiento como parcial y temporal precisamente para afirmar que habrá un levantamiento posterior de Israel.</p>
+                    
+                    <div class="cita">
+                        "Si ellos no permanecieren en incredulidad, serán injertados, pues poderoso es Dios para volver a injertarlos" (11:23)
+                    </div>
+                    
+                    <p>En resumen, el endurecimiento de Israel en Romanos 11 es un acto judicial de Dios que confirma a los desobedientes en su ceguera, con el propósito de beneficiar provisionalmente a los gentiles y posteriormente revertirse para la salvación de Israel.</p>
+                </div>
+            </div>
+            
+            <div class="tema tema-3">
+                <h3>"Todo Israel Será Salvo": Restauración y Futuro de Israel</h3>
+                
+                <p>Romanos 11 aborda de manera explícita la cuestión del futuro de Israel en el plan de Dios. La afirmación climática "y luego todo Israel será salvo" (11:26) ha suscitado amplias discusiones teológicas.</p>
+                
+                <p>En el contexto inmediato, "todo Israel" contrasta con "plenitud de los gentiles" en 11:25, sugiriendo fuertemente que Pablo se refiere al pueblo étnico de Israel (los judíos) en su conjunto. A lo largo de Romanos 9–11 "Israel" ha significado consistentemente la nación judía, en distinción de los gentiles, por lo que no hay indicio de que de repente en 11:26 signifique "la Iglesia" o "los elegidos de todas las naciones".</p>
+                
+                <button class="btn-expand" onclick="toggleContent('israel-content')">
+                    <i class="fas fa-plus-circle"></i> Leer más sobre la salvación de Israel
+                </button>
+                
+                <div id="israel-content" class="hidden-content">
+                    <p>De hecho, Pablo enfatiza que "Dios no ha desechado a Israel étnico", y su carga en estos capítulos es mostrar cómo las promesas a los patriarcas se cumplirán a pesar de la incredulidad presente de Israel. Por tanto, la interpretación más natural es que "todo Israel" apunta a una futura conversión masiva del pueblo judío a Cristo.</p>
+                    
+                    <p>Esto no implica necesariamente cada individuo judío, sino la nación como un todo volviendo a la salvación en el Mesías –similar a como se usaba la expresión en el AT para referir un movimiento nacional (p. ej., "todo Israel" en 1 Reyes 12:1 no incluyó literalmente a cada persona, sino a la representación nacional).</p>
+                    
+                    <p>Un comentarista lo expresa así: Pablo dice "todo Israel", no "cada israelita", marcando esa diferencia entre una redención corporativa y la salvación individual universal.</p>
+                    
+                    <p>Esta futura restauración de Israel está enmarcada por Pablo como parte del "misterio" revelado (11:25). En la teología paulina, un misterio es un secreto del plan divino que estuvo oculto en edades pasadas pero que ahora es revelado en Cristo.</p>
+                    
+                    <p>¿Qué elemento del plan de Dios encaja en esa categoría respecto a Israel? No que Dios tuviera propósitos con los gentiles (eso ya lo anunciaban las profecías), sino la manera específica en que Dios orquestaría la salvación histórica de judíos y gentiles.</p>
+                    
+                    <div class="cita">
+                        "La liberación de Israel acontecerá después que la plenitud de los gentiles haya entrado"
+                    </div>
+                    
+                    <p>Teológicamente, la restauración de Israel reafirma la fidelidad del pacto de Dios. Pablo conecta la salvación futura de Israel con las promesas hechas a los patriarcas (Abraham, Isaac, Jacob): Dios eligió a Israel como pueblo santo y Sus dones y llamamiento son "irrevocables" (11:28-29).</p>
+                </div>
+            </div>
+            
+            <div class="tema tema-4">
+                <h3>Misericordia Divina y Sabiduría de Dios</h3>
+                
+                <p>La misericordia de Dios emerge como el tema unificador al final del capítulo. Pablo quiere que tanto judíos como gentiles comprendan que nadie puede reclamar derechos ante Dios, sino que todos dependen de Su compasión.</p>
+                
+                <p>En 11:30-32 recalca que los gentiles, que antes vivían en desobediencia idolátrica, ahora han recibido misericordia debido a la desobediencia de los judíos (que hizo que el evangelio se extendiera fuera de Israel). De modo análogo, los judíos (que ahora son desobedientes rechazando el evangelio) recibirán misericordia a través de la misericordia mostrada a los gentiles.</p>
+                
+                <button class="btn-expand" onclick="toggleContent('misericordia-content')">
+                    <i class="fas fa-plus-circle"></i> Leer más sobre la misericordia divina
+                </button>
+                
+                <div id="misericordia-content" class="hidden-content">
+                    <p>Esta afirmación equilibra providencialmente la balanza: Dios niveló el campo encerrando a todos bajo el pecado (Rom 3:9, "judíos y gentiles, todos bajo pecado") para que la salvación sea por pura misericordia, no por obras ni por privilegios de grupo.</p>
+                    
+                    <p>En la teología paulina, misericordia (<span class="griego">éleos</span> en griego) denota la compasión activa de Dios que rescata al pecador de la miseria del pecado. Romanos 9:15-16 ya citó a Dios diciendo: "Tendré misericordia del que yo tenga misericordia", enfatizando que es la misericordia divina –y no el deseo humano o el esfuerzo– la que resulta en salvación.</p>
+                    
+                    <p>Podemos observar que la misericordia en 11:30-32 se menciona cuatro veces, subrayando su importancia. Dios "concluyó a todos en desobediencia" (los dejó experimentar las consecuencias de su pecado) "para tener misericordia de todos" – es decir, para que al final nadie se gloríe sino que todos reconozcan que su salvación es un regalo inmerecido del amor divino.</p>
+                    
+                    <p>Esta revelación conduce naturalmente a la doxología en 11:33-36. La misericordia de Dios está íntimamente ligada a Su sabiduría inescrutable. Ningún ser humano habría ideado un plan de salvación donde un pueblo elegido cae, otro es injertado, y luego el primero es restaurado, de manera que todos reciben compasión.</p>
+                    
+                    <div class="cita">
+                        "¡Qué indescifrables son Sus caminos!" (11:33)
+                    </div>
+                    
+                    <p>En síntesis, la enseñanza de Romanos 11 sobre la misericordia divina asegura que Dios mantiene Su fidelidad a las promesas (por eso Israel no será olvidado) y Su imparcialidad (por eso los gentiles son acogidos), poniendo a ambos en pie de igualdad como recipientes de gracia.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="analisis-linguistico">
+            <h2><i class="fas fa-language"></i> Análisis Lingüístico y Semántico</h2>
+            
+            <p>A continuación se examinan algunos términos griegos clave empleados en Romanos 11, junto con su significado original y su uso en otras partes del Nuevo Testamento, lo que ayuda a matizar la exégesis:</p>
+            
+            <div class="termino">
+                <h4><span class="griego">Leímma</span> (λεῖμμα) - "Remanente"</h4>
+                <p>Aparece en 11:5: "Así también, aún en este tiempo ha quedado un remanente conforme a la elección de gracia". <span class="griego">Léimma</span> significa lo que queda, resto o residuo. Es un término raro en el NT (solo aquí), derivado de la idea de dejar (<span class="griego">leípo</span>, dejar atrás).</p>
+                <p>Pablo lo usa al evocar el concepto veterotestamentario del "resto de Israel" – un grupo de sobrevivientes fieles en tiempos de apostasía nacional. En Romanos 9:27 empleó una palabra relacionada (<span class="griego">hupoléimma</span>) al citar Isaías: "aunque los hijos de Israel sean como la arena del mar, solo el remanente será salvo".</p>
+                <p>Semánticamente, "remanente" destaca la preservación divina de un pueblo fiel contra toda expectativa, subrayando la gracia electiva de Dios que nunca deja "vacío" Su propósito con Israel.</p>
+            </div>
+            
+            <div class="termino">
+                <h4><span class="griego">Eklogḗ</span> (ἐκλογή) - "Elección"</h4>
+                <p>Significa selección, escogimiento. En 11:5 Pablo habla de "la elección de gracia" y en 11:7 distingue entre "los elegidos" (<span class="griego">hoi eklogē</span>) que alcanzaron la justicia y "los demás" endurecidos.</p>
+                <p>El término aparece también en Romanos 9:11 refiriéndose a la elección de Jacob sobre Esaú, y en 1 Tesalonicenses 1:4 ("conocemos vuestra elección por Dios"). <span class="griego">Eklogḗ</span> proviene del verbo <span class="griego">eklegō</span> (escoger) y está estrechamente relacionado con el adjetivo <span class="griego">eklektós</span> (escogido, elegido).</p>
+                <p>En el NT, ἐκλογή casi siempre se refiere a la elección de personas por parte de Dios para salvación o para un rol específico. Romanos 11 la emplea en sentido teológico-salvífico, enfatizando que el remanente existe por la elección soberana de Dios y no por obras humanas.</p>
+            </div>
+            
+            <div class="termino">
+                <h4><span class="griego">Pṓrōsis</span> (πώρωσις) - "Endurecimiento"</h4>
+                <p>Aparece en 11:25: "ha acontecido a Israel endurecimiento en parte". <span class="griego">Pṓrōsis</span> significa literalmente endurecimiento, entumecimiento o ceguedad. Proviene de <span class="griego">pṓros</span> (piedra de silicio) y originalmente describía la formación de un callo o la pérdida de sensibilidad (usado en medicina antigua para huesos calcificados o tejidos endurecidos).</p>
+                <p>En sentido figurado, denota la insensibilidad espiritual. En el NT solo se encuentra en Rom 11:25, Efesios 4:18 ("por la dureza [<span class="griego">pṓrōsis</span>] de su corazón", refiriéndose a los gentiles no creyentes) y Marcos 3:5 (al describir la dureza del corazón de algunos judíos ante un milagro de Jesús).</p>
+                <p>En Romanos 11, <span class="griego">pṓrōsis</span> describe la condición de parte de Israel que, habiendo rechazado a Cristo, quedó espiritualmente "embotado". Esta palabra refuerza la imagen de que Israel sufre una especie de anestesia espiritual temporal – no percibe la verdad del evangelio, hasta que Dios remueva ese callo del corazón.</p>
+            </div>
+            
+            <div class="termino">
+                <h4><span class="griego">Mystḗrion</span> (μυστήριον) - "Misterio"</h4>
+                <p>Pablo llama <span class="griego">mystḗrion</span> al plan revelado en 11:25: "No quiero... que ignoréis este misterio: que ha acontecido a Israel endurecimiento en parte, hasta que haya entrado la plenitud de los gentiles".</p>
+                <p>En griego clásico, <span class="griego">mystḗrion</span> se refería a secretos religiosos reservados a iniciados. En el NT, especialmente en las epístolas paulinas, <span class="griego">mystḗrion</span> significa un secreto divino revelado en la era mesiánica. No implica que sea algo enigmático para siempre, sino algo antes oculto que Dios da a conocer en Cristo.</p>
+                <p>En Romanos 11:25, el término enfatiza que la sabiduría del plan de Dios –incluyendo la temporaria incredulidad de Israel seguida por su salvación– no se conocía plenamente antes y ha sido iluminada a la iglesia a través de Pablo. Es un llamado a la humildad: los gentiles no sabrían este plan si Dios no lo revelara.</p>
+            </div>
+            
+            <div class="termino">
+                <h4><span class="griego">Plḗrōma</span> (πλήρωμα) - "Plenitud"</h4>
+                <p>Pablo emplea esta palabra dos veces en relación a la salvación de judíos y gentiles. En 11:12: "su caída es riqueza del mundo, y su defección riqueza de los gentiles, ¿cuánto más su plenitud?", refiriéndose a la futura plenitud (lleno cumplimiento) de Israel; y en 11:25: "hasta que haya entrado la plenitud de los gentiles".</p>
+                <p><span class="griego">Plḗrōma</span> proviene de <span class="griego">plēróō</span> (llenar, completar) y literalmente significa "el contenido lleno", "totalidad" o "plenitud". En contexto secular podía usarse para la carga completa de un barco o la tripulación completa.</p>
+                <p>En Romanos 11, <span class="griego">plḗrōma</span> denota la plenitud numérica o consumación de un grupo. "La plenitud de los gentiles" se entiende como la totalidad de gentiles que han de venir a la fe – es decir, cuando el número completo de las naciones se haya incorporado al pueblo de Dios.</p>
+            </div>
+            
+            <div class="termino">
+                <h4><span class="griego">Éleos</span> (ἔλεος) - "Misericordia"</h4>
+                <p>Es un término fundamental en este capítulo, especialmente en los versículos 30-32. <span class="griego">Éleos</span> significa compasión, piedad, misericordia – la disposición a perdonar y aliviar la miseria ajena.</p>
+                <p>En 11:30-32 aparece el verbo relacionado <span class="griego">eleéō</span> (tener misericordia) repetidamente: los gentiles "alcanzaron misericordia" (<span class="griego">eleēthēte</span>) y los judíos "alcanzarán misericordia" (<span class="griego">eleēthōsin</span>) por la misericordia concedida a los gentiles; Dios quiere "misericordiar" a todos por igual.</p>
+                <p>En Romanos 11 la repetición deliberada subraya que tanto la inclusión de gentiles como la futura salvación de Israel son pura misericordia divina. Nadie puede alegar mérito propio; todos necesitan y reciben <span class="griego">éleos</span>.</p>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h2><i class="fas fa-scroll"></i> Conclusión</h2>
+            
+            <p>El estudio detallado de Romanos 11 revela una integración magistral de historia, literatura y teología. Pablo, situándose en continuidad con la revelación de Israel, esclarece el misterio de cómo Dios está obrando para salvar tanto a gentiles como a Israel de manera graciosa y sabia.</p>
+            
+            <p>El contexto histórico ilumina la urgencia de su mensaje para una iglesia dividida entre judíos y gentiles. La estructura literaria y recursos retóricos de Pablo sirven para persuadir a sus lectores de la fidelidad de Dios a Sus promesas y de la necesidad de humildad por parte de todos.</p>
+            
+            <p>Teológicamente, Romanos 11 explora las profundidades de la elección divina, la realidad del endurecimiento espiritual, la esperanza de restauración para Israel y la sobreabundante misericordia divina que triunfa al final.</p>
+            
+            <p>Y lingüísticamente, términos como <span class="concepto-clave">remanente</span>, <span class="concepto-clave">elección</span>, <span class="concepto-clave">endurecimiento</span>, <span class="concepto-clave">misterio</span>, <span class="concepto-clave">plenitud</span> y <span class="concepto-clave">misericordia</span> cobran vida al entender su significado en el griego original y su uso en el Nuevo Testamento, reforzando el mensaje: Dios orquesta la redención de la humanidad de forma soberana, fiel y misericordiosa, de modo que toda la gloria sea para Él.</p>
+            
+            <div class="cita">
+                Al concluir Romanos 11, solo queda unirnos a la doxología de Pablo: "¡A Él sea la gloria por los siglos!" (11:36).
+            </div>
+            
+            <div class="referencias">
+                <h3>Referencias</h3>
+                <ul>
+                    <li>Pablo, Epístola a los Romanos, capítulo 11 (versión Reina-Valera 1960).</li>
+                    <li>Gordon Zerbe, "Jews and Gentiles as People of the Covenant: The Background and Message of Romans 11", Direction Journal 12/3 (1983).</li>
+                    <li>Ángel Adames, Estudio Bíblico de Romanos 11 (Palfcris, 2021) – análisis del contexto y términos clave.</li>
+                    <li>Eusebio González, "La salvación escatológica de Israel en Romanos 11,25-27", en Asociación Bíblica Española, Vol. 72 (2019).</li>
+                    <li>Biblia de Estudio de las Américas (notas sobre Romanos 9–11).</li>
+                    <li>Comentarios bíblicos: Matthew Henry (Romanos 11), F. F. Bruce (The Letter of Paul to the Romans), Douglas Moo (The Epistle to the Romans).</li>
+                    <li>Diccionarios de griego: Expository Dictionary of NT Words (W. Vine), Strong's Exhaustive Concordance.</li>
+                    <li>Otros: Concilio Vaticano II, Nostra Aetate (relación Iglesia-Israel); John Stott, Romans (1994); Sam Storms, The Salvation of Israel (2015).</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>Exégesis Profunda de Romanos 11 | Un estudio sobre la elección, el endurecimiento y la misericordia divina</p>
+    </footer>
+    
+    <div class="scroll-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            if (content.classList.contains('hidden-content')) {
+                content.classList.remove('hidden-content');
+                content.classList.add('show');
+                const button = content.previousElementSibling;
+                button.innerHTML = `<i class="fas fa-minus-circle"></i> Mostrar menos`;
+            } else {
+                content.classList.remove('show');
+                content.classList.add('hidden-content');
+                const button = content.previousElementSibling;
+                button.innerHTML = `<i class="fas fa-plus-circle"></i> Leer más`;
+            }
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Highlight current section in navbar based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').substring(1) === current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

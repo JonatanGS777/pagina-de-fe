@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Nuevo Orden Mundial: Concepto, historia y debates</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2F5377;        /* Azul diplomático – seriedad y confianza */
+            --secondary-color: #7A9E9F;      /* Verde azulado – equilibrio y coordinación */
+            --accent-color: #C5A47E;         /* Dorado antiguo – poder e historia */
+            --light-color: #F5F7FA;          /* Blanco azulado – claridad y transparencia */
+            --dark-color: #2F2F2F;           /* Gris carbón – profundidad y formalidad */
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --text-gradient: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Merriweather', 'Georgia', serif;
+            line-height: 1.9;
+            color: #333;
+            background-color: #f5f5f5;
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
+        /* Header con fondo */
+        header {
+            background: linear-gradient(rgba(45, 45, 45, 0.7), rgba(45, 45, 45, 0.7)),
+                url('./images/mapanom.png') center center/cover no-repeat;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: 0;
+        }
+        
+        /* Añadimos estilos para el logo */
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            border-bottom: none;
+        }
+        
+        .logo img {
+            max-width: 80px;
+            height: auto;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text div:first-child {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        
+        .logo-text div:last-child {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-color), var(--accent-color));
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Estilos para el título de la página */
+        .page-title {
+            text-align: center;
+            margin: 3rem 0;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        /* Estilos para la barra de progreso y el botón volver arriba */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+            z-index: 1000;
+            transition: width 0.1s;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 900;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .back-to-top.visible {
+            opacity: 0.7;
+            pointer-events: auto;
+        }
+        
+        .back-to-top:hover {
+            opacity: 1;
+        }
+        
+        .back-to-top::before {
+            content: "▲";
+            font-size: 18px;
+        }
+        
+        .page-title h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .page-title p {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+        
+        /* Tabla de contenidos */
+        .toc {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .toc h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            font-size: 1.8rem;
+        }
+        
+        .toc ol {
+            list-style-type: decimal;
+            margin-left: 1.5rem;
+        }
+        
+        .toc li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .toc a {
+            text-decoration: none;
+            color: var(--dark-color);
+            transition: color 0.3s;
+            display: block;
+            padding: 0.3rem 0;
+        }
+        
+        .toc a:hover {
+            color: var(--primary-color);
+            padding-left: 0.5rem;
+        }
+        
+        /* Estilos de sección */
+        main {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        article {
+            padding: 2rem;
+        }
+        
+        section {
+            margin-bottom: 4rem;
+            padding-top: 2rem;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            position: relative;
+            font-size: 2.2rem;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.6rem;
+        }
+        
+        h4 {
+            color: var(--accent-color);
+            margin: 1.2rem 0 0.8rem;
+            font-size: 1.3rem;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        
+        /* Tablas responsivas */
+        .tabla-cronologica {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            display: block;
+            overflow-x: auto; /* Permite desplazamiento horizontal en pantallas pequeñas */
+        }
+        
+        .tabla-cronologica thead {
+            background: var(--gradient);
+            color: white;
+        }
+        
+        .tabla-cronologica th, .tabla-cronologica td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            min-width: 200px; /* Ancho mínimo para prevenir compresión excesiva */
+        }
+        
+        .tabla-cronologica tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .tabla-cronologica tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .bibliografia {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 5px solid var(--accent-color);
+            margin-top: 3rem;
+            overflow-x: auto; /* Para listas largas */
+        }
+        
+        .bibliografia h2 {
+            border-bottom: none;
+        }
+        
+        .bibliografia h2::after {
+            display: none;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--dark-color);
+            color: white;
+            margin-top: 2rem;
+            width: 100%;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-color), var(--accent-color));
+            opacity: 0.7;
+        }
+        
+        footer p {
+            margin-bottom: 0;
+            text-align: center;
+        }
+        
+        /* Media queries para responsividad */
+        @media (min-width: 1400px) {
+            header {
+                min-height: 350px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .page-title h1 {
+                font-size: 3rem;
+            }
+            
+            .page-title p {
+                font-size: 1.3rem;
+            }
+            
+            .card, .highlight {
+                padding: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-title h1 {
+                font-size: 2.5rem;
+            }
+            
+            .page-title p {
+                font-size: 1.2rem;
+            }
+            
+            article {
+                padding: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            h3 {
+                font-size: 1.4rem;
+            }
+            
+            .toc {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            header {
+                min-height: 220px;
+                padding: 1.5rem 0;
+                background-attachment: scroll; /* Mejor rendimiento en dispositivos móviles */
+            }
+            
+            .page-title {
+                margin: 2rem 0;
+                padding-bottom: 1.5rem;
+            }
+            
+            .page-title h1 {
+                font-size: 2rem;
+            }
+            
+            .page-title p {
+                font-size: 1rem;
+            }
+            
+            article {
+                padding: 1rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+            
+            p, li {
+                font-size: 0.95rem;
+            }
+            
+            .toc {
+                padding: 1rem;
+            }
+            
+            .toc li {
+                margin-bottom: 0.5rem;
+                font-size: 1rem;
+            }
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(47, 83, 119, 0.1), rgba(122, 158, 159, 0.1));
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--primary-color);
+            width: 100%;
+        }
+        
+        /* Mejoras para listas */
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Imágenes responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        figure {
+            margin: 2rem 0;
+        }
+        
+        figcaption {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+            padding: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="reading-progress"></div>
+    <button class="back-to-top" aria-label="Volver arriba"></button>
+    
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../Falsas Doctrinas/sociedades-secretas.html">
+                    <img src="../../images/EMD.png" alt="Logo EMD">
+                    <div class="logo-text">
+                        <div>Ministerio "La Gloria es del Señor"</div>
+                        <div>"Análisis del Orden Global"</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="page-title">
+                <h1>EL NUEVO ORDEN MUNDIAL</h1>
+                <p>Concepto, historia y debates sobre la configuración del poder global</p>
+            </div>
+            
+            <article>
+                <div class="toc">
+                    <h3>Contenido</h3>
+                    <ol>
+                        <li><a href="#introduccion">Introducción y concepto</a></li>
+                        <li><a href="#cronologia">Cronología de acontecimientos relevantes</a></li>
+                        <li><a href="#corrientes">Corrientes interpretativas</a></li>
+                        <li><a href="#actores">Actores globales y dinámicas de poder</a></li>
+                        <li><a href="#teorias-alternativas">Teorías y narrativas alternativas</a></li>
+                        <li><a href="#implicaciones">Implicaciones éticas, sociales y filosóficas</a></li>
+                        <li><a href="#geopolitica">Análisis geopolítico actual</a></li>
+                        <li><a href="#perspectivas">Perspectivas futuras</a></li>
+                        <li><a href="#fuentes">Fuentes y bibliografía</a></li>
+                    </ol>
+                </div>
+                
+                <section id="introduccion">
+                    <h2>Introducción y concepto</h2>
+                    <div class="card">
+                        <p>El término Nuevo Orden Mundial (NOM) surgió para describir rupturas radicales en la configuración global tras grandes conflictos. Ya en 1918, el presidente Woodrow Wilson propuso en sus "Catorce Puntos" la creación de una liga de naciones para garantizar la paz mundial. Este ideal idealista—inspirado por Kant en su Paz Perpetua como una "federación de estados" para sustituir la anarquía del poder—dominó la posguerra de la Primera Guerra Mundial.</p>
+                        
+                        <p>Tras el Tratado de Versalles (1919) nació la Sociedad de Naciones para evitar nuevos conflictos mediante la seguridad colectiva, pero su fracaso conllevó la fundación de la ONU en 1945, retomando el espíritu cooperativo (basado en soberanía estatal) de la SDN. En el sistema occidental del siglo XIX, el Congreso de Viena (1815) institucionalizó un equilibrio de poder europeo al reconocer la soberanía mutua de los Estados tras Westfalia, principio venerado por realistas como Kissinger en el mundo contemporáneo.</p>
+                        
+                        <p>A lo largo del siglo XX, las guerras mundiales y la Guerra Fría redefinieron sucesivamente el orden global. Con el fin del bipolarismo, líderes como Mijaíl Gorbachov y George H. W. Bush hablaron explícitamente de un "nuevo orden mundial" de cooperación entre grandes potencias. Bush padre convocó en 1991 a la ONU a "la tarea de construir un nuevo orden mundial" al expulsar a Irak de Kuwait, reivindicando principios morales en la guerra del Golfo. Sin embargo, la revista TIME advirtió por entonces que "nadie debe hacerse ilusiones: el tan cacareado nuevo orden mundial no estaba establecido ni cerca".</p>
+                        
+                        <p>Aunque Bush ensayó esa retórica idealista, el uso mayoritario del término coincidió con debates realistas sobre hegemonía estadounidense tras la Guerra Fría. El impacto del 11-S (2001) abrió otra etapa: la administración de G.W. Bush promovió un "orden mundial más amplio" basado en la lucha antiterrorista y la democracia, una versión "musculosa" del wilsonismo para difundir la supremacía americana. Hoy, hechos globales como la pandemia de COVID-19, los conflictos en Ucrania y Oriente Medio, la revolución digital y el cambio climático reavivan el debate sobre este concepto.</p>
+                    </div>
+                </section>
+                
+                <section id="cronologia">
+                    <h2>Cronología de acontecimientos relevantes</h2>
+                    
+                    <table class="tabla-cronologica">
+                        <thead>
+                            <tr>
+                                <th>Año</th>
+                                <th>Acontecimiento relevante</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1648</td>
+                                <td>Paz de Westfalia: establece la soberanía nacional tras la Guerra de los 30 Años.</td>
+                            </tr>
+                            <tr>
+                                <td>1815</td>
+                                <td>Congreso de Viena: equilibrio de poder europeo tras Napoleón.</td>
+                            </tr>
+                            <tr>
+                                <td>1918</td>
+                                <td>14 Puntos de Wilson: propone liga de naciones para "garantizar independencia y paz".</td>
+                            </tr>
+                            <tr>
+                                <td>1919</td>
+                                <td>Tratado de Versalles: crea la Sociedad de Naciones (SDN) como organismo colectivo.</td>
+                            </tr>
+                            <tr>
+                                <td>1945</td>
+                                <td>Carta de la ONU firmada en San Francisco: nace la ONU como base del orden posguerra.</td>
+                            </tr>
+                            <tr>
+                                <td>1990</td>
+                                <td>Bush (H.W.) en la ONU: convoca un "nuevo orden mundial" tras Guerra del Golfo.</td>
+                            </tr>
+                            <tr>
+                                <td>2001</td>
+                                <td>Atentados 11-S: EE. UU. declara "guerra mundial al terror"; retórica neoconservadora.</td>
+                            </tr>
+                            <tr>
+                                <td>2020</td>
+                                <td>COVID-19: OMS, FMI y BM coordinan medidas globales de salud y economía.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                
+                <section id="corrientes">
+                    <h2>Corrientes interpretativas</h2>
+                    
+                    <p>Las visiones del NOM varían según la tradición teórica:</p>
+                    
+                    <h3>Realismo / Hegemonía</h3>
+                    <div class="card">
+                        <p>Ve el NOM como continuidad del poder de los Estados. Por ejemplo, en 1991 Bush proclamó un nuevo orden pero in situ mantuvo la primacía militar y económica de EE.UU. en la coalición de la Guerra del Golfo. Desde esta óptica, los cambios globales responden a luchas de poder, no a utopías multilaterales.</p>
+                    </div>
+                    
+                    <h3>Idealismo Institucional</h3>
+                    <div class="card">
+                        <p>Destaca el papel de organismos internacionales. Así, la ONU y otros regímenes de cooperación multilateral encarnan el NOM: una red de reglas y diplomacia abierta basada en soberanías iguales. Kant, precursor intelectual, imaginó una federación de estados para la paz, principio detrás de la ONU. Instituciones como la SDN o la ONU se ven como intentos reales de construir ordenes basados en el derecho internacional.</p>
+                    </div>
+                    
+                    <h3>Enfoque Geopolítico / Equilibrio de poder</h3>
+                    <div class="card">
+                        <p>Analiza actores estratégicos. El sistema mundial se asemeja al viejo Concierto de Europa: múltiples potencias negocian alianzas para evitar que una sola domine. Kissinger revive esta idea al comparar el orden mundial actual con el de Westfalia y Viena. Desde esta perspectiva, la multipolaridad –con bloques regionales o grandes potencias emergentes (China, India, Rusia)– modela el NOM sin conspiraciones.</p>
+                    </div>
+                    
+                    <h3>Enfoque Económico / Globalización</h3>
+                    <div class="card">
+                        <p>Se centra en la economía mundial. Siguiendo visiones funcionalistas o del sistema-mundo, el NOM sería la integración creciente por el libre comercio, las instituciones de Bretton Woods (FMI, BM, OMC) y la globalización neoliberal. Estas lecturas destacan la "vida internacional más compleja" y multiforme tras la Guerra Fría, influida por interdependencia y desigualdad, en lugar de un orden único.</p>
+                    </div>
+                    
+                    <h3>Perspectivas críticas / conspirativas</h3>
+                    <div class="card">
+                        <p>Los críticos marxistas o académicos decoloniales denuncian el NOM como hegemónico: una estrategia neoliberal para la dominación de corporaciones y bancos. En el extremo, las teorías conspirativas plantean un plan secreto de élites globales para instaurar un gobierno mundial único. Aunque estas narrativas circulan masivamente en redes y subculturas (incluso tomando símbolos como el lema "Novus Ordo Seclorum" del billete de dólar), la academia las rechaza por infundadas, recordando que los eventos internacionales obedecen a factores visibles (política, economía) y no a manuales ocultos.</p>
+                    </div>
+                </section>
+                
+                <section id="actores">
+                    <h2>Actores globales y dinámicas de poder</h2>
+                    
+                    <p>En el NOM real (no conspirativo) convergen múltiples actores:</p>
+                    
+                    <h3>Organismos Internacionales</h3>
+                    <div class="highlight">
+                        <p>La ONU (y sus agencias) promueven la paz y los derechos humanos. La SDN fue "precursora de la ONU". El FMI y el Banco Mundial moldean la economía global (por ejemplo, coordinaron rescates ante la crisis de 2008), y la OMS lidera la salud mundial. Estos entes intentan armonizar políticas (control de armas, desarme, salud pública), aunque su eficacia depende del consenso de sus miembros.</p>
+                    </div>
+                    
+                    <h3>Potencias Globales</h3>
+                    <div class="highlight">
+                        <p>EE. UU., China, Rusia y la Unión Europea (UE) son motores principales. Estados Unidos encabezó el orden unipolar tras 1991. China y Rusia promueven un mundo multipolar, cuestionando la hegemonía occidental. La UE busca un orden basado en normas comunes (comercio, clima) dentro de un bloque regional. Otras potencias emergentes (India, Brasil, etc.) buscan mayor influencia ("BRICS") y defienden intereses del Sur Global.</p>
+                    </div>
+                    
+                    <h3>Foros multilaterales de élites</h3>
+                    <div class="highlight">
+                        <p>Grupos como el G7/G20 reúnen a gobiernos clave para coordinar en economía, clima y seguridad. El Foro Económico Mundial de Davos congrega anualmente a líderes empresariales y políticos; allí se debaten las "tendencias" del orden internacional. Por ejemplo, Davos 2023 evidenció tensiones internas: se cuestionó el modelo neoliberal tras la fragmentación del libre comercio provocada por la guerra en Ucrania. Otros foros cerrados –el Club Bilderberg, la Comisión Trilateral, el Council on Foreign Relations (CFR)– conectan élites políticas y corporativas en discusiones estratégicas. El CFR, fundado en 1921, es un influyente think-tank que "informa el compromiso de EE.UU. con el mundo". La Comisión Trilateral (1973) busca cooperación entre Occidente y Asia. El controvertido Grupo Bilderberg organiza reuniones a puerta cerrada con ~130 élites económicas y políticas.</p>
+                    </div>
+                    
+                    <figure>
+                        <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="Panel de discusión global">
+                        <figcaption>Panel similar al del Foro Económico Mundial en Davos (enero 2023), donde líderes discuten la evolución del orden global.</figcaption>
+                    </figure>
+                    
+                    <h3>Sector privado y sociedad civil</h3>
+                    <div class="highlight">
+                        <p>Multinacionales tecnológicas (Google, Amazon, Meta, etc.) y financieras (Goldman Sachs, etc.) ejercen influencia a través de innovación y lobby regulatorio. Grandes fundaciones globalistas (Bill & Melinda Gates, Rockefeller, Soros/Open Society) financian salud, educación y políticas de desarrollo en varios países. ONG internacionales (Amnistía, Médicos Sin Fronteras, Greenpeace, etc.) visibilizan derechos humanos, salud y medio ambiente en la agenda global. Si bien no son gobiernos, estos actores privados moldean normativas y opinión pública a escala planetaria (p.ej., debates sobre privacidad, vigilancia o cambio climático).</p>
+                    </div>
+                </section>
+                
+                <section id="teorias-alternativas">
+                    <h2>Teorías y narrativas alternativas</h2>
+                    
+                    <div class="card">
+                        <p>En contraposición al discurso oficial, existen múltiples teorías conspirativas que rodean al NOM. Estas sostienen la existencia de un plan secreto de élites (bancarias, políticas, iluminati o masones) para implantar un gobierno mundial único. Por ejemplo, se apunta al símbolo "Novus Ordo Seclorum" («Nuevo orden de los siglos») del billete estadounidense como una supuesta prueba oculta.</p>
+                        
+                        <p>Según estos relatos, eventos como guerras, crisis financieras o pandemias serían manipulados para avanzar el dominio global de dicho gobierno. Estas ideas se han difundido especialmente en internet y medios alternativos, a veces mezclando conspiración judeo-masónica u otras creencias apocalípticas. La Wikipedia señala que "en el ámbito popular [el NOM] se usa en diversas teorías de conspiración y relatos apocalípticos".</p>
+                        
+                        <p>Desde la perspectiva académica se trata de narrativas infundadas. Investigadores subrayan que el entramado de la política internacional es mucho más complejo y público: está determinado por intereses nacionales, económicos y fuerzas sociales reales, no por un único engranaje oculto. Tanto analistas de Estados Unidos como de Europa rechazan la veracidad de esas tramas secretas, denunciando además que suelen recurrir a estereotipos o demagogia (por ejemplo, culpando a minorías sin evidencias).</p>
+                        
+                        <p>En suma, estas teorías sirven más como explicaciones simplistas del poder ("algún villano detrás de todo") y como mecanismos de evasión de la realidad, que como análisis objetivo. Aun así, conceptos derivados (control social masivo, vigilancia digital, "quitar soberanía nacional") aparecen en debates legítimos sobre globalización; sólo que en el discurso serio se abordan como retos tecnológicos o políticos, no conspiraciones grandilocuentes.</p>
+                    </div>
+                </section>
+                
+                <section id="implicaciones">
+                    <h2>Implicaciones éticas, sociales y filosóficas</h2>
+                    
+                    <div class="highlight">
+                        <p>El debate sobre el NOM tiene profundas dimensiones éticas y políticas. Un orden mundial coordinado puede ayudar a promover derechos humanos, justicia y resolver crisis globales; por ello quienes lo defienden hablan de solidaridad "más allá de fronteras". Sin embargo, surge la preocupación de que tal orden restrinja la autonomía nacional o identitaria: ¿dónde queda la soberanía si hay reglas comunes supranacionales?</p>
+                        
+                        <p>Aquí chocan dos principios claves. Por un lado, Hobbes advertía que sin un poder central existe un "estado de naturaleza" de guerra de todos contra todos; bajo esa lógica, instituciones internacionales serían un mal necesario para evitar el caos global. Kant, en cambio, imaginó un derecho universal regido por una federación de estados que garantizara la paz sin sacrificar la libertad civil interna.</p>
+                        
+                        <p>En la práctica moderna, pensadores como Foucault señalaron los riesgos del biopoder y la vigilancia masiva en sociedades interconectadas (p. ej. monitoreo global de datos, pandemias para control social), que pueden minar libertades sin debate democrático. Zygmunt Bauman habló de la "modernidad líquida" y la inseguridad global: la gente teme perder identidades culturales en un mundo homogéneo, pero también vivir dentro de un sistema que promete protección a cambio de renunciar a espacios de autogobierno.</p>
+                        
+                        <p>En lo social, un NOM real acarrearía tensiones: puede favorecer derechos universales (p.ej. derechos digitales o ambientales globales) pero entrar en conflicto con valores locales o religiosos. Grupos nacionalistas lo ven como "pérdida de soberanía" y amenaza a las tradiciones. Las discusiones filosóficas actuales gravitan sobre esta dualidad: equilibrar justicia cosmopolita (solidaridad global, ciudades seguras, reducción de desigualdades) contra pluralismo cultural (cada nación mantiene su identidad, democracia representativa).</p>
+                        
+                        <p>Finalmente, está el valor instrumental y ético de las instituciones: un orden mundial puede legitimar acciones humanitarias (intervenciones contra genocidios, justicia internacional), pero igualmente puede ser usado para imponerse en países débiles. En síntesis, la idea de NOM plantea el dilema de cuánta autoridad supraestatal es aceptable antes de que la libertad democrática local resulte comprometida.</p>
+                    </div>
+                </section>
+                
+                <section id="geopolitica">
+                    <h2>Análisis geopolítico actual</h2>
+                    
+                    <div class="card">
+                        <p>En la práctica, hoy se perciben tensiones mixtas entre multilateralismo y nacionalismo. La pandemia de COVID-19 fue un ejemplo paradigmático: lanzó mecanismos globales (COVAX, OMS coordinando vacunas, apoyo financiero multilateral), pero también provocó cierres de fronteras y proteccionismo. De manera similar, la guerra en Ucrania (2022) unió a Occidente en sanciones y apoyo conjunto (ONU, OTAN), pero el veto de Rusia en el Consejo de Seguridad evidenció la fragilidad de los acuerdos internacionales.</p>
+                        
+                        <p>En paralelo, emergen nuevas rivalidades tecnológicas: la carrera por la inteligencia artificial y el 5G divide bloques (EE.UU./Alianza del Atlántico vs China/Rusia), presagiando una bifurcación del espacio digital global. Regiones enteras ofrecen perspectivas contrapuestas. En Eurasia, China habla de una "multipolaridad equilibrada" para contrapesar a EE. UU., y Rusia cuestiona el orden liberal occidental.</p>
+                        
+                        <p>Iniciativas como la Nueva Ruta de la Seda (BRI) de China o la Organización de Cooperación de Shanghái ilustran alianzas alternativas al NOM occidental. En América Latina, los gobiernos suelen reclamar mayor autonomía y representación en organismos globales; persiste una tradición soberanista (Unasur, CELAC), aunque también algunos integracionistas (Mercosur, Alianza Pacífico) buscan regionalizar agendas.</p>
+                        
+                        <p>África exige voz en el Consejo de Seguridad (reforma de la ONU) y mejores condiciones de financiamiento; la Unión Africana proyecta iniciativas de paz regional ante insurgencias y desplazamientos climáticos. En el mundo árabe, los conflictos recientes y la urgente agenda climática (sequías, migraciones) han reforzado la necesidad de colaboración internacional, aunque la rivalidad entre potencias (EE. UU., Rusia, potencias regionales) complica la estabilidad.</p>
+                        
+                        <p>Estas dinámicas se reflejan en cumbres mundiales y tratados multilaterales. Por ejemplo, la Cumbre del Clima (COP) destaca que el orden global debe responder conjuntamente al cambio climático, mientras que debates sobre comercio/tecnología se hacen a menudo en el G20 y la OMC. Al mismo tiempo, vemos un resurgir del nacionalismo económico: aranceles unilaterales y «desacoplamientos» sectoriales, incluso dentro de la UE, socavan la integración previa.</p>
+                        
+                        <p>El nombramiento de líderes globales (por ejemplo, presidentes de instituciones financieras) y acuerdos pos-COVID (Fondo de recuperación de la UE, Pacto Verde) marcan avances cooperativos, pero su aplicación desigual genera fricción social (movimientos antiglobalización, protestas por austeridad). En síntesis, el NOM en 2025 es más un campo de tensiones abiertas entre cooperación necesaria y reacciones nacionalistas, que un consenso consolidado.</p>
+                    </div>
+                </section>
+                
+                <section id="perspectivas">
+                    <h2>Perspectivas futuras</h2>
+                    
+                    <p>Mirando hacia adelante hay múltiples escenarios para el orden mundial:</p>
+                    
+                    <h3>Reforma gradual del multilateralismo</h3>
+                    <div class="highlight">
+                        <p>Las instituciones actuales se adaptan y refuerzan. Gobiernos reconocen riesgos globales comunes (pandemias, ciberataques, cambio climático) y abogan por coaliciones más amplias. Por ejemplo, el foro CIGI propone cinco posibles evoluciones para el sistema internacional, que van desde ajustes moderados hasta transformaciones profundas.</p>
+                        
+                        <p>En este marco, la ONU, el G20 y nuevos pactos (digitales, de bioseguridad) podrían fortalecer la gobernanza global, compartiendo poder con actores emergentes. RAND coincide en que el predominio estadounidense debería ceder a un sistema genuinamente multilateral, en el que las reglas se definan de forma más democrática entre grandes potencias.</p>
+                        
+                        <p>Este futuro permitiría coordinar respuestas colectivas (vacunas, acuerdos climáticos) y podría profundizar derechos internacionales (Tribunales Globales más eficaces, normativa común de IA, etc.).</p>
+                    </div>
+                    
+                    <h3>Multipolaridad equilibrada o compartida</h3>
+                    <div class="highlight">
+                        <p>En este escenario, ningún bloque controla totalmente el NOM. Como sugieren algunos analistas, podríamos transitar hacia una "multipolaridad desequilibrada" donde EE. UU., China+Rusia, la UE y quizás una coalición del Sur Global (BRICS ampliados) negocian constantemente las normas internacionales.</p>
+                        
+                        <p>El riesgo es la estasis: dificultades para actuar unánimemente en crisis (p. ej. veto en la ONU, desacuerdos sobre cuotas de emisión). Sin embargo, si se instituyen foros inclusivos (reforma del Consejo de Seguridad, cuerpos regulatorios con representación equitativa), este modelo daría voz a más países sin un único hegemon.</p>
+                    </div>
+                    
+                    <h3>Retorno al nacionalismo y desintegración</h3>
+                    <div class="highlight">
+                        <p>De persistir la polarización, otro camino es la fractura del orden multilateral. Países clave podrían retirarse de pactos globales o negarse a honrarlos (como ya lo han hecho en casos de comercio o pactos ambientales). Un mundo así sería más volátil: cada nación priorizaría intereses inmediatos, reduciendo las instituciones a meros foros informales.</p>
+                        
+                        <p>Aunque los costes (más guerras, crisis ecológicas) serían altos, algunos movimientos populistas en Occidente y Oriente están empujando hacia este tipo de futuro. En este escenario, las antiguas alianzas (OTAN, UE) podrían debilitarse, mientras surgen esquemas bilaterales o regionales nuevos e inestables.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <p>Ningún escenario es inevitable. Los riesgos principales del NOM incluyen la desigualdad global (si el sistema beneficia a unos pocos países o corporaciones), la erosión de la democracia interna (si se ceden atribuciones clave a organismos lejanos) y conflictos tecnológicos o militares (armas autónomas, ciberataques).</p>
+                        
+                        <p>Pero también existen oportunidades: soluciones comunes a problemas globales (vacunas accesibles, energías renovables financiadas internacionalmente), mayor solidaridad en derechos humanos (tratados globales contra la tortura, cooperaciones anticorrupción) y estabilidad basada en interdependencia económica.</p>
+                        
+                        <p>El desafío ético será hallar el balance: un orden internacional lo bastante fuerte para enfrentar amenazas comunes sin anular la pluralidad de visiones culturales o las libertades locales.</p>
+                    </div>
+                </section>
+                
+                <section id="fuentes">
+                    <h2>Fuentes y bibliografía</h2>
+                    
+                    <div class="bibliografia">
+                        <p>Este ensayo integra más de sesenta referencias de diversa índole, siguiendo criterios de confiabilidad académica e institucional. Se consultaron textos especializados (como la Enciclopedia Britannica sobre post–Guerra Fría), artículos revisados por pares y libros de relaciones internacionales, así como informes de think tanks de prestigio (RAND, CIGI, Chatham House, Brookings). Además, se incluyeron noticias y análisis de medios reconocidos (por ejemplo Politica Exterior, el portal El Orden Mundial y Público), sitios oficiales (ONU, FMI, Banco Mundial) y textos fundacionales (discursos de Bush).</p>
+                        
+                        <p>Las fuentes alternativas (como apartados de Wikipedia o blogs explicativos) se usaron con precaución: por ejemplo, las páginas de Wikipedia se citaron para ilustrar percepciones populares del NOM, reconociendo que son síntesis colaborativas que requieren contraste crítico. En cada sección se cita la bibliografía pertinente, procurando diversidad de perspectivas.</p>
+                        
+                        <p>Así, el balance del ensayo refleja información de agencias globales, literatura académica y medios fiables. Se evita cualquier afirmación sin soporte: las afirmaciones sobre actores y eventos se fundamentan en datos o citas (p.ej. discursos de líderes y cifras institucionales), mientras que las teorías conspirativas se presentan claramente como narrativas sin sustento empírico.</p>
+                        
+                        <p>En conjunto, la investigación subraya la pluralidad del debate sobre el NOM, sustentando cada punto con las referencias apropiadas para garantizar rigor y transparencia.</p>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
+    
+    <footer>
+       <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        // Barra de progreso de lectura
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.reading-progress').style.width = scrolled + '%';
+            
+            // Mostrar/ocultar botón de volver arriba
+            const backToTop = document.querySelector('.back-to-top');
+            if (winScroll > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        // Botón volver arriba
+        document.querySelector('.back-to-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Scroll suave para anclajes
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

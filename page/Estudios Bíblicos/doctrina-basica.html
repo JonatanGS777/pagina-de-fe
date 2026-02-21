@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctrina Básica | Estudios Bíblicos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1E40AF;
+            --light-blue: #3B82F6;
+            --sky-blue: #60A5FA;
+            --soft-blue: #DBEAFE;
+            --growth-green: #10B981;
+            --mint-green: #6EE7B7;
+            --light-green: #D1FAE5;
+            --golden-yellow: #F59E0B;
+            --warm-yellow: #FCD34D;
+            --light-yellow: #FEF3C7;
+            --pure-white: #FFFFFF;
+            --soft-gray: #F8FAFC;
+            --text-dark: #1F2937;
+            --text-medium: #4B5563;
+            --text-light: #6B7280;
+            
+            --gradient-faith: linear-gradient(135deg, #1E40AF 0%, #3B82F6 50%, #10B981 100%);
+            --gradient-light: linear-gradient(135deg, #DBEAFE 0%, #D1FAE5 100%);
+            --gradient-warm: linear-gradient(135deg, #FEF3C7 0%, #DBEAFE 100%);
+            
+            --shadow-small: 0 2px 4px rgba(30, 64, 175, 0.1);
+            --shadow-medium: 0 4px 12px rgba(30, 64, 175, 0.15);
+            --shadow-large: 0 8px 25px rgba(30, 64, 175, 0.2);
+            --shadow-glow: 0 0 20px rgba(16, 185, 129, 0.3);
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'Nunito', sans-serif;
+            --font-ui: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--soft-gray);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Background pattern overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(219, 234, 254, 0.95) 100%),
+                url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="cross" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M15 5 L15 25 M5 15 L25 15" stroke="%233B82F6" stroke-width="0.5" fill="none" opacity="0.1"/></pattern></defs><rect width="60" height="60" fill="url(%23cross)"/></svg>');
+            background-size: cover, 60px 60px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--gradient-faith);
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 50px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .progress-indicator {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            font-family: var(--font-ui);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: var(--pure-white);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--soft-blue);
+        }
+
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-family: var(--font-ui);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb-nav a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: var(--transition);
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        .breadcrumb-nav a:hover {
+            background: var(--soft-blue);
+        }
+
+        .breadcrumb-nav i {
+            color: var(--light-blue);
+            font-size: 0.8rem;
+        }
+
+        /* Hero Section with better background */
+        .hero {
+            position: relative;
+            padding: 4rem 0;
+            text-align: center;
+            overflow: hidden;
+            background: transparent; /* antes: var(--gradient-light) */
+}
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('./images/febasica.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(30, 64, 175, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-icon {
+            background: var(--gradient-faith);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .hero-icon i {
+            color: white;
+            font-size: 2rem;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-medium);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .hero-stat {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-small);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .hero-stat:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .hero-stat-number {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--growth-green);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-stat-label {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            font-weight: 500;
+        }
+
+        /* Progress Bar */
+        .learning-progress {
+            background: white;
+            background-image: 
+                linear-gradient(90deg, rgba(255, 255, 255, 0.9) 0%, rgba(219, 234, 254, 0.95) 100%);
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--soft-blue);
+            position: sticky;
+            top: 85px;
+            z-index: 999;
+        }
+
+        .progress-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .progress-title {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .progress-percentage {
+            font-family: var(--font-ui);
+            font-weight: 600;
+            color: var(--growth-green);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--soft-blue);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-faith);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        /* Doctrine Cards */
+        .doctrines-section {
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .doctrines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .doctrine-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-small);
+            transition: var(--transition);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .doctrine-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-large);
+        }
+
+        .doctrine-card.completed {
+            border: 2px solid var(--growth-green);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .doctrine-header {
+            background: var(--gradient-faith);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .doctrine-number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .doctrine-icon {
+            background: rgba(255, 255, 255, 0.2);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .doctrine-icon i {
+            font-size: 1.5rem;
+        }
+
+        .doctrine-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .doctrine-verse {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .doctrine-content {
+            padding: 2rem;
+        }
+
+        .doctrine-description {
+            margin-bottom: 1.5rem;
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        .key-points {
+            background: var(--soft-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .key-points h4 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-family: var(--font-display);
+            font-weight: 600;
+        }
+
+        .key-points ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .key-points li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .key-points li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--growth-green);
+            font-weight: bold;
+        }
+
+        .bible-reference {
+            background: var(--light-yellow);
+            border-left: 4px solid var(--golden-yellow);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+
+        .bible-reference-text {
+            margin-bottom: 0.5rem;
+        }
+
+        .bible-reference-cite {
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-size: 0.9rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-family: var(--font-ui);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--light-blue);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--soft-blue);
+            color: var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--sky-blue);
+            color: white;
+        }
+
+        .btn-success {
+            background: var(--growth-green);
+            color: white;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background: var(--gradient-warm);
+            padding: 4rem 0;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .quiz-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-question {
+            display: none;
+        }
+
+        .quiz-question.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-option {
+            background: var(--soft-gray);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-body);
+        }
+
+        .quiz-option:hover {
+            background: var(--soft-blue);
+            border-color: var(--light-blue);
+        }
+
+        .quiz-option.selected {
+            background: var(--light-green);
+            border-color: var(--growth-green);
+        }
+
+        .quiz-option.correct {
+            background: var(--light-green);
+            border-color: var(--growth-green);
+        }
+
+        .quiz-option.incorrect {
+            background: #FEE2E2;
+            border-color: #EF4444;
+        }
+
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .quiz-progress {
+            font-family: var(--font-ui);
+            color: var(--text-medium);
+        }
+
+        /* Dynamic Guide Section */
+        .guide-section {
+            background: white;
+            padding: 4rem 0;
+            margin: 3rem 0;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        .guide-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .guide-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+        }
+
+        .guide-card {
+            background: var(--gradient-light);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-small);
+        }
+
+        .guide-question {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .guide-answer {
+            color: var(--text-medium);
+            line-height: 1.8;
+        }
+
+        .guide-loading {
+            padding: 3rem;
+            text-align: center;
+            color: var(--text-medium);
+        }
+
+        .guide-loading i {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .fa-spin {
+            animation: spin 1s linear infinite;
+        }
+
+        /* Certificate Section */
+        .certificate-section {
+            background: var(--gradient-faith);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            display: none;
+        }
+
+        .certificate-section.show {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .certificate-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            color: var(--text-dark);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: var(--shadow-large);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+        }
+
+        .certificate-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .certificate-icon {
+            background: var(--gradient-faith);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .certificate-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .certificate-text {
+            margin-bottom: 2rem;
+            color: var(--text-medium);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-blue);
+            color: white;
+            padding: 3rem 0 1rem;
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--warm-yellow);
+        }
+
+        .footer-column p,
+        .footer-column li {
+            opacity: 0.9;
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--warm-yellow);
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .doctrines-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .doctrine-header,
+            .doctrine-content {
+                padding: 1.5rem;
+            }
+            
+            .quiz-container {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .doctrine-title {
+                font-size: 1.2rem;
+            }
+            
+            .quiz-container {
+                padding: 1.5rem;
+            }
+            
+            .certificate-container {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+            
+            .doctrines-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading Animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .loading {
+            animation: pulse 2s infinite;
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hidden elements */
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Force guide section visible with high specificity */
+        body #guideSection,
+        body .guide-section#guideSection {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 10 !important;
+            min-height: 200px;
+        }
+        
+        #guideSection.hidden {
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="../../images/EMD.png" alt="Logo EMD">
+                <div class="logo-text">
+                    <div>Ministerio</div>
+                    <div>"La Gloria es del Señor"</div>
+                </div>
+            </div>
+            <div class="progress-indicator">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Academia de Fe</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="../../index.html">Inicio</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="../Estudios Bíblicos/doctrina-basica.html">Estudios Bíblicos</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Doctrina Básica</span>
+            </nav>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-icon">
+                <i class="fas fa-book-open"></i>
+            </div>
+            <h1 class="hero-title">Doctrina Básica para Nuevos Creyentes</h1>
+            <p class="hero-subtitle">
+                Fundamentos sólidos de la fe cristiana presentados de manera clara y práctica para tu crecimiento espiritual
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">10</span>
+                    <span class="hero-stat-label">Doctrinas Esenciales</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">100+</span>
+                    <span class="hero-stat-label">Versículos Clave</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">20</span>
+                    <span class="hero-stat-label">Preguntas de Repaso</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">∞</span>
+                    <span class="hero-stat-label">Crecimiento Espiritual</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="learning-progress">
+        <div class="container">
+            <div class="progress-container">
+                <div class="progress-title">Tu Progreso de Aprendizaje</div>
+                <div class="progress-percentage">0% Completado</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+    </div>
+
+    <section class="doctrines-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Las 10 Doctrinas Fundamentales</h2>
+                <p>Estas son las verdades inamovibles del evangelio que todo creyente debe conocer y comprender</p>
+            </div>
+
+            <div class="doctrines-grid" id="doctrinesGrid">
+                <!-- Las tarjetas de doctrina se cargarán dinámicamente aquí -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="quiz-section">
+        <div class="container">
+            <div class="quiz-container" id="quizContainer">
+                <h2 class="quiz-title">Evaluación de Conocimientos</h2>
+                <div id="quizContent">
+                    <!-- El contenido del quiz se cargará dinámicamente -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Guide Section -->
+    <section class="guide-section" id="guideSection">
+        <div class="container">
+            <div class="guide-container">
+                <h2 class="guide-title">Guía Personalizada para Tu Crecimiento</h2>
+                <div id="guideContent">
+                    <!-- El contenido de la guía se cargará dinámicamente -->
+                    <div class="guide-loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Preparando tu guía personalizada...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Section -->
+    <section class="certificate-section" id="certificateSection">
+        <div class="container">
+            <div class="certificate-container">
+                <div class="certificate-content">
+                    <div class="certificate-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h2 class="certificate-title">¡Felicitaciones!</h2>
+                    <p class="certificate-text">
+                        Has completado exitosamente el curso de Doctrina Básica para Nuevos Creyentes. 
+                        Ahora tienes una base sólida en los fundamentos de la fe cristiana.
+                    </p>
+                    <div class="action-buttons">
+                        <button class="btn btn-success" onclick="certificateManager.download()">
+                            <i class="fas fa-download"></i>
+                            Descargar Certificado
+                        </button>
+                        <a href="../doctrina-intermedia.html" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i>
+                            Doctrina Intermedia
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sobre Este Curso</h3>
+                    <p>Este curso presenta las doctrinas fundamentales de la fe cristiana de manera clara y bíblica, diseñado especialmente para nuevos creyentes que desean crecer en su conocimiento de Dios.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Próximos Pasos</h3>
+                    <ul class="footer-links">
+                        <li><a href="./doctrina-intermedia.html"><i class="fas fa-arrow-right"></i> Doctrina Intermedia</a></li>
+                        <li><a href="./doctrina-avanzada.html"><i class="fas fa-arrow-right"></i> Doctrina Avanzada</a></li>
+                        <li><a href="./devocionales.html"><i class="fas fa-arrow-right"></i> Devocionales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:ministeriolagloriaesdelsenor7@gmail.com"><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</a></li>
+                        <li><a href="tel:+17873456940"><i class="fas fa-phone"></i> +1 787-345-6940</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load JavaScript Files -->
+    <script src="javascript/progress-tracker.js"></script>
+    <script src="javascript/doctrine-cards.js"></script>
+    <script src="javascript/doctrine-quiz.js"></script>
+    <script src="javascript/dynamic-guide.js"></script>
+    
+    <!-- Script de inicialización adicional -->
+    <script>
+        // Verificar que todos los módulos estén cargados
+        window.addEventListener('load', function() {
+            console.log('Página completamente cargada');
+            
+            // Dar tiempo para que todos los scripts se carguen
+            setTimeout(() => {
+                // Verificar disponibilidad de módulos
+                if (window.dynamicGuide) {
+                    console.log('dynamicGuide disponible');
+                    
+                    // Forzar visibilidad de la sección de guías
+                    const guideSection = document.getElementById('guideSection');
+                    if (guideSection) {
+                        guideSection.style.display = 'block';
+                        guideSection.classList.remove('hidden');
+                        console.log('Sección de guías visible');
+                    }
+                    
+                    // Si el contenido aún muestra el spinner, inicializar
+                    const content = document.getElementById('guideContent');
+                    if (content && content.querySelector('.guide-loading')) {
+                        console.log('Inicializando guías manualmente...');
+                        window.initGuides();
+                    }
+                } else {
+                    console.error('dynamicGuide no está disponible');
+                    console.log('Intenta ejecutar initGuides() manualmente en la consola');
+                }
+            }, 1500);
+        });
+        
+        // Mensaje de ayuda inicial
+        console.log('Cargando sistema de Doctrina Básica...');
+        console.log('Si las guías no aparecen automáticamente, ejecuta: initGuides()');
+        
+        // Verificación final después de 3 segundos
+        setTimeout(() => {
+            const guideContent = document.getElementById('guideContent');
+            if (guideContent && guideContent.querySelector('.guide-loading')) {
+                console.warn('Las guías no se cargaron automáticamente.');
+                console.log('Ejecuta uno de estos comandos:');
+                console.log('- testGuideSimple() : Prueba básica');
+                console.log('- initGuides() : Inicializar guías');
+                console.log('- testGuide() : Mostrar bienvenida');
+            }
+        }, 3000);
+    </script>
+</body>
+</html>

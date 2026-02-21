@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Ministerio EMD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            /* Colores principales modernos */
+            --primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --primary-solid: #667eea;
+            --secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --success: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --warning: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            --danger: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            
+            /* Tonos neutros modernos */
+            --bg-primary: #0f0f23;
+            --bg-secondary: #16213e;
+            --bg-tertiary: #1a365d;
+            --bg-surface: rgba(255, 255, 255, 0.03);
+            --bg-glass: rgba(255, 255, 255, 0.1);
+            --bg-card: rgba(255, 255, 255, 0.05);
+            
+            /* Textos */
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --text-muted: #718096;
+            --text-accent: #4facfe;
+            
+            /* Efectos */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.3);
+            --shadow-glow: 0 0 30px rgba(102, 126, 234, 0.3);
+            --border-glass: 1px solid rgba(255, 255, 255, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* 🔐 LOGIN DE ADMINISTRADOR */
+        .admin-access-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(15, 15, 35, 0.95), rgba(22, 33, 62, 0.95));
+            backdrop-filter: blur(20px);
+            z-index: 20000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInAdmin 0.5s ease-out;
+        }
+
+        @keyframes fadeInAdmin {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .admin-login-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(30px);
+            border: var(--border-glass);
+            border-radius: 32px;
+            padding: 48px 40px;
+            width: 100%;
+            max-width: 480px;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            animation: slideUpAdmin 0.6s ease-out;
+        }
+
+        @keyframes slideUpAdmin {
+            from { 
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .admin-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .admin-logo {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: var(--shadow-glow);
+            animation: pulseGlow 3s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .admin-logo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: spin 4s linear infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { 
+                box-shadow: var(--shadow-glow);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(79, 172, 254, 0.5);
+            }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .admin-logo i {
+            font-size: 2.5rem;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .admin-header h2 {
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-weight: 800;
+            background: var(--primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .admin-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .admin-form {
+            margin-bottom: 32px;
+        }
+
+        .input-group {
+            margin-bottom: 24px;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 20px;
+            color: var(--text-accent);
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 18px 20px 18px 55px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+            background: var(--bg-glass);
+            color: var(--text-primary);
+            backdrop-filter: blur(10px);
+        }
+
+        .input-wrapper input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .input-wrapper input:focus {
+            outline: none;
+            border-color: var(--primary-solid);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .toggle-password:hover {
+            color: var(--text-accent);
+        }
+
+        .btn-admin-login {
+            width: 100%;
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 18px 24px;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition-spring);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: inherit;
+        }
+
+        .btn-admin-login:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(79, 172, 254, 0.4);
+        }
+
+        .admin-features {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .feature-admin {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: var(--bg-glass);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-solid);
+            transition: var(--transition);
+        }
+
+        .feature-admin:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .feature-admin i {
+            color: var(--text-accent);
+            font-size: 1.2rem;
+            width: 20px;
+        }
+
+        .feature-admin span {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .back-to-site {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            background: var(--bg-glass);
+            border: var(--border-glass);
+            padding: 12px 20px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-to-site:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* 🚀 PANEL DE ADMINISTRACIÓN */
+        .admin-panel {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-primary);
+            z-index: 25000;
+            display: none;
+        }
+
+        .admin-dashboard {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* 🎨 SIDEBAR */
+        .admin-sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            backdrop-filter: blur(20px);
+            border-right: var(--border-glass);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 10;
+            transition: var(--transition);
+            overflow-y: auto;
+        }
+
+        .admin-sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            pointer-events: none;
+        }
+
+        /* 👤 PERFIL DE ADMINISTRADOR */
+        .admin-profile {
+            padding: 32px 24px;
+            text-align: center;
+            border-bottom: var(--border-glass);
+            position: relative;
+            z-index: 1;
+        }
+
+        .admin-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 2rem;
+            color: white;
+            box-shadow: var(--shadow-glow);
+            position: relative;
+            overflow: hidden;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .admin-avatar::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: spin 4s linear infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .admin-profile h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+            background: var(--primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .admin-role {
+            background: var(--bg-glass);
+            color: var(--text-accent);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: var(--border-glass);
+            display: inline-block;
+        }
+
+        /* 🧭 NAVEGACIÓN */
+        .admin-nav {
+            padding: 24px 16px;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .admin-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 20px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 16px;
+            margin-bottom: 8px;
+            transition: var(--transition-spring);
+            position: relative;
+            overflow: hidden;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .admin-nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--accent);
+            opacity: 0;
+            transition: var(--transition);
+            border-radius: 16px;
+        }
+
+        .admin-nav-item:hover,
+        .admin-nav-item.active {
+            color: var(--text-primary);
+            transform: translateX(4px);
+        }
+
+        .admin-nav-item:hover::before,
+        .admin-nav-item.active::before {
+            opacity: 0.1;
+        }
+
+        .admin-nav-item.active {
+            background: var(--bg-glass);
+            border: var(--border-glass);
+            box-shadow: var(--shadow-md);
+        }
+
+        .admin-nav-item i {
+            font-size: 1.2rem;
+            width: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .admin-nav-item span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 🎮 CONTROLES DEL SIDEBAR */
+        .admin-view-controls {
+            padding: 0 16px 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-view-toggle {
+            width: 100%;
+            background: var(--bg-glass);
+            color: var(--text-secondary);
+            border: var(--border-glass);
+            padding: 12px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: inherit;
+        }
+
+        .btn-view-toggle:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .admin-logout {
+            width: 100%;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(238, 90, 82, 0.1) 100%);
+            color: #ff6b6b;
+            border: 1px solid rgba(255, 107, 107, 0.2);
+            padding: 12px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            font-family: inherit;
+        }
+
+        .admin-logout:hover {
+            background: var(--danger);
+            color: white;
+        }
+
+        /* 📱 CONTENIDO PRINCIPAL */
+        .admin-content {
+            flex: 1;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #1a1a3a 100%);
+            position: relative;
+            overflow-y: auto;
+            padding: 32px;
+        }
+
+        .admin-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* 🔝 HEADER DEL CONTENIDO */
+        .admin-header-panel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .admin-header-panel h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #a0aec0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .admin-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn-admin-action {
+            background: var(--bg-glass);
+            border: var(--border-glass);
+            color: var(--text-secondary);
+            padding: 12px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: inherit;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-admin-action:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* 📊 SECCIONES */
+        .admin-section {
+            display: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .admin-section.active {
+            display: block;
+        }
+
+        /* 📊 GRID DE ESTADÍSTICAS */
+        .stats-grid-admin {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card-admin {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: var(--border-glass);
+            border-radius: 24px;
+            padding: 28px 24px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-spring);
+            cursor: pointer;
+        }
+
+        .stat-card-admin::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 24px 24px 0 0;
+        }
+
+        .stat-card-admin:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(79, 172, 254, 0.3);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 8px 32px rgba(79, 172, 254, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .stat-details h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-details p {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        /* 📋 WIDGETS */
+        .admin-widgets {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .widget {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: var(--border-glass);
+            border-radius: 24px;
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .widget:hover {
+            border-color: rgba(79, 172, 254, 0.3);
+            box-shadow: var(--shadow-md);
+        }
+
+        .widget h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        /* 👥 LISTA DE USUARIOS/TEMAS */
+        .user-list {
+            max-height: 320px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(79, 172, 254, 0.3) transparent;
+        }
+
+        .user-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .user-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .user-list::-webkit-scrollbar-thumb {
+            background: rgba(79, 172, 254, 0.3);
+            border-radius: 3px;
+        }
+
+        .user-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .user-item:hover {
+            background: var(--bg-glass);
+            border-radius: 12px;
+            padding-left: 12px;
+            margin: 0 -12px;
+        }
+
+        .user-item:last-child {
+            border-bottom: none;
+        }
+
+        .user-avatar-small {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .user-info h5 {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+
+        .user-info span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* 🔔 FEED DE ACTIVIDAD */
+        .activity-feed {
+            max-height: 320px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(79, 172, 254, 0.3) transparent;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .activity-item:hover {
+            background: var(--bg-glass);
+            border-radius: 12px;
+            padding-left: 12px;
+            margin: 0 -12px;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--secondary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .activity-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .activity-text p {
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+
+        .activity-text span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* 🎛️ CONTROL FLOTANTE */
+        .admin-floating-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 15000;
+            font-family: 'Inter', sans-serif;
+            display: none;
+        }
+
+        .admin-control-toggle {
+            background: var(--accent);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: var(--shadow-glow);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .admin-control-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(79, 172, 254, 0.4);
+        }
+
+        /* 💬 MENSAJES DE NOTIFICACIÓN */
+        .admin-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            z-index: 30000;
+            opacity: 0;
+            transform: translateX(100px);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .admin-message.success {
+            background: var(--success);
+            color: white;
+        }
+
+        .admin-message.error {
+            background: var(--danger);
+            color: white;
+        }
+
+        .admin-message.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* 🔄 ANIMACIONES DE CARGA */
+        .loading-shimmer {
+            background: linear-gradient(90deg, 
+                rgba(255, 255, 255, 0.0) 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                rgba(255, 255, 255, 0.0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* 🎨 EFECTOS ESPECIALES */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        /* 💫 PARTÍCULAS ANIMADAS */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(79, 172, 254, 0.6);
+            border-radius: 50%;
+            animation: particle-float 10s infinite linear;
+        }
+
+        @keyframes particle-float {
+            0% {
+                transform: translateY(100vh) translateX(0px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* 📱 RESPONSIVO */
+        @media (max-width: 1024px) {
+            .admin-widgets {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid-admin {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .admin-sidebar {
+                position: fixed;
+                left: -280px;
+                height: 100vh;
+                z-index: 1000;
+                transition: left 0.3s ease;
+            }
+
+            .admin-sidebar.active {
+                left: 0;
+            }
+
+            .admin-content {
+                padding: 20px;
+            }
+
+            .admin-header-panel {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .admin-header-panel h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid-admin {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-login-card {
+                padding: 40px 30px;
+                margin: 20px;
+            }
+
+            .admin-floating-control {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .admin-login-card {
+                padding: 30px 20px;
+                margin: 15px;
+            }
+
+            .admin-logo {
+                width: 70px;
+                height: 70px;
+            }
+
+            .admin-logo i {
+                font-size: 2rem;
+            }
+
+            .admin-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 🔐 ACCESO SECRETO DE ADMINISTRADOR -->
+    <div id="admin-access" class="admin-access-overlay" style="display: none;">
+        <div class="admin-login-card">
+            <button class="back-to-site" onclick="backToSite()">
+                <i class="fas fa-arrow-left"></i>
+                Volver al Sitio
+            </button>
+
+            <div class="admin-header">
+                <div class="admin-logo">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h2>Panel de Administración</h2>
+                <p>Acceso Reservado - Ministerio EMD</p>
+            </div>
+            
+            <form id="admin-login-form" class="admin-form">
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fas fa-user-shield"></i>
+                        <input type="text" id="admin-username" placeholder="Usuario Administrador" required>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fas fa-key"></i>
+                        <input type="password" id="admin-password" placeholder="Clave Maestra" required>
+                        <button type="button" class="toggle-password" onclick="toggleAdminPassword()">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-admin-login">
+                    <i class="fas fa-unlock-alt"></i>
+                    Acceder al Panel
+                </button>
+                
+                <div class="admin-features">
+                    <div class="feature-admin">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Analytics Avanzados</span>
+                    </div>
+                    <div class="feature-admin">
+                        <i class="fas fa-users-cog"></i>
+                        <span>Gestión de Usuarios</span>
+                    </div>
+                    <div class="feature-admin">
+                        <i class="fas fa-database"></i>
+                        <span>Control de Contenido</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 🚀 PANEL DE CONTROL DE ADMINISTRADOR -->
+    <div id="admin-panel" class="admin-panel">
+        <div class="admin-dashboard">
+            <!-- 🎨 SIDEBAR -->
+            <div class="admin-sidebar" id="admin-sidebar">
+                <div class="admin-profile">
+                    <div class="admin-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 id="admin-name">Administrador</h3>
+                    <span class="admin-role">Super Admin</span>
+                </div>
+                
+                <nav class="admin-nav">
+                    <button class="admin-nav-item active" data-section="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </button>
+                    <button class="admin-nav-item" data-section="users">
+                        <i class="fas fa-users"></i>
+                        <span>Usuarios</span>
+                    </button>
+                    <button class="admin-nav-item" data-section="analytics">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Analytics</span>
+                    </button>
+                    <button class="admin-nav-item" data-section="content">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Contenido</span>
+                    </button>
+                    <button class="admin-nav-item" data-section="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Configuración</span>
+                    </button>
+                </nav>
+                
+                <div class="admin-view-controls">
+                    <button class="btn-view-toggle" onclick="toggleContentView()">
+                        <i class="fas fa-eye"></i>
+                        Ver Página Principal
+                    </button>
+                    <button class="admin-logout" onclick="logoutAdmin()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Cerrar Panel
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 📱 CONTENIDO PRINCIPAL -->
+            <div class="admin-content">
+                <!-- 💫 Partículas de fondo -->
+                <div class="particles" id="particles"></div>
+
+                <div class="admin-header-panel">
+                    <h1 id="admin-section-title">Dashboard Principal</h1>
+                    <div class="admin-actions">
+                        <button class="btn-admin-action" onclick="refreshData()">
+                            <i class="fas fa-sync-alt"></i>
+                            Actualizar
+                        </button>
+                        <button class="btn-admin-action" onclick="exportData()">
+                            <i class="fas fa-download"></i>
+                            Exportar
+                        </button>
+                        <button class="btn-admin-action" onclick="toggleSidebar()">
+                            <i class="fas fa-bars"></i>
+                            Menú
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Dashboard Section -->
+                <div id="admin-dashboard-section" class="admin-section active">
+                    <div class="stats-grid-admin">
+                        <div class="stat-card-admin">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3 id="total-users">-</h3>
+                                <p>Usuarios Registrados</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card-admin">
+                            <div class="stat-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3 id="total-visits">-</h3>
+                                <p>Vistas Totales</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card-admin">
+                            <div class="stat-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3 id="content-views">-</h3>
+                                <p>Temas Creados</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card-admin">
+                            <div class="stat-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3 id="avg-time">-</h3>
+                                <p>Total Comentarios</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-widgets">
+                        <div class="widget">
+                            <h4>Temas Recientes</h4>
+                            <div id="recent-users" class="user-list">
+                                <div class="user-item">
+                                    <div class="user-avatar-small">...</div>
+                                    <div class="user-info">
+                                        <h5>Cargando datos...</h5>
+                                        <span>Conectando al servidor</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="widget">
+                            <h4>Actividad en Tiempo Real</h4>
+                            <div id="real-time-activity" class="activity-feed">
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </div>
+                                    <div class="activity-text">
+                                        <p>Cargando actividad reciente...</p>
+                                        <span>Conectando con Firebase</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Otras secciones -->
+                <div id="admin-users-section" class="admin-section">
+                    <div class="widget">
+                        <h4>Gestión de Usuarios</h4>
+                        <p>Aquí puedes administrar todos los usuarios registrados en el ministerio.</p>
+                        <br>
+                        <div class="stats-grid-admin">
+                            <div class="stat-card-admin">
+                                <div class="stat-icon">
+                                    <i class="fas fa-user-check"></i>
+                                </div>
+                                <div class="stat-details">
+                                    <h3>-</h3>
+                                    <p>Usuarios Activos</p>
+                                </div>
+                            </div>
+                            <div class="stat-card-admin">
+                                <div class="stat-icon">
+                                    <i class="fas fa-plus-circle"></i>
+                                </div>
+                                <div class="stat-details">
+                                    <h3>-</h3>
+                                    <p>Temas Recientes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="admin-analytics-section" class="admin-section">
+                    <div class="widget">
+                        <h4>Analytics del Foro</h4>
+                        <p>Reportes y métricas avanzadas del foro de discusión.</p>
+                        <br>
+                        <div class="stats-grid-admin">
+                            <div class="stat-card-admin">
+                                <div class="stat-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <div class="stat-details">
+                                    <h3>-</h3>
+                                    <p>Promedio Temas/Usuario</p>
+                                </div>
+                            </div>
+                            <div class="stat-card-admin">
+                                <div class="stat-icon">
+                                    <i class="fas fa-trending-up"></i>
+                                </div>
+                                <div class="stat-details">
+                                    <h3>-</h3>
+                                    <p>Categoría Más Activa</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="admin-content-section" class="admin-section">
+                    <div class="widget">
+                        <h4>Gestión de Contenido</h4>
+                        <p>Editor y moderación de contenido del foro.</p>
+                        <br>
+                        <div class="stats-grid-admin">
+                            <div class="stat-card-admin">
+                                <div class="stat-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="stat-details">
+                                    <h3>-</h3>
+                                    <p>Temas Publicados</p>
+                                </div>
+                            </div>
+                            <div class="stat-card-admin">
+                                <div class="stat-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <div class="stat-details">
+                                    <h3>-</h3>
+                                    <p>Comentarios Totales</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="admin-settings-section" class="admin-section">
+                    <div class="widget">
+                        <h4>Configuración del Sistema</h4>
+                        <p>Ajustes generales y mantenimiento del ministerio.</p>
+                        <br>
+                        <div class="admin-features">
+                            <div class="feature-admin">
+                                <i class="fas fa-cog"></i>
+                                <span>Configuración General</span>
+                            </div>
+                            <div class="feature-admin">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Seguridad y Acceso</span>
+                            </div>
+                            <div class="feature-admin">
+                                <i class="fas fa-database"></i>
+                                <span>Backup y Restauración</span>
+                            </div>
+                            <div class="feature-admin">
+                                <i class="fas fa-tools"></i>
+                                <span>Herramientas de Mantenimiento</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🎛️ CONTROL FLOTANTE DE ADMINISTRADOR -->
+    <div id="admin-floating-control" class="admin-floating-control">
+        <div class="admin-control-toggle" id="admin-control-toggle">
+            <i class="fas fa-crown"></i>
+            <span>ADMIN</span>
+        </div>
+    </div>
+
+    <script>
+        // 💫 CREAR PARTÍCULAS ANIMADAS
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 15;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // 🚀 FUNCIONES PLACEHOLDER PARA COMPATIBILIDAD
+        function toggleSidebar() {
+            // Esta función será sobrescrita por admin.js
+            console.log('toggleSidebar llamado');
+        }
+
+        function refreshData() {
+            // Esta función será sobrescrita por admin.js
+            console.log('refreshData llamado');
+        }
+
+        function exportData() {
+            // Esta función será sobrescrita por admin.js
+            console.log('exportData llamado');
+        }
+
+        function toggleContentView() {
+            // Esta función será sobrescrita por admin.js
+            console.log('toggleContentView llamado');
+        }
+
+        function logoutAdmin() {
+            // Esta función será sobrescrita por admin.js
+            console.log('logoutAdmin llamado');
+        }
+
+        function backToSite() {
+            // Esta función será sobrescrita por admin.js
+            console.log('backToSite llamado');
+        }
+
+        function toggleAdminPassword() {
+            // Esta función será sobrescrita por admin.js
+            console.log('toggleAdminPassword llamado');
+        }
+
+        // 🚀 INICIALIZACIÓN
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            console.log('🎨 Dashboard moderno cargado - Esperando admin.js...');
+        });
+    </script>
+
+    <!-- Scripts -->
+    <script type="module" src="./admin.js"></script>
+</body>
+</html>

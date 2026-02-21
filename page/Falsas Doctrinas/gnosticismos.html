@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Gnosticismo: Un Análisis Detallado</title>
+    <style>
+        :root {
+            --primary-color: #8D5B4C;        /* Terracota suave – calidez y tradición */
+            --secondary-color: #A6B98E;      /* Verde olivo claro – serenidad y armonía */
+            --accent-color: #D9A05B;         /* Dorado tostado – acento natural y sutil */
+            --light-color: #FAF8F5;          /* Marfil claro – fondo perfecto para lectura */
+            --dark-color: #2F2F2F;           /* Gris carbón – excelente contraste para texto */
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --text-gradient: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Spectral', serif;
+            line-height: 1.9;
+            color: #333;
+            background-color: #f5f5f5;
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
+        /* Header simplificado con fondo - ajustado para imagen completa */
+        header {
+            background: linear-gradient(rgba(45, 45, 45, 0.6), rgba(45, 45, 45, 0.6)),
+                url('./images/fondo-gnosticismo.jpg') center center/cover no-repeat;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            min-height: 280px; /* Altura aumentada para mostrar la imagen completa */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-attachment: fixed; /* Efecto parallax para mejor visualización */
+            overflow: hidden; /* Evita que la imagen se desborde */
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Estilos para el título de la página */
+        .page-title {
+            text-align: center;
+            margin: 3rem 0;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .page-title h1 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .page-title p {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+        
+        /* Tabla de contenidos */
+        .toc {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .toc h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            font-size: 1.8rem;
+        }
+        
+        .toc ol {
+            list-style-type: decimal;
+            margin-left: 1.5rem;
+        }
+        
+        .toc li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .toc a {
+            text-decoration: none;
+            color: var(--dark-color);
+            transition: color 0.3s;
+            display: block;
+            padding: 0.3rem 0;
+        }
+        
+        .toc a:hover {
+            color: var(--primary-color);
+            padding-left: 0.5rem;
+        }
+        
+        /* Estilos de sección */
+        main {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        article {
+            padding: 2rem;
+        }
+        
+        section {
+            margin-bottom: 4rem;
+            padding-top: 2rem;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            position: relative;
+            font-size: 2.2rem;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.6rem;
+        }
+        
+        h4 {
+            color: var(--accent-color);
+            margin: 1.2rem 0 0.8rem;
+            font-size: 1.3rem;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        
+        /* Tablas responsivas */
+        .tabla-comparativa {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            display: block;
+            overflow-x: auto; /* Permite desplazamiento horizontal en pantallas pequeñas */
+        }
+        
+        .tabla-comparativa thead {
+            background: var(--gradient);
+            color: white;
+        }
+        
+        .tabla-comparativa th, .tabla-comparativa td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            min-width: 200px; /* Ancho mínimo para prevenir compresión excesiva */
+        }
+        
+        .tabla-comparativa tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .tabla-comparativa tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .bibliografia {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 5px solid var(--accent-color);
+            margin-top: 3rem;
+            overflow-x: auto; /* Para listas largas */
+        }
+        
+        .bibliografia h2 {
+            border-bottom: none;
+        }
+        
+        .bibliografia h2::after {
+            display: none;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--dark-color);
+            color: white;
+            margin-top: 2rem;
+            width: 100%;
+        }
+
+        footer p {
+    margin-bottom: 0;
+    text-align: center;
+    width: 100%;
+}
+        
+        /* Mejores media queries para responsividad */
+        /* Mejora para la imagen en pantallas más grandes */
+        @media (min-width: 1400px) {
+            header {
+                min-height: 350px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .page-title h1 {
+                font-size: 3rem;
+            }
+            
+            .page-title p {
+                font-size: 1.3rem;
+            }
+            
+            .card, .highlight {
+                padding: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-title h1 {
+                font-size: 2.5rem;
+            }
+            
+            .page-title p {
+                font-size: 1.2rem;
+            }
+            
+            article {
+                padding: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            h3 {
+                font-size: 1.4rem;
+            }
+            
+            .toc {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            header {
+                min-height: 220px;
+                padding: 1.5rem 0;
+                background-attachment: scroll; /* Mejor rendimiento en dispositivos móviles */
+            }
+            
+            .page-title {
+                margin: 2rem 0;
+                padding-bottom: 1.5rem;
+            }
+            
+            .page-title h1 {
+                font-size: 2rem;
+            }
+            
+            .page-title p {
+                font-size: 1rem;
+            }
+            
+            article {
+                padding: 1rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+            
+            p, li {
+                font-size: 0.95rem;
+            }
+            
+            .toc {
+                padding: 1rem;
+            }
+            
+            .toc li {
+                margin-bottom: 0.5rem;
+                font-size: 1rem;
+            }
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(106, 48, 147, 0.1), rgba(160, 68, 255, 0.1));
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--primary-color);
+            width: 100%;
+        }
+        
+        /* Mejoras para listas */
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Asegura que las imágenes sean responsivas */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Encabezado con fondo - reemplazar la URL con la imagen real -->
+        <!-- NOTA: Para usar una imagen local, cambia la URL a './images/fondo-gnosticismo.jpg' -->
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="page-title">
+                <h1>EL GNOSTICISMO</h1>
+                <p>Un análisis de las corrientes gnósticas y su relación con el cristianismo primitivo (siglos I-IV d.C.)</p>
+            </div>
+            
+            <article>
+                <div class="toc">
+                    <h3>Contenido</h3>
+                    <ol>
+                        <li><a href="#introduccion">Introducción</a></li>
+                        <li><a href="#teologico">Enfoque Teológico: Doctrinas gnósticas vs. ortodoxia cristiana primitiva</a></li>
+                        <li><a href="#tabla">Tabla Comparativa: Teología Gnóstica vs. Cristiana Ortodoxa</a></li>
+                        <li><a href="#declive">Finales del siglo II – siglo IV: Reacción ortodoxa y declive</a></li>
+                        <li><a href="#historico">Enfoque Histórico: Orígenes del gnosticismo e influencia</a></li>
+                        <li><a href="#literatura">Enfoque literario: Elementos gnósticos en el Nuevo Testamento</a></li>
+                        <li><a href="#nag-hammadi">Textos gnósticos extracanónicos: Nag Hammadi y su relación con los textos canónicos</a></li>
+                    </ol>
+                </div>
+                
+                <section id="introduccion">
+                    <h2>Introducción</h2>
+                    <div class="card">
+                        <p>El gnosticismo se refiere a un conjunto heterogéneo de corrientes religiosas de los siglos I al IV d.C., caracterizadas por enfatizar la gnosis (conocimiento esotérico) como vía de salvación. El término <em>gnosis</em> proviene del griego y significa "conocimiento" o "conciencia" – específicamente un conocimiento místico obtenido por experiencia directa de lo divino.</p>
+                        
+                        <p>Estas corrientes gnósticas surgieron en el entorno del cristianismo primitivo y del judaísmo helenístico, mimetizándose en parte con la fe cristiana pero introduciendo doctrinas heterodoxas que contrastaban fuertemente con la ortodoxia bíblica emergente.</p>
+                        
+                        <div class="highlight">
+                            <p>A continuación se analizan en detalle cuatro enfoques clave sobre el gnosticismo en relación con la Biblia:</p>
+                            <ul>
+                                <li>El enfoque teológico (sus ideas y su contraste con la teología cristiana primitiva "ortodoxa")</li>
+                                <li>El enfoque histórico (orígenes y contexto en los siglos I–II, incluyendo influencias del judaísmo helenístico)</li>
+                                <li>El enfoque literario (presencia de elementos gnósticos en libros bíblicos del Nuevo Testamento, como Juan o las epístolas paulinas)</li>
+                                <li>Los textos gnósticos extracanónicos (por ejemplo, los descubiertos en Nag Hammadi en 1945) y su diálogo o contraste con los escritos canónicos del cristianismo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="teologico">
+                    <h2>Enfoque Teológico: Doctrinas gnósticas vs. ortodoxia cristiana primitiva</h2>
+                    
+                    <p>En términos teológicos, el gnosticismo cristiano presenta una cosmovisión y doctrina de la salvación muy diferente a la de la fe cristiana ortodoxa tal como se consolidó posteriormente. Los cristianos gnósticos concedían autoridad suprema al conocimiento espiritual secreto (gnosis) por encima de las enseñanzas públicas y la tradición de la Iglesia naciente.</p>
+                    
+                    <p>En general, la cosmogonía gnóstica es dualista: distingue entre un Dios supremo, trascendente y oculto, y un dios creador inferior y maligno (a menudo identificado con el Dios bíblico Yahvé). Este Demiurgo defectuoso sería el responsable de la creación del mundo material. En consecuencia, los gnósticos veían el mundo material como algo intrínsecamente defectuoso o incluso malvado, una prisión para la chispa divina del ser humano.</p>
+                    
+                    <p>La salvación, por tanto, no dependía del perdón de los pecados mediante la fe en Cristo, sino de despertar esa chispa divina mediante la gnosis del Dios verdadero oculto. Según esta doctrina, el ser humano es autónomo para salvarse a sí mismo a través de la revelación interna, y ni la sola fe ni la muerte redentora de Cristo bastan para salvar. La gnosis mística es la clave: un "conocer" interior de la propia esencia espiritual y su origen divino, mediante intuiciones o revelaciones esotéricas. Muchos textos gnósticos, de hecho, hablan más en términos de ilusión vs. iluminación (ignorancia versus conocimiento), en lugar de pecado vs. arrepentimiento, al describir la condición humana y la salvación.</p>
+                    
+                    <div class="highlight">
+                        <p>En contraste, la teología cristiana ortodoxa (la de los apóstoles y de la "Gran Iglesia" que se fue definiendo) afirmaba el monoteísmo ético: un único Dios bueno creó intencionalmente el universo material y lo declaró "bueno" (Gen 1:31). El problema del mal se atribuía a la caída y al pecado, no a la materia en sí. Asimismo, en la ortodoxia la salvación proviene de la fe en Jesucristo – en su encarnación real, muerte expiatoria y resurrección corporal – ofrecida como gracia a todos los creyentes, no mediante revelaciones secretas reservadas a una élite (cf. Ef. 2:8-9, Jn. 3:16).</p>
+                    </div>
+                    
+                    <h3>Tabla Comparativa: Teología Gnóstica vs. Cristiana Ortodoxa</h3>
+                    
+                    <div id="tabla">
+                        <table class="tabla-comparativa">
+                            <thead>
+                                <tr>
+                                    <th>Aspecto doctrinal</th>
+                                    <th>Visión gnóstica (heterodoxa)</th>
+                                    <th>Visión cristiana ortodoxa (bíblica)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Dios supremo vs. creador</strong></td>
+                                    <td>Distinción radical: Dios supremo oculto vs. Demiurgo creador inferior (a veces identificado con Yahvé). El creador del mundo material es ignorante o maligno.</td>
+                                    <td>Un solo Dios verdadero es Creador y Señor de todo lo visible e invisible. El Dios de Israel (Yahvé) es bueno y santo, idéntico al Padre de Jesucristo (Mc 12:29; Jn 1:3). No hay un "dios" rival que haya hecho un universo defectuoso.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Mundo material</strong></td>
+                                    <td>Dualismo materia/espíritu: la materia es corrupta, cárcel para el alma; la creación material es un error o acto maligno. El cuerpo es despreciable, sin esperanza de redención.</td>
+                                    <td>Bondad de la creación: el mundo material, aunque caído por el pecado, es originalmente bueno (Gen 1:31; Rom 8:20-21). No se ve la materia como intrínsecamente maligna. El cuerpo participa en la salvación (resurrección de la carne, Rom 8:11).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cristología (naturaleza de Cristo)</strong></td>
+                                    <td>Docetismo o divisiones: Siendo la materia mala, Cristo no pudo asumir un cuerpo real. Para muchos gnósticos, Jesús sólo pareció humano (doctrina del cuerpo aparente). Otros sostenían que el Cristo divino descendió sobre el hombre Jesús en el bautismo y lo abandonó antes de la cruz (adopcionismo parcial). En cualquier caso, niegan la unión plena de lo divino y lo humano en Jesús.</td>
+                                    <td>Encarnación real: Jesús es verdadero Dios y verdadero hombre; el Hijo de Dios asumió carne humana (Jn 1:14). Sufrió y murió realmente en la cruz y resucitó corporalmente (Lc 24:39-43). Negar que "Jesucristo ha venido en carne" es, según el Nuevo Testamento, espíritu del anticristo (1 Jn 4:2-3), una clara reacción contra el docetismo gnóstico.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Soteriología (salvación)</strong></td>
+                                    <td>Salvación por gnosis: Liberación del espíritu a través del conocimiento secreto de la verdad divina. La fe sencilla y la gracia no salvan; sólo la iluminación interior despierta la chispa divina y permite al alma retornar al pleroma celestial. La muerte de Cristo se interpreta no como sacrificio redentor, sino como símbolo o como mera apariencia sin valor salvífico literal.</td>
+                                    <td>Salvación por gracia mediante la fe en Cristo: La redención se logra por la muerte y resurrección de Jesucristo por nuestros pecados (1 Cor 15:3-4; Rom 5:8-10). Es accesible a todos los que creen (Rom 1:16). No se requiere un conocimiento esotérico especial, sino confianza en Cristo y arrepentimiento. La gnosis para la iglesia ortodoxa es más bien conocimiento de Dios que sigue a la fe, no un misterio oculto reservado a iniciados (Ef 1:17-18).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ética y prácticas</strong></td>
+                                    <td>Posturas extremas divergentes: Algunos grupos eran rigurosamente ascéticos (mortificación del cuerpo, celibato estricto) para "castigar" la materia y liberar el alma. Otros, en cambio, abrazaban el antinomianismo total: dado que sólo importa el espíritu, los actos del cuerpo son moralmente irrelevantes, permitiendo toda clase de licenciosidad. Algunos incluso rechazaban el matrimonio y la procreación por propagar la materia.</td>
+                                    <td>Ética cristiana moderada: Ni ascetismo extremo obligatorio ni libertinaje. La ortodoxia valora la creación (incluido el matrimonio) pero llama a la santidad del cuerpo y el alma (1 Cor 6:19-20). Se enfatiza una moral basada en el amor, evitando excesos por defectos opuestos (Col 2:20-23 condena el ascetismo legalista; Jud 1:4 condena usar la gracia como libertinaje). La conducta sí importa, pero unida a la fe y la gracia.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Interpretación bíblica</strong></td>
+                                    <td>Esotérica y alegórica radical: Los gnósticos reinterpretan las Escrituras alegóricamente para extraer significados ocultos acordes a su filosofía. Por ejemplo, el relato del Génesis es releído denunciando al Creador como opresor, y elevando a la sabiduría (Sophía) caída o incluso a la serpiente del Edén como portadora de iluminación. Muchos personajes "villanos" bíblicos son vistos como héroes poseedores de gnosis oculta (ej. Caín, Edom, Judas en algunos grupos).</td>
+                                    <td>Literal y tipológica (con límites): La Iglesia primitiva leía la Biblia reconociendo géneros literarios y usando alegoría moderada, sin subvertir el sentido básico. Afirmaba la bondad de Dios en la creación y la veracidad histórica fundamental de los Evangelios. Los padres apostólicos y apologistas combaten las lecturas gnósticas que invertían el significado moral de la Biblia. Por ejemplo, Ireneo defendía la interpretación clara de Génesis contra las especulaciones gnósticas que difamaban al Creador.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <p>Como se aprecia, las ideas gnósticas chocaban con los pilares de la fe cristiana apostólica. No obstante, ambas compartían en su discurso cierta terminología bíblica, aunque con significados distintos, lo que al comienzo hacía difícil distinguir a un maestro gnóstico de uno ortodoxo a simple vista.</p>
+                    
+                    <p>Por ejemplo, términos como Logos, luz, espíritu, vida, verdad, plenitud (pleroma), etc., aparecen en labios de ambos, pero integrados en marcos conceptuales opuestos. Esta cercanía superficial de vocabulario contribuyó a que en el siglo I coexistieran diversas interpretaciones de la "verdad cristiana" antes de definirse la ortodoxia.</p>
+                    
+                    <p>Los líderes de la Iglesia primitiva eventualmente identificaron al gnosticismo como herejía. Padres y teólogos como Ireneo de Lyon (ca. 180 d.C.) o Hipólito de Roma escribieron largas refutaciones de las doctrinas gnósticas, clasificándolas como desviaciones peligrosas de la fe. Ireneo, en Adversus Haereses, denunció especialmente las enseñanzas de Valentín, Basílides y otros gnósticos, defendiendo la unidad de Dios, la realidad de la encarnación de Cristo y la sucesión apostólica de la Iglesia. De hecho, Tertuliano apodó burlonamente a un prominente gnóstico, Marción, "el ratón que roía las Escrituras" por su tendencia a mutilar la Biblia según su doctrina.</p>
+                    
+                    <p>Para finales del siglo II, la Iglesia proto-ortodoxa (es decir, la gran corriente mayoritaria que daría lugar al catolicismo y la ortodoxia) reaccionó con firmeza estableciendo "salvaguardas" doctrinales y estructurales frente al gnosticismo: el desarrollo del Credo apostólico (regla de fe), el cierre progresivo del canon del Nuevo Testamento y la consolidación del episcopado monárquico fueron, según el historiador Gilles Quispel, respuestas directas para mantener la unidad en la verdad frente a la diversidad gnóstica. Es decir, la amenaza gnóstica forzó a la Iglesia a articular con mayor claridad qué creía y a reforzar su autoridad institucional.</p>
+                    
+                    <p>Desde una perspectiva académica moderna, se reconoce que el cristianismo del siglo I y II era extraordinariamente diverso, y lo que luego se llamó "herejía" pudo haber sido en algunas regiones una forma temprana del cristianismo. Walter Bauer ya sugirió en 1934 que muchas llamadas herejías (gnosticismo incluido) podrían haber sido expresiones iniciales legítimas de la fe en distintos lugares, antes de ser marginadas por la rama ganadora de la Iglesia. Elaine Pagels coincide en que la formación de la "Gran Iglesia" ortodoxa se dio en diálogo y disputa con comunidades gnósticas; dichas controversias ayudaron a definir la teología ortodoxa por oposición.</p>
+                    
+                    <p>En resumen, teológicamente el gnosticismo representó una visión alternativa de la fe cristiana – enfática en el conocimiento esotérico y la denigración de la materia – que la Iglesia mayoritaria rechazó por inconciliable con el testimonio apostólico. Esa confrontación fue decisiva para la maduración doctrinal del cristianismo primitivo.</p>
+                </section>
+                
+                <section id="declive">
+                    <h2>Finales del siglo II – siglo IV: Reacción ortodoxa y declive</h2>
+                    
+                    <div class="card">
+                        <p>A medida que la Iglesia establecida consolidó su teología y autoridad, el gnosticismo fue siendo marginado y finalmente suprimido. Ireneo, Tertuliano, Orígenes y otros polemistas cristianos refutaron sistemáticamente las ideas gnósticas entre 180–250 d.C., definiendo la fe "correcta" frente a esas "herejías".</p>
+                        
+                        <p>Para inicios del siglo IV, con el apoyo del Imperio romano tras Constantino, el cristianismo ortodoxo pudo imponerse totalmente: los textos gnósticos que no se habían perdido cayeron bajo proscripción. Hubo esfuerzos deliberados por destruir la literatura gnóstica – quema de libros, etc. – que lograron que muy pocas obras gnósticas sobrevivieran en circulación abierta después.</p>
+                        
+                        <p>Solo pequeños grupos disidentes continuaron en la clandestinidad o en la periferia (por ejemplo, los mandeos en Mesopotamia, una secta gnóstica bautista que curiosamente perdura hasta hoy en Irak e Irán).</p>
+                    </div>
+                    
+                    <h3>La influencia del maniqueísmo</h3>
+                    <p>En paralelo, en Persia el movimiento maniqueo (siglo III, fundado por Mani) retomó muchas ideas gnósticas cristianas mezclándolas con zoroastrismo y budismo, difundiendo una religión dualista que se propagó hasta la China. Pero en el Mediterráneo cristiano, tras el siglo IV el gnosticismo fue prácticamente erradicado o asimilado en formas sincréticas neopaganas. Solo resurgiría indirectamente muchos siglos después con interés académico y espiritual (lo que se llama a veces neognosticismo).</p>
+                    
+                    <h3>Gnosticismo y judaísmo</h3>
+                    <div class="highlight">
+                        <p>Un aspecto histórico relevante es la tensa relación con el judaísmo que muestra el gnosticismo. Dado que muchos sistemas gnósticos denigraban al Dios creador del Antiguo Testamento identificándolo con el Demiurgo maligno, sus textos expresan a menudo un rechazo frontal de la teología judía.</p>
+                        
+                        <p>Varios escritos de Nag Hammadi contienen duras críticas o "inversiones" de las historias bíblicas hebreas. El estudioso Gershom Scholem llegó a calificar al gnosticismo como «el caso más grande de antisemitismo metafísico», pues invierte radicalmente los valores: lo que para el judaísmo es divino y bueno (Yahvé, la Ley, la creación) para el gnóstico es ignorancia u opresión a superar.</p>
+                        
+                        <p>Sin embargo, es irónico que el gnosticismo probablemente nació en parte dentro de comunidades judías sincretizadas con la filosofía griega. La figura de Sophía (Sabiduría) – eje en muchos mitos gnósticos como la Eón caída que origina al Demiurgo – proviene del judaísmo sapiencial (p. ej. Proverbios 8, Sabiduría de Sirácides) pero es reinterpretada dramáticamente.</p>
+                        
+                        <p>También muchos términos y personajes gnósticos (Adán, Eva, el Edén, los arcontes, etc.) se toman de la tradición judía. Esto muestra que el gnosticismo estaba en constante diálogo conflictivo con el judaísmo: lo necesitaba como referencia para resignificarlo, pero a la vez lo repudiaba en su intento por construir un relato "superior".</p>
+                    </div>
+                    
+                    <h3>Figura de Simón el Mago</h3>
+                    <p>En el imaginario cristiano, a posteriori, se llegó a considerar al primer gnóstico como Simón el Mago, un samaritano del siglo I mencionado en Hechos de los Apóstoles (Hch 8:9-24) que pretendía comprar el poder del Espíritu Santo. Padres de la Iglesia como Ireneo e Hipólito identificaron a Simón como una raíz de herejías gnósticas posteriores, y sus seguidores (simonianos) desarrollaron mitos similares a los gnósticos (Simón y Helena como manifestaciones de Dios y su Pensamiento caído). Algunos cristianos de la antigüedad lo etiquetaron directamente de "gnóstico".</p>
+                    
+                    <p>Si bien es difícil probar una línea directa desde Simón hasta movimientos gnósticos posteriores, esta conexión legendaria indica cómo los antiguos veían la continuidad de las desviaciones: Simón el Mago → Menandro (discípulo de Simón) → sectas gnósticas sirias, etc.</p>
+                    
+                    <p>En cualquier caso, la personalidad más relevante del gnosticismo histórico fue Valentín en el siglo II, cuya escuela produjo abundante literatura y posiblemente evangelizó a muchos, lo que provocó seria competencia para la Iglesia católica en lugares como Egipto, Siria e incluso Roma.</p>
+                </section>
+                
+                <section id="historico">
+                    <h2>Enfoque Histórico: Orígenes del gnosticismo e influencia en los siglos I–II</h2>
+                    
+                    <p>Históricamente, el fenómeno gnóstico surge en el cruce de caminos del judaísmo tardío, el helenismo grecorromano y el naciente cristianismo. Sus orígenes exactos son complejos y han sido objeto de debate académico. No se trató de una "invasión" externa al cristianismo, sino de un desarrollo sincrético dentro del mismo caldo cultural del Mediterráneo oriental en la era apostólica.</p>
+                    
+                    <h3>Influencias culturales y filosóficas</h3>
+                    
+                    <div class="card">
+                        <p>Estudios modernos señalan que el gnosticismo bebió de múltiples fuentes religiosas y filosóficas. La erudita Elaine Pagels, entre otros, ha reconocido la influencia de elementos del judaísmo helenístico, del zoroastrismo persa (con su marcado dualismo entre fuerzas del bien y del mal) y del platonismo medio grecorromano en varios textos gnósticos de Nag Hammadi.</p>
+                        
+                        <ul>
+                            <li>Del judaísmo provienen conceptos como la Sabiduría divina (Sophía) personificada y ciertos mitos de ángeles caídos</li>
+                            <li>Del platonismo, la fuerte dicotomía entre el mundo de las ideas perfectas y el mundo material (reflejada en la noción gnóstica de pleroma celestial vs. cosmos físico)</li>
+                            <li>Del zoroastrismo, la oposición radical de dos principios (luz contra oscuridad)</li>
+                        </ul>
+                        
+                        <p>Incluso se han propuesto paralelos con religiones orientales: algunos investigadores han buscado vínculos con el pensamiento budista e hinduista, por ejemplo en la idea de la liberación del ciclo material (samsara/reencarnación) mediante la iluminación. No obstante, la evidencia de una influencia directa de Oriente lejano no es concluyente.</p>
+                        
+                        <p>En cualquier caso, el gnosticismo resultó ser altamente sincrético: tomó elementos de diversas tradiciones para forjar un mensaje religioso nuevo que pretendía revelar los "misterios ocultos" tras las religiones convencionales.</p>
+                    </div>
+                    
+                    <h3>Contexto judeocristiano y helenístico</h3>
+                    
+                    <p>Es importante situar el surgimiento del gnosticismo en la atmósfera del judaísmo helenístico de los siglos I a.C. y I d.C. La diáspora judía, especialmente en lugares como Alejandría, había dado lugar a interpretaciones alegóricas de la Biblia (como las de Filón de Alejandría) y a especulaciones sobre seres intermedios (Logos, Sabiduría, ángeles) que influyeron en el pensamiento cristiano primitivo.</p>
+                    
+                    <p>Algunos historiadores de la religión opinan que ciertas sectas judías sincréticas podrían ser protog­nósticas. Por ejemplo, fragmentos de textos de Qumrán y apócrifos judíos muestran mitos de ángeles rebeldes y revelaciones secretas que resuenan con temas gnósticos, aunque no llegan a la dicotomía absoluta gnosticista.</p>
+                    
+                    <p>Además, primeras herejías cristianas de las que hablan los Apóstoles pudieran relacionarse con ideas gnósticas incipientes. El Nuevo Testamento mismo atestigua conflictos doctrinales en comunidades del siglo I que recuerdan aspectos gnósticos:</p>
+                    
+                    <ul>
+                        <li>En Colosenses, Pablo advierte contra filosofías "huecas" y prácticas ascéticas, adoración de ángeles y pretensiones de visiones especiales (Col 2:18-23), elementos que parecen anticipar la mezcla de ascetismo, culto angélico y revelación secreta propia de ciertas corrientes gnósticas.</li>
+                        <li>Las epístolas pastorales (1-2 Timoteo, Tito), de fines del siglo I, denuncian "mitos y genealogías interminables" (1 Tim 1:4, Tit 3:9) y una "falsamente llamada gnosis" (1 Tim 6:20) que se oponía a la sana doctrina – probablemente refiriéndose a doctrinas esotéricas incipientes en la comunidad cristiana.</li>
+                        <li>El apóstol Juan, en sus cartas, combate a quienes negaban que Jesús hubiera venido realmente en carne (1 Jn 4:2-3, 2 Jn 1:7), lo cual apunta directamente al docetismo gnóstico ya en el siglo I.</li>
+                    </ul>
+                    
+                    <p>Estos ejemplos sugieren que ya durante la composición del Nuevo Testamento había corrientes dentro o alrededor de la Iglesia que propugnaban "otro evangelio" con tintes de gnosis secreta, lo que obligó a los apóstoles a corregir y advertir a los fieles.</p>
+                    
+                    <h3>Desarrollo y auge (siglo I–II)</h3>
+                    
+                    <div class="highlight">
+                        <p>Aproximadamente entre los años 50 y 150 d.C., las ideas gnósticas fueron cristalizando en grupos más definidos. Se suelen distinguir tres fases en la evolución del gnosticismo clásico:</p>
+                        
+                        <h4>Finales del siglo I – inicios del II: gestación de ideas gnósticas</h4>
+                        <p>Contemporánea a la redacción del Nuevo Testamento. En este período temprano, distintos intentos de reinterpretar la fe tuvieron lugar:</p>
+                        <ul>
+                            <li><strong>Relectura de la tradición judía:</strong> Algunos círculos releían el Génesis presentando a Yahvé no como el Dios supremo, sino como un dios menor, celoso y opresor del que era preciso liberarse. Este germen se ve después en sistemas gnósticos donde el Dios del Éxodo es degradado a Demiurgo maligno y la serpiente de Edén es reivindicada por dar conocimiento.</li>
+                            <li><strong>Tradición sapiencial de Jesús:</strong> Se empezó a transmitir una colección de dichos de Jesús interpretados de forma esotérica, como portadores de una sabiduría secreta que diviniza el alma. Algunos académicos sugieren que el Evangelio de Tomás (una colección de dichos atribuidos a Jesús) podría remontarse en parte a este contexto, preservando enseñanzas sin el enfoque apocalíptico de los evangelios canónicos. De hecho, Helmut Koester ha propuesto que los dichos de Tomás representan una corriente temprana donde Jesús era visto principalmente como maestro de sabiduría más que como mesías escatológico. Otros investigadores, sin embargo, datan a Tomás en el siglo II como una compilación gnóstica posterior que eliminó deliberadamente la expectativa del fin del mundo cuando ésta no se cumplió, reinterpretando a Jesús en clave mística.</li>
+                            <li><strong>Mito del Redentor celeste:</strong> Paralelamente, se fue formando un mito cosmogónico acerca de un ser divino que desciende desde el cielo para revelar a las almas su verdadero origen celestial y liberarlas. Este esquema – un Redentor proveniente del Pleroma – se integra más claramente en los sistemas gnósticos posteriores, identificando a ese redentor con Cristo (pero entendido de manera distinta al Cristo de la predicación apostólica).</li>
+                        </ul>
+                        
+                        <h4>Mediados del siglo II – comienzos del III: auge de los maestros gnósticos clásicos</h4>
+                        <p>Es el periodo de las grandes escuelas gnósticas y sus líderes carismáticos:</p>
+                        <ul>
+                            <li><strong>Valentín (Valentinus)</strong> en Roma y Alejandría (florece ca. 140–160 d.C.) desarrolló un elaborado sistema gnóstico cristiano con mitos de emanaciones divinas (Eones), caída de la Sophía y redención a través de Cristo como Aeón venido a corregir el caos. Sus seguidores (valentinianos) producían evangelios y comentarios gnósticos y afirmaban poseer la "verdad interior" que Jesús habría revelado privadamente. Curiosamente, Valentín consideraba su enseñanza como perfectamente cristiana; se dice que aspiró a ser obispo en Roma, lo que muestra cuán difusas estaban las fronteras doctrinales antes de su condena.</li>
+                            <li><strong>Basílides</strong> en Alejandría (ca. 120–140 d.C.) enseñó sobre 365 cielos, un Dios incognoscible, e interpretó la crucifixión de manera docética (Cristo habría cambiado de lugar con Simón de Cirene, según fuentes patrísticas).</li>
+                            <li><strong>Marción de Sinope</strong> (m. ca. 160) aunque a veces no se lo clasifica estrictamente como gnóstico, compartía aspectos gnósticos: predicó que el Dios de amor revelado por Jesús era distinto y superior al Dios legalista del AT. Rechazó el AT por completo y creó el primer "canon" limitado (evangelio de Lucas modificado y 10 cartas paulinas). Su fuerte dualismo Dios bueno vs. Dios justo influyó en corrientes gnósticas y forzó a la Iglesia a definir el propio canon bíblico.</li>
+                            <li><strong>Otros grupos:</strong> Ofitas o naasenos (adoradores simbólicos de la serpiente, símbolo del conocimiento), Cainitas (que reivindicaban a figuras bíblicas "rebeldes" como Caín, Esau, Judas), sectas samaritanas de Simón el Mago, etc., proliferaron en este periodo, compartiendo la idea de que poseían una verdad oculta para entendidos. Muchos de estos grupos interpretaban a Cristo de maneras divergentes, pero coincidían en despreciar la fe simple de la gran Iglesia.</li>
+                        </ul>
+                    </div>
+                    
+                    <p>Durante este apogeo, algunas formas de gnosticismo incluso gozaron de cierto prestigio intelectual dentro del cristianismo. Hubo pensadores cristianos cultos que se sintieron atraídos por la síntesis filosófica gnóstica. Por ejemplo, se dice que Valentín tenía seguidores en círculos cercanos a la iglesia romana antes de ser rechazado. Este escenario plural terminó cambiando hacia finales del siglo II cuando los obispos "proto-católicos" comenzaron a declarar abiertamente heréticas estas doctrinas.</p>
+                </section>
+                
+                <section id="literatura">
+                    <h2>Enfoque literario: Elementos gnósticos en el Nuevo Testamento</h2>
+                    
+                    <p>Dado que el gnosticismo se desarrolló simultáneamente con la composición y difusión de los escritos del Nuevo Testamento, es natural encontrar ecos, paralelos o polémicas vinculadas a ideas gnósticas dentro de la misma Biblia. Varios libros del NT abordan – ya sea implícita o explícitamente – conceptos que los gnósticos enfatizaban, bien sea para refutarlos o porque comparten un trasfondo cultural común.</p>
+                    
+                    <h3>El Evangelio de Juan y la literatura joánica</h3>
+                    
+                    <div class="card">
+                        <p>El Evangelio según San Juan (compuesto a fines del siglo I) presenta un perfil teológico singular dentro del canon, con un elevado énfasis en la divinidad de Cristo, la luz, la vida espiritual y el conocimiento de Dios. Esto ha llevado a muchos estudiosos a explorar su relación con el pensamiento gnóstico, dado que los gnósticos más tarde apreciaron y usaron este evangelio.</p>
+                        
+                        <p>El prólogo de Juan (Jn 1:1-18) introduce al Logos preexistente que "era Dios" y que "se hizo carne". Los gnósticos también hablaban de un Logos o Mente divina, pero en el Evangelio de Juan este Logos es identificado sin ambigüedad con Jesús encarnado como la luz verdadera que vino al mundo. Esta afirmación de la encarnación ("el Logos se hizo carne y habitó entre nosotros", Jn 1:14) contrasta con la postura gnóstica doceta que negaba que lo divino pudiera asumir materia.</p>
+                        
+                        <p>Es posible que el énfasis de Juan en "vino en carne" estuviera dirigido contra tendencias docetas incipientes. Ahora bien, el lenguaje y simbología joánicos exhiben paralelos con ideas gnósticas:</p>
+                        
+                        <ul>
+                            <li>La oposición <em>luz vs. tinieblas</em> es central en Juan (e.g. Jn 1:5, 3:19-21) y también en el dualismo gnóstico.</li>
+                            <li>La idea de <em>Jesús como revelador venido de lo alto</em> se subraya en Juan: "nadie subió al cielo sino el que descendió del cielo, el Hijo del Hombre" (Jn 3:13).</li>
+                            <li>Pasajes de tono aparentemente "antijudío" (ej. Jesús discutiendo con "los judíos" y diciéndoles "vosotros sois de vuestro padre el diablo", Jn 8:44).</li>
+                        </ul>
+                        
+                        <p>Las cartas de Juan (especialmente 1 Juan) evidencian conflictos interpretativos dentro la comunidad joánica. 1 Juan 2:18-27 habla de "antimesías" (anticristos) que habían salido de la comunidad y negaban al Hijo; 1 Juan 4:1-3 insiste en probar a los espíritus y afirma que "todo espíritu que no confiesa que Jesucristo ha venido en carne, no es de Dios". Esto claramente combate a doctrinas de corte doceta/gnóstica que circulaban entonces.</p>
+                    </div>
+                    
+                    <h3>Las epístolas paulinas y la gnosis</h3>
+                    
+                    <p>Las cartas de Pablo también jugaron un papel significativo en relación con el gnosticismo. Pablo de Tarso (cuyas epístolas datan del 50–65 d.C.) obviamente no era gnóstico en el sentido pleno, pero su manera de exponer el evangelio – profunda, a veces mística, enfatizando revelaciones de Dios y la sabiduría oculta que Dios preparó para los creyentes (cf. 1 Cor 2:6-10) – resultó muy atractiva para los pensadores gnósticos posteriores.</p>
+                    
+                    <p>De hecho, en el siglo II Pablo fue reivindicado por los gnósticos como uno de sus inspiradores, al punto que el padre de la Iglesia Tertuliano lo llamó "el apóstol de los herejes". Varios factores contribuyeron:</p>
+                    
+                    <div class="highlight">
+                        <ul>
+                            <li>Pablo insistía en haber recibido su evangelio "no de hombres, ni por medio de hombre, sino por revelación de Jesucristo" (Gál 1:11-12). Esta apelación a una revelación directa y personal sintonizaba con la pretensión gnóstica de acceso individual a la verdad divina.</li>
+                            <li>En 1 Corintios, Pablo reprende a un grupo que se creía poseedor de conocimiento especial (gnosis): "el conocimiento [gnosis] envanece, pero el amor edifica" (1 Cor 8:1) y habla irónicamente de aquellos que tienen "conocimiento" pero ofenden a sus hermanos más débiles con su libertad.</li>
+                            <li>En 1 Corintios 2:6-8, Pablo habla de una "sabiduría entre los que han alcanzado madurez... la sabiduría oculta que Dios predestinó para nuestra gloria antes de los siglos". Aunque Pablo inmediatamente identifica esa sabiduría con el plan de Dios cumplido en Cristo crucificado, maestros gnósticos posteriores tomaron frases como "sabiduría oculta" para afirmar que Pablo enseñaba misterios profundos sólo a unos pocos perfectos.</li>
+                            <li>Pablo devaluó ciertos aspectos de la Ley mosaica y la tradición judía (por ejemplo, llamó a la Ley "pedagogo" temporal, Gál 3:24-25). Los gnósticos, que generalmente despreciaban al Dios del AT y sus leyes, se sintieron cercanos a Pablo en esa ruptura con el judaísmo.</li>
+                        </ul>
+                    </div>
+                    
+                    <p>A pesar de estas resonancias, es crucial notar que Pablo también combate lo que podríamos llamar protognosticismo: además de los casos ya mencionados, en 1 Timoteo 6:20 (texto probablemente de escuela paulina) se rechazan las "contradicciones de la falsamente llamada gnosis". En Colosenses y Efesios se enfatiza que en Cristo habita "corporalmente" toda la plenitud de la divinidad (Col 2:9) y que hemos sido llenos en Él, contrarrestando la idea gnóstica de buscar plenitud en otra fuente.</p>
+                    
+                    <h3>Otros textos del Nuevo Testamento relevantes</h3>
+                    
+                    <p>Además de Juan y Pablo, otros escritos del NT muestran conexiones con temas gnósticos:</p>
+                    
+                    <ul>
+                        <li>La Epístola a los Hebreos (finales s.I) habla del contraste entre el santuario celestial y el terrenal, el mundo visible e invisible, etc., en términos que los gnósticos también apreciaban.</li>
+                        <li>El libro de Apocalipsis (Revelación) de Juan (ca. 95 d.C.) combate ciertas herejías en las iglesias de Asia: menciona a los nicolaítas (Ap 2:6,15) y a la falsa profetisa "Jezabel" en Tiatira que inducía a idolatría y fornicación (Ap 2:20). Algunos Padres identificaron a los nicolaítas como una secta de tipo gnóstico.</li>
+                        <li>Judas y 2 Pedro denuncian herejes que "siguen el camino de Caín" o "Balaam" (Jud 1:11, 2Pe 2:15-19) y que se jactan de libertinaje. Los caínitas gnósticos precisamente honraban a Caín y otros "malos" bíblicos como poseedores de la gnosis contra el Demiurgo.</li>
+                        <li>El Prólogo del Evangelio de Lucas (Lc 1:1-4) resalta que "muchos han intentado narrar los hechos" sobre Jesús y que Lucas escribe para que conozcamos la "certeza" de las enseñanzas recibidas. Esto implica la existencia de tradiciones alternativas de Jesús circulando cuando Lucas escribe (~80 d.C.).</li>
+                    </ul>
+                    
+                    <p>En conclusión del enfoque literario, el Nuevo Testamento refleja tanto la influencia como la refutación de ideas gnósticas tempranas. Por un lado, utiliza imaginería y lenguaje que los gnósticos harían suyo (luz/tinieblas, hombre nuevo interior vs. viejo, conocimiento de Dios, etc.), porque esa imaginería formaba parte de la cultura religiosa del tiempo. Por otro lado, los autores inspirados se esfuerzan en afirmar puntos que frenan la posible deriva gnóstica: la bondad de la encarnación, la realidad histórica de la cruz, la universalidad del evangelio, la importancia del amor y la moral, etc.</p>
+                </section>
+                
+                <section id="nag-hammadi">
+                    <h2>Textos gnósticos extracanónicos: Nag Hammadi y su relación con los textos canónicos</h2>
+                    
+                    <div class="card">
+                        <p>Nuestro entendimiento actual del gnosticismo primitivo se ha transformado radicalmente gracias al descubrimiento de textos gnósticos extracanónicos, es decir, escritos antiguos que no forman parte del canon bíblico pero que proceden de círculos gnósticos cristianos tempranos.</p>
+                        
+                        <p>En 1945, unos campesinos egipcios hallaron en Nag Hammadi (Alto Egipto) una colección de códices de papiro enterrados en vasijas de barro. Este tesoro, hoy conocido como la Biblioteca de Nag Hammadi, contenía 52 textos en idioma copto, en su mayoría de carácter gnóstico o hermético, copiados circa siglo IV d.C., pero que reflejan obras compuestas originalmente en los siglos II y III.</p>
+                        
+                        <p>Entre ellos se hallaban escritos de los que solo se tenía noticia por las polémicas de los padres de la Iglesia, e incluso algunos completamente desconocidos. La biblioteca incluye, por ejemplo, el Evangelio apócrifo de Tomás, el Apócrifo (Secreto) de Juan, el Evangelio de Felipe, el Evangelio de la Verdad, el Apocalipsis de Adán, entre muchos otros.</p>
+                        
+                        <p>El hallazgo fue revolucionario porque, durante siglos, el conocimiento académico del gnosticismo había dependido casi exclusivamente de las citas fragmentarias y resúmenes tendenciosos de los escritores ortodoxos (Ireneo, Tertuliano, etc.). Ahora, por primera vez, se podía leer la literatura gnóstica de primera mano – sus himnos, mitos y enseñanzas – lo que permitió comprender mejor su pensamiento y matices.</p>
+                    </div>
+                    
+                    <h3>Textos destacados de Nag Hammadi</h3>
+                    
+                    <h4>Evangelio de Tomás</h4>
+                    <div class="highlight">
+                        <p>Es una colección de 114 dichos atribuidos a Jesús, sin narrativa ni contexto, presentados como palabras secretas reveladas a sus discípulos (especialmente a Tomás Dídimo). Este evangelio no relata la pasión, muerte ni resurrección de Cristo; más bien, se enfoca en enseñanzas sobre el Reino.</p>
+                        
+                        <p>Muchas frases de Tomás tienen paralelos casi textuales en los evangelios sinópticos (Mateo, Marcos, Lucas), lo que indica una fuente de tradición común. Sin embargo, la teología subyacente es distinta: en Tomás, Jesús enseña que el Reino de Dios está dentro de uno mismo y ya presente, accesible al reconocer la luz interior, mientras que los evangelios canónicos enfatizan a la vez la dimensión futura y escatológica del Reino (y la necesidad de conversión para entrar en él).</p>
+                        
+                        <p>Por ejemplo, un dicho de Tomás dice: "El Reino está dentro de vosotros y alrededor de vosotros", acorde con una espiritualización gnóstica, en contraste con las parábolas sinópticas del Reino que hablan de un rey que vendrá a juzgar.</p>
+                    </div>
+                    
+                    <h4>Apócrifo de Juan</h4>
+                    <p>También llamado Evangelio Secreto de Juan, es un texto revelatorio en el que el apóstol Juan supuestamente recibe de Jesús (tras la resurrección) la explicación mística de cómo comenzó el universo. Es uno de los escritos gnósticos setianos más importantes.</p>
+                    
+                    <p>En él se describe una compleja mitología cosmogónica: existe el Dios supremo, incognoscible, y una serie de emanaciones divinas (llamadas Eones) que conforman la Pléroma (plenitud celestial). La última de estas emanaciones, la Eón Sophía (Sabiduría), comete un error y da origen, sin el consentimiento del Dios supremo, a un ser defectuoso: Yaldabaoth, quien equivale al Demiurgo.</p>
+                    
+                    <p>Yaldabaoth (identificado con el Dios creador del AT) es ignorante y arrogante; crea los mundos materiales y forma al primer hombre (Adán) atrapando en él una chispa de luz que proviniera de la Sabiduría. La historia sigue con la revelación de la gnosis a ciertos elegidos (por medio de un Redentor, Cristo, que desciende como emisario del Dios verdadero para enseñar a las almas a liberarse de Yaldabaoth).</p>
+                    
+                    <p>Este mito es claramente un "contrarrelato" de Génesis: lo que la Biblia narra como creación buena, el Apócrifo de Juan lo pinta como una catástrofe cósmica; el Dios bíblico es degradado a villano y la caída del hombre se reinterpreta como algo positivo (la serpiente y Eva ayudan a que Adán obtenga conocimiento contra la voluntad del Demiurgo).</p>
+                    
+                    <h4>Otros textos significativos</h4>
+                    <ul>
+                        <li><strong>Evangelio de Felipe</strong>: De corte valentiniano, que reflexiona sobre sacramentos desde una perspectiva gnóstica. Habla de conceptos como la Cámara Nupcial (un símbolo de unión mística).</li>
+                        <li><strong>Apocalipsis de Pedro (versión gnóstica)</strong>: Presenta al apóstol Pedro recibiendo revelación de Jesús sobre la crucifixión. Describe que durante la crucifixión, el Cristo verdadero estaba por encima de la cruz riendo, mientras la forma corporal (Jesús físico) moría en la cruz.</li>
+                        <li><strong>Evangelio de María Magdalena</strong>: Descubierto en un papiro de Cairo a fines del s. XIX (no en Nag Hammadi), muestra a María Magdalena como receptora de revelaciones privadas de Jesús después de la resurrección.</li>
+                    </ul>
+                    
+                    <h3>Relación con los textos canónicos</h3>
+                    
+                    <p>En general, los textos gnósticos extracanónicos dialogan con los canónicos de dos formas principales:</p>
+                    <ol>
+                        <li><strong>Rellenando silencios</strong> – es decir, presentándose como revelaciones adicionales que Jesús dio en privado a ciertos discípulos tras la resurrección (por ejemplo, diálogos secretos en los 40 días).</li>
+                        <li><strong>Reinterpretando radicalmente</strong> – tomando narraciones o figuras bíblicas y dándoles un significado inverso (Dios creador malo, serpiente buena, Tomás el incrédulo convertido en Tomás el visionario que recibe los mejores secretos, etc.).</li>
+                    </ol>
+                    
+                    <div class="card">
+                        <p>Esta dinámica muestra que los gnósticos no ignoraban la tradición canónica, sino que la resignificaban a la luz de su gnosis, alegando tener la verdadera comprensión oculta donde la Iglesia solo tenía la "letra muerta".</p>
+                        
+                        <p>Para la Iglesia, los textos gnósticos fueron finalmente rechazados y excluidos del canon por no alinearse con la "regla de fe" apostólica. Ireneo de Lyon, por ejemplo, al conocer el Evangelio de Judas (utilizado por la secta de los cainitas) o el Evangelio de Verdad valentiniano, los denunció por corromper el verdadero significado del evangelio de Cristo. Esta decisión histórica definió qué sería considerado "Biblia" y qué no.</p>
+                        
+                        <p>Pero la mera existencia de los escritos de Nag Hammadi nos recuerda que el proceso fue complejo: el cristianismo pudo haber tomado caminos distintos. Las ideas gnósticas, aunque derrotadas institucionalmente, siguieron ejerciendo fascinación en la historia – resurgiendo en formas esotéricas, en la literatura (p. ej. en algunos textos medievales cataristas) e incluso en movimientos contemporáneos que se llaman neo-gnósticos.</p>
+                    </div>
+                </section>
+                
+                <section id="conclusion">
+                    <h2>Conclusión</h2>
+                    
+                    <div class="highlight">
+                        <p>El gnosticismo en la Biblia es un tema que involucra tanto oposición como influencia. Teológicamente, representó un desafío radical a la visión bíblica de Dios, la creación y la salvación, lo que llevó a la Iglesia a definir la ortodoxia en contraste con la gnosis.</p>
+                        
+                        <p>Históricamente, surgió en el mismo entorno que el cristianismo primitivo, impregnando algunas comunidades cristianas hasta que fue marginado como herejía, pero no sin antes dejar su huella en debates y desarrollos doctrinales.</p>
+                        
+                        <p>Literariamente, el Nuevo Testamento muestra rastros de ese diálogo conflictivo con ideas gnósticas tempranas, afirmando la encarnación y la fe sencilla frente a pretensiones esotéricas.</p>
+                        
+                        <p>Finalmente, los textos gnósticos extracanónicos descubiertos (especialmente Nag Hammadi) proporcionan un espejo para entender mejor cómo aquellos "cristianos gnósticos" leían la Biblia y concebían a Cristo, ya sea complementando o contradiciendo abiertamente los escritos canónicos.</p>
+                    </div>
+                    
+                    <div class="bibliografia">
+                        <h2>Bibliografía</h2>
+                        <ul>
+                            <li>Escritos de Padres de la Iglesia (Ireneo <em>Adversus Haereses</em>, Tertuliano <em>De Praescriptione Haereticorum</em>)</li>
+                            <li>Códices de Nag Hammadi (ed. J. M. Robinson)</li>
+                            <li>Pagels, Elaine. <em>The Gnostic Gospels</em></li>
+                            <li>Grant, R. M. <em>Gnosis and Faith in Early Christianity</em></li>
+                            <li>Wilson, R. McL. <em>Nag Hammadi and the New Testament</em></li>
+                            <li>Obras de Bentley Layton, Birger Pearson, Kurt Rudolph, etc.</li>
+                        </ul>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

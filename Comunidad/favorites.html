@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Favoritos - Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a1410;
+            --secondary-color: #b89a5f;
+            --accent-color: #6b4f2a;
+            --background-color: #f7f4ed;
+            --text-color: #2d2010;
+            --light-accent: #ede5d8;
+            --gold-accent: #c9aa6a;
+            --dark-color: #0e0c0a;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --gradient-bg: linear-gradient(160deg, #0e0c0a 0%, #1f1a14 100%);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --box-shadow: 0 12px 24px rgba(0, 0, 0, 0.07), 0 6px 12px rgba(0, 0, 0, 0.03);
+            --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            background: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        /* Header */
+        .favorites-header {
+            background: rgba(14, 12, 10, 0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: white;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(184, 154, 95, 0.25);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .title-icon {
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(184, 154, 95, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+        }
+
+        .page-title h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .header-btn {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            padding: 9px 18px;
+            border-radius: 2px;
+            background: transparent;
+            border: 1px solid rgba(184, 154, 95, 0.35);
+            transition: var(--transition);
+            font-family: 'Lato', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-btn:hover {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        /* Container principal */
+        .favorites-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* Información de la página */
+        .page-info {
+            background: white;
+            border-radius: 4px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            border: 1px solid rgba(184, 154, 95, 0.12);
+        }
+
+        .page-info h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.5rem;
+            letter-spacing: 0.01em;
+        }
+
+        .page-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .favorites-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #a0917e;
+            margin-top: 5px;
+        }
+
+        /* Lista de favoritos */
+        .favorites-list {
+            background: white;
+            border-radius: 4px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            border: 1px solid rgba(184, 154, 95, 0.15);
+        }
+
+        .favorites-header-bar {
+            background: var(--background-color);
+            border-bottom: 1px solid rgba(184, 154, 95, 0.2);
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .favorites-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .favorites-title i {
+            color: var(--secondary-color);
+            font-size: 1rem;
+        }
+
+        .clear-all-btn {
+            background: transparent;
+            color: #a0917e;
+            border: 1px solid rgba(184, 154, 95, 0.35);
+            padding: 7px 14px;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Lato', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .clear-all-btn:hover {
+            border-color: #b91c1c;
+            color: #b91c1c;
+        }
+
+        .favorites-content {
+            padding: 25px;
+        }
+
+        .favorite-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            margin-bottom: 0;
+            border: none;
+            border-bottom: 1px solid rgba(184, 154, 95, 0.12);
+            border-radius: 0;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .favorite-item:last-child {
+            border-bottom: none;
+        }
+
+        .favorite-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--secondary-color);
+            transform: scaleY(0);
+            transition: var(--transition);
+        }
+
+        .favorite-item:hover {
+            background: rgba(237, 229, 216, 0.3);
+            padding-left: 26px;
+        }
+
+        .favorite-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .favorite-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .favorite-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .favorite-avatar .default-avatar {
+            width: 100%;
+            height: 100%;
+            background: var(--background-color);
+            border: 1px solid rgba(184, 154, 95, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+
+        .favorite-content {
+            flex: 1;
+        }
+
+        .favorite-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .favorite-title {
+            font-weight: 600;
+            color: var(--dark-color);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .favorite-category {
+            background: transparent;
+            color: var(--secondary-color);
+            border: 1px solid rgba(184, 154, 95, 0.4);
+            padding: 3px 9px;
+            border-radius: 2px;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .favorite-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .favorite-preview {
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .favorite-stats {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        .favorite-stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .favorite-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .favorite-item:hover .favorite-actions {
+            opacity: 1;
+        }
+
+        .action-btn {
+            padding: 6px 10px;
+            background: none;
+            border: 1px solid rgba(184, 154, 95, 0.3);
+            border-radius: 2px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Lato', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            color: #a0917e;
+        }
+
+        .action-btn:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .action-btn.remove {
+            border-color: var(--danger-color);
+            color: var(--danger-color);
+        }
+
+        .action-btn.remove:hover {
+            background: var(--danger-color);
+            color: white;
+        }
+
+        /* Estado vacío */
+        .empty-favorites {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .empty-favorites i {
+            font-size: 4rem;
+            color: var(--light-accent);
+            margin-bottom: 20px;
+        }
+
+        .empty-favorites h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 600;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+        }
+
+        .empty-favorites p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-width: 400px;
+            margin: 0 auto 25px;
+        }
+
+        .explore-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 13px 26px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            border: 1px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .explore-btn:hover {
+            background: transparent;
+            color: var(--primary-color);
+        }
+
+        /* Loading state - MEJORADO */
+        .loading-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(184, 154, 95, 0.15);
+            border-top: 3px solid var(--secondary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* NUEVO: Indicadores de carga mejorados */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary-color);
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .favorites-container {
+                padding: 20px 15px;
+            }
+
+            .header-content {
+                padding: 0 15px;
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .page-title h1 {
+                font-size: 1.5rem;
+            }
+
+            .favorites-stats {
+                gap: 20px;
+            }
+
+            .favorite-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .favorite-header {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+
+            .favorite-stats {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .favorites-content {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title .title-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .favorite-item {
+                padding: 15px;
+            }
+
+            .favorites-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* Animaciones */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in {
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Indicadores de sincronización - MEJORADO */
+        .sync-indicator {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: var(--success-color);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .sync-indicator.show {
+            transform: translateX(0);
+        }
+
+        .sync-indicator.error {
+            background: var(--danger-color);
+        }
+    </style>
+</head>
+<body>
+    <header class="favorites-header">
+        <div class="header-content">
+            <div class="page-title">
+                <div class="title-icon">
+                    <i class="fas fa-bookmark"></i>
+                </div>
+                <div>
+                    <h1>Mis Favoritos</h1>
+                    <p style="margin: 0; opacity: 0.9; font-size: 0.9rem;">Temas guardados para referencia</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="./forum.html" class="header-btn">
+                    <i class="fas fa-users"></i>
+                    Ir al Foro
+                </a>
+                <a href="../index.html" class="header-btn">
+                    <i class="fas fa-home"></i>
+                    Inicio
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="favorites-container">
+        <!-- Información de la página -->
+        <div class="page-info fade-in">
+            <h2>Tu Colección Espiritual</h2>
+            <p>Aquí tienes todos los temas que has guardado como favoritos. Accede rápidamente a las discusiones que más te han edificado.</p>
+            
+            <div class="favorites-stats">
+                <div class="stat">
+                    <span class="stat-number" id="total-favorites">0</span>
+                    <div class="stat-label">Temas guardados</div>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="categories-count">0</span>
+                    <div class="stat-label">Categorías</div>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="recent-favorites">0</span>
+                    <div class="stat-label">Esta semana</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de favoritos -->
+        <div class="favorites-list fade-in">
+            <div class="favorites-header-bar">
+                <h3 class="favorites-title">
+                    <i class="fas fa-heart"></i>
+                    Temas Favoritos
+                </h3>
+                <button class="clear-all-btn" onclick="clearAllFavorites()" id="clear-all-btn" style="display: none;">
+                    Limpiar todo
+                </button>
+            </div>
+            
+            <div class="favorites-content" id="favorites-content">
+                <!-- MEJORADO: Estado de carga inicial -->
+                <div class="loading-state" id="loading-state">
+                    <div class="loading-spinner"></div>
+                    <h3>Cargando favoritos...</h3>
+                    <p>Sincronizando con la nube</p>
+                </div>
+
+                <!-- Favoritos se cargarán dinámicamente -->
+                <div class="empty-favorites" id="empty-favorites" style="display: none;">
+                    <i class="fas fa-bookmark"></i>
+                    <h3>Aún no tienes favoritos</h3>
+                    <p>Cuando encuentres un tema que te inspire o edifique, márcalo como favorito para poder encontrarlo fácilmente después.</p>
+                    <a href="./forum.html" class="explore-btn">
+                        <i class="fas fa-compass"></i>
+                        Explorar Temas
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MEJORADO: Indicador de sincronización -->
+    <div class="sync-indicator" id="sync-indicator">
+        <i class="fas fa-sync-alt"></i>
+        <span id="sync-text">Sincronizando...</span>
+    </div>
+
+    <!-- 🔧 SCRIPT OPTIMIZADO: Carga con manejo de errores mejorado -->
+    <script>
+        // NUEVO: Verificación de carga del DOM antes de cargar el script
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🔖 DOM de favoritos cargado, preparando para cargar JavaScript...');
+            
+            // Pequeño delay para asegurar que todo el DOM esté completamente renderizado
+            setTimeout(() => {
+                const script = document.createElement('script');
+                script.type = 'module';
+                script.src = './js/favorites.js';
+                script.onerror = function() {
+                    console.error('❌ Error al cargar favorites.js');
+                    showErrorMessage('Error al cargar el sistema de favoritos');
+                    hideLoadingState();
+                };
+                script.onload = function() {
+                    console.log('✅ favorites.js cargado exitosamente');
+                };
+                document.head.appendChild(script);
+            }, 100);
+        });
+        
+        // NUEVO: Función de error global para el HTML
+        function showErrorMessage(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #ef4444, #dc2626);
+                color: white;
+                padding: 15px 20px;
+                border-radius: 8px;
+                z-index: 10001;
+                font-family: 'Lato', sans-serif;
+                max-width: 350px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            `;
+            errorDiv.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            document.body.appendChild(errorDiv);
+            
+            setTimeout(() => errorDiv.remove(), 5000);
+        }
+
+        // NUEVO: Función para ocultar estado de carga si hay error
+        function hideLoadingState() {
+            const loadingState = document.getElementById('loading-state');
+            const emptyState = document.getElementById('empty-favorites');
+            
+            if (loadingState) {
+                loadingState.style.display = 'none';
+            }
+            
+            if (emptyState) {
+                emptyState.style.display = 'block';
+            }
+        }
+
+        // NUEVO: Mostrar estado de carga inicialmente
+        document.getElementById('loading-state').style.display = 'block';
+        document.getElementById('empty-favorites').style.display = 'none';
+        
+        console.log('🔖 Sistema de favoritos preparado para inicialización');
+    </script>
+</body>
+</html>

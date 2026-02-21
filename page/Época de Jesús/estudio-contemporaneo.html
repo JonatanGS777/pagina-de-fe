@@ -1,0 +1,2261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Linaje de Cristo - Estudio Contemporáneo | Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+       :root {
+    --primary-gold: #d4b076;         /* Oro templado – más suave y aterciopelado */
+    --deep-purple: #40324e;          /* Violeta ceniza – menos saturado, más intelectual */
+    --royal-blue: #3c5a99;           /* Azul académico – autoridad sin agresividad */
+    --warm-white: #f7f5f0;           /* Blanco marfil – lectura cómoda */
+    --charcoal: #333336;             /* Gris profundo neutro – estabilidad visual */
+    --light-gold: #efe7dc;           /* Beige brillante – sutil y armonioso */
+    --accent-red: #9c3d4c;           /* Carmesí antiguo – para énfasis con elegancia */
+    --soft-gray: #7a7a7a;            /* Gris medio suave – soporte para detalles */
+    --timeline-line: #e0dcd5;        /* Gris piedra clara – separación no intrusiva */
+    --dark-color: #2b2b3b;           /* Gris violeta oscuro – base firme y moderna */
+
+    --shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 8px 20px rgba(0, 0, 0, 0.12);
+    --shadow-strong: 0 20px 40px rgba(0, 0, 0, 0.2);
+    --transition: all 0.35s ease-in-out;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Pacifico', cursive;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background-color: var(--warm-white);
+            overflow-x: hidden;
+        }
+
+        /* Header Navigation Styles */
+        header {
+            background: linear-gradient(135deg, var(--deep-purple), var(--royal-blue));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow-medium);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 60px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primary-gold);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .nav-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: block;
+            padding: 0.5rem;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-gold);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-gold);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown Styles */
+        .menu-item-has-children {
+            position: relative;
+        }
+
+        .menu-item-has-children > a {
+            display: flex;
+            align-items: center;
+        }
+
+        .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background-color: white;
+            box-shadow: var(--shadow-medium);
+            border-radius: 8px;
+            padding: 0.8rem 0;
+            display: none;
+            z-index: 100;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .sub-menu li {
+            width: 100%;
+        }
+
+        .sub-menu a {
+            padding: 0.7rem 1.2rem;
+            font-size: 0.9rem;
+            width: 100%;
+            color: var(--charcoal);
+        }
+
+        .sub-menu a:hover {
+            background-color: rgba(45, 27, 78, 0.05);
+            color: var(--deep-purple);
+        }
+
+        .sub-menu a::after {
+            display: none;
+        }
+
+        .menu-item-has-children:hover .sub-menu {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Hero Section with Parallax */
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--royal-blue) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('./images/genealogia.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.2;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 300;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out 1s forwards;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 2s forwards, bounce 2s infinite 3s;
+        }
+
+        .scroll-indicator i {
+            font-size: 2rem;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Timeline Container */
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            position: relative;
+        }
+
+        .timeline-intro {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .timeline-intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--deep-purple);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-intro p {
+            font-size: 1.2rem;
+            color: var(--soft-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .timeline-line {
+         position: absolute;
+         left: 50%;
+         top: 340px;
+         bottom: 170px; /* en lugar de 0 */
+         width: 4px;
+         background: linear-gradient(to bottom, var(--primary-gold), var(--deep-purple));
+         transform: translateX(-50%);
+         z-index: 1;
+}
+
+        /* Timeline Items */
+        .timeline-item {
+            position: relative;
+            margin-bottom: 8rem;
+            padding: 0 3rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: var(--transition);
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            text-align: right;
+            padding-right: calc(50% + 4rem);
+        }
+
+        .timeline-item:nth-child(even) {
+            text-align: left;
+            padding-left: calc(50% + 4rem);
+        }
+
+        /* Timeline Markers */
+        .timeline-marker {
+            position: absolute;
+            top: 50%;
+            width: 30px;
+            height: 28px;
+            background: var(--primary-gold);
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: var(--shadow-medium);
+            z-index: 10;
+            transition: var(--transition);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-marker {
+            right: -15px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-marker {
+            left: -15px;
+        }
+
+        .timeline-item:hover .timeline-marker {
+            transform: scale(1.2);
+            background: var(--accent-red);
+        }
+
+        /* Timeline Cards */
+        .timeline-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-subtle);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(201, 169, 110, 0.1);
+        }
+
+        .timeline-card:hover {
+            box-shadow: var(--shadow-strong);
+            transform: translateY(-5px);
+        }
+
+        .timeline-card-header {
+            background: linear-gradient(135deg, var(--primary-gold), #d4b76f);
+            color: var(--deep-purple);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .timeline-period {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-card-content {
+            padding: 2.5rem;
+        }
+
+        .timeline-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--charcoal);
+        }
+
+        .timeline-verses {
+            background: var(--light-gold);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-gold);
+        }
+
+        .timeline-verse {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--deep-purple);
+            font-family: 'Crimson Text', serif;
+            font-size: 1.1rem;
+        }
+
+        .timeline-verse-ref {
+            font-weight: 600;
+            color: var(--accent-red);
+            font-size: 0.9rem;
+        }
+
+        .timeline-connections {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .connection-tag {
+            background: rgba(45, 27, 78, 0.1);
+            color: var(--deep-purple);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .connection-tag:hover {
+            background: var(--deep-purple);
+            color: white;
+        }
+
+        /* Interactive Elements */
+        .timeline-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .timeline-item.expanded .timeline-details {
+            max-height: 1000px;
+            padding-top: 1.5rem;
+        }
+
+        .expand-btn {
+            background: var(--deep-purple);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .expand-btn:hover {
+            background: var(--accent-red);
+            transform: translateY(-2px);
+        }
+
+        .expand-btn i {
+            transition: var(--transition);
+        }
+
+        .timeline-item.expanded .expand-btn i {
+            transform: rotate(180deg);
+        }
+
+        /* Prophecies Section */
+        .prophecies-section {
+            background: linear-gradient(135deg, var(--light-gold), #faf8f5);
+            padding: 6rem 0;
+        }
+
+        .prophecies-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .prophecies-intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--deep-purple);
+            margin-bottom: 1rem;
+        }
+
+        .prophecies-intro p {
+            font-size: 1.2rem;
+            color: var(--soft-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Tabs */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: white;
+            border: 2px solid var(--deep-purple);
+            color: var(--deep-purple);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-btn.active {
+            background: var(--deep-purple);
+            color: white;
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Prophecy Grid */
+        .prophecy-grid {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .prophecy-grid.active {
+            display: grid;
+        }
+
+        .prophecy-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition);
+            position: relative;
+            border-left: 4px solid var(--primary-gold);
+        }
+
+        .prophecy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .prophecy-number {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: var(--deep-purple);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .prophecy-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--deep-purple);
+            margin-bottom: 1rem;
+            padding-right: 30px;
+        }
+
+        .prophecy-reference {
+            background: rgba(201, 169, 110, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--accent-red);
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .prophecy-fulfillment {
+            background: rgba(45, 27, 78, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--deep-purple);
+            display: inline-block;
+        }
+
+        .prophecy-reference::before {
+            content: "Profecía: ";
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .prophecy-fulfillment::before {
+            content: "Cumplimiento: ";
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Summary */
+        .prophecy-summary {
+            margin-top: 3rem;
+        }
+
+        .summary-card {
+            background: var(--deep-purple);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .summary-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-gold);
+        }
+
+        .summary-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .summary-quote {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            font-style: italic;
+            font-size: 1.1rem;
+            border-left: 4px solid var(--primary-gold);
+        }
+
+        /* Special Effects */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Conclusion Section */
+        .conclusion-section {
+            background: linear-gradient(135deg, var(--deep-purple), var(--royal-blue));
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .conclusion-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .conclusion-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .conclusion-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .cta-button {
+            background: var(--primary-gold);
+            color: var(--deep-purple);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            color: var(--primary-gold);
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-gold);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-col a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-gold);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-gold);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 280px;
+                height: 100vh;
+                background-color: var(--deep-purple);
+                z-index: 1000;
+                transition: right 0.3s ease;
+                padding: 2rem;
+                overflow-y: auto;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            nav li {
+                width: 100%;
+            }
+
+            nav a {
+                padding: 1rem 0;
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            nav a::after {
+                display: none;
+            }
+
+            .menu-item-has-children > a {
+                justify-content: space-between;
+            }
+
+            .menu-item-has-children > a::after {
+                display: block;
+                content: '+';
+                transition: var(--transition);
+            }
+
+            .menu-item-has-children.active > a::after {
+                transform: rotate(45deg);
+            }
+
+            .sub-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.2);
+                border-radius: 0;
+                padding-left: 1rem;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                transform: none;
+                opacity: 1;
+            }
+
+            .menu-item-has-children.active > .sub-menu {
+                max-height: 500px;
+            }
+
+            .menu-item-has-children:hover .sub-menu {
+                display: none;
+                transform: none;
+            }
+
+            .menu-item-has-children.active .sub-menu {
+                display: block;
+            }
+
+            .sub-menu a {
+                color: #ddd;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .sub-menu a:hover {
+                background-color: rgba(255, 255, 255, 0.05);
+                color: var(--primary-gold);
+            }
+
+            .timeline-line {
+                left: 30px;
+            }
+
+            .timeline-item {
+                padding-left: 80px !important;
+                padding-right: 2rem !important;
+                text-align: left !important;
+            }
+
+            .timeline-marker {
+                left: 15px !important;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .timeline-intro h2 {
+                font-size: 2rem;
+            }
+
+            .timeline-title {
+                font-size: 1.5rem;
+            }
+
+            .prophecies-intro h2 {
+                font-size: 2rem;
+            }
+
+            .prophecy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-tabs {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+
+            .tab-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-elements">
+        <div class="floating-element">
+            <i class="fas fa-scroll" style="font-size: 3rem; color: var(--primary-gold);"></i>
+        </div>
+        <div class="floating-element">
+            <i class="fas fa-crown" style="font-size: 2.5rem; color: var(--deep-purple);"></i>
+        </div>
+        <div class="floating-element">
+            <i class="fas fa-star" style="font-size: 2rem; color: var(--accent-red);"></i>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="../../images/EMD.png" alt="Logo EMD">
+                <div class="logo-text">
+                    <div>Ministerio</div>
+                    <div>"La Gloria es del Señor"</div>
+                </div>
+            </div>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Inicio</a></li>
+                    <li class="menu-item-has-children">
+                        <a>Época de Jesús</a>
+                        <ul class="sub-menu">
+                            <li><a href="contexto-historico.html">Contexto Histórico</a></li>
+                            <li><a href="grupos-religiosos.html">Grupos religiosos</a></li>
+                            <li><a href="recursos-academicos.html">Recursos Académicos</a></li>
+                            <li><a href="apologia-cristiana.html">Apología Cristiana</a></li>
+                        </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">El Linaje de Cristo</h1>
+            <p class="hero-subtitle">Un Estudio Contemporáneo de las Profecías y su Cumplimiento</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Timeline Container -->
+    <main class="timeline-container">
+        <div class="timeline-intro">
+            <h2>La Historia del Linaje Mesiánico</h2>
+            <p>Descubre cómo Dios orquestó a través de los siglos el cumplimiento de sus promesas mesiánicas, desde Adán hasta Cristo.</p>
+        </div>
+
+        <div class="timeline-line"></div>
+
+        <!-- Timeline Item 1: La Promesa Original -->
+        <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+                <div class="timeline-card-header">
+                    <div class="timeline-period">~ 4000 A.C.</div>
+                    <h3 class="timeline-title">La Promesa Original</h3>
+                </div>
+                <div class="timeline-card-content">
+                    <p class="timeline-description">
+                        Después de la caída, Dios pronuncia la primera promesa mesiánica, estableciendo el conflicto entre la simiente de la mujer y la simiente de la serpiente.
+                    </p>
+                    <div class="timeline-verses">
+                        <div class="timeline-verse">
+                            "Y pondré enemistad entre ti y la mujer, y entre tu simiente y la simiente suya; ésta te herirá en la cabeza, y tú le herirás en el calcañar."
+                        </div>
+                        <div class="timeline-verse-ref">Génesis 3:15</div>
+                    </div>
+                    <button class="expand-btn">
+                        Leer más <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="timeline-details">
+                        <p>Esta promesa, conocida como el "protoevangelio", establece el fundamento de toda la historia redentora. La "simiente de la mujer" se refiere proféticamente a Cristo, quien nacería de una virgen sin intervención humana masculina.</p>
+                        <div class="timeline-connections">
+                            <span class="connection-tag">Promesa Primitiva</span>
+                            <span class="connection-tag">Conflicto Cósmico</span>
+                            <span class="connection-tag">Nacimiento Virginal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline Item 2: La Promesa a Abraham -->
+        <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+                <div class="timeline-card-header">
+                    <div class="timeline-period">~ 2000 A.C.</div>
+                    <h3 class="timeline-title">El Pacto Abrahámico</h3>
+                </div>
+                <div class="timeline-card-content">
+                    <p class="timeline-description">
+                        Dios establece su pacto con Abraham, prometiendo que en su simiente serían benditas todas las familias de la tierra.
+                    </p>
+                    <div class="timeline-verses">
+                        <div class="timeline-verse">
+                            "En tu simiente serán benditas todas las naciones de la tierra, por cuanto obedeciste a mi voz."
+                        </div>
+                        <div class="timeline-verse-ref">Génesis 22:18</div>
+                    </div>
+                    <button class="expand-btn">
+                        Leer más <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="timeline-details">
+                        <p>El pacto con Abraham especifica que el Mesías vendría de su linaje. Pablo clarifica en Gálatas 3:16 que esta "simiente" se refiere específicamente a Cristo. El sacrificio de Isaac prefigura el sacrificio del Hijo unigénito de Dios.</p>
+                        <div class="timeline-connections">
+                            <span class="connection-tag">Pacto Eterno</span>
+                            <span class="connection-tag">Bendición Universal</span>
+                            <span class="connection-tag">Tipo de Cristo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline Item 3: La Promesa a Judá -->
+        <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+                <div class="timeline-card-header">
+                    <div class="timeline-period">~ 1800 A.C.</div>
+                    <h3 class="timeline-title">La Profecía de Judá</h3>
+                </div>
+                <div class="timeline-card-content">
+                    <p class="timeline-description">
+                        Jacob bendice a sus hijos, especificando que el cetro no se apartaría de Judá hasta que viniera Siloh (el Mesías).
+                    </p>
+                    <div class="timeline-verses">
+                        <div class="timeline-verse">
+                            "No será quitado el cetro de Judá, ni el legislador de entre sus pies, hasta que venga Siloh; y a él se congregarán los pueblos."
+                        </div>
+                        <div class="timeline-verse-ref">Génesis 49:10</div>
+                    </div>
+                    <button class="expand-btn">
+                        Leer más <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="timeline-details">
+                        <p>Esta profecía establece que el Mesías vendría de la tribu de Judá y tendría autoridad real. "Siloh" significa "paz" o "aquel cuyo es", refiriéndose al Príncipe de Paz que reinaría eternamente.</p>
+                        <div class="timeline-connections">
+                            <span class="connection-tag">Tribu Real</span>
+                            <span class="connection-tag">Autoridad Mesiánica</span>
+                            <span class="connection-tag">Paz Eterna</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline Item 4: El Pacto Davídico -->
+        <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+                <div class="timeline-card-header">
+                    <div class="timeline-period">~ 1000 A.C.</div>
+                    <h3 class="timeline-title">El Pacto con David</h3>
+                </div>
+                <div class="timeline-card-content">
+                    <p class="timeline-description">
+                        Dios promete a David que su trono sería establecido para siempre, y que de su descendencia vendría el Rey eterno.
+                    </p>
+                    <div class="timeline-verses">
+                        <div class="timeline-verse">
+                            "Y será afirmada tu casa y tu reino para siempre delante de tu rostro, y tu trono será estable eternamente."
+                        </div>
+                        <div class="timeline-verse-ref">2 Samuel 7:16</div>
+                    </div>
+                    <button class="expand-btn">
+                        Leer más <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="timeline-details">
+                        <p>El pacto davídico establece específicamente la casa real de la cual vendría el Mesías. Jesús es llamado "Hijo de David" múltiples veces en el Nuevo Testamento, cumpliendo esta promesa.</p>
+                        <div class="timeline-connections">
+                            <span class="connection-tag">Reino Eterno</span>
+                            <span class="connection-tag">Linaje Real</span>
+                            <span class="connection-tag">Hijo de David</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline Item 5: Las Profecías de Isaías -->
+        <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+                <div class="timeline-card-header">
+                    <div class="timeline-period">~ 700 A.C.</div>
+                    <h3 class="timeline-title">El Emanuel y el Siervo Sufriente</h3>
+                </div>
+                <div class="timeline-card-content">
+                    <p class="timeline-description">
+                        Isaías profetiza sobre el nacimiento virginal del Emanuel y describe detalladamente al Siervo Sufriente que cargaría nuestros pecados.
+                    </p>
+                    <div class="timeline-verses">
+                        <div class="timeline-verse">
+                            "Por tanto, el Señor mismo os dará señal: He aquí que la virgen concebirá, y dará a luz un hijo, y llamará su nombre Emanuel."
+                        </div>
+                        <div class="timeline-verse-ref">Isaías 7:14</div>
+                    </div>
+                    <button class="expand-btn">
+                        Leer más <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="timeline-details">
+                        <p>Isaías proporciona las profecías más detalladas sobre el Mesías, incluyendo su nacimiento virginal, su reino eterno, y especialmente su obra redentora como el Siervo Sufriente en el capítulo 53.</p>
+                        <div class="timeline-connections">
+                            <span class="connection-tag">Nacimiento Virginal</span>
+                            <span class="connection-tag">Dios con Nosotros</span>
+                            <span class="connection-tag">Sacrificio Expiatorio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline Item 6: La Profecía de Miqueas -->
+        <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+                <div class="timeline-card-header">
+                    <div class="timeline-period">~ 700 A.C.</div>
+                    <h3 class="timeline-title">El Lugar del Nacimiento</h3>
+                </div>
+                <div class="timeline-card-content">
+                    <p class="timeline-description">
+                        Miqueas profetiza específicamente que el Mesías nacería en Belén, la ciudad de David.
+                    </p>
+                    <div class="timeline-verses">
+                        <div class="timeline-verse">
+                            "Pero tú, Belén Efrata, pequeña para estar entre las familias de Judá, de ti me saldrá el que será Señor en Israel; y sus salidas son desde el principio, desde los días de la eternidad."
+                        </div>
+                        <div class="timeline-verse-ref">Miqueas 5:2</div>
+                    </div>
+                    <button class="expand-btn">
+                        Leer más <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="timeline-details">
+                        <p>Esta profecía es tan específica que los escribas la citaron a Herodes cuando los magos preguntaron dónde había nacido el rey de los judíos. Note la referencia a la eternidad del Mesías.</p>
+                        <div class="timeline-connections">
+                            <span class="connection-tag">Ubicación Específica</span>
+                            <span class="connection-tag">Ciudad de David</span>
+                            <span class="connection-tag">Eternidad del Mesías</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline Item 7: Las Genealogías -->
+        <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+                <div class="timeline-card-header">
+                    <div class="timeline-period">Durante el Cautiverio</div>
+                    <h3 class="timeline-title">Preservación del Linaje</h3>
+                </div>
+                <div class="timeline-card-content">
+                    <p class="timeline-description">
+                        A través de períodos de cautiverio y restauración, Dios preservó meticulosamente los registros genealógicos del linaje mesiánico.
+                    </p>
+                    <div class="timeline-verses">
+                        <div class="timeline-verse">
+                            "Libro de la genealogía de Jesucristo, hijo de David, hijo de Abraham."
+                        </div>
+                        <div class="timeline-verse-ref">Mateo 1:1</div>
+                    </div>
+                    <button class="expand-btn">
+                        Leer más <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="timeline-details">
+                        <p>Las genealogías de Mateo y Lucas demuestran que Jesús tenía derecho legal y natural al trono de David. Mateo traza el linaje legal a través de José, mientras Lucas probablemente sigue el linaje de María.</p>
+                        <div class="timeline-connections">
+                            <span class="connection-tag">Preservación Divina</span>
+                            <span class="connection-tag">Derecho Legal</span>
+                            <span class="connection-tag">Cumplimiento Exacto</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline Item 8: El Cumplimiento -->
+        <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+                <div class="timeline-card-header">
+                    <div class="timeline-period">~ 4-6 A.C.</div>
+                    <h3 class="timeline-title">El Cumplimiento en Cristo</h3>
+                </div>
+                <div class="timeline-card-content">
+                    <p class="timeline-description">
+                        Todas las promesas y profecías encuentran su cumplimiento perfecto en Jesucristo, nacido de la virgen María en Belén de Judea.
+                    </p>
+                    <div class="timeline-verses">
+                        <div class="timeline-verse">
+                            "Todo esto aconteció para que se cumpliese lo dicho por el Señor por medio del profeta, cuando dijo: He aquí, una virgen concebirá y dará a luz un hijo, y llamarás su nombre Emanuel."
+                        </div>
+                        <div class="timeline-verse-ref">Mateo 1:22-23</div>
+                    </div>
+                    <button class="expand-btn">
+                        Leer más <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="timeline-details">
+                        <p>El nacimiento de Jesús marca el cumplimiento de siglos de promesas proféticas. Cada detalle - desde su linaje hasta el lugar de su nacimiento - confirma que Él es el Mesías prometido.</p>
+                        <div class="timeline-connections">
+                            <span class="connection-tag">Cumplimiento Perfecto</span>
+                            <span class="connection-tag">Mesías Prometido</span>
+                            <span class="connection-tag">Dios Hecho Hombre</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Prophecies Section -->
+    <section class="prophecies-section">
+        <div class="container">
+            <div class="prophecies-intro">
+                <h2>Profecías del Antiguo Testamento Cumplidas en Cristo</h2>
+                <p>Más de 100 profecías específicas del Antiguo Testamento que encuentran su cumplimiento perfecto en Jesucristo.</p>
+            </div>
+
+            <div class="prophecy-categories">
+                <div class="category-tabs">
+                    <button class="tab-btn active" data-category="nacimiento">Nacimiento</button>
+                    <button class="tab-btn" data-category="ministerio">Ministerio</button>
+                    <button class="tab-btn" data-category="sufrimiento">Sufrimiento</button>
+                    <button class="tab-btn" data-category="resurreccion">Resurrección</button>
+                    <button class="tab-btn" data-category="caracter">Carácter</button>
+                    <button class="tab-btn" data-category="reino">Reino</button>
+                </div>
+
+                <!-- Nacimiento y Primeros Años -->
+                <div class="prophecy-grid active" data-category="nacimiento">
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">1</div>
+                        <h4>Simiente de la Mujer</h4>
+                        <div class="prophecy-reference">Génesis 3:15</div>
+                        <div class="prophecy-fulfillment">Gálatas 4:4</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">2</div>
+                        <h4>Descendiente de Abraham</h4>
+                        <div class="prophecy-reference">Génesis 12:3</div>
+                        <div class="prophecy-fulfillment">Mateo 1:1</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">3</div>
+                        <h4>Descendiente de Isaac</h4>
+                        <div class="prophecy-reference">Génesis 17:19</div>
+                        <div class="prophecy-fulfillment">Lucas 3:34</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">4</div>
+                        <h4>Descendiente de Jacob</h4>
+                        <div class="prophecy-reference">Números 24:17</div>
+                        <div class="prophecy-fulfillment">Lucas 3:34</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">5</div>
+                        <h4>De la Tribu de Judá</h4>
+                        <div class="prophecy-reference">Génesis 49:10</div>
+                        <div class="prophecy-fulfillment">Lucas 3:33</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">6</div>
+                        <h4>Heredero del Trono de David</h4>
+                        <div class="prophecy-reference">Isaías 9:7</div>
+                        <div class="prophecy-fulfillment">Lucas 1:32-33</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">7</div>
+                        <h4>Nacimiento Virginal</h4>
+                        <div class="prophecy-reference">Isaías 7:14</div>
+                        <div class="prophecy-fulfillment">Mateo 1:23</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">8</div>
+                        <h4>Nacido en Belén</h4>
+                        <div class="prophecy-reference">Miqueas 5:2</div>
+                        <div class="prophecy-fulfillment">Mateo 2:1</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">9</div>
+                        <h4>La Matanza de los Inocentes</h4>
+                        <div class="prophecy-reference">Jeremías 31:15</div>
+                        <div class="prophecy-fulfillment">Mateo 2:16-18</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">10</div>
+                        <h4>Huida a Egipto</h4>
+                        <div class="prophecy-reference">Oseas 11:1</div>
+                        <div class="prophecy-fulfillment">Mateo 2:14-15</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">11</div>
+                        <h4>Llamado de Nazaret</h4>
+                        <div class="prophecy-reference">Isaías 11:1</div>
+                        <div class="prophecy-fulfillment">Mateo 2:23</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">12</div>
+                        <h4>Precedido por un Precursor</h4>
+                        <div class="prophecy-reference">Isaías 40:3</div>
+                        <div class="prophecy-fulfillment">Mateo 3:1-2</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">13</div>
+                        <h4>Ungido con el Espíritu</h4>
+                        <div class="prophecy-reference">Isaías 11:2</div>
+                        <div class="prophecy-fulfillment">Mateo 3:16-17</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">14</div>
+                        <h4>Tiempo de su Ministerio</h4>
+                        <div class="prophecy-reference">Daniel 9:25</div>
+                        <div class="prophecy-fulfillment">Lucas 3:1</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">15</div>
+                        <h4>Nacido cuando el Cetro se Apartó</h4>
+                        <div class="prophecy-reference">Génesis 49:10</div>
+                        <div class="prophecy-fulfillment">Lucas 2:1-7</div>
+                    </div>
+                </div>
+
+                <!-- Ministerio y Obras -->
+                <div class="prophecy-grid" data-category="ministerio">
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">16</div>
+                        <h4>Ministerio en Galilea</h4>
+                        <div class="prophecy-reference">Isaías 9:1-2</div>
+                        <div class="prophecy-fulfillment">Mateo 4:12-16</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">17</div>
+                        <h4>Hablará en Parábolas</h4>
+                        <div class="prophecy-reference">Salmo 78:2</div>
+                        <div class="prophecy-fulfillment">Mateo 13:34</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">18</div>
+                        <h4>Sanará a los Quebrantados</h4>
+                        <div class="prophecy-reference">Isaías 61:1-2</div>
+                        <div class="prophecy-fulfillment">Lucas 4:18-19</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">19</div>
+                        <h4>Será Sacerdote</h4>
+                        <div class="prophecy-reference">Salmo 110:4</div>
+                        <div class="prophecy-fulfillment">Hebreos 3:1</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">20</div>
+                        <h4>Será Profeta</h4>
+                        <div class="prophecy-reference">Deuteronomio 18:15</div>
+                        <div class="prophecy-fulfillment">Juan 6:14</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">21</div>
+                        <h4>Será Rey</h4>
+                        <div class="prophecy-reference">Salmo 2:6</div>
+                        <div class="prophecy-fulfillment">Mateo 27:37</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">22</div>
+                        <h4>Tendrá Celo por el Templo</h4>
+                        <div class="prophecy-reference">Salmo 69:9</div>
+                        <div class="prophecy-fulfillment">Juan 2:15-17</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">23</div>
+                        <h4>Entrada Triunfal</h4>
+                        <div class="prophecy-reference">Zacarías 9:9</div>
+                        <div class="prophecy-fulfillment">Mateo 21:4-5</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">24</div>
+                        <h4>Piedra Rechazada</h4>
+                        <div class="prophecy-reference">Salmo 118:22</div>
+                        <div class="prophecy-fulfillment">1 Pedro 2:7</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">25</div>
+                        <h4>Luz para los Gentiles</h4>
+                        <div class="prophecy-reference">Isaías 60:3</div>
+                        <div class="prophecy-fulfillment">Hechos 13:47-48</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">26</div>
+                        <h4>Resurrección de Muertos</h4>
+                        <div class="prophecy-reference">Isaías 26:19</div>
+                        <div class="prophecy-fulfillment">Juan 11:43-44</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">27</div>
+                        <h4>Sanará Ciegos</h4>
+                        <div class="prophecy-reference">Isaías 35:5</div>
+                        <div class="prophecy-fulfillment">Mateo 9:27-30</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">28</div>
+                        <h4>Sanará Sordos</h4>
+                        <div class="prophecy-reference">Isaías 35:5</div>
+                        <div class="prophecy-fulfillment">Marcos 7:32-35</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">29</div>
+                        <h4>Sanará Cojos</h4>
+                        <div class="prophecy-reference">Isaías 35:6</div>
+                        <div class="prophecy-fulfillment">Mateo 11:5</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">30</div>
+                        <h4>No Quebrantará la Caña</h4>
+                        <div class="prophecy-reference">Isaías 42:3</div>
+                        <div class="prophecy-fulfillment">Mateo 12:15-21</div>
+                    </div>
+                </div>
+
+                <!-- Sufrimiento y Muerte -->
+                <div class="prophecy-grid" data-category="sufrimiento">
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">31</div>
+                        <h4>Traicionado por un Amigo</h4>
+                        <div class="prophecy-reference">Salmo 41:9</div>
+                        <div class="prophecy-fulfillment">Lucas 22:47-48</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">32</div>
+                        <h4>Vendido por 30 Piezas de Plata</h4>
+                        <div class="prophecy-reference">Zacarías 11:12</div>
+                        <div class="prophecy-fulfillment">Mateo 26:15</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">33</div>
+                        <h4>Dinero Devuelto</h4>
+                        <div class="prophecy-reference">Zacarías 11:13</div>
+                        <div class="prophecy-fulfillment">Mateo 27:5</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">34</div>
+                        <h4>Compra del Campo del Alfarero</h4>
+                        <div class="prophecy-reference">Zacarías 11:13</div>
+                        <div class="prophecy-fulfillment">Mateo 27:7</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">35</div>
+                        <h4>Abandonado por los Discípulos</h4>
+                        <div class="prophecy-reference">Zacarías 13:7</div>
+                        <div class="prophecy-fulfillment">Marcos 14:50</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">36</div>
+                        <h4>Acusado por Falsos Testigos</h4>
+                        <div class="prophecy-reference">Salmo 35:11</div>
+                        <div class="prophecy-fulfillment">Marcos 14:57</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">37</div>
+                        <h4>Permanecerá en Silencio</h4>
+                        <div class="prophecy-reference">Isaías 53:7</div>
+                        <div class="prophecy-fulfillment">Marcos 15:4-5</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">38</div>
+                        <h4>Herido y Molido</h4>
+                        <div class="prophecy-reference">Isaías 53:5</div>
+                        <div class="prophecy-fulfillment">Mateo 27:26</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">39</div>
+                        <h4>Azotado y Escupido</h4>
+                        <div class="prophecy-reference">Isaías 50:6</div>
+                        <div class="prophecy-fulfillment">Mateo 26:67</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">40</div>
+                        <h4>Objeto de Burla</h4>
+                        <div class="prophecy-reference">Salmo 22:7-8</div>
+                        <div class="prophecy-fulfillment">Lucas 23:35</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">41</div>
+                        <h4>Caerá Bajo la Cruz</h4>
+                        <div class="prophecy-reference">Salmo 109:24-25</div>
+                        <div class="prophecy-fulfillment">Juan 19:17</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">42</div>
+                        <h4>Manos y Pies Horadados</h4>
+                        <div class="prophecy-reference">Salmo 22:16</div>
+                        <div class="prophecy-fulfillment">Lucas 23:33</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">43</div>
+                        <h4>Crucificado con Ladrones</h4>
+                        <div class="prophecy-reference">Isaías 53:12</div>
+                        <div class="prophecy-fulfillment">Marcos 15:27</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">44</div>
+                        <h4>Intercederá por los Agresores</h4>
+                        <div class="prophecy-reference">Isaías 53:12</div>
+                        <div class="prophecy-fulfillment">Lucas 23:34</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">45</div>
+                        <h4>Rechazado por su Pueblo</h4>
+                        <div class="prophecy-reference">Isaías 53:3</div>
+                        <div class="prophecy-fulfillment">Juan 7:5,48</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">46</div>
+                        <h4>Odiado sin Causa</h4>
+                        <div class="prophecy-reference">Salmo 69:4</div>
+                        <div class="prophecy-fulfillment">Juan 15:25</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">47</div>
+                        <h4>Amigos Permanecen Lejos</h4>
+                        <div class="prophecy-reference">Salmo 38:11</div>
+                        <div class="prophecy-fulfillment">Lucas 23:49</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">48</div>
+                        <h4>Se Repartirán sus Vestidos</h4>
+                        <div class="prophecy-reference">Salmo 22:18</div>
+                        <div class="prophecy-fulfillment">Juan 19:23-24</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">49</div>
+                        <h4>Sed y Vinagre</h4>
+                        <div class="prophecy-reference">Salmo 69:21</div>
+                        <div class="prophecy-fulfillment">Mateo 27:34</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">50</div>
+                        <h4>Sus Palabras: "Dios Mío"</h4>
+                        <div class="prophecy-reference">Salmo 22:1</div>
+                        <div class="prophecy-fulfillment">Mateo 27:46</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">51</div>
+                        <h4>Encomienda su Espíritu</h4>
+                        <div class="prophecy-reference">Salmo 31:5</div>
+                        <div class="prophecy-fulfillment">Lucas 23:46</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">52</div>
+                        <h4>No se Quebrarán sus Huesos</h4>
+                        <div class="prophecy-reference">Salmo 34:20</div>
+                        <div class="prophecy-fulfillment">Juan 19:33</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">53</div>
+                        <h4>Su Costado Traspasado</h4>
+                        <div class="prophecy-reference">Zacarías 12:10</div>
+                        <div class="prophecy-fulfillment">Juan 19:34</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">54</div>
+                        <h4>Enterrado con los Ricos</h4>
+                        <div class="prophecy-reference">Isaías 53:9</div>
+                        <div class="prophecy-fulfillment">Mateo 27:57-60</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">55</div>
+                        <h4>Tinieblas sobre la Tierra</h4>
+                        <div class="prophecy-reference">Amós 8:9</div>
+                        <div class="prophecy-fulfillment">Mateo 27:45</div>
+                    </div>
+                </div>
+
+                <!-- Resurrección y Ascensión -->
+                <div class="prophecy-grid" data-category="resurreccion">
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">56</div>
+                        <h4>Su Resurrección</h4>
+                        <div class="prophecy-reference">Salmo 16:10</div>
+                        <div class="prophecy-fulfillment">Marcos 16:6-7</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">57</div>
+                        <h4>Su Ascensión</h4>
+                        <div class="prophecy-reference">Salmo 68:18</div>
+                        <div class="prophecy-fulfillment">Lucas 24:51</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">58</div>
+                        <h4>Se Sentará a la Diestra</h4>
+                        <div class="prophecy-reference">Salmo 110:1</div>
+                        <div class="prophecy-fulfillment">Hebreos 1:3</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">59</div>
+                        <h4>Será Exaltado</h4>
+                        <div class="prophecy-reference">Isaías 52:13</div>
+                        <div class="prophecy-fulfillment">Filipenses 2:9-11</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">60</div>
+                        <h4>Llamado Señor</h4>
+                        <div class="prophecy-reference">Salmo 110:1</div>
+                        <div class="prophecy-fulfillment">Lucas 2:11</div>
+                    </div>
+                </div>
+
+                <!-- Carácter Divino -->
+                <div class="prophecy-grid" data-category="caracter">
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">61</div>
+                        <h4>Existencia Eterna</h4>
+                        <div class="prophecy-reference">Miqueas 5:2</div>
+                        <div class="prophecy-fulfillment">Juan 8:58</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">62</div>
+                        <h4>Será Llamado Dios</h4>
+                        <div class="prophecy-reference">Isaías 40:3</div>
+                        <div class="prophecy-fulfillment">Juan 1:23</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">63</div>
+                        <h4>Será Emanuel</h4>
+                        <div class="prophecy-reference">Isaías 7:14</div>
+                        <div class="prophecy-fulfillment">Mateo 1:23</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">64</div>
+                        <h4>Será el Hijo de Dios</h4>
+                        <div class="prophecy-reference">Salmo 2:7</div>
+                        <div class="prophecy-fulfillment">Mateo 3:17</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">65</div>
+                        <h4>Será el Buen Pastor</h4>
+                        <div class="prophecy-reference">Ezequiel 34:23</div>
+                        <div class="prophecy-fulfillment">Juan 10:11</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">66</div>
+                        <h4>Será Dios Fuerte</h4>
+                        <div class="prophecy-reference">Isaías 9:6</div>
+                        <div class="prophecy-fulfillment">Juan 1:1</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">67</div>
+                        <h4>Padre Eterno</h4>
+                        <div class="prophecy-reference">Isaías 9:6</div>
+                        <div class="prophecy-fulfillment">Juan 10:30</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">68</div>
+                        <h4>Príncipe de Paz</h4>
+                        <div class="prophecy-reference">Isaías 9:6</div>
+                        <div class="prophecy-fulfillment">Juan 16:33</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">69</div>
+                        <h4>Será Adorado</h4>
+                        <div class="prophecy-reference">Salmo 45:11</div>
+                        <div class="prophecy-fulfillment">Mateo 2:2</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">70</div>
+                        <h4>Será Impartial</h4>
+                        <div class="prophecy-reference">Isaías 11:3</div>
+                        <div class="prophecy-fulfillment">Juan 7:24</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">71</div>
+                        <h4>Será Justo</h4>
+                        <div class="prophecy-reference">Jeremías 23:5</div>
+                        <div class="prophecy-fulfillment">Juan 5:30</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">72</div>
+                        <h4>Será Misericordioso</h4>
+                        <div class="prophecy-reference">Isaías 42:3</div>
+                        <div class="prophecy-fulfillment">Mateo 12:15</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">73</div>
+                        <h4>Será Verdadero</h4>
+                        <div class="prophecy-reference">Isaías 25:1</div>
+                        <div class="prophecy-fulfillment">Juan 14:6</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">74</div>
+                        <h4>Sin Pecado</h4>
+                        <div class="prophecy-reference">Isaías 53:9</div>
+                        <div class="prophecy-fulfillment">1 Pedro 2:22</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">75</div>
+                        <h4>Su Naturaleza Espiritual</h4>
+                        <div class="prophecy-reference">Malaquías 3:1</div>
+                        <div class="prophecy-fulfillment">Juan 4:24</div>
+                    </div>
+                </div>
+
+                <!-- Reino Eterno -->
+                <div class="prophecy-grid" data-category="reino">
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">76</div>
+                        <h4>Reino Eterno</h4>
+                        <div class="prophecy-reference">Daniel 7:14</div>
+                        <div class="prophecy-fulfillment">Lucas 1:33</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">77</div>
+                        <h4>Conquistará la Muerte</h4>
+                        <div class="prophecy-reference">Isaías 25:8</div>
+                        <div class="prophecy-fulfillment">1 Corintios 15:54</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">78</div>
+                        <h4>Reinarán las Naciones</h4>
+                        <div class="prophecy-reference">Salmo 72:11</div>
+                        <div class="prophecy-fulfillment">Filipenses 2:10</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">79</div>
+                        <h4>Gobierno sobre su Hombro</h4>
+                        <div class="prophecy-reference">Isaías 9:6</div>
+                        <div class="prophecy-fulfillment">Mateo 28:18</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">80</div>
+                        <h4>Su Reino no Tendrá Fin</h4>
+                        <div class="prophecy-reference">Daniel 2:44</div>
+                        <div class="prophecy-fulfillment">Lucas 1:33</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">81</div>
+                        <h4>Juez de las Naciones</h4>
+                        <div class="prophecy-reference">Isaías 2:4</div>
+                        <div class="prophecy-fulfillment">Juan 5:22</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">82</div>
+                        <h4>Rey de Reyes</h4>
+                        <div class="prophecy-reference">Salmo 72:11</div>
+                        <div class="prophecy-fulfillment">Apocalipsis 17:14</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">83</div>
+                        <h4>Señor de Señores</h4>
+                        <div class="prophecy-reference">Deuteronomio 10:17</div>
+                        <div class="prophecy-fulfillment">Apocalipsis 17:14</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">84</div>
+                        <h4>Su Venida en Gloria</h4>
+                        <div class="prophecy-reference">Isaías 40:5</div>
+                        <div class="prophecy-fulfillment">Mateo 24:30</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">85</div>
+                        <h4>Regeneración de Israel</h4>
+                        <div class="prophecy-reference">Isaías 60:1-3</div>
+                        <div class="prophecy-fulfillment">Romanos 11:26</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">86</div>
+                        <h4>Piedra Angular</h4>
+                        <div class="prophecy-reference">Salmo 118:22</div>
+                        <div class="prophecy-fulfillment">Efesios 2:20</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">87</div>
+                        <h4>Nueva Jerusalén</h4>
+                        <div class="prophecy-reference">Isaías 65:17</div>
+                        <div class="prophecy-fulfillment">Apocalipsis 21:1</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">88</div>
+                        <h4>Restauración Universal</h4>
+                        <div class="prophecy-reference">Isaías 11:6</div>
+                        <div class="prophecy-fulfillment">Romanos 8:19-21</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">89</div>
+                        <h4>Paz Eterna</h4>
+                        <div class="prophecy-reference">Isaías 2:4</div>
+                        <div class="prophecy-fulfillment">Efesios 2:14</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">90</div>
+                        <h4>Gloria de Dios Revelada</h4>
+                        <div class="prophecy-reference">Isaías 40:5</div>
+                        <div class="prophecy-fulfillment">Juan 1:14</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">91</div>
+                        <h4>Nombre sobre Todo Nombre</h4>
+                        <div class="prophecy-reference">Isaías 45:23</div>
+                        <div class="prophecy-fulfillment">Filipenses 2:9-11</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">92</div>
+                        <h4>Emmanuel: Dios con Nosotros</h4>
+                        <div class="prophecy-reference">Isaías 7:14</div>
+                        <div class="prophecy-fulfillment">Apocalipsis 21:3</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">93</div>
+                        <h4>Consumación del Tiempo</h4>
+                        <div class="prophecy-reference">Daniel 2:44</div>
+                        <div class="prophecy-fulfillment">1 Corintios 15:24</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">94</div>
+                        <h4>Todo Ojo Le Verá</h4>
+                        <div class="prophecy-reference">Zacarías 12:10</div>
+                        <div class="prophecy-fulfillment">Apocalipsis 1:7</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">95</div>
+                        <h4>Alfa y Omega</h4>
+                        <div class="prophecy-reference">Isaías 44:6</div>
+                        <div class="prophecy-fulfillment">Apocalipsis 1:8</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">96</div>
+                        <h4>Cordero de Dios</h4>
+                        <div class="prophecy-reference">Isaías 53:7</div>
+                        <div class="prophecy-fulfillment">Juan 1:29</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">97</div>
+                        <h4>León de Judá</h4>
+                        <div class="prophecy-reference">Génesis 49:9</div>
+                        <div class="prophecy-fulfillment">Apocalipsis 5:5</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">98</div>
+                        <h4>Raíz de David</h4>
+                        <div class="prophecy-reference">Isaías 11:1</div>
+                        <div class="prophecy-fulfillment">Apocalipsis 22:16</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">99</div>
+                        <h4>Estrella de Jacob</h4>
+                        <div class="prophecy-reference">Números 24:17</div>
+                        <div class="prophecy-fulfillment">Apocalipsis 22:16</div>
+                    </div>
+
+                    <div class="prophecy-card">
+                        <div class="prophecy-number">100</div>
+                        <h4>Eternidad del Mesías</h4>
+                        <div class="prophecy-reference">Salmo 102:25-27</div>
+                        <div class="prophecy-fulfillment">Hebreos 1:10-12</div>
+                    </div>
+                </div>
+
+                <div class="prophecy-summary">
+                    <div class="summary-card">
+                        <h3>Probabilidades Matemáticas</h3>
+                        <p>La probabilidad de que una persona pudiera cumplir al azar tan solo 48 de estas profecías es de <strong>1 en 10^157</strong> (un número mayor que todos los átomos del universo conocido).</p>
+                        <div class="summary-quote">
+                            "El cumplimiento de estas profecías en Cristo es evidencia matemática y histórica de que Jesús es verdaderamente el Mesías prometido."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="conclusion-section">
+        <div class="conclusion-content">
+            <h2 class="conclusion-title">La Maravilla del Plan Divino</h2>
+            <p class="conclusion-text">
+                A través de más de 4,000 años de historia, Dios orquestó meticulosamente cada detalle para el cumplimiento de sus promesas mesiánicas. El linaje de Cristo no es solo una línea genealógica, sino el hilo dorado que conecta toda la historia redentora, demostrando la fidelidad y soberanía absoluta de Dios.
+            </p>
+            <a href="https://www.scribd.com/doc/182129634/8740435-Profecias-Cumplidas-Por-Jesus" class="cta-button">Continuar Estudiando</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Ministerio EMD</h4>
+                    <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
+                    <div class="social-links">
+                         <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                         <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="../Figuras Bíblicas/at-a-nt.html">Figuras Bíblicas</a></li>
+                        <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                        <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Estudios Exegéticos</a></li>
+                        <li><a href="../Tiempo del Fin/introduccion.html">Tiempo del Fin</a></li>
+                        <li><a href="contexto-historico.html">Contexto Histórico</a></li>
+                        <li><a href="../Estudios Bíblicos/doctrina-basica.html">Estudios Bíblicos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio</li>
+                        <li><i class="fas fa-phone"></i> +1 787-345-6940</li>
+                        <li><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                      <h4>Nota Aclaratoria</h4>
+                    <ul>
+                        <li>Todos los recursos de esta página son gratuitos y para la edificación de los creyentes</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+
+        // Mobile dropdown functionality
+        document.querySelectorAll('.menu-item-has-children > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.parentNode.classList.toggle('active');
+                }
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navToggle = document.querySelector('.nav-toggle');
+            
+            if (!nav.contains(event.target) && event.target !== navToggle) {
+                nav.classList.remove('active');
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(45, 27, 78, 0.98)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, var(--deep-purple), var(--royal-blue))';
+            }
+        });
+
+        // Timeline items animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Expand/collapse functionality
+        document.querySelectorAll('.expand-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const timelineItem = btn.closest('.timeline-item');
+                timelineItem.classList.toggle('expanded');
+                
+                if (timelineItem.classList.contains('expanded')) {
+                    btn.innerHTML = 'Leer menos <i class="fas fa-chevron-up"></i>';
+                } else {
+                    btn.innerHTML = 'Leer más <i class="fas fa-chevron-down"></i>';
+                }
+            });
+        });
+
+        // Smooth scrolling for scroll indicator
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            document.querySelector('.timeline-container').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Parallax effect for hero background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const background = document.querySelector('.hero-background');
+            if (background) {
+                background.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Tab functionality for prophecies
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.dataset.category;
+                
+                // Remove active class from all tabs and grids
+                document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.prophecy-grid').forEach(g => g.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding grid
+                btn.classList.add('active');
+                document.querySelector(`[data-category="${category}"].prophecy-grid`).classList.add('active');
+            });
+        });
+
+        // Prophecy cards animation on scroll
+        const prophecyObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.prophecy-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            prophecyObserver.observe(card);
+        });
+
+        // Close menu when clicking on submenu link
+        document.querySelectorAll('.sub-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('nav').classList.remove('active');
+            });
+        });
+
+        // Dynamic counter for prophecies
+        const countProphecies = () => {
+            const categories = ['nacimiento', 'ministerio', 'sufrimiento', 'resurreccion', 'caracter', 'reino'];
+            let total = 0;
+            
+            categories.forEach(category => {
+                const cards = document.querySelectorAll(`[data-category="${category}"] .prophecy-card`);
+                total += cards.length;
+            });
+            
+            // Update the intro text with the exact count
+            const introP = document.querySelector('.prophecies-intro p');
+            if (introP) {
+                introP.textContent = `Exactamente ${total} profecías específicas del Antiguo Testamento que encuentran su cumplimiento perfecto en Jesucristo.`;
+            }
+        };
+
+        // Call the counter function when page loads
+        document.addEventListener('DOMContentLoaded', countProphecies);
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+        });
+
+        // Set initial body opacity
+        document.body.style.opacity = '0';
+    </script>

@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figuras de Cristo | Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #7b2240;
+            --secondary-color: #d6a929;
+            --accent-color: #2c6e49;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gray-color: #6c757d;
+            --white-color: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            background-color: #f5f5f5;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background-color: var(--white-color);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-color);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--dark-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            background: url('./images/image.png') center/cover no-repeat;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            color: var(--white-color);
+            position: relative;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: var(--white-color);
+            font-size: 1.5rem;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 5rem 0;
+        }
+        
+        .intro {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+        
+        .intro h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .intro h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .intro p {
+            font-size: 1.1rem;
+            color: var(--gray-color);
+            line-height: 1.8;
+        }
+        
+        /* Infographic Tabs */
+        .tabs-container {
+            margin-bottom: 3rem;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .tab-btn {
+            background-color: var(--white-color);
+            border: none;
+            padding: 1rem 2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--dark-color);
+            cursor: pointer;
+            border-radius: 50px;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        
+        .tab-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab-btn.active {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Infographics */
+        .infographic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .infographic-card {
+            background-color: var(--white-color);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .infographic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white-color);
+            text-align: center;
+            position: relative;
+        }
+        
+        .card-header i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card-header h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .card-body p {
+            margin-bottom: 1rem;
+            color: var(--gray-color);
+        }
+        
+        .reference {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--gray-color);
+            display: block;
+            text-align: right;
+        }
+        
+        .verse {
+            padding: 1rem;
+            background-color: rgba(123, 34, 64, 0.05);
+            border-left: 3px solid var(--primary-color);
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+        
+        /* Timeline */
+        .timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--white-color);
+            border: 4px solid var(--secondary-color);
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 1.5rem;
+            background-color: var(--white-color);
+            position: relative;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .timeline-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* Nature Grid */
+        .nature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .nature-item {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--white-color);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .nature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .nature-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .nature-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        /* Bible Verse Section */
+        .bible-verse {
+            background-color: var(--white-color);
+            padding: 4rem 2rem;
+            text-align: center;
+            max-width: 1000px;
+            margin: 4rem auto;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bible-verse::before {
+            content: '\201C';
+            font-size: 8rem;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            color: rgba(123, 34, 64, 0.1);
+            font-family: Georgia, serif;
+        }
+        
+        .verse-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            color: var(--dark-color);
+        }
+        
+        .verse-ref {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white-color);
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-col p {
+            color: #aaa;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-col a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-col a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white-color);
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .timeline::before {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 80px;
+                padding-right: 0;
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .nature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background-color: var(--white-color);
+                z-index: 1001;
+                transition: all 0.4s ease;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+                padding: 4rem 0 0 2rem;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .close-nav {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: var(--dark-color);
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .nature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .verse-text {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container header-container">
+            <a href="../../index.html" class="logo">
+                <img src="../../images/EMD.png" alt="Logo EMD">
+                <div class="logo-text">
+                    <div>Ministerio</div>
+                    <div>"La Gloria es del Señor"</div>
+                </div>
+            </a>
+            <button class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="nav">
+                <button class="close-nav">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul>
+                    <li><a href="../../index.html">Inicio</a></li>
+                    <li><a href="../Figuras Bíblicas/at-a-nt.html">AT a NT</a></li>
+                    <li><a href="../Figuras Bíblicas/nombres-simbologia.html">Nombres y Simbología</a></li>
+                    <li><a href="../Figuras Bíblicas/templo-figuras.html">El Templo</a></li>
+                    <li><a href="../Figuras Bíblicas/sacrificios-figuras.html">Sacrificios</a></li>
+                    <li><a href="../Figuras Bíblicas/tipologia-cantares.html">Tipología en Cantares</a></li>
+                    <li><a href="../Figuras Bíblicas/figuras-cristo.html" class="active">Figuras de Cristo</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Figuras de Cristo en el Antiguo Testamento</h1>
+            <p>Descubre cómo Cristo fue prefigurado a través de personajes, animales, plantas y elementos de la creación miles de años antes de su venida.</p>
+        </div>
+        <a href="#main-content" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+    
+    <main id="main-content" class="main-content">
+        <div class="container">
+            <div class="intro">
+                <h2>Jesucristo Prefigurado</h2>
+                <p>El Antiguo Testamento está lleno de símbolos, tipos y figuras que apuntan hacia Jesucristo. Esta tipología bíblica revela el plan divino donde cada detalle de la creación y la historia de Israel anunciaba al Mesías venidero.</p>
+            </div>
+            
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="personajes">Personajes Bíblicos</button>
+                    <button class="tab-btn" data-tab="animales">Animales</button>
+                    <button class="tab-btn" data-tab="plantas">Plantas & Vegetación</button>
+                    <button class="tab-btn" data-tab="universo">Universo & Tierra</button>
+                </div>
+                
+                <!-- Personajes Tab -->
+                <div id="personajes" class="tab-content active">
+                    <div class="timeline">
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h3>Adán - El Primer Hombre</h3>
+                                <p>Como primer hombre y cabeza de la humanidad, Adán prefigura a Cristo, el "último Adán" y cabeza de la nueva creación.</p>
+                                <div class="verse">
+                                    "Por tanto, así como el pecado entró en el mundo por un hombre, y por el pecado la muerte, así la muerte pasó a todos los hombres, por cuanto todos pecaron."
+                                    <span class="reference">Romanos 5:12</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item right">
+                            <div class="timeline-content">
+                                <h3>Abel - El Sacrificio Aceptado</h3>
+                                <p>Abel ofreció un sacrificio de sangre que Dios aceptó, prefigurando el sacrificio perfecto de Cristo.</p>
+                                <div class="verse">
+                                    "Y Abel trajo también de los primogénitos de sus ovejas, de lo más gordo de ellas. Y miró Jehová con agrado a Abel y a su ofrenda."
+                                    <span class="reference">Génesis 4:4</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h3>Melquisedec - Rey y Sacerdote</h3>
+                                <p>El rey-sacerdote de Salem que bendijo a Abraham prefigura el doble oficio de Cristo como Rey y Sumo Sacerdote eterno.</p>
+                                <div class="verse">
+                                    "Tú eres sacerdote para siempre, según el orden de Melquisedec."
+                                    <span class="reference">Salmo 110:4</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item right">
+                            <div class="timeline-content">
+                                <h3>José - El Amado y Rechazado</h3>
+                                <p>Amado por su padre, rechazado por sus hermanos, y exaltado para ser salvador de su familia, José representa a Cristo en muchos aspectos.</p>
+                                <div class="verse">
+                                    "Vosotros pensasteis mal contra mí, mas Dios lo encaminó a bien, para hacer lo que vemos hoy, para mantener en vida a mucho pueblo."
+                                    <span class="reference">Génesis 50:20</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h3>Moisés - El Libertador y Mediador</h3>
+                                <p>Moisés liberó a Israel de la esclavitud egipcia y medió entre Dios y el pueblo, como Cristo nos libera del pecado y es nuestro mediador.</p>
+                                <div class="verse">
+                                    "Profeta de en medio de ti, de tus hermanos, como yo, te levantará Jehová tu Dios; a él oiréis."
+                                    <span class="reference">Deuteronomio 18:15</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item right">
+                            <div class="timeline-content">
+                                <h3>David - El Rey según el Corazón de Dios</h3>
+                                <p>El rey pastor que gobernó con justicia y venció a Goliat prefigura a Cristo, el Buen Pastor y descendiente davídico que reina eternamente.</p>
+                                <div class="verse">
+                                    "Afirmó Jehová mi reino sobre Israel para siempre, por David mi siervo, a quien yo elegí."
+                                    <span class="reference">1 Reyes 8:16</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Animales Tab -->
+                <div id="animales" class="tab-content">
+                    <div class="infographic-grid">
+                        <div class="infographic-card">
+                            <div class="card-header">
+                                <i class="fas fa-dove"></i>
+                                <h3>El Cordero</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>El cordero era el animal de sacrificio por excelencia en el Antiguo Testamento, especialmente en la Pascua, prefigurando a Cristo como "el Cordero de Dios que quita el pecado del mundo".</p>
+                                <div class="verse">
+                                    "Será sin defecto, macho de un año; lo tomaréis de las ovejas o de las cabras."
+                                    <span class="reference">Éxodo 12:5</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="infographic-card">
+                            <div class="card-header">
+                                <i class="fas fa-hippo"></i>
+                                <h3>El León</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Símbolo de poder y majestad real, el león prefigura a Cristo como "el León de la tribu de Judá" que reina victorioso sobre sus enemigos.</p>
+                                <div class="verse">
+                                    "Cachorro de león, Judá; de la presa subiste, hijo mío. Se encorvó, se echó como león, así como león viejo: ¿quién lo despertará?"
+                                    <span class="reference">Génesis 49:9</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="infographic-card">
+                            <div class="card-header">
+                                <i class="fas fa-eagle"></i>
+                                <h3>La Serpiente de Bronce</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>La serpiente levantada por Moisés en el desierto para salvar al pueblo prefigura a Cristo levantado en la cruz para nuestra salvación.</p>
+                                <div class="verse">
+                                    "Y como Moisés levantó la serpiente en el desierto, así es necesario que el Hijo del Hombre sea levantado, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna."
+                                    <span class="reference">Juan 3:14-15</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="infographic-card">
+                            <div class="card-header">
+                                <i class="fas fa-feather"></i>
+                                <h3>El Macho Cabrío</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>En el Día de Expiación, el macho cabrío cargaba simbólicamente con los pecados del pueblo, como Cristo cargó con nuestros pecados.</p>
+                                <div class="verse">
+                                    "Y pondrá Aarón sus dos manos sobre la cabeza del macho cabrío vivo, y confesará sobre él todas las iniquidades de los hijos de Israel."
+                                    <span class="reference">Levítico 16:21</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="infographic-card">
+                            <div class="card-header">
+                                <i class="fas fa-kiwi-bird"></i>
+                                <h3>La Paloma</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Símbolo de pureza y paz, la paloma representa al Espíritu Santo que descendió sobre Jesús y que continúa obrando a través de Él.</p>
+                                <div class="verse">
+                                    "Y descendió el Espíritu Santo sobre él en forma corporal, como paloma, y vino una voz del cielo que decía: Tú eres mi Hijo amado; en ti tengo complacencia."
+                                    <span class="reference">Lucas 3:22</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="infographic-card">
+                            <div class="card-header">
+                                <i class="fas fa-cat"></i>
+                                <h3>El Buey</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Animal de sacrificio y de servicio, representa a Cristo como siervo sufriente que se ofreció a sí mismo por nosotros.</p>
+                                <div class="verse">
+                                    "Porque ni aun el Hijo del Hombre vino para ser servido, sino para servir, y para dar su vida en rescate por muchos."
+                                    <span class="reference">Marcos 10:45</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Plantas Tab -->
+                <div id="plantas" class="tab-content">
+                    <div class="infographic-grid">
+                        <div class="infographic-card">
+                            <div class="card-header">
+                                <i class="fas fa-seedling"></i>
+                                <h3>La Vid</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Israel era comparado con una vid, pero Cristo se proclamó a sí mismo como "la vid verdadera" que da vida y sustento a sus ramas.</p>
+                                <div class="verse">
+                                    "Yo soy la vid, vosotros los pámpanos; el que permanece en mí, y yo en él, éste lleva mucho fruto; porque separados de mí nada podéis hacer."
+                                    <span class="reference">Juan 15:5</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="infographic-card">
+                            <div class="card-header">
+                                <i class="fas fa-tree"></i>
+                                <h3>El Árbol de la Vida</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Presente en el Edén y en la Nueva Jerusalén, el árbol de vida representa a Cristo, fuente de vida eterna para todos los que creen en Él.</p>
+                                <div class="verse">
+                                    "En medio de la calle de la ciudad, y a uno y otro lado del río, estaba el árbol de la vida, que produce doce frutos, dando cada mes su fruto; y las hojas del árbol eran para la sanidad de las naciones."
+                                    <span class="reference">Apocalipsis 22:2</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="infographic-card">
+                            <div class="card-header">
+                                <i class="fas fa-wheat"></i>
+                                <h3>El Grano de Trigo</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>El grano que muere para producir fruto representa a Jesús, quien murió para dar vida abundante a muchos.</p>
+                                <div class="verse">
+                                    "De cierto, de cierto os digo, que si el grano de trigo no cae en la tierra y muere, queda solo; pero si muere, lleva mucho fruto."
+                                    <span class="reference">Juan 12:24</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="infographic-card">
+                            <div class="card-header">
+                                <i class="fas fa-spa"></i>
+                                <h3>La Rosa de Sarón</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Esta flor mencionada en Cantares simboliza la belleza y fragancia de Cristo, que florece incluso en lugares áridos.</p>
+                                <div class="verse">
+                                    "Yo soy la rosa de Sarón, y el lirio de los valles."
+                                    <span class="reference">Cantares 2:1</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="infographic-card">
+                            <div class="card-header">
+                                <i class="fas fa-leaf"></i>
+                                <h3>El Lirio de los Valles</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Símbolo de pureza y humildad, representa a Cristo que creció en humildad y sin pretensiones mundanas.</p>
+                                <div class="verse">
+                                    "Como el lirio entre los espinos, así es mi amiga entre las doncellas."
+                                    <span class="reference">Cantares 2:2</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="infographic-card">
+                            <div class="card-header">
+                                <i class="fas fa-apple-alt"></i>
+                                <h3>La Raíz de Isaí</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Profetizado por Isaías, Cristo es el renuevo que brotaría de la familia de Isaí, padre de David, incluso cuando pareciera que esta línea real había sido cortada.</p>
+                                <div class="verse">
+                                    "Saldrá una vara del tronco de Isaí, y un vástago retoñará de sus raíces."
+                                    <span class="reference">Isaías 11:1</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Universo Tab -->
+                <div id="universo" class="tab-content">
+                    <div class="nature-grid">
+                        <div class="nature-item">
+                            <div class="nature-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <h3>El Sol</h3>
+                            <p>Como el sol ilumina y da vida al mundo, Cristo es "el Sol de justicia" que trae luz, verdad y vida al universo espiritual.</p>
+                            <span class="reference">Malaquías 4:2</span>
+                        </div>
+                        
+                        <div class="nature-item">
+                            <div class="nature-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3>La Estrella de Jacob</h3>
+                            <p>Profetizada por Balaam, esta estrella representa al Mesías que guiaría a su pueblo, como la estrella que guió a los magos a Belén.</p>
+                            <span class="reference">Números 24:17</span>
+                        </div>
+                        
+                        <div class="nature-item">
+                            <div class="nature-icon">
+                                <i class="fas fa-mountain"></i>
+                            </div>
+                            <h3>La Roca</h3>
+                            <p>La roca que dio agua a Israel en el desierto prefigura a Cristo, fuente de agua viva y fundamento inquebrantable de nuestra fe.</p>
+                            <span class="reference">1 Corintios 10:4</span>
+                        </div>
+                        
+                        <div class="nature-item">
+                            <div class="nature-icon">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <h3>El Agua Viva</h3>
+                            <p>El agua que brotó de la roca y el agua de la purificación simbolizan a Cristo como fuente de vida espiritual y limpieza del pecado.</p>
+                            <span class="reference">Juan 4:14</span>
+                        </div>
+                        
+                        <div class="nature-item">
+                            <div class="nature-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <h3>El Fuego</h3>
+                            <p>El fuego de la zarza ardiente y la columna de fuego representan la presencia divina de Cristo que guía, purifica y no consume a su pueblo.</p>
+                            <span class="reference">Éxodo 3:2, 13:21</span>
+                        </div>
+                        
+                        <div class="nature-item">
+                            <div class="nature-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h3>La Nube</h3>
+                            <p>La nube de la presencia divina que guió a Israel simboliza a Cristo como presencia divina entre su pueblo y guía en nuestro peregrinar.</p>
+                            <span class="reference">Éxodo 13:21</span>
+                        </div>
+                        
+                        <div class="nature-item">
+                            <div class="nature-icon">
+                                <i class="fas fa-bread-slice"></i>
+                            </div>
+                            <h3>El Maná</h3>
+                            <p>El pan del cielo que alimentó a Israel en el desierto prefigura a Cristo como "el pan de vida" que satisface nuestra hambre espiritual.</p>
+                            <span class="reference">Juan 6:35</span>
+                        </div>
+                        
+                        <div class="nature-item">
+                            <div class="nature-icon">
+                                <i class="fas fa-door-open"></i>
+                            </div>
+                            <h3>La Puerta</h3>
+                            <p>Como la puerta del tabernáculo era el único acceso a la presencia de Dios, Cristo es "la puerta" por la cual tenemos acceso al Padre.</p>
+                            <span class="reference">Juan 10:9</span>
+                        </div>
+                        
+                        <div class="nature-item">
+                            <div class="nature-icon">
+                                <i class="fas fa-map-marker"></i>
+                            </div>
+                            <h3>El Camino</h3>
+                            <p>El camino por el desierto y el camino al Lugar Santísimo simbolizan a Cristo como "el camino" único hacia la presencia de Dios.</p>
+                            <span class="reference">Juan 14:6</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Versículo final para todas las secciones -->
+            <div id="final-verse" class="bible-verse">
+                <p class="verse-text">"Escudriñad las Escrituras, porque a vosotros os parece que en ellas tenéis la vida eterna; y ellas son las que dan testimonio de mí."</p>
+                <p class="verse-ref">Juan 5:39</p>
+            </div>
+            
+            <!-- Versículo específico para Personajes -->
+            <div id="personajes-verse" class="bible-verse" style="display: none;">
+                <p class="verse-text">"Y comenzando desde Moisés, y siguiendo por todos los profetas, les declaraba en todas las Escrituras lo que de él decían."</p>
+                <p class="verse-ref">Lucas 24:27</p>
+            </div>
+            
+            <!-- Versículo específico para Animales -->
+            <div id="animales-verse" class="bible-verse" style="display: none;">
+                <p class="verse-text">"Al día siguiente vio Juan a Jesús que venía a él, y dijo: He aquí el Cordero de Dios, que quita el pecado del mundo."</p>
+                <p class="verse-ref">Juan 1:29</p>
+            </div>
+            
+            <!-- Versículo específico para Plantas -->
+            <div id="plantas-verse" class="bible-verse" style="display: none;">
+                <p class="verse-text">"Yo soy la vid verdadera, y mi Padre es el labrador. Todo pámpano que en mí no lleva fruto, lo quitará; y todo aquel que lleva fruto, lo limpiará, para que lleve más fruto."</p>
+                <p class="verse-ref">Juan 15:1-2</p>
+            </div>
+            
+            <!-- Versículo específico para Universo -->
+            <div id="universo-verse" class="bible-verse" style="display: none;">
+                <p class="verse-text">"Yo soy el alfa y la omega, principio y fin, dice el Señor, el que es y que era y que ha de venir, el Todopoderoso."</p>
+                <p class="verse-ref">Apocalipsis 1:8</p>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Ministerio "La Gloria es del Señor"</h4>
+                    <p>Dedicados a la enseñanza de la Palabra de Dios para edificación, exhortación y consuelo de la Iglesia del Señor.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61577956191110"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877"><i class="fab fa-youtube"></i></a>
+
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="../../index.html">Inicio</a></li>
+                        <li><a href="at-a-nt.html">AT a NT</a></li>
+                        <li><a href="templo-figuras.html">El Templo</a></li>
+                        <li><a href="sacrificios-figuras.html">Sacrificios</a></li>
+                        <li><a href="tipologia-cantares.html">Tipología en Cantares</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Otros Estudios</h4>
+                    <ul>
+                        <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                        <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Estudios Exegéticos</a></li>
+                        <li><a href="../Tiempo del Fin/introduccion.html">Tiempo del Fin</a></li>
+                        <li><a href="../Época de Jesús/estudio-contemporaneo.html">Época de Jesús</a></li>
+                        <li><a href="../Estudios Bíblicos/doctrina-basica.html">Estudios Bíblicos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio, San Juan, Puerto Rico</li>
+                        <li><i class="fas fa-phone"></i> +1 787-345-6940</li>
+                        <li><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <a href="#header" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <script>
+        // Cuando la página se carga, asegúrate de mostrar solo el versículo correcto
+        document.addEventListener('DOMContentLoaded', function() {
+            // Oculta todos los versículos excepto el que corresponde a la pestaña activa
+            document.getElementById('personajes-verse').style.display = 'block';
+            document.getElementById('animales-verse').style.display = 'none';
+            document.getElementById('plantas-verse').style.display = 'none';
+            document.getElementById('universo-verse').style.display = 'none';
+            document.getElementById('final-verse').style.display = 'none';
+        });
+        
+        // Tabs Functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const verseElements = [
+            document.getElementById('final-verse'),
+            document.getElementById('personajes-verse'),
+            document.getElementById('animales-verse'),
+            document.getElementById('plantas-verse'),
+            document.getElementById('universo-verse')
+        ];
+        
+        tabBtns.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.dataset.tab;
+                
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Hide all verse elements
+                verseElements.forEach(verse => {
+                    if (verse) verse.style.display = 'none';
+                });
+                
+                // Show the appropriate verse for this tab
+                if (tabId === 'personajes') {
+                    document.getElementById('personajes-verse').style.display = 'block';
+                } else if (tabId === 'animales') {
+                    document.getElementById('animales-verse').style.display = 'block';
+                } else if (tabId === 'plantas') {
+                    document.getElementById('plantas-verse').style.display = 'block';
+                } else if (tabId === 'universo') {
+                    document.getElementById('universo-verse').style.display = 'block';
+                } else {
+                    document.getElementById('final-verse').style.display = 'block';
+                }
+                
+                // Add active class to current button and content
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Mobile Nav Toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const closeNav = document.querySelector('.close-nav');
+        const nav = document.getElementById('nav');
+        
+        mobileToggle.addEventListener('click', () => {
+            nav.classList.add('active');
+        });
+        
+        closeNav.addEventListener('click', () => {
+            nav.classList.remove('active');
+        });
+        
+        // Close nav when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && e.target !== mobileToggle) {
+                nav.classList.remove('active');
+            }
+        });
+        
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+        
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

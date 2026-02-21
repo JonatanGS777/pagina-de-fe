@@ -1,0 +1,2167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen de Reto Bíblico Intermedio | 60 Preguntas Desafiantes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            /* Paleta de Examen - Rojos Académicos y Azules Profundos */
+            --crimson-red: #DC143C;
+            --deep-red: #B91C1C;
+            --rose-red: #E11D48;
+            --light-red: #FEE2E2;
+            --navy-blue: #1E3A8A;
+            --royal-blue: #1D4ED8;
+            --sky-blue: #0EA5E9;
+            --light-blue: #DBEAFE;
+            --charcoal: #1F2937;
+            --slate: #374151;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --white: #FFFFFF;
+            --success-green: #10B981;
+            --warning-amber: #F59E0B;
+            --info-cyan: #06B6D4;
+            
+            /* Gradientes de Examen */
+            --gradient-header: linear-gradient(135deg, #DC143C 0%, #1E3A8A 100%);
+            --gradient-question: linear-gradient(135deg, #F3F4F6 0%, #DBEAFE 100%);
+            --gradient-correct: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            --gradient-incorrect: linear-gradient(135deg, #DC143C 0%, #B91C1C 100%);
+            --gradient-warning: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            
+            /* Sombras de Examen */
+            --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-strong: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-intense: 0 20px 25px rgba(0, 0, 0, 0.15);
+            
+            /* Tipografía de Examen */
+            --font-heading: 'Roboto Slab', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            /* Transiciones */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.2s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--light-gray);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Exam Grid Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(90deg, rgba(220, 20, 60, 0.02) 1px, transparent 1px),
+                linear-gradient(rgba(30, 58, 138, 0.02) 1px, transparent 1px);
+            background-size: 25px 25px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header del Examen */
+        header {
+            background: var(--gradient-header);
+            color: white;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-strong);
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .exam-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .exam-logo img {
+            height: 45px;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        .exam-title {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .exam-navigation {
+            justify-self: center;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .exam-navigation a {
+            color: var(--warning-amber);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .exam-navigation a:hover {
+            color: white;
+        }
+
+        .exam-status {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Exam Dashboard */
+        .exam-dashboard {
+            padding: 3rem 0;
+            background: white;
+        }
+
+        .dashboard-content {
+            text-align: center;
+        }
+
+        .dashboard-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--crimson-red);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .dashboard-subtitle {
+            font-size: 1.2rem;
+            color: var(--slate);
+            margin-bottom: 2rem;
+        }
+
+        .exam-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: var(--gradient-question);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--light-blue);
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy-blue);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--slate);
+            font-weight: 500;
+        }
+
+        .start-button {
+            background: var(--gradient-header);
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-medium);
+            margin-top: 2rem;
+        }
+
+        .start-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-intense);
+        }
+
+        /* Exam Container */
+        .exam-container {
+            display: none;
+            padding: 3rem 0;
+            background: white;
+            min-height: 80vh;
+        }
+
+        .exam-progress {
+            background: var(--gradient-question);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-light);
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .progress-text {
+            font-family: var(--font-mono);
+            font-weight: 600;
+            color: var(--navy-blue);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-header);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        /* Question Card */
+        .question-card {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: var(--shadow-strong);
+            border: 2px solid var(--light-blue);
+            margin-bottom: 2rem;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .question-type {
+            background: var(--gradient-warning);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .question-number {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            color: var(--crimson-red);
+            font-weight: 600;
+        }
+
+        .question-text {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--charcoal);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Answer Options */
+        .answer-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .answer-option {
+            background: var(--light-gray);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .answer-option:hover {
+            background: var(--light-blue);
+            border-color: var(--sky-blue);
+            transform: translateX(5px);
+        }
+
+        .answer-option.selected {
+            background: var(--light-blue);
+            border-color: var(--royal-blue);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .answer-option.correct {
+            background: var(--gradient-correct);
+            color: white;
+            border-color: var(--success-green);
+        }
+
+        .answer-option.incorrect {
+            background: var(--gradient-incorrect);
+            color: white;
+            border-color: var(--deep-red);
+        }
+
+        .option-letter {
+            background: var(--navy-blue);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        /* Fill in the Blank */
+        .fill-blank-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+            line-height: 2;
+        }
+
+        .blank-input {
+            border: none;
+            border-bottom: 3px solid var(--royal-blue);
+            background: transparent;
+            padding: 0.5rem;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .blank-input:focus {
+            outline: none;
+            border-bottom-color: var(--crimson-red);
+            background: var(--light-blue);
+        }
+
+        /* Matching Exercise */
+        .matching-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .matching-column h4 {
+            font-family: var(--font-heading);
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .matching-item {
+            background: var(--light-gray);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .matching-item:hover {
+            background: var(--light-blue);
+            border-color: var(--sky-blue);
+        }
+
+        .matching-item.selected {
+            background: var(--royal-blue);
+            color: white;
+            border-color: var(--navy-blue);
+        }
+
+        .matching-item.matched {
+            background: var(--success-green);
+            color: white;
+            cursor: default;
+        }
+
+        /* True/False */
+        .tf-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .tf-option {
+            background: var(--light-gray);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .tf-true {
+            border-color: var(--success-green);
+        }
+
+        .tf-false {
+            border-color: var(--crimson-red);
+        }
+
+        .tf-option:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .tf-option.selected {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .tf-true.selected {
+            background: var(--success-green);
+            color: white;
+        }
+
+        .tf-false.selected {
+            background: var(--crimson-red);
+            color: white;
+        }
+
+        /* Sequence Ordering */
+        .sequence-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .sequence-item {
+            background: var(--light-gray);
+            border: 2px solid var(--royal-blue);
+            border-radius: 8px;
+            padding: 1rem;
+            cursor: move;
+            transition: var(--transition);
+            font-weight: 500;
+            text-align: center;
+            min-width: 150px;
+            user-select: none;
+        }
+
+        .sequence-item:hover {
+            background: var(--light-blue);
+            transform: scale(1.05);
+        }
+
+        .sequence-item.dragging {
+            opacity: 0.5;
+            transform: rotate(5deg);
+        }
+
+        /* Feedback Section */
+        .feedback-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 5px solid var(--crimson-red);
+            background: var(--light-red);
+            display: none;
+        }
+
+        .feedback-section.show {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feedback-title {
+            font-family: var(--font-heading);
+            color: var(--deep-red);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feedback-text {
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        /* Navigation Buttons */
+        .exam-navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--light-gray);
+        }
+
+        .nav-button {
+            background: var(--royal-blue);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-button:hover {
+            background: var(--navy-blue);
+            transform: translateY(-2px);
+        }
+
+        .nav-button:disabled {
+            background: var(--gray);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .nav-button.next {
+            background: var(--gradient-header);
+        }
+
+        .nav-button.submit {
+            background: var(--gradient-correct);
+            font-size: 1.1rem;
+            padding: 1.2rem 2.5rem;
+        }
+
+        /* Results Section */
+        .results-section {
+            display: none;
+            padding: 3rem 0;
+            background: white;
+            text-align: center;
+        }
+
+        .results-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-intense);
+            border: 3px solid var(--light-blue);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .results-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .results-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .results-score {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .results-message {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--slate);
+        }
+
+        .results-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .breakdown-item {
+            background: var(--gradient-question);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--light-blue);
+        }
+
+        .breakdown-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .breakdown-label {
+            font-size: 0.9rem;
+            color: var(--slate);
+        }
+
+        .restart-button {
+            background: var(--gradient-header);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .restart-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .question-card {
+                padding: 2rem;
+            }
+            
+            .matching-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .tf-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .exam-navigation-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Question Type Specific Styles */
+        .question-type.multiple-choice { background: var(--gradient-header); }
+        .question-type.fill-blank { background: var(--gradient-warning); }
+        .question-type.matching { background: var(--gradient-correct); }
+        .question-type.true-false { background: var(--info-cyan); }
+        .question-type.sequence { background: var(--rose-red); }
+        .question-type.identify { background: var(--navy-blue); }
+    </style>
+</head>
+<body>
+    <!-- Header del Examen -->
+    <header>
+        <div class="container header-content">
+            <div class="exam-logo">
+                <img src="../../../images/EMD.png" alt="Logo EMD">
+                <div class="exam-title">
+                    <div>Examen de Reto</div>
+                    <div>Bíblico Intermedio</div>
+                </div>
+            </div>
+            <nav class="exam-navigation">
+                <a href="../../../index.html">Inicio</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="../doctrina-intermedia.html">Doctrina Intermedia</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Examen Reto</span>
+            </nav>
+            <div class="exam-status">
+                <i class="fas fa-clipboard-check"></i>
+                <span id="examStatus">Preparado</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard del Examen -->
+    <section class="exam-dashboard" id="dashboard">
+        <div class="container">
+            <div class="dashboard-content">
+                <h1 class="dashboard-title">Examen de Reto Bíblico Intermedio</h1>
+                <p class="dashboard-subtitle">
+                    60 preguntas desafiantes de toda la Biblia para probar tu conocimiento intermedio
+                </p>
+                
+                <div class="exam-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">60</span>
+                        <span class="stat-label">Preguntas Totales</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Tipos de Pregunta</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Intentos Disponibles</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">70%</span>
+                        <span class="stat-label">Puntuación Mínima</span>
+                    </div>
+                </div>
+
+                <div style="background: var(--gradient-question); padding: 2rem; border-radius: 12px; margin: 2rem 0; box-shadow: var(--shadow-medium);">
+                    <h3 style="color: var(--navy-blue); margin-bottom: 1rem; font-family: var(--font-heading);">
+                        <i class="fas fa-info-circle"></i> Instrucciones del Examen
+                    </h3>
+                    <div style="text-align: left; max-width: 600px; margin: 0 auto; color: var(--slate);">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-check-circle" style="color: var(--success-green);"></i>
+                                <strong>Respuesta Incorrecta:</strong> Solo se mostrará la explicación del error, no la respuesta correcta
+                            </li>
+                            <li style="margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-check-circle" style="color: var(--success-green);"></i>
+                                <strong>Mayúsculas:</strong> La primera letra de cada respuesta debe escribirse en mayúscula
+                            </li>
+                            <li style="margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-check-circle" style="color: var(--success-green);"></i>
+                                <strong>Tipos:</strong> Opción múltiple, completar, pareo, verdadero/falso, secuencia e identificación
+                            </li>
+                            <li style="margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-check-circle" style="color: var(--success-green);"></i>
+                                <strong>Navegación:</strong> Puedes ir hacia atrás y cambiar respuestas antes del envío final
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-check-circle" style="color: var(--success-green);"></i>
+                                <strong>Reinicio:</strong> Puedes tomar el examen las veces que desees
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button class="start-button" onclick="startExam()">
+                    <i class="fas fa-play"></i>
+                    Comenzar Examen
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenedor del Examen -->
+    <section class="exam-container" id="examContainer">
+        <div class="container">
+            <!-- Barra de Progreso -->
+            <div class="exam-progress">
+                <div class="progress-info">
+                    <span class="progress-text">Pregunta <span id="currentQuestion">1</span> de 60</span>
+                    <span class="progress-text">Progreso: <span id="progressPercent">0%</span></span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de Pregunta -->
+            <div class="question-card" id="questionCard">
+                <!-- El contenido de la pregunta se cargará dinámicamente aquí -->
+            </div>
+
+            <!-- Sección de Retroalimentación -->
+            <div class="feedback-section" id="feedbackSection">
+                <div class="feedback-title">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Respuesta Incorrecta</span>
+                </div>
+                <div class="feedback-text" id="feedbackText"></div>
+            </div>
+
+            <!-- Botones de Navegación -->
+            <div class="exam-navigation-buttons">
+                <button class="nav-button" id="prevButton" onclick="previousQuestion()" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                    Anterior
+                </button>
+                <div style="display: flex; gap: 1rem;">
+                    <button class="nav-button next" id="nextButton" onclick="nextQuestion()" disabled>
+                        Siguiente
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="nav-button submit" id="submitButton" onclick="submitExam()" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        Finalizar Examen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Resultados -->
+    <section class="results-section" id="resultsSection">
+        <div class="container">
+            <div class="results-card">
+                <div class="results-icon" id="resultsIcon"></div>
+                <h2 class="results-title" id="resultsTitle"></h2>
+                <div class="results-score" id="resultsScore"></div>
+                <p class="results-message" id="resultsMessage"></p>
+                
+                <div class="results-breakdown">
+                    <div class="breakdown-item">
+                        <span class="breakdown-number" id="correctCount">0</span>
+                        <span class="breakdown-label">Correctas</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-number" id="incorrectCount">0</span>
+                        <span class="breakdown-label">Incorrectas</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-number" id="percentageScore">0%</span>
+                        <span class="breakdown-label">Porcentaje</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-number" id="finalGrade">F</span>
+                        <span class="breakdown-label">Calificación</span>
+                    </div>
+                </div>
+                
+                <button class="restart-button" onclick="restartExam()">
+                    <i class="fas fa-redo"></i>
+                    Tomar Examen Nuevamente
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript del Examen -->
+    <script>
+        // Base de datos de 60 preguntas del examen
+        const examQuestions = [
+            // Preguntas de Opción Múltiple (20 preguntas)
+            {
+                type: 'multiple-choice',
+                question: '¿Cuál fue el primer milagro registrado de Jesús según el Evangelio de Juan?',
+                options: [
+                    'Multiplicación de los panes',
+                    'Conversión del agua en vino',
+                    'Sanidad del paralítico',
+                    'Caminar sobre el agua'
+                ],
+                correct: 1,
+                explanation: 'El primer milagro fue en las bodas de Caná (Juan 2:1-11), donde Jesús convirtió el agua en vino.'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿Qué profeta fue llevado al cielo en un torbellino sin experimentar la muerte?',
+                options: [
+                    'Eliseo',
+                    'Elías',
+                    'Enoc',
+                    'Ezequiel'
+                ],
+                correct: 1,
+                explanation: 'Elías fue arrebatado al cielo en un torbellino (2 Reyes 2:11), aunque Enoc también fue trasladado sin ver muerte.'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿Cuántos libros componen el canon del Nuevo Testamento?',
+                options: [
+                    '24 libros',
+                    '25 libros',
+                    '27 libros',
+                    '29 libros'
+                ],
+                correct: 2,
+                explanation: 'El Nuevo Testamento contiene exactamente 27 libros, desde Mateo hasta Apocalipsis.'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿Quién escribió la mayoría de los Salmos?',
+                options: [
+                    'Salomón',
+                    'David',
+                    'Asaf',
+                    'Los hijos de Coré'
+                ],
+                correct: 1,
+                explanation: 'David escribió aproximadamente 73 de los 150 Salmos, siendo el principal autor del libro.'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿En qué monte se transfiguró Jesús según la tradición?',
+                options: [
+                    'Monte Sinaí',
+                    'Monte de los Olivos',
+                    'Monte Hermón',
+                    'Monte Tabor'
+                ],
+                correct: 3,
+                explanation: 'Aunque el texto no especifica, la tradición ubica la transfiguración en el Monte Tabor.'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿Cuál es el libro más corto del Antiguo Testamento?',
+                options: [
+                    'Abdías',
+                    'Jonás',
+                    'Nahúm',
+                    'Hageo'
+                ],
+                correct: 0,
+                explanation: 'Abdías tiene solo 21 versículos, siendo el libro más corto del Antiguo Testamento.'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿Qué apóstol era conocido como "el discípulo amado"?',
+                options: [
+                    'Pedro',
+                    'Juan',
+                    'Santiago',
+                    'Andrés'
+                ],
+                correct: 1,
+                explanation: 'Juan es tradicionalmente identificado como "el discípulo amado" en su propio evangelio.'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿En qué ciudad fue apedreado Esteban?',
+                options: [
+                    'Nazaret',
+                    'Jerusalén',
+                    'Cesarea',
+                    'Damasco'
+                ],
+                correct: 1,
+                explanation: 'Esteban fue apedreado en Jerusalén según Hechos 7, siendo el primer mártir cristiano.'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿Cuántos días y noches estuvo Jonás en el vientre del gran pez?',
+                options: [
+                    'Dos días y dos noches',
+                    'Tres días y tres noches',
+                    'Cuatro días y cuatro noches',
+                    'Siete días y siete noches'
+                ],
+                correct: 1,
+                explanation: 'Jonás estuvo tres días y tres noches en el vientre del pez (Jonás 1:17).'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿Qué juez de Israel tenía una fuerza sobrenatural en su cabello?',
+                options: [
+                    'Gedeón',
+                    'Jefté',
+                    'Sansón',
+                    'Débora'
+                ],
+                correct: 2,
+                explanation: 'Sansón era nazareo y su fuerza estaba relacionada con su cabello largo (Jueces 16).'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿Cuál era la profesión de Lucas?',
+                options: [
+                    'Pescador',
+                    'Médico',
+                    'Recaudador de impuestos',
+                    'Carpintero'
+                ],
+                correct: 1,
+                explanation: 'Pablo llama a Lucas "el médico amado" en Colosenses 4:14.'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿En qué río fue bautizado Jesús?',
+                options: [
+                    'Río Nilo',
+                    'Río Éufrates',
+                    'Río Jordán',
+                    'Río Cedrón'
+                ],
+                correct: 2,
+                explanation: 'Jesús fue bautizado por Juan el Bautista en el río Jordán (Mateo 3:13-17).'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿Qué reina visitó a Salomón para probar su sabiduría?',
+                options: [
+                    'Reina de Etiopía',
+                    'Reina de Saba',
+                    'Reina de Egipto',
+                    'Reina de Babilonia'
+                ],
+                correct: 1,
+                explanation: 'La reina de Saba visitó a Salomón atraída por su fama de sabiduría (1 Reyes 10).'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿Cuántos años peregrinó Israel en el desierto?',
+                options: [
+                    '30 años',
+                    '35 años',
+                    '40 años',
+                    '50 años'
+                ],
+                correct: 2,
+                explanation: 'Israel peregrinó 40 años en el desierto debido a su desobediencia (Números 14:33-34).'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿Qué instrumento musical tocaba David?',
+                options: [
+                    'Flauta',
+                    'Arpa',
+                    'Trompeta',
+                    'Pandero'
+                ],
+                correct: 1,
+                explanation: 'David tocaba el arpa para calmar al rey Saúl (1 Samuel 16:23).'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿En qué ciudad nació Jesús?',
+                options: [
+                    'Nazaret',
+                    'Jerusalén',
+                    'Belén',
+                    'Capernaum'
+                ],
+                correct: 2,
+                explanation: 'Jesús nació en Belén de Judea, cumpliendo la profecía de Miqueas 5:2.'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿Cuántos discípulos escogió Jesús inicialmente?',
+                options: [
+                    '10 discípulos',
+                    '11 discípulos',
+                    '12 discípulos',
+                    '13 discípulos'
+                ],
+                correct: 2,
+                explanation: 'Jesús escogió doce discípulos que se convirtieron en sus apóstoles (Marcos 3:13-19).'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿Qué anciano reconoció al niño Jesús en el templo?',
+                options: [
+                    'Simeón',
+                    'Zacarías',
+                    'José de Arimatea',
+                    'Nicodemo'
+                ],
+                correct: 0,
+                explanation: 'Simeón era el anciano justo que esperaba la consolación de Israel y reconoció a Jesús (Lucas 2:25-35).'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿Cuál fue la primera plaga de Egipto?',
+                options: [
+                    'Ranas',
+                    'Piojos',
+                    'Agua convertida en sangre',
+                    'Langostas'
+                ],
+                correct: 2,
+                explanation: 'La primera plaga fue convertir las aguas del Nilo en sangre (Éxodo 7:14-25).'
+            },
+            {
+                type: 'multiple-choice',
+                question: '¿Qué significa el nombre "Emmanuel"?',
+                options: [
+                    'Príncipe de Paz',
+                    'Dios con nosotros',
+                    'Salvador del mundo',
+                    'Hijo del Altísimo'
+                ],
+                correct: 1,
+                explanation: 'Emmanuel significa "Dios con nosotros" según Mateo 1:23.'
+            },
+
+            // Preguntas de Completar la Palabra (15 preguntas)
+            {
+                type: 'fill-blank',
+                question: 'En el principio era el _____, y el _____ era con Dios, y el _____ era Dios.',
+                blanks: ['Verbo', 'Verbo', 'Verbo'],
+                explanation: 'Este versículo es Juan 1:1 y se refiere a Jesucristo como el Verbo eterno.'
+            },
+            {
+                type: 'fill-blank',
+                question: 'Porque de tal manera amó Dios al _____, que ha dado a su Hijo _____ .',
+                blanks: ['Mundo', 'Unigénito'],
+                explanation: 'Juan 3:16 habla del amor de Dios al mundo y del regalo de su Hijo unigénito.'
+            },
+            {
+                type: 'fill-blank',
+                question: 'El Señor es mi _____, nada me _____.',
+                blanks: ['Pastor', 'Faltará'],
+                explanation: 'Este es el comienzo del Salmo 23, expresando confianza en el cuidado divino.'
+            },
+            {
+                type: 'fill-blank',
+                question: 'Jehová de los _____ está con nosotros; nuestro refugio es el Dios de _____.',
+                blanks: ['Ejércitos', 'Jacob'],
+                explanation: 'Este estribillo aparece en el Salmo 46, declarando la protección divina.'
+            },
+            {
+                type: 'fill-blank',
+                question: 'No os conforméis a este _____, sino _____ por medio de la renovación de vuestro entendimiento.',
+                blanks: ['Siglo', 'Transformaos'],
+                explanation: 'Romanos 12:2 nos exhorta a la transformación espiritual y no conformarnos al mundo.'
+            },
+            {
+                type: 'fill-blank',
+                question: 'Porque por _____ sois salvos por medio de la _____.',
+                blanks: ['Gracia', 'Fe'],
+                explanation: 'Efesios 2:8 es un versículo fundamental sobre la salvación por gracia mediante la fe.'
+            },
+            {
+                type: 'fill-blank',
+                question: 'Todo lo puedo en _____ que me _____.',
+                blanks: ['Cristo', 'Fortalece'],
+                explanation: 'Filipenses 4:13 declara la capacidad que tenemos en Cristo para todas las cosas.'
+            },
+            {
+                type: 'fill-blank',
+                question: 'Y conoceréis la _____, y la _____ os hará libres.',
+                blanks: ['Verdad', 'Verdad'],
+                explanation: 'Juan 8:32 habla del poder libertador de la verdad de Dios.'
+            },
+            {
+                type: 'fill-blank',
+                question: 'Confía en _____ de todo tu corazón, y no te apoyes en tu propia _____.',
+                blanks: ['Jehová', 'Prudencia'],
+                explanation: 'Proverbios 3:5 nos enseña a confiar completamente en Dios y no en nuestro entendimiento.'
+            },
+            {
+                type: 'fill-blank',
+                question: 'Y sabemos que a los que aman a Dios, todas las cosas les ayudan a _____.',
+                blanks: ['Bien'],
+                explanation: 'Romanos 8:28 es una promesa de que Dios obra para bien en todas las circunstancias.'
+            },
+            {
+                type: 'fill-blank',
+                question: 'El _____ es mi luz y mi salvación; ¿de quién _____?',
+                blanks: ['Señor', 'Temeré'],
+                explanation: 'Salmo 27:1 expresa confianza absoluta en Dios como fuente de luz y salvación.'
+            },
+            {
+                type: 'fill-blank',
+                question: 'Mas buscad primeramente el _____ de Dios y su _____, y todas estas cosas os serán añadidas.',
+                blanks: ['Reino', 'Justicia'],
+                explanation: 'Mateo 6:33 establece las prioridades del creyente en la búsqueda de Dios.'
+            },
+            {
+                type: 'fill-blank',
+                question: 'Yo soy el _____, la _____ y la vida; nadie viene al Padre, sino por mí.',
+                blanks: ['Camino', 'Verdad'],
+                explanation: 'Juan 14:6 es la declaración exclusiva de Jesús sobre el acceso al Padre.'
+            },
+            {
+                type: 'fill-blank',
+                question: 'Venid a mí todos los que estáis trabajados y _____, y yo os haré _____.',
+                blanks: ['Cargados', 'Descansar'],
+                explanation: 'Mateo 11:28 es la invitación de Jesús a encontrar descanso en Él.'
+            },
+            {
+                type: 'fill-blank',
+                question: 'Lámpara es a mis pies tu _____, y _____ a mi camino.',
+                blanks: ['Palabra', 'Lumbrera'],
+                explanation: 'Salmo 119:105 describe la Palabra de Dios como guía para nuestro caminar.'
+            },
+
+            // Preguntas de Pareo/Matching (10 preguntas)
+            {
+                type: 'matching',
+                question: 'Relaciona cada patriarca con su característica principal:',
+                leftColumn: ['Abraham', 'Isaac', 'Jacob', 'José'],
+                rightColumn: ['Soñador e intérprete', 'Padre de la fe', 'Hijo de la promesa', 'Luchador con Dios'],
+                correctMatches: [1, 2, 3, 0],
+                explanation: 'Abraham es el padre de la fe, Isaac el hijo prometido, Jacob luchó con Dios, y José interpretaba sueños.'
+            },
+            {
+                type: 'matching',
+                question: 'Relaciona cada libro con su autor tradicional:',
+                leftColumn: ['Proverbios', 'Eclesiastés', 'Cantares', 'Lamentaciones'],
+                rightColumn: ['Jeremías', 'Salomón', 'Salomón', 'Salomón'],
+                correctMatches: [1, 1, 1, 0],
+                explanation: 'Salomón escribió Proverbios, Eclesiastés y Cantares, mientras que Jeremías escribió Lamentaciones.'
+            },
+            {
+                type: 'matching',
+                question: 'Relaciona cada juez con su hazaña memorable:',
+                leftColumn: ['Gedeón', 'Sansón', 'Débora', 'Ehud'],
+                rightColumn: ['Zurdo que mató a Eglón', 'Profetisa y juez', 'Fuerza sobrenatural', 'Venció con 300 hombres'],
+                correctMatches: [3, 2, 1, 0],
+                explanation: 'Gedeón venció con 300 hombres, Sansón tenía fuerza sobrenatural, Débora era profetisa, Ehud era zurdo.'
+            },
+            {
+                type: 'matching',
+                question: 'Relaciona cada rey con su reino:',
+                leftColumn: ['David', 'Salomón', 'Jeroboam', 'Roboam'],
+                rightColumn: ['Reino del Sur (Judá)', 'Reino Unido', 'Reino Unido', 'Reino del Norte (Israel)'],
+                correctMatches: [1, 2, 3, 0],
+                explanation: 'David y Salomón reinaron sobre el reino unido, Jeroboam sobre Israel, Roboam sobre Judá.'
+            },
+            {
+                type: 'matching',
+                question: 'Relaciona cada festividad judía con su significado:',
+                leftColumn: ['Pascua', 'Pentecostés', 'Tabernáculos', 'Día de Expiación'],
+                rightColumn: ['Perdón de pecados', 'Liberación de Egipto', 'Primeros frutos', 'Peregrinaje en el desierto'],
+                correctMatches: [1, 2, 3, 0],
+                explanation: 'Pascua celebra la liberación, Pentecostés los primeros frutos, Tabernáculos el desierto, Expiación el perdón.'
+            },
+            {
+                type: 'matching',
+                question: 'Relaciona cada evangelista con su símbolo tradicional:',
+                leftColumn: ['Mateo', 'Marcos', 'Lucas', 'Juan'],
+                rightColumn: ['Águila', 'Hombre/Ángel', 'León', 'Toro'],
+                correctMatches: [1, 2, 3, 0],
+                explanation: 'Mateo se simboliza con un hombre, Marcos con un león, Lucas con un toro, Juan con un águila.'
+            },
+            {
+                type: 'matching',
+                question: 'Relaciona cada milagro con el evangelio que lo registra únicamente:',
+                leftColumn: ['Bodas de Caná', 'Higo seco', 'Pesca milagrosa', 'Resurrección de Lázaro'],
+                rightColumn: ['Juan', 'Marcos', 'Lucas', 'Juan'],
+                correctMatches: [0, 1, 2, 3],
+                explanation: 'Cada evangelio tiene milagros únicos que reflejan su perspectiva teológica particular.'
+            },
+            {
+                type: 'matching',
+                question: 'Relaciona cada profeta mayor con su mensaje central:',
+                leftColumn: ['Isaías', 'Jeremías', 'Ezequiel', 'Daniel'],
+                rightColumn: ['Visiones del futuro', 'Salvación mesiánica', 'Juicio y llanto', 'Restauración del templo'],
+                correctMatches: [1, 2, 3, 0],
+                explanation: 'Isaías proclama salvación, Jeremías llora por el juicio, Ezequiel ve restauración, Daniel visiones futuras.'
+            },
+            {
+                type: 'matching',
+                question: 'Relaciona cada epístola paulina con su tema principal:',
+                leftColumn: ['Romanos', 'Gálatas', 'Efesios', 'Filipenses'],
+                rightColumn: ['Gozo en Cristo', 'Doctrina de salvación', 'Libertad cristiana', 'Unidad de la iglesia'],
+                correctMatches: [1, 2, 3, 0],
+                explanation: 'Romanos enseña salvación, Gálatas defiende libertad, Efesios la unidad, Filipenses el gozo.'
+            },
+            {
+                type: 'matching',
+                question: 'Relaciona cada mujer bíblica con su acto de fe:',
+                leftColumn: ['Rahab', 'Rut', 'Ester', 'María'],
+                rightColumn: ['Aceptó la anunciación', 'Protegió a los espías', 'Se quedó con Noemí', 'Salvó a su pueblo'],
+                correctMatches: [1, 2, 3, 0],
+                explanation: 'Rahab protegió espías, Rut permaneció fiel, Ester salvó a los judíos, María aceptó el plan divino.'
+            },
+
+            // Preguntas de Verdadero/Falso (8 preguntas)
+            {
+                type: 'true-false',
+                question: 'Moisés vio la Tierra Prometida antes de morir.',
+                correct: true,
+                explanation: 'Verdadero. Dios le mostró toda la tierra desde el monte Nebo antes de su muerte (Deuteronomio 34:1-4).'
+            },
+            {
+                type: 'true-false',
+                question: 'Pablo fue directamente a predicar a los gentiles después de su conversión.',
+                correct: false,
+                explanation: 'Falso. Pablo primero predicó en las sinagogas a los judíos antes de dirigirse a los gentiles.'
+            },
+            {
+                type: 'true-false',
+                question: 'El libro de Ester es el único libro de la Biblia que no menciona a Dios.',
+                correct: true,
+                explanation: 'Verdadero. Ester es notable por no mencionar explícitamente el nombre de Dios en todo el libro.'
+            },
+            {
+                type: 'true-false',
+                question: 'Jesús ayunó 30 días en el desierto.',
+                correct: false,
+                explanation: 'Falso. Jesús ayunó 40 días y 40 noches en el desierto según Mateo 4:2.'
+            },
+            {
+                type: 'true-false',
+                question: 'El Nuevo Testamento fue escrito originalmente en griego.',
+                correct: true,
+                explanation: 'Verdadero. Todo el Nuevo Testamento fue escrito en griego koiné, el idioma común del Imperio Romano.'
+            },
+            {
+                type: 'true-false',
+                question: 'Salomón tuvo 700 esposas y 300 concubinas.',
+                correct: true,
+                explanation: 'Verdadero. Según 1 Reyes 11:3, Salomón tuvo setecientas esposas y trescientas concubinas.'
+            },
+            {
+                type: 'true-false',
+                question: 'Juan el Bautista era primo hermano de Jesús.',
+                correct: true,
+                explanation: 'Verdadero. María y Elisabet eran parientes, haciendo que Juan y Jesús fueran primos (Lucas 1:36).'
+            },
+            {
+                type: 'true-false',
+                question: 'El Antiguo Testamento tiene 66 libros.',
+                correct: false,
+                explanation: 'Falso. El Antiguo Testamento tiene 39 libros, y toda la Biblia tiene 66 libros en total.'
+            },
+
+            // Preguntas de Secuencia/Ordenar (4 preguntas)
+            {
+                type: 'sequence',
+                question: 'Ordena cronológicamente estos eventos del Éxodo:',
+                items: ['Paso del Mar Rojo', 'Diez Plagas', 'Monte Sinaí', 'Pascua en Egipto'],
+                correctOrder: [1, 3, 0, 2],
+                explanation: 'La secuencia correcta es: Plagas, Pascua, Paso del Mar Rojo, y finalmente Monte Sinaí.'
+            },
+            {
+                type: 'sequence',
+                question: 'Ordena estos eventos de la vida de David:',
+                items: ['Rey de Israel', 'Derrota a Goliat', 'Huye de Saúl', 'Rey de Judá'],
+                correctOrder: [1, 2, 3, 0],
+                explanation: 'David derrotó a Goliat, luego huyó de Saúl, fue rey de Judá primero, y finalmente rey de todo Israel.'
+            },
+            {
+                type: 'sequence',
+                question: 'Ordena estos libros según aparecen en la Biblia:',
+                items: ['Números', 'Deuteronomio', 'Éxodo', 'Levítico'],
+                correctOrder: [2, 3, 0, 1],
+                explanation: 'El orden correcto en el Pentateuco es: Éxodo, Levítico, Números, Deuteronomio.'
+            },
+            {
+                type: 'sequence',
+                question: 'Ordena estos eventos de la Semana Santa:',
+                items: ['Crucifixión', 'Entrada triunfal', 'Última Cena', 'Resurrección'],
+                correctOrder: [1, 2, 0, 3],
+                explanation: 'La secuencia es: Entrada triunfal, Última Cena, Crucifixión, y Resurrección.'
+            },
+
+            // Preguntas de Identificación (3 preguntas)
+            {
+                type: 'identify',
+                question: 'Identifica el libro bíblico por esta descripción: "Contiene la genealogía de Jesús, el Sermón del Monte, y enfatiza a Jesús como Rey de los judíos"',
+                options: ['Marcos', 'Mateo', 'Lucas', 'Juan'],
+                correct: 1,
+                explanation: 'Mateo presenta a Jesús como Rey, incluye genealogía real y contiene el Sermón del Monte.'
+            },
+            {
+                type: 'identify',
+                question: 'Identifica el libro bíblico: "Es una carta a las siete iglesias de Asia, llena de simbolismo apocalíptico y visiones del fin de los tiempos"',
+                options: ['Daniel', 'Ezequiel', 'Apocalipsis', '1 Tesalonicenses'],
+                correct: 2,
+                explanation: 'Apocalipsis es dirigido a las siete iglesias y contiene las visiones del fin de los tiempos.'
+            },
+            {
+                type: 'identify',
+                question: 'Identifica el libro bíblico: "Narra la historia de una mujer moabita que siguió a su suegra israelita y se convirtió en ancestro de David"',
+                options: ['Ester', 'Rut', 'Jueces', '1 Samuel'],
+                correct: 1,
+                explanation: 'El libro de Rut narra la historia de esta mujer moabita que se convirtió en bisabuela de David.'
+            }
+        ];
+
+        // Variables del examen
+        let currentQuestionIndex = 0;
+        let studentAnswers = [];
+        let examStarted = false;
+        let matchingSelections = [];
+
+        // Funciones principales del examen
+        function startExam() {
+            document.getElementById('dashboard').style.display = 'none';
+            document.getElementById('examContainer').style.display = 'block';
+            document.getElementById('examStatus').textContent = 'En Progreso';
+            examStarted = true;
+            currentQuestionIndex = 0;
+            studentAnswers = [];
+            showQuestion(currentQuestionIndex);
+            updateProgress();
+        }
+
+        function showQuestion(index) {
+            const question = examQuestions[index];
+            const questionCard = document.getElementById('questionCard');
+            
+            // Reiniciar variables específicas por tipo de pregunta
+            if (question.type === 'sequence') {
+                sequenceOrder = [];
+            }
+            if (question.type === 'matching') {
+                matchingSelections = [];
+                matchingSelected = { left: null, right: null };
+            }
+            
+            let questionHTML = `
+                <div class="question-header">
+                    <span class="question-type ${question.type}">${getQuestionTypeText(question.type)}</span>
+                    <span class="question-number">Pregunta ${index + 1} de 60</span>
+                </div>
+                <div class="question-text">${question.question}</div>
+            `;
+
+            // Generar opciones según el tipo de pregunta
+            switch(question.type) {
+                case 'multiple-choice':
+                case 'identify':
+                    questionHTML += generateMultipleChoiceOptions(question, index);
+                    break;
+                case 'fill-blank':
+                    questionHTML += generateFillBlankOptions(question, index);
+                    break;
+                case 'matching':
+                    questionHTML += generateMatchingOptions(question, index);
+                    break;
+                case 'true-false':
+                    questionHTML += generateTrueFalseOptions(question, index);
+                    break;
+                case 'sequence':
+                    questionHTML += generateSequenceOptions(question, index);
+                    break;
+            }
+
+            questionCard.innerHTML = questionHTML;
+            
+            // Restaurar respuesta previa si existe
+            restorePreviousAnswer(index);
+            
+            // Ocultar feedback
+            document.getElementById('feedbackSection').classList.remove('show');
+            
+            updateNavigationButtons();
+        }
+
+        function generateMultipleChoiceOptions(question, questionIndex) {
+            let html = '<div class="answer-options">';
+            question.options.forEach((option, index) => {
+                html += `
+                    <div class="answer-option" onclick="selectMultipleChoice(${index}, ${questionIndex})">
+                        <span class="option-letter">${String.fromCharCode(65 + index)}</span>
+                        <span>${option}</span>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            return html;
+        }
+
+        function generateFillBlankOptions(question, questionIndex) {
+            const words = question.question.split('_____');
+            let html = '<div class="fill-blank-container">';
+            
+            for (let i = 0; i < words.length; i++) {
+                html += `<span>${words[i]}</span>`;
+                if (i < words.length - 1) {
+                    html += `<input type="text" class="blank-input" data-blank="${i}" onchange="updateFillBlank(${questionIndex})" placeholder="Primera letra mayúscula">`;
+                }
+            }
+            
+            html += '</div>';
+            return html;
+        }
+
+        function generateMatchingOptions(question, questionIndex) {
+            matchingSelections = [];
+            let html = '<div class="matching-container">';
+            
+            html += '<div class="matching-column">';
+            html += '<h4>Columna A</h4>';
+            question.leftColumn.forEach((item, index) => {
+                html += `<div class="matching-item" data-left="${index}" onclick="selectMatching('left', ${index}, ${questionIndex})">${item}</div>`;
+            });
+            html += '</div>';
+            
+            html += '<div class="matching-column">';
+            html += '<h4>Columna B</h4>';
+            question.rightColumn.forEach((item, index) => {
+                html += `<div class="matching-item" data-right="${index}" onclick="selectMatching('right', ${index}, ${questionIndex})">${item}</div>`;
+            });
+            html += '</div>';
+            
+            html += '</div>';
+            return html;
+        }
+
+        function generateTrueFalseOptions(question, questionIndex) {
+            return `
+                <div class="tf-options">
+                    <div class="tf-option tf-true" onclick="selectTrueFalse(true, ${questionIndex})">
+                        <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                        <div>Verdadero</div>
+                    </div>
+                    <div class="tf-option tf-false" onclick="selectTrueFalse(false, ${questionIndex})">
+                        <i class="fas fa-times-circle" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                        <div>Falso</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateSequenceOptions(question, questionIndex) {
+            let html = '<div class="sequence-container" id="sequenceContainer">';
+            
+            // Mezclar los elementos aleatoriamente
+            const shuffledItems = [...question.items].sort(() => Math.random() - 0.5);
+            
+            shuffledItems.forEach((item, index) => {
+                html += `
+                    <div class="sequence-item" draggable="true" data-item="${item}" 
+                         ondragstart="dragStart(event)" ondragover="dragOver(event)" 
+                         ondrop="drop(event, ${questionIndex})" onclick="moveSequenceItem(this, ${questionIndex})">
+                        ${item}
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            html += '<p style="margin-top: 1rem; color: var(--slate); text-align: center; font-style: italic;">Haz clic en los elementos para reordenarlos cronológicamente</p>';
+            return html;
+        }
+
+        function getQuestionTypeText(type) {
+            const types = {
+                'multiple-choice': 'Opción Múltiple',
+                'fill-blank': 'Completar',
+                'matching': 'Pareo',
+                'true-false': 'Verdadero/Falso',
+                'sequence': 'Secuencia',
+                'identify': 'Identificar'
+            };
+            return types[type] || type;
+        }
+
+        // Funciones de selección de respuestas
+        function selectMultipleChoice(optionIndex, questionIndex) {
+            // Limpiar selecciones previas
+            document.querySelectorAll('.answer-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Seleccionar opción actual
+            document.querySelectorAll('.answer-option')[optionIndex].classList.add('selected');
+            
+            // Guardar respuesta
+            studentAnswers[questionIndex] = optionIndex;
+            enableNextButton();
+            
+            // Mostrar feedback inmediato si es incorrecta
+            if (optionIndex !== examQuestions[questionIndex].correct) {
+                showFeedback(examQuestions[questionIndex].explanation);
+            } else {
+                hideFeedback();
+            }
+        }
+
+        function updateFillBlank(questionIndex) {
+            const inputs = document.querySelectorAll('.blank-input');
+            const answers = [];
+            let allFilled = true;
+            
+            inputs.forEach(input => {
+                const value = input.value.trim();
+                answers.push(value);
+                if (value === '') allFilled = false;
+            });
+            
+            studentAnswers[questionIndex] = answers;
+            
+            if (allFilled) {
+                enableNextButton();
+                // Verificar respuestas
+                const question = examQuestions[questionIndex];
+                let isCorrect = true;
+                
+                for (let i = 0; i < question.blanks.length; i++) {
+                    if (answers[i].toLowerCase() !== question.blanks[i].toLowerCase()) {
+                        isCorrect = false;
+                        break;
+                    }
+                }
+                
+                if (!isCorrect) {
+                    showFeedback(question.explanation);
+                } else {
+                    hideFeedback();
+                }
+            } else {
+                disableNextButton();
+                hideFeedback();
+            }
+        }
+
+        let matchingSelected = { left: null, right: null };
+
+        function selectMatching(side, index, questionIndex) {
+            // Limpiar selecciones previas del lado
+            document.querySelectorAll(`[data-${side}]`).forEach(item => {
+                item.classList.remove('selected');
+            });
+            
+            // Seleccionar elemento actual
+            document.querySelector(`[data-${side}="${index}"]`).classList.add('selected');
+            matchingSelected[side] = index;
+            
+            // Si ambos lados están seleccionados, crear pareja
+            if (matchingSelected.left !== null && matchingSelected.right !== null) {
+                const leftItem = document.querySelector(`[data-left="${matchingSelected.left}"]`);
+                const rightItem = document.querySelector(`[data-right="${matchingSelected.right}"]`);
+                
+                leftItem.classList.remove('selected');
+                rightItem.classList.remove('selected');
+                leftItem.classList.add('matched');
+                rightItem.classList.add('matched');
+                
+                // Guardar pareja
+                if (!studentAnswers[questionIndex]) studentAnswers[questionIndex] = [];
+                studentAnswers[questionIndex].push({
+                    left: matchingSelected.left,
+                    right: matchingSelected.right
+                });
+                
+                matchingSelected = { left: null, right: null };
+                
+                // Verificar si todas las parejas están hechas
+                const question = examQuestions[questionIndex];
+                if (studentAnswers[questionIndex].length === question.leftColumn.length) {
+                    enableNextButton();
+                    
+                    // Verificar corrección
+                    let isCorrect = true;
+                    for (let i = 0; i < studentAnswers[questionIndex].length; i++) {
+                        const pair = studentAnswers[questionIndex][i];
+                        if (question.correctMatches[pair.left] !== pair.right) {
+                            isCorrect = false;
+                            break;
+                        }
+                    }
+                    
+                    if (!isCorrect) {
+                        showFeedback(question.explanation);
+                    } else {
+                        hideFeedback();
+                    }
+                }
+            }
+        }
+
+        function selectTrueFalse(answer, questionIndex) {
+            // Limpiar selecciones previas
+            document.querySelectorAll('.tf-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Seleccionar opción
+            const selectedOption = answer ? document.querySelector('.tf-true') : document.querySelector('.tf-false');
+            selectedOption.classList.add('selected');
+            
+            studentAnswers[questionIndex] = answer;
+            enableNextButton();
+            
+            // Mostrar feedback si es incorrecta
+            if (answer !== examQuestions[questionIndex].correct) {
+                showFeedback(examQuestions[questionIndex].explanation);
+            } else {
+                hideFeedback();
+            }
+        }
+
+        let sequenceOrder = [];
+
+        function moveSequenceItem(clickedItem, questionIndex) {
+            const itemText = clickedItem.dataset.item;
+            
+            if (!sequenceOrder.includes(itemText)) {
+                // Agregar al orden
+                sequenceOrder.push(itemText);
+                clickedItem.style.backgroundColor = 'var(--success-green)';
+                clickedItem.style.color = 'white';
+                clickedItem.style.order = sequenceOrder.length;
+                clickedItem.innerHTML = `${sequenceOrder.length}. ${itemText}`;
+            } else {
+                // Remover del orden
+                const index = sequenceOrder.indexOf(itemText);
+                sequenceOrder.splice(index, 1);
+                clickedItem.style.backgroundColor = '';
+                clickedItem.style.color = '';
+                clickedItem.style.order = '';
+                clickedItem.innerHTML = itemText;
+                
+                // Reordenar elementos restantes
+                sequenceOrder.forEach((item, i) => {
+                    const element = document.querySelector(`[data-item="${item}"]`);
+                    if (element) {
+                        element.innerHTML = `${i + 1}. ${item}`;
+                        element.style.order = i + 1;
+                    }
+                });
+            }
+            
+            // Guardar respuesta actual
+            studentAnswers[questionIndex] = [...sequenceOrder];
+            
+            // Verificar si está completo
+            const question = examQuestions[questionIndex];
+            if (sequenceOrder.length === question.items.length) {
+                enableNextButton();
+                
+                // Verificar orden correcto
+                let isCorrect = true;
+                for (let i = 0; i < question.correctOrder.length; i++) {
+                    if (sequenceOrder[i] !== question.items[question.correctOrder[i]]) {
+                        isCorrect = false;
+                        break;
+                    }
+                }
+                
+                if (!isCorrect) {
+                    showFeedback(question.explanation);
+                } else {
+                    hideFeedback();
+                }
+            } else {
+                disableNextButton();
+                hideFeedback();
+            }
+        }
+
+        // Funciones de retroalimentación
+        function showFeedback(explanation) {
+            const feedbackSection = document.getElementById('feedbackSection');
+            document.getElementById('feedbackText').textContent = explanation;
+            feedbackSection.classList.add('show');
+        }
+
+        function hideFeedback() {
+            document.getElementById('feedbackSection').classList.remove('show');
+        }
+
+        // Funciones de navegación
+        function nextQuestion() {
+            if (currentQuestionIndex < examQuestions.length - 1) {
+                currentQuestionIndex++;
+                showQuestion(currentQuestionIndex);
+                updateProgress();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion(currentQuestionIndex);
+                updateProgress();
+            }
+        }
+
+        function updateNavigationButtons() {
+            const prevButton = document.getElementById('prevButton');
+            const nextButton = document.getElementById('nextButton');
+            const submitButton = document.getElementById('submitButton');
+            
+            // Habilitar/deshabilitar botón anterior
+            prevButton.disabled = currentQuestionIndex === 0;
+            
+            // Mostrar botón correcto según la posición
+            if (currentQuestionIndex === examQuestions.length - 1) {
+                nextButton.style.display = 'none';
+                submitButton.style.display = 'inline-flex';
+            } else {
+                nextButton.style.display = 'inline-flex';
+                submitButton.style.display = 'none';
+            }
+            
+            // Verificar si hay respuesta para habilitar navegación
+            const hasAnswer = studentAnswers[currentQuestionIndex] !== undefined;
+            const question = examQuestions[currentQuestionIndex];
+            
+            // Validación específica por tipo de pregunta
+            let isValid = false;
+            if (hasAnswer) {
+                const answer = studentAnswers[currentQuestionIndex];
+                switch(question.type) {
+                    case 'multiple-choice':
+                    case 'identify':
+                    case 'true-false':
+                        isValid = typeof answer === 'number' || typeof answer === 'boolean';
+                        break;
+                    case 'fill-blank':
+                        isValid = Array.isArray(answer) && answer.every(a => a && a.trim() !== '');
+                        break;
+                    case 'matching':
+                        isValid = Array.isArray(answer) && answer.length === question.leftColumn.length;
+                        break;
+                    case 'sequence':
+                        isValid = Array.isArray(answer) && answer.length === question.items.length;
+                        break;
+                    default:
+                        isValid = hasAnswer;
+                }
+            }
+            
+            // Habilitar/deshabilitar botones de navegación
+            nextButton.disabled = !isValid;
+            submitButton.disabled = !isValid;
+        }
+
+        function enableNextButton() {
+            document.getElementById('nextButton').disabled = false;
+            document.getElementById('submitButton').disabled = false;
+        }
+
+        function disableNextButton() {
+            document.getElementById('nextButton').disabled = true;
+            document.getElementById('submitButton').disabled = true;
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestionIndex + 1) / examQuestions.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            document.getElementById('progressPercent').textContent = Math.round(progress) + '%';
+        }
+
+        function restorePreviousAnswer(questionIndex) {
+            const answer = studentAnswers[questionIndex];
+            if (answer === undefined) return;
+            
+            const question = examQuestions[questionIndex];
+            
+            switch(question.type) {
+                case 'multiple-choice':
+                case 'identify':
+                    if (typeof answer === 'number' && answer >= 0) {
+                        const options = document.querySelectorAll('.answer-option');
+                        if (options[answer]) {
+                            options[answer].classList.add('selected');
+                        }
+                    }
+                    break;
+                case 'fill-blank':
+                    if (Array.isArray(answer)) {
+                        const inputs = document.querySelectorAll('.blank-input');
+                        answer.forEach((value, index) => {
+                            if (inputs[index] && value !== undefined) {
+                                inputs[index].value = value;
+                            }
+                        });
+                    }
+                    break;
+                case 'true-false':
+                    if (typeof answer === 'boolean') {
+                        const tfOption = answer ? document.querySelector('.tf-true') : document.querySelector('.tf-false');
+                        if (tfOption) {
+                            tfOption.classList.add('selected');
+                        }
+                    }
+                    break;
+                case 'matching':
+                    if (Array.isArray(answer) && answer.length > 0) {
+                        answer.forEach(pair => {
+                            if (pair && typeof pair.left === 'number' && typeof pair.right === 'number') {
+                                const leftItem = document.querySelector(`[data-left="${pair.left}"]`);
+                                const rightItem = document.querySelector(`[data-right="${pair.right}"]`);
+                                if (leftItem && rightItem) {
+                                    leftItem.classList.add('matched');
+                                    rightItem.classList.add('matched');
+                                }
+                            }
+                        });
+                    }
+                    break;
+                case 'sequence':
+                    if (Array.isArray(answer) && answer.length > 0) {
+                        sequenceOrder = [...answer];
+                        answer.forEach((item, index) => {
+                            const element = document.querySelector(`[data-item="${item}"]`);
+                            if (element) {
+                                element.style.backgroundColor = 'var(--success-green)';
+                                element.style.color = 'white';
+                                element.innerHTML = `${index + 1}. ${item}`;
+                                element.style.order = index + 1;
+                            }
+                        });
+                    }
+                    break;
+            }
+        }
+
+        // Función de envío del examen
+        function submitExam() {
+            if (confirm('¿Estás seguro de que quieres finalizar el examen? No podrás cambiar tus respuestas después.')) {
+                calculateResults();
+                showResults();
+            }
+        }
+
+        function calculateResults() {
+            let correctAnswers = 0;
+            
+            for (let i = 0; i < examQuestions.length; i++) {
+                const question = examQuestions[i];
+                const answer = studentAnswers[i];
+                
+                if (answer === undefined) continue;
+                
+                let isCorrect = false;
+                
+                switch(question.type) {
+                    case 'multiple-choice':
+                    case 'identify':
+                        isCorrect = answer === question.correct;
+                        break;
+                    case 'fill-blank':
+                        isCorrect = answer.every((a, index) => 
+                            a.toLowerCase() === question.blanks[index].toLowerCase()
+                        );
+                        break;
+                    case 'true-false':
+                        isCorrect = answer === question.correct;
+                        break;
+                    case 'matching':
+                        isCorrect = answer.every(pair => 
+                            question.correctMatches[pair.left] === pair.right
+                        ) && answer.length === question.leftColumn.length;
+                        break;
+                    case 'sequence':
+                        isCorrect = answer.every((item, index) => 
+                            item === question.items[question.correctOrder[index]]
+                        ) && answer.length === question.items.length;
+                        break;
+                }
+                
+                if (isCorrect) correctAnswers++;
+            }
+            
+            const percentage = Math.round((correctAnswers / examQuestions.length) * 100);
+            const grade = getGrade(percentage);
+            
+            // Guardar resultados
+            window.examResults = {
+                correct: correctAnswers,
+                incorrect: examQuestions.length - correctAnswers,
+                percentage: percentage,
+                grade: grade
+            };
+        }
+
+        function getGrade(percentage) {
+            if (percentage >= 90) return 'A';
+            if (percentage >= 80) return 'B';
+            if (percentage >= 70) return 'C';
+            if (percentage >= 60) return 'D';
+            return 'F';
+        }
+
+        function showResults() {
+            document.getElementById('examContainer').style.display = 'none';
+            document.getElementById('resultsSection').style.display = 'block';
+            document.getElementById('examStatus').textContent = 'Completado';
+            
+            const results = window.examResults;
+            const resultsIcon = document.getElementById('resultsIcon');
+            const resultsTitle = document.getElementById('resultsTitle');
+            const resultsScore = document.getElementById('resultsScore');
+            const resultsMessage = document.getElementById('resultsMessage');
+            
+            // Configurar icono y colores según el resultado
+            if (results.percentage >= 70) {
+                resultsIcon.style.background = 'var(--gradient-correct)';
+                resultsIcon.innerHTML = '<i class="fas fa-trophy"></i>';
+                resultsTitle.textContent = '¡Felicitaciones!';
+                resultsTitle.style.color = 'var(--success-green)';
+                resultsMessage.textContent = 'Has aprobado el examen con éxito. Tu conocimiento bíblico es sólido.';
+            } else {
+                resultsIcon.style.background = 'var(--gradient-incorrect)';
+                resultsIcon.innerHTML = '<i class="fas fa-times"></i>';
+                resultsTitle.textContent = 'Sigue Estudiando';
+                resultsTitle.style.color = 'var(--crimson-red)';
+                resultsMessage.textContent = 'No has alcanzado la puntuación mínima. Te recomendamos estudiar más y volver a intentarlo.';
+            }
+            
+            resultsScore.textContent = results.percentage + '%';
+            resultsScore.style.color = results.percentage >= 70 ? 'var(--success-green)' : 'var(--crimson-red)';
+            
+            // Llenar detalles
+            document.getElementById('correctCount').textContent = results.correct;
+            document.getElementById('incorrectCount').textContent = results.incorrect;
+            document.getElementById('percentageScore').textContent = results.percentage + '%';
+            document.getElementById('finalGrade').textContent = results.grade;
+        }
+
+        function restartExam() {
+            // Reiniciar todas las variables
+            currentQuestionIndex = 0;
+            studentAnswers = [];
+            examStarted = false;
+            matchingSelections = [];
+            sequenceOrder = [];
+            matchingSelected = { left: null, right: null };
+            
+            // Limpiar resultados previos
+            if (window.examResults) {
+                delete window.examResults;
+            }
+            
+            // Mostrar dashboard
+            document.getElementById('resultsSection').style.display = 'none';
+            document.getElementById('examContainer').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+            document.getElementById('examStatus').textContent = 'Preparado';
+        }
+
+        // Eventos del DOM
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Examen de Reto Bíblico Intermedio cargado');
+            console.log('60 preguntas de nivel intermedio disponibles');
+            console.log('6 tipos de pregunta implementados');
+            console.log('Sistema de retroalimentación activado');
+            console.log('Recordatorio: Primera letra en mayúscula en respuestas de texto');
+        });
+
+        // Funciones de arrastrar y soltar para secuencias
+        function dragStart(e) {
+            e.dataTransfer.setData('text/plain', e.target.dataset.item);
+            e.target.classList.add('dragging');
+        }
+
+        function dragOver(e) {
+            e.preventDefault();
+        }
+
+        function drop(e, questionIndex) {
+            e.preventDefault();
+            const draggedItem = e.dataTransfer.getData('text/plain');
+            const dropTarget = e.target;
+            
+            if (dropTarget.classList.contains('sequence-item')) {
+                // Intercambiar posiciones
+                const draggedElement = document.querySelector(`[data-item="${draggedItem}"]`);
+                const dropElement = dropTarget;
+                
+                // Intercambiar contenido
+                const tempContent = dropElement.innerHTML;
+                const tempDataItem = dropElement.dataset.item;
+                
+                dropElement.innerHTML = draggedElement.innerHTML;
+                dropElement.dataset.item = draggedElement.dataset.item;
+                
+                draggedElement.innerHTML = tempContent;
+                draggedElement.dataset.item = tempDataItem;
+            }
+            
+            document.querySelectorAll('.sequence-item').forEach(item => {
+                item.classList.remove('dragging');
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hebreo, Arameo y Griego en la Biblia - Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Azul profundo */
+            --primary-dark: #1a2530; /* Versión más oscura del azul profundo */
+            --secondary-color: #8e44ad; /* Púrpura suave */
+            --secondary-dark: #6c3483; /* Versión más oscura del púrpura */
+            --accent-color: #1abc9c; /* Turquesa */
+            --accent-dark: #16a085; /* Turquesa oscuro */
+            --warning-color: #e74c3c; /* Rojo para advertencias */
+            --hebrew-color: #f39c12; /* Dorado para hebreo */
+            --aramaic-color: #27ae60; /* Verde para arameo */
+            --greek-color: #3498db; /* Azul claro para griego */
+            --light-color: #f8f9fa;
+            --dark-color: #2c3e50;
+            --gradient-bg: linear-gradient(135deg, rgba(44, 62, 80, 0.95) 0%, rgba(142, 68, 173, 0.85) 100%);
+            --gradient-dark: linear-gradient(135deg, rgba(26, 37, 48, 0.95) 0%, rgba(108, 52, 131, 0.95) 100%);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.06);
+            --font-biblical: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Spectral', serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo img {
+            height: 60px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .nav-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: var(--transition);
+            display: block;
+            padding: 0.5rem;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Dropdown Styles */
+        .menu-item-has-children {
+            position: relative;
+        }
+        
+        .menu-item-has-children > a {
+            display: flex;
+            align-items: center;
+        }
+        
+        .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: 10px;
+            padding: 0.8rem 0;
+            display: none;
+            z-index: 100;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .sub-menu li {
+            width: 100%;
+        }
+        
+        .sub-menu a {
+            padding: 0.7rem 1.2rem;
+            font-size: 0.9rem;
+            width: 100%;
+            color: var(--dark-color);
+        }
+        
+        .sub-menu a:hover {
+            background-color: rgba(26, 188, 156, 0.05);
+            color: var(--accent-color);
+        }
+        
+        .sub-menu a::after {
+            display: none;
+        }
+        
+        .menu-item-has-children:hover .sub-menu {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .hero {
+            height: 70vh;
+            background-image: url('./images/papiros.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.9;
+        }
+        
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: url('');
+            background-size: 30px 30px;
+            opacity: 0.2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(142, 68, 173, 0.2);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent-color);
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            color: white;
+            border-color: transparent;
+        }
+        
+        .sections {
+            padding: 6rem 0;
+            background-color: #f9f9f9;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sections::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(142, 68, 173, 0.05) 0%, rgba(142, 68, 173, 0) 70%);
+            top: -150px;
+            right: -150px;
+            border-radius: 50%;
+        }
+        
+        .sections::after {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(26, 188, 156, 0.05) 0%, rgba(26, 188, 156, 0) 70%);
+            bottom: -100px;
+            left: -100px;
+            border-radius: 50%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .section-title h2 {
+            font-size: 2.4rem;
+            display: inline-block;
+            position: relative;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+        }
+        
+        .section-title p {
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-img {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s;
+        }
+        
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 2rem;
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .card-text {
+            margin-bottom: 1.8rem;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .bible-verse {
+            background-color: rgba(44, 62, 80, 0.05);
+            padding: 3rem;
+            border-radius: 16px;
+            margin: 6rem 0;
+            position: relative;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .bible-verse::before {
+            content: '\201C';
+            font-size: 6rem;
+            position: absolute;
+            top: -30px;
+            left: 30px;
+            color: var(--secondary-color);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        
+        .verse-text {
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 300;
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .verse-ref {
+            text-align: right;
+            font-weight: 600;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+            transition: var(--transition);
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature:hover::before {
+            height: 100%;
+            opacity: 0.05;
+            z-index: -1;
+        }
+        
+        .feature i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .feature:hover i {
+            transform: scale(1.2);
+            color: var(--secondary-color);
+        }
+        
+        .feature h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+
+        /* Estilos específicos para idiomas */
+        .language-sample {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .language-sample:nth-child(1) {
+            border-left: 5px solid var(--hebrew-color);
+        }
+
+        .language-sample:nth-child(2) {
+            border-left: 5px solid var(--aramaic-color);
+        }
+
+        .language-sample:nth-child(3) {
+            border-left: 5px solid var(--greek-color);
+        }
+
+        .language-sample::before {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            opacity: 0.05;
+            z-index: 0;
+            transition: var(--transition);
+        }
+
+        .language-sample:nth-child(1)::before {
+            background: radial-gradient(circle, var(--hebrew-color) 0%, rgba(243, 156, 18, 0) 70%);
+            top: -100px;
+            right: -100px;
+        }
+
+        .language-sample:nth-child(2)::before {
+            background: radial-gradient(circle, var(--aramaic-color) 0%, rgba(39, 174, 96, 0) 70%);
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .language-sample:nth-child(3)::before {
+            background: radial-gradient(circle, var(--greek-color) 0%, rgba(52, 152, 219, 0) 70%);
+            top: -100px;
+            left: -100px;
+        }
+
+        .language-sample:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .language-sample:hover::before {
+            transform: scale(1.5);
+        }
+
+        .sample-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .language-sample:nth-child(1) .sample-header {
+            border-bottom: 2px solid var(--hebrew-color);
+            padding-bottom: 0.8rem;
+        }
+
+        .language-sample:nth-child(2) .sample-header {
+            border-bottom: 2px solid var(--aramaic-color);
+            padding-bottom: 0.8rem;
+        }
+
+        .language-sample:nth-child(3) .sample-header {
+            border-bottom: 2px solid var(--greek-color);
+            padding-bottom: 0.8rem;
+        }
+
+        .sample-header h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin: 0;
+            position: relative;
+        }
+
+        .language-sample:nth-child(1) .sample-header h3 {
+            color: var(--hebrew-color);
+        }
+
+        .language-sample:nth-child(2) .sample-header h3 {
+            color: var(--aramaic-color);
+        }
+
+        .language-sample:nth-child(3) .sample-header h3 {
+            color: var(--greek-color);
+        }
+
+        .sample-text {
+            font-family: var(--font-biblical);
+            font-size: 1.6rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hebrew-text, .aramaic-text {
+            direction: rtl;
+            text-align: right;
+        }
+
+        .greek-text {
+            direction: ltr;
+            text-align: left;
+        }
+
+        .sample-translation {
+            font-style: italic;
+            color: #555;
+            margin-top: 0.8rem;
+            position: relative;
+            z-index: 1;
+            line-height: 1.6;
+        }
+
+        .sample-reference {
+            font-weight: 600;
+            text-align: right;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .language-sample:nth-child(1) .sample-reference {
+            color: var(--hebrew-color);
+        }
+
+        .language-sample:nth-child(2) .sample-reference {
+            color: var(--aramaic-color);
+        }
+
+        .language-sample:nth-child(3) .sample-reference {
+            color: var(--greek-color);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .resource-card {
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .resource-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.2rem;
+            margin: 0;
+        }
+
+        .resource-content {
+            padding: 1.5rem;
+        }
+
+        .resource-list {
+            list-style: none;
+        }
+
+        .resource-list li {
+            border-bottom: 1px solid #eee;
+            padding: 0.8rem 0;
+            transition: var(--transition);
+        }
+
+        .resource-list li:last-child {
+            border-bottom: none;
+        }
+
+        .resource-list a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--dark-color);
+            transition: var(--transition);
+        }
+
+        .resource-list a i {
+            color: var(--accent-color);
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .resource-list a:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--accent-color));
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-col h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            color: var(--accent-color);
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-col a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-col a:hover {
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(26, 188, 156, 0.3);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 280px;
+                height: 100vh;
+                background-color: var(--dark-color);
+                z-index: 1000;
+                transition: right 0.3s ease;
+                padding: 2rem;
+                overflow-y: auto;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            nav li {
+                width: 100%;
+            }
+            
+            nav a {
+                padding: 1rem 0;
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav a::after {
+                display: none;
+            }
+            
+            .menu-item-has-children > a {
+                justify-content: space-between;
+            }
+            
+            .menu-item-has-children > a::after {
+                display: block;
+                content: '+';
+                transition: var(--transition);
+            }
+            
+            .menu-item-has-children.active > a::after {
+                transform: rotate(45deg);
+            }
+            
+            .sub-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.2);
+                border-radius: 0;
+                padding-left: 1rem;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                transform: none;
+                opacity: 1;
+            }
+            
+            .menu-item-has-children.active > .sub-menu {
+                max-height: 500px;
+            }
+            
+            .menu-item-has-children:hover .sub-menu {
+                display: none;
+                transform: none;
+            }
+            
+            .menu-item-has-children.active .sub-menu {
+                display: block;
+            }
+            
+            .sub-menu a {
+                color: #ddd;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            .sub-menu a:hover {
+                background-color: rgba(255, 255, 255, 0.05);
+                color: var(--accent-color);
+            }
+            
+            .hero {
+                height: auto;
+                padding: 6rem 0;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .card-content {
+                padding: 1.5rem;
+            }
+            
+            .bible-verse {
+                padding: 2rem;
+            }
+            
+            .verse-text {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="../../images/EMD.png" alt="Logo EMD">
+                <div class="logo-text">
+                    <div>Ministerio</div>
+                    <div>"La Gloria es del Señor"</div>
+                </div>
+            </div>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Inicio</a></li>
+                    <li class="menu-item-has-children">
+                        <a>Figuras Bíblicas</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Figuras Bíblicas/at-a-nt.html">AT a NT</a></li>
+                            <li><a href="../Figuras Bíblicas/nombres-simbologia.html">Los nombres y su simbología</a></li>
+                            <li><a href="../Figuras Bíblicas/templo-figuras.html">Templo y sus Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/sacrificios-figuras.html">Sacrificios y su Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/tipologia-cantares.html">Tipología Cantares</a></li>
+                            <li><a href="../Figuras Bíblicas/figuras-cristo.html">Figuras de Cristo</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Falsas Doctrinas</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                            <li><a href="../Falsas Doctrinas/gnosticismos.html">Gnosticismos en la Biblia</a></li>
+                            <li><a href="../Falsas Doctrinas/filosofias-griegas.html">Filosofías Griegas</a></li>
+                            <li><a href="../Falsas Doctrinas/masoneria.html">Masonería</a></li>
+                            <li><a href="../Falsas Doctrinas/sociedades-secretas.html">Sociedades Secretas</a></li>
+                            <li><a href="../Falsas Doctrinas/sectas-anticristianas.html">Sectas Anticristianas</a></li>
+                            <li><a href="../Falsas Doctrinas/pseudoprofetas.html">Pseudoprofetas</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Estudios Exegéticos</a>
+                        <ul class="sub-menu">
+                            <li><a href="temas-exegeticos.html">Temas Exegéticos</a></li>
+                            <li><a href="idiomas-biblia.html">Hebreo, Arameo y Griego en la Biblia</a></li>
+                            <li><a href="enlaces-recursos.html">Enlaces de Recursos</a></li>
+                            <li><a href="diccionarios-comentarios.html">Diccionarios y Comentarios</a></li>
+                            <li><a href="software-biblico.html">Software Bíblicos</a></li>
+                            <li><a href="meditacion-palabra.html">Meditación en la Palabra</a></li>
+                            <li><a href="lectura-anual.html">Lectura Anual</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Tiempo del Fin</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Tiempo del Fin/introduccion.html">Introducción al tiempo del fin</a></li>
+                            <li><a href="../Tiempo del Fin/escatologia.html">Escatología</a></li>
+                            <li><a href="../Tiempo del Fin/profecias-cumplidas.html">Profecías Cumplidas</a></li>
+                            <li><a href="../Tiempo del Fin/nuevo-orden-mundial.html">Nuevo Orden Mundial</a></li>
+                            <li><a href="../Tiempo del Fin/noticias-fin.html">Noticias del Fin</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Época de Jesús</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Época de Jesús/estudio-contemporaneo.html">Estudio Contemporáneo</a></li>
+                            <li><a href="../Época de Jesús/contexto-historico.html">Contexto Histórico</a></li>
+                            <li><a href="../Época de Jesús/grupos-religiosos.html">Grupos religiosos</a></li>
+                            <li><a href="../Época de Jesús/recursos-academicos.html">Estudios de Contexto</a></li>
+                            <li><a href="../Época de Jesús/apologia-cristiana.html">Apología Cristiana</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Estudios Bíblicos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Bíblicos/doctrina-basica.html">Doctrina Básica</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-intermedia.html">Doctrina intermedia</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-avanzada.html">Doctrina Avanzada</a></li>
+                            <li><a href="../Estudios Bíblicos/revelacion-espiritu.html">Revelación del Espíritu</a></li>
+                            <li><a href="../Estudios Bíblicos/devocionales.html">Devocionales</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" style="background-image: url('./images/papiros.jpg');">
+        <div class="container hero-content">
+            <h1>Los Idiomas Originales de la Biblia</h1>
+            <p>Explorando el Hebreo, Arameo y Griego para conocer la profundidad de la Palabra de Dios en sus textos originales.</p>
+            <a href="#idiomas" class="btn">Descubrir los Idiomas</a>
+        </div>
+    </section>
+
+    <section class="sections">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Por qué estudiar los idiomas bíblicos?</h2>
+                <p>El conocimiento de los idiomas originales nos permite apreciar las Escrituras con mayor profundidad y precisión.</p>
+            </div>
+
+            <p>Los textos bíblicos fueron escritos originalmente en tres idiomas principales: Hebreo, Arameo y Griego. Comprender estos idiomas es fundamental para una interpretación más precisa y profunda de las Escrituras, ya que cada uno tiene características únicas que aportan matices que a menudo se pierden en la traducción.</p>
+            
+            <p>El estudio de los idiomas originales nos permite:</p>
+            <ul style="margin-bottom: 2rem; padding-left: 2rem;">
+                <li>Captar matices lingüísticos que se pierden en la traducción</li>
+                <li>Entender mejor el contexto histórico y cultural de los textos</li>
+                <li>Resolver ambigüedades y aclarar pasajes difíciles</li>
+                <li>Profundizar en el significado teológico de palabras clave</li>
+                <li>Apreciar la belleza literaria y la estructura de los textos originales</li>
+            </ul>
+
+            <div class="bible-verse">
+                <p class="verse-text">"La hierba se seca, la flor se marchita, pero la palabra del Dios nuestro permanece para siempre."</p>
+                <p class="verse-ref">Isaías 40:8</p>
+            </div>
+
+            <div class="section-title" id="idiomas">
+                <h2>Los Tres Idiomas Bíblicos</h2>
+                <p>Cada uno de estos idiomas tiene características únicas que nos permiten comprender mejor el mensaje bíblico.</p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="../../images/hebreo-biblico.jpg" alt="Hebreo Bíblico">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Hebreo Bíblico</h3>
+                        <p class="card-text">El idioma principal del Antiguo Testamento, caracterizado por su profundidad simbólica y su estructura verbal dinámica que refleja acción y relación.</p>
+                        <p class="card-text">Este idioma semítico es la clave para entender la visión del mundo israelita y las profundas conexiones teológicas del Antiguo Testamento.</p>
+                        <a href="#hebreo" class="btn">Explorar el Hebreo</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="../../images/arameo-biblico.jpg" alt="Arameo Bíblico">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Arameo Bíblico</h3>
+                        <p class="card-text">Presente en partes del libro de Daniel y Esdras, el Arameo fue la lengua franca del Antiguo Oriente Próximo y el idioma cotidiano en tiempos de Jesús.</p>
+                        <p class="card-text">Entender el Arameo nos ayuda a comprender mejor el contexto cultural en el que vivió Jesús y las expresiones que utilizaba.</p>
+                        <a href="#arameo" class="btn">Descubrir el Arameo</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="../../images/griego-koine.jpg" alt="Griego Koiné">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Griego Koiné</h3>
+                        <p class="card-text">El idioma del Nuevo Testamento, conocido como Griego "común", fue el lenguaje internacional de comunicación en el mundo mediterráneo del siglo I.</p>
+                        <p class="card-text">Su precisión y riqueza expresiva permitieron que el mensaje cristiano se transmitiera con claridad por todo el mundo antiguo.</p>
+                        <a href="#griego" class="btn">Estudiar el Griego</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title" id="hebreo" style="margin-top: 5rem;">
+                <h2>El Hebreo Bíblico</h2>
+                <p>La lengua del Antiguo Testamento y del pueblo de Israel</p>
+            </div>
+
+            <div class="language-sample">
+                <div class="sample-header">
+                    <h3>Génesis 1:1</h3>
+                    <span><i class="fas fa-language" style="color: var(--hebrew-color); font-size: 1.8rem;"></i></span>
+                </div>
+                <div class="sample-text hebrew-text">בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃</div>
+                <div class="sample-translation">En el principio creó Dios los cielos y la tierra.</div>
+                <div class="sample-reference">Bereshit (Génesis) 1:1</div>
+            </div>
+
+            <p>El Hebreo Bíblico es una lengua semítica caracterizada por su sistema de escritura consonántico y su rica estructura verbal. Algunas características importantes incluyen:</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-pen-fancy"></i>
+                    <h3>Sistema Consonántico</h3>
+                    <p>El Hebreo original se escribía solo con consonantes. Las vocales fueron añadidas posteriormente mediante un sistema de signos diacríticos para facilitar la lectura.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Raíces Triliterales</h3>
+                    <p>La mayoría de las palabras hebreas se derivan de raíces de tres consonantes, que llevan un significado básico modificado por patrones vocálicos y prefijos/sufijos.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Verbos Dinámicos</h3>
+                    <p>El sistema verbal hebreo enfatiza la acción y el aspecto (completo/incompleto) más que el tiempo (pasado/presente/futuro) como en nuestras lenguas modernas.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-images"></i>
+                    <h3>Lenguaje Visual</h3>
+                    <p>El Hebreo es rico en imágenes concretas, metáforas y paralelismos, reflejando una visión del mundo tangible y relacional más que abstracta.</p>
+                </div>
+            </div>
+
+            <div class="section-title" id="arameo" style="margin-top: 5rem;">
+                <h2>El Arameo Bíblico</h2>
+                <p>El idioma de partes de Daniel y Esdras, y la lengua materna de Jesús</p>
+            </div>
+
+            <div class="language-sample">
+                <div class="sample-header">
+                    <h3>Daniel 2:20</h3>
+                    <span><i class="fas fa-language" style="color: var(--aramaic-color); font-size: 1.8rem;"></i></span>
+                </div>
+                <div class="sample-text aramaic-text">עָנֵה דָנִיֵּאל וְאָמַר לֶהֱוֵא שְׁמֵהּ דִּי־אֱלָהָא מְבָרַךְ מִן־עָלְמָא וְעַד־עָלְמָא דִּי חָכְמְתָא וּגְבוּרְתָא דִּי לֵהּ־הִיא</div>
+                <div class="sample-translation">Daniel habló y dijo: Sea bendito el nombre de Dios por los siglos de los siglos, porque suyos son la sabiduría y el poder.</div>
+                <div class="sample-reference">Daniel 2:20</div>
+            </div>
+
+            <p>El Arameo es una lengua semítica estrechamente relacionada con el Hebreo, que se convirtió en la lingua franca del Antiguo Oriente Próximo. En la Biblia, encontramos pasajes en Arameo en:</p>
+            <ul style="margin-bottom: 2rem; padding-left: 2rem;">
+                <li>Daniel 2:4b-7:28</li>
+                <li>Esdras 4:8-6:18; 7:12-26</li>
+                <li>Jeremías 10:11</li>
+                <li>Palabras y frases dispersas en el Nuevo Testamento</li>
+            </ul>
+
+            <p>Jesús habló Arameo como lengua materna, y algunas de sus palabras originales se preservan en los Evangelios:</p>
+
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-quote-left"></i>
+                    <h3>"Talita cumi"</h3>
+                    <p>"Niña, a ti te digo, levántate" (Marcos 5:41)</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-quote-left"></i>
+                    <h3>"Eloí, Eloí, ¿lama sabactani?"</h3>
+                    <p>"Dios mío, Dios mío, ¿por qué me has desamparado?" (Marcos 15:34)</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-quote-left"></i>
+                    <h3>"Effatá"</h3>
+                    <p>"Sé abierto" (Marcos 7:34)</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-quote-left"></i>
+                    <h3>"Maranatha"</h3>
+                    <p>"El Señor viene" o "Ven, Señor nuestro" (1 Corintios 16:22)</p>
+                </div>
+            </div>
+
+            <div class="section-title" id="griego" style="margin-top: 5rem;">
+                <h2>El Griego Koiné</h2>
+                <p>La lengua del Nuevo Testamento y del mundo helenístico</p>
+            </div>
+
+            <div class="language-sample">
+                <div class="sample-header">
+                    <h3>Juan 1:1</h3>
+                    <span><i class="fas fa-language" style="color: var(--greek-color); font-size: 1.8rem;"></i></span>
+                </div>
+                <div class="sample-text greek-text">Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.</div>
+                <div class="sample-translation">En el principio era el Verbo, y el Verbo era con Dios, y el Verbo era Dios.</div>
+                <div class="sample-reference">Juan 1:1</div>
+            </div>
+
+            <p>El Griego Koiné ("común") era el idioma internacional del mundo mediterráneo en el siglo I. Todo el Nuevo Testamento fue escrito en este idioma, que tiene características que lo hacen especialmente adecuado para expresar conceptos teológicos complejos:</p>
+
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-language"></i>
+                    <h3>Precisión Gramatical</h3>
+                    <p>El Griego tiene un sistema de tiempos verbales y casos nominales muy preciso que permite expresar matices teológicos con gran exactitud.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-brain"></i>
+                    <h3>Vocabulario Amplio</h3>
+                    <p>Su rico vocabulario permitió a los escritores del Nuevo Testamento expresar conceptos teológicos complejos y abstractos con precisión.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-globe-americas"></i>
+                    <h3>Alcance Universal</h3>
+                    <p>Como idioma internacional, el Griego Koiné permitió que el mensaje del Evangelio se difundiera rápidamente por todo el mundo mediterráneo.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Influencia Literaria</h3>
+                    <p>La estructura del Griego Koiné ha influido profundamente en el vocabulario teológico y filosófico occidental hasta nuestros días.</p>
+                </div>
+            </div>
+
+            <div class="bible-verse">
+                <p class="verse-text">“Nunca se apartará de tu boca este libro de la ley, sino que de día y de noche meditarás en él, para que guardes y hagas conforme a todo lo que en él está escrito; porque entonces harás prosperar tu camino, y todo te saldrá bien.”</p>
+                <p class="verse-ref">Josué 1:8</p>
+            </div>
+
+            <div class="section-title" style="margin-top: 5rem;">
+                <h2>Recursos Recomendados</h2>
+                <p>Herramientas y referencias esenciales para el estudio de los idiomas bíblicos</p>
+            </div>
+
+            <!-- Recursos en línea y videos -->
+            <div class="grid" style="margin-bottom: 3rem;">
+                <!-- Biblia Todo -->
+                <div class="card">
+                    <div class="card-img" style="position: relative; height: 200px; overflow: hidden;">
+                        <iframe src="https://www.bibliatodo.com/es" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 400px; transform: scale(1.0); transform-origin: top left;"></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Biblia Todo</h3>
+                        <p class="card-text">Portal completo con múltiples versiones bíblicas, herramientas de estudio, concordancias y recursos para profundizar en la Palabra de Dios.</p>
+                        <a href="https://www.bibliatodo.com/es" target="_blank" class="btn">Visitar Sitio</a>
+                    </div>
+                </div>
+
+                <!-- Biblia Paralela -->
+                <div class="card">
+                    <div class="card-img" style="position: relative; height: 200px; overflow: hidden;">
+                        <iframe src="https://bibliaparalela.com/" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 400px; transform: scale(1.0); transform-origin: top left;"></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Biblia Paralela</h3>
+                        <p class="card-text">Compara versículos en diferentes versiones y lenguas originales lado a lado. Ideal para estudios comparativos y análisis de traducciones.</p>
+                        <a href="https://bibliaparalela.com/" target="_blank" class="btn">Comparar Versiones</a>
+                    </div>
+                </div>
+
+                <!-- Blue Letter Bible -->
+                <div class="card">
+                    <div class="card-img" style="position: relative; height: 200px; overflow: hidden;">
+                        <iframe src="https://www.blueletterbible.org/lexicon/h3068/kjv/wlc/0-1/" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 400px; transform: scale(1.0); transform-origin: top left;"></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Léxico Hebreo - YHWH</h3>
+                        <p class="card-text">Análisis detallado del Tetragrámaton (YHWH), el nombre de Dios en hebreo. Incluye definiciones, concordancia y referencias bíblicas.</p>
+                        <a href="https://www.blueletterbible.org/lexicon/h3068/kjv/wlc/0-1/" target="_blank" class="btn">Explorar Léxico</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Videos de YouTube -->
+            <h3 style="font-family: 'Montserrat', sans-serif; color: var(--primary-color); margin-bottom: 2rem; text-align: center;">Cursos y Videos Recomendados</h3>
+            
+            <div class="grid">
+                <!-- Curso 1 -->
+                <div class="card">
+                    <div class="card-img" style="position: relative; height: 200px; overflow: hidden;">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLsYYt-OkIdlhDwTTfJ2AYV15GInYEFgcb" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0;"></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Hebreo Bíblico para Principiantes</h3>
+                        <p class="card-text">Serie de lecciones para aprender el alfabeto, vocabulario básico y primeras estructuras gramaticales del hebreo bíblico.</p>
+                        <a href="https://www.youtube.com/playlist?list=PLsYYt-OkIdlhDwTTfJ2AYV15GInYEFgcb" target="_blank" class="btn">Ver Curso</a>
+                    </div>
+                </div>
+
+                <!-- Curso 2 -->
+                <div class="card">
+                    <div class="card-img" style="position: relative; height: 200px; overflow: hidden;">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLUzpOSlctlm9ucA8EzJ5KP3xdc3FyuJRD" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0;"></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Griego Koiné - Curso Completo</h3>
+                        <p class="card-text">Curso integral de griego del Nuevo Testamento. Aprende desde las bases hasta la traducción de pasajes completos.</p>
+                        <a href="https://youtube.com/playlist?list=PLUzpOSlctlm9ucA8EzJ5KP3xdc3FyuJRD&si=htOiflYhPQlsP78I" target="_blank" class="btn">Ver Playlist</a>
+                    </div>
+                </div>
+
+                <!-- Curso 3 -->
+                <div class="card">
+                    <div class="card-img" style="position: relative; height: 200px; overflow: hidden;">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLSz8Nd4UjIs3B0S_5W-hTIVO_xP1hyG4w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0;"></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Arameo Bíblico - Fundamentos</h3>
+                        <p class="card-text">Introducción al arameo bíblico, sus características y comparación con el hebreo. Incluye análisis de textos de Daniel y Esdras.</p>
+                        <a href="https://youtube.com/playlist?list=PLSz8Nd4UjIs3B0S_5W-hTIVO_xP1hyG4w&si=TqTp5fHIKKCytKg_" target="_blank" class="btn">Ver Lecciones</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Ministerio EMD</h4>
+                    <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
+                    <div class="social-links">
+                         <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                         <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="../Figuras Bíblicas/at-a-nt.html">Figuras Bíblicas</a></li>
+                        <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                        <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Estudios Exegéticos</a></li>
+                        <li><a href="../Tiempo del Fin/introduccion.html">Tiempo del Fin</a></li>
+                        <li><a href="../Época de Jesús/estudio-contemporaneo.html">Época de Jesús</a></li>
+                        <li><a href="../Estudios Bíblicos/doctrina-basica.html">Estudios Bíblicos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio</li>
+                        <li><i class="fas fa-phone"></i> +1 787-345-6940</li>
+                        <li><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Nota Aclaratoria</h4>
+                    <ul>
+                        <li>Todos los recursos de esta página son gratuitos y para la edificación de los creyentes</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+        
+        // Manejo de menús desplegables en móvil
+        document.querySelectorAll('.menu-item-has-children > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                // Solo en modo móvil
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.parentNode.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Cierra el menú al hacer clic en un enlace de submenu
+        document.querySelectorAll('.sub-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('nav').classList.remove('active');
+            });
+        });
+        
+        // Cierra el menú al hacer clic fuera de él
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navToggle = document.querySelector('.nav-toggle');
+            
+            if (!nav.contains(event.target) && event.target !== navToggle) {
+                nav.classList.remove('active');
+            }
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

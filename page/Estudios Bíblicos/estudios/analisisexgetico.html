@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto: Análisis Exegético Profundo | Trabajo de Investigación Bíblica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Open+Sans:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            /* Paleta de Investigación - Verdes Académicos y Tierra */
+            --forest-green: #1B4332;
+            --sage-green: #2D5A27;
+            --olive-green: #40916C;
+            --mint-green: #52B788;
+            --light-mint: #74C69D;
+            --cream-mint: #B7E4C7;
+            --soft-cream: #D8F3DC;
+            --paper-white: #F8FDF8;
+            --charcoal-black: #2D3748;
+            --slate-gray: #4A5568;
+            --warm-gray: #718096;
+            --light-gray: #A0AEC0;
+            --amber-gold: #D69E2E;
+            --rust-orange: #C05621;
+            --deep-blue: #2B6CB0;
+            
+            /* Gradientes de Trabajo */
+            --gradient-header: linear-gradient(135deg, #1B4332 0%, #2D5A27 50%, #40916C 100%);
+            --gradient-section: linear-gradient(135deg, #F8FDF8 0%, #D8F3DC 100%);
+            --gradient-card: linear-gradient(135deg, #FFFFFF 0%, #F8FDF8 100%);
+            --gradient-accent: linear-gradient(135deg, #52B788 0%, #40916C 100%);
+            
+            /* Sombras de Trabajo */
+            --shadow-light: 0 2px 4px rgba(27, 67, 50, 0.1);
+            --shadow-medium: 0 4px 12px rgba(27, 67, 50, 0.15);
+            --shadow-strong: 0 8px 24px rgba(27, 67, 50, 0.2);
+            --shadow-paper: 0 10px 30px rgba(27, 67, 50, 0.1);
+            
+            /* Tipografía de Investigación */
+            --font-serif: 'Merriweather', serif;
+            --font-sans: 'Open Sans', sans-serif;
+            --font-mono: 'Source Code Pro', monospace;
+            
+            /* Transiciones */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--paper-white);
+            color: var(--charcoal-black);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Paper texture background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 1px 1px, rgba(27, 67, 50, 0.08) 1px, transparent 0);
+            background-size: 24px 24px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header del Proyecto */
+        header {
+            background: var(--gradient-header);
+            color: white;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .project-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .project-logo img {
+            height: 45px;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        .project-title {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .breadcrumb-nav {
+            justify-self: center;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .breadcrumb-nav a {
+            color: var(--amber-gold);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb-nav a:hover {
+            color: white;
+        }
+
+        .project-badge {
+            background: var(--gradient-accent);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-light);
+        }
+
+        /* Project Overview */
+        .project-overview {
+            padding: 4rem 0;
+            background: var(--gradient-section);
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .overview-content h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--forest-green);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .overview-subtitle {
+            font-size: 1.2rem;
+            color: var(--slate-gray);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .project-description {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--olive-green);
+        }
+
+        .project-sidebar {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-medium);
+            position: sticky;
+            top: 120px;
+        }
+
+        .sidebar-title {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--forest-green);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-specs {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .project-specs li {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem;
+            background: var(--soft-cream);
+            border-radius: 8px;
+            font-family: var(--font-sans);
+        }
+
+        .spec-label {
+            font-weight: 600;
+            color: var(--forest-green);
+        }
+
+        .spec-value {
+            color: var(--slate-gray);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        /* Timeline del Proyecto */
+        .project-timeline {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-title {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            font-size: 1.1rem;
+            color: var(--slate-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gradient-accent);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 55%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: 55%;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            top: 1rem;
+            width: 40px;
+            height: 40px;
+            background: var(--olive-green);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-family: var(--font-mono);
+            box-shadow: var(--shadow-light);
+            z-index: 2;
+        }
+
+        .timeline-content {
+            background: var(--gradient-card);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--cream-mint);
+        }
+
+        .timeline-week {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--olive-green);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-task {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .timeline-details {
+            color: var(--slate-gray);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .timeline-deliverable {
+            background: var(--soft-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--mint-green);
+        }
+
+        .deliverable-title {
+            font-weight: 600;
+            color: var(--forest-green);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Guía Paso a Paso */
+        .step-guide {
+            padding: 4rem 0;
+            background: var(--gradient-section);
+        }
+
+        .guide-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .guide-title {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            transition: var(--transition-slow);
+            border: 1px solid var(--cream-mint);
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 2rem;
+            background: var(--gradient-accent);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-light);
+        }
+
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-header);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .step-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .step-description {
+            color: var(--slate-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .step-checklist {
+            background: var(--soft-cream);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .checklist-title {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--slate-gray);
+        }
+
+        .checklist li::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--olive-green);
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        .step-template {
+            background: var(--paper-white);
+            border: 2px dashed var(--olive-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .template-icon {
+            color: var(--olive-green);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .template-text {
+            color: var(--slate-gray);
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-family: var(--font-sans);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--olive-green);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--sage-green);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--olive-green);
+            border: 2px solid var(--olive-green);
+        }
+
+        .btn-outline:hover {
+            background: var(--olive-green);
+            color: white;
+        }
+
+        /* Texto Asignado Section */
+        .assigned-text {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .text-assignment {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .assignment-title {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--forest-green);
+            margin-bottom: 2rem;
+        }
+
+        .scripture-card {
+            background: var(--gradient-section);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-paper);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scripture-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-size: 8rem;
+            color: var(--olive-green);
+            opacity: 0.1;
+            font-family: var(--font-serif);
+        }
+
+        .scripture-reference {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            color: var(--olive-green);
+            margin-bottom: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .scripture-text {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: var(--forest-green);
+            font-style: italic;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .text-context {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-light);
+            text-align: left;
+        }
+
+        .context-title {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+        }
+
+        .context-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .context-item {
+            background: var(--soft-cream);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--mint-green);
+        }
+
+        .context-label {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--olive-green);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .context-value {
+            color: var(--slate-gray);
+            font-weight: 500;
+        }
+
+        /* Formato de Presentación */
+        .presentation-format {
+            padding: 4rem 0;
+            background: var(--gradient-section);
+        }
+
+        .format-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .format-title {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--forest-green);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .presentation-preview {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: var(--shadow-paper);
+            margin-bottom: 2rem;
+        }
+
+        .preview-header {
+            text-align: center;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--cream-mint);
+            margin-bottom: 2rem;
+        }
+
+        .preview-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--forest-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .preview-subtitle {
+            color: var(--slate-gray);
+            font-style: italic;
+        }
+
+        .preview-section {
+            margin-bottom: 2rem;
+        }
+
+        .preview-section h3 {
+            font-family: var(--font-serif);
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .preview-content {
+            color: var(--slate-gray);
+            line-height: 1.7;
+            padding: 1rem;
+            background: var(--soft-cream);
+            border-radius: 8px;
+            border-left: 4px solid var(--olive-green);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gradient-header);
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--amber-gold);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--amber-gold);
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0.8;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .project-sidebar {
+                position: static;
+            }
+            
+            .timeline-line {
+                left: 30px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 80px;
+                margin-right: 0;
+            }
+            
+            .timeline-marker {
+                left: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .context-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Progress Indicator */
+        .progress-indicator {
+            position: fixed;
+            top: 50%;
+            right: 2rem;
+            transform: translateY(-50%);
+            background: white;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: var(--shadow-medium);
+            z-index: 999;
+        }
+
+        .progress-step {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            margin-bottom: 0.8rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .progress-step.active {
+            background: var(--olive-green);
+            box-shadow: 0 0 10px rgba(64, 145, 108, 0.5);
+        }
+
+        .progress-step.completed {
+            background: var(--mint-green);
+        }
+
+        /* Mensaje de descarga */
+        .download-message {
+            background: #4CAF50;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            text-align: center;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header del Proyecto -->
+    <header>
+        <div class="container header-content">
+            <div class="project-logo">
+                <img src="../../../images/EMD.png" alt="Logo EMD">
+                <div class="project-title">
+                    <div>Proyecto de Investigación</div>
+                    <div>Análisis Exegético</div>
+                </div>
+            </div>
+            <nav class="breadcrumb-nav">
+                <a href="../../../index.html">Inicio</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="../doctrina-intermedia.html">Doctrina Intermedia</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Proyecto Análisis</span>
+            </nav>
+            <div class="project-badge">
+                <i class="fas fa-clipboard-check"></i>
+                Trabajo Final
+            </div>
+        </div>
+    </header>
+
+    <!-- Indicador de Progreso -->
+    <div class="progress-indicator">
+        <div class="progress-step active" title="Introducción"></div>
+        <div class="progress-step" title="Timeline"></div>
+        <div class="progress-step" title="Pasos"></div>
+        <div class="progress-step" title="Texto"></div>
+        <div class="progress-step" title="Presentación"></div>
+    </div>
+
+    <!-- Project Overview -->
+    <section class="project-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-content fade-in">
+                    <h1>Proyecto: Análisis Exegético Profundo</h1>
+                    <p class="overview-subtitle">
+                        Trabajo de investigación bíblica para presentar en tu congregación
+                    </p>
+                    
+                    <div class="project-description">
+                        <h3 style="color: var(--forest-green); margin-bottom: 1rem; font-family: var(--font-serif);">
+                            <i class="fas fa-bullseye" style="margin-right: 0.5rem;"></i>
+                            Objetivo del Proyecto
+                        </h3>
+                        <p>
+                            Desarrollar un análisis exegético completo de un texto bíblico específico utilizando 
+                            metodología académica rigurosa. El resultado será una presentación de 15-20 minutos 
+                            para compartir con tu congregación, demostrando cómo el estudio profundo de las 
+                            Escrituras enriquece nuestra comprensión y aplicación de la Palabra de Dios.
+                        </p>
+                    </div>
+
+                    <div class="project-description">
+                        <h3 style="color: var(--forest-green); margin-bottom: 1rem; font-family: var(--font-serif);">
+                            <i class="fas fa-graduation-cap" style="margin-right: 0.5rem;"></i>
+                            Lo que Aprenderás
+                        </h3>
+                        <ul style="list-style: none; padding-left: 1rem;">
+                            <li style="margin-bottom: 0.8rem;">
+                                <i class="fas fa-check" style="color: var(--olive-green); margin-right: 0.5rem;"></i>
+                                Aplicar metodología exegética de 8 pasos
+                            </li>
+                            <li style="margin-bottom: 0.8rem;">
+                                <i class="fas fa-check" style="color: var(--olive-green); margin-right: 0.5rem;"></i>
+                                Investigar contexto histórico-cultural
+                            </li>
+                            <li style="margin-bottom: 0.8rem;">
+                                <i class="fas fa-check" style="color: var(--olive-green); margin-right: 0.5rem;"></i>
+                                Analizar estructura literaria y gramática
+                            </li>
+                            <li style="margin-bottom: 0.8rem;">
+                                <i class="fas fa-check" style="color: var(--olive-green); margin-right: 0.5rem;"></i>
+                                Desarrollar aplicaciones contemporáneas
+                            </li>
+                            <li style="margin-bottom: 0.8rem;">
+                                <i class="fas fa-check" style="color: var(--olive-green); margin-right: 0.5rem;"></i>
+                                Presentar hallazgos de manera clara y edificante
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-sidebar slide-up">
+                    <h3 class="sidebar-title">
+                        <i class="fas fa-info-circle"></i>
+                        Especificaciones
+                    </h3>
+                    <ul class="project-specs">
+                        <li>
+                            <span class="spec-label">Duración</span>
+                            <span class="spec-value">4 semanas</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">Texto a Seleccionar</span>
+                            <span class="spec-value">Tu elección</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">Presentación</span>
+                            <span class="spec-value">15-20 min</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">Metodología</span>
+                            <span class="spec-value">8 Pasos</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">Entregables</span>
+                            <span class="spec-value">3 documentos</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">Audiencia</span>
+                            <span class="spec-value">Congregación</span>
+                        </li>
+                    </ul>
+
+                    <div style="background: var(--soft-cream); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                        <h4 style="color: var(--forest-green); margin-bottom: 1rem; font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+                            Herramientas Necesarias
+                        </h4>
+                        <ul style="list-style: none; font-size: 0.9rem; color: var(--slate-gray);">
+                            <li style="margin-bottom: 0.5rem;">• Concordancia Strong</li>
+                            <li style="margin-bottom: 0.5rem;">• Diccionario VINE</li>
+                            <li style="margin-bottom: 0.5rem;">• Comentarios exegéticos</li>
+                            <li style="margin-bottom: 0.5rem;">• Software bíblico (opcional)</li>
+                        </ul>
+                    </div>
+
+                    <a href="#texto-asignado" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-rocket"></i>
+                        Seleccionar Texto
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline del Proyecto -->
+    <section class="project-timeline">
+        <div class="container">
+            <div class="timeline-header">
+                <h2 class="timeline-title fade-in">Timeline de 4 Semanas</h2>
+                <p class="timeline-description fade-in">
+                    Cronograma estructurado para completar tu análisis exegético paso a paso
+                </p>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+
+                <!-- Semana 1 -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <div class="timeline-week">Semana 1</div>
+                        <h3 class="timeline-task">Observación y Análisis Textual</h3>
+                        <p class="timeline-details">
+                            Fase inicial de investigación enfocada en el texto original y su estructura. 
+                            Realizarás observación detallada del pasaje, análisis léxico de palabras clave 
+                            y estudio de la gramática griega/hebrea.
+                        </p>
+                        <div class="timeline-deliverable">
+                            <div class="deliverable-title">Entregable: Hoja de Observación Textual</div>
+                            <div>Documento con observaciones iniciales, palabras clave identificadas y estructura del texto</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Semana 2 -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <div class="timeline-week">Semana 2</div>
+                        <h3 class="timeline-task">Contexto e Interpretación</h3>
+                        <p class="timeline-details">
+                            Investigación del trasfondo histórico, cultural y literario. Análisis del género 
+                            literario, contexto canónico y paralelos bíblicos. Formulación de la interpretación 
+                            principal del pasaje.
+                        </p>
+                        <div class="timeline-deliverable">
+                            <div class="deliverable-title">Entregable: Análisis Contextual</div>
+                            <div>Documento con investigación histórica, análisis del género y interpretación preliminar</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Semana 3 -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <div class="timeline-week">Semana 3</div>
+                        <h3 class="timeline-task">Síntesis y Aplicación</h3>
+                        <p class="timeline-details">
+                            Integración de todos los hallazgos en una interpretación coherente. Desarrollo 
+                            de aplicaciones contemporáneas relevantes para la congregación. Preparación 
+                            del material de presentación.
+                        </p>
+                        <div class="timeline-deliverable">
+                            <div class="deliverable-title">Entregable: Documento Final de Análisis</div>
+                            <div>Análisis completo con interpretación, aplicaciones y bosquejo de presentación</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Semana 4 -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <div class="timeline-week">Semana 4</div>
+                        <h3 class="timeline-task">Presentación Final</h3>
+                        <p class="timeline-details">
+                            Semana de preparación final y presentación a la congregación. Refinamiento 
+                            del material, práctica de la presentación y entrega del trabajo completo. 
+                            Reflexión sobre el proceso de aprendizaje.
+                        </p>
+                        <div class="timeline-deliverable">
+                            <div class="deliverable-title">Entregable: Presentación en Vivo</div>
+                            <div>Presentación de 15-20 minutos ante la congregación con material de apoyo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guía Paso a Paso -->
+    <section class="step-guide">
+        <div class="container">
+            <div class="guide-header">
+                <h2 class="guide-title fade-in">Guía Metodológica Paso a Paso</h2>
+                <p class="timeline-description fade-in">
+                    Sigue estos 8 pasos para realizar un análisis exegético completo y riguroso
+                </p>
+            </div>
+
+            <div class="steps-grid">
+                <!-- Paso 1 -->
+                <div class="step-card fade-in">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="step-title">Observación Inicial</h3>
+                    <p class="step-description">
+                        Lee el texto múltiples veces en diferentes traducciones. Identifica personajes, 
+                        lugares, eventos y palabras que se repiten. Anota tus primeras impresiones.
+                    </p>
+                    <div class="step-checklist">
+                        <div class="checklist-title">Lista de Verificación</div>
+                        <ul class="checklist">
+                            <li>Leer en al menos 3 traducciones diferentes</li>
+                            <li>Identificar palabras y frases clave</li>
+                            <li>Marcar conectores lógicos (por tanto, pero, porque)</li>
+                            <li>Anotar preguntas iniciales</li>
+                            <li>Observar la estructura del párrafo</li>
+                        </ul>
+                    </div>
+                    <div class="step-template">
+                        <i class="fas fa-file-download template-icon"></i>
+                        <p class="template-text">Descarga la plantilla de observación</p>
+                        <button class="btn btn-outline" data-template="paso1" data-name="Plantilla de Observación Inicial">
+                            <i class="fas fa-download"></i>
+                            Plantilla PDF
+                        </button>
+                        <div class="download-message" id="msg-paso1">
+                            ✓ Descarga iniciada: Plantilla de Observación Inicial
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="step-card fade-in">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 class="step-title">Análisis Léxico</h3>
+                    <p class="step-description">
+                        Estudia el significado de las palabras clave en el idioma original. Usa concordancias 
+                        y diccionarios para entender el rango semántico de términos importantes.
+                    </p>
+                    <div class="step-checklist">
+                        <div class="checklist-title">Lista de Verificación</div>
+                        <ul class="checklist">
+                            <li>Identificar 5-8 palabras clave del pasaje</li>
+                            <li>Buscar definiciones en diccionarios griegos/hebreos</li>
+                            <li>Examinar otros usos en el NT/AT</li>
+                            <li>Anotar matices y connotaciones</li>
+                            <li>Considerar el campo semántico</li>
+                        </ul>
+                    </div>
+                    <div class="step-template">
+                        <i class="fas fa-file-download template-icon"></i>
+                        <p class="template-text">Plantilla de análisis léxico</p>
+                        <button class="btn btn-outline" data-template="paso2" data-name="Plantilla Análisis Léxico">
+                            <i class="fas fa-download"></i>
+                            Plantilla PDF
+                        </button>
+                        <div class="download-message" id="msg-paso2">
+                            ✓ Descarga iniciada: Plantilla Análisis Léxico
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="step-card fade-in">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="step-title">Análisis Gramatical</h3>
+                    <p class="step-description">
+                        Examina la estructura gramatical y sintáctica del texto. Identifica sujetos, 
+                        verbos, objetos y modificadores. Analiza tiempo, modo y voz de los verbos.
+                    </p>
+                    <div class="step-checklist">
+                        <div class="checklist-title">Lista de Verificación</div>
+                        <ul class="checklist">
+                            <li>Analizar formas verbales (tiempo, modo, voz)</li>
+                            <li>Identificar casos de sustantivos y pronombres</li>
+                            <li>Examinar relaciones entre cláusulas</li>
+                            <li>Determinar el flujo lógico del argumento</li>
+                            <li>Crear diagrama de oración (opcional)</li>
+                        </ul>
+                    </div>
+                    <div class="step-template">
+                        <i class="fas fa-file-download template-icon"></i>
+                        <p class="template-text">Hoja de análisis gramatical</p>
+                        <button class="btn btn-outline" data-template="paso3" data-name="Plantilla Análisis Gramatical">
+                            <i class="fas fa-download"></i>
+                            Plantilla PDF
+                        </button>
+                        <div class="download-message" id="msg-paso3">
+                            ✓ Descarga iniciada: Plantilla Análisis Gramatical
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="step-card fade-in">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3 class="step-title">Contexto Histórico-Cultural</h3>
+                    <p class="step-description">
+                        Investiga el trasfondo histórico, geográfico, cultural y social del texto. 
+                        Comprende el mundo del autor y de la audiencia original.
+                    </p>
+                    <div class="step-checklist">
+                        <div class="checklist-title">Lista de Verificación</div>
+                        <ul class="checklist">
+                            <li>Investigar el período histórico</li>
+                            <li>Estudiar la geografía y cultura</li>
+                            <li>Analizar las circunstancias del autor</li>
+                            <li>Entender la audiencia original</li>
+                            <li>Considerar trasfondos religiosos/políticos</li>
+                        </ul>
+                    </div>
+                    <div class="step-template">
+                        <i class="fas fa-file-download template-icon"></i>
+                        <p class="template-text">Guía de investigación histórica</p>
+                        <button class="btn btn-outline" data-template="paso4" data-name="Plantilla Investigación Histórica">
+                            <i class="fas fa-download"></i>
+                            Plantilla PDF
+                        </button>
+                        <div class="download-message" id="msg-paso4">
+                            ✓ Descarga iniciada: Plantilla Investigación Histórica
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 5 -->
+                <div class="step-card fade-in">
+                    <div class="step-number">5</div>
+                    <div class="step-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="step-title">Género Literario</h3>
+                    <p class="step-description">
+                        Identifica el género literario específico y sus características. Aplica principios 
+                        hermenéuticos apropiados para narrativa, poesía, epístola, etc.
+                    </p>
+                    <div class="step-checklist">
+                        <div class="checklist-title">Lista de Verificación</div>
+                        <ul class="checklist">
+                            <li>Clasificar el género literario</li>
+                            <li>Identificar características del género</li>
+                            <li>Aplicar principios hermenéuticos apropiados</li>
+                            <li>Considerar elementos retóricos</li>
+                            <li>Analizar la estructura literaria</li>
+                        </ul>
+                    </div>
+                    <div class="step-template">
+                        <i class="fas fa-file-download template-icon"></i>
+                        <p class="template-text">Análisis de género literario</p>
+                        <button class="btn btn-outline" data-template="paso5" data-name="Plantilla Género Literario">
+                            <i class="fas fa-download"></i>
+                            Plantilla PDF
+                        </button>
+                        <div class="download-message" id="msg-paso5">
+                            ✓ Descarga iniciada: Plantilla Género Literario
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 6 -->
+                <div class="step-card fade-in">
+                    <div class="step-number">6</div>
+                    <div class="step-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3 class="step-title">Contexto Canónico</h3>
+                    <p class="step-description">
+                        Examina el pasaje dentro del contexto del libro completo y de toda la Escritura. 
+                        Busca textos paralelos y temas relacionados.
+                    </p>
+                    <div class="step-checklist">
+                        <div class="checklist-title">Lista de Verificación</div>
+                        <ul class="checklist">
+                            <li>Analizar contexto inmediato (párrafos vecinos)</li>
+                            <li>Considerar contexto del libro completo</li>
+                            <li>Buscar paralelos en otros libros</li>
+                            <li>Identificar temas teológicos relacionados</li>
+                            <li>Examinar desarrollo progresivo de la revelación</li>
+                        </ul>
+                    </div>
+                    <div class="step-template">
+                        <i class="fas fa-file-download template-icon"></i>
+                        <p class="template-text">Hoja de contexto canónico</p>
+                        <button class="btn btn-outline" data-template="paso6" data-name="Plantilla Contexto Canónico">
+                            <i class="fas fa-download"></i>
+                            Plantilla PDF
+                        </button>
+                        <div class="download-message" id="msg-paso6">
+                            ✓ Descarga iniciada: Plantilla Contexto Canónico
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 7 -->
+                <div class="step-card fade-in">
+                    <div class="step-number">7</div>
+                    <div class="step-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="step-title">Síntesis Interpretativa</h3>
+                    <p class="step-description">
+                        Integra todos los datos exegéticos en una interpretación coherente. Formula 
+                        el mensaje principal del texto y sus puntos teológicos clave.
+                    </p>
+                    <div class="step-checklist">
+                        <div class="checklist-title">Lista de Verificación</div>
+                        <ul class="checklist">
+                            <li>Sintetizar todos los hallazgos</li>
+                            <li>Formular el mensaje principal</li>
+                            <li>Identificar puntos teológicos clave</li>
+                            <li>Verificar coherencia interna</li>
+                            <li>Consultar comentarios de referencia</li>
+                        </ul>
+                    </div>
+                    <div class="step-template">
+                        <i class="fas fa-file-download template-icon"></i>
+                        <p class="template-text">Plantilla de síntesis</p>
+                        <button class="btn btn-outline" data-template="paso7" data-name="Plantilla Síntesis Interpretativa">
+                            <i class="fas fa-download"></i>
+                            Plantilla PDF
+                        </button>
+                        <div class="download-message" id="msg-paso7">
+                            ✓ Descarga iniciada: Plantilla Síntesis Interpretativa
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 8 -->
+                <div class="step-card fade-in">
+                    <div class="step-number">8</div>
+                    <div class="step-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="step-title">Aplicación Contemporánea</h3>
+                    <p class="step-description">
+                        Desarrolla aplicaciones relevantes y legítimas del texto para la iglesia y el 
+                        creyente contemporáneo, manteniendo fidelidad al significado original.
+                    </p>
+                    <div class="step-checklist">
+                        <div class="checklist-title">Lista de Verificación</div>
+                        <ul class="checklist">
+                            <li>Identificar principios universales</li>
+                            <li>Desarrollar aplicaciones específicas</li>
+                            <li>Considerar diferentes audiencias</li>
+                            <li>Verificar legitimidad de aplicaciones</li>
+                            <li>Preparar ilustraciones contemporáneas</li>
+                        </ul>
+                    </div>
+                    <div class="step-template">
+                        <i class="fas fa-file-download template-icon"></i>
+                        <p class="template-text">Guía de aplicación</p>
+                        <button class="btn btn-outline" data-template="paso8" data-name="Plantilla de Aplicación Contemporánea">
+                            <i class="fas fa-download"></i>
+                            Plantilla PDF
+                        </button>
+                        <div class="download-message" id="msg-paso8">
+                            ✓ Descarga iniciada: Plantilla de Aplicación Contemporánea
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de descarga masiva -->
+            <div style="margin-top: 3rem; text-align: center; background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-medium);">
+                <h3 style="font-family: var(--font-serif); color: var(--forest-green); margin-bottom: 1rem;">
+                    <i class="fas fa-download" style="margin-right: 0.5rem;"></i>
+                    Descargar Paquete Completo del Proyecto
+                </h3>
+                <p style="color: var(--slate-gray); margin-bottom: 1.5rem;">
+                    Obtén todas las plantillas metodológicas, rúbrica de evaluación y plantilla de presentación PDF en un solo paquete
+                </p>
+                <button class="btn btn-primary" id="download-all" style="font-size: 1rem; padding: 1rem 2rem;">
+                    <i class="fas fa-download"></i>
+                    Descargar Paquete Completo (10 archivos)
+                </button>
+                <div class="download-message" id="msg-all" style="margin-top: 1rem;">
+                    ✓ Descarga iniciada: Paquete completo - 8 plantillas metodológicas + rúbrica + plantilla de presentación PDF
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selección de Texto -->
+    <section class="assigned-text" id="texto-asignado">
+        <div class="container">
+            <div class="text-assignment">
+                <h2 class="assignment-title fade-in">Selección de Tu Texto Bíblico</h2>
+                
+                <div class="scripture-card slide-up">
+                    <div class="scripture-reference">Paso Fundamental</div>
+                    <div class="scripture-text">
+                        "La selección cuidadosa de tu texto es crucial para el éxito de tu análisis exegético. Escoge un pasaje que te permita demostrar metodología rigurosa y que sea edificante para tu congregación."
+                    </div>
+                </div>
+
+                <div class="text-context">
+                    <h3 class="context-title">Criterios para la Selección</h3>
+                    <p style="margin-bottom: 1.5rem; color: var(--slate-gray);">
+                        Considera estos factores importantes al escoger tu texto para el análisis exegético:
+                    </p>
+                    
+                    <div class="context-grid">
+                        <div class="context-item">
+                            <div class="context-label">Extensión</div>
+                            <div class="context-value">8-15 versículos máximo</div>
+                        </div>
+                        <div class="context-item">
+                            <div class="context-label">Complejidad</div>
+                            <div class="context-value">Nivel intermedio</div>
+                        </div>
+                        <div class="context-item">
+                            <div class="context-label">Relevancia</div>
+                            <div class="context-value">Aplicable a tu congregación</div>
+                        </div>
+                        <div class="context-item">
+                            <div class="context-label">Género</div>
+                            <div class="context-value">Narrativa, Epístola, Enseñanza</div>
+                        </div>
+                        <div class="context-item">
+                            <div class="context-label">Recursos</div>
+                            <div class="context-value">Comentarios disponibles</div>
+                        </div>
+                        <div class="context-item">
+                            <div class="context-label">Tiempo</div>
+                            <div class="context-value">Manejable en 4 semanas</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Textos Recomendados -->
+                <div style="margin-top: 3rem;">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--forest-green); text-align: center; margin-bottom: 2rem;">
+                        Textos Recomendados para Principiantes
+                    </h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                        <!-- Texto 1 -->
+                        <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: var(--shadow-light); border-left: 4px solid var(--olive-green);">
+                            <h4 style="font-family: var(--font-mono); color: var(--olive-green); margin-bottom: 0.5rem; font-size: 1rem;">Juan 15:1-8</h4>
+                            <h5 style="font-family: var(--font-serif); color: var(--forest-green); margin-bottom: 1rem;">La Vid Verdadera</h5>
+                            <p style="color: var(--slate-gray); font-size: 0.9rem; margin-bottom: 1rem;">Alegoría de Jesús sobre la relación vital con Él. Excelente para análisis de metáforas y aplicación espiritual.</p>
+                            <div style="background: var(--soft-cream); padding: 0.8rem; border-radius: 6px; font-size: 0.8rem; color: var(--slate-gray);">
+                                <strong>Nivel:</strong> Intermedio | <strong>Género:</strong> Discurso | <strong>Aplicación:</strong> Vida espiritual
+                            </div>
+                        </div>
+
+                        <!-- Texto 2 -->
+                        <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: var(--shadow-light); border-left: 4px solid var(--mint-green);">
+                            <h4 style="font-family: var(--font-mono); color: var(--olive-green); margin-bottom: 0.5rem; font-size: 1rem;">Efesios 2:8-10</h4>
+                            <h5 style="font-family: var(--font-serif); color: var(--forest-green); margin-bottom: 1rem;">Salvación por Gracia</h5>
+                            <p style="color: var(--slate-gray); font-size: 0.9rem; margin-bottom: 1rem;">Texto clásico sobre la doctrina de la salvación. Ideal para análisis léxico y teológico profundo.</p>
+                            <div style="background: var(--soft-cream); padding: 0.8rem; border-radius: 6px; font-size: 0.8rem; color: var(--slate-gray);">
+                                <strong>Nivel:</strong> Intermedio | <strong>Género:</strong> Epístola | <strong>Aplicación:</strong> Soteriología
+                            </div>
+                        </div>
+
+                        <!-- Texto 3 -->
+                        <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: var(--shadow-light); border-left: 4px solid var(--sage-green);">
+                            <h4 style="font-family: var(--font-mono); color: var(--olive-green); margin-bottom: 0.5rem; font-size: 1rem;">Filipenses 2:5-11</h4>
+                            <h5 style="font-family: var(--font-serif); color: var(--forest-green); margin-bottom: 1rem;">Himno Cristológico</h5>
+                            <p style="color: var(--slate-gray); font-size: 0.9rem; margin-bottom: 1rem;">Himno sobre la humillación y exaltación de Cristo. Perfecto para análisis de estructura poética.</p>
+                            <div style="background: var(--soft-cream); padding: 0.8rem; border-radius: 6px; font-size: 0.8rem; color: var(--slate-gray);">
+                                <strong>Nivel:</strong> Avanzado | <strong>Género:</strong> Himno | <strong>Aplicación:</strong> Cristología
+                            </div>
+                        </div>
+
+                        <!-- Texto 4 -->
+                        <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: var(--shadow-light); border-left: 4px solid var(--light-mint);">
+                            <h4 style="font-family: var(--font-mono); color: var(--olive-green); margin-bottom: 0.5rem; font-size: 1rem;">Mateo 5:3-12</h4>
+                            <h5 style="font-family: var(--font-serif); color: var(--forest-green); margin-bottom: 1rem;">Las Bienaventuranzas</h5>
+                            <p style="color: var(--slate-gray); font-size: 0.9rem; margin-bottom: 1rem;">Enseñanza fundamental de Jesús sobre el carácter cristiano. Excelente para análisis de enseñanza ética.</p>
+                            <div style="background: var(--soft-cream); padding: 0.8rem; border-radius: 6px; font-size: 0.8rem; color: var(--slate-gray);">
+                                <strong>Nivel:</strong> Principiante | <strong>Género:</strong> Enseñanza | <strong>Aplicación:</strong> Ética cristiana
+                            </div>
+                        </div>
+
+                        <!-- Texto 5 -->
+                        <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: var(--shadow-light); border-left: 4px solid var(--cream-mint);">
+                            <h4 style="font-family: var(--font-mono); color: var(--olive-green); margin-bottom: 0.5rem; font-size: 1rem;">1 Corintios 13:1-8</h4>
+                            <h5 style="font-family: var(--font-serif); color: var(--forest-green); margin-bottom: 1rem;">El Himno al Amor</h5>
+                            <p style="color: var(--slate-gray); font-size: 0.9rem; margin-bottom: 1rem;">Descripción poética del amor ágape. Ideal para análisis retórico y aplicación práctica.</p>
+                            <div style="background: var(--soft-cream); padding: 0.8rem; border-radius: 6px; font-size: 0.8rem; color: var(--slate-gray);">
+                                <strong>Nivel:</strong> Intermedio | <strong>Género:</strong> Poesía | <strong>Aplicación:</strong> Vida cristiana
+                            </div>
+                        </div>
+
+                        <!-- Texto 6 -->
+                        <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: var(--shadow-light); border-left: 4px solid var(--forest-green);">
+                            <h4 style="font-family: var(--font-mono); color: var(--olive-green); margin-bottom: 0.5rem; font-size: 1rem;">Salmo 23</h4>
+                            <h5 style="font-family: var(--font-serif); color: var(--forest-green); margin-bottom: 1rem;">El Buen Pastor</h5>
+                            <p style="color: var(--slate-gray); font-size: 0.9rem; margin-bottom: 1rem;">Salmo pastoral más conocido. Perfecto para análisis de metáforas y poesía hebrea.</p>
+                            <div style="background: var(--soft-cream); padding: 0.8rem; border-radius: 6px; font-size: 0.8rem; color: var(--slate-gray);">
+                                <strong>Nivel:</strong> Principiante | <strong>Género:</strong> Salmo | <strong>Aplicación:</strong> Confianza en Dios
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario de Selección -->
+                <div style="margin-top: 3rem; background: var(--gradient-section); border-radius: 16px; padding: 2.5rem; text-align: center;">
+                    <h3 style="font-family: var(--font-serif); color: var(--forest-green); margin-bottom: 1.5rem; font-size: 1.6rem;">
+                        <i class="fas fa-clipboard-check" style="margin-right: 0.5rem;"></i>
+                        Registra Tu Selección
+                    </h3>
+                    <p style="color: var(--slate-gray); margin-bottom: 2rem;">
+                        Una vez que hayas escogido tu texto, registra tu selección para comenzar el proyecto
+                    </p>
+                    
+                    <div style="max-width: 500px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-light);">
+                        <form style="text-align: left;" id="text-selection-form">
+                            <div style="margin-bottom: 1.5rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--forest-green);">Texto Seleccionado:</label>
+                                <input type="text" placeholder="Ej: Juan 15:1-8" style="width: 100%; padding: 0.8rem; border: 2px solid var(--cream-mint); border-radius: 6px; font-family: var(--font-mono);">
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--forest-green);">Razón de la Selección:</label>
+                                <textarea placeholder="¿Por qué escogiste este texto?" style="width: 100%; padding: 0.8rem; border: 2px solid var(--cream-mint); border-radius: 6px; min-height: 80px; resize: vertical;"></textarea>
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--forest-green);">Aplicación Prevista:</label>
+                                <input type="text" placeholder="¿Cómo planeas aplicarlo a tu congregación?" style="width: 100%; padding: 0.8rem; border: 2px solid var(--cream-mint); border-radius: 6px;">
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                                <i class="fas fa-check"></i>
+                                Confirmar Selección
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formato de Presentación -->
+    <section class="presentation-format">
+        <div class="container">
+            <div class="format-container">
+                <h2 class="format-title fade-in">Formato de Presentación Final</h2>
+                
+                <div class="presentation-preview slide-up">
+                    <div class="preview-header">
+                        <h3 class="preview-title">Análisis Exegético: [Tu Texto Seleccionado]</h3>
+                        <p class="preview-subtitle">"[Título Descriptivo de Tu Tema]"</p>
+                    </div>
+
+                    <div class="preview-section">
+                        <h3>I. Introducción (3-4 minutos)</h3>
+                        <div class="preview-content">
+                            • Importancia del texto en su contexto bíblico<br>
+                            • Contexto histórico y situacional del pasaje<br>
+                            • Propósito y metodología del análisis exegético
+                        </div>
+                    </div>
+
+                    <div class="preview-section">
+                        <h3>II. Análisis del Texto (8-10 minutos)</h3>
+                        <div class="preview-content">
+                            • Estructura y género literario del pasaje<br>
+                            • Palabras clave en idiomas originales (hebreo/griego)<br>
+                            • Trasfondo histórico-cultural relevante<br>
+                            • Significado teológico y mensaje central
+                        </div>
+                    </div>
+
+                    <div class="preview-section">
+                        <h3>III. Mensaje Central (2-3 minutos)</h3>
+                        <div class="preview-content">
+                            • Verdad principal que el autor quería comunicar<br>
+                            • Propósito original para la audiencia inicial<br>
+                            • Contribución del texto al canon bíblico
+                        </div>
+                    </div>
+
+                    <div class="preview-section">
+                        <h3>IV. Aplicación Práctica (3-4 minutos)</h3>
+                        <div class="preview-content">
+                            • Principios universales extraídos del texto<br>
+                            • Aplicaciones específicas para nuestra congregación<br>
+                            • Desafíos prácticos para la vida cristiana<br>
+                            • Ilustraciones contemporáneas relevantes
+                        </div>
+                    </div>
+
+                    <div class="preview-section">
+                        <h3>V. Conclusión (1-2 minutos)</h3>
+                        <div class="preview-content">
+                            • Resumen del mensaje y hallazgos principales<br>
+                            • Llamado a la acción específico<br>
+                            • Oración de aplicación personal
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn btn-primary" style="margin-right: 1rem;" data-template="presentacion" data-name="Plantilla de Presentación">
+                        <i class="fas fa-file-pdf"></i>
+                        Plantilla de Presentación PDF
+                    </button>
+                    <button class="btn btn-outline" data-template="rubrica" data-name="Rúbrica de Evaluación">
+                        <i class="fas fa-clipboard-list"></i>
+                        Rúbrica de Evaluación
+                    </button>
+                    <div class="download-message" id="msg-presentacion" style="margin-top: 1rem;">
+                        ✓ Descarga iniciada: Plantilla de Presentación PDF
+                    </div>
+                    <div class="download-message" id="msg-rubrica" style="margin-top: 1rem;">
+                        ✓ Descarga iniciada: Rúbrica de Evaluación
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Proyecto de Investigación</h3>
+                    <p>
+                        Este proyecto te capacitará para realizar análisis exegético riguroso y 
+                        comunicar efectivamente los tesoros de la Palabra de Dios a tu congregación.
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h3>Recursos de Apoyo</h3>
+                    <ul class="footer-links">
+                        <li><a href="../../Estudios Exegéticos/enlaces-recursos.html"><i class="fas fa-book"></i> Enlaces de Recursos</a></li>
+                        <li><a href="../../Estudios Exegéticos/diccionarios-comentarios.html"><i class="fas fa-question-circle"></i> Diccionarios y Comentarios</a></li>
+                        <li><a href="../../Estudios Exegéticos/software-biblico.html"><i class="fas fa-users"></i> Software Bíblico</a></li>
+                        <li><a href="../recursos/Cronograma Detallado.html"><i class="fas fa-calendar"></i> Cronograma Detallado</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto del Proyecto</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:ministeriolagloriaesdelsenor7@gmail.com"><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</a></li>
+                        <li><a href="tel:+17873456940"><i class="fas fa-phone"></i> +1 787-345-6940</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Horario de Consultas</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Ministerio "La Gloria es del Señor" - Proyecto de Análisis Exegético. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Intersection Observer para animaciones
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos animados
+        document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Progress Indicator
+        const progressSteps = document.querySelectorAll('.progress-step');
+        const sections = [
+            { selector: '.project-overview', index: 0 },
+            { selector: '.project-timeline', index: 1 },
+            { selector: '.step-guide', index: 2 },
+            { selector: '.assigned-text', index: 3 },
+            { selector: '.presentation-format', index: 4 }
+        ];
+
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY + window.innerHeight / 2;
+            
+            sections.forEach(section => {
+                const element = document.querySelector(section.selector);
+                if (element) {
+                    const elementTop = element.offsetTop;
+                    const elementBottom = elementTop + element.offsetHeight;
+                    
+                    if (scrollPos >= elementTop && scrollPos <= elementBottom) {
+                        // Remove active from all steps
+                        progressSteps.forEach(step => step.classList.remove('active'));
+                        // Add active to current step
+                        progressSteps[section.index].classList.add('active');
+                        
+                        // Mark previous steps as completed
+                        progressSteps.forEach((step, index) => {
+                            if (index < section.index) {
+                                step.classList.add('completed');
+                            } else if (index > section.index) {
+                                step.classList.remove('completed');
+                            }
+                        });
+                    }
+                }
+            });
+        });
+
+        // Click navigation for progress indicator
+        progressSteps.forEach((step, index) => {
+            step.addEventListener('click', () => {
+                const targetSection = document.querySelector(sections[index].selector);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Configurar las rutas originales de los PDFs
+        const pdfPaths = {
+            paso1: '../Latex/1: Plantilla de Observación Inicial/Paso 1: Plantilla de Observación Inicial.pdf',
+            paso2: '../Latex/2: Plantilla Análisis Léxico/2: Plantilla Análisis Léxico.pdf',
+            paso3: '../Latex/3: Plantilla Análisis Gramátical/3:Plantilla Análisis Gramátical.pdf',
+            paso4: '../Latex/4: Plantilla Investigación histórica/4:Plantilla Investigación histórica.pdf',
+            paso5: '../Latex/5: Plantilla Género Literario/5: Plantilla Género Literario.pdf',
+            paso6: '../Latex/6: Plantilla Contexto Canónico/6: Plantilla Contexto Canónico.pdf',
+            paso7: '../Latex/7: Plantilla Síntesis Interpretativa/7: Plantilla Síntesis Interpretativa.pdf',
+            paso8: '../Latex/8: Plantilla de Aplicación Contemporánea/8: Plantilla de Aplicación Contemporánea.pdf',
+            presentacion: '../Latex/10: Plantilla Power Point/10: Plantilla Power Point.pdf',
+            rubrica: '../Latex/9: Rúbrica/9: Rúbrica.pdf'
+        };
+
+        // Función para mostrar mensaje de descarga
+        function showDownloadMessage(templateId) {
+            const message = document.getElementById(`msg-${templateId}`);
+            if (message) {
+                message.style.display = 'block';
+                setTimeout(() => {
+                    message.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        // Función para descargar PDF (simulación)
+        function downloadTemplate(templateId, templateName) {
+            // En un entorno real, esto descargaría el archivo
+            const link = document.createElement('a');
+            link.href = pdfPaths[templateId] || '#';
+            link.download = `${templateName}.${templateId === 'presentacion' ? 'pptx' : 'pdf'}`;
+            
+            // Simular descarga con mensaje
+            showDownloadMessage(templateId);
+            
+            // Intentar descarga real si el archivo existe
+            link.click();
+            
+            console.log(`Descargando: ${templateName}`);
+            console.log(`Ruta: ${pdfPaths[templateId]}`);
+        }
+
+        // Event listeners para botones de descarga individuales
+        document.querySelectorAll('[data-template]').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const templateId = this.getAttribute('data-template');
+                const templateName = this.getAttribute('data-name');
+                downloadTemplate(templateId, templateName);
+            });
+        });
+
+        // Event listener para descarga masiva
+        document.getElementById('download-all').addEventListener('click', function(e) {
+            e.preventDefault();
+            showDownloadMessage('all');
+            
+            // Simular descarga de todas las plantillas principales (8 pasos)
+            const mainTemplates = ['paso1', 'paso2', 'paso3', 'paso4', 'paso5', 'paso6', 'paso7', 'paso8'];
+            mainTemplates.forEach((templateId, index) => {
+                setTimeout(() => {
+                    const templateName = document.querySelector(`[data-template="${templateId}"]`).getAttribute('data-name');
+                    console.log(`Descargando ${index + 1}/10: ${templateName}`);
+                }, index * 500);
+            });
+            
+            // Agregar descarga de rúbrica y presentación
+            setTimeout(() => {
+                console.log(`Descargando 9/10: Rúbrica de Evaluación`);
+            }, 8 * 500);
+            
+            setTimeout(() => {
+                console.log(`Descargando 10/10: Plantilla de Presentación PDF`);
+            }, 9 * 500);
+            
+            console.log('Iniciando descarga del paquete completo (10 archivos)...');
+        });
+
+        // Text Selection Form Handler
+        document.getElementById('text-selection-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const textSelected = this.querySelector('input[type="text"]').value;
+            const reason = this.querySelector('textarea').value;
+            const application = this.querySelectorAll('input[type="text"]')[1].value;
+            
+            if (!textSelected.trim()) {
+                alert('Por favor, ingresa el texto bíblico que has seleccionado.');
+                return;
+            }
+            
+            alert(`¡Texto seleccionado exitosamente!\n\nTexto: ${textSelected}\nRazón: ${reason || 'No especificada'}\nAplicación: ${application || 'No especificada'}\n\n¡Ahora puedes comenzar tu análisis exegético siguiendo los 8 pasos metodológicos!`);
+            
+            // Clear form
+            this.reset();
+            
+            // Smooth scroll to methodology section
+            document.querySelector('.step-guide').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+
+        // Smooth scrolling para anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Checklist interaction
+        document.querySelectorAll('.checklist li').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('completed');
+                this.style.textDecoration = this.classList.contains('completed') ? 'line-through' : 'none';
+                this.style.opacity = this.classList.contains('completed') ? '0.7' : '1';
+            });
+        });
+
+        console.log('Proyecto de Análisis Exegético cargado exitosamente');
+        console.log('Sistema de navegación y progreso activo');
+        console.log('Timeline de 4 semanas estructurado');
+        console.log('Sistema de selección de texto implementado');
+        console.log('6 textos recomendados disponibles para principiantes');
+        console.log('Sistema de descarga de plantillas configurado');
+        console.log('Rúbrica de evaluación disponible en carpeta Latex');
+        console.log('Plantilla de presentación PDF disponible en carpeta Latex');
+        console.log('Rutas de PDFs:', pdfPaths);
+    </script>
+</body>
+</html>

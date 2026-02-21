@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base Profética | Tiempo del Fin | Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+    --primary-color: #5b2a86;     /* Púrpura Imperial – sabiduría, profundidad, realeza bíblica 👑 */
+    --secondary-color: #d18700;   /* Oro Terracota – fuerza, historia, tierra prometida 🏺 */
+    --accent-color: #f2a6a6;      /* Rosa Desértico – ternura, contraste elegante 🌸 */
+    --dark-color: #1a1a2e;        /* Azul Nocturno – fondo profundo, moderno y sobrio 🌌 */
+    --light-color: #fdf8f2;       /* Marfil luminoso – pureza, claridad, herencia antigua 📜 */
+    --text-color: #2e2e38;        /* Gris oscuro cálido – lectura suave y profesional 🖋️ */
+    --bg-gradient: linear-gradient(135deg, rgba(91, 42, 134, 0.95) 0%, rgba(210, 135, 0, 0.85) 100%);
+    --card-gradient: linear-gradient(to right bottom, rgba(210, 135, 0, 0.06), rgba(242, 166, 166, 0.06));
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+
+    font-family: 'EB Garamond', serif;
+    font-size: 16px; /* Ajuste base para mayor accesibilidad */
+    line-height: 1.75; /* Más aire para lectura fluida */
+    color: var(--text-color);
+    background-color: var(--light-color);
+    overflow-x: hidden;
+    
+    background-image: 
+        radial-gradient(circle at 20% 25%, rgba(139, 92, 246, 0.05) 0%, transparent 30%), 
+        radial-gradient(circle at 80% 85%, rgba(16, 185, 129, 0.04) 0%, transparent 40%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+    transition: background 0.6s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            overflow: hidden;
+            margin-top: 0;
+            padding-top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-gradient), url('https://images.unsplash.com/photo-1500964757637-c85e8a162699?q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
+            animation: slowly-zoom 20s infinite alternate ease-in-out;
+        }
+        
+        @keyframes slowly-zoom {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, var(--light-color), transparent);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 0 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+            text-shadow: var(--text-shadow);
+            background: linear-gradient(to right, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            max-width: 700px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            line-height: 1.6;
+            color: white;
+            margin: 2rem auto 0;
+        }
+        
+        /* Floating Elements */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        .floating-element:nth-child(1) {
+            width: 120px;
+            height: 120px;
+            top: 15%;
+            left: 10%;
+            animation-duration: 20s;
+            animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+            width: 80px;
+            height: 80px;
+            top: 30%;
+            right: 15%;
+            animation-duration: 25s;
+            animation-delay: 2s;
+        }
+        
+        .floating-element:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-duration: 18s;
+            animation-delay: 1s;
+        }
+        
+        .floating-element:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            bottom: 15%;
+            right: 20%;
+            animation-duration: 22s;
+            animation-delay: 3s;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(20px, -15px) rotate(5deg);
+            }
+            50% {
+                transform: translate(-10px, 20px) rotate(-5deg);
+            }
+            75% {
+                transform: translate(-20px, -10px) rotate(3deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+        }
+        
+        /* Breadcrumbs */
+        .breadcrumbs {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .breadcrumbs-list {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .breadcrumbs-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .breadcrumbs-item a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .breadcrumbs-item a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+            transition: var(--transition);
+        }
+        
+        .breadcrumbs-item a:hover::after {
+            width: 100%;
+        }
+        
+        .breadcrumbs-item a:hover {
+            color: var(--accent-color);
+        }
+        
+        .breadcrumbs-item:last-child {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .breadcrumbs-separator {
+            margin: 0 10px;
+            color: #d1d5db;
+            font-size: 0.8rem;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 5rem 0;
+            background-color: white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f1f5f9' fill-opacity='0.6' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            position: relative;
+        }
+        
+        .content-wrap {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 4rem;
+            position: relative;
+        }
+        
+        .content-main {
+            line-height: 1.8;
+            position: relative;
+        }
+        
+        .content-main h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.4rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 1.2rem;
+            letter-spacing: -0.5px;
+        }
+        
+        .content-main h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+        
+        .content-main h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.9rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .content-main h3::before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 3px;
+            background: var(--secondary-color);
+            bottom: -8px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .content-main h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1.2rem;
+            color: var(--dark-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .content-main h4::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background: var(--accent-color);
+            bottom: -5px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .content-main p {
+            margin-bottom: 1.8rem;
+            font-size: 1.1rem;
+            color: #4b5563;
+        }
+        
+        .content-main ul, 
+        .content-main ol {
+            margin: 0 0 1.8rem 1.5rem;
+        }
+        
+        .content-main li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 0.5rem;
+        }
+        
+        .content-main li::marker {
+            color: var(--secondary-color);
+            font-size: 1.2em;
+        }
+        
+        .content-main blockquote {
+            margin: 2.5rem 0;
+            padding: 2rem 2.5rem;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border-left: 4px solid var(--accent-color);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .content-main blockquote::before {
+            content: '\201C';
+            font-size: 5rem;
+            position: absolute;
+            top: -30px;
+            left: 10px;
+            color: rgba(139, 92, 246, 0.2);
+            font-family: Georgia, serif;
+        }
+        
+        .content-main blockquote p {
+            margin-bottom: 0;
+            position: relative;
+            z-index: 1;
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+        
+        .scripture-ref {
+            display: block;
+            text-align: right;
+            font-weight: 600;
+            margin-top: 1rem;
+            color: var(--primary-color);
+            font-style: normal;
+        }
+        
+        .content-section {
+            margin-bottom: 4.5rem;
+            position: relative;
+        }
+        
+        .content-section:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            bottom: -2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+        }
+        
+        .scripture-box {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.05) 0%, rgba(139, 92, 246, 0.08) 100%);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(139, 92, 246, 0.1);
+            transform: translateY(0);
+            transition: var(--transition);
+        }
+        
+        .scripture-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .scripture-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30,20 Q40,10 50,20 T70,20' fill='none' stroke='%238b5cf6' stroke-width='0.5' stroke-opacity='0.1'/%3E%3C/svg%3E");
+            background-size: 100px 100px;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
+        .scripture-box h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .scripture-content {
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .scripture-box .scripture-ref {
+            display: block;
+            text-align: right;
+            font-weight: 600;
+            margin-top: 1rem;
+            color: var(--primary-color);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(16, 185, 129, 0.1) 100%);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            top: -75px;
+            right: -75px;
+            opacity: 0.05;
+        }
+        
+        .highlight-box h4 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+        }
+        
+        .highlight-box ul {
+            margin-bottom: 0;
+        }
+        
+        .highlight-box li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .highlight-box li:last-child {
+            margin-bottom: 0;
+        }
+        
+        .image-container {
+            margin: 3rem 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            transform: translateY(0);
+            transition: var(--transition);
+        }
+        
+        .image-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .image-container:hover img {
+            transform: scale(1.03);
+        }
+        
+        .caption {
+            text-align: center;
+            font-style: italic;
+            color: #6b7280;
+            margin-top: 1.2rem;
+            font-size: 0.95rem;
+        }
+        
+        /* Sidebar */
+        .content-sidebar {
+            position: sticky;
+            top: 30px;
+            align-self: start;
+        }
+        
+        .sidebar-widget {
+            background-color: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .sidebar-widget::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+        }
+        
+        .sidebar-widget h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.8rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .sidebar-widget h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+        
+        .toc-list {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .toc-list li {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f3f4f6;
+            transition: var(--transition);
+        }
+        
+        .toc-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .toc-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+            font-weight: 500;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .toc-list a::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: var(--transition);
+        }
+        
+        .toc-list a:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+        
+        .toc-list a:hover::before {
+            background: var(--accent-color);
+            width: 8px;
+            height: 8px;
+        }
+        
+        /* Bible Verse Card */
+        .verse-card {
+            background: var(--bg-gradient);
+            border-radius: 16px;
+            padding: 3rem 2.5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 15px 30px rgba(30, 58, 138, 0.2);
+            transform: translateY(0);
+            transition: var(--transition);
+        }
+        
+        .verse-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(30, 58, 138, 0.25);
+        }
+        
+        .verse-card::before {
+            content: '\201C';
+            position: absolute;
+            top: -30px;
+            left: 20px;
+            font-size: 12rem;
+            color: rgba(255, 255, 255, 0.05);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .verse-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30,20 Q40,10 50,20 T70,20' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.1' transform='rotate(45 50 50)'/%3E%3C/svg%3E");
+            background-size: 50px 50px;
+            opacity: 0.1;
+        }
+        
+        .verse-card p {
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .verse-card .scripture-ref {
+            color: rgba(255, 255, 255, 0.9);
+            text-align: right;
+            display: block;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Copyright */
+        .copyright {
+            background-color: var(--light-color);
+            padding: 1.5rem 0;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .copyright p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s;
+            z-index: 999;
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite ease-in-out;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .content-wrap {
+                grid-template-columns: 1fr;
+            }
+            
+            .content-sidebar {
+                position: static;
+                margin-top: 3rem;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                height: 60vh;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .content-main h2 {
+                font-size: 2rem;
+            }
+            
+            .content-main h3 {
+                font-size: 1.7rem;
+            }
+            
+            .content-main h4 {
+                font-size: 1.4rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .content-main h2 {
+                font-size: 1.8rem;
+            }
+            
+            .content-main h3 {
+                font-size: 1.5rem;
+            }
+            
+            .content-main h4 {
+                font-size: 1.3rem;
+            }
+            
+            .breadcrumbs {
+                display: none;
+            }
+            
+            .scripture-box,
+            .highlight-box {
+                padding: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        <div class="container hero-content">
+            <h1>Base Profética</h1>
+            <p>Fundamentos bíblicos de la profecía sobre los tiempos finales y su interpretación según las Escrituras</p>
+        </div>
+    </section>
+
+    <div class="breadcrumbs">
+        <div class="container">
+            <ul class="breadcrumbs-list">
+                <li class="breadcrumbs-item"><a href="../../../../index.html">Inicio</a></li>
+                <li class="breadcrumbs-separator"><i class="fas fa-chevron-right"></i></li>
+                <li class="breadcrumbs-item"><a href="../introduccion.html">Tiempo del Fin</a></li>
+                <li class="breadcrumbs-separator"><i class="fas fa-chevron-right"></i></li>
+                <li class="breadcrumbs-item">Base Profética</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="main-content">
+        <div class="container">
+            <div class="content-wrap">
+                <div class="content-main">
+                    <div class="content-section" id="introduccion">
+                        <h2>Introducción a la Base Profética</h2>
+                        <p>La profecía escatológica constituye aproximadamente un tercio de toda la Escritura, lo que revela la importancia que Dios mismo otorga a este tema. Lejos de ser un aspecto periférico de la revelación divina, la profecía del tiempo del fin es parte integral del mensaje bíblico, comenzando desde Génesis hasta Apocalipsis.</p>
+                        
+                        <p>La base profética no es simplemente una colección de predicciones futuras, sino un marco teológico cohesivo que revela el plan de Dios para la redención final de su creación. A través de la profecía, Dios invita a sus hijos a comprender no solo lo que sucederá, sino el <em>por qué</em> de los eventos venideros y su propósito más amplio en la historia de la salvación.</p>
+                        
+                        <blockquote>
+                            <p>Las cosas secretas pertenecen a Jehová nuestro Dios; mas las reveladas son para nosotros y para nuestros hijos para siempre, para que cumplamos todas las palabras de esta ley.</p>
+                            <span class="scripture-ref">Deuteronomio 29:29</span>
+                        </blockquote>
+                        
+                        <p>Es crucial entender que Dios ha revelado aspectos específicos del futuro no para satisfacer nuestra curiosidad, sino para prepararnos, equiparnos y motivarnos a vivir fielmente en el presente. La profecía bíblica siempre tiene un propósito práctico y espiritual, llamándonos a una mayor santidad, vigilancia y esperanza.</p>
+                    </div>
+                    
+                    <div class="content-section" id="naturaleza">
+                        <h3>La Naturaleza de la Profecía Bíblica</h3>
+                        <p>A diferencia de las predicciones humanas o los presagios paganos, la profecía bíblica tiene características distintivas que confirman su origen divino:</p>
+                        
+                        <div class="highlight-box">
+                            <h4>Características de la Profecía Bíblica</h4>
+                            <ul>
+                                <li><strong>Precisión histórica:</strong> Las profecías bíblicas cumplidas demuestran una exactitud sobrenatural que excede cualquier posibilidad de conjetura humana.</li>
+                                <li><strong>Consistencia interna:</strong> A pesar de abarcar más de 1,500 años y docenas de autores humanos, las profecías bíblicas mantienen una coherencia teológica notable.</li>
+                                <li><strong>Propósito redentor:</strong> Las profecías siempre apuntan hacia el plan redentor de Dios, no simplemente predicen eventos futuros como fin en sí mismos.</li>
+                                <li><strong>Naturaleza progresiva:</strong> La revelación profética es progresiva, con detalles que se despliegan y se clarifican a lo largo del tiempo.</li>
+                                <li><strong>Enfoque cristocéntrico:</strong> Todas las profecías escatológicas, directa o indirectamente, apuntan hacia Cristo y su obra de redención.</li>
+                            </ul>
+                        </div>
+                        
+                        <p>La Escritura misma enfatiza el origen divino de la profecía y advierte contra las falsas profecías:</p>
+                        
+                        <div class="scripture-box">
+                            <div class="scripture-content">
+                                <p>"Pero ante todo, entended que ninguna profecía de la Escritura es de interpretación privada, porque nunca la profecía fue traída por voluntad humana, sino que los santos hombres de Dios hablaron siendo inspirados por el Espíritu Santo."</p>
+                            </div>
+                            <span class="scripture-ref">2 Pedro 1:20-21</span>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section" id="progresiva">
+                        <h3>La Revelación Profética Progresiva</h3>
+                        <p>Dios ha revelado su plan escatológico de manera progresiva a lo largo de la historia bíblica. Cada revelación posterior amplía, clarifica y profundiza las revelaciones anteriores, nunca contradiciendo lo que fue revelado antes, sino expandiendo nuestra comprensión del plan divino.</p>
+                        
+                        <div class="image-container">
+                            <img src="../images/revelacionprogresiva.png" alt="Diagrama de la revelación profética progresiva">
+                            <p class="caption">La revelación escatológica progresiva desde Génesis hasta Apocalipsis</p>
+                        </div>
+                        
+                        <p>Esta progresión puede verse en varios temas clave:</p>
+                        
+                        <h4>1. La Promesa Mesiánica</h4>
+                        <p>La primera profecía escatológica aparece en Génesis 3:15, donde Dios promete que la simiente de la mujer heriría la cabeza de la serpiente. Esta profecía proto-evangélica, aunque vaga en su forma inicial, establece el conflicto cósmico que define toda la historia humana. A lo largo del Antiguo Testamento, esta promesa se desarrolla:</p>
+                        <ul>
+                            <li>El Mesías vendría de la línea de Abraham (Génesis 12:3)</li>
+                            <li>Vendría de la tribu de Judá (Génesis 49:10)</li>
+                            <li>Sería un descendiente de David (2 Samuel 7:12-16)</li>
+                            <li>Nacería en Belén (Miqueas 5:2)</li>
+                            <li>Sufriría vicariamente (Isaías 53)</li>
+                            <li>Sería resucitado (Salmo 16:10)</li>
+                            <li>Establecería un reino eterno (Daniel 7:13-14)</li>
+                        </ul>
+                        
+                        <h4>2. Los Días Postreros</h4>
+                        <p>La concepción de los "días postreros" o "últimos días" también sigue un desarrollo progresivo:</p>
+                        <ul>
+                            <li>En las profecías iniciales, está vinculado principalmente a la venida del Mesías y la restauración de Israel</li>
+                            <li>Los profetas posteriores expanden este concepto para incluir juicio sobre las naciones y la renovación cósmica</li>
+                            <li>Daniel introduce la estructura temporal específica relacionada con imperios mundiales sucesivos</li>
+                            <li>El Nuevo Testamento revela que los "últimos días" comenzaron con la primera venida de Cristo y culminarán con su regreso glorioso</li>
+                        </ul>
+                        
+                        <div class="scripture-box">
+                            <div class="scripture-content">
+                                <p>"Dios, habiendo hablado muchas veces y de muchas maneras en otro tiempo a los padres por los profetas, en estos postreros días nos ha hablado por el Hijo, a quien constituyó heredero de todo, y por quien asimismo hizo el universo."</p>
+                            </div>
+                            <span class="scripture-ref">Hebreos 1:1-2</span>
+                        </div>
+                        
+                        <p>Esta revelación progresiva nos enseña que debemos interpretar las profecías anteriores a la luz de las revelaciones posteriores, especialmente aquellas dadas en el Nuevo Testamento.</p>
+                    </div>
+                    
+                    <div class="content-section" id="libros">
+                        <h3>Principales Libros Proféticos Escatológicos</h3>
+                        
+                        <h4>En el Antiguo Testamento</h4>
+                        
+                        <p><strong>Daniel</strong> - El libro de Daniel ocupa un lugar preeminente en la escatología bíblica, proporcionando un marco cronológico para los eventos del fin de los tiempos:</p>
+                        <ul>
+                            <li>La visión de la estatua (Daniel 2) revela cuatro imperios mundiales sucesivos</li>
+                            <li>Las cuatro bestias (Daniel 7) corresponden a estos imperios y añaden detalles sobre el "cuerno pequeño"</li>
+                            <li>La profecía de las setenta semanas (Daniel 9) proporciona un cronograma desde la reconstrucción de Jerusalén hasta la venida del Mesías</li>
+                            <li>Las visiones de los capítulos 10-12 detallan eventos que precederán y acompañarán al "tiempo del fin"</li>
+                        </ul>
+                        
+                        <p><strong>Ezequiel</strong> - Contiene profecías cruciales sobre:</p>
+                        <ul>
+                            <li>La restauración futura de Israel (capítulos 36-37)</li>
+                            <li>La invasión de Gog y Magog (capítulos 38-39)</li>
+                            <li>El templo milenial y la distribución de la tierra en el reino mesiánico (capítulos 40-48)</li>
+                        </ul>
+                        
+                        <p><strong>Isaías, Jeremías, Zacarías</strong> - Estos profetas proporcionan detalles adicionales sobre:</p>
+                        <ul>
+                            <li>El reino mesiánico (Isaías 2, 11, 65-66)</li>
+                            <li>El Nuevo Pacto (Jeremías 31)</li>
+                            <li>La Segunda Venida (Zacarías 14)</li>
+                        </ul>
+                        
+                        <h4>En el Nuevo Testamento</h4>
+                        
+                        <p><strong>Apocalipsis</strong> - La revelación culminante de la escatología bíblica:</p>
+                        <ul>
+                            <li>Integra y expande las profecías anteriores</li>
+                            <li>Revela la secuencia detallada de eventos durante la Tribulación (capítulos 6-19)</li>
+                            <li>Describe la Segunda Venida de Cristo (capítulo 19)</li>
+                            <li>Proporciona información sobre el Milenio (capítulo 20)</li>
+                            <li>Culmina con la descripción del estado eterno (capítulos 21-22)</li>
+                        </ul>
+                        
+                        <p><strong>Discurso del Monte de los Olivos</strong> (Mateo 24-25, Marcos 13, Lucas 21) - Las enseñanzas escatológicas más extensas de Jesús:</p>
+                        <ul>
+                            <li>Señales del fin de los tiempos</li>
+                            <li>La Gran Tribulación</li>
+                            <li>La Segunda Venida</li>
+                            <li>Parábolas sobre la vigilancia y preparación</li>
+                        </ul>
+                        
+                        <p><strong>Epístolas Paulinas</strong> (1 y 2 Tesalonicenses, 1 Corintios 15) - Aportan detalles sobre:</p>
+                        <ul>
+                            <li>El Rapto de la Iglesia</li>
+                            <li>El Anticristo y la apostasía</li>
+                            <li>La resurrección de los muertos</li>
+                        </ul>
+                        
+                        <div class="verse-card">
+                            <p>"Y ahora, hijitos, permaneced en él, para que cuando se manifieste, tengamos confianza, y no seamos avergonzados delante de él en su venida."</p>
+                            <span class="scripture-ref">1 Juan 2:28</span>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section" id="interpretacion">
+                        <h3>Principios de Interpretación Profética</h3>
+                        <p>La interpretación correcta de la profecía escatológica requiere adherirse a principios hermenéuticos sólidos:</p>
+                        
+                        <h4>1. Interpretación Literal-Gramatical-Histórica</h4>
+                        <p>Las profecías deben interpretarse según el sentido normal de las palabras, considerando el contexto gramatical e histórico. Aunque la profecía utiliza símbolos, estos tienen significados definidos que deben discernirse a partir del uso bíblico, no de especulaciones arbitrarias.</p>
+                        
+                        <blockquote>
+                            <p>Cuando el sentido llano del texto tiene sentido, no busques otro sentido. Cuando una interpretación literal es posible, nunca tomes la profecía alegóricamente.</p>
+                            <span class="scripture-ref">Dr. David L. Cooper</span>
+                        </blockquote>
+                        
+                        <h4>2. Interpretación Comparativa</h4>
+                        <p>Las profecías nunca existen aisladamente; deben interpretarse a la luz de otras Escrituras. La Biblia interpreta a la Biblia, y las oscuridades se aclaran mediante pasajes más explícitos.</p>
+                        
+                        <div class="highlight-box">
+                            <h4>Ejemplos de Interpretación Comparativa</h4>
+                            <ul>
+                                <li>Las "bestias" de Daniel 7 se explican parcialmente en el mismo capítulo (7:17-27)</li>
+                                <li>Apocalipsis 17:7-18 interpreta los símbolos de la mujer y la bestia</li>
+                                <li>La "abominación desoladora" de Daniel es interpretada por Jesús en Mateo 24:15</li>
+                                <li>Las setenta semanas de Daniel (9:24-27) iluminan la cronología de Apocalipsis</li>
+                            </ul>
+                        </div>
+                        
+                        <h4>3. Interpretación Cristocéntrica</h4>
+                        <p>Toda profecía escatológica debe entenderse en relación con Cristo y su obra redentora. Jesús mismo afirmó que las Escrituras dan testimonio de Él (Juan 5:39), y la revelación de Apocalipsis es específicamente "la revelación de Jesucristo" (Apocalipsis 1:1).</p>
+                        
+                        <h4>4. Equilibrio entre Continuidad y Discontinuidad</h4>
+                        <p>Las profecías del Antiguo Testamento deben interpretarse reconociendo tanto:</p>
+                        <ul>
+                            <li>La <strong>continuidad</strong> con la revelación del Nuevo Testamento (Dios tiene un solo plan redentor)</li>
+                            <li>La <strong>discontinuidad</strong> introducida por la cruz y la era de la Iglesia (algunos aspectos se cumplen de maneras no previstas por los profetas del AT)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content-section" id="proposito">
+                        <h3>El Propósito de la Profecía Escatológica</h3>
+                        <p>Dios no ha revelado el futuro simplemente para satisfacer nuestra curiosidad, sino para lograr propósitos específicos en la vida de los creyentes:</p>
+                        
+                        <h4>1. Fortalecer la Fe</h4>
+                        <p>El cumplimiento de profecías previas confirma la veracidad de la Palabra de Dios y fortalece nuestra confianza en las profecías aún no cumplidas.</p>
+                        
+                        <div class="scripture-box">
+                            <div class="scripture-content">
+                                <p>"Y ahora os lo he dicho antes que suceda, para que cuando suceda, creáis."</p>
+                            </div>
+                            <span class="scripture-ref">Juan 14:29</span>
+                        </div>
+                        
+                        <h4>2. Motivar la Santidad</h4>
+                        <p>La perspectiva del regreso inminente de Cristo y el juicio venidero nos motiva a vivir vidas santas y diligentes.</p>
+                        
+                        <div class="scripture-box">
+                            <div class="scripture-content">
+                                <p>"Puesto que todas estas cosas han de ser deshechas, ¡cómo no debéis vosotros andar en santa y piadosa manera de vivir, esperando y apresurándoos para la venida del día de Dios...!"</p>
+                            </div>
+                            <span class="scripture-ref">2 Pedro 3:11-12</span>
+                        </div>
+                        
+                        <h4>3. Proporcionar Esperanza</h4>
+                        <p>En tiempos de sufrimiento y persecución, la certeza del triunfo final de Cristo y la recompensa eterna proporciona consuelo y esperanza.</p>
+                        
+                        <div class="scripture-box">
+                            <div class="scripture-content">
+                                <p>"Por tanto, consolaos unos a otros con estas palabras."</p>
+                            </div>
+                            <span class="scripture-ref">1 Tesalonicenses 4:18</span>
+                        </div>
+                        
+                        <h4>4. Promover la Evangelización</h4>
+                        <p>La realidad del juicio venidero y la brevedad del tiempo actual nos impulsa a proclamar el evangelio con urgencia.</p>
+                        
+                        <div class="scripture-box">
+                            <div class="scripture-content">
+                                <p>"Así que, somos embajadores en nombre de Cristo, como si Dios rogase por medio de nosotros; os rogamos en nombre de Cristo: Reconciliaos con Dios."</p>
+                            </div>
+                            <span class="scripture-ref">2 Corintios 5:20</span>
+                        </div>
+                        
+                        <h4>5. Preparar a la Iglesia</h4>
+                        <p>La profecía escatológica prepara a la Iglesia para las pruebas venideras y para su papel en el plan divino.</p>
+                        
+                        <div class="scripture-box">
+                            <div class="scripture-content">
+                                <p>"Bienaventurado el que lee, y los que oyen las palabras de esta profecía, y guardan las cosas en ella escritas; porque el tiempo está cerca."</p>
+                            </div>
+                            <span class="scripture-ref">Apocalipsis 1:3</span>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section" id="conclusion">
+                        <h3>Conclusión: La Relevancia Actual de la Base Profética</h3>
+                        <p>La base profética de la escatología bíblica no es un ejercicio académico estéril, sino una revelación viva y relevante para la Iglesia de hoy. A medida que observamos los eventos mundiales contemporáneos, podemos discernir que el escenario global está siendo preparado para el cumplimiento de las profecías finales.</p>
+                        
+                        <p>Sin embargo, debemos equilibrar:</p>
+                        <ul>
+                            <li>Un estudio diligente de la profecía, reconociendo su importancia en el consejo divino</li>
+                            <li>Una humildad adecuada, reconociendo que "vemos por espejo, oscuramente" (1 Corintios 13:12)</li>
+                            <li>Un énfasis en las aplicaciones prácticas y espirituales de la profecía, no solo en sus aspectos predictivos</li>
+                        </ul>
+                        
+                        <p>El apóstol Pedro nos proporciona quizás el resumen más conciso de la respuesta apropiada a la revelación profética:</p>
+                        
+                        <div class="scripture-box">
+                            <div class="scripture-content">
+                                <p>"Por lo cual, oh amados, estando en espera de estas cosas, procurad con diligencia ser hallados por él sin mancha e irreprensibles, en paz."</p>
+                            </div>
+                            <span class="scripture-ref">2 Pedro 3:14</span>
+                        </div>
+                        
+                        <p>La base profética de la escatología bíblica, correctamente entendida, no nos lleva a la especulación ociosa o al miedo paralizante, sino a una fe vibrante, una esperanza inquebrantable y un amor activo mientras esperamos el glorioso regreso de nuestro Señor Jesucristo.</p>
+                    </div>
+                </div>
+                
+                <div class="content-sidebar">
+                    <div class="sidebar-widget">
+                        <h3>Contenido</h3>
+                        <ul class="toc-list">
+                            <li><a href="#introduccion">Introducción a la Base Profética</a></li>
+                            <li><a href="#naturaleza">La Naturaleza de la Profecía Bíblica</a></li>
+                            <li><a href="#progresiva">La Revelación Profética Progresiva</a></li>
+                            <li><a href="#libros">Principales Libros Proféticos Escatológicos</a></li>
+                            <li><a href="#interpretacion">Principios de Interpretación Profética</a></li>
+                            <li><a href="#proposito">El Propósito de la Profecía Escatológica</a></li>
+                            <li><a href="#conclusion">Conclusión: La Relevancia Actual</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="verse-card">
+                        <p>"Lo que hemos visto y oído, eso os anunciamos, para que también vosotros tengáis comunión con nosotros; y nuestra comunión verdaderamente es con el Padre, y con su Hijo Jesucristo."</p>
+                        <span class="scripture-ref">1 Juan 1:3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="copyright">
+        <div class="container">
+            <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+        </div>
+    </div>
+
+    <a href="#" class="scroll-top" id="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Scroll to Top Button
+        const scrollBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('active');
+            } else {
+                scrollBtn.classList.remove('active');
+            }
+        });
+        
+        scrollBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

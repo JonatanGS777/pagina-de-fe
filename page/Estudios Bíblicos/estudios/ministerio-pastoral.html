@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministerio Pastoral - Liderazgo Espiritual</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Slab', 'Georgia', serif;
+            background: 
+                linear-gradient(45deg, #1e3a8a 0%, #1e40af 25%, #3b82f6 50%, #1e40af 75%, #1e3a8a 100%);
+            background-size: 400% 400%;
+            animation: blueprintFlow 20s ease infinite;
+            color: #f8fafc;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @keyframes blueprintFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .blueprint-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .drafting-tools {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .tool {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3em;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            cursor: help;
+            transition: all 0.3s ease;
+        }
+
+        .tool:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        .title-blueprint {
+            background: 
+                linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            padding: 60px 40px;
+            text-align: center;
+            border-bottom: 4px solid #f59e0b;
+            position: relative;
+            z-index: 2;
+        }
+
+        .title-blueprint::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(245, 158, 11, 0.1) 10px,
+                    rgba(245, 158, 11, 0.1) 20px
+                );
+            pointer-events: none;
+        }
+
+        .blueprint-title {
+            font-size: 4em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: #f59e0b;
+            text-shadow: 
+                0 0 20px #d97706,
+                2px 2px 8px rgba(0,0,0,0.8);
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .blueprint-subtitle {
+            font-size: 1.8em;
+            color: #fbbf24;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .blueprint-description {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            line-height: 1.7;
+            color: #e2e8f0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .blueprint-keywords {
+            font-size: 1.2em;
+            letter-spacing: 6px;
+            font-weight: 600;
+            color: #f59e0b;
+            position: relative;
+            z-index: 1;
+        }
+
+        .church-floorplan {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 40px;
+            background: 
+                linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border: 4px solid #f59e0b;
+            border-radius: 20px;
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.5),
+                inset 0 0 50px rgba(245, 158, 11, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .church-floorplan::before {
+            content: 'PLANTA ARQUITECTÓNICA - MINISTERIO PASTORAL';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0f172a;
+            color: #f59e0b;
+            padding: 10px 30px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            border: 2px solid #f59e0b;
+            border-radius: 20px;
+        }
+
+        .floorplan-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: repeat(4, 1fr);
+            gap: 20px;
+            height: 800px;
+            margin-top: 40px;
+        }
+
+        .ministry-area {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            border: 3px solid #60a5fa;
+            border-radius: 15px;
+            padding: 20px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 
+                0 10px 30px rgba(30, 64, 175, 0.3),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        .ministry-area:hover {
+            transform: scale(1.05) translateY(-10px);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            border-color: #93c5fd;
+            box-shadow: 
+                0 20px 50px rgba(37, 99, 235, 0.4),
+                inset 0 2px 0 rgba(255,255,255,0.2);
+            z-index: 10;
+        }
+
+        .ministry-area.active {
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+            border-color: #f87171;
+            box-shadow: 
+                0 0 30px rgba(220, 38, 38, 0.6),
+                inset 0 2px 0 rgba(255,255,255,0.2);
+        }
+
+        .area-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+        }
+
+        .area-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .area-subtitle {
+            font-size: 0.9em;
+            color: rgba(255,255,255,0.8);
+            font-style: italic;
+        }
+
+        .pulpit { grid-column: 2; grid-row: 1; }
+        .office { grid-column: 1; grid-row: 2; }
+        .counseling { grid-column: 3; grid-row: 2; }
+        .fellowship { grid-column: 1; grid-row: 3; }
+        .altar { grid-column: 2; grid-row: 2; }
+        .teaching { grid-column: 3; grid-row: 3; }
+        .visitation { grid-column: 1; grid-row: 4; }
+        .administration { grid-column: 2; grid-row: 3; }
+        .discipleship { grid-column: 3; grid-row: 4; }
+
+        .blueprint-dimensions {
+            position: absolute;
+            color: #f59e0b;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        .dim-top { top: -15px; left: 50%; transform: translateX(-50%); }
+        .dim-right { right: -40px; top: 50%; transform: translateY(-50%) rotate(90deg); }
+        .dim-bottom { bottom: -15px; right: 20px; }
+        .dim-left { left: -40px; bottom: 20%; transform: rotate(-90deg); }
+
+        .content-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            display: none;
+            overflow-y: auto;
+        }
+
+        .content-panel {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 60px;
+            background: 
+                linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 20px;
+            border: 4px solid #f59e0b;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.8);
+            color: #1e293b;
+            position: relative;
+            animation: panel-zoom 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes panel-zoom {
+            0% { 
+                transform: scale(0.3) rotate(-10deg);
+                opacity: 0;
+            }
+            100% { 
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .close-panel {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2.5em;
+            color: #dc2626;
+            cursor: pointer;
+            background: white;
+            border: 3px solid #dc2626;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .close-panel:hover {
+            background: #dc2626;
+            color: white;
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        .panel-title {
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1e40af;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            border-bottom: 4px solid #f59e0b;
+            padding-bottom: 20px;
+        }
+
+        .ministry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .ministry-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #cbd5e1;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ministry-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1e40af, #3b82f6, #60a5fa);
+        }
+
+        .ministry-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #3b82f6;
+        }
+
+        .card-header {
+            font-size: 1.6em;
+            color: #1e40af;
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card-content {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: #374151;
+            margin-bottom: 20px;
+        }
+
+        .biblical-foundation {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #f59e0b;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .biblical-foundation .verse {
+            color: #92400e;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .biblical-foundation .reference {
+            color: #b45309;
+            font-size: 0.9em;
+            text-align: right;
+        }
+
+        .qualifications-list {
+            background: #f0f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #0ea5e9;
+            margin: 20px 0;
+        }
+
+        .qualifications-list h4 {
+            color: #0c4a6e;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .qualifications-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .qualifications-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #0c4a6e;
+            border-bottom: 1px solid rgba(14, 165, 233, 0.2);
+        }
+
+        .qualifications-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .responsibilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .responsibility-item {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #10b981;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .responsibility-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);
+        }
+
+        .responsibility-item h5 {
+            color: #065f46;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .responsibility-item p {
+            color: #047857;
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .calling-process {
+            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #ec4899;
+            margin: 30px 0;
+        }
+
+        .calling-process h3 {
+            color: #be185d;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .process-step {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+            box-shadow: 0 4px 15px rgba(190, 24, 93, 0.1);
+            border: 2px solid #f9a8d4;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ec4899;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            background: #ec4899;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px auto;
+            font-weight: bold;
+        }
+
+        .step-title {
+            color: #be185d;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .step-description {
+            color: #9d174d;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        .emphasis {
+            color: #1e40af;
+            font-weight: 700;
+        }
+
+        .scripture-ref {
+            color: #dc2626;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .floorplan-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                height: auto;
+            }
+            
+            .ministry-area {
+                grid-column: 1 !important;
+                grid-row: auto !important;
+                margin: 10px 0;
+            }
+            
+            .ministry-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .content-panel {
+                margin: 20px;
+                padding: 30px;
+            }
+            
+            .blueprint-title {
+                font-size: 2.5em;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+            }
+            
+            .process-step::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="blueprint-grid"></div>
+    
+    <div class="drafting-tools">
+        <div class="tool" title="Martillo - Edificación y Corrección">🔨</div>
+        <div class="tool" title="Llave - Autoridad Pastoral">🗝️</div>
+        <div class="tool" title="Nivel - Equilibrio Ministerial">⚖️</div>
+    </div>
+
+    <header class="title-blueprint">
+        <h1 class="blueprint-title">Ministerio Pastoral</h1>
+        <p class="blueprint-subtitle">LIDERAZGO ESPIRITUAL</p>
+        <p class="blueprint-description">Principios bíblicos del ministerio pastoral: llamamiento, cualificaciones, responsabilidades y el cuidado del rebaño de Dios.</p>
+        <div class="blueprint-keywords">• LLAMAMIENTO • CUIDADO • RESPONSABILIDAD •</div>
+    </header>
+
+    <div class="church-floorplan">
+        <div class="blueprint-dimensions dim-top">15.2m</div>
+        <div class="blueprint-dimensions dim-right">12.8m</div>
+        <div class="blueprint-dimensions dim-bottom">ESCALA 1:100</div>
+        <div class="blueprint-dimensions dim-left">8.4m</div>
+        
+        <div class="floorplan-grid">
+            <div class="ministry-area pulpit" onclick="openMinistry('pulpit')">
+                <div class="area-icon">🎤</div>
+                <div class="area-title">PÚLPITO</div>
+                <div class="area-subtitle">Predicación y Enseñanza</div>
+            </div>
+            
+            <div class="ministry-area office" onclick="openMinistry('office')">
+                <div class="area-icon">📚</div>
+                <div class="area-title">OFICINA PASTORAL</div>
+                <div class="area-subtitle">Estudio y Preparación</div>
+            </div>
+            
+            <div class="ministry-area counseling" onclick="openMinistry('counseling')">
+                <div class="area-icon">🤝</div>
+                <div class="area-title">CONSEJERÍA</div>
+                <div class="area-subtitle">Cuidado Personal</div>
+            </div>
+            
+            <div class="ministry-area fellowship" onclick="openMinistry('fellowship')">
+                <div class="area-icon">☕</div>
+                <div class="area-title">COMPAÑERISMO</div>
+                <div class="area-subtitle">Comunión Fraternal</div>
+            </div>
+            
+            <div class="ministry-area altar" onclick="openMinistry('altar')">
+                <div class="area-icon">🛐</div>
+                <div class="area-title">ALTAR</div>
+                <div class="area-subtitle">Oración e Intercesión</div>
+            </div>
+            
+            <div class="ministry-area teaching" onclick="openMinistry('teaching')">
+                <div class="area-icon">📖</div>
+                <div class="area-title">AULA</div>
+                <div class="area-subtitle">Educación Cristiana</div>
+            </div>
+            
+            <div class="ministry-area visitation" onclick="openMinistry('visitation')">
+                <div class="area-icon">🚗</div>
+                <div class="area-title">VISITACIÓN</div>
+                <div class="area-subtitle">Cuidado Externo</div>
+            </div>
+            
+            <div class="ministry-area administration" onclick="openMinistry('administration')">
+                <div class="area-icon">📋</div>
+                <div class="area-title">ADMINISTRACIÓN</div>
+                <div class="area-subtitle">Liderazgo Organizacional</div>
+            </div>
+            
+            <div class="ministry-area discipleship" onclick="openMinistry('discipleship')">
+                <div class="area-icon">🌱</div>
+                <div class="area-title">DISCIPULADO</div>
+                <div class="area-subtitle">Formación Espiritual</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-overlay" id="contentOverlay">
+        <div class="content-panel" id="contentPanel">
+            <div class="close-panel" onclick="closeMinistry()">×</div>
+            <div id="ministryContent"></div>
+        </div>
+    </div>
+
+    <script>
+        const ministryData = {
+            pulpit: {
+                title: "🎤 MINISTERIO DEL PÚLPITO",
+                content: `
+                    <div class="biblical-foundation">
+                        <div class="verse">"Predica la palabra; que instes a tiempo y fuera de tiempo; redarguye, reprende, exhorta con toda paciencia y doctrina."</div>
+                        <div class="reference">2 Timoteo 4:2</div>
+                    </div>
+                    
+                    <div class="ministry-grid">
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                📜 <span>Preparación Exegética</span>
+                            </div>
+                            <div class="card-content">
+                                El pastor debe ser un <span class="emphasis">expositor fiel</span> de la Palabra. Esto requiere estudio riguroso, oración intensa y dependencia del Espíritu Santo para discernir el significado del texto y su aplicación contemporánea.
+                            </div>
+                            <div class="qualifications-list">
+                                <h4>Elementos Esenciales:</h4>
+                                <ul>
+                                    <li>Análisis contextual del pasaje</li>
+                                    <li>Estudio de palabras originales</li>
+                                    <li>Investigación histórico-cultural</li>
+                                    <li>Aplicación relevante y práctica</li>
+                                    <li>Ilustraciones apropiadas</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                🔥 <span>Predicación Expositiva</span>
+                            </div>
+                            <div class="card-content">
+                                La predicación expositiva permite que <span class="emphasis">el texto hable por sí mismo</span>. El predicador es un heraldo que proclama fielmente el mensaje divino, no sus propias opiniones.
+                            </div>
+                            <div class="responsibilities-grid">
+                                <div class="responsibility-item">
+                                    <h5>Fidelidad Textual</h5>
+                                    <p>Predicar lo que dice el texto, no lo que queremos que diga</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Claridad</h5>
+                                    <p>Comunicar de manera comprensible para toda la congregación</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Aplicación</h5>
+                                    <p>Conectar verdades eternas con necesidades contemporáneas</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Poder Espiritual</h5>
+                                    <p>Depender del Espíritu Santo para convicción y transformación</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                ⚖️ <span>Predicación Balanceada</span>
+                            </div>
+                            <div class="card-content">
+                                El ministerio del púlpito debe incluir toda la <span class="emphasis">diversidad de la revelación</span>: evangelismo, edificación, reprensión, consolación y enseñanza doctrinal.
+                            </div>
+                            <div class="biblical-foundation">
+                                <div class="verse">"Toda la Escritura es inspirada por Dios, y útil para enseñar, para redargüir, para corregir, para instruir en justicia."</div>
+                                <div class="reference">2 Timoteo 3:16</div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            office: {
+                title: "📚 OFICINA PASTORAL",
+                content: `
+                    <div class="biblical-foundation">
+                        <div class="verse">"Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse, que usa bien la palabra de verdad."</div>
+                        <div class="reference">2 Timoteo 2:15</div>
+                    </div>
+                    
+                    <div class="ministry-grid">
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                📖 <span>Vida de Estudio</span>
+                            </div>
+                            <div class="card-content">
+                                El pastor debe ser un <span class="emphasis">estudiante perpetuo</span> de la Palabra de Dios. Su oficina es un santuario de preparación donde se encuentra con Dios antes de ministrar al pueblo.
+                            </div>
+                            <div class="qualifications-list">
+                                <h4>Disciplinas Esenciales:</h4>
+                                <ul>
+                                    <li>Lectura sistemática de las Escrituras</li>
+                                    <li>Estudio exegético profundo</li>
+                                    <li>Investigación teológica continua</li>
+                                    <li>Lectura de obras clásicas cristianas</li>
+                                    <li>Actualización en métodos pastorales</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                🕯️ <span>Vida de Oración</span>
+                            </div>
+                            <div class="card-content">
+                                La oficina pastoral debe ser primordialmente un <span class="emphasis">lugar de oración</span>. Sin comunión íntima con Dios, todo el ministerio carece de poder espiritual.
+                            </div>
+                            <div class="responsibilities-grid">
+                                <div class="responsibility-item">
+                                    <h5>Oración Personal</h5>
+                                    <p>Tiempo diario de comunión íntima con Dios</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Intercesión</h5>
+                                    <p>Oración específica por la congregación y sus necesidades</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Preparación</h5>
+                                    <p>Buscar dirección divina para sermones y decisiones</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Guerra Espiritual</h5>
+                                    <p>Batalla contra las fuerzas del mal que atacan la iglesia</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                📋 <span>Planificación Ministerial</span>
+                            </div>
+                            <div class="card-content">
+                                La oficina es el centro de <span class="emphasis">planificación estratégica</span> donde el pastor busca la visión de Dios para la iglesia y desarrolla planes para cumplir la misión.
+                            </div>
+                            <div class="biblical-foundation">
+                                <div class="verse">"Los pensamientos del diligente ciertamente tienden a la abundancia; mas todo el que se apresura alocadamente, de cierto va a la pobreza."</div>
+                                <div class="reference">Proverbios 21:5</div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            counseling: {
+                title: "🤝 MINISTERIO DE CONSEJERÍA",
+                content: `
+                    <div class="biblical-foundation">
+                        <div class="verse">"Hermanos, si alguno fuere sorprendido en alguna falta, vosotros que sois espirituales, restauradle con espíritu de mansedumbre, considerándote a ti mismo, no sea que tú también seas tentado."</div>
+                        <div class="reference">Gálatas 6:1</div>
+                    </div>
+                    
+                    <div class="ministry-grid">
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                💝 <span>Cuidado Pastoral</span>
+                            </div>
+                            <div class="card-content">
+                                La consejería pastoral es una extensión del <span class="emphasis">corazón de pastor</span>. Involucra escuchar con empatía, aconsejar con sabiduría bíblica y caminar junto a las personas en sus luchas.
+                            </div>
+                            <div class="qualifications-list">
+                                <h4>Cualidades del Consejero:</h4>
+                                <ul>
+                                    <li>Confidencialidad absoluta</li>
+                                    <li>Escucha activa y empática</li>
+                                    <li>Sabiduría bíblica aplicada</li>
+                                    <li>Paciencia en el proceso</li>
+                                    <li>Humildad y dependencia de Dios</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                🩹 <span>Restauración Espiritual</span>
+                            </div>
+                            <div class="card-content">
+                                El objetivo de la consejería pastoral es la <span class="emphasis">restauración completa</span> de la persona: espiritual, emocional y relacional, siempre basada en principios bíblicos.
+                            </div>
+                            <div class="responsibilities-grid">
+                                <div class="responsibility-item">
+                                    <h5>Diagnóstico Bíblico</h5>
+                                    <p>Identificar problemas desde una perspectiva bíblica</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Prescripción Escritural</h5>
+                                    <p>Aplicar verdades bíblicas a problemas específicos</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Acompañamiento</h5>
+                                    <p>Caminar junto a la persona en su proceso de sanidad</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Rendición de Cuentas</h5>
+                                    <p>Establecer sistemas de apoyo y seguimiento</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                🛡️ <span>Límites y Referencias</span>
+                            </div>
+                            <div class="card-content">
+                                El pastor sabio reconoce sus <span class="emphasis">limitaciones</span> y sabe cuándo referir casos que requieren ayuda profesional especializada, manteniendo siempre el fundamento bíblico.
+                            </div>
+                            <div class="biblical-foundation">
+                                <div class="verse">"Donde no hay dirección sabia, caerá el pueblo; mas en la multitud de consejeros hay seguridad."</div>
+                                <div class="reference">Proverbios 11:14</div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            fellowship: {
+                title: "☕ MINISTERIO DE COMPAÑERISMO",
+                content: `
+                    <div class="biblical-foundation">
+                        <div class="verse">"Y perseveraban en la doctrina de los apóstoles, en la comunión unos con otros, en el partimiento del pan y en las oraciones."</div>
+                        <div class="reference">Hechos 2:42</div>
+                    </div>
+                    
+                    <div class="ministry-grid">
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                🤗 <span>Koinonía Genuina</span>
+                            </div>
+                            <div class="card-content">
+                                El compañerismo cristiano va más allá de la socialización. Es <span class="emphasis">koinonía</span> - participación en la vida divina que crea vínculos profundos entre los creyentes.
+                            </div>
+                            <div class="qualifications-list">
+                                <h4>Elementos de la Comunión:</h4>
+                                <ul>
+                                    <li>Presencia personal del pastor</li>
+                                    <li>Conversaciones significativas</li>
+                                    <li>Oración comunitaria</li>
+                                    <li>Compartir testimonios</li>
+                                    <li>Apoyo mutuo en necesidades</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                🏠 <span>Ambiente Familiar</span>
+                            </div>
+                            <div class="card-content">
+                                El pastor debe crear un ambiente donde todos se sientan <span class="emphasis">parte de la familia de Dios</span>, especialmente los nuevos creyentes y visitantes.
+                            </div>
+                            <div class="responsibilities-grid">
+                                <div class="responsibility-item">
+                                    <h5>Hospitalidad</h5>
+                                    <p>Recibir a todos con amor genuino y calidez</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Inclusión</h5>
+                                    <p>Asegurar que nadie se sienta excluido o ignorado</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Conexión</h5>
+                                    <p>Facilitar relaciones significativas entre miembros</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Celebración</h5>
+                                    <p>Participar en momentos especiales de la congregación</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                💬 <span>Comunicación Pastoral</span>
+                            </div>
+                            <div class="card-content">
+                                Los momentos de compañerismo son oportunidades invaluables para <span class="emphasis">comunicación informal</span> que fortalece la relación pastor-congregación.
+                            </div>
+                            <div class="biblical-foundation">
+                                <div class="verse">"Por lo cual, animaos unos a otros, y edificaos unos a otros, así como lo hacéis."</div>
+                                <div class="reference">1 Tesalonicenses 5:11</div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            altar: {
+                title: "🛐 MINISTERIO DEL ALTAR",
+                content: `
+                    <div class="biblical-foundation">
+                        <div class="verse">"Acercaos a Dios, y él se acercará a vosotros. Pecadores, limpiad las manos; y vosotros los de doble ánimo, purificad vuestros corazones."</div>
+                        <div class="reference">Santiago 4:8</div>
+                    </div>
+                    
+                    <div class="ministry-grid">
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                🙏 <span>Intercesión Pastoral</span>
+                            </div>
+                            <div class="card-content">
+                                El altar es el lugar donde el pastor ejerce su <span class="emphasis">ministerio sacerdotal</span>, intercediendo por las necesidades de la congregación y buscando el rostro de Dios.
+                            </div>
+                            <div class="qualifications-list">
+                                <h4>Aspectos de la Intercesión:</h4>
+                                <ul>
+                                    <li>Oración por enfermos y afligidos</li>
+                                    <li>Intercesión por decisiones importantes</li>
+                                    <li>Búsqueda de dirección divina</li>
+                                    <li>Guerra espiritual por la iglesia</li>
+                                    <li>Peticiones por crecimiento espiritual</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                ✋ <span>Imposición de Manos</span>
+                            </div>
+                            <div class="card-content">
+                                La imposición de manos es un <span class="emphasis">acto de identificación</span> donde el pastor se une a las necesidades de la persona, pidiendo la bendición y sanidad de Dios.
+                            </div>
+                            <div class="responsibilities-grid">
+                                <div class="responsibility-item">
+                                    <h5>Sanidad Divina</h5>
+                                    <p>Orar con fe por la intervención sobrenatural de Dios</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Liberación</h5>
+                                    <p>Ministrar libertad de ataduras espirituales</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Bendición</h5>
+                                    <p>Pronunciar bendiciones bíblicas sobre vidas</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Dedicación</h5>
+                                    <p>Consagrar personas para servicio específico</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                🔥 <span>Avivamiento y Renovación</span>
+                            </div>
+                            <div class="card-content">
+                                El altar es el lugar donde <span class="emphasis">Dios encuentra a su pueblo</span> para renovación espiritual, confesión de pecados y experiencias transformadoras.
+                            </div>
+                            <div class="biblical-foundation">
+                                <div class="verse">"¿Está alguno enfermo entre vosotros? Llame a los ancianos de la iglesia, y oren por él, ungiéndole con aceite en el nombre del Señor."</div>
+                                <div class="reference">Santiago 5:14</div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            teaching: {
+                title: "📖 MINISTERIO DE ENSEÑANZA",
+                content: `
+                    <div class="biblical-foundation">
+                        <div class="verse">"Y él mismo constituyó a unos, apóstoles; a otros, profetas; a otros, evangelistas; a otros, pastores y maestros, a fin de perfeccionar a los santos para la obra del ministerio."</div>
+                        <div class="reference">Efesios 4:11-12</div>
+                    </div>
+                    
+                    <div class="ministry-grid">
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                🎓 <span>Educación Cristiana</span>
+                            </div>
+                            <div class="card-content">
+                                El pastor-maestro tiene la responsabilidad de <span class="emphasis">equipar a los santos</span> para el servicio cristiano a través de enseñanza sistemática y comprensiva de la Palabra.
+                            </div>
+                            <div class="qualifications-list">
+                                <h4>Áreas de Enseñanza:</h4>
+                                <ul>
+                                    <li>Doctrina fundamental cristiana</li>
+                                    <li>Estudios bíblicos temáticos</li>
+                                    <li>Teología sistemática</li>
+                                    <li>Ética cristiana práctica</li>
+                                    <li>Historia de la iglesia</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                🌱 <span>Discipulado Intencional</span>
+                            </div>
+                            <div class="card-content">
+                                La enseñanza pastoral va más allá de la transmisión de información; busca la <span class="emphasis">transformación del carácter</span> conformándolo a Cristo.
+                            </div>
+                            <div class="responsibilities-grid">
+                                <div class="responsibility-item">
+                                    <h5>Modelado</h5>
+                                    <p>Enseñar con el ejemplo personal de vida</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Mentoría</h5>
+                                    <p>Invertir tiempo personal en líderes emergentes</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Aplicación</h5>
+                                    <p>Conectar verdades bíblicas con vida práctica</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Evaluación</h5>
+                                    <p>Medir el crecimiento espiritual y doctrinal</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                👥 <span>Desarrollo de Liderazgo</span>
+                            </div>
+                            <div class="card-content">
+                                El pastor-maestro debe <span class="emphasis">multiplicarse</span> preparando a otros para el ministerio y asegurando la continuidad del liderazgo en la iglesia.
+                            </div>
+                            <div class="biblical-foundation">
+                                <div class="verse">"Lo que has oído de mí ante muchos testigos, esto encarga a hombres fieles que sean idóneos para enseñar también a otros."</div>
+                                <div class="reference">2 Timoteo 2:2</div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            visitation: {
+                title: "🚗 MINISTERIO DE VISITACIÓN",
+                content: `
+                    <div class="biblical-foundation">
+                        <div class="verse">"La religión pura y sin mácula delante de Dios el Padre es esta: Visitar a los huérfanos y a las viudas en sus tribulaciones, y guardarse sin mancha del mundo."</div>
+                        <div class="reference">Santiago 1:27</div>
+                    </div>
+                    
+                    <div class="ministry-grid">
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                🏥 <span>Cuidado en Crisis</span>
+                            </div>
+                            <div class="card-content">
+                                La visitación pastoral demuestra el <span class="emphasis">corazón de Cristo</span> llevando consuelo, esperanza y presencia divina a quienes atraviesan momentos difíciles.
+                            </div>
+                            <div class="qualifications-list">
+                                <h4>Tipos de Visitación:</h4>
+                                <ul>
+                                    <li>Enfermos en hospitales y hogares</li>
+                                    <li>Familias en duelo y pérdida</li>
+                                    <li>Personas desanimadas o deprimidas</li>
+                                    <li>Nuevos convertidos y visitantes</li>
+                                    <li>Miembros alejados de la congregación</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                💝 <span>Presencia Significativa</span>
+                            </div>
+                            <div class="card-content">
+                                A veces la <span class="emphasis">presencia silenciosa</span> del pastor dice más que muchas palabras. Su simple presencia comunica el amor de Dios y el cuidado de la iglesia.
+                            </div>
+                            <div class="responsibilities-grid">
+                                <div class="responsibility-item">
+                                    <h5>Disponibilidad</h5>
+                                    <p>Estar accesible en momentos de necesidad</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Empatía</h5>
+                                    <p>Llorar con los que lloran, gozar con los que se gozan</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Oración</h5>
+                                    <p>Llevar las cargas al trono de la gracia</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Seguimiento</h5>
+                                    <p>Mantener contacto después de la crisis inicial</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                🌍 <span>Alcance Comunitario</span>
+                            </div>
+                            <div class="card-content">
+                                La visitación se extiende más allá de la congregación para alcanzar a la <span class="emphasis">comunidad circundante</span> con el amor de Cristo y el testimonio del evangelio.
+                            </div>
+                            <div class="biblical-foundation">
+                                <div class="verse">"Y recorrió Jesús toda Galilea, enseñando en las sinagogas de ellos, y predicando el evangelio del reino, y sanando toda enfermedad y toda dolencia en el pueblo."</div>
+                                <div class="reference">Mateo 4:23</div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            administration: {
+                title: "📋 ADMINISTRACIÓN PASTORAL",
+                content: `
+                    <div class="biblical-foundation">
+                        <div class="verse">"Y el que preside, con solicitud; el que hace misericordia, con alegría."</div>
+                        <div class="reference">Romanos 12:8</div>
+                    </div>
+                    
+                    <div class="ministry-grid">
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                👑 <span>Liderazgo Visionario</span>
+                            </div>
+                            <div class="card-content">
+                                El pastor como administrador debe tener <span class="emphasis">visión clara</span> del propósito de la iglesia y la habilidad para comunicar y ejecutar esa visión efectivamente.
+                            </div>
+                            <div class="qualifications-list">
+                                <h4>Responsabilidades Administrativas:</h4>
+                                <ul>
+                                    <li>Establecer visión y dirección ministerial</li>
+                                    <li>Planificar estratégicamente el crecimiento</li>
+                                    <li>Coordinar ministerios y programas</li>
+                                    <li>Supervisar presupuesto y recursos</li>
+                                    <li>Desarrollar políticas y procedimientos</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                🤝 <span>Trabajo en Equipo</span>
+                            </div>
+                            <div class="card-content">
+                                La administración pastoral efectiva requiere <span class="emphasis">delegación sabia</span> y desarrollo de un equipo ministerial competente y comprometido.
+                            </div>
+                            <div class="responsibilities-grid">
+                                <div class="responsibility-item">
+                                    <h5>Delegación</h5>
+                                    <p>Asignar responsabilidades según dones y capacidades</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Supervisión</h5>
+                                    <p>Monitorear progreso sin microgestión</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Motivación</h5>
+                                    <p>Inspirar y animar al equipo ministerial</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Evaluación</h5>
+                                    <p>Revisar resultados y hacer ajustes necesarios</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                ⚖️ <span>Mayordomía Responsable</span>
+                            </div>
+                            <div class="card-content">
+                                El pastor administrador debe manejar los <span class="emphasis">recursos de Dios</span> con integridad, transparencia y eficiencia para el avance del Reino.
+                            </div>
+                            <div class="biblical-foundation">
+                                <div class="verse">"Ahora bien, se requiere de los administradores, que cada uno sea hallado fiel."</div>
+                                <div class="reference">1 Corintios 4:2</div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            discipleship: {
+                title: "🌱 MINISTERIO DE DISCIPULADO",
+                content: `
+                    <div class="biblical-foundation">
+                        <div class="verse">"Por tanto, id, y haced discípulos a todas las naciones, bautizándolos en el nombre del Padre, y del Hijo, y del Espíritu Santo; enseñándoles que guarden todas las cosas que os he mandado."</div>
+                        <div class="reference">Mateo 28:19-20</div>
+                    </div>
+                    
+                    <div class="ministry-grid">
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                🎯 <span>Formación Intencional</span>
+                            </div>
+                            <div class="card-content">
+                                El discipulado pastoral es un proceso <span class="emphasis">intencional y relacional</span> que busca formar creyentes maduros que puedan reproducirse espiritualmente.
+                            </div>
+                            <div class="calling-process">
+                                <h3>Proceso de Discipulado</h3>
+                                <div class="process-steps">
+                                    <div class="process-step">
+                                        <div class="step-number">1</div>
+                                        <div class="step-title">Evangelización</div>
+                                        <div class="step-description">Llevar personas a Cristo</div>
+                                    </div>
+                                    <div class="process-step">
+                                        <div class="step-number">2</div>
+                                        <div class="step-title">Establecimiento</div>
+                                        <div class="step-description">Fundar en la fe básica</div>
+                                    </div>
+                                    <div class="process-step">
+                                        <div class="step-number">3</div>
+                                        <div class="step-title">Equipamiento</div>
+                                        <div class="step-description">Desarrollar habilidades ministeriales</div>
+                                    </div>
+                                    <div class="process-step">
+                                        <div class="step-number">4</div>
+                                        <div class="step-title">Envío</div>
+                                        <div class="step-description">Multiplicar en otros</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                🔄 <span>Reproducción Espiritual</span>
+                            </div>
+                            <div class="card-content">
+                                El objetivo final del discipulado es que cada creyente se convierta en un <span class="emphasis">discipulador</span> que puede formar a otros, creando un ciclo continuo de multiplicación.
+                            </div>
+                            <div class="responsibilities-grid">
+                                <div class="responsibility-item">
+                                    <h5>Modelado</h5>
+                                    <p>Demostrar la vida cristiana en práctica</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Enseñanza</h5>
+                                    <p>Transmitir verdades bíblicas fundamentales</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Mentoría</h5>
+                                    <p>Caminar junto al discípulo en su crecimiento</p>
+                                </div>
+                                <div class="responsibility-item">
+                                    <h5>Multiplicación</h5>
+                                    <p>Entrenar para que formen a otros</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ministry-card">
+                            <div class="card-header">
+                                🎖️ <span>Madurez Espiritual</span>
+                            </div>
+                            <div class="card-content">
+                                El discipulado pastoral busca desarrollar <span class="emphasis">creyentes maduros</span> que reflejen el carácter de Cristo y sean útiles en la obra del Reino.
+                            </div>
+                            <div class="biblical-foundation">
+                                <div class="verse">"Hasta que todos lleguemos a la unidad de la fe y del conocimiento del Hijo de Dios, a un varón perfecto, a la medida de la estatura de la plenitud de Cristo."</div>
+                                <div class="reference">Efesios 4:13</div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        function openMinistry(area) {
+            const overlay = document.getElementById('contentOverlay');
+            const content = document.getElementById('ministryContent');
+            const data = ministryData[area];
+            
+            // Remove active class from all areas
+            document.querySelectorAll('.ministry-area').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Add active class to clicked area
+            document.querySelector(`.ministry-area.${area}`).classList.add('active');
+            
+            content.innerHTML = `
+                <h2 class="panel-title">${data.title}</h2>
+                ${data.content}
+            `;
+            
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMinistry() {
+            const overlay = document.getElementById('contentOverlay');
+            overlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Remove active class from all areas
+            document.querySelectorAll('.ministry-area').forEach(el => {
+                el.classList.remove('active');
+            });
+        }
+
+        // Close with ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMinistry();
+            }
+        });
+
+        // Close clicking outside content
+        document.getElementById('contentOverlay').addEventListener('click', (e) => {
+            if (e.target.id === 'contentOverlay') {
+                closeMinistry();
+            }
+        });
+
+        // Add hover effect to tools
+        document.querySelectorAll('.tool').forEach(tool => {
+            tool.addEventListener('mouseenter', () => {
+                tool.style.animation = 'none';
+                setTimeout(() => {
+                    tool.style.animation = '';
+                }, 10);
+            });
+        });
+    </script>
+</body>
+</html>

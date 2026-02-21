@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pneumatología Avanzada - Estudio del Espíritu Santo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1a365d;
+            background: radial-gradient(circle at center, #ebf8ff 0%, #bee3f8 50%, #90cdf4 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            background: linear-gradient(145deg, #2b6cb0 0%, #3182ce 50%, #4299e1 100%);
+            color: white;
+            padding: 80px 30px;
+            border-radius: 25px;
+            margin-bottom: 50px;
+            box-shadow: 0 25px 50px rgba(43, 108, 176, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.05) 2px,
+                rgba(255,255,255,0.05) 4px
+            );
+            animation: shimmer 20s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            opacity: 0.95;
+            font-weight: 300;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto 25px auto;
+            position: relative;
+            z-index: 1;
+            opacity: 0.9;
+        }
+
+        .keywords {
+            font-size: 1.1em;
+            letter-spacing: 4px;
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .section {
+            background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            border: 1px solid rgba(66, 153, 225, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3182ce, #4299e1, #63b3ed);
+        }
+
+        .section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        h2 {
+            color: #2b6cb0;
+            font-size: 2.3em;
+            margin-bottom: 25px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3182ce, #4299e1);
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: #2d3748;
+            font-size: 1.6em;
+            margin: 25px 0 15px 0;
+            font-weight: 600;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        h3::before {
+            content: '◉';
+            position: absolute;
+            left: 0;
+            color: #4299e1;
+            font-size: 0.8em;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        p {
+            font-size: 1.05em;
+            margin-bottom: 18px;
+            text-align: justify;
+            color: #2d3748;
+        }
+
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .persona-card {
+            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(66, 153, 225, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .persona-card:hover {
+            transform: scale(1.05);
+        }
+
+        .persona-card h4 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .dones-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 25px 0;
+        }
+
+        .don-category {
+            background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #4299e1;
+        }
+
+        .don-category h4 {
+            color: #2b6cb0;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .don-list {
+            list-style: none;
+        }
+
+        .don-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(66, 153, 225, 0.2);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .don-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #4299e1;
+            font-weight: bold;
+        }
+
+        .frutos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .fruto {
+            background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #68d391;
+            transition: all 0.3s ease;
+        }
+
+        .fruto:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(104, 211, 145, 0.3);
+        }
+
+        .fruto h4 {
+            color: #2f855a;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .fruto p {
+            font-size: 0.95em;
+            color: #276749;
+            margin: 0;
+        }
+
+        .verse-highlight {
+            background: linear-gradient(135deg, #fef5e7 0%, #fed7aa 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #f6ad55;
+            margin: 25px 0;
+            font-style: italic;
+            position: relative;
+        }
+
+        .verse-highlight::before {
+            content: '"';
+            font-size: 4em;
+            color: #f6ad55;
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            opacity: 0.3;
+        }
+
+        .verse-ref {
+            text-align: right;
+            font-weight: 600;
+            color: #c05621;
+            margin-top: 15px;
+        }
+
+        .ministerio-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            background: #edf2f7;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px 20px;
+            text-align: center;
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #4a5568;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 25px;
+            background: #f7fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .preguntas-section {
+            background: linear-gradient(135deg, #fef5e7 0%, #fed7aa 50%, #fbd38d 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+            border: 1px solid #f6ad55;
+        }
+
+        .preguntas-section h2 {
+            color: #c05621;
+            text-align: center;
+            margin-bottom: 35px;
+            font-size: 2.5em;
+        }
+
+        .pregunta {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            position: relative;
+            border-left: 4px solid #f6ad55;
+        }
+
+        .pregunta-numero {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .emphasis {
+            color: #3182ce;
+            font-weight: 600;
+        }
+
+        .scripture-ref {
+            font-style: italic;
+            color: #2b6cb0;
+            font-weight: 500;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #2d3748;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            background: rgba(255,255,255,0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .dones-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .frutos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .ministerio-tabs {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pneumatología Avanzada</h1>
+            <p class="subtitle">ESPÍRITU SANTO</p>
+            <p class="description">Estudio profundo sobre la persona y obra del Espíritu Santo, sus dones, frutos, y ministerio en la vida del creyente y la iglesia contemporánea.</p>
+            <div class="keywords">• DONES • FRUTOS • MINISTERIO •</div>
+        </header>
+
+        <div class="intro-text">
+            El estudio del <span class="emphasis">Espíritu Santo</span> nos lleva al corazón mismo de la experiencia cristiana. Como una persona de la Deidad (Colosences 2:8), el Espíritu Santo no es una fuerza impersonal, sino <span class="emphasis">Dios mismo</span> morando en nosotros, transformándonos y equipándonos para el servicio del Reino. <span class="scripture-ref">"Pero cuando venga el Espíritu de verdad, él os guiará a toda la verdad"</span> <span class="scripture-ref">(Juan 16:13)</span>.
+        </div>
+
+        <div class="main-content">
+            <div class="section">
+                <h2>La Persona del Espíritu Santo</h2>
+                
+                <p>El Espíritu Santo posee todos los <span class="emphasis">atributos de la personalidad</span>: intelecto, emociones y voluntad. No es una fuerza o influencia, sino una persona divina completa.</p>
+
+                <div class="persona-grid">
+                    <div class="persona-card">
+                        <h4>Intelecto</h4>
+                        <p>Conoce los pensamientos de Dios (1 Cor. 2:10-11) y enseña toda verdad</p>
+                    </div>
+                    <div class="persona-card">
+                        <h4>Emociones</h4>
+                        <p>Puede ser contristado (Ef. 4:30) y siente amor (Rom. 15:30)</p>
+                    </div>
+                    <div class="persona-card">
+                        <h4>Voluntad</h4>
+                        <p>Distribuye dones según su voluntad (1 Cor. 12:11) y toma decisiones</p>
+                    </div>
+                </div>
+
+                <h3>Deidad del Espíritu Santo</h3>
+                <p>Las Escrituras claramente afirman la <span class="emphasis">deidad plena</span> del Espíritu Santo. Es llamado Dios <span class="scripture-ref">(Hechos 5:3-4)</span>, posee atributos divinos como omnisciencia <span class="scripture-ref">(1 Cor. 2:10)</span> y omnipresencia <span class="scripture-ref">(Salmo 139:7)</span>, y realiza obras exclusivamente divinas como la creación <span class="scripture-ref">(Job 33:4)</span> y la regeneración <span class="scripture-ref">(Juan 3:5-6)</span>.</p>
+            </div>
+
+            <div class="section">
+                <h2>Obras del Espíritu Santo</h2>
+                
+                <h3>En la Creación y Revelación</h3>
+                <p>El Espíritu participó activamente en la <span class="emphasis">creación del universo</span> <span class="scripture-ref">(Génesis 1:2)</span> y en la inspiración de las Escrituras <span class="scripture-ref">(2 Pedro 1:21)</span>. Su obra reveladora continúa iluminando nuestro entendimiento de la Palabra de Dios.</p>
+
+                <h3>En la Salvación</h3>
+                <p>El Espíritu Santo es el <span class="emphasis">agente de la regeneración</span>, convenciendo al mundo de pecado <span class="scripture-ref">(Juan 16:8)</span>, regenerando al creyente <span class="scripture-ref">(Tito 3:5)</span> y sellándolo para el día de la redención <span class="scripture-ref">(Efesios 1:13)</span>.</p>
+
+                <div class="verse-highlight">
+                    Y yo rogaré al Padre, y os dará otro Consolador, para que esté con vosotros para siempre: el Espíritu de verdad, al cual el mundo no puede recibir, porque no le ve, ni le conoce; pero vosotros le conocéis, porque mora con vosotros, y estará en vosotros.
+                    <div class="verse-ref">Juan 14:16-17</div>
+                </div>
+            </div>
+
+            <div class="section full-width">
+                <h2>Los Dones Espirituales</h2>
+                
+                <p>Los dones espirituales son <span class="emphasis">capacidades sobrenaturales</span> otorgadas por el Espíritu Santo para la edificación del cuerpo de Cristo y el avance del Reino de Dios.</p>
+
+                <div class="dones-container">
+                    <div class="don-category">
+                        <h4>Dones de Revelación</h4>
+                        <ul class="don-list">
+                            <li><strong>Palabra de Sabiduría:</strong> Revelación sobrenatural para situaciones específicas</li>
+                            <li><strong>Palabra de Ciencia:</strong> Conocimiento sobrenatural de hechos</li>
+                            <li><strong>Discernimiento de Espíritus:</strong> Capacidad de distinguir entre espíritus</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="don-category">
+                        <h4>Dones de Poder</h4>
+                        <ul class="don-list">
+                            <li><strong>Fe:</strong> Confianza sobrenatural para lo imposible</li>
+                            <li><strong>Sanidades:</strong> Poder para restaurar la salud</li>
+                            <li><strong>Milagros:</strong> Intervenciones sobrenaturales en las leyes naturales</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="don-category">
+                        <h4>Dones de Inspiración</h4>
+                        <ul class="don-list">
+                            <li><strong>Profecía:</strong> Mensaje divino para edificación</li>
+                            <li><strong>Lenguas:</strong> Comunicación en idiomas no aprendidos</li>
+                            <li><strong>Interpretación:</strong> Traducción del mensaje en lenguas</li>
+                        </ul>
+                    </div>
+
+                    <div class="don-category">
+                        <h4>Dones de Servicio</h4>
+                        <ul class="don-list">
+                            <li><strong>Apostolado:</strong> Liderazgo para plantar iglesias</li>
+                            <li><strong>Profeta:</strong> Ministerio profético establecido</li>
+                            <li><strong>Evangelista:</strong> Unción especial para ganar almas</li>
+                            <li><strong>Pastor-Maestro:</strong> Cuidado y enseñanza del rebaño</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Principios de los Dones Espirituales</h3>
+                <p>Los dones son <span class="emphasis">manifestaciones del Espíritu</span> <span class="scripture-ref">(1 Cor. 12:7)</span>, no talentos naturales mejorados. Son dados según la soberanía divina <span class="scripture-ref">(1 Cor. 12:11)</span> y deben ser ejercidos en amor <span class="scripture-ref">(1 Cor. 13)</span> para la edificación de todo el cuerpo <span class="scripture-ref">(1 Cor. 14:12)</span>.</p>
+            </div>
+
+            <div class="section full-width">
+                <h2>El Fruto del Espíritu</h2>
+                
+                <p>Mientras los dones son <span class="emphasis">manifestaciones del poder</span> del Espíritu, el fruto representa el <span class="emphasis">carácter de Cristo</span> formado en nosotros por el Espíritu Santo.</p>
+
+                <div class="frutos-grid">
+                    <div class="fruto">
+                        <h4>Amor (Ágape)</h4>
+                        <p>Amor incondicional y sacrificial que refleja el corazón de Dios</p>
+                    </div>
+                    <div class="fruto">
+                        <h4>Gozo</h4>
+                        <p>Alegría profunda independiente de las circunstancias externas</p>
+                    </div>
+                    <div class="fruto">
+                        <h4>Paz</h4>
+                        <p>Tranquilidad interior y armonía con Dios y otros</p>
+                    </div>
+                    <div class="fruto">
+                        <h4>Paciencia</h4>
+                        <p>Tolerancia y perseverancia ante las dificultades</p>
+                    </div>
+                    <div class="fruto">
+                        <h4>Benignidad</h4>
+                        <p>Bondad práctica expresada en acciones concretas</p>
+                    </div>
+                    <div class="fruto">
+                        <h4>Bondad</h4>
+                        <p>Carácter generoso y noble que busca el bien de otros</p>
+                    </div>
+                    <div class="fruto">
+                        <h4>Fe (Fidelidad)</h4>
+                        <p>Confiabilidad y lealtad en todas las relaciones</p>
+                    </div>
+                    <div class="fruto">
+                        <h4>Mansedumbre</h4>
+                        <p>Humildad y gentileza controlada por el Espíritu</p>
+                    </div>
+                    <div class="fruto">
+                        <h4>Templanza</h4>
+                        <p>Autocontrol y disciplina en todas las áreas de la vida</p>
+                    </div>
+                </div>
+
+                <div class="verse-highlight">
+                    Mas el fruto del Espíritu es amor, gozo, paz, paciencia, benignidad, bondad, fe, mansedumbre, templanza; contra tales cosas no hay ley.
+                    <div class="verse-ref">Gálatas 5:22-23</div>
+                </div>
+            </div>
+
+            <div class="section full-width">
+                <h2>Ministerio del Espíritu Santo</h2>
+                
+                <div class="ministerio-tabs">
+                    <button class="tab active" onclick="showTab('creyente')">En el Creyente</button>
+                    <button class="tab" onclick="showTab('iglesia')">En la Iglesia</button>
+                    <button class="tab" onclick="showTab('mundo')">En el Mundo</button>
+                </div>
+
+                <div id="creyente" class="tab-content active">
+                    <h3>Ministerio Personal del Espíritu</h3>
+                    <p><strong>Regeneración:</strong> El Espíritu nos da nueva vida espiritual <span class="scripture-ref">(Juan 3:5)</span>, transformando nuestro corazón de piedra en corazón de carne.</p>
+                    
+                    <p><strong>Santificación:</strong> Proceso continuo de conformarnos a la imagen de Cristo <span class="scripture-ref">(2 Cor. 3:18)</span>, produciendo transformación moral y espiritual.</p>
+                    
+                    <p><strong>Intercesión:</strong> El Espíritu intercede por nosotros con gemidos indecibles <span class="scripture-ref">(Rom. 8:26)</span>, especialmente cuando no sabemos cómo orar.</p>
+                    
+                    <p><strong>Guía:</strong> Nos dirige en toda verdad <span class="scripture-ref">(Juan 16:13)</span> y nos ayuda a tomar decisiones conforme a la voluntad de Dios.</p>
+                    
+                    <p><strong>Testimonio:</strong> Da testimonio a nuestro espíritu de que somos hijos de Dios <span class="scripture-ref">(Rom. 8:16)</span>, proporcionando seguridad de salvación.</p>
+                </div>
+
+                <div id="iglesia" class="tab-content">
+                    <h3>Ministerio Corporativo del Espíritu</h3>
+                    <p><strong>Unidad:</strong> El Espíritu es el agente de la unidad del cuerpo <span class="scripture-ref">(Ef. 4:3)</span>, conectando a creyentes de diferentes trasfondos en una sola familia.</p>
+                    
+                    <p><strong>Edificación:</strong> Distribuye dones para edificar la iglesia <span class="scripture-ref">(1 Cor. 12:7)</span>, asegurando que cada miembro contribuya al crecimiento del cuerpo.</p>
+                    
+                    <p><strong>Dirección:</strong> Guía las decisiones de la iglesia <span class="scripture-ref">(Hechos 13:2)</span>, incluyendo el envío de misioneros y la toma de decisiones importantes.</p>
+                    
+                    <p><strong>Adoración:</strong> Capacita la adoración en espíritu y verdad <span class="scripture-ref">(Juan 4:24)</span>, transformando nuestras reuniones en encuentros genuinos con Dios.</p>
+                    
+                    <p><strong>Crecimiento:</strong> Produce crecimiento cualitativo y cuantitativo <span class="scripture-ref">(Hechos 9:31)</span>, tanto en madurez espiritual como en número de convertidos.</p>
+                </div>
+
+                <div id="mundo" class="tab-content">
+                    <h3>Ministerio Mundial del Espíritu</h3>
+                    <p><strong>Convicción:</strong> Convence al mundo de pecado, justicia y juicio <span class="scripture-ref">(Juan 16:8)</span>, preparando corazones para recibir el evangelio.</p>
+                    
+                    <p><strong>Restricción:</strong> Restringe el mal en el mundo <span class="scripture-ref">(2 Tes. 2:7)</span>, manteniendo un equilibrio moral que permite la predicación del evangelio.</p>
+                    
+                    <p><strong>Evangelización:</strong> Capacita a los creyentes para ser testigos efectivos <span class="scripture-ref">(Hechos 1:8)</span>, proporcionando poder sobrenatural para el testimonio.</p>
+                    
+                    <p><strong>Confirmación:</strong> Confirma la predicación del evangelio con señales y prodigios <span class="scripture-ref">(Marcos 16:20)</span>, validando el mensaje apostólico.</p>
+                    
+                    <p><strong>Preparación:</strong> Prepara el camino para la segunda venida de Cristo, incluyendo el derramamiento prometido de los últimos días <span class="scripture-ref">(Joel 2:28-29)</span>.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="preguntas-section">
+            <h2>Preguntas de Análisis Profundo</h2>
+            
+            <div class="pregunta">
+                <div class="pregunta-numero">1</div>
+                <strong>Pregunta Exegética:</strong> Analiza Juan 16:7-15 y explica por qué Jesús dijo que era "conveniente" que Él se fuera para que el Espíritu Santo viniera. ¿Qué aspectos del ministerio del Espíritu no podían cumplirse mientras Jesús estaba físicamente presente?
+            </div>
+
+            <div class="pregunta">
+                <div class="pregunta-numero">2</div>
+                <strong>Pregunta Teológica:</strong> ¿Cómo concilias la soberanía del Espíritu Santo en la distribución de dones (1 Cor. 12:11) con la exhortación a "procurar los dones mejores" (1 Cor. 12:31)? ¿Qué implica esto para nuestra búsqueda de dones espirituales?
+            </div>
+
+            <div class="pregunta">
+                <div class="pregunta-numero">3</div>
+                <strong>Pregunta Práctica:</strong> Evalúa la diferencia entre los dones del Espíritu y el fruto del Espíritu en términos de propósito, desarrollo y permanencia. ¿Por qué Pablo enfatiza más el amor (fruto) que los dones milagrosos en 1 Corintios 13?
+            </div>
+
+            <div class="pregunta">
+                <div class="pregunta-numero">4</div>
+                <strong>Pregunta Histórica:</strong> Investiga el cumplimiento de Joel 2:28-29 en Hechos 2. ¿Se agotó esta profecía en Pentecostés, o tiene aplicación continua? Fundamenta tu respuesta con evidencia bíblica e histórica.
+            </div>
+
+            <div class="pregunta">
+                <div class="pregunta-numero">5</div>
+                <strong>Pregunta Aplicativa:</strong> ¿Cómo puede un creyente discernir entre la voz del Espíritu Santo, sus propios pensamientos, y posibles influencias espirituales negativas? Desarrolla criterios bíblicos para esta evaluación.
+            </div>
+
+            <div class="pregunta">
+                <div class="pregunta-numero">6</div>
+                <strong>Pregunta Contextual:</strong> Analiza el "bautismo en el Espíritu Santo" mencionado por Juan el Bautista (Mateo 3:11), Jesús (Hechos 1:5), y experimentado por los discípulos (Hechos 2). ¿Es esto sinónimo de la conversión o una experiencia posterior? Examina los diferentes pasajes relevantes.
+            </div>
+        </div>
+
+        <div class="section full-width">
+            <h2>Síntesis y Aplicación Contemporánea</h2>
+            
+            <p>El estudio de la pneumatología no es meramente académico, sino profundamente <span class="emphasis">transformacional</span>. En la iglesia contemporánea, necesitamos un entendimiento equilibrado que honre tanto la <span class="emphasis">soberanía del Espíritu</span> como nuestra <span class="emphasis">responsabilidad de cooperar</span> con Su obra.</p>
+
+            <h3>Desafíos Contemporáneos</h3>
+            <p>La iglesia moderna enfrenta extremos: algunos ignoran al Espíritu Santo, reduciéndolo a una doctrina abstracta, mientras otros lo enfatizan de maneras que pueden carecer de fundamento bíblico sólido. El estudiante intermedio debe desarrollar <span class="emphasis">discernimiento bíblico</span> para navegar estos desafíos.</p>
+
+            <h3>El Equilibrio Bíblico</h3>
+            <p>Las Escrituras presentan al Espíritu Santo como tanto <span class="emphasis">consolador personal</span> como <span class="emphasis">poder evangelístico</span>, tanto <span class="emphasis">santificador interior</span> como <span class="emphasis">equipador sobrenatural</span>. Necesitamos experimentar todas las dimensiones de Su ministerio.</p>
+
+            <div class="verse-highlight">
+                Porque todos los que son guiados por el Espíritu de Dios, éstos son hijos de Dios. Pues no habéis recibido el espíritu de esclavitud para estar otra vez en temor, sino que habéis recibido el espíritu de adopción, por el cual clamamos: ¡Abba, Padre!
+                <div class="verse-ref">Romanos 8:14-15</div>
+            </div>
+
+            <p>El objetivo final del estudio pneumatológico es una <span class="emphasis">vida llena del Espíritu</span> que manifieste tanto el carácter de Cristo como el poder del Reino, siendo testimonios efectivos del evangelio en nuestra generación.</p>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Ocultar todos los contenidos de las pestañas
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remover la clase active de todos los botones
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Mostrar el contenido seleccionado
+            document.getElementById(tabName).classList.add('active');
+            
+            // Marcar el botón correspondiente como activo
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

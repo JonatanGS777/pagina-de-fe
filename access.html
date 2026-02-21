@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Exclusivo - Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a1410;
+            --secondary-color: #b89a5f;
+            --accent-color: #6b4f2a;
+            --background-color: #f7f4ed;
+            --text-color: #2d2010;
+            --light-accent: #ede5d8;
+            --gold-accent: #c9aa6a;
+            --dark-color: #0e0c0a;
+            --gradient-bg: linear-gradient(160deg, #0e0c0a 0%, #1f1a14 100%);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(0, 0, 0, 0.04);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-color);
+            background: var(--gradient-bg);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Textura de grano atmosférica sobre el fondo */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Viñeta sutil en los bordes */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.45) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .access-container {
+            background: var(--background-color);
+            border-radius: 4px;
+            padding: 52px 44px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(184, 154, 95, 0.2);
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            animation: fadeUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) 0.1s both;
+            z-index: 10;
+        }
+
+        /* Línea dorada superior */
+        .access-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
+        }
+
+        .ministry-logo {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 28px;
+            border: 1px solid rgba(184, 154, 95, 0.45);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ministry-logo i {
+            font-size: 1.9rem;
+            color: var(--secondary-color);
+        }
+
+        .access-container h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.6rem;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            line-height: 1.15;
+            position: relative;
+            z-index: 2;
+        }
+
+        .access-container .subtitle {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--secondary-color);
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .access-container p {
+            color: #6b5a48;
+            margin-bottom: 32px;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+
+        .verse-preview {
+            background: transparent;
+            padding: 28px 0;
+            margin-bottom: 32px;
+            border-top: 1px solid rgba(184, 154, 95, 0.25);
+            border-bottom: 1px solid rgba(184, 154, 95, 0.25);
+            position: relative;
+            z-index: 2;
+        }
+
+        .verse-preview .verse-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .verse-preview .verse-ref {
+            text-align: right;
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            font-size: 0.72rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--secondary-color);
+        }
+
+        .access-benefits {
+            text-align: left;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 13px 0;
+            border-bottom: 1px solid rgba(184, 154, 95, 0.15);
+            transition: var(--transition);
+        }
+
+        .benefit-item:last-child {
+            border-bottom: none;
+        }
+
+        .benefit-icon {
+            width: 36px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            font-size: 1rem;
+        }
+
+        .benefit-text {
+            color: var(--text-color);
+            font-weight: 300;
+            font-size: 0.95rem;
+            letter-spacing: 0.01em;
+        }
+
+        .btn-register {
+            width: 100%;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border: 1px solid var(--primary-color);
+            padding: 18px 28px;
+            border-radius: 2px;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+            min-height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            touch-action: manipulation;
+            margin-top: 36px;
+        }
+
+        .btn-register:hover {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-register:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            margin: 18px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .auth-divider::before,
+        .auth-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(184, 154, 95, 0.25);
+        }
+
+        .auth-divider span {
+            padding: 0 20px;
+            color: #a0917e;
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .btn-admin-access {
+            width: 100%;
+            background: transparent;
+            color: #a0917e;
+            border: 1px solid rgba(184, 154, 95, 0.35);
+            padding: 16px 28px;
+            border-radius: 2px;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+            min-height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            touch-action: manipulation;
+        }
+
+        .btn-admin-access:hover {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        /* Loading spinner */
+        .loading-spinner {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Footer simple */
+        .access-footer {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-align: center;
+            z-index: 5;
+            white-space: nowrap;
+        }
+
+        .access-footer a {
+            color: rgba(255, 255, 255, 0.45);
+            text-decoration: none;
+            margin: 0 12px;
+            transition: var(--transition);
+        }
+
+        .access-footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .access-container {
+                padding: 40px 25px;
+                border-radius: 20px;
+                max-width: 100%;
+            }
+
+            .ministry-logo {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 20px;
+            }
+
+            .ministry-logo i {
+                font-size: 2.2rem;
+            }
+
+            .access-container h1 {
+                font-size: 2rem;
+                margin-bottom: 12px;
+                line-height: 1.2;
+            }
+
+            .access-container .subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 18px;
+            }
+
+            .btn-register {
+                padding: 18px 24px;
+                font-size: 1.1rem;
+                min-height: 60px;
+            }
+
+            .btn-admin-access {
+                padding: 16px 24px;
+                font-size: 1rem;
+                min-height: 56px;
+            }
+
+            .auth-divider {
+                margin: 25px 0;
+            }
+
+            .access-footer {
+                bottom: 15px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .access-container {
+                padding: 30px 20px;
+                border-radius: 16px;
+            }
+
+            .ministry-logo {
+                width: 70px;
+                height: 70px;
+            }
+
+            .access-container h1 {
+                font-size: 1.8rem;
+            }
+
+            .btn-register {
+                padding: 16px 20px;
+                font-size: 1rem;
+            }
+
+            .btn-admin-access {
+                padding: 14px 20px;
+                font-size: 0.95rem;
+            }
+
+            .benefit-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+
+            .benefit-text {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenedor principal de acceso -->
+    <div class="access-container">
+        <div class="ministry-logo">
+            <i class="fas fa-bible"></i>
+        </div>
+        
+        <h1>Acceso Exclusivo</h1>
+        <div class="subtitle">Ministerio "La Gloria es del Señor"</div>
+        <p>Para acceder a nuestros estudios bíblicos profundos y contenido exclusivo, necesitas registrarte como miembro de nuestra comunidad de fe.</p>
+        
+        <div class="verse-preview">
+            <div class="verse-text">"Lámpara es a mis pies tu palabra, y lumbrera a mi camino."</div>
+            <div class="verse-ref">Salmos 119:105</div>
+        </div>
+        
+        <div class="access-benefits">
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-scroll"></i>
+                </div>
+                <div class="benefit-text">Estudios exegéticos profundos de las Escrituras</div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="benefit-text">Comunidad de estudiantes de la Palabra</div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-bookmark"></i>
+                </div>
+                <div class="benefit-text">Seguimiento personalizado de tu progreso</div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="benefit-text">Contenido exclusivo para miembros</div>
+            </div>
+        </div>
+        
+        <button id="register-btn" class="btn-register">
+            <i class="fab fa-google"></i>
+            <span>Registrarse con Google</span>
+        </button>
+        
+        <div class="auth-divider">
+            <span>o</span>
+        </div>
+        
+        <button id="admin-access-btn" class="btn-admin-access">
+            <i class="fas fa-shield-alt"></i>
+            <span>Acceso de Administrador</span>
+        </button>
+    </div>
+
+    <!-- Footer simple -->
+    <div class="access-footer">
+        <span>© 2025 Ministerio "La Gloria es del Señor"</span>
+        <a href="mailto:ministeriolagloriaesdelsenor7@gmail.com">Contacto</a>
+        <a href="#" onclick="window.history.back()">Volver</a>
+    </div>
+
+    <script type="module">
+    // ✅ IMPORTS COMPLETOS
+    import { auth, db } from './js/firebase-config.js';
+    import { initializeAuth, loginWithGoogle, handleRedirectResult, getCurrentUser, logout } from './js/auth.js';
+    import { trackPageView } from './js/analytics.js';
+
+        // 🔐 SISTEMA DE ACCESO EXCLUSIVO COMPLETO
+        const AccessPage = {
+            isLoading: false,
+
+            // 🚀 INICIALIZAR PÁGINA DE ACCESO
+            async init() {
+                console.log('🔐 Inicializando página de acceso exclusivo...');
+                
+                // 📊 ANALYTICS - Trackear vista de página
+                try {
+                    trackPageView('Access Page');
+                    console.log('📊 Analytics: Página de acceso registrada');
+                } catch (error) {
+                    console.warn('⚠️ Analytics no disponible:', error);
+                }
+                
+                // Verificar si ya está autenticado al cargar
+                this.setupAuthListener();
+                
+                // Configurar eventos de botones
+                this.setupButtons();
+                
+                // Verificar resultado de redirección
+                await handleRedirectResult();
+                
+                console.log('✅ Página de acceso inicializada completamente');
+            },
+
+            // 👂 CONFIGURAR LISTENER DE AUTENTICACIÓN
+            setupAuthListener() {
+                initializeAuth((user) => {
+                    if (user) {
+                        console.log('✅ Usuario autenticado detectado, redirigiendo a inicio...');
+                        this.redirectToMain();
+                    } else {
+                        console.log('ℹ️ Usuario no autenticado, mostrando página de acceso');
+                    }
+                });
+            },
+
+            // 🔧 CONFIGURAR BOTONES
+            setupButtons() {
+                const registerBtn = document.getElementById('register-btn');
+                const adminBtn = document.getElementById('admin-access-btn');
+
+                if (registerBtn) {
+                    registerBtn.addEventListener('click', () => this.handleRegister());
+                }
+
+                if (adminBtn) {
+                    adminBtn.addEventListener('click', () => this.handleAdminAccess());
+                }
+            },
+
+            // 📝 MANEJAR REGISTRO
+            async handleRegister() {
+                if (this.isLoading) return;
+
+                console.log('🔐 Iniciando proceso de registro...');
+                
+                try {
+                    this.showLoading(true);
+                    
+                    // Intentar login con Google
+                    const user = await loginWithGoogle();
+                    
+                    if (user) {
+                        console.log('✅ Registro exitoso:', user.displayName);
+                        // La redirección se maneja automáticamente por el listener
+                    }
+                    
+                } catch (error) {
+                    console.error('❌ Error en registro:', error);
+                    this.showError('Error al iniciar sesión. Por favor intenta nuevamente.');
+                } finally {
+                    this.showLoading(false);
+                }
+            },
+
+            // 🛡️ MANEJAR ACCESO DE ADMINISTRADOR
+            handleAdminAccess() {
+                console.log('🔑 Redirigiendo a acceso de administrador...');
+                window.location.href = 'admin.html';
+            },
+
+            // ⏳ MOSTRAR/OCULTAR LOADING
+            showLoading(show) {
+                const registerBtn = document.getElementById('register-btn');
+                if (!registerBtn) return;
+
+                this.isLoading = show;
+
+                if (show) {
+                    registerBtn.innerHTML = '<i class="fas fa-spinner loading-spinner"></i><span>Iniciando sesión...</span>';
+                    registerBtn.disabled = true;
+                } else {
+                    registerBtn.innerHTML = '<i class="fab fa-google"></i><span>Registrarse con Google</span>';
+                    registerBtn.disabled = false;
+                }
+            },
+
+            // 🚨 MOSTRAR ERROR
+            showError(message) {
+                // Crear notificación visual mejorada
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: linear-gradient(135deg, #dc2626, #ef4444);
+                    color: white;
+                    padding: 20px 25px;
+                    border-radius: 15px;
+                    box-shadow: 0 15px 35px rgba(220, 38, 38, 0.3);
+                    z-index: 10001;
+                    max-width: 350px;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    backdrop-filter: blur(10px);
+                    font-family: 'Lato', sans-serif;
+                    animation: slideInRight 0.5s ease-out;
+                `;
+                
+                notification.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 1.2rem;"></i>
+                        <strong>Error de Acceso</strong>
+                    </div>
+                    <div style="font-size: 0.9rem; opacity: 0.9;">${message}</div>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Auto-remover después de 5 segundos
+                setTimeout(() => {
+                    notification.style.animation = 'slideOutRight 0.5s ease-out forwards';
+                    setTimeout(() => notification.remove(), 500);
+                }, 5000);
+                
+                console.error('🚨 Error:', message);
+            },
+
+            // 🚀 REDIRIGIR A PÁGINA PRINCIPAL
+            redirectToMain() {
+                console.log('🚀 Redirigiendo a página principal...');
+                
+                // Mostrar notificación de éxito
+                const successNotification = document.createElement('div');
+                successNotification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: linear-gradient(135deg, #10b981, #34d399);
+                    color: white;
+                    padding: 20px 25px;
+                    border-radius: 15px;
+                    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.3);
+                    z-index: 10001;
+                    max-width: 350px;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    backdrop-filter: blur(10px);
+                    font-family: 'Lato', sans-serif;
+                `;
+                
+                successNotification.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <i class="fas fa-check-circle" style="font-size: 1.2rem;"></i>
+                        <strong>¡Acceso Concedido!</strong>
+                    </div>
+                    <div style="font-size: 0.9rem; opacity: 0.9; margin-top: 5px;">Redirigiendo al ministerio...</div>
+                `;
+                
+                document.body.appendChild(successNotification);
+                
+                // Pequeño delay para mejor UX
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1500);
+            }
+        };
+
+        // 🚀 INICIALIZACIÓN AL CARGAR EL DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('🔐 DOM cargado - inicializando página de acceso completa...');
+            AccessPage.init();
+        });
+
+        // 🌐 FUNCIONES GLOBALES PARA DEBUG
+        window.AccessPage = AccessPage;
+        
+        window.testLogin = () => {
+            console.log('🧪 Probando login desde página de acceso...');
+            AccessPage.handleRegister();
+        };
+
+        window.checkAuthStatus = () => {
+            const user = getCurrentUser();
+            console.log('👤 Estado de autenticación:', user ? user.email : 'No autenticado');
+            return user;
+        };
+
+        window.testAdminAccess = () => {
+            console.log('🔑 Probando acceso de administrador...');
+            AccessPage.handleAdminAccess();
+        };
+
+        // 🎨 CSS PARA ANIMACIONES DE NOTIFICACIONES
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        console.log('✅ Página de acceso completa cargada correctamente');
+        console.log('🔧 Funciones disponibles: testLogin(), checkAuthStatus(), testAdminAccess()');
+    </script>
+</body>
+</html>

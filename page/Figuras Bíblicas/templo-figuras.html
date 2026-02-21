@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<!-- ARCHIVO: templo-figuras.html - Página Principal Elegante -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templo de Salomón | Exploración Interactiva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #B8860B;
+            --bronze: #CD7F32;
+            --deep-purple: #2D1B69;
+            --royal-blue: #0F1419;
+            --warm-white: #FFFEF7;
+            --silver: #C0C0C0;
+            --shadow-light: rgba(212, 175, 55, 0.1);
+            --shadow-medium: rgba(212, 175, 55, 0.2);
+            --shadow-heavy: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, var(--warm-white) 0%, #F8F6F0 100%);
+            overflow-x: hidden;
+        }
+
+        /* Loader */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--deep-purple), var(--royal-blue));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader-content {
+            text-align: center;
+            color: var(--gold-primary);
+        }
+
+        .loader-icon {
+            width: 60px;
+            height: 60px;
+            border: 3px solid var(--gold-light);
+            border-top: 3px solid var(--gold-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        .loader-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Header */
+        .main-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-primary);
+            font-size: 1.8em;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--warm-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.highlight {
+            color: var(--gold-primary);
+        }
+
+        .nav-links a.highlight {
+            background: linear-gradient(45deg, var(--gold-primary), var(--gold-light));
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            color: var(--royal-blue);
+            font-weight: 600;
+        }
+
+        /* Hero Section - Mejorado */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, 
+                var(--deep-purple) 0%, 
+                var(--royal-blue) 30%, 
+                #1a1a2e  70%, 
+                var(--deep-purple) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at center, rgba(212, 175, 55, 0.15) 0%, transparent 70%),
+                url('./images/temple-hero-bg.jpg');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                conic-gradient(from 45deg at 50% 50%, 
+                    transparent 0deg, 
+                    rgba(212, 175, 55, 0.1) 60deg, 
+                    transparent 120deg, 
+                    rgba(212, 175, 55, 0.05) 180deg, 
+                    transparent 240deg, 
+                    rgba(212, 175, 55, 0.1) 300deg, 
+                    transparent 360deg);
+            animation: rotate 60s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, 
+                rgba(212, 175, 55, 0.1) 0%, 
+                transparent 50%);
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--warm-white);
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--gold-primary), var(--gold-light), var(--gold-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+            to { text-shadow: 0 0 30px rgba(212, 175, 55, 0.6); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: var(--gold-light);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--gold-primary), var(--gold-light));
+            color: var(--royal-blue);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold-primary);
+            border: 2px solid var(--gold-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold-primary);
+            color: var(--royal-blue);
+            transform: translateY(-3px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--gold-light);
+            text-align: center;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid var(--gold-primary);
+            border-bottom: 2px solid var(--gold-primary);
+            transform: rotate(45deg);
+            margin: 10px auto;
+        }
+
+        /* Sections */
+        .section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            text-align: center;
+            color: var(--deep-purple);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--gold-light));
+            border-radius: 2px;
+        }
+
+        /* Overview Section */
+        .overview-section {
+            background: linear-gradient(135deg, var(--warm-white) 0%, #F5F2E8 100%);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .content-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .content-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .content-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .content-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Structure Section */
+        .structure-section {
+            background: linear-gradient(135deg, #F8F6F0 0%, var(--warm-white) 100%);
+        }
+
+        .temple-components {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .component-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .component-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .component-header {
+            background: linear-gradient(135deg, var(--deep-purple), var(--royal-blue));
+            color: var(--warm-white);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .component-icon {
+            font-size: 2rem;
+            background: var(--gold-primary);
+            border-radius: 50%;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 60px;
+            height: 60px;
+        }
+
+        .component-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .component-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+        }
+
+        .component-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .component-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .component-card:hover .component-image img {
+            transform: scale(1.1);
+        }
+
+        .component-details {
+            padding: 2rem;
+        }
+
+        .component-details h4 {
+            color: var(--gold-dark);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .component-description,
+        .component-symbolism {
+            margin-bottom: 2rem;
+        }
+
+        .component-description p,
+        .component-symbolism p {
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .component-3d-link {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--gold-primary), var(--gold-light));
+            color: var(--royal-blue);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .component-3d-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Symbolism Section */
+        .symbolism-section {
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--royal-blue) 100%);
+            color: var(--warm-white);
+        }
+
+        .symbolism-section .section-title {
+            color: var(--gold-primary);
+        }
+
+        .symbolism-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .symbolism-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--gold-light);
+        }
+
+        /* Footer */
+        .main-footer {
+            background: var(--royal-blue);
+            color: var(--warm-white);
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .footer-info h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--gold-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .component-content {
+                grid-template-columns: 1fr;
+            }
+
+            .component-image {
+                height: 200px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Loading state hide */
+        .loaded .loader {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-icon"></div>
+            <div class="loader-text">Cargando el Templo de Salomón...</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="main-header">
+        <nav class="main-nav">
+            <div class="logo">
+                <h1>Templo de Salomón</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#overview">Descripción</a></li>
+                <li><a href="#structure">Estructura</a></li>
+                <li><a href="#symbolism">Simbología</a></li>
+                <li><a href="temple-3d.html" class="highlight">Modelo 3D</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h2 class="hero-title">El Templo de Salomón</h2>
+            <p class="hero-subtitle">Una maravilla arquitectónica y espiritual de la antigua Israel</p>
+            <div class="hero-buttons">
+                <a href="temple-3d.html" class="btn btn-primary">Explorar en 3D</a>
+                <a href="#overview" class="btn btn-secondary">Conocer más</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Desliza para descubrir</span>
+            <div class="arrow"></div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="section overview-section">
+        <div class="container">
+            <h2 class="section-title">El Glorioso Templo del Rey Salomón</h2>
+            <div class="content-grid">
+                <div class="content-text">
+                    <p>El Templo de Salomón, construido alrededor del año 966 a.C., representó el punto culminante de la gloria de Israel. Durante siete años, el rey Salomón dirigió la construcción de esta maravilla arquitectónica que se convertiría en el centro del culto israelita.</p>
+                    <p>Con dimensiones de aproximadamente 27 metros de largo, 9 metros de ancho y 13.5 metros de alto, el templo estaba recubierto de oro puro en su interior, reflejando la gloria divina y la opulencia del reino.</p>
+                    <p>Más allá de su belleza arquitectónica, cada elemento del templo tenía un significado espiritual profundo, prefigurando aspectos del plan divino que se revelarían completamente siglos después.</p>
+                    <a href="temple-3d.html" class="btn btn-secondary">Ver Modelo 3D</a>
+                </div>
+                <div class="content-image">
+                    <img src="images/temple-overview.jpg" alt="Templo de Salomón">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Structure Section -->
+    <section id="structure" class="section structure-section">
+        <div class="container">
+            <h2 class="section-title">Estructura y Componentes</h2>
+            
+            <div class="temple-components">
+                <!-- Atrio -->
+                <div class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon">🏛️</div>
+                        <h3>El Atrio</h3>
+                    </div>
+                    <div class="component-content">
+                        <div class="component-image">
+                            <img src="images/atrio.jpg" alt="El Atrio">
+                        </div>
+                        <div class="component-details">
+                            <div class="component-description">
+                                <h4>Descripción</h4>
+                                <p>El área exterior del templo donde se reunía el pueblo para la adoración. Aquí se encontraba el gran altar de bronce donde se ofrecían los sacrificios diarios. Rodeado por muros de piedra, el atrio era un espacio amplio que podía albergar a miles de fieles durante las grandes festividades.</p>
+                            </div>
+                            <div class="component-symbolism">
+                                <h4>Simbología</h4>
+                                <p>Representa el mundo y la entrada al reino de Dios. Simboliza el primer paso en el acercamiento a la presencia divina. El atrio prefigura la vida terrenal y el inicio del camino espiritual, donde el creyente comienza a separarse del mundo para acercarse a Dios.</p>
+                            </div>
+                            <a href="temple-3d.html?part=atrio" class="component-3d-link">Ver en 3D</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lugar Santo -->
+                <div class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon">✨</div>
+                        <h3>El Lugar Santo (Hekal)</h3>
+                    </div>
+                    <div class="component-content">
+                        <div class="component-image">
+                            <img src="images/lugar-santo.jpg" alt="El Lugar Santo">
+                        </div>
+                        <div class="component-details">
+                            <div class="component-description">
+                                <h4>Descripción</h4>
+                                <p>La primera cámara interior del templo, donde solo los sacerdotes podían entrar. Contenía el candelabro de oro (Menorá), la mesa para el pan de la proposición y el altar del incienso. Sus paredes estaban recubiertas de oro puro y decoradas con querubines, palmeras y flores.</p>
+                            </div>
+                            <div class="component-symbolism">
+                                <h4>Simbología</h4>
+                                <p>Representa el camino de santificación y el servicio a Dios. La Menorá simboliza la luz divina y el Espíritu Santo, el pan la provisión de Dios y la comunión con Él, y el incienso las oraciones que ascienden como aroma agradable. Prefigura la vida espiritual del creyente bajo la guía del Espíritu.</p>
+                            </div>
+                            <a href="temple-3d.html?part=lugar-santo" class="component-3d-link">Ver en 3D</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lugar Santísimo -->
+                <div class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon">🕊️</div>
+                        <h3>El Lugar Santísimo (Debir)</h3>
+                    </div>
+                    <div class="component-content">
+                        <div class="component-image">
+                            <img src="images/lugar-santisimo.jpg" alt="El Lugar Santísimo">
+                        </div>
+                        <div class="component-details">
+                            <div class="component-description">
+                                <h4>Descripción</h4>
+                                <p>La cámara más interior y sagrada del templo, separada por un velo. Aquí se guardaba el Arca de la Alianza con los Querubines de oro. Solo el Sumo Sacerdote podía entrar una vez al año en el Día de la Expiación. Era un cubo perfecto, simbolizando la perfección divina.</p>
+                            </div>
+                            <div class="component-symbolism">
+                                <h4>Simbología</h4>
+                                <p>Representa la morada celestial de Dios, la presencia divina inmediata. Simboliza la comunión perfecta con Dios y el cielo mismo. El velo rasgado en la crucifixión de Cristo representa el acceso directo a Dios que ahora tienen los creyentes, sin necesidad de intermediarios humanos.</p>
+                            </div>
+                            <a href="temple-3d.html?part=lugar-santisimo" class="component-3d-link">Ver en 3D</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columnas Jaquín y Boaz -->
+                <div class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon">🏛️</div>
+                        <h3>Columnas Jaquín y Boaz</h3>
+                    </div>
+                    <div class="component-content">
+                        <div class="component-image">
+                            <img src="images/columnas.jpg" alt="Columnas Jaquín y Boaz">
+                        </div>
+                        <div class="component-details">
+                            <div class="component-description">
+                                <h4>Descripción</h4>
+                                <p>Dos grandes columnas de bronce que flanqueaban la entrada del templo. Jaquín (significa "Él establecerá") estaba a la derecha, y Boaz (significa "En Él hay fortaleza") a la izquierda. Medían aproximadamente 8 metros de altura y estaban coronadas con capiteles elaborados decorados con lirios y granadas.</p>
+                            </div>
+                            <div class="component-symbolism">
+                                <h4>Simbología</h4>
+                                <p>Representan la estabilidad y la fuerza del reino de Dios. Sus nombres proclaman verdades fundamentales: Dios establece su obra (Jaquín) y en Él está la fuerza para sostenerla (Boaz). Simbolizan los pilares de la fe: la promesa de Dios y Su poder para cumplirla.</p>
+                            </div>
+                            <a href="temple-3d.html?part=columnas" class="component-3d-link">Ver en 3D</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mar de Bronce -->
+                <div class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon">⚱️</div>
+                        <h3>El Mar de Bronce</h3>
+                    </div>
+                    <div class="component-content">
+                        <div class="component-image">
+                            <img src="images/mar-bronce.jpg" alt="El Mar de Bronce">
+                        </div>
+                        <div class="component-details">
+                            <div class="component-description">
+                                <h4>Descripción</h4>
+                                <p>Una enorme fuente circular de bronce sostenida por doce bueyes, que contenía agua para las abluciones de los sacerdotes antes de realizar sus servicios. Tenía aproximadamente 4.5 metros de diámetro y 2.25 metros de altura, con capacidad para miles de litros de agua.</p>
+                            </div>
+                            <div class="component-symbolism">
+                                <h4>Simbología</h4>
+                                <p>Simboliza la purificación necesaria para acercarse a Dios. Representa el lavamiento de la regeneración y la limpieza del pecado. Los doce bueyes representan a las doce tribus de Israel sosteniendo la obra de purificación. Prefigura el bautismo y la purificación por la Palabra de Dios.</p>
+                            </div>
+                            <a href="temple-3d.html?part=mar-bronce" class="component-3d-link">Ver en 3D</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Altar de los Holocaustos -->
+                <div class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon">🔥</div>
+                        <h3>Altar de los Holocaustos</h3>
+                    </div>
+                    <div class="component-content">
+                        <div class="component-image">
+                            <img src="images/altar-holocaustos.jpg" alt="Altar de los Holocaustos">
+                        </div>
+                        <div class="component-details">
+                            <div class="component-description">
+                                <h4>Descripción</h4>
+                                <p>Una gran estructura de bronce situada en el atrio donde se ofrecían los sacrificios diarios de animales por el pecado del pueblo. Medía aproximadamente 5 metros cuadrados y 3 metros de altura, con cuatro cuernos en sus esquinas y una rampa para acceder a su parte superior.</p>
+                            </div>
+                            <div class="component-symbolism">
+                                <h4>Simbología</h4>
+                                <p>Representa la necesidad de expiación por el pecado mediante el sacrificio. Prefigura el sacrificio definitivo de Cristo como el Cordero de Dios que quita el pecado del mundo. El fuego perpetuo que ardía en él simboliza la justicia divina que consume el pecado pero acepta el sacrificio sustitutorio.</p>
+                            </div>
+                            <a href="temple-3d.html?part=altar-holocaustos" class="component-3d-link">Ver en 3D</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menorá -->
+                <div class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon">🕯️</div>
+                        <h3>El Candelabro de Oro (Menorá)</h3>
+                    </div>
+                    <div class="component-content">
+                        <div class="component-image">
+                            <img src="images/menora.jpg" alt="El Candelabro de Oro (Menorá)">
+                        </div>
+                        <div class="component-details">
+                            <div class="component-description">
+                                <h4>Descripción</h4>
+                                <p>Un candelabro de oro puro con siete brazos que iluminaba continuamente el Lugar Santo, mantenido encendido por los sacerdotes. Estaba elaborado a partir de un solo bloque de oro, con decoraciones de flores de almendro, capullos y flores abiertas en cada brazo.</p>
+                            </div>
+                            <div class="component-symbolism">
+                                <h4>Simbología</h4>
+                                <p>Simboliza la luz divina y la iluminación espiritual. Representa a Cristo como la Luz del mundo y al Espíritu Santo con sus siete manifestaciones. Los siete brazos pueden representar la perfección divina, los días de la creación, o las siete iglesias del Apocalipsis.</p>
+                            </div>
+                            <a href="temple-3d.html?part=menora" class="component-3d-link">Ver en 3D</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mesa para el Pan -->
+                <div class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon">🍞</div>
+                        <h3>Mesa para el Pan de la Proposición</h3>
+                    </div>
+                    <div class="component-content">
+                        <div class="component-image">
+                            <img src="images/mesa-pan.jpg" alt="Mesa para el Pan de la Proposición">
+                        </div>
+                        <div class="component-details">
+                            <div class="component-description">
+                                <h4>Descripción</h4>
+                                <p>Una mesa de madera recubierta de oro en el Lugar Santo donde se colocaban doce panes que se renovaban cada semana. Los panes retirados eran consumidos por los sacerdotes en el lugar santo. La mesa estaba adornada con una moldura de oro y disponía de diversos utensilios también de oro puro.</p>
+                            </div>
+                            <div class="component-symbolism">
+                                <h4>Simbología</h4>
+                                <p>Representa la provisión continua de Dios y la comunión con Él. Simboliza a Cristo como el Pan de Vida y el sustento espiritual. Los doce panes representan a las doce tribus de Israel en comunión perpetua con Dios, o a los doce apóstoles llevando el evangelio al mundo.</p>
+                            </div>
+                            <a href="temple-3d.html?part=mesa-pan" class="component-3d-link">Ver en 3D</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Altar del Incienso -->
+                <div class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon">💨</div>
+                        <h3>Altar del Incienso</h3>
+                    </div>
+                    <div class="component-content">
+                        <div class="component-image">
+                            <img src="images/altar-incienso.jpg" alt="Altar del Incienso">
+                        </div>
+                        <div class="component-details">
+                            <div class="component-description">
+                                <h4>Descripción</h4>
+                                <p>Un pequeño altar de madera recubierto de oro ubicado frente al velo en el Lugar Santo, donde se quemaba incienso aromático mañana y tarde. Tenía cuatro cuernos en sus esquinas y anillos de oro a través de los cuales se insertaban varas para transportarlo.</p>
+                            </div>
+                            <div class="component-symbolism">
+                                <h4>Simbología</h4>
+                                <p>Simboliza la oración y la intercesión que asciende a Dios como olor fragante. Representa la mediación de Cristo y las oraciones de los santos. Su posición frente al velo indica que la oración es el medio de acercarse a la presencia divina, y su cercanía al Lugar Santísimo muestra la intimidad de la oración con Dios.</p>
+                            </div>
+                            <a href="temple-3d.html?part=altar-incienso" class="component-3d-link">Ver en 3D</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Symbolism Section -->
+    <section id="symbolism" class="section symbolism-section">
+        <div class="container">
+            <h2 class="section-title">Simbología General del Templo</h2>
+            <div class="symbolism-content">
+                <p>El Templo de Salomón no era solo un edificio físico, sino una representación visual de verdades espirituales profundas. Cada elemento, desde sus dimensiones hasta sus materiales, contenía significados que revelan el plan divino de redención.</p>
+                <p>En su totalidad, el templo simbolizaba la morada de Dios entre los hombres y prefiguraba cómo la humanidad podría acercarse a la presencia divina a través de la purificación, el sacrificio y la mediación sacerdotal.</p>
+                <p>Desde una perspectiva cristiana, el templo anticipaba la obra redentora de Cristo, quien sería el templo definitivo donde Dios y el hombre se encontrarían en perfecta comunión.</p>
+                <a href="temple-3d.html" class="btn btn-primary">Explorar en 3D</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Templo de Salomón</h3>
+                    <p>Exploración Interactiva en 3D</p>
+                </div>
+                <div class="footer-links">
+                    <a href="temple-3d.html">Modelo 3D</a>
+                    <a href="#structure">Estructura</a>
+                    <a href="#symbolism">Simbología</a>
+                    <a href="#overview">Descripción</a>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loader animation
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.main-header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(13, 13, 13, 0.98)';
+            } else {
+                header.style.background = 'rgba(13, 13, 13, 0.95)';
+            }
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            
+            if (hero) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Animation on scroll for cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animation to all component cards
+        document.querySelectorAll('.component-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

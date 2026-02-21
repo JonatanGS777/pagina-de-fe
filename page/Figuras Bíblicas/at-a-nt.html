@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antiguo y Nuevo Testamento | Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+    --primary-color: #4e5d52;       /* Verde olivo oscuro – sobriedad natural */
+    --secondary-color: #a8824f;     /* Cobre suave – elegancia sin agresividad */
+    --light-color: #f4f1ed;         /* Marfil cálido – para fondos ligeros y limpios */
+    --dark-color: #2f2f2f;          /* Gris carbón – fuerte pero neutral */
+    --gradient-bg: linear-gradient(135deg, rgba(78, 93, 82, 0.9) 0%, rgba(168, 130, 79, 0.9) 100%);
+    --at-color: #5d473a;            /* Marrón piedra para Antiguo Testamento */
+    --nt-color: #3a4a5f;            /* Azul grisáceo para Nuevo Testamento */
+    --at-gradient: linear-gradient(135deg, rgba(93, 71, 58, 0.9) 0%, rgba(146, 106, 85, 0.9) 100%);
+    --nt-gradient: linear-gradient(135deg, rgba(58, 74, 95, 0.9) 0%, rgba(108, 135, 160, 0.9) 100%);
+    --transition: all 0.3s ease-in-out;
+    --box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(0, 0, 0, 0.05);
+}
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: var(--gradient-bg);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo img {
+            height: 60px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .nav-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: var(--transition);
+            display: block;
+            padding: 0.5rem;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Dropdown Styles */
+        .menu-item-has-children {
+            position: relative;
+        }
+        
+        .menu-item-has-children > a {
+            display: flex;
+            align-items: center;
+        }
+        
+        .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: 8px;
+            padding: 0.8rem 0;
+            display: none;
+            z-index: 100;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .sub-menu li {
+            width: 100%;
+        }
+        
+        .sub-menu a {
+            padding: 0.7rem 1.2rem;
+            font-size: 0.9rem;
+            width: 100%;
+            color: var(--dark-color);
+        }
+        
+        .sub-menu a:hover {
+            background-color: rgba(123, 34, 64, 0.05);
+            color: var(--primary-color);
+        }
+        
+        .sub-menu a::after {
+            display: none;
+        }
+        
+        .menu-item-has-children:hover .sub-menu {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            background-image: url('./images/herobiblia.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.85;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary-color);
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+        }
+        
+        /* Testamentos Section */
+        .testamentos {
+            padding: 6rem 0;
+        }
+        
+        .testamento-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .testamento-header h2 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .testamento-header p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: #555;
+        }
+        
+        .testamento-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tab-btn {
+            padding: 1rem 2.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #333;
+            background-color: #f1f1f1;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tab-btn:first-child {
+            border-radius: 30px 0 0 30px;
+        }
+        
+        .tab-btn:last-child {
+            border-radius: 0 30px 30px 0;
+        }
+        
+        .tab-btn.active {
+            color: white;
+        }
+        
+        .tab-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .tab-btn:first-child::before {
+            background: var(--at-gradient);
+        }
+        
+        .tab-btn:last-child::before {
+            background: var(--nt-gradient);
+        }
+        
+        .tab-btn.active::before {
+            opacity: 1;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Categorías de libros */
+        .categoria-libros {
+            margin-bottom: 3rem;
+        }
+        
+        .categoria-titulo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .nt-content .categoria-titulo {
+            color: var(--nt-color);
+        }
+        
+        /* Libros Grid */
+        .libros-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .libro-card {
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            height: 100%;
+            min-height: 240px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .libro-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .libro-header {
+            padding: 1.2rem;
+            color: white;
+            text-align: center;
+        }
+        
+        .at-card .libro-header {
+            background: var(--at-gradient);
+        }
+        
+        .nt-card .libro-header {
+            background: var(--nt-gradient);
+        }
+        
+        .libro-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .libro-subtitle {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        .libro-content {
+            padding: 1.2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .libro-desc {
+            margin-bottom: 1.2rem;
+            flex-grow: 1;
+            font-size: 0.95rem;
+        }
+        
+        .libro-link {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            margin-top: auto;
+        }
+        
+        .nt-card .libro-link {
+            color: var(--nt-color);
+        }
+        
+        .libro-link:hover {
+            gap: 0.8rem;
+        }
+        
+        .libro-link i {
+            transition: var(--transition);
+        }
+        
+        .libro-link:hover i {
+            transform: translateX(3px);
+        }
+        
+        /* Secciones Biblia */
+        .bible-sections {
+            margin-top: 4rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .section-title h2 {
+            font-size: 2.4rem;
+            display: inline-block;
+            position: relative;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .section-title p {
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        
+        .bible-info {
+            margin-top: 2rem;
+            padding: 3rem;
+            background-color: #f9f9f9;
+            border-radius: 16px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .bible-info-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .bible-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .bible-facts {
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .bible-facts h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        .facts-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .facts-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+        
+        .figuras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .figura-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .figura-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-bg);
+            transition: var(--transition);
+        }
+        
+        .figura-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .figura-card:hover::before {
+            height: 100%;
+            opacity: 0.05;
+            z-index: -1;
+        }
+        
+        .figura-card i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .figura-card:hover i {
+            transform: scale(1.2);
+        }
+        
+        .figura-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+        
+        .figura-card p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .bible-verse {
+            background-color: rgba(123, 34, 64, 0.05);
+            padding: 3rem;
+            border-radius: 16px;
+            margin: 6rem 0;
+            position: relative;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .bible-verse::before {
+            content: '\201C';
+            font-size: 6rem;
+            position: absolute;
+            top: -30px;
+            left: 30px;
+            color: var(--primary-color);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        
+        .verse-text {
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        
+        .verse-ref {
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        /* Timeline */
+        .timeline-section {
+            position: relative;
+            padding: 4rem 0;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid var(--secondary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background: white;
+            position: relative;
+            border-radius: 16px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .left .timeline-content {
+            border-left: 5px solid var(--at-color);
+        }
+        
+        .right .timeline-content {
+            border-left: 5px solid var(--nt-color);
+        }
+        
+        .timeline-content h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .right .timeline-content h3 {
+            color: var(--nt-color);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-col a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-col a:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 280px;
+                height: 100vh;
+                background-color: var(--dark-color);
+                z-index: 1000;
+                transition: right 0.3s ease;
+                padding: 2rem;
+                overflow-y: auto;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            nav li {
+                width: 100%;
+            }
+            
+            nav a {
+                padding: 1rem 0;
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav a::after {
+                display: none;
+            }
+            
+            .menu-item-has-children > a {
+                justify-content: space-between;
+            }
+            
+            .menu-item-has-children > a::after {
+                display: block;
+                content: '+';
+                transition: var(--transition);
+            }
+            
+            .menu-item-has-children.active > a::after {
+                transform: rotate(45deg);
+            }
+            
+            .sub-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.2);
+                border-radius: 0;
+                padding-left: 1rem;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                transform: none;
+                opacity: 1;
+            }
+            
+            .menu-item-has-children.active > .sub-menu {
+                max-height: 500px;
+            }
+            
+            .menu-item-has-children:hover .sub-menu {
+                display: none;
+                transform: none;
+            }
+            
+            .menu-item-has-children.active .sub-menu {
+                display: block;
+            }
+            
+            .sub-menu a {
+                color: #ddd;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            .sub-menu a:hover {
+                background-color: rgba(255, 255, 255, 0.05);
+                color: var(--secondary-color);
+            }
+            
+            .hero {
+                height: auto;
+                padding: 6rem 0;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="../../images/EMD.png" alt="Logo EMD">
+                <div class="logo-text">
+                    <div>Ministerio</div>
+                    <div>"La Gloria es del Señor"</div>
+                </div>
+            </div>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Inicio</a></li>
+                    <li class="menu-item-has-children">
+                        <a>Figuras Bíblicas</a>
+                        <ul class="sub-menu">
+                            <li><a href="./at-a-nt.html">AT a NT</a></li>
+                            <li><a href="./nombres-simbologia.html">Los nombres y su simbología</a></li>
+                            <li><a href="./templo-figuras.html">Templo y sus Figuras</a></li>
+                            <li><a href="./sacrificios-figuras.html">Sacrificios y su Figuras</a></li>
+                            <li><a href="./tipologia-cantares.html">Tipología Cantares</a></li>
+                            <li><a href="./figuras-cristo.html">Figuras de Cristo</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Falsas Doctrinas</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                            <li><a href="../Falsas Doctrinas/gnosticismos.html">Gnosticismos en la Biblia</a></li>
+                            <li><a href="../Falsas Doctrinas/filosofias-griegas.html">Filosofías Griegas</a></li>
+                            <li><a href="../Falsas Doctrinas/masoneria.html">Masonería</a></li>
+                            <li><a href="../Falsas Doctrinas/sociedades-secretas.html">Sociedades Secretas</a></li>
+                            <li><a href="../Falsas Doctrinas/sectas-anticristianas.html">Sectas Anticristianas</a></li>
+                            <li><a href="../Falsas Doctrinas/pseudoprofetas.html">Pseudoprofetas</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Estudios Exegéticos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Temas Exegéticos</a></li>
+                            <li><a href="../Estudios Exegéticos/idiomas-biblia.html">Hebreo, Arameo y Griego en la Biblia</a></li>
+                            <li><a href="../Estudios Exegéticos/enlaces-recursos.html">Enlaces de Recursos</a></li>
+                            <li><a href="../Estudios Exegéticos/diccionarios-comentarios.html">Diccionarios y Comentarios</a></li>
+                            <li><a href="../Estudios Exegéticos/software-biblico.html">Software Bíblicos</a></li>
+                            <li><a href="../Estudios Exegéticos/meditacion-palabra.html">Meditación en la Palabra</a></li>
+                            <li><a href="../Estudios Exegéticos/lectura-anual.html">Lectura Anual</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Tiempo del Fin</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Tiempo del Fin/introduccion.html">Introducción al tiempo del fin</a></li>
+                            <li><a href="../Tiempo del Fin/escatologia.html">Escatología</a></li>
+                            <li><a href="../Tiempo del Fin/profecias-cumplidas.html">Profecías Cumplidas</a></li>
+                            <li><a href="../Tiempo del Fin/nuevo-orden-mundial.html">Nuevo Orden Mundial</a></li>
+                            <li><a href="../Tiempo del Fin/noticias-fin.html">Noticias del Fin</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Época de Jesús</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Época de Jesús/estudio-contemporaneo.html">Estudio Contemporáneo</a></li>
+                            <li><a href="../Época de Jesús/contexto-historico.html">Contexto Histórico</a></li>
+                            <li><a href="../Época de Jesús/grupos-religiosos.html">Grupos religiosos</a></li>
+                            <li><a href="../Época de Jesús/recursos-academicos.html">Estudios de Contexto</a></li>
+                            <li><a href="../Época de Jesús/apologia-cristiana.html">Apología Cristiana</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Estudios Bíblicos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Bíblicos/doctrina-basica.html">Doctrina Básica</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-intermedia.html">Doctrina intermedia</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-avanzada.html">Doctrina Avanzada</a></li>
+                            <li><a href="../Estudios Bíblicos/revelacion-espiritu.html">Revelación del Espíritu</a></li>
+                            <li><a href="../Estudios Bíblicos/devocionales.html">Devocionales</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>La Biblia: Antiguo y Nuevo Testamento</h1>
+            <p>Explorando la Palabra de Dios, sus libros y su relevancia eterna para nuestras vidas</p>
+            <button onclick="activarPestana('antiguo')" class="btn">Antiguo Testamento</button>
+            <button onclick="activarPestana('nuevo')" class="btn btn-outline">Nuevo Testamento</button>
+        </div>
+    </section>
+
+    <section class="testamentos" id="testamentos">
+        <div class="container">
+            <div class="testamento-header">
+                <h2>Los Testamentos de la Biblia</h2>
+                <p>La Biblia está dividida en dos grandes secciones: el Antiguo Testamento y el Nuevo Testamento. Cada uno tiene su propio contexto histórico, propósito y mensaje, pero juntos forman la historia completa de la redención que Dios ha planeado para la humanidad.</p>
+            </div>
+
+            <div class="testamento-tabs">
+                <button class="tab-btn active" data-tab="antiguo">Antiguo Testamento</button>
+                <button class="tab-btn" data-tab="nuevo">Nuevo Testamento</button>
+            </div>
+
+            <!-- Antiguo Testamento -->
+            <div class="tab-content active" id="antiguo-testamento" data-tab="antiguo">
+                <div class="bible-info">
+                    <h3 class="bible-info-title">El Antiguo Testamento</h3>
+                    <div class="bible-info-grid">
+                        <div class="bible-facts">
+                            <h3>Aspectos Importantes</h3>
+                            <ul class="facts-list">
+                                <li>Contiene 39 libros escritos principalmente en hebreo y arameo</li>
+                                <li>Abarca aproximadamente 4,000 años de historia</li>
+                                <li>Registra la creación, la caída, el diluvio, el éxodo y el establecimiento de Israel</li>
+                                <li>Contiene la ley, los profetas y los escritos según la tradición judía</li>
+                                <li>Anticipa la venida del Mesías a través de tipos y profecías</li>
+                                <li>Revela el carácter de Dios y su plan redentor</li>
+                            </ul>
+                        </div>
+                        <div class="bible-facts">
+                            <h3>Conexiones con el NT</h3>
+                            <ul class="facts-list">
+                                <li>El AT contiene más de 300 profecías cumplidas en Cristo</li>
+                                <li>Establece el sistema sacrificial que prefigura la obra de Cristo</li>
+                                <li>Las festividades judías son tipos de la obra redentora de Cristo</li>
+                                <li>El tabernáculo y templo simbolizan la presencia de Dios entre su pueblo</li>
+                                <li>Las figuras del AT (como Adán, Melquisedec, David) apuntan a Cristo</li>
+                                <li>Presenta la necesidad de un nuevo pacto que se cumple en el NT</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pentateuco -->
+                <div class="categoria-libros">
+                    <h3 class="categoria-titulo">El Pentateuco (La Ley)</h3>
+                    <div class="libros-grid">
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Génesis</h3>
+                                <p class="libro-subtitle">El libro de los orígenes</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Narra la creación, el origen del pecado, los patriarcas y el inicio del pueblo de Israel.</p>
+        
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Éxodo</h3>
+                                <p class="libro-subtitle">La liberación de Egipto</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Relata la liberación de Israel de la esclavitud egipcia, el establecimiento de la ley y la construcción del tabernáculo.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Levítico</h3>
+                                <p class="libro-subtitle">El libro del sacerdocio</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Contiene las leyes ceremoniales, los sacrificios y las responsabilidades sacerdotales para acercarse a Dios.</p>
+                               
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Números</h3>
+                                <p class="libro-subtitle">El libro del desierto</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Describe los 40 años de peregrinación de Israel en el desierto y las experiencias de la comunidad.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Deuteronomio</h3>
+                                <p class="libro-subtitle">La segunda ley</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Recapitula la ley para la nueva generación antes de entrar a la tierra prometida, enfatizando la obediencia.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Libros Históricos -->
+                <div class="categoria-libros">
+                    <h3 class="categoria-titulo">Libros Históricos</h3>
+                    <div class="libros-grid">
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Josué</h3>
+                                <p class="libro-subtitle">La conquista de Canaán</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Narra la conquista de la tierra prometida bajo el liderazgo de Josué, sucesor de Moisés.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Jueces</h3>
+                                <p class="libro-subtitle">Ciclos de apostasía</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Relata el período de los jueces, marcado por ciclos de apostasía, opresión, clamor y liberación.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Rut</h3>
+                                <p class="libro-subtitle">La redención moabita</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Historia de redención de una mujer extranjera que se convierte en antepasado del rey David y de Cristo.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">1 Samuel</h3>
+                                <p class="libro-subtitle">Transición a la monarquía</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Narra la transición de los jueces a la monarquía bajo Samuel, Saúl y los inicios de David.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">2 Samuel</h3>
+                                <p class="libro-subtitle">El reinado de David</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Relata el reinado del rey David, sus victorias, pecados y el establecimiento del pacto davídico.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">1 Reyes</h3>
+                                <p class="libro-subtitle">Salomón y la división</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Narra el reinado de Salomón, la construcción del templo y la división del reino.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">2 Reyes</h3>
+                                <p class="libro-subtitle">Caída de los reinos</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Relata la historia de los reinos divididos hasta el exilio de Israel y Judá.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">1 Crónicas</h3>
+                                <p class="libro-subtitle">Historia de David</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Registra la genealogía desde Adán y la historia del reinado de David desde una perspectiva sacerdotal.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">2 Crónicas</h3>
+                                <p class="libro-subtitle">Historia de Judá</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Relata la historia de los reyes de Judá desde Salomón hasta el exilio, enfatizando aspectos espirituales.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Esdras</h3>
+                                <p class="libro-subtitle">El retorno del exilio</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Narra el regreso de los judíos del exilio babilónico y la reconstrucción del templo.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Nehemías</h3>
+                                <p class="libro-subtitle">La reconstrucción</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Relata la reconstrucción de los muros de Jerusalén y la renovación del pacto bajo Nehemías.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Ester</h3>
+                                <p class="libro-subtitle">Providencia divina</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Narra cómo Dios usó a Ester para salvar a los judíos de la aniquilación en el Imperio Persa.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Libros Poéticos -->
+                <div class="categoria-libros">
+                    <h3 class="categoria-titulo">Libros Poéticos y Sapienciales</h3>
+                    <div class="libros-grid">
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Job</h3>
+                                <p class="libro-subtitle">El problema del sufrimiento</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Aborda el problema del sufrimiento del justo y la soberanía de Dios.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Salmos</h3>
+                                <p class="libro-subtitle">El himnario de Israel</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Colección de cantos, oraciones y poemas que expresan toda la gama de emociones humanas ante Dios.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Proverbios</h3>
+                                <p class="libro-subtitle">Sabiduría práctica</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Colección de dichos sabios que enseñan cómo vivir con prudencia y temor de Dios.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Eclesiastés</h3>
+                                <p class="libro-subtitle">La vanidad de la vida</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Reflexiona sobre la fugacidad de la vida y la búsqueda de significado bajo el sol.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Cantares</h3>
+                                <p class="libro-subtitle">El amor divino</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Poema de amor que celebra el matrimonio y simboliza la relación entre Dios y su pueblo.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profetas Mayores -->
+                <div class="categoria-libros">
+                    <h3 class="categoria-titulo">Profetas Mayores</h3>
+                    <div class="libros-grid">
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Isaías</h3>
+                                <p class="libro-subtitle">El evangelio del AT</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Profecías sobre el juicio de Israel y las naciones, pero también sobre la venida del Mesías y su reino.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Jeremías</h3>
+                                <p class="libro-subtitle">El profeta llorón</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Advierte sobre el juicio inminente de Judá por Babilonia, pero también anuncia un nuevo pacto.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Lamentaciones</h3>
+                                <p class="libro-subtitle">Llanto por Jerusalén</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Poemas que lamentan la destrucción de Jerusalén, reconociendo la justicia de Dios en el juicio.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Ezequiel</h3>
+                                <p class="libro-subtitle">Visiones y restauración</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Profetiza desde el exilio, con visiones dramáticas sobre el juicio y la restauración futura.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Daniel</h3>
+                                <p class="libro-subtitle">Profecía apocalíptica</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Visiones proféticas sobre los reinos mundiales y el establecimiento final del reino de Dios.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profetas Menores -->
+                <div class="categoria-libros">
+                    <h3 class="categoria-titulo">Profetas Menores</h3>
+                    <div class="libros-grid">
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Oseas</h3>
+                                <p class="libro-subtitle">Amor redentor</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Usa la relación matrimonial para ilustrar el amor fiel de Dios y la infidelidad de Israel.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Joel</h3>
+                                <p class="libro-subtitle">El día del Señor</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Llama al arrepentimiento ante una plaga de langostas y profetiza sobre el derramamiento del Espíritu.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Amós</h3>
+                                <p class="libro-subtitle">Justicia social</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Denuncia la injusticia social y la hipocresía religiosa de Israel en tiempos de prosperidad.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Abdías</h3>
+                                <p class="libro-subtitle">Juicio a Edom</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">El libro más corto del AT, profetiza el juicio de Edom por su hostilidad hacia Israel.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Jonás</h3>
+                                <p class="libro-subtitle">Misión a Nínive</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Narra la historia del profeta que huye de su misión a Nínive, mostrando la misericordia de Dios para todas las naciones.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Miqueas</h3>
+                                <p class="libro-subtitle">Justicia y misericordia</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Alterna mensajes de juicio y esperanza, incluyendo la profecía del nacimiento del Mesías en Belén.</p>
+                               
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Nahúm</h3>
+                                <p class="libro-subtitle">Caída de Nínive</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Profetiza la destrucción de Nínive como juicio divino por su crueldad y arrogancia.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Habacuc</h3>
+                                <p class="libro-subtitle">Fe en tiempos difíciles</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Dialoga con Dios sobre el problema del mal y concluye con una afirmación de fe en tiempos de adversidad.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Sofonías</h3>
+                                <p class="libro-subtitle">El día de la ira</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Profetiza el juicio del "día del Señor" pero también la restauración del remanente fiel.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Hageo</h3>
+                                <p class="libro-subtitle">Reconstrucción del templo</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Exhorta a los judíos que regresaron del exilio a reconstruir el templo, prometiendo bendiciones futuras.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Zacarías</h3>
+                                <p class="libro-subtitle">Visiones y Mesías</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Contiene visiones simbólicas y claras profecías mesiánicas sobre la primera y segunda venida de Cristo.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card at-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Malaquías</h3>
+                                <p class="libro-subtitle">Último profeta del AT</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Denuncia la infidelidad espiritual de Israel y anuncia la venida del precursor y del Mesías.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nuevo Testamento -->
+            <div class="tab-content" id="nuevo-testamento" data-tab="nuevo">
+                <div class="bible-info">
+                    <h3 class="bible-info-title">El Nuevo Testamento</h3>
+                    <div class="bible-info-grid">
+                        <div class="bible-facts">
+                            <h3>Aspectos Importantes</h3>
+                            <ul class="facts-list">
+                                <li>Compuesto por 27 libros escritos en griego koiné</li>
+                                <li>Abarca aproximadamente un siglo de historia (1-100 d.C.)</li>
+                                <li>Narra la vida, muerte y resurrección de Jesucristo</li>
+                                <li>Documenta el nacimiento y expansión de la iglesia primitiva</li>
+                                <li>Contiene enseñanzas doctrinales para los creyentes</li>
+                                <li>Revela el cumplimiento del plan redentor de Dios</li>
+                            </ul>
+                        </div>
+                        <div class="bible-facts">
+                            <h3>Conexiones con el AT</h3>
+                            <ul class="facts-list">
+                                <li>El NT cita o alude al AT más de 850 veces</li>
+                                <li>Jesús cumple todas las profecías mesiánicas del AT</li>
+                                <li>Las epístolas interpretan el AT a la luz de Cristo</li>
+                                <li>El libro de Hebreos explica cómo Cristo es superior a todo el sistema del AT</li>
+                                <li>El Apocalipsis utiliza simbolismo del AT para revelar el futuro</li>
+                                <li>Muestra cómo el nuevo pacto reemplaza y supera al antiguo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evangelios -->
+                <div class="categoria-libros">
+                    <h3 class="categoria-titulo">Los Evangelios</h3>
+                    <div class="libros-grid">
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Mateo</h3>
+                                <p class="libro-subtitle">Jesús, el Rey Mesiánico</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Presenta a Jesús como el Rey de los judíos, el Mesías prometido que cumple las profecías del AT.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Marcos</h3>
+                                <p class="libro-subtitle">Jesús, el Siervo</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Retrata a Jesús como el Siervo sufriente, enfocándose en sus acciones más que en sus discursos.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Lucas</h3>
+                                <p class="libro-subtitle">Jesús, el Hijo del Hombre</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Muestra a Jesús como el Hijo del Hombre perfecto, destacando su humanidad y compasión por los marginados.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Juan</h3>
+                                <p class="libro-subtitle">Jesús, el Hijo de Dios</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Enfatiza la deidad de Cristo, sus siete señales milagrosas y sus declaraciones "Yo soy".</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Historia -->
+                <div class="categoria-libros">
+                    <h3 class="categoria-titulo">Historia de la Iglesia Primitiva</h3>
+                    <div class="libros-grid">
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Hechos</h3>
+                                <p class="libro-subtitle">La iglesia primitiva</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Narra el nacimiento de la iglesia, la obra del Espíritu Santo y la expansión del evangelio desde Jerusalén.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Epístolas Paulinas -->
+                <div class="categoria-libros">
+                    <h3 class="categoria-titulo">Epístolas de Pablo</h3>
+                    <div class="libros-grid">
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Romanos</h3>
+                                <p class="libro-subtitle">La justificación por fe</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Presentación sistemática del evangelio, la justificación por fe y la vida cristiana en el Espíritu.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">1 Corintios</h3>
+                                <p class="libro-subtitle">Problemas en la iglesia</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Aborda problemas prácticos y doctrinales en la iglesia, incluyendo divisiones, inmoralidad y dones espirituales.</p>
+                               
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">2 Corintios</h3>
+                                <p class="libro-subtitle">Ministerio reconciliador</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Defiende el ministerio apostólico de Pablo y enseña sobre el ministerio de reconciliación.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Gálatas</h3>
+                                <p class="libro-subtitle">La libertad cristiana</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Defiende el evangelio de la gracia contra el legalismo, afirmando la libertad en Cristo y la vida en el Espíritu.</p>
+                            
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Efesios</h3>
+                                <p class="libro-subtitle">La iglesia de Cristo</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Revela el propósito eterno de Dios para la iglesia, la unidad de los creyentes y la batalla espiritual.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Filipenses</h3>
+                                <p class="libro-subtitle">Gozo en Cristo</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Escrita desde la prisión, exhorta al gozo en Cristo y a tener la misma actitud humilde de Jesús.</p>
+                               
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Colosenses</h3>
+                                <p class="libro-subtitle">La supremacía de Cristo</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Afirma la deidad y supremacía de Cristo contra falsas enseñanzas que lo minimizaban.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">1 Tesalonicenses</h3>
+                                <p class="libro-subtitle">La venida del Señor</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Exhorta a la santidad y enseña sobre la segunda venida de Cristo y el rapto de la iglesia.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">2 Tesalonicenses</h3>
+                                <p class="libro-subtitle">El día del Señor</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Corrige malentendidos sobre la segunda venida y advierte sobre el hombre de pecado que aparecerá antes.</p>
+                                 
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">1 Timoteo</h3>
+                                <p class="libro-subtitle">Orden en la iglesia</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Instruye a Timoteo sobre el liderazgo, la adoración y cómo enfrentar las falsas enseñanzas en la iglesia.</p>
+                               
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">2 Timoteo</h3>
+                                <p class="libro-subtitle">Fidelidad ministerial</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">La última carta de Pablo, exhorta a Timoteo a permanecer fiel al evangelio frente a la apostasía y persecución.</p>
+                               
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Tito</h3>
+                                <p class="libro-subtitle">Orden y buenas obras</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Instruye a Tito sobre cómo organizar la iglesia en Creta y promover la sana doctrina y las buenas obras.</p>
+                               
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Filemón</h3>
+                                <p class="libro-subtitle">Reconciliación cristiana</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Carta personal que pide a Filemón que reciba a su esclavo fugitivo Onésimo como hermano en Cristo.</p>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Epístola a los Hebreos -->
+                <div class="categoria-libros">
+                    <h3 class="categoria-titulo">Epístola a los Hebreos</h3>
+                    <div class="libros-grid">
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Hebreos</h3>
+                                <p class="libro-subtitle">La superioridad de Cristo</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Demuestra la superioridad de Cristo sobre los ángeles, Moisés, el sacerdocio aarónico y el sistema del AT.</p>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Epístolas Generales -->
+                <div class="categoria-libros">
+                    <h3 class="categoria-titulo">Epístolas Generales</h3>
+                    <div class="libros-grid">
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Santiago</h3>
+                                <p class="libro-subtitle">Fe y obras</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Enseña que la fe verdadera produce buenas obras, abordando aspectos prácticos de la vida cristiana.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">1 Pedro</h3>
+                                <p class="libro-subtitle">Sufrimiento cristiano</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Exhorta a los creyentes perseguidos a perseverar en la fe, siguiendo el ejemplo de Cristo en el sufrimiento.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">2 Pedro</h3>
+                                <p class="libro-subtitle">Contra los falsos maestros</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Advierte contra los falsos maestros y exhorta al crecimiento espiritual y conocimiento de Cristo.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">1 Juan</h3>
+                                <p class="libro-subtitle">Comunión con Dios</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Enfatiza el amor, la luz y la vida que caracterizan la comunión con Dios y con los hermanos.</p>
+                               
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">2 Juan</h3>
+                                <p class="libro-subtitle">Verdad y amor</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Breve carta que exhorta a andar en verdad y amor, y a rechazar a los falsos maestros.</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">3 Juan</h3>
+                                <p class="libro-subtitle">Hospitalidad cristiana</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Elogia a Gayo por su hospitalidad hacia los ministros itinerantes y advierte contra el autoritarismo de Diótrefes.</p>
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="libro-card nt-card">
+                            <div class="libro-header">
+                                <h3 class="libro-title">Judas</h3>
+                                <p class="libro-subtitle">Contra la apostasía</p>
+                            </div>
+                            <div class="libro-content">
+                                <p class="libro-desc">Exhorta a contender por la fe contra los falsos maestros que promueven la inmoralidad y niegan a Cristo.</p>
+                                
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+    
+                    <!-- Apocalipsis -->
+                    <div class="categoria-libros">
+                        <h3 class="categoria-titulo">Literatura Apocalíptica</h3>
+                        <div class="libros-grid">
+                            <div class="libro-card nt-card">
+                                <div class="libro-header">
+                                    <h3 class="libro-title">Apocalipsis</h3>
+                                    <p class="libro-subtitle">La revelación final</p>
+                                </div>
+                                <div class="libro-content">
+                                    <p class="libro-desc">Revela la consumación del plan de Dios, el juicio final y el establecimiento del reino eterno.</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="bible-verse">
+                    <p class="verse-text">"Toda la Escritura es inspirada por Dios y útil para enseñar, para reprender, para corregir, para instruir en justicia, a fin de que el hombre de Dios sea perfecto, equipado para toda buena obra."</p>
+                    <p class="verse-ref">2 Timoteo 3:16-17</p>
+                </div>
+    
+                <div class="section-title">
+                    <h2>Figuras Bíblicas: De Antiguo a Nuevo Testamento</h2>
+                    <p>Descubre las poderosas conexiones entre ambos testamentos a través de las figuras bíblicas</p>
+                </div>
+    
+                <div class="figuras-grid">
+                    <div class="figura-card">
+                        <i class="fas fa-church"></i>
+                        <h3>Templo y sus Figuras</h3>
+                        <p>El tabernáculo y el templo son impresionantes tipos de Cristo y de la iglesia, revelando la presencia de Dios entre su pueblo.</p>
+                        <a href="./templo-figuras.html" class="btn">Explorar</a>
+                    </div>
+    
+                    <div class="figura-card">
+                        <i class="fas fa-scroll"></i>
+                        <h3>Nombres y Simbología</h3>
+                        <p>Los nombres en la Biblia contienen profundos significados simbólicos que revelan aspectos del carácter y propósito divino.</p>
+                        <a href="./nombres-simbologia.html" class="btn">Explorar</a>
+                    </div>
+    
+                    <div class="figura-card">
+                        <i class="fas fa-dove"></i>
+                        <h3>Sacrificios y Figuras</h3>
+                        <p>El sistema sacrificial del AT prefigura el sacrificio perfecto de Cristo en la cruz, revelando aspectos de su obra expiatoria.</p>
+                        <a href="./sacrificios-figuras.html" class="btn">Explorar</a>
+                    </div>
+    
+                    <div class="figura-card">
+                        <i class="fas fa-crown"></i>
+                        <h3>Figuras de Cristo</h3>
+                        <p>Personajes, objetos y eventos del AT que prefiguran a Cristo, revelando diferentes aspectos de su persona y ministerio.</p>
+                        <a href="./figuras-cristo.html" class="btn">Explorar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="timeline-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Historia de la Revelación Bíblica</h2>
+                    <p>Un viaje a través del tiempo mostrando los momentos clave en la revelación progresiva de Dios</p>
+                </div>
+    
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">Creación - 4000 a.C. aprox.</span>
+                            <h3>Génesis: Los Orígenes</h3>
+                            <p>Dios crea el mundo y al ser humano. Tras la caída, promete un Redentor (Gn 3:15) que aplastaría la cabeza de la serpiente.</p>
+                        </div>
+                    </div>
+    
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="timeline-date">2000 a.C. aprox.</span>
+                            <h3>El Pacto Abrahámico</h3>
+                            <p>Dios establece un pacto con Abraham, prometiendo bendecir a todas las naciones a través de su descendencia (Gn 12:1-3).</p>
+                        </div>
+                    </div>
+    
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">1446 a.C. aprox.</span>
+                            <h3>El Éxodo y la Ley</h3>
+                            <p>Dios libera a Israel de Egipto y entrega la Ley a Moisés, estableciendo un sistema que prefigura la obra de Cristo.</p>
+                        </div>
+                    </div>
+    
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="timeline-date">1000 a.C. aprox.</span>
+                            <h3>El Pacto Davídico</h3>
+                            <p>Dios promete a David que su descendiente reinaría eternamente (2 Sam 7:12-16), apuntando al Mesías.</p>
+                        </div>
+                    </div>
+    
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">750-400 a.C.</span>
+                            <h3>Era de los Profetas</h3>
+                            <p>Los profetas anuncian el juicio sobre Israel pero también la futura venida del Mesías y el nuevo pacto.</p>
+                        </div>
+                    </div>
+    
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="timeline-date">4 a.C. - 30 d.C.</span>
+                            <h3>Jesús: La Palabra Encarnada</h3>
+                            <p>El Hijo de Dios viene al mundo, cumpliendo las profecías del AT a través de su vida, muerte y resurrección.</p>
+                        </div>
+                    </div>
+    
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">30-100 d.C.</span>
+                            <h3>La Iglesia Primitiva</h3>
+                            <p>El evangelio se extiende por todo el mundo romano a través de los apóstoles, formándose la iglesia.</p>
+                        </div>
+                    </div>
+    
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="timeline-date">95 d.C. aprox.</span>
+                            <h3>Apocalipsis: La Revelación Final</h3>
+                            <p>Juan recibe la revelación final que muestra el triunfo definitivo de Cristo y el establecimiento de su reino eterno.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-col">
+                        <h4>Ministerio EMD</h4>
+                        <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/profile.php?id=61577956191110"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877"><i class="fab fa-youtube"></i></a>
+                            
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Enlaces Rápidos</h4>
+                        <ul>
+                            <li><a href="./at-a-nt.html">Figuras Bíblicas</a></li>
+                            <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                            <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Estudios Exegéticos</a></li>
+                            <li><a href="../Tiempo del Fin/introduccion.html">Tiempo del Fin</a></li>
+                            <li><a href="../Época de Jesús/estudio-contemporaneo.html">Época de Jesús</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-basica.html">Estudios Bíblicos</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio, San Juan, Puerto Rico</li>
+                            <li><i class="fas fa-phone"></i> +1 787-345-6940</li>
+                            <li><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                          <h4>Nota Aclaratoria</h4>
+                    <ul>
+                        <li>Todos los recursos de esta página son gratuitos y para la edificación de los creyentes</li>
+                    </ul>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    
+       <script>
+    document.querySelector('.nav-toggle').addEventListener('click', function() {
+        document.querySelector('nav').classList.toggle('active');
+    });
+    
+    // Manejo de menús desplegables en móvil
+    document.querySelectorAll('.menu-item-has-children > a').forEach(item => {
+        item.addEventListener('click', function(e) {
+            // Solo en modo móvil
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                this.parentNode.classList.toggle('active');
+            }
+        });
+    });
+    
+    // Cierra el menú al hacer clic en un enlace de submenu
+    document.querySelectorAll('.sub-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            document.querySelector('nav').classList.remove('active');
+        });
+    });
+    
+    // Cierra el menú al hacer clic fuera de él
+    document.addEventListener('click', function(event) {
+        const nav = document.querySelector('nav');
+        const navToggle = document.querySelector('.nav-toggle');
+        
+        if (!nav.contains(event.target) && event.target !== navToggle) {
+            nav.classList.remove('active');
+        }
+    });
+    
+    // Funcionalidad de pestañas
+    document.querySelectorAll('.tab-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            // Desactivar todos los botones y contenidos
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Activar el botón actual
+            this.classList.add('active');
+            
+            // Activar el contenido correspondiente
+            const tabId = this.getAttribute('data-tab');
+            document.querySelector(`.tab-content[data-tab="${tabId}"]`).classList.add('active');
+        });
+    });
+
+    // AÑADIR ESTA FUNCIÓN AQUÍ:
+    function activarPestana(tabId) {
+        // Remover active de todos los botones
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Remover active de todo el contenido
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+        });
+        
+        // Añadir active al botón correcto
+        document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+        
+        // Añadir active al contenido correcto
+        document.querySelector(`.tab-content[data-tab="${tabId}"]`).classList.add('active');
+        
+        // Scroll suave a la sección
+        document.getElementById('testamentos').scrollIntoView({behavior: 'smooth'});
+    }
+</script>
+    </body>
+    </html>

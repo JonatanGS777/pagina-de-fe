@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ética Cristiana Aplicada - Vida Moral</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', 'Times New Roman', serif;
+            background: 
+                linear-gradient(135deg, #1c1c1c 0%, #2d2d2d 25%, #3d3d3d 50%, #2d2d2d 75%, #1c1c1c 100%);
+            color: #f5f5f5;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .courthouse-pillars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0px,
+                    transparent 180px,
+                    rgba(218, 165, 32, 0.05) 180px,
+                    rgba(218, 165, 32, 0.05) 200px
+                );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .scales-animation {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 3em;
+            color: #daa520;
+            animation: scales-balance 4s ease-in-out infinite alternate;
+            z-index: 100;
+            text-shadow: 0 0 20px rgba(218, 165, 32, 0.6);
+        }
+
+        @keyframes scales-balance {
+            0% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
+        }
+
+        .courtroom-header {
+            background: 
+                linear-gradient(180deg, #0d1117 0%, #161b22 50%, #21262d 100%);
+            padding: 80px 40px;
+            text-align: center;
+            border-bottom: 6px solid #daa520;
+            position: relative;
+            z-index: 2;
+            box-shadow: 
+                0 10px 30px rgba(0,0,0,0.8),
+                inset 0 0 100px rgba(218, 165, 32, 0.1);
+        }
+
+        .courtroom-header::before {
+            content: '⚖️ TRIBUNAL DE ÉTICA CRISTIANA ⚖️';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2em;
+            color: #daa520;
+            font-weight: 700;
+            letter-spacing: 3px;
+            border: 2px solid #daa520;
+            padding: 10px 30px;
+            border-radius: 25px;
+            background: rgba(13, 17, 23, 0.8);
+        }
+
+        .judicial-title {
+            font-size: 4.5em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: #daa520;
+            text-shadow: 
+                0 0 30px rgba(218, 165, 32, 0.8),
+                2px 2px 8px rgba(0,0,0,0.9);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .judicial-subtitle {
+            font-size: 2em;
+            color: #f5f5f5;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .judicial-description {
+            font-size: 1.4em;
+            max-width: 900px;
+            margin: 0 auto 35px auto;
+            line-height: 1.8;
+            color: #c9d1d9;
+            font-style: italic;
+        }
+
+        .judicial-keywords {
+            font-size: 1.3em;
+            letter-spacing: 6px;
+            font-weight: 700;
+            color: #daa520;
+        }
+
+        .case-files-cabinet {
+            max-width: 1600px;
+            margin: 60px auto;
+            padding: 40px;
+            background: 
+                linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+            border: 4px solid #daa520;
+            border-radius: 20px;
+            box-shadow: 
+                0 25px 80px rgba(0,0,0,0.8),
+                inset 0 0 50px rgba(218, 165, 32, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cabinet-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #daa520;
+            margin-bottom: 50px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 3px solid #daa520;
+            padding-bottom: 20px;
+        }
+
+        .files-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .case-file {
+            background: 
+                linear-gradient(145deg, #f5f5f5 0%, #e5e5e5 100%);
+            color: #1c1c1c;
+            padding: 30px;
+            border-radius: 12px;
+            border: 3px solid #8b4513;
+            box-shadow: 
+                0 15px 35px rgba(0,0,0,0.6),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .case-file:hover {
+            transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 
+                0 30px 60px rgba(0,0,0,0.8),
+                inset 0 2px 0 rgba(255,255,255,0.9);
+            border-color: #daa520;
+        }
+
+        .case-file::before {
+            content: 'CONFIDENCIAL';
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #dc143c;
+            color: white;
+            padding: 4px 12px;
+            font-size: 0.8em;
+            font-weight: 700;
+            transform: rotate(-15deg);
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4);
+        }
+
+        .case-number {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            background: #1c1c1c;
+            color: #daa520;
+            padding: 8px 15px;
+            font-size: 0.9em;
+            font-weight: 700;
+            border-radius: 20px;
+            letter-spacing: 1px;
+        }
+
+        .case-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            margin: 40px 0 15px 0;
+            color: #8b4513;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .case-category {
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .case-preview {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #2d2d2d;
+            margin-bottom: 20px;
+            border-left: 4px solid #daa520;
+            padding-left: 15px;
+            font-style: italic;
+        }
+
+        .case-complexity {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #ddd;
+        }
+
+        .difficulty-level {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #8b4513;
+        }
+
+        .urgency-indicator {
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .urgency-high { background: #dc143c; color: white; }
+        .urgency-medium { background: #ff8c00; color: white; }
+        .urgency-low { background: #32cd32; color: white; }
+
+        .case-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            display: none;
+            overflow-y: auto;
+        }
+
+        .case-document {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 60px;
+            background: 
+                linear-gradient(145deg, #f9f9f9 0%, #f0f0f0 100%);
+            border-radius: 15px;
+            border: 6px solid #8b4513;
+            box-shadow: 0 30px 100px rgba(0,0,0,0.9);
+            color: #1c1c1c;
+            position: relative;
+            animation: document-unfold 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes document-unfold {
+            0% { 
+                transform: scale(0.3) rotateY(-90deg);
+                opacity: 0;
+            }
+            100% { 
+                transform: scale(1) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        .close-case {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2.5em;
+            color: #dc143c;
+            cursor: pointer;
+            background: white;
+            border: 3px solid #dc143c;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .close-case:hover {
+            background: #dc143c;
+            color: white;
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        .case-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 4px double #8b4513;
+        }
+
+        .case-title-full {
+            font-size: 3em;
+            color: #8b4513;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .case-subtitle {
+            font-size: 1.3em;
+            color: #666;
+            font-style: italic;
+        }
+
+        .evidence-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .evidence-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid #ddd;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .evidence-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8b4513, #daa520);
+        }
+
+        .evidence-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #daa520;
+        }
+
+        .evidence-title {
+            font-size: 1.6em;
+            color: #8b4513;
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .evidence-content {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: #2d2d2d;
+            margin-bottom: 20px;
+        }
+
+        .biblical-testimony {
+            background: linear-gradient(135deg, #fff9e6 0%, #fef3c7 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #daa520;
+            margin: 20px 0;
+            font-style: italic;
+            position: relative;
+        }
+
+        .biblical-testimony::before {
+            content: '"';
+            font-size: 4em;
+            color: #daa520;
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            opacity: 0.3;
+        }
+
+        .testimony-text {
+            color: #8b4513;
+            font-weight: 600;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimony-reference {
+            color: #b8860b;
+            font-size: 0.9em;
+            text-align: right;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ethical-positions {
+            background: #f0f8ff;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #4169e1;
+            margin: 30px 0;
+        }
+
+        .positions-title {
+            color: #1e3a8a;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .position-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .position {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #4169e1;
+            box-shadow: 0 4px 15px rgba(65, 105, 225, 0.1);
+        }
+
+        .position h4 {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .position p {
+            color: #374151;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .verdict-section {
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+            color: #f5f5f5;
+            padding: 40px;
+            border-radius: 15px;
+            border: 3px solid #daa520;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .verdict-title {
+            color: #daa520;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .verdict-content {
+            font-size: 1.2em;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .emphasis {
+            color: #daa520;
+            font-weight: 700;
+        }
+
+        .scripture-ref {
+            color: #4169e1;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .files-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .evidence-sections {
+                grid-template-columns: 1fr;
+            }
+            
+            .position-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .case-document {
+                margin: 20px;
+                padding: 30px;
+            }
+            
+            .judicial-title {
+                font-size: 3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="courthouse-pillars"></div>
+    <div class="scales-animation">⚖️</div>
+
+    <header class="courtroom-header">
+        <h1 class="judicial-title">Ética Cristiana Aplicada</h1>
+        <p class="judicial-subtitle">VIDA MORAL</p>
+        <p class="judicial-description">Principios éticos bíblicos aplicados a dilemas contemporáneos: bioética, justicia social, economía y relaciones interpersonales.</p>
+        <div class="judicial-keywords">• BIOÉTICA • JUSTICIA • CONTEMPORÁNEO •</div>
+    </header>
+
+    <div class="case-files-cabinet">
+        <h2 class="cabinet-title">Expedientes de Casos Éticos</h2>
+        
+        <div class="files-grid">
+            <div class="case-file" onclick="openCase('aborto')">
+                <div class="case-number">CASO #001</div>
+                <h3 class="case-title">El Derecho a la Vida vs. Autonomía Corporal</h3>
+                <div class="case-category">BIOÉTICA - ABORTO</div>
+                <div class="case-preview">
+                    Una mujer embarazada con complicaciones médicas debe decidir entre continuar el embarazo o terminarlo. ¿Cuándo comienza la vida humana? ¿Qué dice la Escritura sobre la santidad de la vida?
+                </div>
+                <div class="case-complexity">
+                    <span class="difficulty-level">Complejidad: ALTA</span>
+                    <span class="urgency-indicator urgency-high">URGENTE</span>
+                </div>
+            </div>
+
+            <div class="case-file" onclick="openCase('empresas')">
+                <div class="case-number">CASO #002</div>
+                <h3 class="case-title">Ganancia vs. Responsabilidad Social</h3>
+                <div class="case-category">ÉTICA EMPRESARIAL</div>
+                <div class="case-preview">
+                    Una empresa cristiana debe decidir entre maximizar ganancias despidiendo empleados o mantener el empleo con menores beneficios. ¿Qué principios bíblicos aplican?
+                </div>
+                <div class="case-complexity">
+                    <span class="difficulty-level">Complejidad: MEDIA</span>
+                    <span class="urgency-indicator urgency-medium">MODERADO</span>
+                </div>
+            </div>
+
+            <div class="case-file" onclick="openCase('justicia')">
+                <div class="case-number">CASO #003</div>
+                <h3 class="case-title">Justicia Retributiva vs. Restaurativa</h3>
+                <div class="case-category">JUSTICIA SOCIAL</div>
+                <div class="case-preview">
+                    Un joven cristiano comete un delito. ¿Debe la iglesia apoyar castigo severo o enfocarse en restauración? ¿Cómo balance la justicia divina con la misericordia?
+                </div>
+                <div class="case-complexity">
+                    <span class="difficulty-level">Complejidad: ALTA</span>
+                    <span class="urgency-indicator urgency-medium">MODERADO</span>
+                </div>
+            </div>
+
+            <div class="case-file" onclick="openCase('tecnologia')">
+                <div class="case-number">CASO #004</div>
+                <h3 class="case-title">Inteligencia Artificial y Dignidad Humana</h3>
+                <div class="case-category">TECNOLOGÍA ÉTICA</div>
+                <div class="case-preview">
+                    Una iglesia considera usar IA para consejería pastoral. ¿Puede la tecnología reemplazar el cuidado humano? ¿Qué hace única la imagen de Dios en el hombre?
+                </div>
+                <div class="case-complexity">
+                    <span class="difficulty-level">Complejidad: MEDIA</span>
+                    <span class="urgency-indicator urgency-low">BAJO</span>
+                </div>
+            </div>
+
+            <div class="case-file" onclick="openCase('matrimonio')">
+                <div class="case-number">CASO #005</div>
+                <h3 class="case-title">Redefinición del Matrimonio</h3>
+                <div class="case-category">ÉTICA RELACIONAL</div>
+                <div class="case-preview">
+                    La sociedad presiona para redefinir el matrimonio. ¿Cómo debe responder la iglesia? ¿Cuál es el diseño bíblico original para la familia?
+                </div>
+                <div class="case-complexity">
+                    <span class="difficulty-level">Complejidad: ALTA</span>
+                    <span class="urgency-indicator urgency-high">URGENTE</span>
+                </div>
+            </div>
+
+            <div class="case-file" onclick="openCase('economia')">
+                <div class="case-number">CASO #006</div>
+                <h3 class="case-title">Riqueza y Responsabilidad Cristiana</h3>
+                <div class="case-category">ÉTICA ECONÓMICA</div>
+                <div class="case-preview">
+                    Un cristiano millonario debe decidir cómo usar su riqueza. ¿Es pecado ser rico? ¿Cuál es la responsabilidad bíblica hacia los pobres?
+                </div>
+                <div class="case-complexity">
+                    <span class="difficulty-level">Complejidad: MEDIA</span>
+                    <span class="urgency-indicator urgency-medium">MODERADO</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="case-overlay" id="caseOverlay">
+        <div class="case-document" id="caseDocument">
+            <div class="close-case" onclick="closeCase()">×</div>
+            <div id="caseContent"></div>
+        </div>
+    </div>
+
+    <script>
+        const casesData = {
+            aborto: {
+                title: "El Derecho a la Vida vs. Autonomía Corporal",
+                subtitle: "Análisis Bioético del Aborto desde Perspectiva Bíblica",
+                content: `
+                    <div class="evidence-sections">
+                        <div class="evidence-card">
+                            <div class="evidence-title">📋 Evidencia Científica</div>
+                            <div class="evidence-content">
+                                La biología moderna confirma que la <span class="emphasis">vida humana única</span> comienza en la fertilización. El embrión posee ADN distinto, se desarrolla continuamente y cumple todos los criterios científicos de vida.
+                            </div>
+                            <div class="biblical-testimony">
+                                <div class="testimony-text">"Porque tú formaste mis entrañas; Tú me hiciste en el vientre de mi madre. Te alabaré; porque formidables, maravillosas son tus obras; Estoy maravillado, y mi alma lo conoce muy bien."</div>
+                                <div class="testimony-reference">Salmo 139:13-14</div>
+                            </div>
+                        </div>
+
+                        <div class="evidence-card">
+                            <div class="evidence-title">⚖️ Principios Éticos Bíblicos</div>
+                            <div class="evidence-content">
+                                Las Escrituras revelan principios fundamentales:
+                                <br>• <strong>Santidad de la vida:</strong> Creada a imagen de Dios
+                                <br>• <strong>Protección del inocente:</strong> Defensa del indefenso
+                                <br>• <strong>Conocimiento divino prenatal:</strong> Dios conoce antes del nacimiento
+                                <br>• <strong>Propósito divino:</strong> Llamado desde el vientre
+                            </div>
+                            <div class="biblical-testimony">
+                                <div class="testimony-text">"Antes que te formase en el vientre te conocí, y antes que nacieses te santifiqué, te di por profeta a las naciones."</div>
+                                <div class="testimony-reference">Jeremías 1:5</div>
+                            </div>
+                        </div>
+
+                        <div class="evidence-card">
+                            <div class="evidence-title">💔 Casos Difíciles</div>
+                            <div class="evidence-content">
+                                Reconocemos situaciones complejas: violación, incesto, riesgo materno. Sin embargo, <span class="emphasis">dos errores no hacen un acierto</span>. La iglesia debe ofrecer apoyo integral, no soluciones que comprometen la vida.
+                            </div>
+                            <div class="biblical-testimony">
+                                <div class="testimony-text">"La religión pura y sin mácula delante de Dios el Padre es esta: Visitar a los huérfanos y a las viudas en sus tribulaciones."</div>
+                                <div class="testimony-reference">Santiago 1:27</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ethical-positions">
+                        <h3 class="positions-title">Posiciones Éticas Contemporáneas</h3>
+                        <div class="position-grid">
+                            <div class="position">
+                                <h4>Posición Pro-Vida</h4>
+                                <p>La vida humana comienza en la concepción y debe protegerse incondicionalmente. El feto tiene derecho inherente a la vida independiente de las circunstancias.</p>
+                            </div>
+                            <div class="position">
+                                <h4>Posición Pro-Elección</h4>
+                                <p>La mujer tiene autonomía sobre su cuerpo. El estatus moral del feto depende de la viabilidad, conciencia o decisión materna.</p>
+                            </div>
+                            <div class="position">
+                                <h4>Posición Gradualista</h4>
+                                <p>El estatus moral aumenta gradualmente durante el desarrollo. Permite aborto temprano pero lo restringe progresivamente.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="verdict-section">
+                        <h3 class="verdict-title">Veredicto Ético Bíblico</h3>
+                        <div class="verdict-content">
+                            Basados en la <span class="emphasis">revelación bíblica</span> y evidencia científica, concluimos que la vida humana comienza en la fertilización y debe ser protegida. La iglesia debe defender la <span class="emphasis">santidad de toda vida humana</span> mientras provee apoyo compasivo a mujeres en crisis. El evangelio ofrece perdón, sanidad y esperanza para quienes han tomado decisiones difíciles en el pasado.
+                        </div>
+                    </div>
+                `
+            },
+            empresas: {
+                title: "Ganancia vs. Responsabilidad Social",
+                subtitle: "Ética Empresarial desde Principios Bíblicos",
+                content: `
+                    <div class="evidence-sections">
+                        <div class="evidence-card">
+                            <div class="evidence-title">💼 El Dilema Empresarial</div>
+                            <div class="evidence-content">
+                                Los líderes cristianos enfrentan tensión entre <span class="emphasis">maximizar beneficios</span> para accionistas y <span class="emphasis">cuidar empleados</span>. ¿Pueden coexistir la rentabilidad y la responsabilidad social?
+                            </div>
+                            <div class="biblical-testimony">
+                                <div class="testimony-text">"Ninguno busque su propio bien, sino el del otro."</div>
+                                <div class="testimony-reference">1 Corintios 10:24</div>
+                            </div>
+                        </div>
+
+                        <div class="evidence-card">
+                            <div class="evidence-title">📊 Principios Bíblicos de Negocio</div>
+                            <div class="evidence-content">
+                                Las Escrituras establecen principios claros:
+                                <br>• <strong>Integridad:</strong> Honestidad en todas las transacciones
+                                <br>• <strong>Justicia:</strong> Salarios justos y trato equitativo
+                                <br>• <strong>Mayordomía:</strong> Responsabilidad ante Dios por recursos
+                                <br>• <strong>Servicio:</strong> Beneficiar a la comunidad
+                            </div>
+                            <div class="biblical-testimony">
+                                <div class="testimony-text">"No retendréis el salario del jornalero en vuestra casa hasta la mañana."</div>
+                                <div class="testimony-reference">Levítico 19:13</div>
+                            </div>
+                        </div>
+
+                        <div class="evidence-card">
+                            <div class="evidence-title">🤝 Stakeholder vs. Shareholder</div>
+                            <div class="evidence-content">
+                                El modelo bíblico considera <span class="emphasis">todos los afectados</span>: empleados, clientes, comunidad, no solo accionistas. El éxito se mide por impacto integral, no solo ganancia financiera.
+                            </div>
+                            <div class="biblical-testimony">
+                                <div class="testimony-text">"Y todo lo que hagáis, hacedlo de corazón, como para el Señor y no para los hombres."</div>
+                                <div class="testimony-reference">Colosenses 3:23</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="verdict-section">
+                        <h3 class="verdict-title">Veredicto Ético Empresarial</h3>
+                        <div class="verdict-content">
+                            La <span class="emphasis">rentabilidad sostenible</span> y la responsabilidad social no son mutuamente excluyentes. Las empresas cristianas deben buscar prosperidad financiera mediante prácticas éticas que bendigan a todos los stakeholders. El éxito verdadero incluye <span class="emphasis">impacto positivo en empleados, comunidad y sociedad</span>.
+                        </div>
+                    </div>
+                `
+            },
+            justicia: {
+                title: "Justicia Retributiva vs. Restaurativa",
+                subtitle: "Balance Bíblico entre Justicia y Misericordia",
+                content: `
+                    <div class="evidence-sections">
+                        <div class="evidence-card">
+                            <div class="evidence-title">⚖️ Justicia Divina</div>
+                            <div class="evidence-content">
+                                Dios es tanto <span class="emphasis">perfectamente justo</span> como <span class="emphasis">infinitamente misericordioso</span>. Su justicia demanda castigo por el pecado, pero su amor provee camino de restauración.
+                            </div>
+                            <div class="biblical-testimony">
+                                <div class="testimony-text">"La misericordia y la verdad se encontraron; La justicia y la paz se besaron."</div>
+                                <div class="testimony-reference">Salmo 85:10</div>
+                            </div>
+                        </div>
+
+                        <div class="evidence-card">
+                            <div class="evidence-title">🔄 Justicia Restaurativa</div>
+                            <div class="evidence-content">
+                                El modelo bíblico enfatiza <span class="emphasis">restauración sobre retribución</span>. Busca sanar relaciones, reparar daños y reintegrar al ofensor a la comunidad cuando hay arrepentimiento genuino.
+                            </div>
+                            <div class="biblical-testimony">
+                                <div class="testimony-text">"Hermanos, si alguno fuere sorprendido en alguna falta, vosotros que sois espirituales, restauradle con espíritu de mansedumbre."</div>
+                                <div class="testimony-reference">Gálatas 6:1</div>
+                            </div>
+                        </div>
+
+                        <div class="evidence-card">
+                            <div class="evidence-title">🛡️ Protección de la Sociedad</div>
+                            <div class="evidence-content">
+                                La justicia también protege a los inocentes. Cuando no hay arrepentimiento o el riesgo es alto, <span class="emphasis">la protección social</span> puede requerir separación temporal del ofensor.
+                            </div>
+                            <div class="biblical-testimony">
+                                <div class="testimony-text">"Porque no en vano lleva la espada; pues es servidor de Dios, vengador para castigar al que hace lo malo."</div>
+                                <div class="testimony-reference">Romanos 13:4</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="verdict-section">
+                        <h3 class="verdict-title">Veredicto de Justicia Equilibrada</h3>
+                        <div class="verdict-content">
+                            La justicia cristiana busca <span class="emphasis">restauración cuando es posible</span> y protección cuando es necesaria. Prioriza la sanidad de relaciones y la reintegración del ofensor, pero no sacrifica la seguridad de la comunidad. El arrepentimiento genuino abre camino para la <span class="emphasis">justicia restaurativa</span>.
+                        </div>
+                    </div>
+                `
+            },
+            tecnologia: {
+                title: "Inteligencia Artificial y Dignidad Humana",
+                subtitle: "Ética Tecnológica en la Era Digital",
+                content: `
+                    <div class="evidence-sections">
+                        <div class="evidence-card">
+                            <div class="evidence-title">🤖 Imagen de Dios vs. IA</div>
+                            <div class="evidence-content">
+                                Los humanos poseen <span class="emphasis">dignidad única</span> como portadores de la imagen de Dios: creatividad, moralidad, relacionalidad y espiritualidad. La IA puede simular pero no poseer estas cualidades.
+                            </div>
+                            <div class="biblical-testimony">
+                                <div class="testimony-text">"Y creó Dios al hombre a su imagen, a imagen de Dios lo creó; varón y hembra los creó."</div>
+                                <div class="testimony-reference">Génesis 1:27</div>
+                            </div>
+                        </div>
+
+                        <div class="evidence-card">
+                            <div class="evidence-title">💝 Cuidado Pastoral Humano</div>
+                            <div class="evidence-content">
+                                El ministerio pastoral requiere <span class="emphasis">presencia humana genuina</span>: empatía, discernimiento espiritual, oración y conexión alma-alma que ninguna tecnología puede replicar.
+                            </div>
+                            <div class="biblical-testimony">
+                                <div class="testimony-text">"Llevad los unos las cargas de los otros, y cumplid así la ley de Cristo."</div>
+                                <div class="testimony-reference">Gálatas 6:2</div>
+                            </div>
+                        </div>
+
+                        <div class="evidence-card">
+                            <div class="evidence-title">🔧 Uso Ético de la Tecnología</div>
+                            <div class="evidence-content">
+                                La IA puede ser <span class="emphasis">herramienta útil</span> para investigación, organización y educación, pero nunca reemplazo para relaciones humanas auténticas y cuidado pastoral personal.
+                            </div>
+                            <div class="biblical-testimony">
+                                <div class="testimony-text">"Todo me es lícito, mas no todo conviene; todo me es lícito, mas no todo edifica."</div>
+                                <div class="testimony-reference">1 Corintios 10:23</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="verdict-section">
+                        <h3 class="verdict-title">Veredicto Tecnológico</h3>
+                        <div class="verdict-content">
+                            La tecnología debe <span class="emphasis">servir a la humanidad</span>, no reemplazarla. La IA puede ser herramienta valiosa cuando respeta la dignidad humana y fortalece, no sustituye, las relaciones auténticas. El ministerio cristiano permanece fundamentalmente <span class="emphasis">relacional y humano</span>.
+                        </div>
+                    </div>
+                `
+            },
+            matrimonio: {
+                title: "Redefinición del Matrimonio",
+                subtitle: "Diseño Divino vs. Presión Cultural",
+                content: `
+                    <div class="evidence-sections">
+                        <div class="evidence-card">
+                            <div class="evidence-title">💒 Diseño Original</div>
+                            <div class="evidence-content">
+                                Desde la creación, Dios estableció el matrimonio como <span class="emphasis">unión de un hombre y una mujer</span> en pacto permanente. Este diseño revela verdades sobre la naturaleza humana y la relación Cristo-Iglesia.
+                            </div>
+                            <div class="biblical-testimony">
+                                <div class="testimony-text">"Por tanto, dejará el hombre a su padre y a su madre, y se unirá a su mujer, y serán una sola carne."</div>
+                                <div class="testimony-reference">Génesis 2:24</div>
+                            </div>
+                        </div>
+
+                        <div class="evidence-card">
+                            <div class="evidence-title">👨‍👩‍👧‍👦 Propósito del Matrimonio</div>
+                            <div class="evidence-content">
+                                El matrimonio bíblico cumple propósitos divinos:
+                                <br>• <strong>Compañerismo:</strong> "No es bueno que el hombre esté solo"
+                                <br>• <strong>Complementariedad:</strong> Diferencias que se enriquecen mutuamente
+                                <br>• <strong>Procreación:</strong> "Fructificad y multiplicaos"
+                                <br>• <strong>Simbolismo:</strong> Reflejo de Cristo y la Iglesia
+                            </div>
+                            <div class="biblical-testimony">
+                                <div class="testimony-text">"Grande es este misterio; mas yo digo esto respecto de Cristo y de la iglesia."</div>
+                                <div class="testimony-reference">Efesios 5:32</div>
+                            </div>
+                        </div>
+
+                        <div class="evidence-card">
+                            <div class="evidence-title">🌍 Respuesta Cultural</div>
+                            <div class="evidence-content">
+                                La iglesia debe mantener <span class="emphasis">fidelidad bíblica</span> mientras muestra amor genuino a todas las personas. Rechazamos el pecado pero amamos al pecador, ofreciendo esperanza de transformación en Cristo.
+                            </div>
+                            <div class="biblical-testimony">
+                                <div class="testimony-text">"El Señor no retarda su promesa, según algunos la tienen por tardanza, sino que es paciente para con nosotros, no queriendo que ninguno perezca, sino que todos procedan al arrepentimiento."</div>
+                                <div class="testimony-reference">2 Pedro 3:9</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="verdict-section">
+                        <h3 class="verdict-title">Veredicto sobre el Matrimonio</h3>
+                        <div class="verdict-content">
+                            El matrimonio permanece como <span class="emphasis">diseño divino inmutable</span>: unión de hombre y mujer en pacto vitalicio. La iglesia debe defender esta verdad con amor, ofreciendo esperanza de redención para todos mientras mantiene <span class="emphasis">fidelidad a la Palabra de Dios</span>.
+                        </div>
+                    </div>
+                `
+            },
+            economia: {
+                title: "Riqueza y Responsabilidad Cristiana",
+                subtitle: "Mayordomía Bíblica de los Recursos",
+                content: `
+                    <div class="evidence-sections">
+                        <div class="evidence-card">
+                            <div class="evidence-title">💰 La Riqueza en Perspectiva</div>
+                            <div class="evidence-content">
+                                La Escritura no condena la riqueza en sí, sino <span class="emphasis">el amor al dinero</span>. Abrahan, Job y otros fueron bendecidos materialmente. El problema surge cuando la riqueza se convierte en ídolo.
+                            </div>
+                            <div class="biblical-testimony">
+                                <div class="testimony-text">"Porque raíz de todos los males es el amor al dinero, el cual codiciando algunos, se extraviaron de la fe."</div>
+                                <div class="testimony-reference">1 Timoteo 6:10</div>
+                            </div>
+                        </div>
+
+                        <div class="evidence-card">
+                            <div class="evidence-title">🎯 Responsabilidades del Rico</div>
+                            <div class="evidence-content">
+                                Los cristianos prósperos tienen responsabilidades específicas:
+                                <br>• <strong>Humildad:</strong> Reconocer que todo viene de Dios
+                                <br>• <strong>Generosidad:</strong> Compartir abundantemente
+                                <br>• <strong>Justicia:</strong> Usar riqueza éticamente
+                                <br>• <strong>Mayordomía:</strong> Administrar para gloria de Dios
+                            </div>
+                            <div class="biblical-testimony">
+                                <div class="testimony-text">"A los ricos de este siglo manda que no sean altivos, ni pongan la esperanza en las riquezas, las cuales son inciertas, sino en el Dios vivo, que nos da todas las cosas en abundancia para que las disfrutemos."</div>
+                                <div class="testimony-reference">1 Timoteo 6:17</div>
+                            </div>
+                        </div>
+
+                        <div class="evidence-card">
+                            <div class="evidence-title">❤️ Corazón del Dador</div>
+                            <div class="evidence-content">
+                                Dios evalúa la <span class="emphasis">actitud del corazón</span>, no la cantidad dada. La viuda pobre que dio dos blancas fue elogiada sobre los ricos que dieron más pero con menos sacrificio.
+                            </div>
+                            <div class="biblical-testimony">
+                                <div class="testimony-text">"Cada uno dé como propuso en su corazón: no con tristeza, ni por necesidad, porque Dios ama al dador alegre."</div>
+                                <div class="testimony-reference">2 Corintios 9:7</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="verdict-section">
+                        <h3 class="verdict-title">Veredicto Económico</h3>
+                        <div class="verdict-content">
+                            La riqueza es <span class="emphasis">bendición de Dios</span> que conlleva responsabilidad. Los cristianos prósperos deben usar sus recursos para gloria de Dios, bien de la humanidad y avance del Reino. La clave está en <span class="emphasis">tener riqueza sin que la riqueza los tenga a ellos</span>.
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        function openCase(caseKey) {
+            const overlay = document.getElementById('caseOverlay');
+            const content = document.getElementById('caseContent');
+            const caseData = casesData[caseKey];
+            
+            content.innerHTML = `
+                <div class="case-header">
+                    <h2 class="case-title-full">${caseData.title}</h2>
+                    <p class="case-subtitle">${caseData.subtitle}</p>
+                </div>
+                ${caseData.content}
+            `;
+            
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCase() {
+            const overlay = document.getElementById('caseOverlay');
+            overlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close with ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeCase();
+            }
+        });
+
+        // Close clicking outside
+        document.getElementById('caseOverlay').addEventListener('click', (e) => {
+            if (e.target.id === 'caseOverlay') {
+                closeCase();
+            }
+        });
+    </script>
+</body>
+</html>

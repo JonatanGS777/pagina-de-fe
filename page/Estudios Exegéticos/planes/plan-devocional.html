@@ -1,0 +1,2388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Lectura Devocional - Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Crimson+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5D4E6D; /* Lavanda profundo - espiritualidad */
+            --secondary-color: #8884FF; /* Lila claro - serenidad */
+            --accent-color: #F8B400; /* Dorado - luz divina */
+            --text-color: #3E3E3E; /* Gris oscuro - texto principal */
+            --background-color: #FAF7FF; /* Lavanda muy claro - fondo */
+            --light-accent: #FFF5D6; /* Crema claro - énfasis sutil */
+            --dark-accent: #3A3046; /* Morado profundo - contraste */
+            --gradient-bg: linear-gradient(160deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            --box-shadow: 0 8px 20px rgba(93, 78, 109, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        /* Botón volver */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        
+        .back-button a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            color: var(--dark-accent);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: var(--transition);
+        }
+        
+        .back-button a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+        }
+        
+        /* Encabezado */
+        .header {
+            height: 85vh;
+            background: var(--gradient-bg);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1200/800') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header-content {
+            max-width: 700px;
+        }
+        
+        .header-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .header-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            max-width: 600px;
+        }
+        
+        .header-icon {
+            position: absolute;
+            bottom: -100px;
+            right: 5%;
+            font-size: 30rem;
+            color: rgba(255, 255, 255, 0.03);
+            z-index: 0;
+        }
+        
+        /* Botones */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--dark-accent);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-right: 1rem;
+            border: 2px solid transparent;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+        
+        /* Intro sección */
+        .intro-section {
+            padding: 6rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+        
+        .intro-card {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: var(--box-shadow);
+            padding: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .intro-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--gradient-bg);
+        }
+        
+        .intro-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .intro-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+        
+        .intro-list {
+            margin: 2rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .intro-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .intro-list li::before {
+            content: "\f0da";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+        
+        /* Cards de características */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-bg);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--light-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover .feature-icon {
+            background: var(--accent-color);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .feature-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* Devocionales sección */
+        .devotionals-section {
+            padding: 6rem 0;
+            background-color: white;
+        }
+        
+        .devotional-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .devotional-nav-btn {
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 30px;
+            padding: 0.8rem 1.5rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .devotional-nav-btn i {
+            margin-right: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .devotional-nav-btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .devotional-nav-btn:hover i {
+            color: white;
+        }
+        
+        /* Devocional semanal */
+        .devotional-week {
+            margin-bottom: 5rem;
+        }
+        
+        .week-header {
+            background: var(--gradient-bg);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 16px 16px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .week-header::after {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        .week-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .week-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .week-body {
+            background-color: white;
+            padding: 0;
+            border-radius: 0 0 16px 16px;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+        
+        .day-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 0;
+        }
+        
+        .day-card {
+            padding: 2rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-right: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+        
+        .day-card:hover {
+            background-color: var(--background-color);
+            transform: translateY(-5px);
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .day-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .day-number i {
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+        
+        .scripture {
+            background-color: var(--light-accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .scripture-ref {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .scripture-text {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        
+        .meditation-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin: 1.5rem 0 0.8rem;
+        }
+        
+        .meditation-questions {
+            padding-left: 1.2rem;
+        }
+        
+        .meditation-question {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+        
+        .prayer-section {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed rgba(0,0,0,0.1);
+        }
+        
+        .prayer-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .prayer-title i {
+            color: var(--secondary-color);
+        }
+        
+        .prayer-guide {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--text-color);
+        }
+        
+        /* Additional Resources */
+        .resources-section {
+            padding: 6rem 0;
+        }
+        
+        .resources-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .resource-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .resource-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .resource-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .resource-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .resource-desc {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+        
+        /* Call to Action */
+        .cta-section {
+            padding: 6rem 0;
+            background: var(--gradient-bg);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1200/800') center/cover no-repeat;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        .back-to-plans {
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                height: auto;
+                padding: 120px 0 80px;
+            }
+            
+            .header-title {
+                font-size: 3rem;
+            }
+            
+            .devotional-week {
+                margin-bottom: 3rem;
+            }
+            
+            .week-title {
+                font-size: 1.8rem;
+            }
+            
+            .intro-card, 
+            .feature-card, 
+            .day-card {
+                padding: 1.5rem;
+            }
+            
+            .day-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin: 0 0 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botón Volver -->
+    <div class="back-button">
+        <a href="../lectura-anual.html" aria-label="Volver a planes de lectura">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-bg"></div>
+        <i class="fas fa-book-open header-icon"></i>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="header-title">Lecturas Devocionales Diarias</h1>
+                <p class="header-subtitle">Un viaje de 52 días para profundizar tu relación con Dios a través de la meditación, reflexión y oración.</p>
+                <a href="#comenzar" class="btn">Comenzar el Viaje</a>
+                <a href="#recursos" class="btn btn-outline">Recursos Adicionales</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Intro Section -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Alimenta tu Espíritu Diariamente</h2>
+                <p>Descubre la transformación que viene a través de pasar tiempo intencional en la Palabra de Dios cada día</p>
+            </div>
+
+            <div class="intro-card">
+                <h3 class="intro-title">¿Qué es un Plan Devocional?</h3>
+                <p>Un plan de lectura devocional no busca simplemente transmitir información bíblica, sino fomentar la transformación personal a través de la comunión diaria con Dios. Este plan está diseñado para guiarte en un tiempo de intimidad con el Señor que incluye:</p>
+                
+                <ul class="intro-list">
+                    <li>Lectura pausada y reflexiva de pasajes bíblicos seleccionados</li>
+                    <li>Meditación guiada para aplicar las verdades a tu vida personal</li>
+                    <li>Preguntas de reflexión que te ayudan a profundizar en el texto</li>
+                    <li>Guías para la oración que conectan la Palabra con tu comunicación con Dios</li>
+                    <li>Sugerencias para aplicación práctica durante el día</li>
+                </ul>
+                
+                <p>A diferencia de planes de lectura que abarcan grandes secciones de texto, este plan devocional te invita a desacelerar, a permitir que la Palabra penetre profundamente en tu corazón, y a desarrollar el hábito de escuchar la voz de Dios a través de Su Palabra.</p>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <h3 class="feature-title">Lecturas Enfocadas</h3>
+                    <p>Pasajes cuidadosamente seleccionados para maximizar la reflexión personal y el crecimiento espiritual.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="feature-title">Meditación Profunda</h3>
+                    <p>Guías para rumiar la Palabra, permitiendo que transforme tu mente y corazón.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-praying-hands"></i>
+                    </div>
+                    <h3 class="feature-title">Oración Dirigida</h3>
+                    <p>Estructura para convertir las verdades bíblicas en conversación íntima con Dios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Devotionals Section -->
+    <section class="devotionals-section" id="comenzar">
+        <div class="container">
+            <div class="section-title">
+                <h2>Plan Devocional de 52 Días</h2>
+                <p>Organizado en semanas temáticas para un viaje espiritual transformador</p>
+            </div>
+
+            <div class="devotional-nav">
+                <button class="devotional-nav-btn" onclick="scrollToDevotional('week1')">
+                    <i class="fas fa-heart"></i> Conociendo a Dios
+                </button>
+                <button class="devotional-nav-btn" onclick="scrollToDevotional('week2')">
+                    <i class="fas fa-hands"></i> Gracia y Perdón
+                </button>
+                <button class="devotional-nav-btn" onclick="scrollToDevotional('week3')">
+                    <i class="fas fa-pray"></i> Fe y Confianza
+                </button>
+                <button class="devotional-nav-btn" onclick="scrollToDevotional('week4')">
+                    <i class="fas fa-dove"></i> El Espíritu Santo
+                </button>
+                <button class="devotional-nav-btn" onclick="scrollToDevotional('week5')">
+                    <i class="fas fa-comments"></i> Oración Íntima
+                </button>
+                <button class="devotional-nav-btn" onclick="scrollToDevotional('week6')">
+                    <i class="fas fa-seedling"></i> Crecimiento
+                </button>
+                <button class="devotional-nav-btn" onclick="scrollToDevotional('week7')">
+                    <i class="fas fa-hand-holding-heart"></i> Servicio y Amor
+                </button>
+                <button class="devotional-nav-btn" onclick="scrollToDevotional('week8')">
+                    <i class="fas fa-crown"></i> Victoria Final
+                </button>
+            </div>
+
+            <!-- SEMANA 1: CONOCIENDO A DIOS -->
+            <div class="devotional-week" id="week1">
+                <div class="week-header">
+                    <h3 class="week-title">Semana 1: Conociendo a Dios</h3>
+                    <p class="week-subtitle">Explorando los atributos divinos para una adoración más profunda e íntima</p>
+                </div>
+                
+                <div class="week-body">
+                    <div class="day-cards">
+                        <!-- Día 1 -->
+                        <div class="day-card">
+                            <div class="day-number">
+                                <span>Día 1</span>
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            
+                            <div class="scripture">
+                                <div class="scripture-ref">Salmo 103:1-14</div>
+                                <p class="scripture-text">"Bendice, alma mía, a Jehová, y bendiga todo mi ser su santo nombre... Él es quien perdona todas tus iniquidades, el que sana todas tus dolencias... Misericordioso y clemente es Jehová; lento para la ira, y grande en misericordia..."</p>
+                            </div>
+                            
+                            <div class="meditation">
+                                <h4 class="meditation-title">Para Meditar</h4>
+                                <ul class="meditation-questions">
+                                    <li class="meditation-question">¿Qué atributos de Dios se destacan en este pasaje?</li>
+                                    <li class="meditation-question">¿Cuál de estos atributos tiene un significado especial para ti hoy?</li>
+                                    <li class="meditation-question">¿Cómo cambia tu perspectiva de tus problemas actuales cuando meditas en quién es Dios?</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="prayer-section">
+                                <h4 class="prayer-title">
+                                    <i class="fas fa-praying-hands"></i>
+                                    Guía de Oración
+                                </h4>
+                                <p class="prayer-guide">Agradece a Dios por cada uno de Sus atributos mencionados en el Salmo. Convierte cada característica de Dios en adoración. Expresa cómo Su misericordia, compasión y amor han impactado tu vida.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Día 2 -->
+                        <div class="day-card">
+                            <div class="day-number">
+                                <span>Día 2</span>
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            
+                            <div class="scripture">
+                                <div class="scripture-ref">Isaías 40:28-31</div>
+                                <p class="scripture-text">"¿No has sabido, no has oído que el Dios eterno es Jehová, el cual creó los confines de la tierra? No desfallece, ni se fatiga con cansancio, y su entendimiento no hay quien lo alcance... Los que esperan a Jehová tendrán nuevas fuerzas..."</p>
+                            </div>
+                            
+                            <div class="meditation">
+                                <h4 class="meditation-title">Para Meditar</h4>
+                                <ul class="meditation-questions">
+                                    <li class="meditation-question">¿Qué nos dice este pasaje sobre el poder y la sabiduría de Dios?</li>
+                                    <li class="meditation-question">¿En qué áreas de tu vida necesitas recordar que Dios no se cansa ni se fatiga?</li>
+                                    <li class="meditation-question">¿Qué significa para ti "esperar en Jehová"? ¿Cómo se ve esto prácticamente?</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="prayer-section">
+                                <h4 class="prayer-title">
+                                    <i class="fas fa-praying-hands"></i>
+                                    Guía de Oración
+                                </h4>
+                                <p class="prayer-guide">Reconoce la omnipotencia de Dios y su infinita sabiduría. Entrega a Dios las áreas donde te sientes débil o cansado. Pide que renueve tus fuerzas mientras aprendes a esperar en Él.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Día 3 -->
+                        <div class="day-card">
+                            <div class="day-number">
+                                <span>Día 3</span>
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            
+                            <div class="scripture">
+                                <div class="scripture-ref">1 Juan 4:7-12</div>
+                                <p class="scripture-text">"Amados, amémonos unos a otros; porque el amor es de Dios... El que no ama, no ha conocido a Dios; porque Dios es amor... En esto consiste el amor: no en que nosotros hayamos amado a Dios, sino en que él nos amó a nosotros, y envió a su Hijo en propiciación por nuestros pecados."</p>
+                            </div>
+                            
+                            <div class="meditation">
+                                <h4 class="meditation-title">Para Meditar</h4>
+                                <ul class="meditation-questions">
+                                    <li class="meditation-question">¿Qué significa que "Dios es amor"? ¿Cómo se diferencia esto de decir simplemente que "Dios ama"?</li>
+                                    <li class="meditation-question">¿De qué manera el envío de Jesús revela la naturaleza del amor de Dios?</li>
+                                    <li class="meditation-question">¿Cómo puede tu relación con otros reflejar mejor este amor divino?</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="prayer-section">
+                                <h4 class="prayer-title">
+                                    <i class="fas fa-praying-hands"></i>
+                                    Guía de Oración
+                                </h4>
+                                <p class="prayer-guide">Agradece a Dios por Su amor inmerecido. Pídele que te ayude a comprender más profundamente la dimensión de Su amor revelado en Cristo. Ora por un corazón que ame a otros como Él te ha amado.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEMANA 2: GRACIA Y PERDÓN -->
+            <div class="devotional-week" id="week2">
+                <div class="week-header">
+                    <h3 class="week-title">Semana 2: Gracia y Perdón</h3>
+                    <p class="week-subtitle">Experimentando la libertad que viene a través del perdón de Dios y aprendiendo a perdonar a otros</p>
+                </div>
+                
+                <div class="week-body">
+                    <div class="day-cards">
+                        <!-- Día 8 -->
+                        <div class="day-card">
+                            <div class="day-number">
+                                <span>Día 8</span>
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            
+                            <div class="scripture">
+                                <div class="scripture-ref">Efesios 2:1-10</div>
+                                <p class="scripture-text">"Pero Dios, que es rico en misericordia, por su gran amor con que nos amó, aun estando nosotros muertos en pecados, nos dio vida juntamente con Cristo... Porque por gracia sois salvos por medio de la fe; y esto no de vosotros, pues es don de Dios..."</p>
+                            </div>
+                            
+                            <div class="meditation">
+                                <h4 class="meditation-title">Para Meditar</h4>
+                                <ul class="meditation-questions">
+                                    <li class="meditation-question">¿Cómo describe este pasaje nuestra condición antes de conocer a Cristo?</li>
+                                    <li class="meditation-question">¿Qué significa para ti personalmente ser "salvo por gracia"?</li>
+                                    <li class="meditation-question">Según el versículo 10, ¿cuál es el propósito de esta salvación por gracia?</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="prayer-section">
+                                <h4 class="prayer-title">
+                                    <i class="fas fa-praying-hands"></i>
+                                    Guía de Oración
+                                </h4>
+                                <p class="prayer-guide">Agradece a Dios por Su gracia inmerecida. Reconoce tu dependencia completa de Su obra salvadora. Pide que te muestre las "buenas obras" que Él ha preparado para ti hoy.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- COMPLETAR SEMANA 2: GRACIA Y PERDÓN -->
+<div class="devotional-week" id="week2">
+    <div class="week-header">
+        <h3 class="week-title">Semana 2: Gracia y Perdón</h3>
+        <p class="week-subtitle">Experimentando la libertad que viene a través del perdón de Dios y aprendiendo a perdonar a otros</p>
+    </div>
+    
+    <div class="week-body">
+        <div class="day-cards">
+            <!-- Día 8 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 8</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Efesios 2:1-10</div>
+                    <p class="scripture-text">"Pero Dios, que es rico en misericordia, por su gran amor con que nos amó, aun estando nosotros muertos en pecados, nos dio vida juntamente con Cristo... Porque por gracia sois salvos por medio de la fe; y esto no de vosotros, pues es don de Dios..."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Cómo describe este pasaje nuestra condición antes de conocer a Cristo?</li>
+                        <li class="meditation-question">¿Qué significa para ti personalmente ser "salvo por gracia"?</li>
+                        <li class="meditation-question">Según el versículo 10, ¿cuál es el propósito de esta salvación por gracia?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Agradece a Dios por Su gracia inmerecida. Reconoce tu dependencia completa de Su obra salvadora. Pide que te muestre las "buenas obras" que Él ha preparado para ti hoy.</p>
+                </div>
+            </div>
+            
+            <!-- Día 9 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 9</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Salmo 32:1-7</div>
+                    <p class="scripture-text">"Bienaventurado aquel cuya transgresión ha sido perdonada, y cubierto su pecado. Bienaventurado el hombre a quien Jehová no culpa de iniquidad... Mi pecado te declaré, y no encubrí mi iniquidad... Y tú perdonaste la maldad de mi pecado."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué palabras usa David para describir la culpa del pecado y la experiencia del perdón?</li>
+                        <li class="meditation-question">¿Por qué es importante confesar nuestros pecados en lugar de encubrirlos?</li>
+                        <li class="meditation-question">¿Cómo se relaciona el perdón con tu bienestar emocional y espiritual?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Abre tu corazón en confesión honesta ante Dios. Identifica áreas específicas donde necesitas Su perdón. Descansa en la promesa de Su completo perdón y celebra la libertad que Él te da.</p>
+                </div>
+            </div>
+            
+            <!-- Día 10 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 10</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Colosenses 3:12-14</div>
+                    <p class="scripture-text">"Vestíos, pues, como escogidos de Dios, santos y amados, de entrañable misericordia, de benignidad, de humildad, de mansedumbre, de paciencia; soportándoos unos a otros, y perdonándoos unos a otros si alguno tuviere queja contra otro. De la manera que Cristo os perdonó, así también hacedlo vosotros."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué cualidades deben caracterizar a los "escogidos de Dios"?</li>
+                        <li class="meditation-question">¿Por qué es tan difícil perdonar a aquellos que nos han herido?</li>
+                        <li class="meditation-question">¿Cómo es el perdón de Cristo nuestro modelo para perdonar a otros?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Pide a Dios que te muestre si hay alguien a quien necesitas perdonar. Reconoce cualquier resentimiento que hayas estado guardando. Ora por la gracia para perdonar como Cristo te ha perdonado.</p>
+                </div>
+            </div>
+
+            <!-- Día 11 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 11</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Mateo 18:21-35</div>
+                    <p class="scripture-text">"Entonces se le acercó Pedro y le dijo: Señor, ¿cuántas veces perdonaré a mi hermano que peque contra mí? ¿Hasta siete? Jesús le dijo: No te digo hasta siete, sino aun hasta setenta veces siete..."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué nos enseña la parábola sobre la relación entre recibir perdón y otorgarlo?</li>
+                        <li class="meditation-question">¿Por qué crees que el perdón debe ser ilimitado ("setenta veces siete")?</li>
+                        <li class="meditation-question">¿Hay alguna situación en tu vida donde has puesto límites a tu disposición de perdonar?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Medita en la magnitud del perdón que has recibido de Dios. Pide un corazón que refleje Su generosidad para perdonar. Ora por personas específicas que te hayan ofendido repetidamente.</p>
+                </div>
+            </div>
+
+            <!-- Día 12 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 12</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Lucas 15:11-24</div>
+                    <p class="scripture-text">"...Y levantándose, vino a su padre. Y cuando aún estaba lejos, lo vio su padre, y fue movido a misericordia, y corrió, y se echó sobre su cuello, y le besó... traed el becerro gordo y matadlo, y comamos y hagamos fiesta; porque este mi hijo muerto era, y ha revivido; se había perdido, y es hallado."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué nos revela esta parábola sobre el corazón del Padre hacia los que se han alejado?</li>
+                        <li class="meditation-question">¿Con qué personaje de la historia te identificas más en este momento de tu vida?</li>
+                        <li class="meditation-question">¿Cómo puede esta imagen del padre influir en tu propia disposición a perdonar?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Agradece a Dios por su amor de Padre que te recibe con brazos abiertos. Si hay áreas donde te has alejado, regresa a Él en arrepentimiento. Pide un corazón que refleje Su misericordia hacia otros.</p>
+                </div>
+            </div>
+
+            <!-- Día 13 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 13</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Miqueas 7:18-19</div>
+                    <p class="scripture-text">"¿Qué Dios como tú, que perdona la maldad, y olvida el pecado del remanente de su heredad? No retuvo para siempre su enojo, porque se deleita en misericordia. Él volverá a tener misericordia de nosotros; sepultará nuestras iniquidades, y echará en lo profundo del mar todos nuestros pecados."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué imágenes usa el profeta para describir el perdón de Dios?</li>
+                        <li class="meditation-question">¿Qué significa que Dios "se deleita en misericordia"?</li>
+                        <li class="meditation-question">¿Cómo puede esta visión del perdón divino cambiar tu forma de ver tus propios errores pasados?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Alaba a Dios por Su inigualable perdón. Visualiza tus pecados siendo arrojados a lo profundo del mar y agradece a Dios por esta libertad. Pide ayuda para dejar de castigarte por lo que Dios ya ha perdonado.</p>
+                </div>
+            </div>
+
+            <!-- Día 14 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 14</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Romanos 8:1-4</div>
+                    <p class="scripture-text">"Ahora, pues, ninguna condenación hay para los que están en Cristo Jesús, los que no andan conforme a la carne, sino conforme al Espíritu. Porque la ley del Espíritu de vida en Cristo Jesús me ha librado de la ley del pecado y de la muerte."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué significa vivir sin condenación en Cristo?</li>
+                        <li class="meditation-question">¿De qué manera el Espíritu nos libera de la "ley del pecado y de la muerte"?</li>
+                        <li class="meditation-question">¿Cómo puedes aprender a vivir desde la libertad de la gracia en lugar del temor a la condenación?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Agradece a Dios por la libertad de la condenación que tienes en Cristo. Pide al Espíritu Santo que te guíe en vivir desde esta realidad. Ora por la capacidad de caminar cada día en la libertad que Cristo te ha dado.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SEMANA 3: FE Y CONFIANZA -->
+<div class="devotional-week" id="week3">
+    <div class="week-header">
+        <h3 class="week-title">Semana 3: Fe y Confianza</h3>
+        <p class="week-subtitle">Fortaleciendo tu fe y aprendiendo a confiar en Dios en todas las circunstancias</p>
+    </div>
+    
+    <div class="week-body">
+        <div class="day-cards">
+            <!-- Día 15 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 15</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Hebreos 11:1-6</div>
+                    <p class="scripture-text">"Es, pues, la fe la certeza de lo que se espera, la convicción de lo que no se ve... Por la fe entendemos haber sido constituido el universo por la palabra de Dios... Y sin fe es imposible agradar a Dios; porque es necesario que el que se acerca a Dios crea que le hay, y que es galardonador de los que le buscan."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Cómo define este pasaje la fe? ¿Cómo se compara con tu propia comprensión de la fe?</li>
+                        <li class="meditation-question">¿Por qué es imposible agradar a Dios sin fe?</li>
+                        <li class="meditation-question">¿En qué áreas de tu vida estás teniendo dificultad para "ver lo invisible"?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Pide a Dios que fortalezca tu fe. Identifica áreas donde necesitas mayor certeza y confianza en Sus promesas. Agradece a Dios por las evidencias de Su fidelidad en tu vida hasta ahora.</p>
+                </div>
+            </div>
+            
+            <!-- Día 16 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 16</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Marcos 9:14-29</div>
+                    <p class="scripture-text">"Y uno de la multitud respondió: Maestro, traje a ti mi hijo, que tiene un espíritu mudo... Y Jesús le dijo: Si puedes creer, al que cree todo le es posible. E inmediatamente el padre del muchacho clamó y dijo: Creo; ayuda mi incredulidad."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué te llama la atención de la respuesta del padre: "Creo; ayuda mi incredulidad"?</li>
+                        <li class="meditation-question">¿Por qué Jesús enfatiza la importancia de la fe en este pasaje?</li>
+                        <li class="meditation-question">¿En qué situaciones de tu vida podrías orar como este padre?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Sé honesto con Dios acerca de tus luchas con la incredulidad. Pide que aumente tu fe donde más la necesitas. Entrega a Jesús aquellas situaciones donde tu fe está siendo probada.</p>
+                </div>
+            </div>
+            
+            <!-- Día 17 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 17</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Proverbios 3:5-8</div>
+                    <p class="scripture-text">"Fíate de Jehová de todo tu corazón, y no te apoyes en tu propia prudencia. Reconócelo en todos tus caminos, y él enderezará tus veredas. No seas sabio en tu propia opinión; teme a Jehová, y apártate del mal; porque será medicina a tu cuerpo, y refrigerio para tus huesos."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué significa confiar en Dios "de todo tu corazón"?</li>
+                        <li class="meditation-question">¿En qué áreas tiendes a apoyarte en tu propia sabiduría en lugar de la de Dios?</li>
+                        <li class="meditation-question">¿Cómo puedes practicar el "reconocer a Dios en todos tus caminos"?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Entrega a Dios tus preocupaciones y decisiones actuales. Confiesa las áreas donde has confiado más en tu propia sabiduría. Pide discernimiento para reconocer Sus caminos en cada aspecto de tu vida.</p>
+                </div>
+            </div>
+
+            <!-- Día 18 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 18</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Génesis 22:1-14</div>
+                    <p class="scripture-text">"...Toma ahora tu hijo, tu único, Isaac, a quien amas, y vete a tierra de Moriah, y ofrécelo allí en holocausto... Y Abraham... tomó a Isaac su hijo... y se levantó, y fue al lugar que Dios le dijo... Y llamó Abraham el nombre de aquel lugar, Jehová proveerá."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué te impresiona más de la fe de Abraham en esta historia?</li>
+                        <li class="meditation-question">¿Qué "Isaacs" (cosas preciosas) podría estar pidiéndote Dios que le entregues?</li>
+                        <li class="meditation-question">¿Cómo has experimentado el principio de "Jehová proveerá" en tu propia vida?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Entrega a Dios aquello que más atesoras. Pide una fe como la de Abraham que obedece incluso cuando no entiende. Confía en la provisión de Dios para cada necesidad que enfrentes.</p>
+                </div>
+            </div>
+
+            <!-- Día 19 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 19</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Santiago 1:2-8</div>
+                    <p class="scripture-text">"Hermanos míos, tened por sumo gozo cuando os halléis en diversas pruebas, sabiendo que la prueba de vuestra fe produce paciencia... Pero pida con fe, no dudando nada; porque el que duda es semejante a la onda del mar, que es arrastrada por el viento y echada de una parte a otra."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Por qué deberíamos considerar las pruebas como "sumo gozo"?</li>
+                        <li class="meditation-question">¿Cómo se desarrolla y madura nuestra fe a través de las pruebas?</li>
+                        <li class="meditation-question">¿Qué significa pedir "con fe, no dudando nada"? ¿Cómo podemos cultivar esta clase de fe?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Identifica las pruebas que enfrentas actualmente y agradece a Dios por su potencial para fortalecer tu fe. Pide sabiduría con confianza plena en la bondad y generosidad de Dios. Ora por estabilidad en tu caminar de fe.</p>
+                </div>
+            </div>
+
+            <!-- Día 20 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 20</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Mateo 14:22-33</div>
+                    <p class="scripture-text">"...Pedro le respondió: Señor, si eres tú, manda que yo vaya a ti sobre las aguas. Y él dijo: Ven. Y descendiendo Pedro de la barca, andaba sobre las aguas para ir a Jesús. Pero al ver el fuerte viento, tuvo miedo; y comenzando a hundirse, dio voces, diciendo: ¡Señor, sálvame! Al momento Jesús, extendiendo la mano, asió de él, y le dijo: ¡Hombre de poca fe! ¿Por qué dudaste?"</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué te enseña esta historia sobre los altibajos de la fe?</li>
+                        <li class="meditation-question">¿En qué "tormentas" de tu vida has apartado la mirada de Jesús?</li>
+                        <li class="meditation-question">¿Qué "caminar sobre las aguas" podría estar llamándote Jesús a hacer hoy?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Pide a Jesús que te ayude a mantener tus ojos fijos en Él en medio de las tormentas. Considera qué pasos de fe te está llamando a dar. Agradece que, incluso cuando dudas, Su mano está extendida para sostenerte.</p>
+                </div>
+            </div>
+
+            <!-- Día 21 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 21</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Filipenses 4:6-7</div>
+                    <p class="scripture-text">"Por nada estéis afanosos, sino sean conocidas vuestras peticiones delante de Dios en toda oración y ruego, con acción de gracias. Y la paz de Dios, que sobrepasa todo entendimiento, guardará vuestros corazones y vuestros pensamientos en Cristo Jesús."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué relación ves entre la oración, la gratitud y la paz en este pasaje?</li>
+                        <li class="meditation-question">¿Por qué es la ansiedad una señal de falta de confianza en Dios?</li>
+                        <li class="meditation-question">¿Qué preocupaciones necesitas entregar a Dios hoy?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Entrega a Dios cada una de tus preocupaciones y ansiedades, nombrándolas específicamente. Con cada petición, añade un agradecimiento por algo que Dios ha hecho. Recibe Su paz que sobrepasa todo entendimiento.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SEMANA 4: EL ESPÍRITU SANTO -->
+<div class="devotional-week" id="week4">
+    <div class="week-header">
+        <h3 class="week-title">Semana 4: El Espíritu Santo</h3>
+        <p class="week-subtitle">Conociendo y experimentando el poder transformador del Espíritu Santo en tu vida</p>
+    </div>
+    
+    <div class="week-body">
+        <div class="day-cards">
+            <!-- Día 22 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 22</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Juan 14:15-26</div>
+                    <p class="scripture-text">"Y yo rogaré al Padre, y os dará otro Consolador, para que esté con vosotros para siempre: el Espíritu de verdad... No os dejaré huérfanos; vendré a vosotros... Mas el Consolador, el Espíritu Santo, a quien el Padre enviará en mi nombre, él os enseñará todas las cosas, y os recordará todo lo que yo os he dicho."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué nombres y roles del Espíritu Santo menciona Jesús en este pasaje?</li>
+                        <li class="meditation-question">¿Cómo te consuela saber que no has sido dejado "huérfano"?</li>
+                        <li class="meditation-question">¿De qué maneras has experimentado la enseñanza y el recordatorio del Espíritu en tu vida?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Agradece a Jesús por enviarte al Espíritu Santo como tu Consolador. Pide al Espíritu que te enseñe más profundamente las palabras de Jesús. Invita al Espíritu a revelarte verdades específicas que necesitas hoy.</p>
+                </div>
+            </div>
+            
+            <!-- Día 23 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 23</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Gálatas 5:16-25</div>
+                    <p class="scripture-text">"Digo, pues: Andad en el Espíritu, y no satisfagáis los deseos de la carne... El fruto del Espíritu es amor, gozo, paz, paciencia, benignidad, bondad, fe, mansedumbre, templanza... Si vivimos por el Espíritu, andemos también por el Espíritu."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Cómo describe Pablo el conflicto entre la carne y el Espíritu?</li>
+                        <li class="meditation-question">De los aspectos del fruto del Espíritu, ¿cuáles ves más desarrollados en tu vida? ¿Cuáles necesitan más crecimiento?</li>
+                        <li class="meditation-question">¿Qué significa prácticamente "andar en el Espíritu" en tu vida diaria?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Pide al Espíritu Santo que examine tu vida y revele cualquier área donde estés cediendo a los deseos de la carne. Ora por el desarrollo de cada aspecto del fruto del Espíritu en tu carácter. Comprométete a "andar por el Espíritu" hoy.</p>
+                </div>
+            </div>
+            
+            <!-- Día 24 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 24</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Hechos 1:4-8</div>
+                    <p class="scripture-text">"... les mandó que no se fueran de Jerusalén, sino que esperasen la promesa del Padre... seréis bautizados con el Espíritu Santo dentro de no muchos días... recibiréis poder, cuando haya venido sobre vosotros el Espíritu Santo, y me seréis testigos en Jerusalén, en toda Judea, en Samaria, y hasta lo último de la tierra."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Por qué era tan importante que los discípulos esperaran el bautismo del Espíritu Santo?</li>
+                        <li class="meditation-question">¿Qué relación existe entre el poder del Espíritu y el testimonio cristiano?</li>
+                        <li class="meditation-question">¿Cómo podría manifestarse el poder del Espíritu Santo en tu vida y testimonio?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Pide una nueva llenura del Espíritu Santo en tu vida. Ora por el poder para ser testigo en tus "Jerusalén, Judea y Samaria" (círculos de influencia). Entrega a Dios tus temores relacionados con compartir tu fe.</p>
+                </div>
+            </div>
+
+            <!-- Día 25 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 25</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Romanos 8:5-17</div>
+                    <p class="scripture-text">"Porque los que son de la carne piensan en las cosas de la carne; pero los que son del Espíritu, en las cosas del Espíritu... Y si el Espíritu de aquel que levantó de los muertos a Jesús mora en vosotros, el que levantó de los muertos a Cristo Jesús vivificará también vuestros cuerpos mortales por su Espíritu que mora en vosotros."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Cómo describe Pablo la diferencia entre la mentalidad de la carne y la del Espíritu?</li>
+                        <li class="meditation-question">¿Qué significa que el Espíritu "mora en ti"? ¿Cómo cambia esto tu identidad?</li>
+                        <li class="meditation-question">¿Qué significa que el Espíritu testifica a nuestro espíritu que somos hijos de Dios?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Pide al Espíritu Santo que renueve tu mente según Sus pensamientos. Agradece por la vida que el Espíritu trae a tu ser. Escucha en silencio al Espíritu que testifica a tu espíritu que eres hijo/a de Dios.</p>
+                </div>
+            </div>
+
+            <!-- Día 26 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 26</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">1 Corintios 12:4-11</div>
+                    <p class="scripture-text">"Ahora bien, hay diversidad de dones, pero el Espíritu es el mismo... Pero a cada uno le es dada la manifestación del Espíritu para provecho... Pero todas estas cosas las hace uno y el mismo Espíritu, repartiendo a cada uno en particular como él quiere."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué dones espirituales menciona Pablo en este pasaje?</li>
+                        <li class="meditation-question">¿Cuál es el propósito de los dones espirituales según el versículo 7?</li>
+                        <li class="meditation-question">¿Qué dones has visto manifestarse en tu vida? ¿Cómo los estás usando para el bien común?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Agradece al Espíritu por los dones específicos que te ha dado. Pide sabiduría para descubrir y desarrollar tus dones espirituales. Ora por oportunidades para usar tus dones para edificar a otros y glorificar a Dios.</p>
+                </div>
+            </div>
+
+            <!-- Día 27 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 27</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Efesios 5:15-21</div>
+                    <p class="scripture-text">"Mirad, pues, con diligencia cómo andéis... No os embriaguéis con vino, en lo cual hay disolución; antes bien sed llenos del Espíritu, hablando entre vosotros con salmos, con himnos y cánticos espirituales, cantando y alabando al Señor en vuestros corazones..."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Por qué Pablo contrasta la embriaguez con ser lleno del Espíritu?</li>
+                        <li class="meditation-question">¿Qué evidencias de una vida llena del Espíritu menciona este pasaje?</li>
+                        <li class="meditation-question">¿Cómo puedes cultivar una vida de continua llenura del Espíritu?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Pide al Señor que te llene nuevamente de Su Espíritu. Dedica tiempo a adorar con "salmos, himnos y cánticos espirituales". Expresa gratitud por todas las cosas en el nombre de Jesucristo.</p>
+                </div>
+            </div>
+
+            <!-- Día 28 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 28</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Romanos 8:26-27</div>
+                    <p class="scripture-text">"Y de igual manera el Espíritu nos ayuda en nuestra debilidad; pues qué hemos de pedir como conviene, no lo sabemos, pero el Espíritu mismo intercede por nosotros con gemidos indecibles. Mas el que escudriña los corazones sabe cuál es la intención del Espíritu, porque conforme a la voluntad de Dios intercede por los santos."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Cómo te consuela saber que el Espíritu ora por ti cuando no sabes qué pedir?</li>
+                        <li class="meditation-question">¿En qué situaciones has experimentado esta "debilidad" en la oración?</li>
+                        <li class="meditation-question">¿Cómo puedes cooperar más conscientemente con la obra intercesora del Espíritu?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Reconoce tus debilidades en la oración. Invita al Espíritu a interceder por ti en las situaciones donde no sabes cómo orar. Dedica un tiempo de silencio permitiendo al Espíritu orar a través de ti.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SEMANA 5: ORACIÓN ÍNTIMA -->
+<div class="devotional-week" id="week5">
+    <div class="week-header">
+        <h3 class="week-title">Semana 5: Oración Íntima</h3>
+        <p class="week-subtitle">Profundizando en la comunicación con Dios a través de diversos aspectos de la oración</p>
+    </div>
+    
+    <div class="week-body">
+        <div class="day-cards">
+            <!-- Día 29 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 29</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Mateo 6:5-13</div>
+                    <p class="scripture-text">"Y cuando ores, no seas como los hipócritas... Mas tú, cuando ores, entra en tu aposento, y cerrada la puerta, ora a tu Padre que está en secreto... Y orando, no uséis vanas repeticiones... Vosotros, pues, oraréis así: Padre nuestro que estás en los cielos, santificado sea tu nombre..."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué enseña Jesús sobre las motivaciones incorrectas en la oración?</li>
+                        <li class="meditation-question">¿Cómo debería ser el lugar y la actitud de nuestra oración?</li>
+                        <li class="meditation-question">¿Qué elementos incluye Jesús en el modelo de oración que nos enseña?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Examina tus motivaciones para orar. Busca un lugar tranquilo para estar a solas con Dios. Ora siguiendo el modelo que Jesús enseñó, reflexionando sobre cada parte de la oración del Padre Nuestro.</p>
+                </div>
+            </div>
+            
+            <!-- Día 30 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 30</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Salmo 63:1-8</div>
+                    <p class="scripture-text">"Dios, Dios mío eres tú; de madrugada te buscaré; mi alma tiene sed de ti, mi carne te anhela, en tierra seca y árida donde no hay aguas... Porque mejor es tu misericordia que la vida; mis labios te alabarán... Mi alma se saciará como de meollo y gordura, y con labios de júbilo te alabará mi boca..."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué imágenes usa David para expresar su anhelo por Dios?</li>
+                        <li class="meditation-question">¿Cómo describe David la satisfacción que encuentra en la presencia de Dios?</li>
+                        <li class="meditation-question">¿Has experimentado este tipo de sed y satisfacción en tu relación con Dios?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Expresa a Dios tu anhelo personal de Él usando tus propias palabras y metáforas. Alaba a Dios por Su misericordia que es "mejor que la vida". Ora para que tu alma encuentre plena satisfacción en Su presencia.</p>
+                </div>
+            </div>
+            
+            <!-- Día 31 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 31</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">1 Juan 1:5-10</div>
+                    <p class="scripture-text">"Si decimos que tenemos comunión con él, y andamos en tinieblas, mentimos, y no practicamos la verdad... Si confesamos nuestros pecados, él es fiel y justo para perdonar nuestros pecados, y limpiarnos de toda maldad. Si decimos que no hemos pecado, le hacemos a él mentiroso, y su palabra no está en nosotros."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Por qué es la confesión un elemento esencial de la oración y la comunión con Dios?</li>
+                        <li class="meditation-question">¿Qué promesas nos da Dios cuando confesamos nuestros pecados?</li>
+                        <li class="meditation-question">¿Qué áreas de tu vida necesitan ser traídas a la luz a través de la confesión?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Pide al Espíritu Santo que te revele áreas de pecado en tu vida. Confiesa estos pecados específicamente, confiando en la fidelidad de Dios para perdonar. Agradece por la limpieza y restauración que Él ofrece.</p>
+                </div>
+            </div>
+
+            <!-- Día 32 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 32</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">1 Tesalonicenses 5:16-18</div>
+                    <p class="scripture-text">"Estad siempre gozosos. Orad sin cesar. Dad gracias en todo, porque esta es la voluntad de Dios para con vosotros en Cristo Jesús."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué significa orar "sin cesar"? ¿Cómo podría esto verse en la vida diaria?</li>
+                        <li class="meditation-question">¿Por qué la gratitud es tan fundamental en nuestra relación con Dios?</li>
+                        <li class="meditation-question">¿En qué situaciones te resulta más difícil dar gracias? ¿Por qué?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Practica la oración continua estableciendo "recordatorios" a lo largo del día para elevar tu mente a Dios. Haz una lista de diez cosas por las que estás agradecido, incluyendo algunas circunstancias difíciles. Agradece a Dios por cada una.</p>
+                </div>
+            </div>
+
+            <!-- Día 33 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 33</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Santiago 5:13-16</div>
+                    <p class="scripture-text">"¿Está alguno entre vosotros afligido? Haga oración. ¿Está alguno alegre? Cante alabanzas... ¿Está alguno enfermo entre vosotros? Llame a los ancianos de la iglesia, y oren por él... La oración eficaz del justo puede mucho."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué situaciones diferentes para la oración menciona Santiago?</li>
+                        <li class="meditation-question">¿Por qué es importante la oración en comunidad y la intercesión por otros?</li>
+                        <li class="meditation-question">¿Qué significa que "la oración eficaz del justo puede mucho"?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Identifica tus necesidades actuales y lístalas como peticiones específicas. Ora por personas que están enfermas o en dificultades. Pide a Dios que te muestre cómo puedes incorporar a otros en tu vida de oración.</p>
+                </div>
+            </div>
+
+            <!-- Día 34 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 34</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Salmo 46:10-11</div>
+                    <p class="scripture-text">"Estad quietos, y conoced que yo soy Dios; seré exaltado entre las naciones; enaltecido seré en la tierra. Jehová de los ejércitos está con nosotros; nuestro refugio es el Dios de Jacob."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Por qué es tan difícil estar "quietos" en nuestra sociedad acelerada?</li>
+                        <li class="meditation-question">¿Qué significa "conocer que Él es Dios" en el contexto de la quietud y el silencio?</li>
+                        <li class="meditation-question">¿Cómo puedes incorporar tiempos de silencio en tu práctica de oración?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Dedica al menos cinco minutos a estar en silencio ante Dios, sin palabras, simplemente consciente de Su presencia. Medita en lo que significa que Él sea "exaltado entre las naciones". Descansa en la seguridad de que Él es tu refugio.</p>
+                </div>
+            </div>
+
+            <!-- Día 35 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 35</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Colosenses 4:2-4</div>
+                    <p class="scripture-text">"Perseverad en la oración, velando en ella con acción de gracias; orando también al mismo tiempo por nosotros, para que el Señor nos abra puerta para la palabra, a fin de dar a conocer el misterio de Cristo... para que lo manifieste como debo hablar."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué significa "perseverar" en la oración? ¿Por qué es esto necesario?</li>
+                        <li class="meditation-question">¿Cómo se relaciona la vigilancia con la oración efectiva?</li>
+                        <li class="meditation-question">¿Por qué Pablo pide específicamente oración por oportunidades para compartir el evangelio?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Identifica áreas donde necesitas perseverar en oración. Ora por misioneros y líderes que están compartiendo el evangelio. Pide puertas abiertas para compartir tu fe y la valentía para hablar como debes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SEMANA 6: CRECIMIENTO -->
+<div class="devotional-week" id="week6">
+    <div class="week-header">
+        <h3 class="week-title">Semana 6: Crecimiento</h3>
+        <p class="week-subtitle">Desarrollando un carácter semejante al de Cristo y cultivando disciplinas espirituales</p>
+    </div>
+    
+    <div class="week-body">
+        <div class="day-cards">
+            <!-- Día 36 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 36</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">2 Pedro 1:3-8</div>
+                    <p class="scripture-text">"Como todas las cosas que pertenecen a la vida y a la piedad nos han sido dadas por su divino poder... vosotros también, poniendo toda diligencia por esto mismo, añadid a vuestra fe virtud; a la virtud, conocimiento; al conocimiento, dominio propio; al dominio propio, paciencia; a la paciencia, piedad; a la piedad, afecto fraternal; y al afecto fraternal, amor."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué nos ha dado Dios según este pasaje? ¿Cómo afecta esto a nuestra capacidad de crecer?</li>
+                        <li class="meditation-question">¿Por qué crees que Pedro presenta estas cualidades en una secuencia o progresión?</li>
+                        <li class="meditation-question">¿En cuál de estas áreas sientes mayor necesidad de crecimiento actualmente?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Agradece a Dios por darte todo lo que necesitas para la vida y la piedad. Ora por cada cualidad mencionada en el pasaje, pidiendo crecimiento específico donde más lo necesitas. Pide diligencia para participar activamente en tu desarrollo espiritual.</p>
+                </div>
+            </div>
+            
+            <!-- Día 37 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 37</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Juan 15:1-8</div>
+                    <p class="scripture-text">"Yo soy la vid verdadera, y mi Padre es el labrador... Permaneced en mí, y yo en vosotros. Como el pámpano no puede llevar fruto por sí mismo, si no permanece en la vid, así tampoco vosotros, si no permanecéis en mí... El que permanece en mí, y yo en él, éste lleva mucho fruto; porque separados de mí nada podéis hacer."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué significa "permanecer" en Jesús según esta metáfora?</li>
+                        <li class="meditation-question">¿Por qué es imposible producir fruto espiritual separados de Cristo?</li>
+                        <li class="meditation-question">¿Qué prácticas te ayudan a "permanecer" conectado a la vid?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Reconoce tu dependencia total de Cristo para producir fruto. Identifica cualquier área donde estés intentando producir fruto "por ti mismo". Pide a Dios que te muestre cómo puedes permanecer más conscientemente en Él durante el día.</p>
+                </div>
+            </div>
+            
+            <!-- Día 38 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 38</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Romanos 12:1-2</div>
+                    <p class="scripture-text">"Así que, hermanos, os ruego por las misericordias de Dios, que presentéis vuestros cuerpos en sacrificio vivo, santo, agradable a Dios, que es vuestro culto racional. No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro entendimiento, para que comprobéis cuál sea la buena voluntad de Dios, agradable y perfecta."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué significa presentar tu cuerpo como "sacrificio vivo"?</li>
+                        <li class="meditation-question">¿Cómo se produce la transformación según este pasaje?</li>
+                        <li class="meditation-question">¿En qué áreas de tu vida ves mayor conformidad al mundo en lugar de transformación?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Ofrécete a Dios como un sacrificio vivo, presentando cada parte de tu cuerpo para Su servicio. Pide que tu mente sea renovada a través de Su Palabra. Ora por discernimiento para reconocer los patrones mundanos que necesitas abandonar.</p>
+                </div>
+            </div>
+
+            <!-- Día 39 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 39</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Salmo 1:1-3</div>
+                    <p class="scripture-text">"Bienaventurado el varón que no anduvo en consejo de malos... Sino que en la ley de Jehová está su delicia, y en su ley medita de día y de noche. Será como árbol plantado junto a corrientes de aguas, que da su fruto en su tiempo, y su hoja no cae; y todo lo que hace, prosperará."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué contraste establece este salmo entre dos caminos de vida?</li>
+                        <li class="meditation-question">¿Qué significa meditar en la Palabra de Dios "de día y de noche"?</li>
+                        <li class="meditation-question">¿Cómo se relaciona la meditación en la Palabra con el crecimiento espiritual según la metáfora del árbol?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Pide a Dios que cultive en ti un deleite genuino en Su Palabra. Ora por disciplina para meditar regularmente en las Escrituras. Pide que tu vida produzca fruto constante y abundante como resultado de tu arraigo en la Palabra.</p>
+                </div>
+            </div>
+
+            <!-- Día 40 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 40</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Filipenses 3:12-14</div>
+                    <p class="scripture-text">"No que lo haya alcanzado ya, ni que ya sea perfecto; sino que prosigo, por ver si logro asir aquello para lo cual fui también asido por Cristo Jesús... olvidando ciertamente lo que queda atrás, y extendiéndome a lo que está adelante, prosigo a la meta, al premio del supremo llamamiento de Dios en Cristo Jesús."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué actitud muestra Pablo hacia su propio crecimiento espiritual?</li>
+                        <li class="meditation-question">¿Por qué es importante "olvidar lo que queda atrás" para seguir avanzando?</li>
+                        <li class="meditation-question">¿Cuál es la "meta" y el "premio" hacia los que corres en tu vida cristiana?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Pide a Dios una actitud de humildad que reconozca que aún no has "llegado". Libera el pasado —tanto fracasos como éxitos— que te impide avanzar. Renueva tu compromiso de perseguir la meta de ser como Cristo.</p>
+                </div>
+            </div>
+
+            <!-- Día 41 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 41</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">2 Timoteo 3:14-17</div>
+                    <p class="scripture-text">"Pero persiste tú en lo que has aprendido... Toda la Escritura es inspirada por Dios, y útil para enseñar, para redargüir, para corregir, para instruir en justicia, a fin de que el hombre de Dios sea perfecto, enteramente preparado para toda buena obra."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué afirma Pablo acerca del origen y la autoridad de las Escrituras?</li>
+                        <li class="meditation-question">¿Cuáles son los propósitos de la Escritura mencionados en el pasaje?</li>
+                        <li class="meditation-question">¿De qué maneras has experimentado que la Biblia te equipa para la madurez espiritual?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Agradece a Dios por el regalo de Su Palabra inspirada. Pide que la Escritura te enseñe, corrija, reprenda e instruya en tu caminar diario. Comprométete a persistir en lo que has aprendido de la Palabra.</p>
+                </div>
+            </div>
+
+            <!-- Día 42 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 42</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Hebreos 12:1-3</div>
+                    <p class="scripture-text">"Por tanto, nosotros también, teniendo en derredor nuestro tan grande nube de testigos, despojémonos de todo peso y del pecado que nos asedia, y corramos con paciencia la carrera que tenemos por delante, puestos los ojos en Jesús, el autor y consumador de la fe..."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué metáfora usa el autor para describir la vida cristiana?</li>
+                        <li class="meditation-question">¿Qué "pesos" y "pecados" te impiden correr eficazmente?</li>
+                        <li class="meditation-question">¿Qué significa fijar los ojos en Jesús como "autor y consumador de la fe"?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Identifica los "pesos" específicos y pecados que te estorban y entrégalos a Dios. Pide perseverancia para tu carrera espiritual. Enfoca tu mirada en Jesús, agradeciendo que Él no solo inició tu fe sino que la llevará a la perfección.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SEMANA 8: VICTORIA FINAL -->
+<div class="devotional-week" id="week8">
+    <div class="week-header">
+        <h3 class="week-title">Semana 8: Victoria Final</h3>
+        <p class="week-subtitle">Anticipando la esperanza futura mientras vivimos victoriosamente en el presente</p>
+    </div>
+    
+    <div class="week-body">
+        <div class="day-cards">
+            <!-- Día 43 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 43</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">1 Corintios 15:50-58</div>
+                    <p class="scripture-text">"He aquí, os digo un misterio: No todos dormiremos; pero todos seremos transformados... Porque es necesario que esto corruptible se vista de incorrupción, y esto mortal se vista de inmortalidad... ¿Dónde está, oh muerte, tu aguijón? ¿Dónde, oh sepulcro, tu victoria?... gracias sean dadas a Dios, que nos da la victoria por medio de nuestro Señor Jesucristo."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué esperanza nos ofrece este pasaje sobre nuestra futura transformación?</li>
+                        <li class="meditation-question">¿Cómo ha vencido Cristo el poder de la muerte y el pecado?</li>
+                        <li class="meditation-question">Según el versículo 58, ¿cómo debería afectar esta esperanza nuestra vida diaria?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Agradece a Dios por la esperanza de la resurrección. Celebra la victoria que Cristo te ha dado sobre el pecado y la muerte. Pide fuerza para permanecer firme y abundar en la obra del Señor a la luz de esta esperanza.</p>
+                </div>
+            </div>
+            
+            <!-- Día 44 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 44</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Apocalipsis 21:1-7</div>
+                    <p class="scripture-text">"Vi un cielo nuevo y una tierra nueva... Y oí una gran voz del cielo que decía: He aquí el tabernáculo de Dios con los hombres, y él morará con ellos; y ellos serán su pueblo, y Dios mismo estará con ellos como su Dios. Enjugará Dios toda lágrima de los ojos de ellos; y ya no habrá muerte, ni habrá más llanto, ni clamor, ni dolor; porque las primeras cosas pasaron."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué aspectos de la descripción del cielo nuevo y la tierra nueva te resultan más consoladores?</li>
+                        <li class="meditation-question">¿Qué significa que Dios "morará con los hombres"? ¿Cómo se relaciona esto con el propósito original de la creación?</li>
+                        <li class="meditation-question">¿Cómo puede esta visión del futuro sostenerte en tiempos de dolor y dificultad?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Expresa tu anhelo por la nueva creación. Entrega a Dios tus lágrimas, dolores y pérdidas, confiando en Su promesa de restaurarlo todo. Agradece que Él hará "nuevas todas las cosas" y que tú serás parte de esa realidad.</p>
+                </div>
+            </div>
+            
+            <!-- Día 45 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 45</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Romanos 8:18-25</div>
+                    <p class="scripture-text">"Pues tengo por cierto que las aflicciones del tiempo presente no son comparables con la gloria venidera que en nosotros ha de manifestarse... también nosotros mismos, que tenemos las primicias del Espíritu, nosotros también gemimos dentro de nosotros mismos, esperando la adopción, la redención de nuestro cuerpo."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué perspectiva nos da Pablo sobre nuestros sufrimientos actuales?</li>
+                        <li class="meditation-question">¿Cómo describe la esperanza cristiana en este pasaje?</li>
+                        <li class="meditation-question">¿Qué significa que tenemos "las primicias del Espíritu"?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Entrega a Dios tus sufrimientos presentes a la luz de la gloria futura. Expresa tu anhelo por la plena redención de tu cuerpo y de toda la creación. Agradece por el Espíritu Santo como anticipo de lo que vendrá.</p>
+                </div>
+            </div>
+
+            <!-- Día 46 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 46</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Apocalipsis 19:6-9</div>
+                    <p class="scripture-text">"Y oí como la voz de una gran multitud... que decía: ¡Aleluya, porque el Señor nuestro Dios Todopoderoso reina! Gocémonos y alegrémonos y démosle gloria; porque han llegado las bodas del Cordero, y su esposa se ha preparado... Bienaventurados los que son llamados a la cena de las bodas del Cordero."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué simboliza la imagen de las "bodas del Cordero" en la relación entre Cristo y la Iglesia?</li>
+                        <li class="meditation-question">¿Qué significa que la esposa "se ha preparado"? ¿Cómo puedes participar en esta preparación?</li>
+                        <li class="meditation-question">¿Cómo debería influir esta visión de celebración futura en tu adoración actual?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Adora a Dios como el Rey Todopoderoso que reina. Celebra tu inclusión en la novia de Cristo. Pide que el Espíritu te ayude a prepararte para ese día glorioso, viviendo en santidad y fidelidad.</p>
+                </div>
+            </div>
+
+            <!-- Día 47 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 47</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">1 Pedro 1:3-9</div>
+                    <p class="scripture-text">"Bendito el Dios y Padre de nuestro Señor Jesucristo, que según su grande misericordia nos hizo renacer para una esperanza viva, por la resurrección de Jesucristo de los muertos, para una herencia incorruptible... reservada en los cielos para vosotros... para que sometida a prueba vuestra fe... sea hallada en alabanza, gloria y honra cuando sea manifestado Jesucristo."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Cómo describe Pedro nuestra herencia futura?</li>
+                        <li class="meditation-question">¿Cuál es el propósito de las pruebas según este pasaje?</li>
+                        <li class="meditation-question">¿Cómo puede este pasaje ayudarte a mantener la perspectiva eterna en medio de dificultades?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Bendice a Dios por la esperanza viva que tienes en Cristo. Agradece por la herencia incorruptible que te espera. Ora por fe probada que permanezca firme en las pruebas, fijando tus ojos en el gozo futuro.</p>
+                </div>
+            </div>
+
+            <!-- Día 48 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 48</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">Juan 14:1-6</div>
+                    <p class="scripture-text">"No se turbe vuestro corazón; creéis en Dios, creed también en mí. En la casa de mi Padre muchas moradas hay... voy, pues, a preparar lugar para vosotros. Y si me fuere y os preparare lugar, vendré otra vez, y os tomaré a mí mismo, para que donde yo estoy, vosotros también estéis."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Qué consuelo ofrecen estas palabras de Jesús a sus discípulos?</li>
+                        <li class="meditation-question">¿Qué imagen usa Jesús para describir el cielo? ¿Qué nos dice esto sobre nuestra relación con Él?</li>
+                        <li class="meditation-question">¿Cómo afecta tu vida saber que Jesús ha prometido volver por ti?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Entrega a Jesús tus preocupaciones y temores. Agradece que está preparando un lugar para ti. Ora por un corazón que anhele estar con Él para siempre. Renueva tu compromiso de seguirle como "el camino, la verdad y la vida".</p>
+                </div>
+            </div>
+
+            <!-- Día 49 -->
+            <div class="day-card">
+                <div class="day-number">
+                    <span>Día 49</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                
+                <div class="scripture">
+                    <div class="scripture-ref">2 Corintios 4:16-18</div>
+                    <p class="scripture-text">"Por tanto, no desmayamos; antes aunque este nuestro hombre exterior se va desgastando, el interior no obstante se renueva de día en día. Porque esta leve tribulación momentánea produce en nosotros un cada vez más excelente y eterno peso de gloria; no mirando nosotros las cosas que se ven, sino las que no se ven; pues las cosas que se ven son temporales, pero las que no se ven son eternas."</p>
+                </div>
+                
+                <div class="meditation">
+                    <h4 class="meditation-title">Para Meditar</h4>
+                    <ul class="meditation-questions">
+                        <li class="meditation-question">¿Cómo contrasta Pablo lo temporal y lo eterno en este pasaje?</li>
+                        <li class="meditation-question">¿Qué perspectiva nos ofrece sobre el sufrimiento y las dificultades?</li>
+                        <li class="meditation-question">¿Cómo podemos cultivar la capacidad de "mirar las cosas que no se ven"?</li>
+                    </ul>
+                </div>
+                
+                <div class="prayer-section">
+                    <h4 class="prayer-title">
+                        <i class="fas fa-praying-hands"></i>
+                        Guía de Oración
+                    </h4>
+                    <p class="prayer-guide">Pide a Dios que renueve tu hombre interior día a día. Entrega tus tribulaciones presentes con la confianza de que producen un "eterno peso de gloria". Ora por ojos de fe que vean más allá de lo temporal hacia lo eterno.</p>
+                </div>
+            </div>
+
+            <!-- Día 52 de la SEMANA 8 sería en realidad el DÍA 56 según la numeración de 52 días, así que nombramos los últimos días correctamente -->
+            <!-- Día 50 (ver en Semana 7 de Servicio y Amor) -->
+            <!-- Día 51 (ver en Semana 7 de Servicio y Amor) -->
+            <!-- Día 52 (ver en Semana 7 de Servicio y Amor) -->
+        </div>
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEMANA 7: SERVICIO Y AMOR -->
+            <div class="devotional-week" id="week7">
+                <div class="week-header">
+                    <h3 class="week-title">Semana 7: Servicio y Amor</h3>
+                    <p class="week-subtitle">Llevando el amor de Cristo al mundo a través del servicio desinteresado</p>
+                </div>
+                
+                <div class="week-body">
+                    <div class="day-cards">
+                        <!-- Día 50 -->
+                        <div class="day-card">
+                            <div class="day-number">
+                                <span>Día 50</span>
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            
+                            <div class="scripture">
+                                <div class="scripture-ref">Juan 13:3-17</div>
+                                <p class="scripture-text">"Sabiendo Jesús... que había salido de Dios, y a Dios iba, se levantó de la cena, y se quitó su manto, y tomando una toalla, se la ciñó. Luego puso agua en un lebrillo, y comenzó a lavar los pies de los discípulos..."</p>
+                            </div>
+                            
+                            <div class="meditation">
+                                <h4 class="meditation-title">Para Meditar</h4>
+                                <ul class="meditation-questions">
+                                    <li class="meditation-question">¿Qué te impacta más del ejemplo de Jesús lavando los pies de sus discípulos?</li>
+                                    <li class="meditation-question">¿Cómo define Jesús la verdadera grandeza en este pasaje?</li>
+                                    <li class="meditation-question">¿Qué áreas de servicio humilde has evitado en tu vida?</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="prayer-section">
+                                <h4 class="prayer-title">
+                                    <i class="fas fa-praying-hands"></i>
+                                    Guía de Oración
+                                </h4>
+                                <p class="prayer-guide">Agradece a Jesús por su ejemplo de humildad y servicio. Confiesa cualquier orgullo que te impida servir a otros. Pide a Dios que te muestre formas específicas de "lavar los pies" de alguien hoy.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Día 51 -->
+                        <div class="day-card">
+                            <div class="day-number">
+                                <span>Día 51</span>
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            
+                            <div class="scripture">
+                                <div class="scripture-ref">Mateo 25:31-40</div>
+                                <p class="scripture-text">"...tuve hambre, y me disteis de comer; tuve sed, y me disteis de beber... Y respondiendo el Rey, les dirá: De cierto os digo que en cuanto lo hicisteis a uno de estos mis hermanos más pequeños, a mí lo hicisteis."</p>
+                            </div>
+                            
+                            <div class="meditation">
+                                <h4 class="meditation-title">Para Meditar</h4>
+                                <ul class="meditation-questions">
+                                    <li class="meditation-question">¿Qué nos enseña este pasaje sobre la conexión entre servir a otros y servir a Cristo?</li>
+                                    <li class="meditation-question">¿Cómo desafía este pasaje la forma en que ves a aquellos que están necesitados?</li>
+                                    <li class="meditation-question">¿Qué acciones prácticas de servicio puedes comenzar a desarrollar regularmente?</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="prayer-section">
+                                <h4 class="prayer-title">
+                                    <i class="fas fa-praying-hands"></i>
+                                    Guía de Oración
+                                </h4>
+                                <p class="prayer-guide">Pide a Dios que te dé ojos para ver a Cristo en aquellos que sufren. Ora por oportunidades específicas para servir a los "más pequeños". Pide un corazón compasivo que responda a las necesidades que encuentras.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Día 52 -->
+                        <div class="day-card">
+                            <div class="day-number">
+                                <span>Día 52</span>
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            
+                            <div class="scripture">
+                                <div class="scripture-ref">1 Corintios 13:1-8</div>
+                                <p class="scripture-text">"Si yo hablase lenguas humanas y angélicas, y no tengo amor, vengo a ser como metal que resuena, o címbalo que retiñe... El amor es sufrido, es benigno; el amor no tiene envidia, el amor no es jactancioso, no se envanece..."</p>
+                            </div>
+                            
+                            <div class="meditation">
+                                <h4 class="meditation-title">Para Meditar</h4>
+                                <ul class="meditation-questions">
+                                    <li class="meditation-question">¿Por qué es el amor tan esencial para cualquier servicio o don espiritual?</li>
+                                    <li class="meditation-question">Examina las características del amor en este pasaje. ¿Cuáles te resultan más difíciles de vivir?</li>
+                                    <li class="meditation-question">¿Cómo podría transformarse tu servicio si estuviese completamente motivado por este tipo de amor?</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="prayer-section">
+                                <h4 class="prayer-title">
+                                    <i class="fas fa-praying-hands"></i>
+                                    Guía de Oración
+                                </h4>
+                                <p class="prayer-guide">Confiesa las áreas donde has servido sin amor. Pide a Dios que llene tu corazón con Su amor sobrenatural. Ora por la habilidad de amar incluso a aquellos que son difíciles de amar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources-section" id="recursos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recursos para Enriquecer tu Devoción</h2>
+                <p>Herramientas que complementarán tu tiempo devocional diario</p>
+            </div>
+
+            <div class="resources-container">
+                <div class="resource-card">
+                    <div class="resource-content">
+                        <i class="fas fa-book-reader resource-icon"></i>
+                        <h3 class="resource-title">Guía de Técnicas de Meditación Bíblica</h3>
+                        <p class="resource-desc">Aprende diversos métodos para meditar profundamente en las Escrituras, incluyendo la Lectio Divina, el estudio inductivo y más.</p>
+                        <a href="#" class="btn">Explorar</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-content">
+                        <i class="fas fa-journal-whills resource-icon"></i>
+                        <h3 class="resource-title">Diario Devocional Imprimible</h3>
+                        <p class="resource-desc">Plantillas para registrar tus reflexiones, oraciones y aplicaciones personales de cada día del plan devocional.</p>
+                        <a href="#" class="btn">Descargar</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-content">
+                        <i class="fas fa-praying-hands resource-icon"></i>
+                        <h3 class="resource-title">Guía de Oración Estructurada</h3>
+                        <p class="resource-desc">Un método sencillo para estructurar tus tiempos de oración, basado en el modelo ACAS (Adoración, Confesión, Agradecimiento, Súplica).</p>
+                        <a href="#" class="btn">Ver Guía</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Comienza tu Viaje Hoy</h2>
+                <p class="cta-text">No hay mejor momento que ahora para profundizar tu relación con Dios. Establece un tiempo diario para este plan devocional y observa cómo tu vida espiritual florece.</p>
+                <a href="#week1" class="btn">Comenzar Día 1</a>
+                <a href="#" class="btn btn-outline">Compartir con Amigos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Plans -->
+    <div class="back-to-plans">
+        <a href="../lectura-anual.html" class="btn">
+            <i class="fas fa-arrow-left"></i> Volver a Planes de Lectura
+        </a>
+    </div>
+
+    <script>
+        function scrollToDevotional(weekId) {
+            const element = document.getElementById(weekId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
+</body>
+</html>

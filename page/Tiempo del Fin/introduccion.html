@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción al Tiempo del Fin | Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+       :root {
+    --primary-color: #7c3aed;     /* Violeta profundo - místico, espiritual ✨ */
+    --secondary-color: #f59e0b;   /* Dorado cálido - sabiduría, realeza 🌟 */
+    --accent-color: #c2410c;      /* Terracota rojizo - pasión, tradición 📜 */
+    --dark-color: #1f2937;        /* Gris azulado profundo - contraste moderno */
+    --light-color: #fef9f2;       /* Marfil cálido - calma, claridad */
+    --text-color: #374151;        /* Gris medio - lectura cómoda */
+    --bg-gradient: linear-gradient(135deg, rgba(124, 58, 237, 0.9) 0%, rgba(245, 158, 11, 0.8) 100%);
+    --card-gradient: linear-gradient(to right bottom, rgba(245, 158, 11, 0.05), rgba(194, 65, 12, 0.05));
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+        
+        .header-top {
+            background-color: var(--primary-color);
+            padding: 10px 0;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .contact-info a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-info a:hover {
+            color: white;
+        }
+        
+        .social-mini {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-mini a {
+            color: rgba(255, 255, 255, 0.85);
+            transition: var(--transition);
+        }
+        
+        .social-mini a:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .header-main {
+            background-color: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .header-top {
+            height: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        header.scrolled .header-main {
+            padding: 10px 0;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo img {
+            height: 50px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primary-color);
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1010;
+        }
+        
+        .nav-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--primary-color);
+            margin: 5px 0;
+            transition: var(--transition);
+        }
+        
+        .nav-toggle:hover span {
+            background-color: var(--accent-color);
+        }
+        
+        .nav-header {
+            display: none;
+        }
+        
+        .main-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        .main-menu a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            display: block;
+            padding: 0.5rem 0.75rem;
+            position: relative;
+        }
+        
+        .main-menu a:hover,
+        .main-menu li.active > a {
+            color: var(--secondary-color);
+        }
+        
+        .main-menu > li > a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+            transition: var(--transition);
+            opacity: 0;
+        }
+        
+        .main-menu > li > a:hover::after,
+        .main-menu > li.active > a::after {
+            width: 100%;
+            opacity: 1;
+        }
+        
+        .main-menu i {
+            font-size: 0.8rem;
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+        
+        /* Dropdown Styles */
+        .menu-item-has-children {
+            position: relative;
+        }
+        
+        .menu-item-has-children:hover > a i {
+            transform: rotate(180deg);
+        }
+
+/* Submenú Moderno */
+.sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 240px;
+    background-color: rgba(0, 0, 0, 0.3); /* transparente sobre fondo existente */
+    backdrop-filter: blur(6px);           /* efecto elegante sobre fondo */
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.menu-item-has-children:hover .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Estilo de enlaces */
+.sub-menu a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    transition: background 0.3s ease, padding-left 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.sub-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* resalta sin dañar el fondo */
+    padding-left: 2rem;
+    border-left: 4px solid var(--accent-color);
+}
+
+.menu-item-has-children > a::after,
+.menu-item-has-children > a::before {
+    content: none !important;
+    display: none !important;
+}
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background-image: url('./images/findelostiempos.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 0;
+            padding-top: 80px;
+        }
+        
+        .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(31, 41, 55, 0.6), rgba(31, 41, 55, 0.3));
+    z-index: 0;
+}
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+            text-shadow: var(--text-shadow);
+            background: linear-gradient(to right, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            max-width: 700px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
+        }
+        
+        .btn:hover::before {
+            width: 100%;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary-color);
+            color: white;
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+        }
+        
+        .btn-primary:hover {
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.4);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 7rem 0;
+            background-color: white;
+            position: relative;
+        }
+        
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to bottom, #f9fafb 0%, white 100%);
+            z-index: 1;
+        }
+        
+        .main-content .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            display: inline-block;
+            position: relative;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+            border-radius: 3px;
+        }
+        
+        .section-title p {
+            color: #6b7280;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 400;
+            font-size: 1.2rem;
+        }
+        
+        /* Key Topics */
+        .key-topics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            margin-top: 5rem;
+        }
+        
+        .topic-card {
+            background: var(--card-gradient);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .topic-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
+        }
+        
+        .topic-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .topic-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .topic-card p {
+            margin-bottom: 1.5rem;
+            color: #4b5563;
+            font-size: 1.05rem;
+        }
+        
+        .topic-card .btn {
+            padding: 0.7rem 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Bible Verse */
+        .bible-verse {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.03) 0%, rgba(139, 92, 246, 0.06) 100%);
+            padding: 5rem 3rem;
+            border-radius: 20px;
+            margin: 7rem 0;
+            position: relative;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            overflow: hidden;
+        }
+        
+        .bible-verse::before {
+            content: '\201C';
+            font-size: 15rem;
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--primary-color);
+            opacity: 0.05;
+            font-family: Georgia, serif;
+        }
+        
+        .verse-text {
+            font-style: italic;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--dark-color);
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .verse-ref {
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        /* Timeline Section */
+        .timeline-section {
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timeline-section::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            width: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 3rem;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 3rem;
+        }
+        
+        .timeline-item:nth-child(odd)::before,
+        .timeline-item:nth-child(even)::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            top: 20px;
+        }
+        
+        .timeline-item:nth-child(odd)::before {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even)::before {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            background-color: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(240, 240, 250, 0.8);
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-year {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        
+        .timeline-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .timeline-content p {
+            color: #4b5563;
+        }
+        
+        /* Call to Action */
+        .cta-section {
+            background: var(--bg-gradient);
+            padding: 7rem 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1537420327992-d6e192287183');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Estilos para la versión de iconos de los recursos */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.resource-card {
+    background: var(--card-gradient);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    text-align: center;
+    padding: 2rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.resource-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.resource-icon-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.resource-icon-link i {
+    color: var(--primary-color);
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+.resource-card:hover .resource-icon-link i {
+    transform: scale(1.1);
+    color: var(--secondary-color);
+}
+
+.resource-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+.resource-icon-link .btn {
+    margin-top: 0.5rem;
+}
+        
+        .author-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: var(--dark-color);
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 0;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 7rem 0;
+            background-color: white;
+        }
+        
+        .accordion {
+            max-width: 800px;
+            margin: 4rem auto 0;
+        }
+        
+        .accordion-item {
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            background-color: white;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f3f4f6;
+        }
+        
+        .accordion-header {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .accordion-header:hover {
+            background-color: rgba(30, 58, 138, 0.02);
+        }
+        
+        .accordion-icon {
+            transition: var(--transition);
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+        }
+        
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+        
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+        }
+        
+        .accordion-body {
+            padding: 0 2rem 2rem;
+            color: #4b5563;
+            line-height: 1.7;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.03) 0%, rgba(139, 92, 246, 0.06) 100%);
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .newsletter-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .newsletter h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .newsletter p {
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            color: #4b5563;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 1.2rem 2rem;
+            border: none;
+            outline: none;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .newsletter-btn {
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-btn:hover {
+            background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 5rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-col a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-col a:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #d1d5db;
+        }
+        
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s;
+            z-index: 999;
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .timeline-section::before {
+                left: 40px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                left: 0;
+                padding-left: 80px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(odd)::before,
+            .timeline-item:nth-child(even)::before {
+                left: 30px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            
+            .nav-toggle {
+                display: block;
+            }
+            
+            .nav-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+            
+            .mobile-logo {
+                display: block;
+            }
+            
+            .mobile-logo img {
+                height: 40px;
+            }
+            
+            .nav-close {
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: var(--dark-color);
+                cursor: pointer;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background-color: white;
+                z-index: 1000;
+                transition: right 0.4s ease;
+                padding: 0;
+                overflow-y: auto;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+                display: flex;
+                flex-direction: column;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            .main-menu {
+                flex-direction: column;
+                gap: 0;
+                padding: 10px 0;
+            }
+            
+            .main-menu li {
+                width: 100%;
+            }
+            
+            .main-menu a {
+                padding: 15px 20px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                font-size: 1rem;
+            }
+            
+            .main-menu > li > a::after {
+                display: none;
+            }
+            
+            .menu-item-has-children > a {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .menu-item-has-children > a i {
+                transform: none;
+            }
+            
+            .menu-item-has-children.active > a i {
+                transform: rotate(180deg);
+            }
+            
+            .sub-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.02);
+                border-radius: 0;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                transform: none;
+                opacity: 1;
+                margin-top: 0;
+                display: block;
+            }
+            
+            .sub-menu::before {
+                display: none;
+            }
+            
+            .menu-item-has-children.active > .sub-menu {
+                max-height: 500px;
+                padding: 0;
+            }
+            
+            .menu-item-has-children:hover .sub-menu {
+                display: block;
+                transform: none;
+            }
+            
+            .sub-menu a {
+                padding: 12px 20px 12px 40px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+            }
+            
+            .hero {
+                height: auto;
+                padding: 120px 0 5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+            
+            .verse-text {
+                font-size: 1.5rem;
+            }
+            
+            .cta-content h2 {
+                font-size: 2.5rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                border-radius: 12px;
+            }
+            
+            .newsletter-input {
+                width: 100%;
+                border-radius: 12px 12px 0 0;
+            }
+            
+            .newsletter-btn {
+                width: 100%;
+                border-radius: 0 0 12px 12px;
+                padding: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+            
+            .timeline-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="contact-info">
+                        <a href="mailto:ministeriolagloriaesdelsenor7@gmail.com"><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</a>
+                        <a href="tel:+787-345-6940"><i class="fas fa-phone-alt"></i> +1 787-345-6940</a>
+                    </div>
+                    <div class="social-mini">
+                        <a href="https://www.facebook.com/profile.php?id=61577956191110"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container header-content">
+                <div class="logo">
+                    <img src="../../../images/EMD.png" alt="Logo EMD">
+                    <div class="logo-text">
+                        <div>Ministerio</div>
+                        <div>"La Gloria es del Señor"</div>
+                    </div>
+                </div>
+                <button class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav>
+                    <div class="nav-header">
+                        <div class="mobile-logo">
+                            <img src="../../../images/EMD.png" alt="Logo EMD">
+                        </div>
+                        <button class="nav-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <ul class="main-menu">
+                        <li><a href="../../../index.html">Inicio</a></li>
+                        <li class="menu-item-has-children">
+                            <a>Figuras Bíblicas</a>
+                            <ul class="sub-menu">
+                                <li><a href="../Figuras Bíblicas/at-a-nt.html">AT a NT</a></li>
+                                <li><a href="../Figuras Bíblicas/nombres-simbologia.html">Los nombres y su simbología</a></li>
+                                <li><a href="../Figuras Bíblicas/templo-figuras.html">Templo y sus Figuras</a></li>
+                                <li><a href="../Figuras Bíblicas/sacrificios-figuras.html">Sacrificios y su Figuras</a></li>
+                                <li><a href="../Figuras Bíblicas/tipologia-cantares.html">Tipología Cantares</a></li>
+                                <li><a href="../Figuras Bíblicas/figuras-cristo.html">Figuras de Cristo</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a>Falsas Doctrinas</a>
+                            <ul class="sub-menu">
+                                <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                                <li><a href="../Falsas Doctrinas/gnosticismos.html">Gnosticismos en la Biblia</a></li>
+                                <li><a href="../Falsas Doctrinas/filosofias-griegas.html">Filosofías Griegas</a></li>
+                                <li><a href="../Falsas Doctrinas/masoneria.html">Masonería</a></li>
+                                <li><a href="../Falsas Doctrinas/sociedades-secretas.html">Sociedades Secretas</a></li>
+                                <li><a href="../Falsas Doctrinas/sectas-anticristianas.html">Sectas Anticristianas</a></li>
+                                <li><a href="../Falsas Doctrinas/pseudoprofetas.html">Pseudoprofetas</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a>Estudios Exegéticos</a>
+                            <ul class="sub-menu">
+                                <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Temas Exegéticos</a></li>
+                                <li><a href="../Estudios Exegéticos/idiomas-biblia.html">Hebreo, Arameo y Griego en la Biblia</a></li>
+                                <li><a href="../Estudios Exegéticos/enlaces-recursos.html">Enlaces de Recursos</a></li>
+                                <li><a href="../Estudios Exegéticos/diccionarios-comentarios.html">Diccionarios y Comentarios</a></li>
+                                <li><a href="../Estudios Exegéticos/software-biblico.html">Software Bíblicos</a></li>
+                                <li><a href="../Estudios Exegéticos/meditacion-palabra.html">Meditación en la Palabra</a></li>
+                                <li><a href="../Estudios Exegéticos/lectura-anual.html">Lectura Anual</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children active">
+                            <a>Tiempo del Fin</a>
+                            <ul class="sub-menu">
+                                <li><a href="introduccion.html" class="active">Introducción al tiempo del fin</a></li>
+                                <li><a href="escatologia.html">Escatología</a></li>
+                                <li><a href="profecias-cumplidas.html">Profecías Cumplidas</a></li>
+                                <li><a href="nuevo-orden-mundial.html">Nuevo Orden Mundial</a></li>
+                                <li><a href="noticias-fin.html">Noticias del Fin</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a>Época de Jesús</a>
+                            <ul class="sub-menu">
+                                <li><a href="../Época de Jesús/estudio-contemporaneo.html">Estudio Contemporáneo</a></li>
+                                <li><a href="../Época de Jesús/contexto-historico.html">Contexto Histórico</a></li>
+                                <li><a href="../Época de Jesús/grupos-religiosos.html">Grupos religiosos</a></li>
+                                <li><a href="../Época de Jesús/recursos-academicos.html">Estudios de Contexto</a></li>
+                                <li><a href="../Época de Jesús/apologia-cristiana.html">Apología Cristiana</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a>Estudios Bíblicos</a>
+                            <ul class="sub-menu">
+                                <li><a href="../Estudios Bíblicos/doctrina-basica.html">Doctrina Básica</a></li>
+                                <li><a href="../Estudios Bíblicos/doctrina-intermedia.html">Doctrina intermedia</a></li>
+                                <li><a href="../Estudios Bíblicos/doctrina-avanzada.html">Doctrina Avanzada</a></li>
+                                <li><a href="../Estudios Bíblicos/revelacion-espiritu.html">Revelación del Espíritu</a></li>
+                                <li><a href="../Estudios Bíblicos/devocionales.html">Devocionales</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Introducción al Tiempo del Fin</h1>
+            <p>Explorando las profecías bíblicas sobre los últimos tiempos y el regreso de Cristo desde una perspectiva escritural sólida, examinando las señales y preparándonos para Su venida.</p>
+            <a href="#fundamentos" class="btn"><i class="fas fa-scroll"></i> Fundamentos Bíblicos</a>
+            <a href="#senales" class="btn btn-outline"><i class="fas fa-search"></i> Las Señales</a>
+        </div>
+    </section>
+
+    <section class="main-content">
+        <div class="container">
+            <div class="section-title" id="fundamentos">
+                <h2>Fundamentos de la Escatología Bíblica</h2>
+                <p>Comprendiendo las bases bíblicas de los estudios del fin de los tiempos</p>
+            </div>
+            
+            <div class="key-topics">
+                <div class="topic-card">
+                    <div class="topic-icon">
+                        <i class="fas fa-book-bible"></i>
+                    </div>
+                    <h3>Base Profética</h3>
+                    <p>Las escrituras tanto del Antiguo como del Nuevo Testamento contienen numerosas profecías sobre el tiempo del fin. Desde Daniel hasta Apocalipsis, Dios ha revelado Su plan para la consumación de la historia.</p>
+                    <a href="fundamentos/base-profetica.html" class="btn btn-primary">Leer Más</a>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-icon">
+                        <i class="fas fa-cross"></i>
+                    </div>
+                    <h3>El Retorno de Cristo</h3>
+                    <p>La promesa del regreso de Jesucristo es una doctrina central en la escatología cristiana. Su venida gloriosa traerá juicio, redención final y el establecimiento de Su reino eterno.</p>
+                    <a href="fundamentos/retorno-cristo.html" class="btn btn-primary">Leer Más</a>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>El Plan Divino</h3>
+                    <p>Los eventos del tiempo del fin no son aleatorios, sino parte del soberano plan de Dios para redimir a Su creación y establecer Su reino eterno, revelando Su justicia y misericordia.</p>
+                     <a href="fundamentos/plan-divino.html" class="btn btn-primary">Leer Más</a>
+                </div>
+            </div>
+
+            <div class="bible-verse">
+                <p class="verse-text">"Y he aquí yo vengo pronto, y mi galardón conmigo, para recompensar a cada uno según sea su obra. Yo soy el Alfa y la Omega, el principio y el fin, el primero y el último."</p>
+                <p class="verse-ref">Apocalipsis 22:12-13</p>
+            </div>
+
+            <div class="section-title" id="senales">
+                <h2>Señales de los Tiempos Finales</h2>
+                <p>Discerniendo las señales que la Biblia nos presenta como indicadores del fin</p>
+            </div>
+            
+            <div class="timeline-section">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">Israel</span>
+                        <h3>La Restauración de Israel</h3>
+                        <p>El restablecimiento de Israel como nación en 1948 marca un cumplimiento profético significativo. Las escrituras anunciaron que Israel volvería a su tierra en los últimos días, un evento clave en el calendario profético de Dios.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">Globalización</span>
+                        <h3>Gobierno Mundial y Economía Global</h3>
+                        <p>La creciente interconexión global, las tecnologías de vigilancia y los sistemas económicos unificados preparan el escenario para el cumplimiento de profecías sobre un sistema mundial unificado en los últimos tiempos.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">Apostasía</span>
+                        <h3>El Abandono de la Fe</h3>
+                        <p>La Biblia advierte sobre un gran abandono de la fe verdadera en los últimos días. Observamos el surgimiento de falsas doctrinas, el sincretismo religioso y el alejamiento de las enseñanzas bíblicas fundamentales.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">Catástrofes</span>
+                        <h3>Desastres Naturales e Inestabilidad</h3>
+                        <p>El aumento en la frecuencia e intensidad de guerras, terremotos, pandemias y fenómenos climáticos extremos refleja las señales que Jesús describió como "dolores de parto" previos a Su regreso.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">Tecnología</span>
+                        <h3>Avances Tecnológicos sin Precedentes</h3>
+                        <p>Daniel profetizó que en el tiempo del fin "muchos correrán de aquí para allá, y la ciencia se aumentará". Los avances tecnológicos actuales permiten implementar sistemas que antes eran imposibles y que podrían facilitar el control global descrito en Apocalipsis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Prepárate para Su Venida</h2>
+            <p>El tiempo es breve y el llamado es urgente. Jesús nos advirtió que estuviéramos alerta y vigilantes, preparados para Su regreso en cualquier momento.</p>
+            <div class="cta-buttons">
+                <a href="./escatologia.html" class="btn">Estudiar la Escatología</a>
+                <a href="./profecias-cumplidas.html" class="btn btn-outline">Ver Profecías Cumplidas</a>
+            </div>
+        </div>
+        
+    </section>
+            
+            <section class="resources-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Recursos Recomendados</h2>
+            <p>Materiales de estudio confiables para profundizar tu comprensión</p>
+        </div>
+        
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-icon-link">
+                    <i class="fas fa-book fa-4x"></i>
+                    <h3>Entendiendo los Tiempos</h3>
+                    <a href="https://tesoroscristianos.co/wp-content/uploads/2020/07/Aproximacion-al-Apocalisis-Tomo-I.pdf" class="btn btn-primary">Ver Detalles</a>
+                </div>
+            </div>
+            
+            <div class="resource-card">
+                <div class="resource-icon-link">
+                    <i class="fas fa-video fa-4x"></i>
+                    <h3>Apocalipsis Revelado</h3>
+                    <a href="https://www.youtube.com/watch?v=25G_GD145qY" class="btn btn-primary">Ver Serie</a>
+                </div>
+            </div>
+            
+            <div class="resource-card">
+                <div class="resource-icon-link">
+                    <i class="fas fa-file-pdf fa-4x"></i>
+                    <h3>Daniel y los Últimos Días</h3>
+                    <a href="https://ia801604.us.archive.org/16/items/ProfeciasDelLibroDeDaniel/01%20-%20Cartilla%20de%20las%20Profecías%20del%20libro%20de%20Daniel.pdf" class="btn btn-primary">Descargar</a>
+                </div>
+            </div>
+            
+            <div class="resource-card">
+                <div class="resource-icon-link">
+                    <i class="fas fa-microphone-alt fa-4x"></i>
+                    <h3>Conferencias Proféticas, (pronto transmitimos)</h3>
+                    <a href="#" class="btn btn-primary">Ver Eventos</a>
+                </div>
+            </div>
+            
+            <div class="resource-card">
+                <div class="resource-icon-link">
+                    <i class="fas fa-scroll fa-4x"></i>
+                    <h3>Comentarios Escatológicos</h3>
+                    <a href="http://www.iglesiareformada.com/Buswell4.pdf" class="btn btn-primary">Explorar</a>
+                </div>
+            </div>
+            
+            <div class="resource-card">
+                <div class="resource-icon-link">
+                    <i class="fas fa-tools fa-4x"></i>
+                    <h3>Introducción a la Escatología, Ps. Sugel Michelén</h3>
+                    <a href="https://www.youtube.com/watch?v=r0DdLn3P_8Q" class="btn btn-primary">Acceder</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Preguntas Frecuentes</h2>
+                <p>Respuestas a las consultas más comunes sobre el tiempo del fin</p>
+            </div>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        ¿Podemos conocer la fecha exacta del regreso de Cristo?
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            No, no podemos conocer la fecha exacta. Jesús mismo dijo en Mateo 24:36: "Pero del día y la hora nadie sabe, ni aun los ángeles de los cielos, sino sólo mi Padre". Debemos estar siempre preparados, pues el Señor vendrá como ladrón en la noche. Sin embargo, podemos discernir las señales de los tiempos y reconocer la estación de Su venida.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        ¿Qué es el Rapto y cuándo ocurrirá?
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            El Rapto se refiere al evento descrito en 1 Tesalonicenses 4:16-17 cuando los creyentes, tanto vivos como muertos, serán "arrebatados" para encontrarse con Cristo en el aire. Existen diferentes interpretaciones sobre su tiempo: pre-tribulación (antes de la gran tribulación), mid-tribulación (a mitad de la tribulación) y post-tribulación (después de la tribulación). En nuestros estudios presentamos evidencia bíblica para cada posición y animamos a los creyentes a estudiar las Escrituras con oración.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        ¿Cómo debe afectar el estudio de los tiempos finales nuestra vida diaria?
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            El estudio de la escatología debe inspirarnos a vivir con santidad, urgencia evangelística y esperanza. Pedro nos recuerda en 2 Pedro 3:11-12: "Puesto que todas estas cosas han de ser deshechas, ¡cómo no debéis vosotros andar en santa y piadosa manera de vivir, esperando y apresurándoos para la venida del día de Dios!". La expectativa del regreso de Cristo nos motiva a vivir con propósito, pureza y una pasión por alcanzar a los perdidos.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        ¿Qué es el Milenio?
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            El Milenio se refiere al período de mil años mencionado en Apocalipsis 20, durante el cual Cristo reinará sobre la tierra. Existen tres perspectivas principales: el premilenarismo (Cristo regresa antes del milenio literal), el postmilenarismo (Cristo regresa después de un período figurado de predominio cristiano) y el amilenarismo (interpretación simbólica del milenio como el actual reinado espiritual de Cristo). Cada posición tiene base bíblica y debe ser estudiada cuidadosamente.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        ¿Cómo identificar falsas enseñanzas sobre el fin de los tiempos?
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Debemos evaluar toda enseñanza a la luz de la Escritura, como los bereanos (Hechos 17:11). Las falsas enseñanzas a menudo fijan fechas específicas, contradicen las claras enseñanzas bíblicas, se centran en detalles sensacionalistas en lugar de en Cristo, o promueven miedo en lugar de fe. Siempre debemos recordar que el propósito de la profecía bíblica es glorificar a Cristo y preparar a Su Iglesia, no satisfacer nuestra curiosidad o generar temor.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Mantente Informado</h2>
+                <p>Suscríbete a nuestro boletín para recibir actualizaciones, estudios y recursos sobre el tiempo del fin y profecías bíblicas.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Tu correo electrónico" required>
+                    <button type="submit" class="newsletter-btn">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Ministerio EMD</h4>
+                    <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza profética y escatológica para edificación y preparación de la Iglesia.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="introduccion.html">Introducción al Tiempo del Fin</a></li>
+                        <li><a href="escatologia.html">Escatología</a></li>
+                        <li><a href="profecias-cumplidas.html">Profecías Cumplidas</a></li>
+                        <li><a href="nuevo-orden-mundial.html">Nuevo Orden Mundial</a></li>
+                        <li><a href="noticias-fin.html">Noticias del Fin</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Estudios Relacionados</h4>
+                    <ul>
+                        <li><a href="../Figuras Bíblicas/figuras-cristo.html">Figuras de Cristo</a></li>
+                        <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Estudios Exegéticos</a></li>
+                        <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                        <li><a href="../Estudios Bíblicos/doctrina-avanzada.html">Doctrina Avanzada</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio, San Juan, Puerto Rico</li>
+                        <li><i class="fas fa-phone"></i> +1 787-345-6940</li>
+                        <li><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="scroll-top" id="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Toggle Mobile Navigation
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.add('active');
+        });
+        
+        document.querySelector('.nav-close').addEventListener('click', function() {
+            document.querySelector('nav').classList.remove('active');
+        });
+        
+        // Mobile Dropdown Menus
+        document.querySelectorAll('.menu-item-has-children > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                // Only in mobile mode
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.parentNode.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navToggle = document.querySelector('.nav-toggle');
+            
+            if (!nav.contains(event.target) && event.target !== navToggle && !navToggle.contains(event.target)) {
+                nav.classList.remove('active');
+            }
+        });
+        
+        // Close the menu when clicking a submenu link
+        document.querySelectorAll('.sub-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('nav').classList.remove('active');
+            });
+        });
+        
+        // Accordion functionality
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const item = this.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all accordion items
+                document.querySelectorAll('.accordion-item').forEach(accordionItem => {
+                    accordionItem.classList.remove('active');
+                });
+                
+                // If the clicked item wasn't active, open it
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // Scroll to Top Button
+        const scrollBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('active');
+            } else {
+                scrollBtn.classList.remove('active');
+            }
+        });
+        
+        scrollBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+             const rect = target.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            window.scrollTo({
+            top: rect.top + scrollTop - 100,
+            behavior: 'smooth'
+            });
+        
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            function isInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+            
+            const items = document.querySelectorAll('.topic-card, .timeline-item, .resource-card');
+            
+            function checkItems() {
+                items.forEach(item => {
+                    if (isInViewport(item)) {
+                        item.style.opacity = 1;
+                        item.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // Set initial state
+            items.forEach(item => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // Check on load and scroll
+            checkItems();
+            window.addEventListener('scroll', checkItems);
+        });
+    </script>
+</body>
+</html>

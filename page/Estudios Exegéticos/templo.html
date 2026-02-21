@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio Bíblico Interactivo</title>
+    <style>
+        :root {
+            --primary: #8e44ad;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e0e5ec 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: var(--dark);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            display: block;
+            font-weight: 500;
+            transition: all 0.3s;
+            
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        main {
+            padding: 2rem 0;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .card-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .card-body p {
+            margin-bottom: 1rem;
+        }
+        
+        .card-body h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 0.8rem 0;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 0.5rem;
+        }
+        
+        .card-body ul, .card-body ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+        
+        .card-body li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--light);
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .highlight {
+            background-color: #ffe6cc;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--warning);
+        }
+        
+        .scripture {
+            font-style: italic;
+            color: var(--primary);
+            margin: 1rem 0;
+            padding: 0.8rem;
+            background-color: rgba(142, 68, 173, 0.05);
+            border-radius: 5px;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #7d3c98;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid var(--accent);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+        
+        @media screen and (max-width: 600px) {
+            nav a {
+                padding: 0.7rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🕍 Estudio Bíblico: Templo, Sacerdocio y Historia 📜</h1>
+            <p>Un recorrido por el templo de Jerusalén, los Macabeos, y el ministerio de Juan el Bautista</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container nav-container">
+            <a href="#lugares-altos">Lugares Altos</a>
+            <a href="#templos">Los Templos</a>
+            <a href="#qumran">Qumrán</a>
+            <a href="#sacerdotes">Sacerdotes</a>
+            <a href="#macabeos">Macabeos</a>
+            <a href="#juan">Juan el Bautista</a>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section id="lugares-altos" class="card">
+            <div class="card-header">
+                <h2>🏔️ Los Lugares Altos en la Biblia 🕍</h2>
+            </div>
+            <div class="card-body">
+                <p>Los lugares altos en la Biblia son sitios geográficos elevados —como colinas o montañas— donde se realizaban actividades religiosas, tanto legítimas como ilegítimas, dependiendo del contexto histórico y espiritual del pueblo de Israel.</p>
+                
+                <h3>📖 ¿Qué significaban?</h3>
+                <p>En hebreo se les llama "bamot" (בָּמוֹת), que literalmente significa "altura" o "lugar elevado". Estos lugares se usaban frecuentemente para:</p>
+                <ul>
+                    <li>🔥 Sacrificios de animales</li>
+                    <li>🙏 Ofrendas de incienso</li>
+                    <li>🎶 Ritos religiosos</li>
+                    <li>👑 Coronaciones reales</li>
+                </ul>
+                
+                <h3>⚠️ ¿Por qué fueron un problema?</h3>
+                <p>Aunque en algunas etapas Dios permitió sacrificios en lugares altos (por ejemplo, antes de la construcción del Templo en Jerusalén), más adelante se convirtieron en centros de idolatría. Se empezaron a usar para adorar a dioses paganos como Baal, Astarté y Moloc, lo cual fue duramente condenado por los profetas.</p>
+                
+                <div class="scripture">
+                    "No edificarás altar para ti en lugar alto alguno, ni levantarás columna sagrada ni plantarás árbol junto al altar de Jehová tu Dios" (Deuteronomio 16:21-22).
+                </div>
+                
+                <h3>🛑 Profetas que los denunciaron</h3>
+                <ul>
+                    <li>Elías confrontó a los profetas de Baal en un lugar alto (1 Reyes 18).</li>
+                    <li>Oseas y Amós denunciaron la hipocresía de Israel al usar estos lugares para actos religiosos mientras vivían en pecado.</li>
+                    <li>Reyes como Josías (2 Reyes 23) destruyeron estos lugares como parte de reformas espirituales.</li>
+                </ul>
+                
+                <h3>✅ ¿Siempre fueron malos?</h3>
+                <p>No necesariamente al principio. Algunos patriarcas construyeron altares en lugares altos para adorar a Dios, como:</p>
+                <ul>
+                    <li>Abraham en Moriah (Génesis 22)</li>
+                    <li>Jacob en Betel (Génesis 28)</li>
+                </ul>
+                <p>Pero tras la construcción del Templo de Jerusalén, los sacrificios fuera de él se consideraron inaceptables (Deuteronomio 12:2-5).</p>
+                
+                <h3>🧠 Aplicación espiritual hoy</h3>
+                <p>Los "lugares altos" simbolizan hoy todo aquello que compite con Dios por el primer lugar en nuestras vidas: orgullo, autosuficiencia, ideologías, etc. 🙇‍♂️⛓️</p>
+                
+                <div class="table-container">
+                    <h3>🗂️ Tabla de lugares altos en la Biblia</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>📍 Lugar Alto</th>
+                                <th>📖 Referencia Bíblica</th>
+                                <th>🏔️ Uso Religioso</th>
+                                <th>❌ Idolatría / ✅ Aprobado</th>
+                                <th>✨ Lección espiritual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Gabaón</td>
+                                <td>1 Reyes 3:4</td>
+                                <td>Sacrificio a Jehová</td>
+                                <td>✅ Permitido antes del Templo</td>
+                                <td>Buscar a Dios sinceramente aún sin templo</td>
+                            </tr>
+                            <tr>
+                                <td>Monte Carmelo</td>
+                                <td>1 Reyes 18:19-40</td>
+                                <td>Confrontación de Elías y profetas de Baal</td>
+                                <td>❌ Idolatría</td>
+                                <td>Dios demuestra su poder sobre ídolos</td>
+                            </tr>
+                            <tr>
+                                <td>Betel</td>
+                                <td>2 Reyes 10:29; Amos 7:13</td>
+                                <td>Adoración en templo rival</td>
+                                <td>❌ Idolatría</td>
+                                <td>La religión sin obediencia es falsa</td>
+                            </tr>
+                            <tr>
+                                <td>Dan</td>
+                                <td>Jueces 18:29-31; 1 Reyes 12:29</td>
+                                <td>Centro de culto alternativo</td>
+                                <td>❌ Idolatría</td>
+                                <td>No debemos inventar nuevas formas de adoración</td>
+                            </tr>
+                            <tr>
+                                <td>Monte Gerizim</td>
+                                <td>Juan 4:20-24</td>
+                                <td>Adoración samaritana</td>
+                                <td>❌ Rival del templo</td>
+                                <td>Jesús enseña adoración en espíritu y verdad</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="templos" class="card">
+            <div class="card-header">
+                <h2>🏛️ Los Templos según Merrill C. Tenney</h2>
+            </div>
+            <div class="card-body">
+                <p>Según el libro Nuestro Nuevo Testamento de Merrill C. Tenney, se mencionan varios templos que fueron construidos a lo largo de la historia bíblica, cada uno con un papel clave en el desarrollo religioso y político de Israel.</p>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>🏛️ Templo</th>
+                                <th>📆 Época</th>
+                                <th>👷 Constructor</th>
+                                <th>📝 Características</th>
+                                <th>💥 Destrucción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>El Tabernáculo</td>
+                                <td>Éxodo, durante el peregrinaje en el desierto</td>
+                                <td>Moisés, conforme a las instrucciones dadas por Dios (Éxodo 25–27)</td>
+                                <td>Lugar portátil para la presencia de Dios y sacrificios antes de entrar a la Tierra Prometida</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>El Templo de Salomón (Primer Templo)</td>
+                                <td>Construido alrededor del 966 a.C.</td>
+                                <td>El rey Salomón (1 Reyes 6–8)</td>
+                                <td>Símbolo máximo del culto centralizado en Jerusalén. Representó la gloria del reino unido</td>
+                                <td>En el 586 a.C. por los babilonios bajo Nabucodonosor</td>
+                            </tr>
+                            <tr>
+                                <td>El Segundo Templo (de Zorobabel)</td>
+                                <td>Reconstruido tras el exilio en Babilonia, entre 538–516 a.C.</td>
+                                <td>Zorobabel y Josué el sumo sacerdote (Esdras 3–6)</td>
+                                <td>Modesto en comparación con el de Salomón, pero importante para el restablecimiento del culto judío</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>El Templo de Herodes</td>
+                                <td>Iniciado alrededor del 20 a.C.</td>
+                                <td>Herodes el Grande, buscando ganar favor con los judíos</td>
+                                <td>Grandioso, ampliado y decorado; convertido en una de las maravillas arquitectónicas del mundo antiguo</td>
+                                <td>En el año 70 d.C. por los romanos bajo Tito, como predijo Jesús (Mateo 24:1–2)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="highlight">
+                    <p>"El templo fue más que un edificio; fue el símbolo del pacto entre Dios e Israel, y su historia refleja el curso de la fidelidad o apostasía del pueblo." — Tenney, Nuestro Nuevo Testamento.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="qumran" class="card">
+            <div class="card-header">
+                <h2>🏜️ La comunidad de Qumrán</h2>
+            </div>
+            <div class="card-body">
+                <p>Según Nuestro Nuevo Testamento de Merrill C. Tenney, la población que se encontraba en Qumrán es identificada como una comunidad sectaria judía, comúnmente asociada con los esenios.</p>
+                
+                <h3>🧩 Características de la comunidad de Qumrán</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>🧩 Elemento</th>
+                                <th>📖 Descripción según Tenney</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Identidad probable</td>
+                                <td>Eran esenios, una secta judía contemporánea de Jesús. Aunque no lo afirma con absoluta certeza, Tenney explica que su estilo de vida coincide con las descripciones de Filón y Josefo sobre los esenios.</td>
+                            </tr>
+                            <tr>
+                                <td>Ubicación</td>
+                                <td>Estaban establecidos cerca del Mar Muerto, en la región desértica de Qumrán.</td>
+                            </tr>
+                            <tr>
+                                <td>Aislamiento</td>
+                                <td>Vivían separados de la sociedad judía principal. Rechazaban el templo de Jerusalén, al que consideraban corrompido.</td>
+                            </tr>
+                            <tr>
+                                <td>Estructura comunitaria</td>
+                                <td>Practicaban un estilo de vida comunal, con propiedad compartida y estrictas reglas de pureza. Eran muy disciplinados.</td>
+                            </tr>
+                            <tr>
+                                <td>Rigor legalista</td>
+                                <td>Tenían interpretaciones estrictas de la Ley mosaica y de los rituales de pureza.</td>
+                            </tr>
+                            <tr>
+                                <td>Esperanza mesiánica</td>
+                                <td>Esperaban la venida de dos mesías: uno sacerdotal y otro real (mesiánico-davídico), lo cual los distingue teológicamente de otras sectas judías.</td>
+                            </tr>
+                            <tr>
+                                <td>Escrituras</td>
+                                <td>Estudiaban intensamente las Escrituras y dejaron una vasta colección de manuscritos bíblicos y apócrifos, incluyendo reglas internas, comentarios bíblicos (pesharim), y textos escatológicos.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="highlight">
+                    <p>"La comunidad de Qumrán representa un intento radical de vivir la Ley en su forma más pura, alejados de una Jerusalén que consideraban impura. Su literatura ofrece un trasfondo valioso para entender las expectativas mesiánicas en el tiempo de Jesús." — Tenney, Nuestro Nuevo Testamento</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="sacerdotes" class="card">
+            <div class="card-header">
+                <h2>👑 Los Sacerdotes y el Templo</h2>
+            </div>
+            <div class="card-body">
+                <h3>🕍 Instalación en el templo y en la comunidad judía</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>🏷️ Ámbito</th>
+                                <th>🧑‍🏫 Grupo</th>
+                                <th>📖 Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>🕍 Templo</td>
+                                <td>Saduceos</td>
+                                <td>Controlaban el culto, el sumo sacerdocio y el Sanedrín. Representaban la élite religiosa oficial y colaboraban con Roma.</td>
+                            </tr>
+                            <tr>
+                                <td>🕯️ Sinagogas y enseñanza popular</td>
+                                <td>Fariseos</td>
+                                <td>Dominaron la educación religiosa del pueblo. Tenían gran influencia en la vida diaria y establecieron las bases del judaísmo rabínico.</td>
+                            </tr>
+                            <tr>
+                                <td>🏜️ Separación del templo</td>
+                                <td>Esenios</td>
+                                <td>Rechazaron el templo por considerarlo corrompido. Se retiraron al desierto (como en Qumrán), esperando la restauración divina del sacerdocio legítimo.</td>
+                            </tr>
+                            <tr>
+                                <td>⚔️ Resistencia y conflicto</td>
+                                <td>Zelotes</td>
+                                <td>Activos en Jerusalén, especialmente en tiempos de agitación. Promovían la revuelta armada contra Roma y defendían el templo como símbolo nacional.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>🧬 ¿De dónde salieron los saduceos?</h3>
+                <p>El término "saduceo" proviene probablemente de Sadoc (Tsadoq), un sacerdote fiel en tiempos de David y Salomón. Los saduceos como grupo religioso y político emergen después del exilio babilónico, pero se consolidan con fuerza en el siglo II a.C., durante y después de la rebelión macabea.</p>
+                
+                <h3>🏛️ ¿Cómo entraron al poder en el templo y Jerusalén?</h3>
+                <ul>
+                    <li><strong>Tras la rebelión macabea:</strong> Cuando los macabeos vencen a los griegos seléucidas y purifican el templo (164 a.C.), restablecen el culto en Jerusalén.</li>
+                    <li><strong>Alianza con los hasmoneos:</strong> Los saduceos, como clase aristocrática y conservadora, apoyaron a los hasmoneos, ayudándolos a gobernar.</li>
+                    <li><strong>Colaboración con Roma:</strong> Los saduceos colaboraron con los romanos para mantener el orden y su estatus privilegiado.</li>
+                </ul>
+                
+                <div class="highlight">
+                    <p>Sí, se creó un orden diferente al que Dios había establecido. A lo largo de la historia bíblica, especialmente durante el periodo del Segundo Templo, se desarrolló un orden religioso, político y sacerdotal diferente al que Dios había establecido originalmente en la Ley mosaica.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="macabeos" class="card">
+            <div class="card-header">
+                <h2>⚔️ Los Macabeos/Hasmoneos</h2>
+            </div>
+            <div class="card-body">
+                <h3>🧬 ¿Quiénes eran los hasmoneos/macabeos?</h3>
+                <p>Proviene de un antepasado llamado Hasmón. El primer líder conocido fue Matatías, un sacerdote de la familia de Joarib, de la aldea de Modín (no era descendiente de Sadoc). Sus hijos, especialmente Judas Macabeo, se convirtieron en líderes de la rebelión macabea (167–160 a.C.).</p>
+                
+                <h3>⚔️ Origen de los Macabeos: Contexto histórico</h3>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>332 a.C.</h3>
+                            <p>Conquista griega de Alejandro Magno</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>200 a.C.</h3>
+                            <p>Judea pasa a dominio seléucida</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>175–164 a.C.</h3>
+                            <p>Reinado de Antíoco IV Epífanes, crisis helenista</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>167 a.C.</h3>
+                            <p>Profanación del templo; inicio de la rebelión macabea</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>164 a.C.</h3>
+                            <p>Purificación del templo por Judas Macabeo (Janucá)</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>140 a.C.</h3>
+                            <p>Simón Macabeo reconocido como líder político y religioso</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>📚 ¿En qué Biblias aparecen los libros de los Macabeos?</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>📘 Canon</th>
+                                <th>📖 Incluye los libros de los Macabeos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>📖 Biblia católica</td>
+                                <td>✅ Sí (1 y 2 Macabeos están incluidos como parte del Antiguo Testamento deuterocanónico)</td>
+                            </tr>
+                            <tr>
+                                <td>📖 Biblia ortodoxa</td>
+                                <td>✅ Sí, e incluso incluye 3 y 4 Macabeos</td>
+                            </tr>
+                            <tr>
+                                <td>📖 Biblia protestante</td>
+                                <td>❌ No los incluye en el canon, aunque pueden aparecer en secciones aparte llamadas "apócrifos"</td>
+                            </tr>
+                            <tr>
+                                <td>📖 Biblia hebrea (Tanaj)</td>
+                                <td>❌ No incluye estos libros; fueron escritos originalmente en griego</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>📆 ¿Qué línea histórica tienen los Macabeos?</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>📆 Periodo</th>
+                                <th>🏛️ Evento / Etapa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>167 a.C.</td>
+                                <td>Matatías inicia la rebelión contra Antíoco IV Epífanes</td>
+                            </tr>
+                            <tr>
+                                <td>164 a.C.</td>
+                                <td>Judas Macabeo purifica el templo; se inicia Janucá</td>
+                            </tr>
+                            <tr>
+                                <td>152 a.C.</td>
+                                <td>Jonatán se hace sumo sacerdote (usurpación del cargo)</td>
+                            </tr>
+                            <tr>
+                                <td>140 a.C.</td>
+                                <td>Simón es reconocido como sumo sacerdote y gobernante</td>
+                            </tr>
+                            <tr>
+                                <td>134–63 a.C.</td>
+                                <td>La dinastía hasmonea gobierna Judea como teocracia real-sacerdotal</td>
+                            </tr>
+                            <tr>
+                                <td>63 a.C.</td>
+                                <td>Roma (Pompeyo) conquista Jerusalén; empieza la decadencia hasmonea</td>
+                            </tr>
+                            <tr>
+                                <td>37 a.C.</td>
+                                <td>Herodes el Grande toma el poder con apoyo romano y pone fin a la dinastía hasmonea</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+        <section id="juan" class="card">
+            <div class="card-header">
+                <h2>🕊️ Juan el Bautista y su relación con los Esenios</h2>
+            </div>
+            <div class="card-body">
+                <h3>🧬 ¿Cuál era la dependencia o linaje de Juan el Bautista?</h3>
+                <p>Juan era hijo de Zacarías, un sacerdote del grupo de Abías, una de las 24 divisiones sacerdotales (Lucas 1:5; 1 Crónicas 24:10). Su madre Elisabet era también descendiente de Aarón (Lucas 1:5). Por lo tanto, Juan tenía pleno derecho al sacerdocio, y pudo haber servido en el templo como su padre.</p>
+                
+                <div class="scripture">
+                    "Hubo en los días de Herodes, rey de Judea, un sacerdote llamado Zacarías, de la clase de Abías; su mujer era de las hijas de Aarón, y se llamaba Elisabet." — Lucas 1:5
+                </div>
+                
+                <h3>🏜️ ¿Por qué se considera que Juan el Bautista podría haber estado relacionado con los esenios?</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>🔍 Elemento</th>
+                                <th>📖 Posible vínculo con los esenios</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>🏜️ Desierto</td>
+                                <td>Juan vivía y predicaba en el desierto de Judea, donde también estaba ubicada la comunidad esenia de Qumrán.</td>
+                            </tr>
+                            <tr>
+                                <td>🧵 Estilo de vida austero</td>
+                                <td>Juan vestía ropa de pelo de camello y comía langostas y miel silvestre (Mateo 3:4), similar al estilo ascético de los esenios.</td>
+                            </tr>
+                            <tr>
+                                <td>🚿 Enseñanza sobre pureza</td>
+                                <td>Los esenios practicaban baños rituales frecuentes (mikvot) y enfatizaban la pureza moral, algo que Juan refleja en su bautismo para arrepentimiento.</td>
+                            </tr>
+                            <tr>
+                                <td>🕊️ Mensaje apocalíptico</td>
+                                <td>Juan hablaba del juicio inminente, el hacha puesta a la raíz, el fuego purificador (Mateo 3:10–12). Los esenios también esperaban un juicio final cercano.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>⚠️ ¿Fue Juan un esenio oficialmente?</h3>
+                <p>Probablemente no. Aunque comparte muchas características, Juan el Bautista se diferencia claramente de los esenios en varios puntos:</p>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>🔥 Juan el Bautista</th>
+                                <th>🤍 Esenios</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bautismo único por arrepentimiento</td>
+                                <td>Múltiples baños rituales diarios</td>
+                            </tr>
+                            <tr>
+                                <td>Ministerio abierto al público</td>
+                                <td>Comunidad cerrada, aislada y exclusiva</td>
+                            </tr>
+                            <tr>
+                                <td>Predicaba al pueblo y confrontaba líderes</td>
+                                <td>Se retiraban del mundo y evitaban el templo</td>
+                            </tr>
+                            <tr>
+                                <td>Reconoció a Jesús como el Mesías único</td>
+                                <td>Esperaban dos Mesías: uno sacerdotal y uno real</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="scripture">
+                    "He aquí el Cordero de Dios, que quita el pecado del mundo" (Juan 1:29)
+                </div>
+                
+                <div class="highlight">
+                    <p>En resumidas cuentas, Juan el Bautista era descendiente directo de Aarón, es decir, de linaje sacerdotal levítico. Era sacerdote por ambos lados, con plena legitimidad según la ley de Moisés.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>🕍 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            <p>"Toda la Escritura es inspirada por Dios, y útil para enseñar, para redargüir, para corregir, para instruir en justicia." 2 Timoteo 3:16</p>
+        </div>
+    </footer>
+</body>
+</html>
