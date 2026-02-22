@@ -3,76 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestras Enseñanzas - Ministerio "La Gloria es del Señor"</title>
+    <title>Nuestras Enseñanzas — Ministerio La Gloria es del Señor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <style>
-       :root {
-            --primary-color: #4d3b6d; /* Púrpura profundo */
-            --secondary-color: #c3a343; /* Oro antiguo */
-            --accent-color: #39727d; /* Azul verdoso */
-            --background-color: #f9f7f2; /* Marfil */
-            --text-color: #2d2d35; /* Casi negro con toque púrpura */
-            --light-accent: #f0ebdf; /* Crema claro */
-            --gold-accent: #e6c664; /* Oro brillante */
-            --dark-color: #282335; /* Púrpura oscuro casi negro */
-            --gradient-bg: linear-gradient(135deg, rgba(77, 59, 109, 0.9) 0%, rgba(195, 163, 67, 0.9) 100%);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.06);
+        :root {
+            --ink:        #1a1410;
+            --ink-deep:   #0e0c0a;
+            --gold:       #b89a5f;
+            --gold-light: #c9aa6a;
+            --parchment:  #f7f4ed;
+            --parchment-2:#ede5d8;
+            --text:       #2d2010;
+            --muted:      #6b5a48;
+            --border:     rgba(184,154,95,0.2);
+            --border-s:   rgba(184,154,95,0.45);
+            --transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1);
+            --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-color);
-            background-color: var(--light-color);
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            background: var(--parchment);
+            color: var(--text);
             overflow-x: hidden;
+            line-height: 1.7;
         }
-        
+
+        /* ── HEADER ─────────────────────────────────────────────── */
         header {
-            background: var(--gradient-bg);
+            background: rgba(14,12,10,0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            position: relative;
+            padding: 1.1rem 0;
+            border-bottom: 1px solid rgba(184,154,95,0.25);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        
+
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
         }
-        
+
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
             gap: 1rem;
+            text-decoration: none;
         }
-        
+
         .logo img {
-            height: 70px;
+            height: 60px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
         }
-        
+
         .logo-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.25;
+            letter-spacing: 0.04em;
+            font-size: 1.05rem;
+            color: white;
         }
-        
+
+        /* ── NAV ─────────────────────────────────────────────────── */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: rgba(255,255,255,0.78);
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            font-size: 0.78rem;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            transition: var(--transition);
+            display: block;
+            padding: 0.5rem;
+            position: relative;
+        }
+
+        nav a:hover { color: var(--gold); }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--gold);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after { width: 100%; }
+
+        /* ── SUBMENÚ ─────────────────────────────────────────────── */
+        .menu-item-has-children { position: relative; }
+
+        .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background-color: white;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08), 0 6px 12px rgba(0,0,0,0.04);
+            border-radius: 8px;
+            padding: 0.8rem 0;
+            display: none;
+            z-index: 100;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .sub-menu li { width: 100%; }
+
+        .sub-menu a {
+            padding: 0.7rem 1.2rem;
+            font-size: 0.9rem;
+            width: 100%;
+            color: var(--ink-deep);
+            letter-spacing: 0.03em;
+            text-transform: none;
+        }
+
+        .sub-menu a::after { display: none; }
+
+        .sub-menu a:hover {
+            background-color: rgba(184,154,95,0.07);
+            color: var(--ink);
+        }
+
+        .menu-item-has-children:hover .sub-menu {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ── NAV TOGGLE MÓVIL ────────────────────────────────────── */
         .nav-toggle {
             display: none;
             background: none;
@@ -80,462 +169,576 @@
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
+            transition: var(--transition);
         }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-family: 'Spectral', serif;
-            font-weight: 600;
-            transition: color 0.3s, transform 0.3s;
-            display: block;
-            padding: 0.5rem;
-        }
-        
-        nav a:hover {
-            color: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-        
-        /* Dropdown Styles */
-        .menu-item-has-children {
+
+        .nav-toggle:hover { transform: scale(1.1); }
+
+        /* ── HERO ────────────────────────────────────────────────── */
+        .hero {
             position: relative;
-        }
-        
-        .menu-item-has-children > a {
+            min-height: 60vh;
             display: flex;
             align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: var(--ink-deep);
         }
-        
-        .menu-item-has-children > a::after {
-            content: '\f107';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            margin-left: 5px;
-        }
-        
-        /* Flecha eliminada */
-.menu-item-has-children > a::after {
-    content: none;
-}
 
-/* Submenú rediseñado */
-.sub-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 220px;
-    background-color: var(--dark-color); /* se mantiene tu fondo */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    padding: 0.5rem 0;
-    display: none;
-    z-index: 1000;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    transform: translateY(10px);
-    opacity: 0;
-}
-
-/* Mostrar el submenú con animación suave */
-.menu-item-has-children:hover .sub-menu {
-    display: block;
-    transform: translateY(0);
-    opacity: 1;
-}
-
-/* Enlaces dentro del submenú */
-.sub-menu a {
-    padding: 0.8rem 1.2rem;
-    font-size: 0.95rem;
-    display: block;
-    width: 100%;
-    font-family: 'Open Sans', sans-serif;
-    color: white;
-    border-left: 3px solid transparent;
-    transition: all 0.3s ease;
-}
-
-/* Efecto al pasar el mouse */
-.sub-menu a:hover {
-    background-color: rgba(255, 255, 255, 0.08);
-    border-left: 3px solid var(--secondary-color);
-    transform: translateX(4px);
-}
-        
-        .hero {
+        .hero-bg {
+            position: absolute;
+            inset: 0;
             background-image: url('../images/banner-enseñanzas.jpg');
             background-size: cover;
             background-position: center;
-            color: white;
-            padding: 6rem 0;
-            position: relative;
-            text-align: center;
+            opacity: 0.45;
         }
-        
+
+        /* overlay de tinta oscura para contraste fuerte con la imagen cálida */
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-bg);
-            opacity: 0.8;
-        }
-        
-        .hero-content {
-            position: relative;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(10,8,6,0.72) 0%,
+                rgba(14,12,10,0.58) 50%,
+                rgba(10,8,6,0.82) 100%
+            );
             z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
         }
-        
-        h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .principles {
-            padding: 5rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .section-title h2 {
-            font-size: 2.2rem;
-            display: inline-block;
-            position: relative;
-            color: var(--primary-color);
-        }
-        
-        .section-title h2::after {
+
+        .hero::after {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 70%;
-            height: 3px;
-            background-color: var(--secondary-color);
+            inset: 0;
+            background-image: var(--grain);
+            background-repeat: repeat;
+            pointer-events: none;
+            z-index: 2;
         }
-        
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 80px 24px;
+            max-width: 700px;
+            opacity: 0;
+            animation: fadeUp 0.9s cubic-bezier(0.25,0.8,0.25,1) 0.1s forwards;
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(22px); }
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 400;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 600;
+            font-style: italic;
+            color: var(--parchment);
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: 0.01em;
+        }
+
+        .hero-divider {
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 0 auto 22px;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: rgba(247,244,237,0.6);
+            max-width: 460px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ── PRINCIPLES ──────────────────────────────────────────── */
+        .principles {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 0.62rem;
+            font-weight: 400;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+
+        .section-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 600;
+            font-style: italic;
+            color: var(--ink);
+            margin-bottom: 16px;
+        }
+
+        .section-divider {
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 0 auto;
+        }
+
+        /* ── PRINCIPLE CARDS ─────────────────────────────────────── */
         .principle-card {
-            background-color: white;
-            border-radius: 10px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            margin-bottom: 24px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            margin-bottom: 2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(16px);
         }
-        
+
+        .principle-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* línea dorada superior */
+        .principle-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 10%; width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
         .principle-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--border-s);
+            box-shadow: 0 8px 28px rgba(26,20,16,0.07);
+            transform: translateY(-2px);
         }
-        
+
         .principle-header {
-            background: var(--gradient-bg);
-            color: white;
-            padding: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 20px;
+            padding: 24px 28px;
+            background: var(--ink);
+            position: relative;
         }
-        
+
+        /* grain en el header de la card */
+        .principle-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: var(--grain);
+            background-repeat: repeat;
+            pointer-events: none;
+        }
+
         .principle-icon {
-            font-size: 2rem;
-            color: var(--secondary-color);
+            width: 46px;
+            height: 46px;
+            border: 1px solid rgba(184,154,95,0.35);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
         }
-        
+
+        .principle-icon i {
+            font-size: 1rem;
+            color: var(--gold);
+        }
+
         .principle-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--parchment);
+            letter-spacing: 0.01em;
+            position: relative;
+            z-index: 1;
             margin: 0;
         }
-        
+
         .principle-content {
-            padding: 2rem;
+            padding: 28px 28px 32px;
         }
-        
+
         .principle-text {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+            color: var(--text);
+            font-size: 0.92rem;
+            font-weight: 300;
+            line-height: 1.85;
+            margin-bottom: 24px;
         }
-        
+
+        /* ── VERSE BOX ───────────────────────────────────────────── */
         .verse-box {
-            background-color: rgba(123, 34, 64, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--secondary-color);
-            margin-top: 1.5rem;
+            border-left: 2px solid var(--gold);
+            padding: 18px 22px;
+            background: var(--parchment);
+            margin-bottom: 16px;
+            border-radius: 0 2px 2px 0;
         }
-        
+
+        .verse-box:last-child { margin-bottom: 0; }
+
         .verse-text {
+            font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+            color: var(--ink);
+            line-height: 1.7;
+            margin-bottom: 10px;
         }
-        
+
         .verse-ref {
             text-align: right;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-        
-        .closing {
-            text-align: center;
-            padding: 3rem 0;
-            background-color: var(--light-color);
-        }
-        
-        .closing p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 1.5rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--dark-color);
-            padding: 0.8rem 1.8rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
+            font-size: 0.65rem;
+            font-weight: 400;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin-top: 1.5rem;
+            color: var(--gold);
         }
-        
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 1.5rem 0;
+
+        /* ── CIERRE ──────────────────────────────────────────────── */
+        .closing {
+            background: var(--ink);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
             text-align: center;
         }
-        
-        @media (max-width: 768px) {
-            .nav-toggle {
-                display: block;
-            }
-            
+
+        .closing::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: var(--grain);
+            background-repeat: repeat;
+            pointer-events: none;
+        }
+
+        .closing::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.4) 100%);
+            pointer-events: none;
+        }
+
+        .closing-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .closing-eyebrow {
+            display: inline-block;
+            font-size: 0.62rem;
+            font-weight: 400;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .closing h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 600;
+            font-style: italic;
+            color: var(--parchment);
+            margin-bottom: 16px;
+        }
+
+        .closing-divider {
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 0 auto 28px;
+        }
+
+        .closing p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: rgba(247,244,237,0.55);
+            line-height: 1.85;
+            margin-bottom: 16px;
+        }
+
+        .closing .verse-closing {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: rgba(247,244,237,0.75);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            margin: 28px 0 36px;
+            line-height: 1.7;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 13px 32px;
+            border-radius: 2px;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid var(--gold);
+            background: transparent;
+            color: var(--gold);
+        }
+
+        .btn:hover {
+            background: var(--gold);
+            color: var(--ink-deep);
+        }
+
+        /* ── FOOTER ──────────────────────────────────────────────── */
+        footer {
+            background: var(--ink-deep);
+            border-top: 1px solid rgba(184,154,95,0.12);
+            padding: 24px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.72rem;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            color: rgba(247,244,237,0.3);
+        }
+
+        /* ── RESPONSIVO ──────────────────────────────────────────── */
+        @media (max-width: 900px) {
+            .nav-toggle { display: block; }
+
             nav {
                 position: fixed;
-                top: 0;
-                right: -300px;
+                top: 0; right: -300px;
                 width: 280px;
                 height: 100vh;
-                background-color: var(--dark-color);
-                z-index: 1000;
-                transition: right 0.3s;
-                padding: 2rem;
+                background: rgba(14,12,10,0.99);
+                border-left: 1px solid rgba(184,154,95,0.12);
+                z-index: 999;
+                transition: right 0.3s ease;
                 overflow-y: auto;
+                padding: 2rem;
             }
-            
-            nav.active {
-                right: 0;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 0;
-            }
-            
-            nav li {
-                width: 100%;
-            }
-            
+
+            nav.active { right: 0; }
+
+            nav ul { flex-direction: column; gap: 0; }
+            nav li { width: 100%; }
+
             nav a {
                 padding: 0.8rem 0;
                 width: 100%;
             }
-            
-            .menu-item-has-children > a::after {
-                content: '\f105';
-                position: absolute;
-                right: 0;
-            }
-            
+
+            nav a::after { display: none; }
+
             .sub-menu {
                 position: static;
                 width: 100%;
                 box-shadow: none;
-                background-color: rgba(0, 0, 0, 0.2);
                 border-radius: 0;
+                background: rgba(255,255,255,0.05);
                 padding-left: 1rem;
                 max-height: 0;
                 overflow: hidden;
-                transition: max-height 0.3s ease-out;
-            }
-            
-            .menu-item-has-children.active > .sub-menu {
-                max-height: 500px;
-            }
-            
-            .menu-item-has-children:hover .sub-menu {
-                display: none;
-            }
-            
-            .menu-item-has-children.active .sub-menu {
                 display: block;
+                opacity: 1;
+                transform: none;
+                transition: max-height 0.3s ease;
             }
-            
-            .hero {
-                padding: 4rem 0;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .principle-header {
-                flex-direction: column;
-                text-align: center;
-            }
+
+            .sub-menu a { color: rgba(255,255,255,0.6); }
+            .sub-menu a:hover { color: var(--gold); background: transparent; }
+
+            .menu-item-has-children.active > .sub-menu { max-height: 500px; }
+            .menu-item-has-children:hover .sub-menu { display: block; }
+        }
+
+        @media (max-width: 600px) {
+            .principle-header { flex-direction: column; gap: 14px; text-align: center; }
+            .principle-content { padding: 22px 20px 26px; }
+            .verse-box { padding: 14px 16px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- ── HEADER ──────────────────────────────────────────────────── -->
     <header>
-        <div class="container header-content">
-            <div class="logo">
-                <img src="../../images/EMD.png" alt="Logo EMD">
-                <div class="logo-text">
-                    <div>Ministerio</div>
-                    <div>"La Gloria es del Señor"</div>
-                </div>
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <img src="../images/EMD.png" alt="Logo Ministerio">
+                    <div class="logo-text">
+                        <div>Ministerio</div>
+                        <div>"La Gloria es del Señor"</div>
+                    </div>
+                </a>
+
+                <button class="nav-toggle" id="nav-toggle" aria-label="Menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+
+                        <li class="menu-item-has-children">
+                            <a href="#">Figuras Bíblicas</a>
+                            <ul class="sub-menu">
+                                <li><a href="../page/Figuras Bíblicas/at-a-nt.html">AT a NT</a></li>
+                                <li><a href="../page/Figuras Bíblicas/nombres-simbologia.html">Los nombres y su simbología</a></li>
+                                <li><a href="../page/Figuras Bíblicas/templo-figuras.html">Templo y sus Figuras</a></li>
+                                <li><a href="../page/Figuras Bíblicas/sacrificios-figuras.html">Sacrificios y sus Figuras</a></li>
+                                <li><a href="../page/Figuras Bíblicas/tipologia-cantares.html">Tipología Cantares</a></li>
+                                <li><a href="../page/Figuras Bíblicas/figuras-cristo.html">Figuras de Cristo</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="menu-item-has-children">
+                            <a href="#">Falsas Doctrinas</a>
+                            <ul class="sub-menu">
+                                <li><a href="../page/Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                                <li><a href="../page/Falsas Doctrinas/gnosticismos.html">Gnosticismos en la Biblia</a></li>
+                                <li><a href="../page/Falsas Doctrinas/filosofias-griegas.html">Filosofías Griegas</a></li>
+                                <li><a href="../page/Falsas Doctrinas/masoneria.html">Masonería</a></li>
+                                <li><a href="../page/Falsas Doctrinas/sociedades-secretas.html">Sociedades Secretas</a></li>
+                                <li><a href="../page/Falsas Doctrinas/sectas-anticristianas.html">Sectas Anticristianas</a></li>
+                                <li><a href="../page/Falsas Doctrinas/pseudoprofetas.html">Pseudoprofetas</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="menu-item-has-children">
+                            <a href="#">Estudios Exegéticos</a>
+                            <ul class="sub-menu">
+                                <li><a href="../page/Estudios Exegéticos/temas-exegeticos.html">Temas Exegéticos</a></li>
+                                <li><a href="../page/Estudios Exegéticos/idiomas-biblia.html">Hebreo, Arameo y Griego</a></li>
+                                <li><a href="../page/Estudios Exegéticos/enlaces-recursos.html">Enlaces de Recursos</a></li>
+                                <li><a href="../page/Estudios Exegéticos/diccionarios-comentarios.html">Diccionarios y Comentarios</a></li>
+                                <li><a href="../page/Estudios Exegéticos/software-biblico.html">Software Bíblico</a></li>
+                                <li><a href="../page/Estudios Exegéticos/meditacion-palabra.html">Meditación en la Palabra</a></li>
+                                <li><a href="../page/Estudios Exegéticos/lectura-anual.html">Lectura Anual</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="menu-item-has-children">
+                            <a href="#">Tiempo del Fin</a>
+                            <ul class="sub-menu">
+                                <li><a href="../page/Tiempo del Fin/introduccion.html">Introducción</a></li>
+                                <li><a href="../page/Tiempo del Fin/escatologia.html">Escatología</a></li>
+                                <li><a href="../page/Tiempo del Fin/profecias-cumplidas.html">Profecías Cumplidas</a></li>
+                                <li><a href="../page/Tiempo del Fin/nuevo-orden-mundial.html">Nuevo Orden Mundial</a></li>
+                                <li><a href="../page/Tiempo del Fin/noticias-fin.html">Noticias del Fin</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="menu-item-has-children">
+                            <a href="#">Época de Jesús</a>
+                            <ul class="sub-menu">
+                                <li><a href="../page/Época de Jesús/estudio-contemporaneo.html">Estudio Contemporáneo</a></li>
+                                <li><a href="../page/Época de Jesús/contexto-historico.html">Contexto Histórico</a></li>
+                                <li><a href="../page/Época de Jesús/grupos-religiosos.html">Grupos Religiosos</a></li>
+                                <li><a href="../page/Época de Jesús/recursos-academicos.html">Estudios de Contexto</a></li>
+                                <li><a href="../page/Época de Jesús/apologia-cristiana.html">Apología Cristiana</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="menu-item-has-children">
+                            <a href="#">Estudios Bíblicos</a>
+                            <ul class="sub-menu">
+                                <li><a href="../page/Estudios Bíblicos/doctrina-basica.html">Doctrina Básica</a></li>
+                                <li><a href="../page/Estudios Bíblicos/doctrina-intermedia.html">Doctrina Intermedia</a></li>
+                                <li><a href="../page/Estudios Bíblicos/doctrina-avanzada.html">Doctrina Avanzada</a></li>
+                                <li><a href="../page/Estudios Bíblicos/revelacion-espiritu.html">Revelación del Espíritu</a></li>
+                                <li><a href="../page/Estudios Bíblicos/devocionales.html">Devocionales</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <button class="nav-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav>
-                <ul>
-                    <li><a href="../index.html">Inicio</a></li>
-                    <li class="menu-item-has-children">
-                        <a>Figuras Bíblicas</a>
-                        <ul class="sub-menu">
-                            <li><a href="../page/Figuras Bíblicas/at-a-nt.html">AT a NT</a></li>
-                            <li><a href="../page/Figuras Bíblicas/nombres-simbologia.html">Los nombres y su simbología</a></li>
-                            <li><a href="../page/Figuras Bíblicas/templo-figuras.html">Templo y sus Figuras</a></li>
-                            <li><a href="../page/Figuras Bíblicas/sacrificios-figuras.html">Sacrificios y su Figuras</a></li>
-                            <li><a href="../page/Figuras Bíblicas/tipologia-cantares.html">Tipología Cantares</a></li>
-                            <li><a href="../page/Figuras Bíblicas/figuras-cristo.html">Figuras de Cristo</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a>Falsas Doctrinas</a>
-                        <ul class="sub-menu">
-                            <li><a href="../page/Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
-                            <li><a href="../page/Falsas Doctrinas/gnosticismos.html">Gnosticismos en la Biblia</a></li>
-                            <li><a href="../page/Falsas Doctrinas/filosofias-griegas.html">Filosofías Griegas</a></li>
-                            <li><a href="../page/Falsas Doctrinas/masoneria.html">Masonería</a></li>
-                            <li><a href="../page/Falsas Doctrinas/sociedades-secretas.html">Sociedades Secretas</a></li>
-                            <li><a href="../page/Falsas Doctrinas/sectas-anticristianas.html">Sectas Anticristianas</a></li>
-                            <li><a href="../page/Falsas Doctrinas/pseudoprofetas.html">Pseudoprofetas</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a>Estudios Exegéticos</a>
-                        <ul class="sub-menu">
-                            <li><a href="../page/Estudios Exegéticos/temas-exegeticos.html">Temas Exegéticos</a></li>
-                            <li><a href="../page/Estudios Exegéticos/idiomas-biblia.html">Hebreo, Arameo y Griego en la Biblia</a></li>
-                            <li><a href="../page/Estudios Exegéticos/enlaces-recursos.html">Enlaces de Recursos</a></li>
-                            <li><a href="../page/Estudios Exegéticos/diccionarios-comentarios.html">Diccionarios y Comentarios</a></li>
-                            <li><a href="../page/Estudios Exegéticos/software-biblico.html">Software Bíblicos</a></li>
-                            <li><a href="../page/Estudios Exegéticos/meditacion-palabra.html">Meditación en la Palabra</a></li>
-                            <li><a href="../page/Estudios Exegéticos/lectura-anual.html">Lectura Anual</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a>Tiempo del Fin</a>
-                        <ul class="sub-menu">
-                            <li><a href="../page/Tiempo del Fin/introduccion.html">Introducción al tiempo del fin</a></li>
-                            <li><a href="../page/Tiempo del Fin/escatologia.html">Escatología</a></li>
-                            <li><a href="../page/Tiempo del Fin/profecias-cumplidas.html">Profecías Cumplidas</a></li>
-                            <li><a href="../page/Tiempo del Fin/nuevo-orden-mundial.html">Nuevo Orden Mundial</a></li>
-                            <li><a href="../page/Tiempo del Fin/noticias-fin.html">Noticias del Fin</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a>Época de Jesús</a>
-                        <ul class="sub-menu">
-                            <li><a href="../page/Época de Jesús/estudio-contemporaneo.html">Estudio Contemporáneo</a></li>
-                            <li><a href="../page/Época de Jesús/contexto-historico.html">Contexto Histórico</a></li>
-                            <li><a href="../page/Época de Jesús/grupos-religiosos.html">Grupos religiosos</a></li>
-                            <li><a href="../page/Época de Jesús/recursos-academicos.html">Estudios de Contexto</a></li>
-                            <li><a href="../page/Época de Jesús/apologia-cristiana.html">Apología Cristiana</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a>Estudios Bíblicos</a>
-                        <ul class="sub-menu">
-                            <li><a href="../page/Estudios Bíblicos/doctrina-basica.html">Doctrina Básica</a></li>
-                            <li><a href="../page/Estudios Bíblicos/doctrina-intermedia.html">Doctrina intermedia</a></li>
-                            <li><a href="../page/Estudios Bíblicos/doctrina-avanzada.html">Doctrina Avanzada</a></li>
-                            <li><a href="../page/Estudios Bíblicos/revelacion-espiritu.html">Revelación del Espíritu</a></li>
-                            <li><a href="../page/Estudios Bíblicos/devocionales.html">Devocionales</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
         </div>
     </header>
 
+    <!-- ── HERO ────────────────────────────────────────────────────── -->
     <section class="hero">
+        <div class="hero-bg"></div>
         <div class="hero-content">
+            <span class="hero-eyebrow">Ministerio · La Gloria es del Señor</span>
             <h1>Nuestras Enseñanzas</h1>
-            <p>Fundamentados en la verdad inmutable de la Palabra de Dios</p>
+            <div class="hero-divider"></div>
+            <p>Fundamentados en la verdad inmutable de la Palabra de Dios, guiados por el Espíritu Santo.</p>
         </div>
     </section>
 
+    <!-- ── PRINCIPIOS ───────────────────────────────────────────────── -->
     <section class="principles">
         <div class="container">
-            <div class="section-title">
+
+            <div class="section-header">
+                <span class="section-eyebrow">Fundamentos de Fe</span>
                 <h2>Principios Fundamentales</h2>
+                <div class="section-divider"></div>
             </div>
 
             <!-- Principio 1 -->
             <div class="principle-card">
                 <div class="principle-header">
-                    <div class="principle-icon">
-                        <i class="fas fa-crown"></i>
-                    </div>
+                    <div class="principle-icon"><i class="fas fa-crown"></i></div>
                     <h3 class="principle-title">La Gloria es del Señor</h3>
                 </div>
                 <div class="principle-content">
                     <p class="principle-text">Reconocemos que toda gloria, honor y alabanza pertenecen exclusivamente a Dios. No buscamos reconocimiento propio, sino que en todo lo que hacemos procuramos magnificar Su nombre. La verdadera adoración consiste en dar a Dios la gloria que le corresponde, reconociendo Su majestad, poder y señorío sobre toda la creación.</p>
-                    
                     <div class="verse-box">
                         <p class="verse-text">"Tuya es, oh Jehová, la magnificencia y el poder, la gloria, la victoria y el honor; porque todas las cosas que están en los cielos y en la tierra son tuyas. Tuyo, oh Jehová, es el reino, y tú eres excelso sobre todos."</p>
                         <p class="verse-ref">1 Crónicas 29:11</p>
                     </div>
-                    
                     <div class="verse-box">
-                        <p class="verse-text">"¿Quién es este Rey de gloria? Jehová el fuerte y valiente, Jehová el poderoso en batalla. Alzad, oh puertas, vuestras cabezas, y alzaos vosotras, puertas eternas, y entrará el Rey de gloria. ¿Quién es este Rey de gloria? Jehová de los ejércitos, Él es el Rey de la gloria."</p>
+                        <p class="verse-text">"¿Quién es este Rey de gloria? Jehová el fuerte y valiente, Jehová el poderoso en batalla... Jehová de los ejércitos, Él es el Rey de la gloria."</p>
                         <p class="verse-ref">Salmos 24:8-10</p>
                     </div>
                 </div>
@@ -544,21 +747,17 @@
             <!-- Principio 2 -->
             <div class="principle-card">
                 <div class="principle-header">
-                    <div class="principle-icon">
-                        <i class="fas fa-dove"></i>
-                    </div>
+                    <div class="principle-icon"><i class="fas fa-dove"></i></div>
                     <h3 class="principle-title">La revelación viene del Espíritu Santo</h3>
                 </div>
                 <div class="principle-content">
                     <p class="principle-text">Creemos firmemente que es el Espíritu Santo quien ilumina nuestro entendimiento para comprender las Escrituras. Sin Su guía, las verdades profundas de Dios permanecerían ocultas para nosotros. Dependemos completamente de Su dirección para interpretar correctamente la Palabra y para que Su verdad sea revelada en nuestros corazones, transformando nuestras vidas conforme a la voluntad de Dios.</p>
-                    
                     <div class="verse-box">
                         <p class="verse-text">"Pero cuando venga el Espíritu de verdad, él os guiará a toda la verdad; porque no hablará por su propia cuenta, sino que hablará todo lo que oyere, y os hará saber las cosas que habrán de venir."</p>
                         <p class="verse-ref">Juan 16:13</p>
                     </div>
-                    
                     <div class="verse-box">
-                        <p class="verse-text">"Pero Dios nos las reveló a nosotros por el Espíritu; porque el Espíritu todo lo escudriña, aun lo profundo de Dios. Porque ¿quién de los hombres sabe las cosas del hombre, sino el espíritu del hombre que está en él? Así tampoco nadie conoció las cosas de Dios, sino el Espíritu de Dios."</p>
+                        <p class="verse-text">"Pero Dios nos las reveló a nosotros por el Espíritu; porque el Espíritu todo lo escudriña, aun lo profundo de Dios."</p>
                         <p class="verse-ref">1 Corintios 2:10-11</p>
                     </div>
                 </div>
@@ -567,19 +766,15 @@
             <!-- Principio 3 -->
             <div class="principle-card">
                 <div class="principle-header">
-                    <div class="principle-icon">
-                        <i class="fas fa-book-bible"></i>
-                    </div>
-                    <h3 class="principle-title">La Palabra De Dios está por encima de Todo</h3>
+                    <div class="principle-icon"><i class="fas fa-book-bible"></i></div>
+                    <h3 class="principle-title">La Palabra de Dios está por encima de todo</h3>
                 </div>
                 <div class="principle-content">
                     <p class="principle-text">Sostenemos que las Sagradas Escrituras son la autoridad suprema en materia de fe y conducta. Ninguna tradición, enseñanza humana o experiencia personal está por encima de lo que Dios ha revelado en Su Palabra. La Biblia, inspirada por Dios, es infalible y completa, proporcionándonos todo lo necesario para conocer a Dios y cumplir Su propósito en nuestras vidas.</p>
-                    
                     <div class="verse-box">
                         <p class="verse-text">"Me postraré hacia tu santo templo, y alabaré tu nombre por tu misericordia y tu fidelidad; porque has engrandecido tu nombre, y tu palabra sobre todas las cosas."</p>
                         <p class="verse-ref">Salmos 138:2</p>
                     </div>
-                    
                     <div class="verse-box">
                         <p class="verse-text">"El cielo y la tierra pasarán, pero mis palabras no pasarán."</p>
                         <p class="verse-ref">Mateo 24:35</p>
@@ -590,19 +785,15 @@
             <!-- Principio 4 -->
             <div class="principle-card">
                 <div class="principle-header">
-                    <div class="principle-icon">
-                        <i class="fas fa-cross"></i>
-                    </div>
+                    <div class="principle-icon"><i class="fas fa-cross"></i></div>
                     <h3 class="principle-title">Creemos en el Padre, Hijo y Espíritu Santo</h3>
                 </div>
                 <div class="principle-content">
                     <p class="principle-text">Confesamos nuestra fe en el Dios trino, un solo Dios manifestado en tres personas: Padre, Hijo y Espíritu Santo. Creemos en Dios Padre, creador de todas las cosas; en Jesucristo, Su único Hijo, nuestro Salvador, que murió por nuestros pecados y resucitó; y en el Espíritu Santo, que mora en los creyentes, capacitándonos para vivir vidas santas y dar testimonio del evangelio.</p>
-                    
                     <div class="verse-box">
                         <p class="verse-text">"Por tanto, id, y haced discípulos a todas las naciones, bautizándolos en el nombre del Padre, y del Hijo, y del Espíritu Santo."</p>
                         <p class="verse-ref">Mateo 28:19</p>
                     </div>
-                    
                     <div class="verse-box">
                         <p class="verse-text">"La gracia del Señor Jesucristo, el amor de Dios, y la comunión del Espíritu Santo sean con todos vosotros. Amén."</p>
                         <p class="verse-ref">2 Corintios 13:14</p>
@@ -613,19 +804,15 @@
             <!-- Principio 5 -->
             <div class="principle-card">
                 <div class="principle-header">
-                    <div class="principle-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
+                    <div class="principle-icon"><i class="fas fa-hands-holding"></i></div>
                     <h3 class="principle-title">Somos siervos del Señor</h3>
                 </div>
                 <div class="principle-content">
                     <p class="principle-text">Nos reconocemos como humildes siervos del Señor, llamados a servirle con toda diligencia y fidelidad. No somos dueños de nuestras vidas; hemos sido comprados por precio y pertenecemos a Cristo. Nuestro mayor privilegio es servirle, obedeciendo Su Palabra y cumpliendo la misión que nos ha encomendado con un corazón dispuesto y agradecido.</p>
-                    
                     <div class="verse-box">
                         <p class="verse-text">"En lo que requiere diligencia, no perezosos; fervientes en espíritu, sirviendo al Señor."</p>
                         <p class="verse-ref">Romanos 12:11</p>
                     </div>
-                    
                     <div class="verse-box">
                         <p class="verse-text">"Y todo lo que hagáis, hacedlo de corazón, como para el Señor y no para los hombres; sabiendo que del Señor recibiréis la recompensa de la herencia, porque a Cristo el Señor servís."</p>
                         <p class="verse-ref">Colosenses 3:23-24</p>
@@ -636,74 +823,88 @@
             <!-- Principio 6 -->
             <div class="principle-card">
                 <div class="principle-header">
-                    <div class="principle-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
+                    <div class="principle-icon"><i class="fas fa-heart"></i></div>
                     <h3 class="principle-title">Esta página solo busca glorificar a Dios</h3>
                 </div>
                 <div class="principle-content">
-                    <p class="principle-text">El propósito principal de este ministerio y todo su contenido es glorificar a Dios. No buscamos fama, reconocimiento o beneficio personal, sino que nuestro deseo es que a través de estas enseñanzas, las personas conozcan más profundamente a Cristo y sean edificadas en su fe. Todo lo que hacemos, desde nuestros estudios bíblicos hasta nuestros recursos en línea, tiene como objetivo único exaltar el nombre de nuestro Señor.</p>
-                    
+                    <p class="principle-text">El propósito principal de este ministerio y todo su contenido es glorificar a Dios. No buscamos fama, reconocimiento o beneficio personal, sino que nuestro deseo es que a través de estas enseñanzas, las personas conozcan más profundamente a Cristo y sean edificadas en su fe. Todo lo que hacemos tiene como objetivo único exaltar el nombre de nuestro Señor.</p>
                     <div class="verse-box">
                         <p class="verse-text">"Si, pues, coméis o bebéis, o hacéis otra cosa, hacedlo todo para la gloria de Dios."</p>
                         <p class="verse-ref">1 Corintios 10:31</p>
                     </div>
-                    
                     <div class="verse-box">
-                        <p class="verse-text">"Si alguno habla, hable conforme a las palabras de Dios; si alguno ministra, ministre conforme al poder que Dios da, para que en todo sea Dios glorificado por Jesucristo, a quien pertenecen la gloria y el imperio por los siglos de los siglos. Amén."</p>
+                        <p class="verse-text">"Si alguno habla, hable conforme a las palabras de Dios; si alguno ministra, ministre conforme al poder que Dios da, para que en todo sea Dios glorificado por Jesucristo."</p>
                         <p class="verse-ref">1 Pedro 4:11</p>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
+    <!-- ── CIERRE ────────────────────────────────────────────────────── -->
     <section class="closing">
-        <div class="container">
+        <div class="closing-inner">
+            <span class="closing-eyebrow">Únete al Ministerio</span>
+            <h2>Edificados en Su Palabra</h2>
+            <div class="closing-divider"></div>
             <p>Te invitamos a explorar nuestros recursos y estudios bíblicos, siempre con un corazón humilde y dispuesto a recibir la enseñanza del Espíritu Santo. Nuestra oración es que el Señor use este ministerio para edificar Su iglesia y preparar a Su pueblo para la obra del servicio.</p>
-            <p>"Por tanto, al Rey de los siglos, inmortal, invisible, al único y sabio Dios, sea honor y gloria por los siglos de los siglos. Amén." (1 Timoteo 1:17)</p>
-            <a href="../index.html" class="btn">Volver al Inicio</a>
+            <blockquote class="verse-closing">
+                "Por tanto, al Rey de los siglos, inmortal, invisible, al único y sabio Dios, sea honor y gloria por los siglos de los siglos. Amén."
+                <br><small style="font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);font-style:normal;">1 Timoteo 1:17</small>
+            </blockquote>
+            <a href="../index.html" class="btn">
+                <i class="fas fa-home"></i>
+                Volver al Inicio
+            </a>
         </div>
     </section>
 
+    <!-- ── FOOTER ────────────────────────────────────────────────────── -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            <p>&copy; 2025 Ministerio "La Gloria es del Señor" · Todos los derechos reservados</p>
         </div>
     </footer>
 
     <script>
-        document.querySelector('.nav-toggle').addEventListener('click', function() {
-            document.querySelector('nav').classList.toggle('active');
-        });
-        
-        // Manejo de menús desplegables en móvil
-        document.querySelectorAll('.menu-item-has-children > a').forEach(item => {
-            item.addEventListener('click', function(e) {
-                // Solo en modo móvil
-                if (window.innerWidth <= 768) {
+        // ── NAV TOGGLE MÓVIL ────────────────────────────────────────
+        const navToggle = document.querySelector('.nav-toggle');
+        const nav       = document.querySelector('nav');
+
+        navToggle.addEventListener('click', () => nav.classList.toggle('active'));
+
+        document.querySelectorAll('.menu-item-has-children > a').forEach(link => {
+            link.addEventListener('click', e => {
+                if (window.innerWidth <= 900) {
                     e.preventDefault();
-                    this.parentNode.classList.toggle('active');
+                    link.parentElement.classList.toggle('active');
                 }
             });
         });
-        
-        // Cierra el menú al hacer clic en un enlace de submenu
-        document.querySelectorAll('.sub-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('nav').classList.remove('active');
-            });
+
+        document.querySelectorAll('.sub-menu a').forEach(a => {
+            a.addEventListener('click', () => nav.classList.remove('active'));
         });
-        
-        // Cierra el menú al hacer clic fuera de él
-        document.addEventListener('click', function(event) {
-            const nav = document.querySelector('nav');
-            const navToggle = document.querySelector('.nav-toggle');
-            
-            if (!nav.contains(event.target) && event.target !== navToggle) {
+
+        document.addEventListener('click', e => {
+            if (!nav.contains(e.target) && e.target !== navToggle) {
                 nav.classList.remove('active');
             }
         });
+
+        // ── SCROLL REVEAL ────────────────────────────────────────────
+        const cards = document.querySelectorAll('.principle-card');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), i * 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(c => observer.observe(c));
     </script>
 </body>
 </html>
