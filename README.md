@@ -4,11 +4,51 @@ Sitio web estático del ministerio cristiano, desplegado en **Firebase Hosting**
 
 ---
 
+## Estrategia de hosting y escalabilidad
+
+### Setup actual (en evaluación)
+Firebase Hosting + Firebase Auth + Firestore — todo en un solo proveedor.
+
+### Setup recomendado (split)
+
+| Capa | Proveedor | Plan |
+|------|-----------|------|
+| Hosting (sitio estático) | **Vercel** | Gratuito |
+| Auth | Firebase Auth | Gratuito |
+| Base de datos (foro) | Firestore | Gratuito → Blaze cuando escale |
+
+**Razón del split:** Firebase Hosting tiene 360 MB/día de transferencia (~700 visitas/día). Vercel ofrece 100 GB/mes (~6,500 visitas/día) sin costo. El sitio estático es el que consume el ancho de banda — moverlo a Vercel libera Firebase para lo que hace bien: Auth y Firestore.
+
+**Pasos para migrar:**
+1. Conectar repositorio GitHub a Vercel (auto-deploy en cada push)
+2. Agregar el dominio de Vercel en Firebase Console → Authentication → Dominios autorizados
+3. Desactivar Firebase Hosting (mantener solo Auth + Firestore)
+
+### Límites gratuitos de Firestore (el cuello de botella real)
+
+| Operación | Límite gratuito (Spark) |
+|-----------|------------------------|
+| Lecturas | 50,000 / día |
+| Escrituras | 20,000 / día |
+| Eliminaciones | 20,000 / día |
+
+Con 1,000+ usuarios activos en el foro se supera el límite de lecturas. Activar el plan **Blaze** (pago por uso) resuelve esto — costo estimado **$5–20/mes** con uso moderado.
+
+### Guía de decisión
+
+| Visitas/día | Hosting | Firestore |
+|-------------|---------|-----------|
+| < 1,000 | Vercel gratis | Spark gratis |
+| 1,000 – 10,000 | Vercel gratis | **Blaze (pago por uso)** |
+| 10,000+ | Vercel gratis | Blaze + optimizar queries |
+
+---
+
 ## Stack técnico
 
 | Capa | Tecnología |
 |------|-----------|
-| Hosting | Firebase Hosting |
+| Hosting | Firebase Hosting (→ migrar a Vercel) |
 | Auth | Firebase Auth — Google Sign-In (popup + redirect fallback) |
 | Base de datos | Cloud Firestore |
 | Analítica | Firebase Analytics |
@@ -107,22 +147,21 @@ Página de Fe/
 | `Comunidad/forum.html` | Completado |
 | `Comunidad/topic.html` | Completado |
 | `Comunidad/favorites.html` | Completado |
+| `404.html` | Completado |
+| `admin.html` | Completado |
+| `nuestras-ensenanzas/index.html` | Completado |
+| `page/Época de Jesús/recursos-academicos.html` | Completado — slate blue `#3a5c7a` |
+| `page/Época de Jesús/grupos-religiosos.html` | Completado — copper `#9b6a3a` |
+| `page/Época de Jesús/contexto-historico.html` | Completado — sage `#4a7856` |
+| `page/Época de Jesús/apologia-cristiana.html` | Completado — gold `#b89a5f` |
+| `page/Época de Jesús/estudio-contemporaneo.html` | Completado — wine `#7a2d3c` |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
-#### Raíz
+#### `page/Estudios Bíblicos/`
 
-- [ ] `404.html`
-- [ ] `admin.html`
-- [ ] `nuestras-ensenanzas/index.html`
-
-#### `page/Época de Jesús/`
-
-- [ ] `apologia-cristiana.html`
-- [ ] `contexto-historico.html`
-- [ ] `estudio-contemporaneo.html`
-- [ ] `grupos-religiosos.html`
-- [ ] `recursos-academicos.html`
+- [ ] `devocionales.html`
+- [ ] `doctrina-avanzada.html`
 
 #### `page/Estudios Bíblicos/`
 
