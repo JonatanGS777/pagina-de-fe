@@ -163,6 +163,7 @@ Página de Fe/
 | `page/Estudios Bíblicos/estudios/hermeneutica-biblica.html` | Completado — deep teal `#1e4040` |
 | `page/Estudios Bíblicos/estudios/pneumatologia-avanzada.html` | Completado — ember `#5c2a0a` |
 | `page/Estudios Bíblicos/estudios/cristologia-profunda.html` | Completado — crimson `#7a1528` |
+| `page/Estudios Bíblicos/estudios/teologia-pactos.html` | Completado — moss olive `#293d1a` |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
