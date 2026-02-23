@@ -3,728 +3,923 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cristología Profunda - La Persona de Cristo</title>
+    <title>Cristología Profunda — La Persona de Cristo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --ink:         #1a1410;
+            --gold:        #b89a5f;
+            --parchment:   #f7f4ed;
+            --parchment-dk:#ece8df;
+            --dark:        #0e0c0a;
+            --accent:      #7a1528;
+            --accent-mid:  #c43d52;
+            --accent-pale: rgba(122,21,40,0.08);
+            --hero-grad:   linear-gradient(160deg, #0e0c0a 0%, #200a10 100%);
         }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Times New Roman', serif;
-            line-height: 1.65;
-            color: #2d1810;
-            background: linear-gradient(45deg, #f7f1e3 0%, #f0e6d2 25%, #e8dcc6 50%, #f7f1e3 75%, #f0e6d2 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            min-height: 100vh;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 25px;
-        }
-
-        header {
-            text-align: center;
-            background: linear-gradient(135deg, #8b4513 0%, #a0522d 25%, #cd853f 50%, #d2691e 75%, #b8860b 100%);
-            color: #fef9e7;
-            padding: 70px 40px;
-            border-radius: 30px;
-            margin-bottom: 50px;
-            box-shadow: 
-                0 30px 60px rgba(139, 69, 19, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            color: var(--ink);
+            background-color: var(--parchment);
+            line-height: 1.7;
             position: relative;
-            overflow: hidden;
         }
 
-        header::before {
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        /* ── HEADER ── */
+        .site-header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(14,12,10,0.97);
+            border-bottom: 1px solid rgba(184,154,95,0.22);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .site-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+        .header-nav { display: flex; gap: 2rem; align-items: center; }
+        .header-nav a {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(247,244,237,0.65);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .header-nav a:hover { color: var(--gold); }
+
+        /* ── HERO ── */
+        .page-hero {
+            position: relative;
+            min-height: 56vh;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 0 5rem;
+            overflow: hidden;
+            background: var(--hero-grad);
+        }
+        .page-hero::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 20%, rgba(255,215,0,0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255,215,0,0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(255,255,255,0.05) 0%, transparent 50%);
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(122,21,40,0.2) 0%, transparent 65%);
             pointer-events: none;
         }
-
-        h1 {
-            font-size: 4em;
-            margin-bottom: 20px;
-            font-weight: bold;
+        .hero-inner {
             position: relative;
-            z-index: 1;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-            letter-spacing: 2px;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            width: 100%;
         }
-
-        .subtitle {
-            font-size: 1.5em;
-            opacity: 0.95;
-            font-weight: 400;
-            letter-spacing: 4px;
-            position: relative;
-            z-index: 1;
-            margin-bottom: 20px;
+        .hero-eyebrow {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-mid);
+            margin-bottom: 1.2rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards;
+            animation-delay: 0.1s;
         }
-
-        .description {
-            font-size: 1.3em;
-            max-width: 800px;
-            margin: 0 auto 25px auto;
-            position: relative;
-            z-index: 1;
-            opacity: 0.9;
-            line-height: 1.7;
-        }
-
-        .keywords {
-            font-size: 1.2em;
-            letter-spacing: 3px;
-            position: relative;
-            z-index: 1;
-            font-weight: 600;
-        }
-
-        .intro-section {
-            background: linear-gradient(135deg, #ffffff 0%, #fefcf7 100%);
-            padding: 40px;
-            border-radius: 20px;
-            margin-bottom: 40px;
-            border: 2px solid #d2691e;
-            box-shadow: 0 15px 35px rgba(139, 69, 19, 0.15);
-        }
-
-        .intro-text {
-            font-size: 1.3em;
-            line-height: 1.8;
-            text-align: center;
-            color: #2d1810;
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            position: relative;
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 300;
+            color: var(--parchment);
+            line-height: 1.05;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards;
+            animation-delay: 0.25s;
+        }
+        .hero-title em {
+            color: var(--gold);
+            font-style: italic;
+        }
+        .hero-desc {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: rgba(247,244,237,0.7);
+            max-width: 580px;
+            line-height: 1.75;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards;
+            animation-delay: 0.4s;
+        }
+        .hero-tags {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards;
+            animation-delay: 0.55s;
+        }
+        .hero-tag {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.9rem;
+            border: 1px solid rgba(122,21,40,0.5);
+            color: rgba(196,61,82,0.9);
+            background: rgba(122,21,40,0.1);
         }
 
-        .intro-text::before {
-            content: '"';
-            font-size: 6em;
-            color: #d2691e;
-            position: absolute;
-            top: -30px;
-            left: -20px;
-            opacity: 0.3;
-            font-family: serif;
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(22px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
+        /* ── LAYOUT ── */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        section { position: relative; z-index: 1; }
+
+        /* ── INTRO QUOTE ── */
+        .intro-section {
+            background: #fff;
+            border-top: 3px solid var(--accent);
+            padding: 4rem 2rem;
+        }
+        .intro-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .intro-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--ink);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .intro-quote strong { color: var(--accent); font-weight: 600; }
+        .intro-ref {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        /* ── MAIN GRID ── */
+        .main-grid-section {
+            padding: 5rem 0;
+            background: var(--parchment);
+        }
         .main-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 3rem;
+            align-items: start;
         }
 
-        .content-section {
-            background: linear-gradient(135deg, #fefefe 0%, #faf8f3 100%);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border-left: 6px solid #b8860b;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+        /* content card */
+        .content-card {
+            background: #fff;
+            border: 1px solid var(--parchment-dk);
+            border-top: 3px solid var(--accent);
+            padding: 3rem;
         }
-
-        .content-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, rgba(184, 134, 11, 0.1) 0%, transparent 70%);
-            border-radius: 0 0 0 100%;
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
         }
-
-        .content-section:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
-            border-left-color: #d2691e;
+        .section-rule {
+            width: 48px;
+            height: 2px;
+            background: var(--accent);
+            margin-bottom: 2rem;
         }
-
-        .sidebar-section {
-            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
-            color: #fef9e7;
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(139, 69, 19, 0.3);
-            height: fit-content;
-            position: sticky;
-            top: 20px;
+        .content-card p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #3a3028;
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
         }
+        .content-card p:last-child { margin-bottom: 0; }
 
-        h2 {
-            color: #8b4513;
-            font-size: 2.8em;
-            margin-bottom: 30px;
-            font-weight: 700;
-            position: relative;
-            padding-bottom: 15px;
-            text-align: center;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, #d2691e, #b8860b, #d2691e);
-            border-radius: 2px;
-        }
-
-        h3 {
-            color: #a0522d;
-            font-size: 1.8em;
-            margin: 30px 0 20px 0;
+        .sub-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.3rem;
             font-weight: 600;
-            position: relative;
-            padding-left: 30px;
+            color: var(--accent);
+            margin: 2rem 0 0.75rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--accent);
         }
+        .em-accent { color: var(--accent); font-weight: 400; }
+        .scripture { font-style: italic; color: #6b5a42; }
 
-        h3::before {
-            content: '♦';
-            position: absolute;
-            left: 0;
-            color: #d2691e;
-            font-size: 1.2em;
-            top: 50%;
-            transform: translateY(-50%);
+        /* verse box */
+        .verse-box {
+            background: var(--parchment);
+            border-left: 3px solid var(--gold);
+            padding: 1.5rem 1.75rem;
+            margin: 1.75rem 0;
         }
-
-        .sidebar-section h3 {
-            color: #fef9e7;
-            padding-left: 20px;
-            font-size: 1.6em;
-        }
-
-        .sidebar-section h3::before {
-            color: #f4a460;
-        }
-
-        p {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-            text-align: justify;
-            color: #2d1810;
+        .verse-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--ink);
             line-height: 1.7;
+            margin-bottom: 0.75rem;
         }
-
-        .sidebar-section p {
-            color: #fef9e7;
-            font-size: 1.05em;
-        }
-
-        .oficios-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .oficio-card {
-            background: linear-gradient(135deg, #f4a460 0%, #daa520 100%);
-            color: #2d1810;
-            padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .oficio-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: rotate(45deg);
-            transition: all 0.6s ease;
-            opacity: 0;
-        }
-
-        .oficio-card:hover::before {
-            opacity: 1;
-            transform: rotate(45deg) translate(100%, 100%);
-        }
-
-        .oficio-card:hover {
-            transform: scale(1.05) rotate(1deg);
-            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.4);
-        }
-
-        .oficio-card h4 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
+        .verse-ref {
+            font-size: 0.75rem;
             font-weight: 700;
-            text-align: center;
-            border-bottom: 3px solid #8b4513;
-            padding-bottom: 15px;
-            position: relative;
-            z-index: 1;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-align: right;
         }
 
-        .oficio-card p {
-            margin: 0;
-            font-size: 1.05em;
+        /* sidebar */
+        .sidebar-card {
+            background: var(--ink);
+            color: var(--parchment);
+            padding: 2.5rem;
+            position: sticky;
+            top: 80px;
+        }
+        .sidebar-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 0.4rem;
+        }
+        .sidebar-rule {
+            width: 32px;
+            height: 1px;
+            background: var(--gold);
+            margin-bottom: 1.75rem;
+            opacity: 0.5;
+        }
+        .title-item {
+            padding: 1.1rem 0;
+            border-bottom: 1px solid rgba(184,154,95,0.15);
+        }
+        .title-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .title-name {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-mid);
+            margin-bottom: 0.4rem;
+        }
+        .title-desc {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: rgba(247,244,237,0.75);
             line-height: 1.6;
-            position: relative;
-            z-index: 1;
         }
 
+        /* ── NATURALEZA SECTION ── */
+        .naturaleza-section {
+            padding: 5rem 0;
+            background: #fff;
+        }
+
+        /* ── OFICIOS ── */
+        .oficios-section {
+            padding: 5rem 0;
+            background: var(--parchment);
+        }
+        .oficios-header {
+            margin-bottom: 3rem;
+        }
+        .oficios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+        .oficio-card {
+            background: #fff;
+            padding: 2.5rem 2rem;
+            border-top: 3px solid transparent;
+            transition: border-color 0.3s;
+        }
+        .oficio-card:hover { border-top-color: var(--accent); }
+        .oficio-icon {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 2.8rem;
+            color: var(--accent);
+            opacity: 0.25;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+        .oficio-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent-mid);
+            margin-bottom: 0.5rem;
+        }
+        .oficio-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+            line-height: 1.2;
+        }
+        .oficio-card p {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #4a3c28;
+            line-height: 1.75;
+            margin-bottom: 0.85rem;
+        }
+        .oficio-card p:last-child { margin-bottom: 0; }
+        .oficio-card strong { font-weight: 700; color: var(--ink); }
+
+        /* ── EXPIACION DARK ── */
         .expiacion-section {
-            background: linear-gradient(135deg, #2d1810 0%, #3d2417 50%, #4a2c1a 100%);
-            color: #f7f1e3;
-            padding: 50px;
-            border-radius: 25px;
-            margin: 50px 0;
-            box-shadow: 
-                0 25px 50px rgba(45, 24, 16, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            padding: 5rem 0;
+            background: linear-gradient(160deg, #0e0c0a 0%, #200a10 100%);
             position: relative;
             overflow: hidden;
         }
-
         .expiacion-section::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 30% 30%, rgba(139, 69, 19, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 70% 70%, rgba(210, 105, 30, 0.1) 0%, transparent 50%);
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(122,21,40,0.18) 0%, transparent 60%);
             pointer-events: none;
         }
-
-        .expiacion-section h2 {
-            color: #f4a460;
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .expiacion-section h3 {
-            color: #daa520;
-            position: relative;
-            z-index: 1;
-        }
-
-        .expiacion-section p {
-            color: #f7f1e3;
-            position: relative;
-            z-index: 1;
-        }
-
-        .aspectos-expiacion {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
-
-        .aspecto {
-            background: rgba(244, 164, 96, 0.1);
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid rgba(244, 164, 96, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .aspecto h4 {
-            color: #f4a460;
-            font-size: 1.4em;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .verse-box {
-            background: linear-gradient(135deg, #fef9e7 0%, #f7f1e3 100%);
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 5px solid #b8860b;
-            margin: 25px 0;
+        .expiacion-sub {
+            font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            position: relative;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--accent-mid);
+            margin: 2.5rem 0 1rem;
         }
-
-        .verse-box::before {
-            content: '"';
-            font-size: 5em;
-            color: #d2691e;
-            position: absolute;
-            top: -15px;
-            left: 20px;
-            opacity: 0.3;
-            font-family: serif;
+        .expiacion-body {
+            font-size: 1rem;
+            font-weight: 300;
+            color: rgba(247,244,237,0.75);
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
         }
-
-        .verse-text {
-            font-size: 1.2em;
-            color: #2d1810;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
+        .aspectos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+            margin: 2.5rem 0;
+            background: rgba(184,154,95,0.12);
         }
-
-        .verse-ref {
-            text-align: right;
+        .aspecto-card {
+            background: rgba(14,12,10,0.98);
+            padding: 2rem;
+            border-top: 2px solid rgba(122,21,40,0.4);
+            transition: border-color 0.3s;
+        }
+        .aspecto-card:hover { border-top-color: var(--accent-mid); }
+        .aspecto-title {
+            font-size: 0.7rem;
             font-weight: 700;
-            color: #8b4513;
-            font-size: 1.1em;
-            position: relative;
-            z-index: 1;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent-mid);
+            margin-bottom: 0.75rem;
         }
-
-        .preguntas-container {
-            background: linear-gradient(135deg, #f7f1e3 0%, #e8dcc6 100%);
-            padding: 50px;
-            border-radius: 25px;
-            margin: 50px 0;
-            border: 3px solid #d2691e;
-            box-shadow: 0 20px 40px rgba(139, 69, 19, 0.2);
+        .aspecto-card p {
+            font-size: 0.93rem;
+            font-weight: 300;
+            color: rgba(247,244,237,0.7);
+            line-height: 1.7;
         }
-
-        .preguntas-container h2 {
-            color: #8b4513;
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 3em;
+        .aspecto-card .scripture { color: rgba(184,154,95,0.8); font-style: italic; }
+        .expiacion-verse {
+            background: rgba(247,244,237,0.04);
+            border-left: 3px solid var(--gold);
+            padding: 1.5rem 2rem;
+            margin-top: 2.5rem;
         }
+        .expiacion-verse .verse-text { color: rgba(247,244,237,0.88); }
+        .expiacion-verse .verse-ref { color: var(--gold); }
 
+        /* ── PREGUNTAS ── */
+        .preguntas-section {
+            padding: 5rem 0;
+            background: var(--parchment);
+        }
+        .preguntas-list {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
         .pregunta-item {
-            background: #ffffff;
-            padding: 30px;
-            margin: 25px 0;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            position: relative;
-            border-left: 5px solid #b8860b;
-            transition: all 0.3s ease;
+            display: grid;
+            grid-template-columns: 64px 1fr;
+            gap: 1.5rem;
+            background: #fff;
+            padding: 2rem 2.5rem 2rem 0;
+            border: 1px solid var(--parchment-dk);
+            transition: border-color 0.25s;
+        }
+        .pregunta-item:hover { border-color: var(--accent); }
+        .pregunta-num {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 0.15rem;
+        }
+        .pregunta-num span {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--accent);
+            opacity: 0.35;
+            line-height: 1;
+        }
+        .pregunta-tipo {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent-mid);
+            margin-bottom: 0.5rem;
+        }
+        .pregunta-texto {
+            font-size: 0.98rem;
+            font-weight: 300;
+            color: var(--ink);
+            line-height: 1.75;
         }
 
-        .pregunta-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        /* ── CONCLUSION ── */
+        .conclusion-section {
+            padding: 5rem 0;
+            background: #fff;
+        }
+        .conclusion-inner {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+        .conclusion-inner p {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: #3a3028;
+            line-height: 1.8;
+            margin-bottom: 1.4rem;
+        }
+        .pull-quote {
+            border-top: 1px solid var(--parchment-dk);
+            border-bottom: 1px solid var(--parchment-dk);
+            padding: 2.5rem 0;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .pull-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.6rem;
+            color: var(--ink);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        .pull-ref {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
         }
 
-        .pregunta-numero {
-            position: absolute;
-            top: -15px;
-            left: 25px;
-            background: linear-gradient(135deg, #d2691e 0%, #b8860b 100%);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        /* ── STUDY NAV ── */
+        .study-nav {
+            background: var(--ink);
+            padding: 3rem 0;
+        }
+        .study-nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 1rem;
+        }
+        .nav-prev, .nav-next {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2em;
-            box-shadow: 0 4px 15px rgba(210, 105, 30, 0.4);
+            gap: 0.75rem;
+            text-decoration: none;
+            color: rgba(247,244,237,0.55);
+            transition: color 0.2s;
         }
-
-        .pregunta-tipo {
-            color: #a0522d;
-            font-weight: 600;
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
-
-        .pregunta-texto {
-            color: #2d1810;
-            font-size: 1.05em;
-            line-height: 1.6;
-        }
-
-        .emphasis {
-            color: #8b4513;
+        .nav-prev:hover, .nav-next:hover { color: var(--gold); }
+        .nav-next { justify-content: flex-end; }
+        .nav-label {
+            font-size: 0.68rem;
             font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
         }
-
-        .scripture-ref {
+        .nav-title {
+            font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            color: #a0522d;
-            font-weight: 600;
+            font-size: 1.05rem;
+        }
+        .nav-center a {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(184,154,95,0.6);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .nav-center a:hover { color: var(--gold); }
+        .nav-center a::before {
+            content: '✦';
+            font-size: 0.7rem;
+            color: var(--gold);
+            opacity: 0.5;
         }
 
-        .conclusion-section {
-            background: linear-gradient(135deg, #fef9e7 0%, #f7f1e3 100%);
-            padding: 50px;
-            border-radius: 25px;
-            border: 2px solid #d2691e;
-            box-shadow: 0 20px 40px rgba(139, 69, 19, 0.15);
-            text-align: center;
-        }
+        /* ── SCROLL REVEAL ── */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal.visible { opacity: 1; transform: none; }
 
-        .conclusion-section h2 {
-            color: #8b4513;
-            margin-bottom: 30px;
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .sidebar-card { position: static; }
+            .oficios-grid { grid-template-columns: 1fr; }
+            .aspectos-grid { grid-template-columns: 1fr; }
+            .pregunta-item { grid-template-columns: 48px 1fr; }
         }
-
-        .conclusion-section p {
-            font-size: 1.2em;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto 20px auto;
-        }
-
-        @media (max-width: 768px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .oficios-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .aspectos-expiacion {
-                grid-template-columns: 1fr;
-            }
-            
-            h1 {
-                font-size: 2.8em;
-            }
-            
-            .content-section,
-            .sidebar-section {
-                padding: 25px;
-            }
-            
-            .sidebar-section {
-                position: static;
-            }
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2.6rem; }
+            .content-card, .sidebar-card { padding: 1.75rem; }
+            .study-nav-inner { grid-template-columns: 1fr 1fr; }
+            .nav-center { display: none; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Cristología Profunda</h1>
-            <p class="subtitle">PERSONA DE CRISTO</p>
-            <p class="description">Análisis exhaustivo de la persona y obra de Jesucristo: su naturaleza humana vino como hombre, oficios mesiánicos, y significado de su sacrificio expiatorio.</p>
-            <div class="keywords">• NATURALEZA HUMANA • OFICIOS • EXPIACIÓN •</div>
-        </header>
 
-        <div class="intro-section">
-            <div class="intro-text">
-                <span class="emphasis">Jesucristo</span> es el <span class="emphasis">Hijo de Dios manifestado en carne</span>, la revelación suprema del Padre, quien tomó forma humana para cumplir la obra de redención. En Él habita corporalmente toda la plenitud de la Deidad <span class="scripture-ref">(Colosenses 2:9)</span>, y a través de su naturaleza humana realizó la obra expiatoria que ningún ser meramente humano podía completar.
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="../../../index.html" class="site-logo">La Gloria es del Señor</a>
+            <nav class="header-nav">
+                <a href="../../../nuestras-ensenanzas/index.html">Enseñanzas</a>
+                <a href="../../../Comunidad/forum.html">Comunidad</a>
+                <a href="../../../index.html#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="page-hero" style="margin-top: 64px;">
+        <div class="hero-inner">
+            <div class="hero-eyebrow">Estudios Bíblicos · Cristología</div>
+            <h1 class="hero-title">Cristología<br><em>Profunda</em></h1>
+            <p class="hero-desc">Análisis exhaustivo de la persona y obra de Jesucristo: su naturaleza humana como Hijo de Dios manifestado en carne, oficios mesiánicos, y el significado eterno de su sacrificio expiatorio.</p>
+            <div class="hero-tags">
+                <span class="hero-tag">Naturaleza Humana</span>
+                <span class="hero-tag">Oficios Mesiánicos</span>
+                <span class="hero-tag">Expiación</span>
             </div>
         </div>
+    </section>
 
-        <div class="main-grid">
-            <div class="content-section">
-                <h2>El Hijo de Dios Encarnado</h2>
-                
-                <p>La <span class="emphasis">encarnación</span> representa el misterio central de la fe cristiana: el eterno Hijo de Dios tomando verdadera naturaleza humana. <span class="scripture-ref">"Y aquel Verbo fue hecho carne, y habitó entre nosotros"</span> <span class="scripture-ref">(Juan 1:14)</span>. Cristo no es un hombre que llegó a ser divino, sino <span class="emphasis">Dios que se manifestó en carne humana</span>.</p>
+    <!-- INTRO QUOTE -->
+    <section class="intro-section">
+        <div class="intro-inner reveal">
+            <p class="intro-quote">
+                <strong>Jesucristo</strong> es el <strong>Hijo de Dios manifestado en carne</strong>, la revelación suprema del Padre, quien tomó forma humana para cumplir la obra de redención. En Él habita corporalmente toda la plenitud de la Deidad <span class="scripture">(Colosenses 2:9)</span>, y a través de su naturaleza humana realizó la obra expiatoria que ningún ser meramente humano podía completar.
+            </p>
+            <div class="intro-ref">Colosenses 2:9</div>
+        </div>
+    </section>
 
-                <h3>La Eternidad del Hijo</h3>
-                <p>Él existía desde la eternidad como el <span class="emphasis">Verbo eterno</span> <span class="scripture-ref">(Juan 1:1)</span>. Su declaración <span class="scripture-ref">"antes que Abraham fuese, yo soy"</span> <span class="scripture-ref">(Juan 8:58)</span> afirma tanto su preexistencia como su identidad divina, usando el nombre divino revelado a Moisés.</p>
+    <!-- HIJO DE DIOS ENCARNADO + SIDEBAR -->
+    <section class="main-grid-section">
+        <div class="container">
+            <div class="main-grid">
+                <div class="content-card reveal">
+                    <h2 class="section-title">El Hijo de Dios Encarnado</h2>
+                    <div class="section-rule"></div>
+                    <p>La <span class="em-accent">encarnación</span> representa el misterio central de la fe cristiana: el eterno Hijo de Dios tomando verdadera naturaleza humana. <span class="scripture">"Y aquel Verbo fue hecho carne, y habitó entre nosotros"</span> <span class="scripture">(Juan 1:14)</span>. Cristo no es un hombre que llegó a ser divino, sino <span class="em-accent">Dios que se manifestó en carne humana</span>.</p>
+
+                    <h3 class="sub-heading">La Eternidad del Hijo</h3>
+                    <p>Él existía desde la eternidad como el <span class="em-accent">Verbo eterno</span> <span class="scripture">(Juan 1:1)</span>. Su declaración <span class="scripture">"antes que Abraham fuese, yo soy"</span> <span class="scripture">(Juan 8:58)</span> afirma tanto su preexistencia como su identidad divina, usando el nombre divino revelado a Moisés.</p>
+
+                    <div class="verse-box">
+                        <div class="verse-text">En el principio era el Verbo, y el Verbo era con Dios, y el Verbo era Dios. Este era en el principio con Dios. Todas las cosas por él fueron hechas, y sin él nada de lo que ha sido hecho, fue hecho.</div>
+                        <div class="verse-ref">Juan 1:1–3</div>
+                    </div>
+
+                    <h3 class="sub-heading">La Encarnación Verdadera</h3>
+                    <p>Cristo tomó <span class="em-accent">verdadera naturaleza humana</span>, no una apariencia de humanidad. <span class="scripture">"Por cuanto los hijos participaron de carne y sangre, él también participó de lo mismo"</span> <span class="scripture">(Hebreos 2:14)</span>. Su humanidad era completa: cuerpo, alma y espíritu humanos, experimentando hambre, sed, cansancio y todas las limitaciones de la condición humana, excepto el pecado.</p>
+
+                    <h3 class="sub-heading">Propósito de la Encarnación</h3>
+                    <p>La encarnación fue <span class="em-accent">necesaria para la redención</span>. Solo como hombre verdadero podía Cristo representar a la humanidad, sufrir la muerte y ofrecer su vida como sacrificio. Solo como Dios verdadero podía su sacrificio tener valor infinito para salvar a todos los elegidos.</p>
+                </div>
+
+                <div class="sidebar-card reveal">
+                    <h3 class="sidebar-title">Títulos Cristológicos</h3>
+                    <div class="sidebar-rule"></div>
+                    <div class="title-item">
+                        <div class="title-name">Hijo de Dios</div>
+                        <div class="title-desc">Revela su relación eterna con el Padre y su esencia divina.</div>
+                    </div>
+                    <div class="title-item">
+                        <div class="title-name">Hijo del Hombre</div>
+                        <div class="title-desc">Enfatiza su identificación con la humanidad y su papel como representante de la raza humana.</div>
+                    </div>
+                    <div class="title-item">
+                        <div class="title-name">El Verbo</div>
+                        <div class="title-desc">La expresión perfecta y completa de Dios, la revelación divina encarnada.</div>
+                    </div>
+                    <div class="title-item">
+                        <div class="title-name">Emmanuel</div>
+                        <div class="title-desc">"Dios con nosotros", la presencia divina habitando entre su pueblo.</div>
+                    </div>
+                    <div class="title-item">
+                        <div class="title-name">El Postrer Adán</div>
+                        <div class="title-desc">El nuevo representante de la humanidad que triunfa donde el primer Adán falló.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NATURALEZA HUMANA -->
+    <section class="naturaleza-section">
+        <div class="container">
+            <div class="content-card reveal">
+                <h2 class="section-title">La Naturaleza Humana de Cristo</h2>
+                <div class="section-rule"></div>
+                <p>Cristo tomó <span class="em-accent">naturaleza humana completa y real</span>, no meramente un cuerpo humano. Su humanidad abarca todos los aspectos constitutivos del ser humano, permitiéndole experimentar las realidades de la vida terrenal y cumplir su obra redentora.</p>
+
+                <h3 class="sub-heading">Realidad de Su Humanidad</h3>
+                <p>Las Escrituras testifican abundantemente de la <span class="em-accent">humanidad genuina</span> de Cristo. Nació de mujer <span class="scripture">(Gálatas 4:4)</span>, creció en sabiduría y estatura <span class="scripture">(Lucas 2:52)</span>, experimentó tentación <span class="scripture">(Hebreos 4:15)</span>, sintió compasión <span class="scripture">(Mateo 9:36)</span>, lloró <span class="scripture">(Juan 11:35)</span>, y murió <span class="scripture">(Lucas 23:46)</span>.</p>
+
+                <h3 class="sub-heading">Humanidad Sin Pecado</h3>
+                <p>Aunque tomó naturaleza humana caída, Cristo permaneció <span class="em-accent">absolutamente sin pecado</span>. Fue <span class="scripture">"tentado en todo según nuestra semejanza, pero sin pecado"</span> <span class="scripture">(Hebreos 4:15)</span>. Su concepción virginal por el poder del Espíritu Santo lo preservó de la contaminación del pecado original.</p>
 
                 <div class="verse-box">
-                    <div class="verse-text">En el principio era el Verbo, y el Verbo era con Dios, y el Verbo era Dios. Este era en el principio con Dios. Todas las cosas por él fueron hechas, y sin él nada de lo que ha sido hecho, fue hecho.</div>
-                    <div class="verse-ref">Juan 1:1-3</div>
+                    <div class="verse-text">Porque no tenemos un sumo sacerdote que no pueda compadecerse de nuestras debilidades, sino uno que fue tentado en todo según nuestra semejanza, pero sin pecado.</div>
+                    <div class="verse-ref">Hebreos 4:15</div>
                 </div>
 
-                <h3>La Encarnación Verdadera</h3>
-                <p>Cristo tomó <span class="emphasis">verdadera naturaleza humana</span>, no una apariencia de humanidad. <span class="scripture-ref">"Por cuanto los hijos participaron de carne y sangre, él también participó de lo mismo"</span> <span class="scripture-ref">(Hebreos 2:14)</span>. Su humanidad era completa: cuerpo, alma y espíritu humanos, experimentando hambre, sed, cansancio y todas las limitaciones de la condición humana, excepto el pecado.</p>
-
-                <h3>Propósito de la Encarnación</h3>
-                <p>La encarnación fue <span class="emphasis">necesaria para la redención</span>. Solo como hombre verdadero podía Cristo representar a la humanidad, sufrir la muerte y ofrecer su vida como sacrificio. Solo como Dios verdadero podía su sacrificio tener valor infinito para salvar a todos los elegidos.</p>
-            </div>
-
-            <div class="sidebar-section">
-                <h3>Títulos Cristológicos</h3>
-                <p><strong>Hijo de Dios:</strong> Revela su relación eterna con el Padre y su esencia divina.</p>
-                
-                <p><strong>Hijo del Hombre:</strong> Enfatiza su identificación con la humanidad y su papel como representante de la raza humana.</p>
-                
-                <p><strong>El Verbo:</strong> La expresión perfecta y completa de Dios, la revelación divina encarnada.</p>
-                
-                <p><strong>Emmanuel:</strong> "Dios con nosotros", la presencia divina habitando entre su pueblo.</p>
-                
-                <p><strong>El Postrer Adán:</strong> El nuevo representante de la humanidad que triunfa donde el primer Adán falló.</p>
+                <h3 class="sub-heading">Identificación Completa</h3>
+                <p>Su humanidad real le permite ser nuestro <span class="em-accent">sumo sacerdote compasivo</span> que puede identificarse plenamente con nuestras luchas. <span class="scripture">"En cuanto él mismo padeció siendo tentado, es poderoso para socorrer a los que son tentados"</span> <span class="scripture">(Hebreos 2:18)</span>.</p>
             </div>
         </div>
+    </section>
 
-        <div class="content-section">
-            <h2>La Naturaleza Humana de Cristo</h2>
-            
-            <p>Cristo tomó <span class="emphasis">naturaleza humana completa y real</span>, no meramente un cuerpo humano. Su humanidad abarca todos los aspectos constitutivos del ser humano, permitiéndole experimentar las realidades de la vida terrenal y cumplir su obra redentora.</p>
-
-            <h3>Realidad de Su Humanidad</h3>
-            <p>Las Escrituras testifican abundantemente de la <span class="emphasis">humanidad genuina</span> de Cristo. Nació de mujer <span class="scripture-ref">(Gálatas 4:4)</span>, creció en sabiduría y estatura <span class="scripture-ref">(Lucas 2:52)</span>, experimentó tentación <span class="scripture-ref">(Hebreos 4:15)</span>, sintió compasión <span class="scripture-ref">(Mateo 9:36)</span>, lloró <span class="scripture-ref">(Juan 11:35)</span>, y murió <span class="scripture-ref">(Lucas 23:46)</span>.</p>
-
-            <h3>Humanidad Sin Pecado</h3>
-            <p>Aunque tomó naturaleza humana caída, Cristo permaneció <span class="emphasis">absolutamente sin pecado</span>. Fue <span class="scripture-ref">"tentado en todo según nuestra semejanza, pero sin pecado"</span> <span class="scripture-ref">(Hebreos 4:15)</span>. Su concepción virginal por el poder del Espíritu Santo lo preservó de la contaminación del pecado original.</p>
-
-            <div class="verse-box">
-                <div class="verse-text">Porque no tenemos un sumo sacerdote que no pueda compadecerse de nuestras debilidades, sino uno que fue tentado en todo según nuestra semejanza, pero sin pecado.</div>
-                <div class="verse-ref">Hebreos 4:15</div>
+    <!-- LOS OFICIOS MESIÁNICOS -->
+    <section class="oficios-section">
+        <div class="container">
+            <div class="oficios-header reveal">
+                <h2 class="section-title">Los Oficios Mesiánicos</h2>
+                <div class="section-rule"></div>
+                <p style="font-size:1rem;font-weight:300;color:#4a3c28;line-height:1.8;max-width:700px;">Cristo cumple <span class="em-accent">tres oficios principales</span> en su obra de mediación: Profeta, Sacerdote y Rey. Estos oficios estaban típicamente separados en el Antiguo Testamento, pero se unen perfectamente en la persona de Cristo.</p>
             </div>
-
-            <h3>Identificación Completa</h3>
-            <p>Su humanidad real le permite ser nuestro <span class="emphasis">sumo sacerdote compasivo</span> que puede identificarse plenamente con nuestras luchas. <span class="scripture-ref">"En cuanto él mismo padeció siendo tentado, es poderoso para socorrer a los que son tentados"</span> <span class="scripture-ref">(Hebreos 2:18)</span>.</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Los Oficios Mesiánicos</h2>
-            
-            <p>Cristo cumple <span class="emphasis">tres oficios principales</span> en su obra de mediación: Profeta, Sacerdote y Rey. Estos oficios estaban típicamente separados en el Antiguo Testamento, pero se unen perfectamente en la persona de Cristo.</p>
-
-            <div class="oficios-container">
+            <div class="oficios-grid reveal">
                 <div class="oficio-card">
-                    <h4>CRISTO PROFETA</h4>
-                    <p><strong>Revelador de Dios:</strong> Cristo es el profeta supremo que revela perfectamente la voluntad y el carácter de Dios. <span class="scripture-ref">"Dios, habiendo hablado muchas veces y de muchas maneras en otro tiempo a los padres por los profetas, en estos postreros días nos ha hablado por el Hijo"</span> <span class="scripture-ref">(Hebreos 1:1-2)</span>.</p>
-                    
-                    <p><strong>La Palabra Encarnada:</strong> Como el Verbo hecho carne, Cristo no solo proclama la palabra de Dios, sino que <span class="emphasis">es</span> la Palabra de Dios. Su enseñanza tiene autoridad absoluta porque Él es la verdad misma <span class="scripture-ref">(Juan 14:6)</span>.</p>
-                    
+                    <div class="oficio-icon">I</div>
+                    <div class="oficio-label">Oficio Primero</div>
+                    <h3 class="oficio-title">Cristo Profeta</h3>
+                    <p><strong>Revelador de Dios:</strong> Cristo es el profeta supremo que revela perfectamente la voluntad y el carácter de Dios. <span class="scripture">"Dios, habiendo hablado muchas veces y de muchas maneras en otro tiempo a los padres por los profetas, en estos postreros días nos ha hablado por el Hijo"</span> <span class="scripture">(Hebreos 1:1-2)</span>.</p>
+                    <p><strong>La Palabra Encarnada:</strong> Como el Verbo hecho carne, Cristo no solo proclama la palabra de Dios, sino que <span class="em-accent">es</span> la Palabra de Dios. Su enseñanza tiene autoridad absoluta porque Él es la verdad misma <span class="scripture">(Juan 14:6)</span>.</p>
                     <p><strong>Cumplimiento Profético:</strong> Cumple las profecías mesiánicas y revela los misterios del Reino de Dios a través de parábolas y enseñanzas directas.</p>
                 </div>
-
                 <div class="oficio-card">
-                    <h4>CRISTO SACERDOTE</h4>
-                    <p><strong>Mediador Perfecto:</strong> Como sacerdote según el orden de Melquisedec <span class="scripture-ref">(Hebreos 7:17)</span>, Cristo es el mediador único entre Dios y los hombres <span class="scripture-ref">(1 Timoteo 2:5)</span>.</p>
-                    
-                    <p><strong>Sacrificio y Sacerdote:</strong> Cristo es tanto el sacrificio perfecto como el sacerdote que lo ofrece. Su sacrificio es superior a todos los sacrificios del Antiguo Testamento porque es <span class="emphasis">eficaz para quitar el pecado</span> <span class="scripture-ref">(Hebreos 10:11-14)</span>.</p>
-                    
-                    <p><strong>Intercesión Continua:</strong> Su obra sacerdotal continúa en los cielos, donde intercede perpetuamente por los suyos <span class="scripture-ref">(Hebreos 7:25)</span>.</p>
+                    <div class="oficio-icon">II</div>
+                    <div class="oficio-label">Oficio Segundo</div>
+                    <h3 class="oficio-title">Cristo Sacerdote</h3>
+                    <p><strong>Mediador Perfecto:</strong> Como sacerdote según el orden de Melquisedec <span class="scripture">(Hebreos 7:17)</span>, Cristo es el mediador único entre Dios y los hombres <span class="scripture">(1 Timoteo 2:5)</span>.</p>
+                    <p><strong>Sacrificio y Sacerdote:</strong> Cristo es tanto el sacrificio perfecto como el sacerdote que lo ofrece. Su sacrificio es superior a todos los sacrificios del Antiguo Testamento porque es <span class="em-accent">eficaz para quitar el pecado</span> <span class="scripture">(Hebreos 10:11-14)</span>.</p>
+                    <p><strong>Intercesión Continua:</strong> Su obra sacerdotal continúa en los cielos, donde intercede perpetuamente por los suyos <span class="scripture">(Hebreos 7:25)</span>.</p>
                 </div>
-
                 <div class="oficio-card">
-                    <h4>CRISTO REY</h4>
-                    <p><strong>Rey Davídico:</strong> Cristo es el heredero legítimo del trono de David, cumpliendo las promesas del pacto davídico <span class="scripture-ref">(2 Samuel 7:12-16)</span>. Su reino es eterno e inconmovible.</p>
-                    
-                    <p><strong>Señorío Universal:</strong> Su autoridad se extiende sobre toda la creación. <span class="scripture-ref">"Toda potestad me es dada en el cielo y en la tierra"</span> <span class="scripture-ref">(Mateo 28:18)</span>.</p>
-                    
+                    <div class="oficio-icon">III</div>
+                    <div class="oficio-label">Oficio Tercero</div>
+                    <h3 class="oficio-title">Cristo Rey</h3>
+                    <p><strong>Rey Davídico:</strong> Cristo es el heredero legítimo del trono de David, cumpliendo las promesas del pacto davídico <span class="scripture">(2 Samuel 7:12-16)</span>. Su reino es eterno e inconmovible.</p>
+                    <p><strong>Señorío Universal:</strong> Su autoridad se extiende sobre toda la creación. <span class="scripture">"Toda potestad me es dada en el cielo y en la tierra"</span> <span class="scripture">(Mateo 28:18)</span>.</p>
                     <p><strong>Reino Presente y Futuro:</strong> Su reino se manifiesta ahora espiritualmente en la iglesia y se consumará en su segunda venida cuando reine visiblemente sobre toda la tierra.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="expiacion-section">
-            <h2>La Obra Expiatoria de Cristo</h2>
-            
-            <p>El <span class="emphasis">sacrificio expiatorio</span> de Cristo es el corazón del evangelio y la base de nuestra salvación. Su muerte no fue simplemente un ejemplo de amor, sino el <span class="emphasis">cumplimiento de la justicia divina</span> y la provisión completa para el perdón de pecados.</p>
+    <!-- EXPIACION DARK -->
+    <section class="expiacion-section">
+        <div class="container">
+            <h2 class="section-title reveal" style="color:var(--parchment);">La Obra Expiatoria de Cristo</h2>
+            <div class="section-rule reveal" style="background:var(--gold);"></div>
+            <p class="reveal" style="font-size:1rem;font-weight:300;color:rgba(247,244,237,0.75);line-height:1.8;max-width:760px;margin-bottom:1.2rem;">El <span style="color:var(--accent-mid);font-weight:400;">sacrificio expiatorio</span> de Cristo es el corazón del evangelio y la base de nuestra salvación. Su muerte no fue simplemente un ejemplo de amor, sino el <span style="color:var(--accent-mid);font-weight:400;">cumplimiento de la justicia divina</span> y la provisión completa para el perdón de pecados.</p>
 
-            <h3>Necesidad de la Expiación</h3>
-            <p>La expiación era <span class="emphasis">absolutamente necesaria</span> debido a la santidad de Dios y la pecaminosidad del hombre. La justicia divina demanda que el pecado sea castigado, y solo un sacrificio perfecto podía satisfacer esta demanda.</p>
+            <h3 class="expiacion-sub reveal">Necesidad de la Expiación</h3>
+            <p class="expiacion-body reveal">La expiación era <span style="color:var(--accent-mid);">absolutamente necesaria</span> debido a la santidad de Dios y la pecaminosidad del hombre. La justicia divina demanda que el pecado sea castigado, y solo un sacrificio perfecto podía satisfacer esta demanda.</p>
 
-            <div class="aspectos-expiacion">
-                <div class="aspecto">
-                    <h4>Substitución Penal</h4>
-                    <p>Cristo murió <span class="emphasis">en lugar de</span> los pecadores, llevando el castigo que merecían. <span class="scripture-ref">"Mas él herido fue por nuestras rebeliones, molido por nuestros pecados"</span> <span class="scripture-ref">(Isaías 53:5)</span>.</p>
+            <div class="aspectos-grid reveal">
+                <div class="aspecto-card">
+                    <div class="aspecto-title">Substitución Penal</div>
+                    <p>Cristo murió <span style="color:var(--accent-mid);">en lugar de</span> los pecadores, llevando el castigo que merecían. <span class="scripture">"Mas él herido fue por nuestras rebeliones, molido por nuestros pecados"</span> <span class="scripture">(Isaías 53:5)</span>.</p>
                 </div>
-                
-                <div class="aspecto">
-                    <h4>Propiciación</h4>
-                    <p>Su sacrificio satisface completamente la ira justa de Dios contra el pecado. <span class="scripture-ref">"Y él es la propiciación por nuestros pecados"</span> <span class="scripture-ref">(1 Juan 2:2)</span>.</p>
+                <div class="aspecto-card">
+                    <div class="aspecto-title">Propiciación</div>
+                    <p>Su sacrificio satisface completamente la ira justa de Dios contra el pecado. <span class="scripture">"Y él es la propiciación por nuestros pecados"</span> <span class="scripture">(1 Juan 2:2)</span>.</p>
                 </div>
-                
-                <div class="aspecto">
-                    <h4>Redención</h4>
-                    <p>Cristo pagó el precio completo para liberarnos de la esclavitud del pecado. <span class="scripture-ref">"En quien tenemos redención por su sangre"</span> <span class="scripture-ref">(Efesios 1:7)</span>.</p>
+                <div class="aspecto-card">
+                    <div class="aspecto-title">Redención</div>
+                    <p>Cristo pagó el precio completo para liberarnos de la esclavitud del pecado. <span class="scripture">"En quien tenemos redención por su sangre"</span> <span class="scripture">(Efesios 1:7)</span>.</p>
                 </div>
-                
-                <div class="aspecto">
-                    <h4>Reconciliación</h4>
-                    <p>Su muerte restaura la relación rota entre Dios y el hombre. <span class="scripture-ref">"Todo esto proviene de Dios, quien nos reconcilió consigo mismo por Cristo"</span> <span class="scripture-ref">(2 Corintios 5:18)</span>.</p>
+                <div class="aspecto-card">
+                    <div class="aspecto-title">Reconciliación</div>
+                    <p>Su muerte restaura la relación rota entre Dios y el hombre. <span class="scripture">"Todo esto proviene de Dios, quien nos reconcilió consigo mismo por Cristo"</span> <span class="scripture">(2 Corintios 5:18)</span>.</p>
                 </div>
             </div>
 
-            <h3>Eficacia del Sacrificio</h3>
-            <p>El sacrificio de Cristo es <span class="emphasis">infinitamente eficaz</span> porque es el sacrificio del Hijo de Dios mismo. Su valor no depende de su humanidad solamente, sino de que es Dios manifestado en carne quien ofrece su vida.</p>
+            <h3 class="expiacion-sub reveal">Eficacia del Sacrificio</h3>
+            <p class="expiacion-body reveal">El sacrificio de Cristo es <span style="color:var(--accent-mid);">infinitamente eficaz</span> porque es el sacrificio del Hijo de Dios mismo. Su valor no depende de su humanidad solamente, sino de que es Dios manifestado en carne quien ofrece su vida.</p>
 
-            <div class="verse-box">
+            <div class="expiacion-verse reveal">
                 <div class="verse-text">Al que no conoció pecado, por nosotros lo hizo pecado, para que nosotros fuésemos hechos justicia de Dios en él.</div>
                 <div class="verse-ref">2 Corintios 5:21</div>
             </div>
         </div>
+    </section>
 
-        <div class="preguntas-container">
-            <h2>Análisis Cristológico Profundo</h2>
-            
-            <div class="pregunta-item">
-                <div class="pregunta-numero">1</div>
-                <div class="pregunta-tipo">Pregunta Exegética:</div>
-                <div class="pregunta-texto">Analiza Juan 1:14 en su contexto inmediato y teológico. ¿Qué implica la frase "el Verbo fue hecho carne" para nuestra comprensión de la encarnación? ¿Cómo se relaciona esto con la declaración "vimos su gloria"?</div>
+    <!-- PREGUNTAS -->
+    <section class="preguntas-section">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Análisis Cristológico Profundo</h2>
+                <div class="section-rule"></div>
             </div>
-
-            <div class="pregunta-item">
-                <div class="pregunta-numero">2</div>
-                <div class="pregunta-tipo">Pregunta Tipológica:</div>
-                <div class="pregunta-texto">Examina cómo Isaías 53 prefigura la obra expiatoria de Cristo. ¿Qué aspectos específicos de su sufrimiento y muerte se predicen con precisión? ¿Cómo cumple Cristo cada detalle profético?</div>
-            </div>
-
-            <div class="pregunta-item">
-                <div class="pregunta-numero">3</div>
-                <div class="pregunta-tipo">Pregunta Soteriológica:</div>
-                <div class="pregunta-texto">¿Por qué era necesario que el Redentor fuera un hombre verdadero? ¿Qué aspectos de la salvación no podrían cumplirse si Cristo no hubiese sido un hombre?</div>
-            </div>
-
-            <div class="pregunta-item">
-                <div class="pregunta-numero">4</div>
-                <div class="pregunta-tipo">Pregunta Comparativa:</div>
-                <div class="pregunta-texto">Contrasta la obra sacerdotal de Cristo con el sacerdocio aarónico según Hebreos 7-10. ¿En qué aspectos es superior el sacerdocio de Cristo y por qué esto es crucial para la seguridad del creyente?</div>
-            </div>
-
-            <div class="pregunta-item">
-                <div class="pregunta-numero">5</div>
-                <div class="pregunta-tipo">Pregunta Aplicativa:</div>
-                <div class="pregunta-texto">¿Cómo debe impactar la comprensión de los tres oficios de Cristo (Profeta, Sacerdote, Rey) en la vida práctica del creyente? ¿Qué respuestas específicas demanda cada oficio?</div>
-            </div>
-
-            <div class="pregunta-item">
-                <div class="pregunta-numero">6</div>
-                <div class="pregunta-tipo">Pregunta Escatológica:</div>
-                <div class="pregunta-texto">Analiza la relación entre la primera y segunda venida de Cristo en términos de sus oficios mesiánicos. ¿Qué aspectos de su obra se cumplieron en su primera venida y cuáles aguardan su consumación?</div>
+            <div class="preguntas-list">
+                <div class="pregunta-item reveal">
+                    <div class="pregunta-num"><span>1</span></div>
+                    <div>
+                        <div class="pregunta-tipo">Pregunta Exegética</div>
+                        <div class="pregunta-texto">Analiza Juan 1:14 en su contexto inmediato y teológico. ¿Qué implica la frase "el Verbo fue hecho carne" para nuestra comprensión de la encarnación? ¿Cómo se relaciona esto con la declaración "vimos su gloria"?</div>
+                    </div>
+                </div>
+                <div class="pregunta-item reveal">
+                    <div class="pregunta-num"><span>2</span></div>
+                    <div>
+                        <div class="pregunta-tipo">Pregunta Tipológica</div>
+                        <div class="pregunta-texto">Examina cómo Isaías 53 prefigura la obra expiatoria de Cristo. ¿Qué aspectos específicos de su sufrimiento y muerte se predicen con precisión? ¿Cómo cumple Cristo cada detalle profético?</div>
+                    </div>
+                </div>
+                <div class="pregunta-item reveal">
+                    <div class="pregunta-num"><span>3</span></div>
+                    <div>
+                        <div class="pregunta-tipo">Pregunta Soteriológica</div>
+                        <div class="pregunta-texto">¿Por qué era necesario que el Redentor fuera un hombre verdadero? ¿Qué aspectos de la salvación no podrían cumplirse si Cristo no hubiese sido un hombre?</div>
+                    </div>
+                </div>
+                <div class="pregunta-item reveal">
+                    <div class="pregunta-num"><span>4</span></div>
+                    <div>
+                        <div class="pregunta-tipo">Pregunta Comparativa</div>
+                        <div class="pregunta-texto">Contrasta la obra sacerdotal de Cristo con el sacerdocio aarónico según Hebreos 7-10. ¿En qué aspectos es superior el sacerdocio de Cristo y por qué esto es crucial para la seguridad del creyente?</div>
+                    </div>
+                </div>
+                <div class="pregunta-item reveal">
+                    <div class="pregunta-num"><span>5</span></div>
+                    <div>
+                        <div class="pregunta-tipo">Pregunta Aplicativa</div>
+                        <div class="pregunta-texto">¿Cómo debe impactar la comprensión de los tres oficios de Cristo (Profeta, Sacerdote, Rey) en la vida práctica del creyente? ¿Qué respuestas específicas demanda cada oficio?</div>
+                    </div>
+                </div>
+                <div class="pregunta-item reveal">
+                    <div class="pregunta-num"><span>6</span></div>
+                    <div>
+                        <div class="pregunta-tipo">Pregunta Escatológica</div>
+                        <div class="pregunta-texto">Analiza la relación entre la primera y segunda venida de Cristo en términos de sus oficios mesiánicos. ¿Qué aspectos de su obra se cumplieron en su primera venida y cuáles aguardan su consumación?</div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="conclusion-section">
-            <h2>La Gloria de Cristo Revelada</h2>
-            
-            <p>El estudio de la persona y obra de Cristo nos lleva al <span class="emphasis">corazón mismo del cristianismo</span>. En Cristo, Dios se ha revelado de manera suprema y ha provisto salvación completa para todos los que creen en Él.</p>
+    <!-- CONCLUSION -->
+    <section class="conclusion-section">
+        <div class="container">
+            <div class="conclusion-inner reveal">
+                <h2 class="section-title">La Gloria de Cristo Revelada</h2>
+                <div class="section-rule"></div>
+                <p>El estudio de la persona y obra de Cristo nos lleva al <span class="em-accent">corazón mismo del cristianismo</span>. En Cristo, Dios se ha revelado de manera suprema y ha provisto salvación completa para todos los que creen en Él.</p>
+                <p>Su <span class="em-accent">encarnación</span> demuestra el amor infinito de Dios por la humanidad perdida. Su <span class="em-accent">vida perfecta</span> provee la justicia que necesitamos. Su <span class="em-accent">muerte expiatoria</span> satisface las demandas de la justicia divina. Su <span class="em-accent">resurrección</span> confirma su victoria sobre el pecado y la muerte.</p>
 
-            <p>Su <span class="emphasis">encarnación</span> demuestra el amor infinito de Dios por la humanidad perdida. Su <span class="emphasis">vida perfecta</span> provee la justicia que necesitamos. Su <span class="emphasis">muerte expiatoria</span> satisface las demandas de la justicia divina. Su <span class="emphasis">resurrección</span> confirma su victoria sobre el pecado y la muerte.</p>
+                <div class="pull-quote">
+                    <div class="pull-text">Porque en él habita corporalmente toda la plenitud de la Deidad, y vosotros estáis completos en él, que es la cabeza de todo principado y potestad.</div>
+                    <div class="pull-ref">Colosenses 2:9–10</div>
+                </div>
 
-            <div class="verse-box">
-                <div class="verse-text">Porque en él habita corporalmente toda la plenitud de la Deidad, y vosotros estáis completos en él, que es la cabeza de todo principado y potestad.</div>
-                <div class="verse-ref">Colosenses 2:9-10</div>
+                <p>Como estudiantes de la Palabra, debemos continuar creciendo en nuestro <span class="em-accent">conocimiento y aprecio</span> de quien es Cristo y lo que ha hecho por nosotros. Este conocimiento no es meramente intelectual, sino transformador, llevándonos a una adoración más profunda y una obediencia más completa al Señor de señores y Rey de reyes.</p>
             </div>
-
-            <p>Como estudiantes de la Palabra, debemos continuar creciendo en nuestro <span class="emphasis">conocimiento y aprecio</span> de quien es Cristo y lo que ha hecho por nosotros. Este conocimiento no es meramente intelectual, sino transformador, llevándonos a una adoración más profunda y una obediencia más completa al Señor de señores y Rey de reyes.</p>
         </div>
-    </div>
+    </section>
+
+    <!-- STUDY NAV -->
+    <nav class="study-nav">
+        <div class="study-nav-inner">
+            <a href="pneumatologia-avanzada.html" class="nav-prev">
+                <div>
+                    <div class="nav-label">← Anterior</div>
+                    <div class="nav-title">Pneumatología Avanzada</div>
+                </div>
+            </a>
+            <div class="nav-center">
+                <a href="../doctrina-intermedia.html">Doctrina Intermedia</a>
+            </div>
+            <a href="teologia-pactos.html" class="nav-next">
+                <div style="text-align:right;">
+                    <div class="nav-label">Siguiente →</div>
+                    <div class="nav-title">Teología de Pactos</div>
+                </div>
+            </a>
+        </div>
+    </nav>
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
 </body>
 </html>

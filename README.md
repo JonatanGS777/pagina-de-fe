@@ -162,6 +162,7 @@ Página de Fe/
 | `page/Estudios Bíblicos/doctrina-avanzada.html` | Completado — midnight purple `#2a1e4a` |
 | `page/Estudios Bíblicos/estudios/hermeneutica-biblica.html` | Completado — deep teal `#1e4040` |
 | `page/Estudios Bíblicos/estudios/pneumatologia-avanzada.html` | Completado — ember `#5c2a0a` |
+| `page/Estudios Bíblicos/estudios/cristologia-profunda.html` | Completado — crimson `#7a1528` |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
@@ -170,7 +171,6 @@ Página de Fe/
 - [ ] `estudios/acertijos.html`
 - [ ] `estudios/analisisexgetico.html`
 - [ ] `estudios/apocaliptica-biblica.html`
-- [ ] `estudios/cristologia-profunda.html`
 - [ ] `estudios/eclesiologia-practica.html`
 - [ ] `estudios/etica-cristiana.html`
 - [ ] `estudios/examen.html`
