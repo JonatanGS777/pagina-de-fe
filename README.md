@@ -159,12 +159,11 @@ Página de Fe/
 | `page/Estudios Bíblicos/devocionales.html` | Completado — forest green `#2b4a36` |
 | `page/Estudios Bíblicos/doctrina-basica.html` | Completado — deep blue `#1d3a5f` |
 | `page/Estudios Bíblicos/doctrina-intermedia.html` | Completado — terracotta `#6b3a2a` |
+| `page/Estudios Bíblicos/doctrina-avanzada.html` | Completado — midnight purple `#2a1e4a` |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
 #### `page/Estudios Bíblicos/`
-
-- [ ] `doctrina-avanzada.html`
 - [ ] `recursos/Cronograma Detallado.html`
 - [ ] `estudios/acertijos.html`
 - [ ] `estudios/analisisexgetico.html`
