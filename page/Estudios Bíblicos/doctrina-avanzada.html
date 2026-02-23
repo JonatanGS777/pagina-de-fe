@@ -139,29 +139,17 @@
             overflow: hidden;
             display: flex;
             align-items: center;
+            background:
+                linear-gradient(160deg, rgba(10,8,20,0.72) 0%, rgba(26,20,40,0.62) 55%, rgba(14,12,10,0.58) 100%),
+                url('./images/advancetheology.png') center top / cover no-repeat;
         }
 
-        /* Background image layer */
-        .page-hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url('./images/advancetheology.png');
-            background-size: cover;
-            background-position: center top;
-            background-repeat: no-repeat;
-            opacity: 0.42;
-            z-index: 0;
-        }
-
-        /* Dark gradient overlay */
+        /* Accent glow overlay */
         .page-hero::after {
             content: '';
             position: absolute;
             inset: 0;
-            background:
-                linear-gradient(160deg, rgba(10,8,20,0.78) 0%, rgba(26,20,40,0.72) 60%, rgba(14,12,10,0.68) 100%),
-                radial-gradient(ellipse at 50% 0%, rgba(42,30,74,0.25) 0%, transparent 65%);
+            background: radial-gradient(ellipse at 50% 0%, rgba(42,30,74,0.22) 0%, transparent 65%);
             z-index: 1;
         }
 
