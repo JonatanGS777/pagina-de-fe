@@ -164,6 +164,7 @@ Página de Fe/
 | `page/Estudios Bíblicos/estudios/pneumatologia-avanzada.html` | Completado — ember `#5c2a0a` |
 | `page/Estudios Bíblicos/estudios/cristologia-profunda.html` | Completado — crimson `#7a1528` |
 | `page/Estudios Bíblicos/estudios/teologia-pactos.html` | Completado — moss olive `#293d1a` |
+| `page/Estudios Bíblicos/estudios/eclesiologia-practica.html` | Completado — port wine `#4a1640` |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
@@ -172,7 +173,6 @@ Página de Fe/
 - [ ] `estudios/acertijos.html`
 - [ ] `estudios/analisisexgetico.html`
 - [ ] `estudios/apocaliptica-biblica.html`
-- [ ] `estudios/eclesiologia-practica.html`
 - [ ] `estudios/etica-cristiana.html`
 - [ ] `estudios/examen.html`
 - [ ] `estudios/ministerio-pastoral.html`

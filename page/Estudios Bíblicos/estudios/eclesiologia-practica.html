@@ -3,867 +3,1015 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eclesiología Práctica - Vida de Iglesia</title>
+    <title>Eclesiología Práctica — Vida de Iglesia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --ink:         #1a1410;
+            --gold:        #b89a5f;
+            --parchment:   #f7f4ed;
+            --parchment-dk:#ece8df;
+            --dark:        #0e0c0a;
+            --accent:      #4a1640;
+            --accent-mid:  #8c3a70;
+            --accent-pale: rgba(74,22,64,0.07);
+            --hero-grad:   linear-gradient(160deg, #0e0c0a 0%, #1a0814 100%);
         }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: #7f1d1d;
-            background: 
-                radial-gradient(circle at 20% 20%, #fef2f2 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, #fee2e2 0%, transparent 50%),
-                linear-gradient(135deg, #fdf2f8 0%, #fce7f3 25%, #fbcfe8 50%, #fce7f3 75%, #fdf2f8 100%);
-            background-attachment: fixed;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 25px;
-        }
-
-        .header-banner {
-            background: linear-gradient(135deg, #991b1b 0%, #dc2626 25%, #ef4444 50%, #f87171 75%, #fca5a5 100%);
-            color: white;
-            padding: 60px 30px;
-            border-radius: 25px;
-            margin-bottom: 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(153, 27, 27, 0.3);
-        }
-
-        .header-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="white" opacity="0.1"><circle cx="20" cy="20" r="2"/><circle cx="80" cy="20" r="2"/><circle cx="20" cy="80" r="2"/><circle cx="80" cy="80" r="2"/><circle cx="50" cy="50" r="3"/></g></svg>');
-            background-size: 50px 50px;
-            animation: patternFloat 15s linear infinite;
-        }
-
-        @keyframes patternFloat {
-            0% { transform: translateX(0) translateY(0); }
-            25% { transform: translateX(10px) translateY(-10px); }
-            50% { transform: translateX(0) translateY(-20px); }
-            75% { transform: translateX(-10px) translateY(-10px); }
-            100% { transform: translateX(0) translateY(0); }
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        h1 {
-            font-size: 4em;
-            margin-bottom: 15px;
-            font-weight: 900;
-            letter-spacing: -2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .subtitle {
-            font-size: 1.8em;
-            opacity: 0.95;
+            font-family: 'Lato', sans-serif;
             font-weight: 300;
-            letter-spacing: 8px;
-            margin-bottom: 20px;
-        }
-
-        .description {
-            font-size: 1.3em;
-            max-width: 800px;
-            margin: 0 auto 25px auto;
-            opacity: 0.9;
+            color: var(--ink);
+            background-color: var(--parchment);
             line-height: 1.7;
-        }
-
-        .keywords {
-            font-size: 1.3em;
-            letter-spacing: 3px;
-            font-weight: 600;
-        }
-
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .module-card {
-            background: linear-gradient(135deg, #ffffff 0%, #fef7f7 100%);
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 15px 35px rgba(127, 29, 29, 0.1);
-            border: 2px solid #fecaca;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            overflow: hidden;
         }
 
-        .module-card::before {
+        body::before {
             content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #dc2626, #ef4444, #f87171, #ef4444, #dc2626);
-            background-size: 300% 100%;
-            animation: shimmerBar 3s ease-in-out infinite;
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.6;
         }
 
-        @keyframes shimmerBar {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        /* ── HEADER ── */
+        .site-header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(14,12,10,0.97);
+            border-bottom: 1px solid rgba(184,154,95,0.22);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
-
-        .module-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 60px rgba(127, 29, 29, 0.2);
-            border-color: #f87171;
-        }
-
-        .module-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
-            border-radius: 15px;
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 64px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            color: white;
-            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+            justify-content: space-between;
         }
-
-        .module-title {
-            color: #991b1b;
-            font-size: 1.8em;
-            margin-bottom: 15px;
+        .site-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+        .header-nav { display: flex; gap: 2rem; align-items: center; }
+        .header-nav a {
+            font-size: 0.72rem;
             font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(247,244,237,0.65);
+            text-decoration: none;
+            transition: color 0.2s;
         }
+        .header-nav a:hover { color: var(--gold); }
 
-        .module-content p {
-            color: #7f1d1d;
-            font-size: 1.05em;
-            line-height: 1.7;
-            margin-bottom: 15px;
-        }
-
-        .key-points {
-            background: #fef2f2;
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid #dc2626;
-            margin: 20px 0;
-        }
-
-        .key-points h4 {
-            color: #991b1b;
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .key-points ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .key-points li {
-            padding: 5px 0;
-            padding-left: 20px;
+        /* ── HERO ── */
+        .page-hero {
             position: relative;
-            color: #7f1d1d;
-        }
-
-        .key-points li::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: #dc2626;
-            font-size: 0.8em;
-        }
-
-        .leadership-structure {
-            background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #b91c1c 100%);
-            color: white;
-            padding: 50px;
-            border-radius: 25px;
-            margin: 50px 0;
-            position: relative;
+            min-height: 56vh;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 0 5rem;
             overflow: hidden;
+            background: var(--hero-grad);
         }
-
-        .leadership-structure::before {
+        .page-hero::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 30%, rgba(239, 68, 68, 0.2) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 70%, rgba(248, 113, 113, 0.1) 0%, transparent 50%);
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(74,22,64,0.22) 0%, transparent 65%);
             pointer-events: none;
         }
-
-        .leadership-structure h2 {
-            font-size: 3em;
-            text-align: center;
-            margin-bottom: 40px;
+        .hero-inner {
             position: relative;
-            z-index: 1;
-            font-weight: 800;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            width: 100%;
         }
-
-        .leadership-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .leadership-role {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .leadership-role:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .leadership-role h3 {
-            color: #fecaca;
-            font-size: 1.6em;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .leadership-role p {
-            color: #fed7d7;
-            line-height: 1.7;
-        }
-
-        .ordenanzas-section {
-            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
-            padding: 50px;
-            border-radius: 25px;
-            margin: 50px 0;
-            border: 3px solid #dc2626;
-        }
-
-        .ordenanzas-section h2 {
-            color: #991b1b;
-            font-size: 3em;
-            text-align: center;
-            margin-bottom: 40px;
-            font-weight: 800;
-        }
-
-        .ordenanza-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
-        }
-
-        .ordenanza-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border-top: 5px solid #dc2626;
-            transition: all 0.3s ease;
-        }
-
-        .ordenanza-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-        }
-
-        .ordenanza-card h3 {
-            color: #991b1b;
-            font-size: 2em;
-            margin-bottom: 20px;
+        .hero-eyebrow {
+            font-size: 0.7rem;
             font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-mid);
+            margin-bottom: 1.2rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards;
+            animation-delay: 0.1s;
+        }
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 300;
+            color: var(--parchment);
+            line-height: 1.05;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards;
+            animation-delay: 0.25s;
+        }
+        .hero-title em { color: var(--gold); font-style: italic; }
+        .hero-desc {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: rgba(247,244,237,0.7);
+            max-width: 580px;
+            line-height: 1.75;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards;
+            animation-delay: 0.4s;
+        }
+        .hero-tags {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards;
+            animation-delay: 0.55s;
+        }
+        .hero-tag {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.9rem;
+            border: 1px solid rgba(74,22,64,0.5);
+            color: rgba(140,58,112,0.95);
+            background: rgba(74,22,64,0.1);
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(22px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── LAYOUT ── */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        section { position: relative; z-index: 1; }
+
+        /* ── SHARED TYPOGRAPHY ── */
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        .section-rule { width: 48px; height: 2px; background: var(--accent); margin-bottom: 2rem; }
+        .em-accent { color: var(--accent); font-weight: 400; }
+        .scripture { font-style: italic; color: #5a4a2a; }
+        .verse-box {
+            background: var(--parchment);
+            border-left: 3px solid var(--gold);
+            padding: 1.4rem 1.6rem;
+            margin: 1.5rem 0 0;
+        }
+        .verse-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--ink);
+            line-height: 1.7;
+            margin-bottom: 0.6rem;
+        }
+        .verse-ref {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-align: right;
+        }
+
+        /* ── INTRO ── */
+        .intro-section {
+            background: #fff;
+            border-top: 3px solid var(--accent);
+            padding: 4rem 2rem;
+        }
+        .intro-inner {
+            max-width: 780px;
+            margin: 0 auto;
             text-align: center;
         }
-
-        .ordenanza-details {
-            margin: 20px 0;
-        }
-
-        .ordenanza-details h4 {
-            color: #7f1d1d;
-            font-size: 1.3em;
-            margin: 15px 0 8px 0;
-            font-weight: 600;
-        }
-
-        .verse-box {
-            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
-            padding: 25px;
-            border-radius: 12px;
-            border-left: 4px solid #dc2626;
-            margin: 20px 0;
+        .intro-quote {
+            font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            position: relative;
+            font-size: 1.45rem;
+            font-weight: 300;
+            color: var(--ink);
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+        .intro-quote strong { color: var(--accent); font-weight: 600; }
+        .intro-ref {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
         }
 
-        .verse-box::before {
-            content: '"';
-            font-size: 3em;
-            color: #dc2626;
+        /* ── 4 MODULE CARDS ── */
+        .modules-section {
+            padding: 5rem 0;
+            background: var(--parchment);
+        }
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            margin-top: 3rem;
+        }
+        .module-card {
+            background: #fff;
+            border-top: 3px solid var(--accent);
+            padding: 2.5rem;
+        }
+        .module-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-mid);
+            margin-bottom: 0.4rem;
+        }
+        .module-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.75rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        .module-card p {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #3a3028;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .module-card p:last-child { margin-bottom: 0; }
+        .key-list {
+            background: var(--parchment);
+            border-left: 2px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            margin: 1rem 0 1.25rem;
+            list-style: none;
+        }
+        .key-list-title {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+        .key-list li {
+            font-size: 0.92rem;
+            font-weight: 300;
+            color: #3a3028;
+            line-height: 1.7;
+            padding: 0.3rem 0;
+            padding-left: 1rem;
+            position: relative;
+            border-bottom: 1px solid rgba(236,232,223,0.7);
+        }
+        .key-list li:last-child { border-bottom: none; }
+        .key-list li::before {
+            content: '';
             position: absolute;
-            top: -5px;
-            left: 15px;
-            opacity: 0.3;
+            left: 0;
+            top: 0.85rem;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--accent-mid);
         }
+        .key-list li strong { font-weight: 700; color: var(--ink); }
 
-        .verse-text {
-            font-size: 1.1em;
-            color: #7f1d1d;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .verse-ref {
-            text-align: right;
-            font-weight: 600;
-            color: #991b1b;
-            position: relative;
-            z-index: 1;
-        }
-
-        .disciplina-framework {
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
-            padding: 50px;
-            border-radius: 25px;
-            margin: 50px 0;
-            color: #92400e;
+        /* ── LEADERSHIP DARK ── */
+        .leadership-section {
+            padding: 5rem 0;
+            background: linear-gradient(160deg, #0e0c0a 0%, #1a0814 100%);
             position: relative;
             overflow: hidden;
         }
-
-        .disciplina-framework::before {
+        .leadership-section::before {
             content: '';
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
-            border-radius: 50%;
-            transform: translate(50%, -50%);
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(74,22,64,0.2) 0%, transparent 60%);
+            pointer-events: none;
         }
-
-        .disciplina-framework h2 {
-            color: #78350f;
-            font-size: 3em;
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-            z-index: 1;
-            font-weight: 800;
-        }
-
-        .process-steps {
+        .leadership-section .section-title { color: var(--parchment); }
+        .leadership-section .section-rule { background: var(--gold); }
+        .leadership-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+            margin-top: 2.5rem;
+            background: rgba(184,154,95,0.1);
+        }
+        .role-card {
+            background: rgba(14,12,10,0.98);
+            padding: 2.25rem;
+            border-top: 2px solid rgba(74,22,64,0.4);
+            transition: border-color 0.3s;
+        }
+        .role-card:hover { border-top-color: var(--accent-mid); }
+        .role-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1.25rem;
+            line-height: 1.2;
+        }
+        .role-label {
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent-mid);
+            margin: 1rem 0 0.35rem;
+        }
+        .role-card p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: rgba(247,244,237,0.72);
+            line-height: 1.75;
+        }
+        .role-card .scripture { color: rgba(184,154,95,0.8); font-style: italic; }
+        .role-card strong { font-weight: 700; color: rgba(247,244,237,0.88); }
+
+        /* ── ORDENANZAS ── */
+        .ordenanzas-section {
+            padding: 5rem 0;
+            background: var(--parchment);
+        }
+        .ordenanzas-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            margin-top: 3rem;
+        }
+        .ordenanza-card {
+            background: #fff;
+            border-top: 3px solid var(--accent);
+            padding: 2.5rem;
+        }
+        .ordenanza-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-mid);
+            margin-bottom: 0.4rem;
+        }
+        .ordenanza-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.7rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        .ord-sub {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin: 1.2rem 0 0.4rem;
+        }
+        .ordenanza-card p {
+            font-size: 0.92rem;
+            font-weight: 300;
+            color: #3a3028;
+            line-height: 1.78;
+            margin-bottom: 0.6rem;
+        }
+        .ordenanza-card p:last-child { margin-bottom: 0; }
+        .ordenanza-card strong { font-weight: 700; color: var(--ink); }
+
+        /* ── DISCIPLINA ── */
+        .disciplina-section {
+            padding: 5rem 0;
+            background: #fff;
+        }
+        .disciplina-intro {
+            max-width: 700px;
+            font-size: 1rem;
+            font-weight: 300;
+            color: #3a3028;
+            line-height: 1.8;
+            margin: 1.5rem 0 2.5rem;
+        }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            margin-bottom: 2.5rem;
+        }
+        .step-card {
+            background: var(--parchment);
+            border-top: 3px solid var(--accent);
+            padding: 2rem 1.5rem;
+            position: relative;
+        }
+        .step-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 3rem;
+            color: var(--accent);
+            opacity: 0.18;
+            line-height: 1;
+            margin-bottom: 0.75rem;
+        }
+        .step-title {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+        .step-card p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #3a3028;
+            line-height: 1.72;
+        }
+        .disciplina-verse {
+            background: var(--parchment);
+            border-left: 3px solid var(--gold);
+            padding: 1.5rem 1.75rem;
+        }
+
+        /* ── PREGUNTAS ── */
+        .preguntas-section {
+            padding: 5rem 0;
+            background: var(--parchment);
+        }
+        .preguntas-list {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .pregunta-item {
+            display: grid;
+            grid-template-columns: 64px 1fr;
+            gap: 1.5rem;
+            background: #fff;
+            padding: 2rem 2.5rem 2rem 0;
+            border: 1px solid var(--parchment-dk);
+            transition: border-color 0.25s;
+        }
+        .pregunta-item:hover { border-color: var(--accent); }
+        .pregunta-num {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 0.15rem;
+        }
+        .pregunta-num span {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--accent);
+            opacity: 0.35;
+            line-height: 1;
+        }
+        .pregunta-tipo {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent-mid);
+            margin-bottom: 0.5rem;
+        }
+        .pregunta-texto {
+            font-size: 0.98rem;
+            font-weight: 300;
+            color: var(--ink);
+            line-height: 1.75;
+        }
+
+        /* ── CONCLUSION ── */
+        .conclusion-section {
+            padding: 5rem 0;
+            background: linear-gradient(160deg, #0e0c0a 0%, #1a0814 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .conclusion-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 70% 50%, rgba(74,22,64,0.18) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .conclusion-inner {
+            max-width: 780px;
+            margin: 0 auto;
             position: relative;
             z-index: 1;
         }
-
-        .step {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 25px;
-            border-radius: 15px;
+        .conclusion-inner .section-title { color: var(--parchment); }
+        .conclusion-inner .section-rule { background: var(--gold); }
+        .conclusion-inner p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: rgba(247,244,237,0.75);
+            line-height: 1.8;
+            margin-bottom: 1.4rem;
+        }
+        .pull-quote {
+            border-top: 1px solid rgba(184,154,95,0.2);
+            border-bottom: 1px solid rgba(184,154,95,0.2);
+            padding: 2.5rem 0;
+            margin: 2.5rem 0;
             text-align: center;
-            position: relative;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .pull-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.6rem;
+            color: var(--parchment);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        .pull-ref {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
         }
 
-        .step-number {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #d97706;
-            color: white;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
+        /* ── STUDY NAV ── */
+        .study-nav { background: var(--ink); padding: 3rem 0; }
+        .study-nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 1rem;
+        }
+        .nav-prev, .nav-next {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.1em;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: rgba(247,244,237,0.55);
+            transition: color 0.2s;
         }
-
-        .step h4 {
-            color: #92400e;
-            font-size: 1.2em;
-            margin: 20px 0 10px 0;
-            font-weight: 600;
-        }
-
-        .step p {
-            color: #78350f;
-            font-size: 0.95em;
-            line-height: 1.6;
-        }
-
-        .preguntas-practicas {
-            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 50%, #a5b4fc 100%);
-            padding: 50px;
-            border-radius: 25px;
-            margin: 50px 0;
-            border: 2px solid #6366f1;
-        }
-
-        .preguntas-practicas h2 {
-            color: #3730a3;
-            font-size: 3em;
-            text-align: center;
-            margin-bottom: 40px;
-            font-weight: 800;
-        }
-
-        .pregunta-practica {
-            background: white;
-            padding: 30px;
-            margin: 25px 0;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
-            border-left: 5px solid #6366f1;
-            transition: all 0.3s ease;
-        }
-
-        .pregunta-practica:hover {
-            transform: translateX(8px);
-            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.25);
-        }
-
-        .pregunta-icono {
-            display: inline-block;
-            background: #6366f1;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 30px;
-            margin-right: 15px;
-            font-weight: bold;
-        }
-
-        .pregunta-categoria {
-            color: #4338ca;
-            font-weight: 600;
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
-
-        .pregunta-texto {
-            color: #3730a3;
-            font-size: 1.05em;
-            line-height: 1.7;
-        }
-
-        .emphasis {
-            color: #991b1b;
+        .nav-prev:hover, .nav-next:hover { color: var(--gold); }
+        .nav-next { justify-content: flex-end; }
+        .nav-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+        .nav-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; }
+        .nav-center a {
+            font-size: 0.7rem;
             font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(184,154,95,0.6);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
         }
+        .nav-center a:hover { color: var(--gold); }
+        .nav-center a::before { content: '✦'; font-size: 0.7rem; color: var(--gold); opacity: 0.5; }
 
-        .scripture-ref {
-            font-style: italic;
-            color: #dc2626;
-            font-weight: 600;
+        /* ── SCROLL REVEAL ── */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal.visible { opacity: 1; transform: none; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 960px) {
+            .modules-grid { grid-template-columns: 1fr; }
+            .leadership-grid { grid-template-columns: 1fr; }
+            .ordenanzas-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: repeat(2, 1fr); }
+            .pregunta-item { grid-template-columns: 48px 1fr; }
         }
-
-        .vision-final {
-            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
-            padding: 50px;
-            border-radius: 25px;
-            border: 3px solid #dc2626;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .vision-final h2 {
-            color: #991b1b;
-            font-size: 3em;
-            margin-bottom: 30px;
-            font-weight: 800;
-        }
-
-        .vision-final p {
-            font-size: 1.3em;
-            line-height: 1.8;
-            color: #7f1d1d;
-            max-width: 900px;
-            margin: 0 auto 25px auto;
-        }
-
-        @media (max-width: 768px) {
-            .dashboard-grid,
-            .leadership-grid,
-            .ordenanza-cards,
-            .process-steps {
-                grid-template-columns: 1fr;
-            }
-            
-            h1 {
-                font-size: 2.8em;
-            }
-            
-            .module-card,
-            .leadership-structure,
-            .ordenanzas-section,
-            .disciplina-framework,
-            .preguntas-practicas {
-                padding: 30px;
-            }
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2.6rem; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .study-nav-inner { grid-template-columns: 1fr 1fr; }
+            .nav-center { display: none; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header-banner">
-            <div class="header-content">
-                <h1>Eclesiología Práctica</h1>
-                <p class="subtitle">VIDA DE IGLESIA</p>
-                <p class="description">La naturaleza, propósito y gobierno de la iglesia local. Disciplina, liderazgo, ordenanzas y el papel del creyente en el cuerpo de Cristo.</p>
-                <div class="keywords">• GOBIERNO • LIDERAZGO • ORDENANZAS •</div>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="../../../index.html" class="site-logo">La Gloria es del Señor</a>
+            <nav class="header-nav">
+                <a href="../../../nuestras-ensenanzas/index.html">Enseñanzas</a>
+                <a href="../../../Comunidad/forum.html">Comunidad</a>
+                <a href="../../../index.html#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="page-hero" style="margin-top: 64px;">
+        <div class="hero-inner">
+            <div class="hero-eyebrow">Estudios Bíblicos · Eclesiología</div>
+            <h1 class="hero-title">Eclesiología<br><em>Práctica</em></h1>
+            <p class="hero-desc">La naturaleza, propósito y gobierno de la iglesia local. Disciplina, liderazgo, ordenanzas y el papel del creyente en el cuerpo de Cristo.</p>
+            <div class="hero-tags">
+                <span class="hero-tag">Gobierno</span>
+                <span class="hero-tag">Liderazgo</span>
+                <span class="hero-tag">Ordenanzas</span>
             </div>
-        </header>
+        </div>
+    </section>
 
-        <div class="dashboard-grid">
-            <div class="module-card">
-                <div class="module-icon">🏛️</div>
-                <h2 class="module-title">Naturaleza de la Iglesia</h2>
-                <div class="module-content">
-                    <p>La iglesia es <span class="emphasis">el cuerpo de Cristo</span>, una comunidad de creyentes llamados del mundo para formar una nueva sociedad bajo el señorío de Jesucristo. No es una institución humana, sino una <span class="emphasis">creación divina</span> con propósito eterno.</p>
-                    
-                    <div class="key-points">
-                        <h4>Definición Bíblica</h4>
-                        <ul>
-                            <li><strong>Ekklesia:</strong> Asamblea de llamados fuera del mundo</li>
-                            <li><strong>Cuerpo de Cristo:</strong> Organismo vivo con Cristo como cabeza</li>
-                            <li><strong>Familia de Dios:</strong> Relaciones basadas en parentesco espiritual</li>
-                            <li><strong>Templo del Espíritu:</strong> Morada corporativa de Dios</li>
-                        </ul>
-                    </div>
+    <!-- INTRO -->
+    <section class="intro-section">
+        <div class="intro-inner reveal">
+            <p class="intro-quote">
+                La iglesia es <strong>el cuerpo de Cristo</strong>, una comunidad de creyentes llamados del mundo para formar una nueva sociedad bajo el señorío de Jesucristo. No es una institución humana, sino una <strong>creación divina</strong> con propósito eterno.
+            </p>
+            <div class="intro-ref">Colosenses 1:18</div>
+        </div>
+    </section>
 
+    <!-- 4 MÓDULOS -->
+    <section class="modules-section">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Fundamentos de la Vida Eclesiástica</h2>
+                <div class="section-rule"></div>
+            </div>
+            <div class="modules-grid">
+                <!-- Naturaleza -->
+                <div class="module-card reveal">
+                    <div class="module-label">Módulo I</div>
+                    <h3 class="module-title">Naturaleza de la Iglesia</h3>
+                    <p>La iglesia es <span class="em-accent">el cuerpo de Cristo</span>, una comunidad de creyentes llamados del mundo para formar una nueva sociedad bajo el señorío de Jesucristo. No es una institución humana, sino una <span class="em-accent">creación divina</span> con propósito eterno.</p>
+                    <div class="key-list-title">Definición Bíblica</div>
+                    <ul class="key-list">
+                        <li><strong>Ekklesia:</strong> Asamblea de llamados fuera del mundo</li>
+                        <li><strong>Cuerpo de Cristo:</strong> Organismo vivo con Cristo como cabeza</li>
+                        <li><strong>Familia de Dios:</strong> Relaciones basadas en parentesco espiritual</li>
+                        <li><strong>Templo del Espíritu:</strong> Morada corporativa de Dios</li>
+                    </ul>
                     <div class="verse-box">
                         <div class="verse-text">Y él es la cabeza del cuerpo que es la iglesia, él que es el principio, el primogénito de entre los muertos, para que en todo tenga la preeminencia.</div>
                         <div class="verse-ref">Colosenses 1:18</div>
                     </div>
                 </div>
-            </div>
 
-            <div class="module-card">
-                <div class="module-icon">🎯</div>
-                <h2 class="module-title">Propósito y Misión</h2>
-                <div class="module-content">
-                    <p>La iglesia existe para <span class="emphasis">glorificar a Dios</span> en múltiples dimensiones: hacia arriba en adoración, hacia adentro en edificación, y hacia afuera en evangelización y servicio.</p>
-                    
-                    <div class="key-points">
-                        <h4>Funciones Primarias</h4>
-                        <ul>
-                            <li><strong>Adoración:</strong> Exaltar y honrar a Dios corporativamente</li>
-                            <li><strong>Edificación:</strong> Fortalecer y madurar a los creyentes</li>
-                            <li><strong>Evangelización:</strong> Proclamar el evangelio al mundo</li>
-                            <li><strong>Servicio:</strong> Ministrar a las necesidades humanas</li>
-                            <li><strong>Comunión:</strong> Crear vínculos de amor fraternal</li>
-                        </ul>
-                    </div>
-
-                    <p>Cada función es <span class="emphasis">esencial y complementaria</span>. Una iglesia que descuida cualquiera de estas áreas pierde su equilibrio bíblico y su efectividad como instrumento de Dios.</p>
+                <!-- Propósito -->
+                <div class="module-card reveal">
+                    <div class="module-label">Módulo II</div>
+                    <h3 class="module-title">Propósito y Misión</h3>
+                    <p>La iglesia existe para <span class="em-accent">glorificar a Dios</span> en múltiples dimensiones: hacia arriba en adoración, hacia adentro en edificación, y hacia afuera en evangelización y servicio.</p>
+                    <div class="key-list-title">Funciones Primarias</div>
+                    <ul class="key-list">
+                        <li><strong>Adoración:</strong> Exaltar y honrar a Dios corporativamente</li>
+                        <li><strong>Edificación:</strong> Fortalecer y madurar a los creyentes</li>
+                        <li><strong>Evangelización:</strong> Proclamar el evangelio al mundo</li>
+                        <li><strong>Servicio:</strong> Ministrar a las necesidades humanas</li>
+                        <li><strong>Comunión:</strong> Crear vínculos de amor fraternal</li>
+                    </ul>
+                    <p>Cada función es <span class="em-accent">esencial y complementaria</span>. Una iglesia que descuida cualquiera de estas áreas pierde su equilibrio bíblico y su efectividad como instrumento de Dios.</p>
                 </div>
-            </div>
 
-            <div class="module-card">
-                <div class="module-icon">👥</div>
-                <h2 class="module-title">Membresía Bíblica</h2>
-                <div class="module-content">
-                    <p>La membresía en la iglesia local no es opcional sino <span class="emphasis">bíblicamente necesaria</span>. Representa el compromiso formal del creyente con una comunidad específica de fe.</p>
-                    
-                    <div class="key-points">
-                        <h4>Requisitos para Membresía</h4>
-                        <ul>
-                            <li><strong>Conversión Genuina:</strong> Testimonio claro de fe en Cristo</li>
-                            <li><strong>Bautismo:</strong> Obediencia al mandato de Cristo</li>
-                            <li><strong>Doctrina Sana:</strong> Aceptación de las verdades fundamentales</li>
-                            <li><strong>Carácter Cristiano:</strong> Evidencia del fruto del Espíritu</li>
-                            <li><strong>Compromiso:</strong> Voluntad de participar activamente</li>
-                        </ul>
-                    </div>
-
+                <!-- Membresía -->
+                <div class="module-card reveal">
+                    <div class="module-label">Módulo III</div>
+                    <h3 class="module-title">Membresía Bíblica</h3>
+                    <p>La membresía en la iglesia local no es opcional sino <span class="em-accent">bíblicamente necesaria</span>. Representa el compromiso formal del creyente con una comunidad específica de fe.</p>
+                    <div class="key-list-title">Requisitos para Membresía</div>
+                    <ul class="key-list">
+                        <li><strong>Conversión Genuina:</strong> Testimonio claro de fe en Cristo</li>
+                        <li><strong>Bautismo:</strong> Obediencia al mandato de Cristo</li>
+                        <li><strong>Doctrina Sana:</strong> Aceptación de las verdades fundamentales</li>
+                        <li><strong>Carácter Cristiano:</strong> Evidencia del fruto del Espíritu</li>
+                        <li><strong>Compromiso:</strong> Voluntad de participar activamente</li>
+                    </ul>
                     <div class="verse-box">
                         <div class="verse-text">Así que ya no sois extranjeros ni advenedizos, sino conciudadanos de los santos, y miembros de la familia de Dios.</div>
                         <div class="verse-ref">Efesios 2:19</div>
                     </div>
                 </div>
-            </div>
 
-            <div class="module-card">
-                <div class="module-icon">⚖️</div>
-                <h2 class="module-title">Gobierno de la Iglesia</h2>
-                <div class="module-content">
-                    <p>El <span class="emphasis">gobierno congregacional</span> es el modelo bíblico donde la autoridad final reside en la congregación reunida, bajo la autoridad suprema de Cristo y la guía de líderes calificados.</p>
-                    
-                    <div class="key-points">
-                        <h4>Principios del Gobierno</h4>
-                        <ul>
-                            <li><strong>Autoridad de Cristo:</strong> Jesús es la cabeza suprema</li>
-                            <li><strong>Autoridad de la Escritura:</strong> La Palabra como guía final</li>
-                            <li><strong>Decisiones Congregacionales:</strong> La iglesia reunida decide</li>
-                            <li><strong>Liderazgo Plural:</strong> Pastores y diáconos sirviendo juntos</li>
-                            <li><strong>Responsabilidad Mutua:</strong> Cada miembro es responsable</li>
-                        </ul>
-                    </div>
-
-                    <p>Este modelo protege contra el <span class="emphasis">autoritarismo</span> y el <span class="emphasis">democratismo secular</span>, manteniendo un equilibrio bíblico entre liderazgo y participación congregacional.</p>
+                <!-- Gobierno -->
+                <div class="module-card reveal">
+                    <div class="module-label">Módulo IV</div>
+                    <h3 class="module-title">Gobierno de la Iglesia</h3>
+                    <p>El <span class="em-accent">gobierno congregacional</span> es el modelo bíblico donde la autoridad final reside en la congregación reunida, bajo la autoridad suprema de Cristo y la guía de líderes calificados.</p>
+                    <div class="key-list-title">Principios del Gobierno</div>
+                    <ul class="key-list">
+                        <li><strong>Autoridad de Cristo:</strong> Jesús es la cabeza suprema</li>
+                        <li><strong>Autoridad de la Escritura:</strong> La Palabra como guía final</li>
+                        <li><strong>Decisiones Congregacionales:</strong> La iglesia reunida decide</li>
+                        <li><strong>Liderazgo Plural:</strong> Pastores y diáconos sirviendo juntos</li>
+                        <li><strong>Responsabilidad Mutua:</strong> Cada miembro es responsable</li>
+                    </ul>
+                    <p>Este modelo protege contra el <span class="em-accent">autoritarismo</span> y el <span class="em-accent">democratismo secular</span>, manteniendo un equilibrio bíblico entre liderazgo y participación congregacional.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="leadership-structure">
-            <h2>Estructura de Liderazgo Bíblico</h2>
-            
-            <div class="leadership-grid">
-                <div class="leadership-role">
-                    <h3>👨‍🏫 Pastores/Ancianos</h3>
-                    <p><strong>Función Principal:</strong> Enseñanza, predicación y supervisión espiritual del rebaño.</p>
-                    <p><strong>Qualificaciones:</strong> <span class="scripture-ref">1 Timoteo 3:1-7; Tito 1:5-9</span> - Madurez espiritual, aptitud para enseñar, buen testimonio.</p>
-                    <p><strong>Responsabilidades:</strong> Alimentar el rebaño con la Palabra, proteger contra falsa doctrina, ejercer disciplina amorosa, ser ejemplo del creyente.</p>
+    <!-- LIDERAZGO DARK -->
+    <section class="leadership-section">
+        <div class="container">
+            <h2 class="section-title reveal">Estructura de Liderazgo Bíblico</h2>
+            <div class="section-rule reveal"></div>
+            <div class="leadership-grid reveal">
+                <div class="role-card">
+                    <div class="role-title">Pastores / Ancianos</div>
+                    <div class="role-label">Función Principal</div>
+                    <p>Enseñanza, predicación y supervisión espiritual del rebaño.</p>
+                    <div class="role-label">Cualificaciones</div>
+                    <p><span class="scripture">1 Timoteo 3:1-7; Tito 1:5-9</span> — Madurez espiritual, aptitud para enseñar, buen testimonio.</p>
+                    <div class="role-label">Responsabilidades</div>
+                    <p>Alimentar el rebaño con la Palabra, proteger contra falsa doctrina, ejercer disciplina amorosa, ser ejemplo del creyente.</p>
                 </div>
-                
-                <div class="leadership-role">
-                    <h3>🤝 Diáconos</h3>
-                    <p><strong>Función Principal:</strong> Servicio práctico y administración para liberar a los pastores para el ministerio de la Palabra.</p>
-                    <p><strong>Qualificaciones:</strong> <span class="scripture-ref">1 Timoteo 3:8-13</span> - Carácter irreprensible, llenos del Espíritu, fieles en todo.</p>
-                    <p><strong>Responsabilidades:</strong> Cuidado de necesidades físicas, administración de recursos, apoyo a ministerios específicos.</p>
+                <div class="role-card">
+                    <div class="role-title">Diáconos</div>
+                    <div class="role-label">Función Principal</div>
+                    <p>Servicio práctico y administración para liberar a los pastores para el ministerio de la Palabra.</p>
+                    <div class="role-label">Cualificaciones</div>
+                    <p><span class="scripture">1 Timoteo 3:8-13</span> — Carácter irreprensible, llenos del Espíritu, fieles en todo.</p>
+                    <div class="role-label">Responsabilidades</div>
+                    <p>Cuidado de necesidades físicas, administración de recursos, apoyo a ministerios específicos.</p>
                 </div>
-                
-                <div class="leadership-role">
-                    <h3>👩‍🏫 Diaconisas</h3>
-                    <p><strong>Función Principal:</strong> Ministerio especializado hacia mujeres y familias, especialmente en áreas sensibles.</p>
-                    <p><strong>Qualificaciones:</strong> <span class="scripture-ref">1 Timoteo 3:11</span> - Dignidad, no calumniadoras, fieles en todo.</p>
-                    <p><strong>Responsabilidades:</strong> Discipulado de mujeres, cuidado pastoral femenino, ministerios de misericordia.</p>
+                <div class="role-card">
+                    <div class="role-title">Diaconisas</div>
+                    <div class="role-label">Función Principal</div>
+                    <p>Ministerio especializado hacia mujeres y familias, especialmente en áreas sensibles.</p>
+                    <div class="role-label">Cualificaciones</div>
+                    <p><span class="scripture">1 Timoteo 3:11</span> — Dignidad, no calumniadoras, fieles en todo.</p>
+                    <div class="role-label">Responsabilidades</div>
+                    <p>Discipulado de mujeres, cuidado pastoral femenino, ministerios de misericordia.</p>
                 </div>
-                
-                <div class="leadership-role">
-                    <h3>🎓 Maestros</h3>
-                    <p><strong>Función Principal:</strong> Educación sistemática en la doctrina cristiana y desarrollo de discípulos maduros.</p>
-                    <p><strong>Qualificaciones:</strong> Don de enseñanza, conocimiento sólido de la Escritura, habilidad comunicativa.</p>
-                    <p><strong>Responsabilidades:</strong> Escuela dominical, estudios bíblicos, entrenamiento de líderes, educación teológica.</p>
+                <div class="role-card">
+                    <div class="role-title">Maestros</div>
+                    <div class="role-label">Función Principal</div>
+                    <p>Educación sistemática en la doctrina cristiana y desarrollo de discípulos maduros.</p>
+                    <div class="role-label">Cualificaciones</div>
+                    <p>Don de enseñanza, conocimiento sólido de la Escritura, habilidad comunicativa.</p>
+                    <div class="role-label">Responsabilidades</div>
+                    <p>Escuela dominical, estudios bíblicos, entrenamiento de líderes, educación teológica.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="ordenanzas-section">
-            <h2>Las Ordenanzas de la Iglesia</h2>
-            
-            <div class="ordenanza-cards">
-                <div class="ordenanza-card">
-                    <h3>💧 El Bautismo</h3>
-                    
-                    <div class="ordenanza-details">
-                        <h4>Significado Simbólico</h4>
-                        <p>El bautismo representa la <span class="emphasis">identificación completa</span> del creyente con Cristo en su muerte, sepultura y resurrección. Es una declaración pública de fe y el primer acto de obediencia cristiana.</p>
-                        
-                        <h4>Método Bíblico</h4>
-                        <p><strong>Inmersión:</strong> El término griego "baptizo" significa sumergir completamente. La inmersión simboliza perfectamente la muerte al pecado y resurrección a nueva vida.</p>
-                        
-                        <h4>Candidatos Apropiados</h4>
-                        <p><strong>Creyentes Profesantes:</strong> Solo aquellos que han hecho una profesión creíble de fe en Cristo deben ser bautizados, precediendo siempre la conversión al bautismo.</p>
-                        
-                        <h4>Administración</h4>
-                        <p>Debe ser realizado por la autoridad de la iglesia local, generalmente por los pastores, como acto de incorporación a la membresía de la iglesia.</p>
-                    </div>
-
+    <!-- ORDENANZAS -->
+    <section class="ordenanzas-section">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Las Ordenanzas de la Iglesia</h2>
+                <div class="section-rule"></div>
+            </div>
+            <div class="ordenanzas-grid">
+                <!-- Bautismo -->
+                <div class="ordenanza-card reveal">
+                    <div class="ordenanza-label">Primera Ordenanza</div>
+                    <h3 class="ordenanza-title">El Bautismo</h3>
+                    <div class="ord-sub">Significado Simbólico</div>
+                    <p>El bautismo representa la <span class="em-accent">identificación completa</span> del creyente con Cristo en su muerte, sepultura y resurrección. Es una declaración pública de fe y el primer acto de obediencia cristiana.</p>
+                    <div class="ord-sub">Método Bíblico</div>
+                    <p><strong>Inmersión:</strong> El término griego "baptizo" significa sumergir completamente. La inmersión simboliza perfectamente la muerte al pecado y resurrección a nueva vida.</p>
+                    <div class="ord-sub">Candidatos Apropiados</div>
+                    <p><strong>Creyentes Profesantes:</strong> Solo aquellos que han hecho una profesión creíble de fe en Cristo deben ser bautizados, precediendo siempre la conversión al bautismo.</p>
+                    <div class="ord-sub">Administración</div>
+                    <p>Debe ser realizado por la autoridad de la iglesia local, generalmente por los pastores, como acto de incorporación a la membresía de la iglesia.</p>
                     <div class="verse-box">
                         <div class="verse-text">¿O no sabéis que todos los que hemos sido bautizados en Cristo Jesús, hemos sido bautizados en su muerte? Porque somos sepultados juntamente con él para muerte por el bautismo, a fin de que como Cristo resucitó de los muertos por la gloria del Padre, así también nosotros andemos en vida nueva.</div>
-                        <div class="verse-ref">Romanos 6:3-4</div>
+                        <div class="verse-ref">Romanos 6:3–4</div>
                     </div>
                 </div>
 
-                <div class="ordenanza-card">
-                    <h3>🍞 La Cena del Señor</h3>
-                    
-                    <div class="ordenanza-details">
-                        <h4>Significado Conmemorativo</h4>
-                        <p>La cena del Señor es un <span class="emphasis">memorial perpetuo</span> del sacrificio de Cristo. Los elementos simbolizan su cuerpo quebrantado y sangre derramada por nuestros pecados.</p>
-                        
-                        <h4>Frecuencia de Observancia</h4>
-                        <p><strong>Regular pero no Legalista:</strong> Debe observarse con frecuencia suficiente para mantener fresco el recuerdo de la obra de Cristo, pero sin convertirse en ritual vacío.</p>
-                        
-                        <h4>Participantes</h4>
-                        <p><strong>Creyentes Bautizados:</strong> Solo miembros de iglesias bíblicas en comunión fraternal deben participar, tras examen personal de conciencia.</p>
-                        
-                        <h4>Elementos y Simbolismo</h4>
-                        <p><strong>Pan:</strong> Representa el cuerpo de Cristo dado por nosotros<br>
-                        <strong>Vino/Jugo:</strong> Simboliza la sangre del nuevo pacto derramada por muchos</p>
-                        
-                        <h4>Auto-examen</h4>
-                        <p>Cada participante debe <span class="emphasis">examinarse a sí mismo</span> <span class="scripture-ref">(1 Corintios 11:28)</span>, confesando pecados conocidos y reconciliándose con hermanos ofendidos.</p>
-                    </div>
-
+                <!-- Cena -->
+                <div class="ordenanza-card reveal">
+                    <div class="ordenanza-label">Segunda Ordenanza</div>
+                    <h3 class="ordenanza-title">La Cena del Señor</h3>
+                    <div class="ord-sub">Significado Conmemorativo</div>
+                    <p>La cena del Señor es un <span class="em-accent">memorial perpetuo</span> del sacrificio de Cristo. Los elementos simbolizan su cuerpo quebrantado y sangre derramada por nuestros pecados.</p>
+                    <div class="ord-sub">Frecuencia de Observancia</div>
+                    <p><strong>Regular pero no Legalista:</strong> Debe observarse con frecuencia suficiente para mantener fresco el recuerdo de la obra de Cristo, pero sin convertirse en ritual vacío.</p>
+                    <div class="ord-sub">Participantes</div>
+                    <p><strong>Creyentes Bautizados:</strong> Solo miembros de iglesias bíblicas en comunión fraternal deben participar, tras examen personal de conciencia.</p>
+                    <div class="ord-sub">Elementos y Simbolismo</div>
+                    <p><strong>Pan:</strong> Representa el cuerpo de Cristo dado por nosotros<br>
+                    <strong>Vino/Jugo:</strong> Simboliza la sangre del nuevo pacto derramada por muchos</p>
+                    <div class="ord-sub">Auto-examen</div>
+                    <p>Cada participante debe <span class="em-accent">examinarse a sí mismo</span> <span class="scripture">(1 Corintios 11:28)</span>, confesando pecados conocidos y reconciliándose con hermanos ofendidos.</p>
                     <div class="verse-box">
                         <div class="verse-text">Y tomó el pan y dio gracias, y lo partió y les dio, diciendo: Esto es mi cuerpo, que por vosotros es dado; haced esto en memoria de mí. De igual manera, después que hubo cenado, tomó la copa, diciendo: Esta copa es el nuevo pacto en mi sangre, que por vosotros se derrama.</div>
-                        <div class="verse-ref">Lucas 22:19-20</div>
+                        <div class="verse-ref">Lucas 22:19–20</div>
                     </div>
                 </div>
 
-                <div class="ordenanza-card">
-                    <h3>🦶 El Lavatorio</h3>
-                    
-                    <div class="ordenanza-details">
-                        <h4>Significado Espiritual</h4>
-                        <p>El lavatorio de pies simboliza la <span class="emphasis">humildad y servicio mutuo</span> que debe caracterizar la vida cristiana. Representa la limpieza espiritual continua y el amor sacrificial entre hermanos.</p>
-                        
-                        <h4>Mandato de Cristo</h4>
-                        <p><strong>Ejemplo y Mandamiento:</strong> Jesús no solo dio ejemplo lavando los pies de sus discípulos, sino que explícitamente mandó: <span class="scripture-ref">"también vosotros debéis lavaros los pies los unos a los otros"</span> <span class="scripture-ref">(Juan 13:14)</span>.</p>
-                        
-                        <h4>Propósito del Lavatorio</h4>
-                        <p><strong>Humildad:</strong> Rompe barreras de orgullo y posición social<br>
-                        <strong>Servicio:</strong> Enseña el espíritu de servicio cristiano<br>
-                        <strong>Purificación:</strong> Simboliza la limpieza continua del pecado<br>
-                        <strong>Unidad:</strong> Fortalece los lazos de hermandad cristiana</p>
-                        
-                        <h4>Práctica en la Iglesia</h4>
-                        <p><strong>Frecuencia:</strong> Generalmente observado anualmente, a menudo en conexión con la Cena del Señor, especialmente durante la temporada de Pascua.</p>
-                        
-                        <h4>Participantes</h4>
-                        <p><strong>Creyentes Bautizados:</strong> Miembros de la iglesia en buena comunión que deseen participar voluntariamente en este acto de humildad y servicio mutuo.</p>
-                        
-                        <h4>Método de Observancia</h4>
-                        <p>Los hermanos se lavan los pies unos a otros por parejas, en un ambiente de oración y meditación, recordando el ejemplo de Cristo y renovando su compromiso de servirse mutuamente.</p>
-                    </div>
-
+                <!-- Lavatorio -->
+                <div class="ordenanza-card reveal">
+                    <div class="ordenanza-label">Tercera Ordenanza</div>
+                    <h3 class="ordenanza-title">El Lavatorio</h3>
+                    <div class="ord-sub">Significado Espiritual</div>
+                    <p>El lavatorio de pies simboliza la <span class="em-accent">humildad y servicio mutuo</span> que debe caracterizar la vida cristiana. Representa la limpieza espiritual continua y el amor sacrificial entre hermanos.</p>
+                    <div class="ord-sub">Mandato de Cristo</div>
+                    <p><strong>Ejemplo y Mandamiento:</strong> Jesús no solo dio ejemplo lavando los pies de sus discípulos, sino que explícitamente mandó: <span class="scripture">"también vosotros debéis lavaros los pies los unos a los otros"</span> <span class="scripture">(Juan 13:14)</span>.</p>
+                    <div class="ord-sub">Propósito del Lavatorio</div>
+                    <p><strong>Humildad:</strong> Rompe barreras de orgullo y posición social<br>
+                    <strong>Servicio:</strong> Enseña el espíritu de servicio cristiano<br>
+                    <strong>Purificación:</strong> Simboliza la limpieza continua del pecado<br>
+                    <strong>Unidad:</strong> Fortalece los lazos de hermandad cristiana</p>
+                    <div class="ord-sub">Práctica y Participantes</div>
+                    <p>Generalmente observado en conexión con la Cena del Señor. Los hermanos se lavan los pies unos a otros por parejas, en un ambiente de oración y meditación, recordando el ejemplo de Cristo.</p>
                     <div class="verse-box">
                         <div class="verse-text">Pues si yo, el Señor y el Maestro, he lavado vuestros pies, vosotros también debéis lavaros los pies los unos a los otros. Porque ejemplo os he dado, para que como yo os he hecho, vosotros también hagáis.</div>
-                        <div class="verse-ref">Juan 13:14-15</div>
+                        <div class="verse-ref">Juan 13:14–15</div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="disciplina-framework">
-            <h2>Marco Bíblico de Disciplina</h2>
-            
-            <p style="text-align: center; font-size: 1.2em; margin-bottom: 40px; position: relative; z-index: 1;">La disciplina de iglesia es un <span class="emphasis">acto de amor</span> diseñado para restaurar al hermano en pecado y mantener la pureza de la congregación. No es venganza sino medicina espiritual.</p>
-            
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h4>Confrontación Personal</h4>
+    <!-- DISCIPLINA -->
+    <section class="disciplina-section">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Marco Bíblico de Disciplina</h2>
+                <div class="section-rule"></div>
+                <p class="disciplina-intro">La disciplina de iglesia es un <span class="em-accent">acto de amor</span> diseñado para restaurar al hermano en pecado y mantener la pureza de la congregación. No es venganza sino medicina espiritual.</p>
+            </div>
+            <div class="steps-grid reveal">
+                <div class="step-card">
+                    <div class="step-num">I</div>
+                    <div class="step-title">Confrontación Personal</div>
                     <p>El ofendido va privadamente al hermano que peca para buscar reconciliación. Esta conversación debe ser amorosa, clara y específica sobre el problema.</p>
                 </div>
-                
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h4>Testigos Múltiples</h4>
+                <div class="step-card">
+                    <div class="step-num">II</div>
+                    <div class="step-title">Testigos Múltiples</div>
                     <p>Si no hay arrepentimiento, se lleva uno o dos testigos espirituales maduros para confirmar los hechos y buscar restauración.</p>
                 </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h4>Intervención de la Iglesia</h4>
+                <div class="step-card">
+                    <div class="step-num">III</div>
+                    <div class="step-title">Intervención de la Iglesia</div>
                     <p>Si persiste la impenitencia, el asunto se presenta a la congregación para exhortación colectiva y oración por el hermano descarriado.</p>
                 </div>
-                
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h4>Exclusión Restaurativa</h4>
+                <div class="step-card">
+                    <div class="step-num">IV</div>
+                    <div class="step-title">Exclusión Restaurativa</div>
                     <p>Como último recurso, se retira la comunión hasta que haya evidencia genuina de arrepentimiento y cambio de conducta.</p>
                 </div>
             </div>
-
-            <div class="verse-box">
+            <div class="disciplina-verse reveal">
                 <div class="verse-text">Por tanto, si tu hermano peca contra ti, ve y repréndele estando tú y él solos; si te oyere, has ganado a tu hermano. Mas si no te oyere, toma aún contigo a uno o dos, para que en boca de dos o tres testigos conste toda palabra.</div>
-                <div class="verse-ref">Mateo 18:15-16</div>
+                <div class="verse-ref">Mateo 18:15–16</div>
             </div>
         </div>
+    </section>
 
-        <div class="preguntas-practicas">
-            <h2>Preguntas de Aplicación Práctica</h2>
-            
-            <div class="pregunta-practica">
-                <span class="pregunta-icono">?</span>
-                <div class="pregunta-categoria">Pregunta de Membresía:</div>
-                <div class="pregunta-texto">¿Cómo debe una iglesia local evaluar la autenticidad de la conversión de un candidato a membresía? ¿Qué evidencias específicas deben buscarse antes del bautismo?</div>
+    <!-- PREGUNTAS -->
+    <section class="preguntas-section">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Preguntas de Aplicación Práctica</h2>
+                <div class="section-rule"></div>
             </div>
-
-            <div class="pregunta-practica">
-                <span class="pregunta-icono">?</span>
-                <div class="pregunta-categoria">Pregunta de Liderazgo:</div>
-                <div class="pregunta-texto">¿Cuál es la diferencia práctica entre las funciones de pastores y diáconos? ¿Cómo deben trabajar juntos sin invasión de responsabilidades?</div>
-            </div>
-
-            <div class="pregunta-practica">
-                <span class="pregunta-icono">?</span>
-                <div class="pregunta-categoria">Pregunta de Gobierno:</div>
-                <div class="pregunta-texto">¿Cómo equilibra el gobierno congregacional la autoridad pastoral con la participación democrática? ¿En qué decisiones debe participar toda la congregación?</div>
-            </div>
-
-            <div class="pregunta-practica">
-                <span class="pregunta-icono">?</span>
-                <div class="pregunta-categoria">Pregunta de Disciplina:</div>
-                <div class="pregunta-texto">¿Qué tipos de pecado requieren disciplina de iglesia? ¿Cómo distinguir entre faltas menores y pecados que ameritan el proceso disciplinario completo?</div>
-            </div>
-
-            <div class="pregunta-practica">
-                <span class="pregunta-icono">?</span>
-                <div class="pregunta-categoria">Pregunta de Ordenanzas:</div>
-                <div class="pregunta-texto">¿Con qué frecuencia deben observarse las tres ordenanzas (bautismo, cena del Señor, lavatorio)? ¿Qué preparación específica deben hacer los creyentes antes de participar en cada una?</div>
-            </div>
-
-            <div class="pregunta-practica">
-                <span class="pregunta-icono">?</span>
-                <div class="pregunta-categoria">Pregunta de Misión:</div>
-                <div class="pregunta-texto">¿Cómo puede una iglesia local mantener el equilibrio entre crecimiento interno (edificación) y expansión externa (evangelización)? ¿Cuáles son los indicadores de salud iglesia?</div>
+            <div class="preguntas-list">
+                <div class="pregunta-item reveal">
+                    <div class="pregunta-num"><span>1</span></div>
+                    <div>
+                        <div class="pregunta-tipo">Pregunta de Membresía</div>
+                        <div class="pregunta-texto">¿Cómo debe una iglesia local evaluar la autenticidad de la conversión de un candidato a membresía? ¿Qué evidencias específicas deben buscarse antes del bautismo?</div>
+                    </div>
+                </div>
+                <div class="pregunta-item reveal">
+                    <div class="pregunta-num"><span>2</span></div>
+                    <div>
+                        <div class="pregunta-tipo">Pregunta de Liderazgo</div>
+                        <div class="pregunta-texto">¿Cuál es la diferencia práctica entre las funciones de pastores y diáconos? ¿Cómo deben trabajar juntos sin invasión de responsabilidades?</div>
+                    </div>
+                </div>
+                <div class="pregunta-item reveal">
+                    <div class="pregunta-num"><span>3</span></div>
+                    <div>
+                        <div class="pregunta-tipo">Pregunta de Gobierno</div>
+                        <div class="pregunta-texto">¿Cómo equilibra el gobierno congregacional la autoridad pastoral con la participación democrática? ¿En qué decisiones debe participar toda la congregación?</div>
+                    </div>
+                </div>
+                <div class="pregunta-item reveal">
+                    <div class="pregunta-num"><span>4</span></div>
+                    <div>
+                        <div class="pregunta-tipo">Pregunta de Disciplina</div>
+                        <div class="pregunta-texto">¿Qué tipos de pecado requieren disciplina de iglesia? ¿Cómo distinguir entre faltas menores y pecados que ameritan el proceso disciplinario completo?</div>
+                    </div>
+                </div>
+                <div class="pregunta-item reveal">
+                    <div class="pregunta-num"><span>5</span></div>
+                    <div>
+                        <div class="pregunta-tipo">Pregunta de Ordenanzas</div>
+                        <div class="pregunta-texto">¿Con qué frecuencia deben observarse las tres ordenanzas (bautismo, cena del Señor, lavatorio)? ¿Qué preparación específica deben hacer los creyentes antes de participar en cada una?</div>
+                    </div>
+                </div>
+                <div class="pregunta-item reveal">
+                    <div class="pregunta-num"><span>6</span></div>
+                    <div>
+                        <div class="pregunta-tipo">Pregunta de Misión</div>
+                        <div class="pregunta-texto">¿Cómo puede una iglesia local mantener el equilibrio entre crecimiento interno (edificación) y expansión externa (evangelización)? ¿Cuáles son los indicadores de salud de la iglesia?</div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="vision-final">
-            <h2>La Iglesia como Comunidad Transformadora</h2>
-            
-            <p>La iglesia local no es simplemente una <span class="emphasis">organización religiosa</span>, sino una <span class="emphasis">familia espiritual</span> donde los creyentes crecen juntos en santidad, se apoyan mutuamente en las dificultades, y trabajan unidos para expandir el Reino de Dios.</p>
+    <!-- CONCLUSION DARK -->
+    <section class="conclusion-section">
+        <div class="container">
+            <div class="conclusion-inner reveal">
+                <h2 class="section-title">La Iglesia como Comunidad Transformadora</h2>
+                <div class="section-rule"></div>
+                <p>La iglesia local no es simplemente una <span style="color:var(--accent-mid);">organización religiosa</span>, sino una <span style="color:var(--accent-mid);">familia espiritual</span> donde los creyentes crecen juntos en santidad, se apoyan mutuamente en las dificultades, y trabajan unidos para expandir el Reino de Dios.</p>
+                <p>Cuando funciona según el diseño bíblico, la iglesia se convierte en un <span style="color:var(--accent-mid);">testimonio poderoso</span> del evangelio ante el mundo, demostrando que el amor de Dios puede transformar corazones y crear comunidades de esperanza y restauración.</p>
 
-            <p>Cuando funciona según el diseño bíblico, la iglesia se convierte en un <span class="emphasis">testimonio poderoso</span> del evangelio ante el mundo, demostrando que el amor de Dios puede transformar corazones y crear comunidades de esperanza y restauración.</p>
+                <div class="pull-quote">
+                    <div class="pull-text">En esto conocerán todos que sois mis discípulos, si tuviereis amor los unos con los otros.</div>
+                    <div class="pull-ref">Juan 13:35</div>
+                </div>
 
-            <div class="verse-box">
-                <div class="verse-text">En esto conocerán todos que sois mis discípulos, si tuviereis amor los unos con los otros.</div>
-                <div class="verse-ref">Juan 13:35</div>
+                <p>El llamado para cada miembro es a <span style="color:var(--accent-mid);">participar activamente</span> en esta misión, usando sus dones para edificar el cuerpo, sostener a los débiles, y alcanzar a los perdidos con el mensaje transformador del evangelio de Cristo.</p>
             </div>
-
-            <p>El llamado para cada miembro es a <span class="emphasis">participar activamente</span> en esta misión, usando sus dones para edificar el cuerpo, sostener a los débiles, y alcanzar a los perdidos con el mensaje transformador del evangelio de Cristo.</p>
         </div>
-    </div>
+    </section>
+
+    <!-- STUDY NAV -->
+    <nav class="study-nav">
+        <div class="study-nav-inner">
+            <a href="teologia-pactos.html" class="nav-prev">
+                <div>
+                    <div class="nav-label">← Anterior</div>
+                    <div class="nav-title">Teología de Pactos</div>
+                </div>
+            </a>
+            <div class="nav-center">
+                <a href="../doctrina-intermedia.html">Doctrina Intermedia</a>
+            </div>
+            <a href="soteriologia-avanzada.html" class="nav-next">
+                <div style="text-align:right;">
+                    <div class="nav-label">Siguiente →</div>
+                    <div class="nav-title">Soteriología Avanzada</div>
+                </div>
+            </a>
+        </div>
+    </nav>
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
 </body>
 </html>
