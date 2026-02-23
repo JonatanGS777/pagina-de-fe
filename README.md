@@ -165,6 +165,7 @@ Página de Fe/
 | `page/Estudios Bíblicos/estudios/cristologia-profunda.html` | Completado — crimson `#7a1528` |
 | `page/Estudios Bíblicos/estudios/teologia-pactos.html` | Completado — moss olive `#293d1a` |
 | `page/Estudios Bíblicos/estudios/eclesiologia-practica.html` | Completado — port wine `#4a1640` |
+| `page/Estudios Bíblicos/estudios/soteriologia-avanzada.html` | Completado — slate indigo `#1e2858` |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
@@ -176,9 +177,6 @@ Página de Fe/
 - [ ] `estudios/etica-cristiana.html`
 - [ ] `estudios/examen.html`
 - [ ] `estudios/ministerio-pastoral.html`
-- [ ] `estudios/pneumatologia-avanzada.html`
-- [ ] `estudios/soteriologia-avanzada.html`
-- [ ] `estudios/teologia-pactos.html`
 - [ ] `estudios/teologia-sabiduria.html`
 
 #### `page/Estudios Exegéticos/`

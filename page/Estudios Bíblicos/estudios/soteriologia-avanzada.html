@@ -3,792 +3,644 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soteriología Avanzada - Doctrina de Salvación</title>
+    <title>Soteriología Avanzada — Página de Fe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --ink: #1a1410;
+            --gold: #b89a5f;
+            --parchment: #f7f4ed;
+            --parchment-dk: #ece8df;
+            --dark: #0e0c0a;
+            --accent: #1e2858;
+            --accent-mid: #3d5a9e;
+            --accent-pale: rgba(30,40,88,0.07);
+            --hero-grad: linear-gradient(160deg, #0e0c0a 0%, #0a0d18 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body::before {
+            content: '';
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 9999; opacity: 0.35;
         }
 
         body {
-            font-family: 'Charter', 'Georgia', serif;
-            background: #0a0e1a;
-            color: #e2e8f0;
-            overflow-x: auto;
-            min-height: 100vh;
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            background: var(--parchment);
+            color: var(--ink);
+            overflow-x: hidden;
         }
 
-        .cosmos-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, #1e293b 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, #374151 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, #1f2937 0%, transparent 50%),
-                linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #374151 100%);
-            z-index: -2;
+        /* ─── HEADER ─── */
+        header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(14,12,10,0.97);
+            border-bottom: 1px solid rgba(184,154,95,0.22);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
-
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+        .header-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 2rem; height: 64px;
         }
-
-        .star {
-            position: absolute;
-            background: #fbbf24;
-            border-radius: 50%;
-            animation: twinkle 3s infinite alternate;
+        .site-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 1.25rem;
+            color: var(--gold); text-decoration: none;
+            letter-spacing: 0.03em;
         }
-
-        .star:nth-child(1) { width: 2px; height: 2px; top: 20%; left: 10%; animation-delay: 0s; }
-        .star:nth-child(2) { width: 1px; height: 1px; top: 60%; left: 20%; animation-delay: 1s; }
-        .star:nth-child(3) { width: 3px; height: 3px; top: 30%; left: 70%; animation-delay: 0.5s; }
-        .star:nth-child(4) { width: 1px; height: 1px; top: 80%; left: 40%; animation-delay: 1.5s; }
-        .star:nth-child(5) { width: 2px; height: 2px; top: 50%; left: 90%; animation-delay: 0.8s; }
-        .star:nth-child(6) { width: 1px; height: 1px; top: 10%; left: 50%; animation-delay: 2s; }
-        .star:nth-child(7) { width: 2px; height: 2px; top: 70%; left: 80%; animation-delay: 0.3s; }
-        .star:nth-child(8) { width: 1px; height: 1px; top: 40%; left: 30%; animation-delay: 1.2s; }
-
-        @keyframes twinkle {
-            0% { opacity: 0.3; transform: scale(1); }
-            100% { opacity: 1; transform: scale(1.2); }
+        nav { display: flex; gap: 2rem; align-items: center; }
+        nav a {
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; color: rgba(247,244,237,0.65);
+            text-decoration: none; transition: color 0.2s;
         }
+        nav a:hover { color: var(--gold); }
 
-        .manuscript-container {
-            max-width: 1800px;
-            margin: 0 auto;
-            padding: 40px;
-            position: relative;
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 88vh; display: flex; align-items: center;
+            background: var(--hero-grad);
+            position: relative; overflow: hidden;
+            padding-top: 64px;
         }
-
-        .scroll-header {
-            background: 
-                linear-gradient(45deg, #f4f3f0 0%, #e8e5e0 25%, #d4c5a9 50%, #e8e5e0 75%, #f4f3f0 100%);
-            color: #2d1810;
-            padding: 60px 40px;
-            border-radius: 40px 40px 20px 20px;
-            margin-bottom: 0;
-            text-align: center;
-            position: relative;
-            box-shadow: 
-                inset 0 5px 15px rgba(212, 197, 169, 0.4),
-                0 10px 30px rgba(0,0,0,0.3);
-            border: 3px solid #d4c5a9;
-        }
-
-        .scroll-header::before {
+        .hero::before {
             content: '';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            right: 20px;
-            height: 20px;
-            background: linear-gradient(90deg, #c4a574, #d4c5a9, #c4a574);
-            border-radius: 20px 20px 0 0;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .scroll-header::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            right: 0;
-            height: 10px;
-            background: linear-gradient(90deg, transparent, #c4a574 20%, #d4c5a9 50%, #c4a574 80%, transparent);
-            border-radius: 0 0 10px 10px;
-        }
-
-        .title-main {
-            font-size: 4.5em;
-            font-weight: 900;
-            margin-bottom: 15px;
-            color: #8b4513;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            letter-spacing: -2px;
-        }
-
-        .subtitle-main {
-            font-size: 1.8em;
-            color: #a0522d;
-            font-weight: 400;
-            letter-spacing: 8px;
-            margin-bottom: 20px;
-        }
-
-        .description-main {
-            font-size: 1.4em;
-            color: #654321;
-            max-width: 800px;
-            margin: 0 auto 25px auto;
-            line-height: 1.7;
-            font-style: italic;
-        }
-
-        .keywords-main {
-            font-size: 1.3em;
-            color: #8b4513;
-            font-weight: 700;
-            letter-spacing: 4px;
-        }
-
-        .theological-map {
-            background: 
-                radial-gradient(circle at center, #1e293b 0%, #0f172a 70%);
-            border-radius: 0 0 40px 40px;
-            padding: 80px 40px;
-            position: relative;
-            min-height: 1200px;
-            border: 3px solid #374151;
-            border-top: none;
-        }
-
-        .map-title {
-            text-align: center;
-            font-size: 3em;
-            color: #fbbf24;
-            margin-bottom: 60px;
-            font-weight: 800;
-            text-shadow: 0 0 20px #fbbf24;
-            letter-spacing: 2px;
-        }
-
-        .ordo-salutis {
-            position: relative;
-            width: 100%;
-            height: 1000px;
-        }
-
-        .connection-lines {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .connection-line {
-            position: absolute;
-            background: linear-gradient(45deg, #fbbf24, #f59e0b, #fbbf24);
-            height: 3px;
-            border-radius: 2px;
-            box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
-            animation: pulse-line 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes pulse-line {
-            0% { opacity: 0.6; box-shadow: 0 0 10px rgba(251, 191, 36, 0.5); }
-            100% { opacity: 1; box-shadow: 0 0 20px rgba(251, 191, 36, 0.8); }
-        }
-
-        .doctrine-node {
-            position: absolute;
-            width: 280px;
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 
-                0 10px 30px rgba(30, 64, 175, 0.4),
-                inset 0 1px 0 rgba(255,255,255,0.2);
-            border: 2px solid #60a5fa;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 2;
-            cursor: pointer;
-        }
-
-        .doctrine-node:hover {
-            transform: scale(1.1) rotate(2deg);
-            box-shadow: 
-                0 20px 50px rgba(30, 64, 175, 0.6),
-                0 0 30px rgba(96, 165, 250, 0.8);
-            z-index: 10;
-        }
-
-        .doctrine-node.eternal { 
-            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
-            border-color: #c084fc;
-            top: 50px; 
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .doctrine-node.eternal:hover {
-            box-shadow: 
-                0 20px 50px rgba(124, 58, 237, 0.6),
-                0 0 30px rgba(192, 132, 252, 0.8);
-        }
-
-        .doctrine-node.temporal-start { 
-            background: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%);
-            border-color: #f87171;
-            top: 250px; 
-            left: 10%;
-        }
-
-        .doctrine-node.temporal-start:hover {
-            box-shadow: 
-                0 20px 50px rgba(220, 38, 38, 0.6),
-                0 0 30px rgba(248, 113, 113, 0.8);
-        }
-
-        .doctrine-node.regenerative { 
-            background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
-            border-color: #34d399;
-            top: 250px; 
-            right: 10%;
-        }
-
-        .doctrine-node.regenerative:hover {
-            box-shadow: 
-                0 20px 50px rgba(5, 150, 105, 0.6),
-                0 0 30px rgba(52, 211, 153, 0.8);
-        }
-
-        .doctrine-node.judicial { 
-            background: linear-gradient(135deg, #d97706 0%, #f59e0b 50%, #fbbf24 100%);
-            border-color: #fbbf24;
-            top: 450px; 
-            left: 20%;
-        }
-
-        .doctrine-node.judicial:hover {
-            box-shadow: 
-                0 20px 50px rgba(217, 119, 6, 0.6),
-                0 0 30px rgba(251, 191, 36, 0.8);
-        }
-
-        .doctrine-node.familial { 
-            background: linear-gradient(135deg, #be185d 0%, #ec4899 50%, #f472b6 100%);
-            border-color: #f472b6;
-            top: 450px; 
-            right: 20%;
-        }
-
-        .doctrine-node.familial:hover {
-            box-shadow: 
-                0 20px 50px rgba(190, 24, 93, 0.6),
-                0 0 30px rgba(244, 114, 182, 0.8);
-        }
-
-        .doctrine-node.progressive { 
-            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 50%, #67e8f9 100%);
-            border-color: #67e8f9;
-            top: 650px; 
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .doctrine-node.progressive:hover {
-            box-shadow: 
-                0 20px 50px rgba(8, 145, 178, 0.6),
-                0 0 30px rgba(103, 232, 249, 0.8);
-        }
-
-        .doctrine-node.eschatological { 
-            background: linear-gradient(135deg, #7c2d12 0%, #ea580c 50%, #fb923c 100%);
-            border-color: #fb923c;
-            top: 850px; 
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .doctrine-node.eschatological:hover {
-            box-shadow: 
-                0 20px 50px rgba(124, 45, 18, 0.6),
-                0 0 30px rgba(251, 146, 60, 0.8);
-        }
-
-        .node-title {
-            font-size: 1.5em;
-            font-weight: 700;
-            margin-bottom: 15px;
-            text-align: center;
-            color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .node-content {
-            font-size: 0.95em;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.9);
-            text-align: center;
-        }
-
-        .node-verse {
-            font-style: italic;
-            font-size: 0.85em;
-            margin-top: 10px;
-            opacity: 0.8;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding-top: 10px;
-        }
-
-        .detailed-analysis {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 40px;
-            margin: 80px 0;
-        }
-
-        .analysis-panel {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            border-radius: 25px;
-            padding: 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border: 2px solid #cbd5e1;
-            color: #1e293b;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .analysis-panel::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b);
-            background-size: 300% 100%;
-            animation: rainbow-flow 4s ease infinite;
-        }
-
-        @keyframes rainbow-flow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .analysis-title {
-            font-size: 2.2em;
-            font-weight: 700;
-            margin-bottom: 25px;
-            color: #1e293b;
-            text-align: center;
-        }
-
-        .analysis-content {
-            font-size: 1.1em;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        .theological-insight {
-            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid #f59e0b;
-            margin: 20px 0;
-            font-style: italic;
-        }
-
-        .controversy-box {
-            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
-            padding: 25px;
-            border-radius: 15px;
-            border: 2px solid #f87171;
-            margin: 30px 0;
-        }
-
-        .controversy-title {
-            color: #dc2626;
-            font-size: 1.3em;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .positions-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .position {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #dc2626;
-        }
-
-        .position h4 {
-            color: #991b1b;
-            font-size: 1.1em;
-            margin-bottom: 8px;
-        }
-
-        .interactive-questions {
-            background: radial-gradient(circle at center, #312e81 0%, #1e1b4b 100%);
-            border-radius: 30px;
-            padding: 60px;
-            margin: 60px 0;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .interactive-questions::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 30% 30%, rgba(167, 139, 250, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 70% 70%, rgba(139, 92, 246, 0.2) 0%, transparent 50%);
+            position: absolute; top: -20%; left: -20%; width: 140%; height: 140%;
+            background: radial-gradient(ellipse 60% 50% at 50% 55%, rgba(30,40,88,0.30) 0%, transparent 70%);
             pointer-events: none;
         }
-
-        .questions-title {
-            font-size: 3em;
-            text-align: center;
-            margin-bottom: 50px;
-            color: #a78bfa;
-            font-weight: 800;
-            position: relative;
-            z-index: 1;
+        .hero-inner {
+            max-width: 1200px; margin: 0 auto;
+            padding: 5rem 2rem 4rem;
+            position: relative; z-index: 1;
+        }
+        .hero-eyebrow {
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--gold);
+            margin-bottom: 1.5rem; opacity: 0;
+            animation: fadeUp 0.7s ease forwards;
+        }
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 700; line-height: 1.05;
+            color: #f7f4ed; letter-spacing: -0.01em;
+            margin-bottom: 1.25rem;
+            opacity: 0; animation: fadeUp 0.7s 0.15s ease forwards;
+        }
+        .hero-rule {
+            width: 3rem; height: 1px; background: var(--gold);
+            margin: 1.5rem 0;
+            opacity: 0; animation: fadeUp 0.7s 0.3s ease forwards;
+        }
+        .hero-sub {
+            font-size: 1.1rem; font-weight: 300; line-height: 1.75;
+            color: rgba(247,244,237,0.72); max-width: 580px;
+            margin-bottom: 2rem;
+            opacity: 0; animation: fadeUp 0.7s 0.45s ease forwards;
+        }
+        .hero-tags {
+            display: flex; gap: 0.75rem; flex-wrap: wrap;
+            opacity: 0; animation: fadeUp 0.7s 0.6s ease forwards;
+        }
+        .hero-tag {
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em;
+            text-transform: uppercase; color: rgba(247,244,237,0.5);
+            border: 1px solid rgba(184,154,95,0.3); padding: 0.4rem 0.9rem;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
-        .question-constellation {
+        /* ─── INTRO QUOTE ─── */
+        .intro-quote {
+            background: var(--parchment-dk);
+            border-left: 3px solid var(--accent);
+            padding: 2.5rem 3rem;
+        }
+        .intro-quote blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 1.45rem;
+            line-height: 1.65; color: var(--ink);
+            max-width: 860px;
+        }
+        .intro-quote cite {
+            display: block; margin-top: 1rem;
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--accent-mid);
+        }
+
+        /* ─── SECTION WRAPPERS ─── */
+        .section-dk  { background: var(--ink);        padding: 5rem 0; }
+        .section-light { background: var(--parchment); padding: 5rem 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        .section-label {
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 2.6rem; font-weight: 700;
+            line-height: 1.15; color: var(--ink); margin-bottom: 1rem;
+        }
+        .section-title.light { color: #f7f4ed; }
+        .section-rule {
+            width: 2.5rem; height: 1px;
+            background: var(--accent); margin-bottom: 3rem;
+        }
+        .section-rule.gold { background: var(--gold); }
+
+        /* ─── ORDO SALUTIS ─── */
+        .ordo-track {
+            position: relative;
+            max-width: 740px; margin: 0 auto;
+        }
+        .ordo-track::before {
+            content: '';
+            position: absolute; left: 2.5rem; top: 0; bottom: 0;
+            width: 1px; background: rgba(61,90,158,0.22);
+        }
+        .ordo-step {
+            display: flex; gap: 2rem; align-items: flex-start;
+            padding: 2.5rem 0;
+            border-bottom: 1px solid rgba(247,244,237,0.05);
+            position: relative;
+        }
+        .ordo-step:last-child { border-bottom: none; }
+        .ordo-num {
+            flex: 0 0 5rem; text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 3.2rem; font-weight: 700;
+            color: rgba(61,90,158,0.38); line-height: 1;
+            padding-top: 0.2rem; position: relative; z-index: 1;
+        }
+        .ordo-dot {
+            position: absolute; left: 2.5rem; top: 3rem;
+            width: 9px; height: 9px; border-radius: 50%;
+            background: var(--accent-mid);
+            transform: translateX(-50%);
+            border: 2px solid var(--ink); z-index: 2;
+        }
+        .ordo-body { flex: 1; }
+        .ordo-name {
+            font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em;
+            text-transform: uppercase; color: var(--gold);
+            margin-bottom: 0.4rem;
+        }
+        .ordo-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 1.65rem; font-weight: 700;
+            color: #f7f4ed; margin-bottom: 0.7rem;
+        }
+        .ordo-desc {
+            font-size: 0.9rem; line-height: 1.74;
+            color: rgba(247,244,237,0.62); margin-bottom: 0.9rem;
+        }
+        .ordo-verse {
+            font-size: 0.78rem; font-style: italic;
+            color: rgba(140,170,230,0.88);
+            border-left: 2px solid rgba(61,90,158,0.35);
+            padding-left: 0.75rem;
+        }
+
+        /* ─── ANALYSIS PANELS ─── */
+        .analysis-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
-            position: relative;
-            z-index: 1;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+        }
+        .analysis-card {
+            background: #fff;
+            border-top: 3px solid var(--accent);
+            padding: 2.75rem;
+        }
+        .analysis-card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 1.55rem; font-weight: 700;
+            color: var(--ink); margin-bottom: 1.25rem;
+        }
+        .analysis-card p {
+            font-size: 0.9rem; line-height: 1.78;
+            color: rgba(26,20,16,0.75); margin-bottom: 1rem;
+        }
+        .analysis-card p:last-child { margin-bottom: 0; }
+        em { font-style: italic; color: var(--ink); }
+        .ref { color: var(--accent-mid); font-style: italic; }
+
+        /* Insight box */
+        .insight-box {
+            background: var(--parchment-dk);
+            border-left: 2px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            margin: 1.25rem 0;
+            font-size: 0.85rem; line-height: 1.72;
+            color: rgba(26,20,16,0.72);
+        }
+        .insight-box strong {
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--accent);
+            display: block; margin-bottom: 0.4rem;
         }
 
-        .question-star {
-            background: rgba(255,255,255,0.1);
-            border-radius: 20px;
-            padding: 30px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(167, 139, 250, 0.3);
-            transition: all 0.3s ease;
-            position: relative;
+        /* Controversy box */
+        .controversy-box {
+            background: rgba(26,20,16,0.04);
+            border: 1px solid rgba(26,20,16,0.1);
+            border-top: 2px solid var(--ink);
+            padding: 1.5rem;
+            margin: 1.25rem 0;
+        }
+        .controversy-label {
+            font-size: 0.62rem; font-weight: 700; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--ink);
+            margin-bottom: 1rem;
+        }
+        .positions-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+        }
+        .position-card {
+            background: #fff;
+            border-left: 2px solid var(--accent);
+            padding: 1rem 1.25rem;
+            font-size: 0.84rem; line-height: 1.65;
+            color: rgba(26,20,16,0.75);
+        }
+        .position-card h4 {
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--accent);
+            margin-bottom: 0.5rem;
         }
 
-        .question-star:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(167, 139, 250, 0.3);
+        /* ─── QUESTIONS ─── */
+        .questions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5px;
+            margin-top: 3rem;
         }
-
-        .question-star::before {
-            content: '★';
-            position: absolute;
-            top: -10px;
-            right: 20px;
-            font-size: 2em;
-            color: #fbbf24;
-            text-shadow: 0 0 10px #fbbf24;
+        .question-card {
+            background: rgba(247,244,237,0.04);
+            padding: 2rem 1.75rem;
+            border-top: 1px solid rgba(184,154,95,0.14);
         }
-
-        .question-category {
-            color: #c084fc;
-            font-size: 1.2em;
-            font-weight: 600;
-            margin-bottom: 15px;
+        .question-type {
+            font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--gold);
+            margin-bottom: 0.75rem;
         }
-
         .question-text {
-            color: #e2e8f0;
-            font-size: 1.05em;
-            line-height: 1.7;
+            font-size: 0.88rem; line-height: 1.72;
+            color: rgba(247,244,237,0.62);
+        }
+        .question-text .ref { color: rgba(140,170,230,0.8); }
+
+        /* ─── SYNTHESIS / CONCLUSION ─── */
+        .synthesis-text {
+            font-size: 0.95rem; line-height: 1.88;
+            color: rgba(247,244,237,0.6);
+            max-width: 820px; margin: 0 auto 4rem; text-align: center;
+        }
+        .conclusion-inner {
+            max-width: 740px; margin: 0 auto; text-align: center;
+        }
+        .conclusion-divider {
+            width: 2.5rem; height: 1px; background: var(--gold);
+            margin: 0 auto 2rem;
+        }
+        .conclusion-label {
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em;
+            text-transform: uppercase; color: rgba(184,154,95,0.6);
+            margin-bottom: 1.5rem;
+        }
+        .conclusion-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 1.95rem; font-weight: 600;
+            line-height: 1.5; color: #f7f4ed; margin-bottom: 1.25rem;
+        }
+        .conclusion-ref {
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--gold);
         }
 
-        .synthesis-scroll {
-            background: 
-                linear-gradient(45deg, #f4f3f0 0%, #e8e5e0 25%, #d4c5a9 50%, #e8e5e0 75%, #f4f3f0 100%);
-            color: #2d1810;
-            padding: 60px 40px;
-            border-radius: 40px;
-            margin: 60px 0;
-            text-align: center;
-            position: relative;
-            box-shadow: 
-                inset 0 5px 15px rgba(212, 197, 169, 0.4),
-                0 15px 40px rgba(0,0,0,0.2);
-            border: 3px solid #d4c5a9;
+        /* ─── NAV STRIP ─── */
+        .nav-strip {
+            background: var(--ink);
+            border-top: 1px solid rgba(184,154,95,0.12);
+            padding: 1.75rem 0;
+        }
+        .nav-strip-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-link {
+            font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; color: rgba(247,244,237,0.4);
+            text-decoration: none; transition: color 0.2s;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .nav-link:hover { color: var(--gold); }
+        .nav-center {
+            font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em;
+            text-transform: uppercase; color: rgba(184,154,95,0.45);
         }
 
-        .synthesis-title {
-            font-size: 3em;
-            margin-bottom: 30px;
-            color: #8b4513;
-            font-weight: 800;
-        }
+        /* ─── REVEAL ─── */
+        .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        .synthesis-content {
-            font-size: 1.3em;
-            line-height: 1.8;
-            max-width: 1000px;
-            margin: 0 auto;
-            color: #654321;
-        }
-
-        .emphasis {
-            color: #8b4513;
-            font-weight: 700;
-        }
-
-        .scripture-ref {
-            color: #a0522d;
-            font-style: italic;
-            font-weight: 600;
-        }
-
+        /* ─── RESPONSIVE ─── */
         @media (max-width: 768px) {
-            .ordo-salutis {
-                height: auto;
-                padding-bottom: 50px;
-            }
-            
-            .doctrine-node {
-                position: relative !important;
-                top: auto !important;
-                left: auto !important;
-                right: auto !important;
-                transform: none !important;
-                margin: 20px auto;
-                display: block;
-            }
-            
-            .connection-lines {
-                display: none;
-            }
-            
-            .detailed-analysis {
-                grid-template-columns: 1fr;
-            }
-            
-            .question-constellation {
-                grid-template-columns: 1fr;
-            }
-            
-            .positions-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .title-main {
-                font-size: 3em;
-            }
+            .analysis-grid    { grid-template-columns: 1fr; }
+            .questions-grid   { grid-template-columns: 1fr; }
+            .positions-row    { grid-template-columns: 1fr; }
+            .hero-title       { font-size: 2.8rem; }
+            .intro-quote      { padding: 2rem 1.5rem; }
+            .intro-quote blockquote { font-size: 1.2rem; }
+            .ordo-num         { font-size: 2.5rem; flex: 0 0 4rem; }
+            .ordo-title       { font-size: 1.4rem; }
         }
     </style>
 </head>
 <body>
-    <div class="cosmos-background"></div>
-    <div class="stars">
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-    </div>
 
-    <div class="manuscript-container">
-        <header class="scroll-header">
-            <h1 class="title-main">Soteriología Avanzada</h1>
-            <p class="subtitle-main">DOCTRINA DE SALVACIÓN</p>
-            <p class="description-main">Estudio profundo de la salvación: elección, llamamiento, regeneración, justificación, adopción, santificación y glorificación.</p>
-            <div class="keywords-main">• ELECCIÓN • JUSTIFICACIÓN • SANTIFICACIÓN •</div>
-        </header>
+    <!-- HEADER -->
+    <header>
+        <div class="header-inner">
+            <a href="../../../index.html" class="site-logo">La Gloria es del Señor</a>
+            <nav>
+                <a href="../../../index.html">Inicio</a>
+                <a href="../../../nuestras-ensenanzas/index.html">Enseñanzas</a>
+                <a href="../../../Comunidad/forum.html">Comunidad</a>
+            </nav>
+        </div>
+    </header>
 
-        <div class="theological-map">
-            <h2 class="map-title">El Ordo Salutis: Orden de la Salvación</h2>
-            
-            <div class="ordo-salutis">
-                <div class="connection-lines">
-                    <div class="connection-line" style="top: 120px; left: 50%; width: 200px; transform: translateX(-50%) rotate(25deg);"></div>
-                    <div class="connection-line" style="top: 120px; right: 50%; width: 200px; transform: translateX(50%) rotate(-25deg);"></div>
-                    <div class="connection-line" style="top: 320px; left: 25%; width: 300px; transform: rotate(15deg);"></div>
-                    <div class="connection-line" style="top: 320px; right: 25%; width: 300px; transform: rotate(-15deg);"></div>
-                    <div class="connection-line" style="top: 520px; left: 35%; width: 250px; transform: rotate(-10deg);"></div>
-                    <div class="connection-line" style="top: 520px; right: 35%; width: 250px; transform: rotate(10deg);"></div>
-                    <div class="connection-line" style="top: 720px; left: 50%; width: 150px; transform: translateX(-50%);"></div>
-                    <div class="connection-line" style="top: 920px; left: 50%; width: 150px; transform: translateX(-50%);"></div>
-                </div>
-
-                <div class="doctrine-node eternal">
-                    <h3 class="node-title">⚡ ELECCIÓN ETERNA</h3>
-                    <div class="node-content">
-                        Dios escoge desde la eternidad a aquellos a quienes salvará, basado únicamente en su gracia soberana, no en obras previstas.
-                        <div class="node-verse">"según nos escogió en él antes de la fundación del mundo" - Efesios 1:4</div>
-                    </div>
-                </div>
-
-                <div class="doctrine-node temporal-start">
-                    <h3 class="node-title">📢 LLAMAMIENTO EFICAZ</h3>
-                    <div class="node-content">
-                        El Espíritu Santo llama irresistiblemente a los elegidos, venciendo su resistencia natural y conduciéndolos a Cristo.
-                        <div class="node-verse">"y a los que predestinó, a éstos también llamó" - Romanos 8:30</div>
-                    </div>
-                </div>
-
-                <div class="doctrine-node regenerative">
-                    <h3 class="node-title">💚 REGENERACIÓN</h3>
-                    <div class="node-content">
-                        Dios imparte nueva vida espiritual, creando un corazón nuevo capaz de responder en fe y arrepentimiento.
-                        <div class="node-verse">"Os daré corazón nuevo, y pondré espíritu nuevo dentro de vosotros" - Ezequiel 36:26</div>
-                    </div>
-                </div>
-
-                <div class="doctrine-node judicial">
-                    <h3 class="node-title">⚖️ JUSTIFICACIÓN</h3>
-                    <div class="node-content">
-                        Declaración legal de Dios donde imputa la justicia de Cristo al creyente y no le cuenta sus pecados.
-                        <div class="node-verse">"siendo justificados gratuitamente por su gracia" - Romanos 3:24</div>
-                    </div>
-                </div>
-
-                <div class="doctrine-node familial">
-                    <h3 class="node-title">👨‍👩‍👧‍👦 ADOPCIÓN</h3>
-                    <div class="node-content">
-                        Dios recibe al creyente como hijo legítimo, otorgándole todos los privilegios de la familia divina.
-                        <div class="node-verse">"para que recibiésemos la adopción de hijos" - Gálatas 4:5</div>
-                    </div>
-                </div>
-
-                <div class="doctrine-node progressive">
-                    <h3 class="node-title">✨ SANTIFICACIÓN</h3>
-                    <div class="node-content">
-                        Proceso progresivo donde el Espíritu Santo conforma al creyente a la imagen de Cristo a lo largo de la vida.
-                        <div class="node-verse">"hasta que Cristo sea formado en vosotros" - Gálatas 4:19</div>
-                    </div>
-                </div>
-
-                <div class="doctrine-node eschatological">
-                    <h3 class="node-title">👑 GLORIFICACIÓN</h3>
-                    <div class="node-content">
-                        Culminación eterna donde el creyente es perfectamente conformado a Cristo, libre de toda mancha de pecado.
-                        <div class="node-verse">"y a los que justificó, a éstos también glorificó" - Romanos 8:30</div>
-                    </div>
-                </div>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-inner">
+            <p class="hero-eyebrow">Doctrina de Salvación · Estudios Bíblicos Avanzados</p>
+            <h1 class="hero-title">Soteriología<br>Avanzada</h1>
+            <div class="hero-rule"></div>
+            <p class="hero-sub">Estudio profundo de la salvación: elección, llamamiento, regeneración, justificación, adopción, santificación y glorificación.</p>
+            <div class="hero-tags">
+                <span class="hero-tag">Elección</span>
+                <span class="hero-tag">Justificación</span>
+                <span class="hero-tag">Santificación</span>
+                <span class="hero-tag">Ordo Salutis</span>
             </div>
         </div>
+    </section>
 
-        <div class="detailed-analysis">
-            <div class="analysis-panel">
-                <h2 class="analysis-title">La Gracia Soberana</h2>
-                <div class="analysis-content">
-                    <p>La <span class="emphasis">elección divina</span> es el fundamento de toda salvación. Dios no elige basado en méritos humanos previos o fe prevista, sino según <span class="emphasis">el puro afecto de su voluntad</span> <span class="scripture-ref">(Efesios 1:5)</span>.</p>
-                    
-                    <div class="theological-insight">
-                        <strong>Insight Teológico:</strong> La elección no hace a Dios injusto, pues nadie merece salvación. Dios sería perfectamente justo salvando a nadie; que salve a algunos es pura misericordia.
+    <!-- INTRO QUOTE -->
+    <div class="intro-quote">
+        <blockquote>"El mismo Dios de paz os santifique por completo; y todo vuestro ser, espíritu, alma y cuerpo, sea guardado irreprensible para la venida de nuestro Señor Jesucristo."</blockquote>
+        <cite>1 Tesalonicenses 5:23</cite>
+    </div>
+
+    <!-- ORDO SALUTIS -->
+    <section class="section-dk">
+        <div class="container">
+            <p class="section-label">Orden de la Salvación</p>
+            <h2 class="section-title light reveal">El Ordo Salutis</h2>
+            <div class="section-rule gold"></div>
+
+            <div class="ordo-track">
+
+                <div class="ordo-step reveal">
+                    <div class="ordo-dot"></div>
+                    <div class="ordo-num">I</div>
+                    <div class="ordo-body">
+                        <p class="ordo-name">Decreto Eterno</p>
+                        <h3 class="ordo-title">Elección Eterna</h3>
+                        <p class="ordo-desc">Dios escoge desde la eternidad a aquellos a quienes salvará, basado únicamente en su gracia soberana, no en obras previstas.</p>
+                        <p class="ordo-verse">"según nos escogió en él antes de la fundación del mundo" — Efesios 1:4</p>
                     </div>
-                    
-                    <p>El <span class="emphasis">llamamiento eficaz</span> es la aplicación histórica del decreto eterno. Cuando Dios llama, no puede ser resistido finalmente, pues <span class="emphasis">"¿quién resistirá a su voluntad?"</span> <span class="scripture-ref">(Romanos 9:19)</span>.</p>
                 </div>
-            </div>
 
-            <div class="analysis-panel">
-                <h2 class="analysis-title">Regeneración vs. Fe</h2>
-                <div class="analysis-content">
-                    <p>La <span class="emphasis">regeneración</span> precede lógicamente a la fe. El corazón natural está <span class="emphasis">"muerto en delitos y pecados"</span> <span class="scripture-ref">(Efesios 2:1)</span> y no puede generar fe verdadera.</p>
-                    
+                <div class="ordo-step reveal">
+                    <div class="ordo-dot"></div>
+                    <div class="ordo-num">II</div>
+                    <div class="ordo-body">
+                        <p class="ordo-name">Obra del Espíritu</p>
+                        <h3 class="ordo-title">Llamamiento Eficaz</h3>
+                        <p class="ordo-desc">El Espíritu Santo llama irresistiblemente a los elegidos, venciendo su resistencia natural y conduciéndolos a Cristo.</p>
+                        <p class="ordo-verse">"y a los que predestinó, a éstos también llamó" — Romanos 8:30</p>
+                    </div>
+                </div>
+
+                <div class="ordo-step reveal">
+                    <div class="ordo-dot"></div>
+                    <div class="ordo-num">III</div>
+                    <div class="ordo-body">
+                        <p class="ordo-name">Nuevo Nacimiento</p>
+                        <h3 class="ordo-title">Regeneración</h3>
+                        <p class="ordo-desc">Dios imparte nueva vida espiritual, creando un corazón nuevo capaz de responder en fe y arrepentimiento.</p>
+                        <p class="ordo-verse">"Os daré corazón nuevo, y pondré espíritu nuevo dentro de vosotros" — Ezequiel 36:26</p>
+                    </div>
+                </div>
+
+                <div class="ordo-step reveal">
+                    <div class="ordo-dot"></div>
+                    <div class="ordo-num">IV</div>
+                    <div class="ordo-body">
+                        <p class="ordo-name">Acto Legal</p>
+                        <h3 class="ordo-title">Justificación</h3>
+                        <p class="ordo-desc">Declaración legal de Dios donde imputa la justicia de Cristo al creyente y no le cuenta sus pecados.</p>
+                        <p class="ordo-verse">"siendo justificados gratuitamente por su gracia" — Romanos 3:24</p>
+                    </div>
+                </div>
+
+                <div class="ordo-step reveal">
+                    <div class="ordo-dot"></div>
+                    <div class="ordo-num">V</div>
+                    <div class="ordo-body">
+                        <p class="ordo-name">Familia Divina</p>
+                        <h3 class="ordo-title">Adopción</h3>
+                        <p class="ordo-desc">Dios recibe al creyente como hijo legítimo, otorgándole todos los privilegios de la familia divina.</p>
+                        <p class="ordo-verse">"para que recibiésemos la adopción de hijos" — Gálatas 4:5</p>
+                    </div>
+                </div>
+
+                <div class="ordo-step reveal">
+                    <div class="ordo-dot"></div>
+                    <div class="ordo-num">VI</div>
+                    <div class="ordo-body">
+                        <p class="ordo-name">Proceso Continuo</p>
+                        <h3 class="ordo-title">Santificación</h3>
+                        <p class="ordo-desc">Proceso progresivo donde el Espíritu Santo conforma al creyente a la imagen de Cristo a lo largo de la vida.</p>
+                        <p class="ordo-verse">"hasta que Cristo sea formado en vosotros" — Gálatas 4:19</p>
+                    </div>
+                </div>
+
+                <div class="ordo-step reveal">
+                    <div class="ordo-dot"></div>
+                    <div class="ordo-num">VII</div>
+                    <div class="ordo-body">
+                        <p class="ordo-name">Meta Eterna</p>
+                        <h3 class="ordo-title">Glorificación</h3>
+                        <p class="ordo-desc">Culminación eterna donde el creyente es perfectamente conformado a Cristo, libre de toda mancha de pecado.</p>
+                        <p class="ordo-verse">"y a los que justificó, a éstos también glorificó" — Romanos 8:30</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ANALYSIS PANELS -->
+    <section class="section-light">
+        <div class="container">
+            <p class="section-label">Análisis Teológico</p>
+            <h2 class="section-title reveal">Doctrinas Fundamentales</h2>
+            <div class="section-rule"></div>
+
+            <div class="analysis-grid">
+
+                <div class="analysis-card reveal">
+                    <h3 class="analysis-card-title">La Gracia Soberana</h3>
+                    <p>La <em>elección divina</em> es el fundamento de toda salvación. Dios no elige basado en méritos humanos previos o fe prevista, sino según <em>el puro afecto de su voluntad</em> <span class="ref">(Efesios 1:5)</span>.</p>
+                    <div class="insight-box">
+                        <strong>Insight Teológico</strong>
+                        La elección no hace a Dios injusto, pues nadie merece salvación. Dios sería perfectamente justo salvando a nadie; que salve a algunos es pura misericordia.
+                    </div>
+                    <p>El <em>llamamiento eficaz</em> es la aplicación histórica del decreto eterno. Cuando Dios llama, no puede ser resistido finalmente, pues <em>"¿quién resistirá a su voluntad?"</em> <span class="ref">(Romanos 9:19)</span>.</p>
+                </div>
+
+                <div class="analysis-card reveal">
+                    <h3 class="analysis-card-title">Regeneración vs. Fe</h3>
+                    <p>La <em>regeneración</em> precede lógicamente a la fe. El corazón natural está <em>"muerto en delitos y pecados"</em> <span class="ref">(Efesios 2:1)</span> y no puede generar fe verdadera.</p>
                     <div class="controversy-box">
-                        <div class="controversy-title">Controversia Teológica: Orden de Salvación</div>
-                        <div class="positions-grid">
-                            <div class="position">
+                        <p class="controversy-label">Controversia Teológica · Orden de Salvación</p>
+                        <div class="positions-row">
+                            <div class="position-card">
                                 <h4>Posición Reformada</h4>
                                 <p>Regeneración → Fe → Justificación. Dios da vida primero, luego el alma responde en fe.</p>
                             </div>
-                            <div class="position">
+                            <div class="position-card">
                                 <h4>Posición Arminiana</h4>
                                 <p>Fe → Regeneración. El hombre responde en fe, luego Dios regenera basado en esa respuesta.</p>
                             </div>
                         </div>
                     </div>
-                    
-                    <p>La evidencia bíblica favorece la prioridad lógica de la regeneración: <span class="emphasis">"el que no naciere de nuevo, no puede ver el reino de Dios"</span> <span class="scripture-ref">(Juan 3:3)</span>.</p>
+                    <p>La evidencia bíblica favorece la prioridad lógica de la regeneración: <em>"el que no naciere de nuevo, no puede ver el reino de Dios"</em> <span class="ref">(Juan 3:3)</span>.</p>
                 </div>
-            </div>
 
-            <div class="analysis-panel">
-                <h2 class="analysis-title">Justificación Forense</h2>
-                <div class="analysis-content">
-                    <p>La justificación es un <span class="emphasis">acto legal</span>, no un proceso moral. Dios declara justo al impío <span class="scripture-ref">(Romanos 4:5)</span> basado en la <span class="emphasis">imputación doble</span>: nuestros pecados a Cristo, su justicia a nosotros.</p>
-                    
-                    <div class="theological-insight">
-                        <strong>Doctrina Clave:</strong> La justificación es instantánea y completa. No es parcial ni progresiva. El creyente está tan justificado el primer día como lo estará en la eternidad.
+                <div class="analysis-card reveal">
+                    <h3 class="analysis-card-title">Justificación Forense</h3>
+                    <p>La justificación es un <em>acto legal</em>, no un proceso moral. Dios declara justo al impío <span class="ref">(Romanos 4:5)</span> basado en la <em>imputación doble</em>: nuestros pecados a Cristo, su justicia a nosotros.</p>
+                    <div class="insight-box">
+                        <strong>Doctrina Clave</strong>
+                        La justificación es instantánea y completa. No es parcial ni progresiva. El creyente está tan justificado el primer día como lo estará en la eternidad.
                     </div>
-                    
-                    <p>Esta doctrina fue el <span class="emphasis">corazón de la Reforma</span>. "Sola fide" no significa fe sin obras, sino justificación por fe sin obras como base legal.</p>
+                    <p>Esta doctrina fue el <em>corazón de la Reforma</em>. "Sola fide" no significa fe sin obras, sino justificación por fe sin obras como base legal.</p>
                 </div>
-            </div>
 
-            <div class="analysis-panel">
-                <h2 class="analysis-title">Santificación Progresiva</h2>
-                <div class="analysis-content">
-                    <p>A diferencia de la justificación, la <span class="emphasis">santificación es progresiva</span>. El creyente está siendo transformado <span class="emphasis">"de gloria en gloria"</span> <span class="scripture-ref">(2 Corintios 3:18)</span>.</p>
-                    
-                    <div class="theological-insight">
-                        <strong>Tensión Teológica:</strong> El creyente es "santo" posicionalmente pero "siendo santificado" experiencialmente. Ya es santo, pero aún no completamente santificado.
+                <div class="analysis-card reveal">
+                    <h3 class="analysis-card-title">Santificación Progresiva</h3>
+                    <p>A diferencia de la justificación, la <em>santificación es progresiva</em>. El creyente está siendo transformado <em>"de gloria en gloria"</em> <span class="ref">(2 Corintios 3:18)</span>.</p>
+                    <div class="insight-box">
+                        <strong>Tensión Teológica</strong>
+                        El creyente es "santo" posicionalmente pero "siendo santificado" experiencialmente. Ya es santo, pero aún no completamente santificado.
                     </div>
-                    
-                    <p>La santificación involucra tanto <span class="emphasis">la obra de Dios</span> (Filipenses 2:13) como <span class="emphasis">la cooperación humana</span> (Filipenses 2:12). Es monergística en iniciación pero sinergística en progresión.</p>
+                    <p>La santificación involucra tanto <em>la obra de Dios</em> <span class="ref">(Filipenses 2:13)</span> como <em>la cooperación humana</em> <span class="ref">(Filipenses 2:12)</span>. Es monergística en iniciación pero sinergística en progresión.</p>
                 </div>
+
             </div>
         </div>
+    </section>
 
-        <div class="interactive-questions">
-            <h2 class="questions-title">Constelación de Preguntas Teológicas</h2>
-            
-            <div class="question-constellation">
-                <div class="question-star">
-                    <div class="question-category">Pregunta Exegética:</div>
-                    <div class="question-text">¿Cómo reconciliar la soberanía divina en la elección (Efesios 1:4-5) con la responsabilidad humana en la fe (Juan 3:16)? Analiza ambos textos en su contexto.</div>
+    <!-- QUESTIONS -->
+    <section class="section-dk">
+        <div class="container">
+            <p class="section-label">Reflexión Académica</p>
+            <h2 class="section-title light reveal">Preguntas Teológicas</h2>
+            <div class="section-rule gold"></div>
+
+            <div class="questions-grid">
+
+                <div class="question-card reveal">
+                    <p class="question-type">Exegética</p>
+                    <p class="question-text">¿Cómo reconciliar la soberanía divina en la elección <span class="ref">(Efesios 1:4-5)</span> con la responsabilidad humana en la fe <span class="ref">(Juan 3:16)</span>? Analiza ambos textos en su contexto.</p>
                 </div>
 
-                <div class="question-star">
-                    <div class="question-category">Pregunta Lógica:</div>
-                    <div class="question-text">Si la regeneración precede a la fe, ¿qué papel juega la predicación del evangelio? ¿Es meramente informativa o constituye un medio de gracia eficaz?</div>
+                <div class="question-card reveal">
+                    <p class="question-type">Lógica</p>
+                    <p class="question-text">Si la regeneración precede a la fe, ¿qué papel juega la predicación del evangelio? ¿Es meramente informativa o constituye un medio de gracia eficaz?</p>
                 </div>
 
-                <div class="question-star">
-                    <div class="question-category">Pregunta Práctica:</div>
-                    <div class="question-text">¿Cómo debe afectar la doctrina de la justificación por fe la vida cristiana diaria? ¿Puede producir antinomianismo o debe producir santidad?</div>
+                <div class="question-card reveal">
+                    <p class="question-type">Práctica</p>
+                    <p class="question-text">¿Cómo debe afectar la doctrina de la justificación por fe la vida cristiana diaria? ¿Puede producir antinomianismo o debe producir santidad?</p>
                 </div>
 
-                <div class="question-star">
-                    <div class="question-category">Pregunta Histórica:</div>
-                    <div class="question-text">¿Por qué la justificación por fe fue tan controversial en el siglo XVI? ¿Qué entendía Roma sobre la justificación y por qué los reformadores la rechazaron?</div>
+                <div class="question-card reveal">
+                    <p class="question-type">Histórica</p>
+                    <p class="question-text">¿Por qué la justificación por fe fue tan controversial en el siglo XVI? ¿Qué entendía Roma sobre la justificación y por qué los reformadores la rechazaron?</p>
                 </div>
 
-                <div class="question-star">
-                    <div class="question-category">Pregunta Pastoral:</div>
-                    <div class="question-text">¿Cómo pastorear a un creyente que lucha con la seguridad de salvación? ¿Cuál es la diferencia entre dudas temporales y evidencia de regeneración falsa?</div>
+                <div class="question-card reveal">
+                    <p class="question-type">Pastoral</p>
+                    <p class="question-text">¿Cómo pastorear a un creyente que lucha con la seguridad de salvación? ¿Cuál es la diferencia entre dudas temporales y evidencia de regeneración falsa?</p>
                 </div>
 
-                <div class="question-star">
-                    <div class="question-category">Pregunta Sistemática:</div>
-                    <div class="question-text">¿Puede existir verdadera santificación sin justificación previa? ¿Es posible la justificación sin santificación subsecuente? Defiende tu posición bíblicamente.</div>
+                <div class="question-card reveal">
+                    <p class="question-type">Sistemática</p>
+                    <p class="question-text">¿Puede existir verdadera santificación sin justificación previa? ¿Es posible la justificación sin santificación subsecuente? Defiende tu posición bíblicamente.</p>
                 </div>
+
             </div>
         </div>
+    </section>
 
-        <div class="synthesis-scroll">
-            <h2 class="synthesis-title">La Sinfonía de la Gracia</h2>
-            <div class="synthesis-content">
-                <p>La soteriología no es una colección de doctrinas aisladas, sino una <span class="emphasis">sinfonía magistral</span> donde cada nota contribuye a la gloria de la gracia divina. Desde los <span class="emphasis">decretos eternos</span> hasta la <span class="emphasis">glorificación final</span>, vemos la mano soberana de Dios orquestando la salvación completa de su pueblo.</p>
-
-                <p>En esta sinfonía, la <span class="emphasis">elección</span> es el tema principal, la <span class="emphasis">regeneración</span> es el primer movimiento donde el alma muerta cobra vida, la <span class="emphasis">justificación</span> es el clímax donde se declara el veredicto divino, y la <span class="emphasis">glorificación</span> es el gran finale donde toda disonancia del pecado se resuelve en perfecta armonía.</p>
-
-                <p>Para el estudiante de la Palabra, entender estas doctrinas no es un ejercicio académico sino una <span class="emphasis">adoración intelectual</span>. Cada verdad descubierta debe llevarnos a exclamar con Pablo: <span class="scripture-ref">"¡Oh profundidad de las riquezas de la sabiduría y de la ciencia de Dios!"</span> <span class="scripture-ref">(Romanos 11:33)</span>.</p>
+    <!-- SYNTHESIS / CONCLUSION -->
+    <section class="section-dk" style="border-top: 1px solid rgba(184,154,95,0.08); padding: 5rem 0 4rem;">
+        <div class="container">
+            <p class="synthesis-text reveal">
+                La soteriología no es una colección de doctrinas aisladas, sino una sinfonía magistral donde cada nota contribuye a la gloria de la gracia divina. Desde los decretos eternos hasta la glorificación final, vemos la mano soberana de Dios orquestando la salvación completa de su pueblo.
+            </p>
+            <div class="conclusion-inner reveal">
+                <div class="conclusion-divider"></div>
+                <p class="conclusion-label">La Sinfonía de la Gracia</p>
+                <blockquote class="conclusion-quote">
+                    "¡Oh profundidad de las riquezas de la sabiduría y de la ciencia de Dios! ¡Cuán insondables son sus juicios, e inescrutables sus caminos!"
+                </blockquote>
+                <p class="conclusion-ref">Romanos 11:33</p>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- NAV STRIP -->
+    <nav class="nav-strip">
+        <div class="nav-strip-inner">
+            <a href="eclesiologia-practica.html" class="nav-link"><i class="fa fa-arrow-left"></i> Eclesiología Práctica</a>
+            <span class="nav-center">Estudios Bíblicos · Avanzados</span>
+            <a href="apocaliptica-biblica.html" class="nav-link">Apocalíptica Bíblica <i class="fa fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
 </body>
 </html>
