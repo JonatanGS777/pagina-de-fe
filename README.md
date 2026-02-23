@@ -155,21 +155,16 @@ Página de Fe/
 | `page/Época de Jesús/contexto-historico.html` | Completado — sage `#4a7856` |
 | `page/Época de Jesús/apologia-cristiana.html` | Completado — gold `#b89a5f` |
 | `page/Época de Jesús/estudio-contemporaneo.html` | Completado — wine `#7a2d3c` |
+| `page/Estudios Bíblicos/revelacion-espiritu.html` | Completado — amethyst `#4a3070` |
+| `page/Estudios Bíblicos/devocionales.html` | Completado — forest green `#2b4a36` |
+| `page/Estudios Bíblicos/doctrina-basica.html` | Completado — deep blue `#1d3a5f` |
+| `page/Estudios Bíblicos/doctrina-intermedia.html` | Completado — terracotta `#6b3a2a` |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
 #### `page/Estudios Bíblicos/`
 
-- [ ] `devocionales.html`
 - [ ] `doctrina-avanzada.html`
-
-#### `page/Estudios Bíblicos/`
-
-- [ ] `devocionales.html`
-- [ ] `doctrina-avanzada.html`
-- [ ] `doctrina-basica.html`
-- [ ] `doctrina-intermedia.html`
-- [ ] `revelacion-espiritu.html`
 - [ ] `recursos/Cronograma Detallado.html`
 - [ ] `estudios/acertijos.html`
 - [ ] `estudios/analisisexgetico.html`
