@@ -3,1071 +3,800 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Literatura Apocalíptica - Profecía</title>
+    <title>Literatura Apocalíptica Bíblica — Página de Fe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --ink: #1a1410;
+            --gold: #b89a5f;
+            --parchment: #f7f4ed;
+            --parchment-dk: #ece8df;
+            --dark: #0e0c0a;
+            --accent: #4a2810;
+            --accent-mid: #8c5030;
+            --accent-pale: rgba(74,40,16,0.07);
+            --hero-grad: linear-gradient(160deg, #0e0c0a 0%, #160c06 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body::before {
+            content: '';
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 9999; opacity: 0.35;
         }
 
         body {
-            font-family: 'Cinzel', 'Times New Roman', serif;
-            background: 
-                radial-gradient(ellipse at center, #2d1810 0%, #1a0f08 50%, #0d0704 100%);
-            color: #d4af37;
-            overflow-x: auto;
-            overflow-y: hidden;
-            height: 100vh;
-            cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSIjZDRhZjM3Ii8+Cjwvc3ZnPgo='), auto;
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            background: var(--parchment);
+            color: var(--ink);
+            overflow-x: hidden;
         }
 
-        .ancient-flames {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
+        /* ─── HEADER ─── */
+        header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(14,12,10,0.97);
+            border-bottom: 1px solid rgba(184,154,95,0.22);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
-
-        .flame {
-            position: absolute;
-            width: 20px;
-            height: 40px;
-            background: radial-gradient(ellipse at bottom, #ff6b00 0%, #ff4500 40%, #ff8c00 60%, transparent 100%);
-            border-radius: 50% 50% 0 0;
-            animation: flicker 2s ease-in-out infinite alternate;
-            opacity: 0.3;
+        .header-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 2rem; height: 64px;
         }
-
-        .flame:nth-child(1) { top: 20%; left: 5%; animation-delay: 0s; }
-        .flame:nth-child(2) { top: 60%; left: 15%; animation-delay: 0.5s; }
-        .flame:nth-child(3) { top: 40%; right: 10%; animation-delay: 1s; }
-        .flame:nth-child(4) { bottom: 30%; left: 80%; animation-delay: 1.5s; }
-        .flame:nth-child(5) { top: 80%; left: 40%; animation-delay: 0.8s; }
-
-        @keyframes flicker {
-            0% { transform: scale(1) translateY(0); opacity: 0.3; }
-            100% { transform: scale(1.1) translateY(-10px); opacity: 0.6; }
+        .site-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 1.25rem;
+            color: var(--gold); text-decoration: none;
+            letter-spacing: 0.03em;
         }
-
-        .scroll-container {
-            display: flex;
-            height: 100vh;
-            width: max-content;
-            animation: unroll 3s ease-out;
+        nav { display: flex; gap: 2rem; align-items: center; }
+        nav a {
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; color: rgba(247,244,237,0.65);
+            text-decoration: none; transition: color 0.2s;
         }
+        nav a:hover { color: var(--gold); }
 
-        @keyframes unroll {
-            0% { transform: scaleX(0); transform-origin: left; }
-            100% { transform: scaleX(1); }
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 88vh; display: flex; align-items: center;
+            background: var(--hero-grad);
+            position: relative; overflow: hidden;
+            padding-top: 64px;
         }
-
-        .prophecy-section {
-            min-width: 100vw;
-            height: 100vh;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            background: 
-                linear-gradient(90deg, 
-                    transparent 0%, 
-                    rgba(139, 69, 19, 0.1) 10%, 
-                    rgba(160, 82, 45, 0.2) 50%, 
-                    rgba(139, 69, 19, 0.1) 90%, 
-                    transparent 100%
-                );
-        }
-
-        .section-papyrus {
-            background: 
-                linear-gradient(45deg, #f4e4bc 0%, #e6d3a7 25%, #d4af37 50%, #e6d3a7 75%, #f4e4bc 100%);
-            background-size: 60px 60px;
-            box-shadow: 
-                inset 0 0 100px rgba(139, 69, 19, 0.3),
-                0 0 50px rgba(212, 175, 55, 0.5);
-            border: 8px solid #8b4513;
-            border-image: 
-                repeating-linear-gradient(45deg, #8b4513 0px, #a0522d 10px, #cd853f 20px) 8;
-            color: #2d1810;
-            border-radius: 20px;
-            margin: 60px;
-            position: relative;
-        }
-
-        .section-papyrus::before {
+        .hero::before {
             content: '';
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            right: -15px;
-            bottom: -15px;
-            background: 
-                repeating-conic-gradient(from 0deg at 50% 50%, 
-                    transparent 0deg, 
-                    rgba(139, 69, 19, 0.1) 30deg, 
-                    transparent 60deg
-                );
-            border-radius: 25px;
-            z-index: -1;
+            position: absolute; top: -20%; left: -20%; width: 140%; height: 140%;
+            background: radial-gradient(ellipse 60% 50% at 50% 55%, rgba(74,40,16,0.30) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-inner {
+            max-width: 1200px; margin: 0 auto;
+            padding: 5rem 2rem 4rem;
+            position: relative; z-index: 1;
+        }
+        .hero-eyebrow {
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--gold);
+            margin-bottom: 1.5rem; opacity: 0;
+            animation: fadeUp 0.7s ease forwards;
+        }
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 700; line-height: 1.05;
+            color: #f7f4ed; letter-spacing: -0.01em;
+            margin-bottom: 1.25rem;
+            opacity: 0; animation: fadeUp 0.7s 0.15s ease forwards;
+        }
+        .hero-rule {
+            width: 3rem; height: 1px; background: var(--gold);
+            margin: 1.5rem 0;
+            opacity: 0; animation: fadeUp 0.7s 0.3s ease forwards;
+        }
+        .hero-sub {
+            font-size: 1.1rem; font-weight: 300; line-height: 1.75;
+            color: rgba(247,244,237,0.72); max-width: 580px;
+            margin-bottom: 2rem;
+            opacity: 0; animation: fadeUp 0.7s 0.45s ease forwards;
+        }
+        .hero-tags {
+            display: flex; gap: 0.75rem; flex-wrap: wrap;
+            opacity: 0; animation: fadeUp 0.7s 0.6s ease forwards;
+        }
+        .hero-tag {
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em;
+            text-transform: uppercase; color: rgba(247,244,237,0.5);
+            border: 1px solid rgba(184,154,95,0.3); padding: 0.4rem 0.9rem;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
-        .hieroglyph-border {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            border: 3px solid #8b4513;
-            border-radius: 15px;
-            background: 
-                repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(139, 69, 19, 0.1) 42px, rgba(139, 69, 19, 0.1) 44px),
-                repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(139, 69, 19, 0.1) 42px, rgba(139, 69, 19, 0.1) 44px);
+        /* ─── INTRO QUOTE ─── */
+        .intro-quote {
+            background: var(--parchment-dk);
+            border-left: 3px solid var(--accent);
+            padding: 2.5rem 3rem;
+        }
+        .intro-quote blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 1.45rem;
+            line-height: 1.65; color: var(--ink);
+            max-width: 860px;
+        }
+        .intro-quote cite {
+            display: block; margin-top: 1rem;
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--accent-mid);
         }
 
-        .hieroglyph-border::before {
-            content: '𓂀 𓈖 𓇯 𓊪 𓈗 𓇌 𓊛 𓈙';
-            position: absolute;
-            top: -25px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-size: 2em;
-            color: #8b4513;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            letter-spacing: 20px;
-        }
+        /* ─── SECTIONS ─── */
+        .section-light { background: var(--parchment);    padding: 5rem 0; }
+        .section-mid   { background: var(--parchment-dk); padding: 5rem 0; }
+        .section-dk    { background: var(--ink);          padding: 5rem 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
-        .hieroglyph-border::after {
-            content: '𓊪 𓈗 𓇌 𓊛 𓈙 𓂀 𓈖 𓇯';
-            position: absolute;
-            bottom: -25px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-size: 2em;
-            color: #8b4513;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            letter-spacing: 20px;
+        .section-label {
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--gold);
+            margin-bottom: 0.75rem;
         }
-
-        .title-section {
-            text-align: center;
-            background: none;
-            color: #d4af37;
-            z-index: 10;
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 2.6rem; font-weight: 700;
+            line-height: 1.15; color: var(--ink); margin-bottom: 1rem;
         }
-
-        .title-ancient {
-            font-size: 5em;
-            font-weight: 900;
-            margin-bottom: 20px;
-            text-shadow: 
-                0 0 10px #d4af37,
-                0 0 20px #ff8c00,
-                2px 2px 4px rgba(0,0,0,0.8);
-            letter-spacing: 5px;
-            animation: glow-pulse 3s ease-in-out infinite alternate;
+        .section-title.light { color: #f7f4ed; }
+        .section-rule {
+            width: 2.5rem; height: 1px;
+            background: var(--accent); margin-bottom: 3rem;
         }
+        .section-rule.gold { background: var(--gold); }
 
-        @keyframes glow-pulse {
-            0% { 
-                text-shadow: 
-                    0 0 10px #d4af37,
-                    0 0 20px #ff8c00,
-                    2px 2px 4px rgba(0,0,0,0.8);
-            }
-            100% { 
-                text-shadow: 
-                    0 0 20px #d4af37,
-                    0 0 40px #ff8c00,
-                    0 0 60px #ffa500,
-                    2px 2px 4px rgba(0,0,0,0.8);
-            }
+        /* ─── BOOK HEADER ─── */
+        .book-header {
+            display: flex; align-items: baseline; gap: 1.25rem;
+            margin-bottom: 2rem; padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(26,20,16,0.1);
         }
-
-        .subtitle-ancient {
-            font-size: 2.5em;
-            color: #ffa500;
-            font-weight: 400;
-            letter-spacing: 15px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
+        .book-header.light-border { border-bottom-color: rgba(247,244,237,0.1); }
+        .book-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 3.5rem; font-weight: 700;
+            color: rgba(140,80,48,0.2); line-height: 1;
         }
-
-        .description-ancient {
-            font-size: 1.6em;
-            max-width: 800px;
-            margin: 0 auto 40px auto;
-            line-height: 1.8;
-            color: #ffcc66;
-            text-align: center;
-            font-style: italic;
+        .book-num.light { color: rgba(184,154,95,0.2); }
+        .book-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 2rem; font-weight: 700;
+            color: var(--ink);
         }
-
-        .keywords-ancient {
-            font-size: 1.4em;
-            letter-spacing: 8px;
-            font-weight: 700;
-            color: #d4af37;
-            text-transform: uppercase;
+        .book-name.light { color: #f7f4ed; }
+        .book-subtitle {
+            font-size: 0.72rem; font-weight: 300; letter-spacing: 0.1em;
+            color: rgba(26,20,16,0.5);
         }
+        .book-subtitle.light { color: rgba(247,244,237,0.45); }
 
-        .content-ancient {
-            padding: 60px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .book-title {
-            font-size: 3.5em;
-            text-align: center;
-            margin-bottom: 40px;
-            color: #8b4513;
-            font-weight: 800;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            position: relative;
-        }
-
-        .book-title::before {
-            content: '◆';
-            position: absolute;
-            left: -80px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 0.6em;
-            color: #d4af37;
-        }
-
-        .book-title::after {
-            content: '◆';
-            position: absolute;
-            right: -80px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 0.6em;
-            color: #d4af37;
-        }
-
+        /* ─── VISION CARDS ─── */
         .vision-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin: 40px 0;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
         }
-
-        .vision-tablet {
-            background: 
-                linear-gradient(135deg, #f4e4bc 0%, #ddd3b8 100%);
-            padding: 30px;
-            border-radius: 15px;
-            border: 5px solid #8b4513;
-            box-shadow: 
-                inset 0 0 20px rgba(139, 69, 19, 0.2),
-                0 10px 30px rgba(0,0,0,0.4);
-            position: relative;
-            transition: all 0.4s ease;
-        }
-
-        .vision-tablet:hover {
-            transform: scale(1.05) rotate(1deg);
-            box-shadow: 
-                inset 0 0 30px rgba(139, 69, 19, 0.3),
-                0 20px 50px rgba(0,0,0,0.6);
-        }
-
-        .vision-tablet::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: 
-                conic-gradient(from 45deg, #8b4513, #a0522d, #cd853f, #8b4513);
-            border-radius: 20px;
-            z-index: -1;
-        }
-
-        .symbol-header {
-            font-size: 2.5em;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #8b4513;
-            border-bottom: 3px double #8b4513;
-            padding-bottom: 10px;
-        }
-
-        .symbol-meaning {
-            font-size: 1.1em;
-            line-height: 1.7;
-            color: #5d4e37;
-            margin-bottom: 15px;
-        }
-
-        .vision-reference {
-            background: rgba(139, 69, 19, 0.1);
-            padding: 10px;
-            border-radius: 8px;
-            border-left: 4px solid #8b4513;
-            font-style: italic;
-            color: #8b4513;
-            font-weight: 600;
-        }
-
-        .interpretation-codex {
-            background: 
-                linear-gradient(135deg, #2d1810 0%, #4a2c1a 50%, #5d3a20 100%);
-            color: #d4af37;
-            padding: 80px;
-            margin: 0 60px;
-            border-radius: 25px;
-            border: 6px solid #8b4513;
-            box-shadow: 
-                0 0 50px rgba(212, 175, 55, 0.3),
-                inset 0 0 50px rgba(139, 69, 19, 0.2);
-            position: relative;
-        }
-
-        .interpretation-codex::before {
-            content: '☥ ☥ ☥ ☥ ☥ ☥ ☥ ☥ ☥ ☥';
-            position: absolute;
-            top: -20px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-size: 1.5em;
-            color: #d4af37;
-            letter-spacing: 30px;
-        }
-
-        .codex-title {
-            font-size: 3em;
-            text-align: center;
-            margin-bottom: 50px;
-            color: #ffa500;
-            font-weight: 800;
-            text-shadow: 0 0 20px #ffa500;
-        }
-
-        .interpretation-methods {
+        .vision-grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+        .vision-card {
+            background: #fff;
+            border-top: 3px solid var(--accent);
+            padding: 2.25rem;
+        }
+        .vision-card.dark {
+            background: rgba(247,244,237,0.04);
+            border-top-color: var(--gold);
+        }
+        .vision-card-label {
+            font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--accent-mid);
+            margin-bottom: 0.6rem;
+        }
+        .vision-card-label.light { color: var(--gold); }
+        .vision-card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 1.35rem; font-weight: 700;
+            color: var(--ink); margin-bottom: 0.9rem; line-height: 1.2;
+        }
+        .vision-card-title.light { color: #f7f4ed; }
+        .vision-card-body {
+            font-size: 0.88rem; line-height: 1.76;
+            color: rgba(26,20,16,0.7); margin-bottom: 1rem;
+        }
+        .vision-card-body.light { color: rgba(247,244,237,0.62); }
+        .vision-card-body em { font-style: italic; color: var(--ink); }
+        .vision-card-body.light em { color: #f7f4ed; }
+        .vision-verse {
+            font-size: 0.78rem; font-style: italic;
+            color: var(--accent-mid);
+            border-left: 2px solid rgba(140,80,48,0.3);
+            padding-left: 0.75rem; line-height: 1.55;
+        }
+        .vision-verse.light {
+            color: rgba(184,154,95,0.85);
+            border-left-color: rgba(184,154,95,0.3);
         }
 
-        .method-scroll {
-            background: rgba(244, 228, 188, 0.1);
-            padding: 30px;
-            border-radius: 15px;
-            border: 2px solid #d4af37;
-            backdrop-filter: blur(5px);
-        }
+        /* ─── BOOK SPACER ─── */
+        .book-spacer { margin-top: 4rem; }
 
+        /* ─── INTERPRETATION METHODS ─── */
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+        }
+        .method-card {
+            background: rgba(247,244,237,0.04);
+            border-top: 1px solid rgba(184,154,95,0.18);
+            padding: 2.5rem;
+        }
+        .method-tag {
+            display: inline-block;
+            font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--ink);
+            background: var(--gold); padding: 0.2rem 0.6rem;
+            margin-bottom: 1rem;
+        }
         .method-title {
-            font-size: 1.8em;
-            color: #ffa500;
-            margin-bottom: 20px;
-            font-weight: 700;
-            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 1.5rem; font-weight: 700;
+            color: #f7f4ed; margin-bottom: 0.9rem;
+        }
+        .method-body {
+            font-size: 0.88rem; line-height: 1.76;
+            color: rgba(247,244,237,0.6); margin-bottom: 1rem;
+        }
+        .method-body em { font-style: italic; color: rgba(247,244,237,0.85); }
+        .method-meta {
+            font-size: 0.78rem; line-height: 1.65;
+            color: rgba(247,244,237,0.4);
+        }
+        .method-meta strong {
+            font-weight: 700; color: rgba(184,154,95,0.7);
         }
 
-        .method-content {
-            font-size: 1.1em;
-            line-height: 1.7;
-            color: #ffcc66;
+        /* ─── PROPHETIC TIMELINE ─── */
+        .timeline-flex {
+            display: flex; gap: 0; align-items: flex-start;
+            position: relative; margin-top: 3rem;
         }
-
-        .prophetic-timeline {
-            background: 
-                linear-gradient(0deg, #1a0f08 0%, #2d1810 50%, #1a0f08 100%);
-            padding: 80px 60px;
-            margin: 0;
-            color: #d4af37;
-            position: relative;
-            border-top: 8px solid #8b4513;
-            border-bottom: 8px solid #8b4513;
+        .timeline-flex::before {
+            content: '';
+            position: absolute; top: 1.25rem; left: 0; right: 0; height: 1px;
+            background: rgba(184,154,95,0.25);
         }
-
-        .timeline-title {
-            font-size: 3.5em;
-            text-align: center;
-            margin-bottom: 60px;
-            color: #ffa500;
-            font-weight: 800;
-            text-shadow: 0 0 30px #ffa500;
-        }
-
-        .timeline-rail {
-            position: relative;
-            height: 400px;
-            background: linear-gradient(90deg, transparent 0%, #d4af37 50%, transparent 100%);
-            height: 6px;
-            margin: 40px 0;
-            border-radius: 3px;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-        }
-
         .timeline-event {
-            position: absolute;
-            top: -200px;
-            width: 200px;
-            background: 
-                linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
-            padding: 20px;
-            border-radius: 15px;
-            border: 3px solid #d4af37;
-            color: #f4e4bc;
+            flex: 1; padding: 0 1.5rem; position: relative;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: all 0.3s ease;
+        }
+        .timeline-dot {
+            width: 11px; height: 11px; border-radius: 50%;
+            background: var(--gold); border: 2px solid var(--ink);
+            margin: 0 auto 1.5rem; position: relative; z-index: 1;
+        }
+        .timeline-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 0.75rem; font-weight: 700;
+            color: var(--gold); letter-spacing: 0.06em;
+            display: block; margin-bottom: 0.5rem;
+        }
+        .timeline-title-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 1.15rem; font-weight: 700;
+            color: #f7f4ed; margin-bottom: 0.6rem; line-height: 1.2;
+        }
+        .timeline-desc {
+            font-size: 0.8rem; line-height: 1.68;
+            color: rgba(247,244,237,0.52);
         }
 
-        .timeline-event:hover {
-            transform: translateY(-20px) scale(1.1);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
-        }
-
-        .timeline-event::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-top: 15px solid #d4af37;
-        }
-
-        .timeline-event:nth-child(odd) {
-            top: 20px;
-        }
-
-        .timeline-event:nth-child(odd)::after {
-            top: -15px;
-            bottom: auto;
-            border-top: none;
-            border-bottom: 15px solid #d4af37;
-        }
-
-        .event-1 { left: 5%; }
-        .event-2 { left: 25%; }
-        .event-3 { left: 45%; }
-        .event-4 { left: 65%; }
-        .event-5 { left: 85%; }
-
-        .mysteries-chamber {
-            background: 
-                radial-gradient(circle at center, #4a2c1a 0%, #2d1810 70%, #1a0f08 100%);
-            padding: 80px 60px;
-            margin: 0;
-            color: #d4af37;
-            position: relative;
-            border: 8px double #8b4513;
-        }
-
-        .chamber-title {
-            font-size: 3.5em;
-            text-align: center;
-            margin-bottom: 60px;
-            color: #ffa500;
-            font-weight: 800;
-            text-shadow: 0 0 40px #ffa500;
-        }
-
-        .mystery-constellation {
+        /* ─── MYSTERIES GRID ─── */
+        .mysteries-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5px;
+            margin-top: 3rem;
+        }
+        .mystery-card {
+            background: rgba(247,244,237,0.04);
+            padding: 2rem 1.75rem;
+            border-top: 1px solid rgba(184,154,95,0.14);
+        }
+        .mystery-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 2.2rem; font-weight: 700;
+            color: rgba(140,80,48,0.35); line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .mystery-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 1.25rem; font-weight: 700;
+            color: #f7f4ed; margin-bottom: 0.75rem;
+        }
+        .mystery-body {
+            font-size: 0.85rem; line-height: 1.72;
+            color: rgba(247,244,237,0.58);
+        }
+        .mystery-body em { font-style: italic; color: rgba(247,244,237,0.8); }
+
+        /* ─── CONCLUSION ─── */
+        .conclusion-inner {
+            max-width: 700px; margin: 0 auto; text-align: center;
+        }
+        .conclusion-divider {
+            width: 2.5rem; height: 1px; background: var(--gold);
+            margin: 0 auto 2rem;
+        }
+        .conclusion-label {
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em;
+            text-transform: uppercase; color: rgba(184,154,95,0.55);
+            margin-bottom: 1.5rem;
+        }
+        .conclusion-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 1.9rem; font-weight: 600;
+            line-height: 1.5; color: #f7f4ed; margin-bottom: 1.25rem;
+        }
+        .conclusion-ref {
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--gold);
         }
 
-        .mystery-orb {
-            background: 
-                radial-gradient(circle at 30% 30%, #d4af37 0%, #b8860b 70%, #8b4513 100%);
-            padding: 30px;
-            border-radius: 50%;
-            width: 300px;
-            height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #2d1810;
-            box-shadow: 
-                0 0 30px rgba(212, 175, 55, 0.6),
-                inset 0 0 20px rgba(255, 255, 255, 0.2);
-            transition: all 0.5s ease;
-            position: relative;
-            margin: 0 auto;
+        /* ─── NAV STRIP ─── */
+        .nav-strip {
+            background: var(--ink);
+            border-top: 1px solid rgba(184,154,95,0.12);
+            padding: 1.75rem 0;
+        }
+        .nav-strip-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-link {
+            font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; color: rgba(247,244,237,0.4);
+            text-decoration: none; transition: color 0.2s;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .nav-link:hover { color: var(--gold); }
+        .nav-center {
+            font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em;
+            text-transform: uppercase; color: rgba(184,154,95,0.45);
         }
 
-        .mystery-orb:hover {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 
-                0 0 50px rgba(212, 175, 55, 0.8),
-                inset 0 0 30px rgba(255, 255, 255, 0.3);
-        }
+        /* ─── REVEAL ─── */
+        .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        .mystery-orb::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            right: -20px;
-            bottom: -20px;
-            border: 4px solid #ffa500;
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: orbit 4s linear infinite;
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            .vision-grid-3 { grid-template-columns: repeat(2, 1fr); }
+            .mysteries-grid { grid-template-columns: repeat(2, 1fr); }
+            .timeline-flex { flex-direction: column; }
+            .timeline-flex::before { display: none; }
+            .timeline-event { text-align: left; padding: 0 0 2rem 2.5rem; position: relative; }
+            .timeline-dot { position: absolute; left: 0; top: 0; margin: 0; }
         }
-
-        @keyframes orbit {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .orb-title {
-            font-size: 1.3em;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .orb-content {
-            font-size: 0.95em;
-            line-height: 1.5;
-        }
-
-        .navigation-runes {
-            position: fixed;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            z-index: 100;
-        }
-
-        .rune-nav {
-            width: 50px;
-            height: 50px;
-            background: 
-                radial-gradient(circle, #d4af37 0%, #b8860b 70%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #2d1810;
-            font-size: 1.2em;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            border: 2px solid #8b4513;
-        }
-
-        .rune-nav:hover {
-            transform: scale(1.2);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
-        }
-
-        .rune-nav.active {
-            background: 
-                radial-gradient(circle, #ffa500 0%, #ff8c00 70%);
-            box-shadow: 0 0 20px #ffa500;
-        }
-
-        .emphasis {
-            color: #ffa500;
-            font-weight: 700;
-        }
-
-        .scripture-ref {
-            color: #d4af37;
-            font-style: italic;
-            font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-            .scroll-container {
-                flex-direction: column;
-                height: auto;
-                width: 100vw;
-            }
-            
-            .prophecy-section {
-                min-width: 100vw;
-                height: auto;
-                min-height: 100vh;
-            }
-            
-            .navigation-runes {
-                position: relative;
-                right: auto;
-                top: auto;
-                transform: none;
-                flex-direction: row;
-                justify-content: center;
-                margin: 20px 0;
-            }
-            
-            .title-ancient {
-                font-size: 3em;
-            }
-            
-            .vision-grid,
-            .interpretation-methods,
-            .mystery-constellation {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 640px) {
+            .vision-grid   { grid-template-columns: 1fr; }
+            .vision-grid-3 { grid-template-columns: 1fr; }
+            .methods-grid  { grid-template-columns: 1fr; }
+            .mysteries-grid{ grid-template-columns: 1fr; }
+            .hero-title    { font-size: 2.8rem; }
+            .intro-quote   { padding: 2rem 1.5rem; }
         }
     </style>
 </head>
 <body>
-    <div class="ancient-flames">
-        <div class="flame"></div>
-        <div class="flame"></div>
-        <div class="flame"></div>
-        <div class="flame"></div>
-        <div class="flame"></div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-inner">
+            <a href="../../../index.html" class="site-logo">La Gloria es del Señor</a>
+            <nav>
+                <a href="../../../index.html">Inicio</a>
+                <a href="../../../nuestras-ensenanzas/index.html">Enseñanzas</a>
+                <a href="../../../Comunidad/forum.html">Comunidad</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-inner">
+            <p class="hero-eyebrow">Profecía y Visión · Estudios Bíblicos Avanzados</p>
+            <h1 class="hero-title">Literatura<br>Apocalíptica<br>Bíblica</h1>
+            <div class="hero-rule"></div>
+            <p class="hero-sub">Interpretación de la literatura apocalíptica: Daniel, Ezequiel, Zacarías, Apocalipsis y su simbolismo profético.</p>
+            <div class="hero-tags">
+                <span class="hero-tag">Simbolismo</span>
+                <span class="hero-tag">Profecía</span>
+                <span class="hero-tag">Interpretación</span>
+                <span class="hero-tag">Escatología</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRO QUOTE -->
+    <div class="intro-quote">
+        <blockquote>"La revelación de Jesucristo, que Dios le dio, para manifestar a sus siervos las cosas que deben suceder pronto; y la declaró enviándola por medio de su ángel a su siervo Juan."</blockquote>
+        <cite>Apocalipsis 1:1</cite>
     </div>
 
-    <div class="navigation-runes">
-        <div class="rune-nav active" onclick="scrollToSection(0)">☀</div>
-        <div class="rune-nav" onclick="scrollToSection(1)">👀</div>
-        <div class="rune-nav" onclick="scrollToSection(2)">🔥</div>
-        <div class="rune-nav" onclick="scrollToSection(3)">⚡</div>
-        <div class="rune-nav" onclick="scrollToSection(4)">📜</div>
-        <div class="rune-nav" onclick="scrollToSection(5)">🌟</div>
-        <div class="rune-nav" onclick="scrollToSection(6)">🦅</div>
-    </div>
-
-    <div class="scroll-container" id="scrollContainer">
-        <!-- Sección Título -->
-        <section class="prophecy-section title-section">
-            <h1 class="title-ancient">Literatura Apocalíptica</h1>
-            <p class="subtitle-ancient">PROFECÍA</p>
-            <p class="description-ancient">Interpretación de la literatura apocalíptica bíblica: Daniel, Ezequiel, Zacarías, Apocalipsis y su simbolismo profético.</p>
-            <div class="keywords-ancient">• SIMBOLISMO • PROFECÍA • INTERPRETACIÓN •</div>
-        </section>
-
-        <!-- Sección Daniel -->
-        <section class="prophecy-section">
-            <div class="section-papyrus">
-                <div class="hieroglyph-border">
-                    <div class="content-ancient">
-                        <h2 class="book-title">DANIEL</h2>
-                        <p style="text-align: center; font-size: 1.3em; margin-bottom: 40px; color: #8b4513; font-style: italic;">Las Visiones del Vidente de Babilonia</p>
-                        
-                        <div class="vision-grid">
-                            <div class="vision-tablet">
-                                <h3 class="symbol-header">🏛️ Los Cuatro Imperios</h3>
-                                <div class="symbol-meaning">
-                                    La estatua de Nabucodonosor representa la sucesión de imperios mundiales: <span class="emphasis">Babilonia (oro)</span>, <span class="emphasis">Medo-Persa (plata)</span>, <span class="emphasis">Grecia (bronce)</span>, y <span class="emphasis">Roma (hierro)</span>. La piedra que destruye representa el Reino de Dios que nunca será destruido.
-                                </div>
-                                <div class="vision-reference">Daniel 2:31-45 - "En los días de estos reyes el Dios del cielo levantará un reino que no será jamás destruido"</div>
-                            </div>
-
-                            <div class="vision-tablet">
-                                <h3 class="symbol-header">🦁 Las Cuatro Bestias</h3>
-                                <div class="symbol-meaning">
-                                    Visión paralela a la estatua: <span class="emphasis">León con alas</span> (Babilonia), <span class="emphasis">Oso</span> (Medo-Persa), <span class="emphasis">Leopardo</span> (Grecia), y <span class="emphasis">Bestia terrible</span> (Roma). El cuerno pequeño representa el poder anticristiano final.
-                                </div>
-                                <div class="vision-reference">Daniel 7:1-28 - "Miraba yo en la visión de la noche, y he aquí con las nubes del cielo venía uno como un hijo de hombre"</div>
-                            </div>
-
-                            <div class="vision-tablet">
-                                <h3 class="symbol-header">🐏 El Carnero y el Macho Cabrío</h3>
-                                <div class="symbol-meaning">
-                                    Profecía específica sobre <span class="emphasis">Medo-Persia</span> (carnero) siendo derrotada por <span class="emphasis">Grecia</span> (macho cabrío). El cuerno notable es Alejandro Magno, y los cuatro cuernos son sus generales sucesores.
-                                </div>
-                                <div class="vision-reference">Daniel 8:1-27 - "El carnero que viste, que tenía dos cuernos, éstos son los reyes de Media y de Persia"</div>
-                            </div>
-
-                            <div class="vision-tablet">
-                                <h3 class="symbol-header">📅 Las Setenta Semanas</h3>
-                                <div class="symbol-meaning">
-                                    Profecía cronológica sobre la venida del <span class="emphasis">Mesías</span>. Sesenta y nueve semanas hasta la primera venida de Cristo, con una semana final relacionada con los eventos del fin.
-                                </div>
-                                <div class="vision-reference">Daniel 9:24-27 - "Setenta semanas están determinadas sobre tu pueblo y sobre tu santa ciudad"</div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- DANIEL -->
+    <section class="section-light">
+        <div class="container">
+            <p class="section-label">Libro I</p>
+            <div class="book-header reveal">
+                <span class="book-num">I</span>
+                <div>
+                    <h2 class="book-name">Daniel</h2>
+                    <p class="book-subtitle">Las visiones del vidente de Babilonia</p>
                 </div>
             </div>
-        </section>
 
-        <!-- Sección Ezequiel -->
-        <section class="prophecy-section">
-            <div class="section-papyrus">
-                <div class="hieroglyph-border">
-                    <div class="content-ancient">
-                        <h2 class="book-title">EZEQUIEL</h2>
-                        <p style="text-align: center; font-size: 1.3em; margin-bottom: 40px; color: #8b4513; font-style: italic;">Visiones del Sacerdote Profeta</p>
-                        
-                        <div class="vision-grid">
-                            <div class="vision-tablet">
-                                <h3 class="symbol-header">👁️ Los Querubines</h3>
-                                <div class="symbol-meaning">
-                                    Seres celestiales con <span class="emphasis">cuatro rostros</span>: hombre (inteligencia), león (realeza), buey (servicio), águila (divinidad). Representan la plenitud de la creación adorando al Todopoderoso.
-                                </div>
-                                <div class="vision-reference">Ezequiel 1:5-14 - "Y del medio de ella salía la figura de cuatro seres vivientes"</div>
-                            </div>
+            <div class="vision-grid">
+                <div class="vision-card reveal">
+                    <p class="vision-card-label">Visión · Daniel 2</p>
+                    <h3 class="vision-card-title">Los Cuatro Imperios</h3>
+                    <p class="vision-card-body">La estatua de Nabucodonosor representa la sucesión de imperios mundiales: <em>Babilonia (oro)</em>, <em>Medo-Persa (plata)</em>, <em>Grecia (bronce)</em> y <em>Roma (hierro)</em>. La piedra que destruye representa el Reino de Dios que nunca será destruido.</p>
+                    <p class="vision-verse">"En los días de estos reyes el Dios del cielo levantará un reino que no será jamás destruido" — Daniel 2:44</p>
+                </div>
 
-                            <div class="vision-tablet">
-                                <h3 class="symbol-header">🌪️ Las Ruedas</h3>
-                                <div class="symbol-meaning">
-                                    <span class="emphasis">Ruedas dentro de ruedas</span> llenas de ojos, simbolizando la omnipresencia y omnisciencia de Dios. Representan la providencia divina que se mueve en todas las direcciones simultáneamente.
-                                </div>
-                                <div class="vision-reference">Ezequiel 1:15-21 - "Las ruedas se alzaban juntamente con ellos; porque el espíritu de los seres vivientes estaba en las ruedas"</div>
-                            </div>
+                <div class="vision-card reveal">
+                    <p class="vision-card-label">Visión · Daniel 7</p>
+                    <h3 class="vision-card-title">Las Cuatro Bestias</h3>
+                    <p class="vision-card-body">Visión paralela a la estatua: <em>León con alas</em> (Babilonia), <em>Oso</em> (Medo-Persa), <em>Leopardo</em> (Grecia) y <em>bestia terrible</em> (Roma). El cuerno pequeño representa el poder anticristiano final.</p>
+                    <p class="vision-verse">"...he aquí con las nubes del cielo venía uno como un hijo de hombre" — Daniel 7:13</p>
+                </div>
 
-                            <div class="vision-tablet">
-                                <h3 class="symbol-header">🦴 El Valle de Huesos Secos</h3>
-                                <div class="symbol-meaning">
-                                    Profecía de la <span class="emphasis">restauración de Israel</span>. Los huesos secos representan la nación dispersa y aparentemente muerta, que será revivida por el poder del Espíritu de Dios.
-                                </div>
-                                <div class="vision-reference">Ezequiel 37:1-14 - "Hijo de hombre, ¿vivirán estos huesos?"</div>
-                            </div>
+                <div class="vision-card reveal">
+                    <p class="vision-card-label">Visión · Daniel 8</p>
+                    <h3 class="vision-card-title">El Carnero y el Macho Cabrío</h3>
+                    <p class="vision-card-body">Profecía específica sobre <em>Medo-Persia</em> (carnero) siendo derrotada por <em>Grecia</em> (macho cabrío). El cuerno notable es Alejandro Magno; los cuatro cuernos son sus generales sucesores.</p>
+                    <p class="vision-verse">"El carnero que viste, que tenía dos cuernos, éstos son los reyes de Media y de Persia" — Daniel 8:20</p>
+                </div>
 
-                            <div class="vision-tablet">
-                                <h3 class="symbol-header">🏛️ El Templo Milenial</h3>
-                                <div class="symbol-meaning">
-                                    Descripción detallada del <span class="emphasis">templo futuro</span> donde la gloria de Dios habitará durante el reino milenial. Simboliza la restauración completa de la adoración verdadera.
-                                </div>
-                                <div class="vision-reference">Ezequiel 40-48 - "Y la gloria de Jehová entró en la casa por la vía de la puerta que daba al oriente"</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="vision-card reveal">
+                    <p class="vision-card-label">Profecía · Daniel 9</p>
+                    <h3 class="vision-card-title">Las Setenta Semanas</h3>
+                    <p class="vision-card-body">Profecía cronológica sobre la venida del <em>Mesías</em>. Sesenta y nueve semanas hasta la primera venida de Cristo, con una semana final relacionada con los eventos del fin.</p>
+                    <p class="vision-verse">"Setenta semanas están determinadas sobre tu pueblo y sobre tu santa ciudad" — Daniel 9:24</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Sección Zacarías -->
-        <section class="prophecy-section">
-            <div class="section-papyrus">
-                <div class="hieroglyph-border">
-                    <div class="content-ancient">
-                        <h2 class="book-title">ZACARÍAS</h2>
-                        <p style="text-align: center; font-size: 1.3em; margin-bottom: 40px; color: #8b4513; font-style: italic;">Visiones de Restauración y Gloria</p>
-                        
-                        <div class="vision-grid">
-                            <div class="vision-tablet">
-                                <h3 class="symbol-header">🕯️ El Candelabro de Oro</h3>
-                                <div class="symbol-meaning">
-                                    <span class="emphasis">Menorá</span> alimentada automáticamente por aceite, simbolizando que la obra de Dios se realiza <span class="emphasis">"no con ejército, ni con fuerza, sino con mi Espíritu"</span>. Los dos olivos representan los ungidos que ministran.
-                                </div>
-                                <div class="vision-reference">Zacarías 4:1-14 - "Esta es palabra de Jehová a Zorobabel, que dice: No con ejército, ni con fuerza, sino con mi Espíritu"</div>
-                            </div>
-
-                            <div class="vision-tablet">
-                                <h3 class="symbol-header">📜 El Rollo Volante</h3>
-                                <div class="symbol-meaning">
-                                    Rollo gigante que vuela sobre la tierra, simbolizando <span class="emphasis">la maldición de Dios</span> sobre el pecado. Representa el juicio divino que alcanza a todos los transgresores.
-                                </div>
-                                <div class="vision-reference">Zacarías 5:1-4 - "Y me dijo: Esta es la maldición que sale sobre la faz de toda la tierra"</div>
-                            </div>
-
-                            <div class="vision-tablet">
-                                <h3 class="symbol-header">🐎 Los Cuatro Carros</h3>
-                                <div class="symbol-meaning">
-                                    Carros con caballos de diferentes colores que patrullan la tierra, simbolizando <span class="emphasis">los juicios de Dios</span> sobre las naciones. Representan la justicia divina ejecutándose globalmente.
-                                </div>
-                                <div class="vision-reference">Zacarías 6:1-8 - "Estos son los cuatro vientos de los cielos, que salen después de presentarse delante del Señor de toda la tierra"</div>
-                            </div>
-
-                            <div class="vision-tablet">
-                                <h3 class="symbol-header">👑 El Rey-Sacerdote</h3>
-                                <div class="symbol-meaning">
-                                    Profecía de <span class="emphasis">Josué coronado</span> como tipo del Mesías, quien será tanto Rey como Sacerdote. Apunta a Cristo como el único que une ambos oficios perfectamente.
-                                </div>
-                                <div class="vision-reference">Zacarías 6:9-15 - "He aquí el varón cuyo nombre es el Renuevo, el cual brotará de sus raíces, y edificará el templo de Jehová"</div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- EZEQUIEL -->
+    <section class="section-dk">
+        <div class="container">
+            <p class="section-label">Libro II</p>
+            <div class="book-header light-border reveal">
+                <span class="book-num light">II</span>
+                <div>
+                    <h2 class="book-name light">Ezequiel</h2>
+                    <p class="book-subtitle light">Visiones del sacerdote profeta</p>
                 </div>
             </div>
-        </section>
 
-        <!-- Sección Apocalipsis -->
-        <section class="prophecy-section">
-            <div class="section-papyrus">
-                <div class="hieroglyph-border">
-                    <div class="content-ancient">
-                        <h2 class="book-title">APOCALIPSIS</h2>
-                        <p style="text-align: center; font-size: 1.3em; margin-bottom: 40px; color: #8b4513; font-style: italic;">La Revelación Final de Jesucristo</p>
-                        
-                        <div class="vision-grid">
-                            <div class="vision-tablet">
-                                <h3 class="symbol-header">🕯️ Los Siete Candeleros</h3>
-                                <div class="symbol-meaning">
-                                    Representan las <span class="emphasis">siete iglesias</span> de Asia Menor, pero también la iglesia universal en todas las épocas. Cristo camina entre ellas como Sumo Sacerdote vigilante.
-                                </div>
-                                <div class="vision-reference">Apocalipsis 1:12-20 - "Los siete candeleros que has visto, son las siete iglesias"</div>
-                            </div>
+            <div class="vision-grid">
+                <div class="vision-card dark reveal">
+                    <p class="vision-card-label light">Visión · Ezequiel 1</p>
+                    <h3 class="vision-card-title light">Los Querubines</h3>
+                    <p class="vision-card-body light">Seres celestiales con <em>cuatro rostros</em>: hombre (inteligencia), león (realeza), buey (servicio), águila (divinidad). Representan la plenitud de la creación adorando al Todopoderoso.</p>
+                    <p class="vision-verse light">"Y del medio de ella salía la figura de cuatro seres vivientes" — Ezequiel 1:5</p>
+                </div>
 
-                            <div class="vision-tablet">
-                                <h3 class="symbol-header">🔖 Los Siete Sellos</h3>
-                                <div class="symbol-meaning">
-                                    Juicios progresivos sobre la tierra: <span class="emphasis">conquista, guerra, hambre, muerte</span>, persecución de santos, cataclismos cósmicos, y silencio antes de la ira final.
-                                </div>
-                                <div class="vision-reference">Apocalipsis 6:1-17 - "Y miré cuando el Cordero abrió uno de los sellos"</div>
-                            </div>
+                <div class="vision-card dark reveal">
+                    <p class="vision-card-label light">Visión · Ezequiel 1</p>
+                    <h3 class="vision-card-title light">Las Ruedas</h3>
+                    <p class="vision-card-body light"><em>Ruedas dentro de ruedas</em> llenas de ojos, simbolizando la omnipresencia y omnisciencia de Dios. Representan la providencia divina que se mueve en todas las direcciones simultáneamente.</p>
+                    <p class="vision-verse light">"El espíritu de los seres vivientes estaba en las ruedas" — Ezequiel 1:20</p>
+                </div>
 
-                            <div class="vision-tablet">
-                                <h3 class="symbol-header">🎺 Las Siete Trompetas</h3>
-                                <div class="symbol-meaning">
-                                    Juicios más intensos: <span class="emphasis">granizo y fuego, montaña ardiendo</span>, estrella cayendo, oscurecimiento, langostas del abismo, ejército de 200 millones, y el reino de Cristo.
-                                </div>
-                                <div class="vision-reference">Apocalipsis 8:6-11:19 - "Y los siete ángeles que tenían las siete trompetas se dispusieron a tocarlas"</div>
-                            </div>
+                <div class="vision-card dark reveal">
+                    <p class="vision-card-label light">Profecía · Ezequiel 37</p>
+                    <h3 class="vision-card-title light">El Valle de Huesos Secos</h3>
+                    <p class="vision-card-body light">Profecía de la <em>restauración de Israel</em>. Los huesos secos representan la nación dispersa y aparentemente muerta, que será revivida por el poder del Espíritu de Dios.</p>
+                    <p class="vision-verse light">"Hijo de hombre, ¿vivirán estos huesos?" — Ezequiel 37:3</p>
+                </div>
 
-                            <div class="vision-tablet">
-                                <h3 class="symbol-header">🐉 La Bestia y el Dragón</h3>
-                                <div class="symbol-meaning">
-                                    <span class="emphasis">Satanás</span> (dragón) y sus instrumentos: la bestia del mar (poder político anticristiano) y la bestia de la tierra (poder religioso falso). Representan la trinidad satánica.
-                                </div>
-                                <div class="vision-reference">Apocalipsis 12-13 - "Y fue lanzado fuera el gran dragón, la serpiente antigua, que se llama diablo y Satanás"</div>
-                            </div>
-
-                            <div class="vision-tablet">
-                                <h3 class="symbol-header">🏙️ La Nueva Jerusalén</h3>
-                                <div class="symbol-meaning">
-                                    Ciudad celestial que desciende del cielo, simbolizando la <span class="emphasis">morada eterna</span> de los redimidos. Representa la perfección de la comunión entre Dios y su pueblo.
-                                </div>
-                                <div class="vision-reference">Apocalipsis 21:1-22:5 - "Y yo Juan vi la santa ciudad, la nueva Jerusalén, descender del cielo, de Dios"</div>
-                            </div>
-
-                            <div class="vision-tablet">
-                                <h3 class="symbol-header">🍇 Las Siete Copas</h3>
-                                <div class="symbol-meaning">
-                                    <span class="emphasis">Juicios finales</span> de la ira de Dios: úlceras, mar como sangre, ríos como sangre, calor abrasador, tinieblas, secamiento del Éufrates, y Armagedón.
-                                </div>
-                                <div class="vision-reference">Apocalipsis 16:1-21 - "Oí una gran voz del templo que decía a los siete ángeles: Id y derramad sobre la tierra las siete copas de la ira de Dios"</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="vision-card dark reveal">
+                    <p class="vision-card-label light">Visión · Ezequiel 40–48</p>
+                    <h3 class="vision-card-title light">El Templo Milenial</h3>
+                    <p class="vision-card-body light">Descripción detallada del <em>templo futuro</em> donde la gloria de Dios habitará durante el reino milenial. Simboliza la restauración completa de la adoración verdadera.</p>
+                    <p class="vision-verse light">"Y la gloria de Jehová entró en la casa por la vía de la puerta que daba al oriente" — Ezequiel 43:4</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Sección Métodos de Interpretación -->
-        <section class="prophecy-section">
-            <div class="interpretation-codex">
-                <h2 class="codex-title">Métodos de Interpretación</h2>
-                
-                <div class="interpretation-methods">
-                    <div class="method-scroll">
-                        <h3 class="method-title">🔍 Método Historicista</h3>
-                        <div class="method-content">
-                            <p>Interpreta las profecías apocalípticas como una <span class="emphasis">panorámica continua</span> de la historia de la iglesia desde el primer siglo hasta la segunda venida. Ve el cumplimiento progresivo en eventos históricos específicos.</p>
-                            <p><strong>Fortalezas:</strong> Conecta profecía con historia conocida<br>
-                            <strong>Debilidades:</strong> Tendencia a alegorización excesiva</p>
-                        </div>
-                    </div>
-
-                    <div class="method-scroll">
-                        <h3 class="method-title">⏳ Método Preterista</h3>
-                        <div class="method-content">
-                            <p>Sostiene que la mayoría de las profecías apocalípticas se <span class="emphasis">cumplieron en el pasado</span>, principalmente en la destrucción de Jerusalén (70 d.C.) y la caída del Imperio Romano.</p>
-                            <p><strong>Fortalezas:</strong> Relevancia inmediata para lectores originales<br>
-                            <strong>Debilidades:</strong> Minimiza el aspecto escatológico futuro</p>
-                        </div>
-                    </div>
-
-                    <div class="method-scroll">
-                        <h3 class="method-title">🔮 Método Futurista</h3>
-                        <div class="method-content">
-                            <p>Interpreta la mayoría de las profecías apocalípticas como <span class="emphasis">eventos futuros</span> que ocurrirán principalmente durante los últimos siete años antes de la segunda venida de Cristo.</p>
-                            <p><strong>Fortalezas:</strong> Toma en serio el aspecto profético<br>
-                            <strong>Debilidades:</strong> Puede desconectar de la audiencia original</p>
-                        </div>
-                    </div>
-
-                    <div class="method-scroll">
-                        <h3 class="method-title">🎭 Método Idealista</h3>
-                        <div class="method-content">
-                            <p>Ve las visiones apocalípticas como <span class="emphasis">símbolos atemporales</span> del conflicto entre el bien y el mal, aplicables a cualquier época sin referencia a eventos históricos específicos.</p>
-                            <p><strong>Fortalezas:</strong> Aplicabilidad universal<br>
-                            <strong>Debilidades:</strong> Puede vaciar de contenido histórico específico</p>
-                        </div>
-                    </div>
+    <!-- ZACARÍAS -->
+    <section class="section-light">
+        <div class="container">
+            <p class="section-label">Libro III</p>
+            <div class="book-header reveal">
+                <span class="book-num">III</span>
+                <div>
+                    <h2 class="book-name">Zacarías</h2>
+                    <p class="book-subtitle">Visiones de restauración y gloria</p>
                 </div>
             </div>
-        </section>
 
-        <!-- Sección Timeline Profético -->
-        <section class="prophecy-section">
-            <div class="prophetic-timeline">
-                <h2 class="timeline-title">Cronología Profética</h2>
-                
-                <div class="timeline-rail">
-                    <div class="timeline-event event-1">
-                        <h4>Primera Venida</h4>
-                        <p>Cumplimiento de las 69 semanas de Daniel. El Mesías viene como Siervo Sufriente.</p>
-                    </div>
-                    <div class="timeline-event event-2">
-                        <h4>Era de la Iglesia</h4>
-                        <p>Paréntesis profético entre la semana 69 y 70 de Daniel. Evangelización mundial.</p>
-                    </div>
-                    <div class="timeline-event event-3">
-                        <h4>Gran Tribulación</h4>
-                        <p>La semana 70 de Daniel. Siete años de juicio sobre la tierra y restauración de Israel.</p>
-                    </div>
-                    <div class="timeline-event event-4">
-                        <h4>Segunda Venida</h4>
-                        <p>Cristo regresa como Rey conquistador. Establecimiento del Reino Milenial.</p>
-                    </div>
-                    <div class="timeline-event event-5">
-                        <h4>Estado Eterno</h4>
-                        <p>Nuevos cielos y nueva tierra. La Nueva Jerusalén. Culminación de todas las profecías.</p>
-                    </div>
+            <div class="vision-grid">
+                <div class="vision-card reveal">
+                    <p class="vision-card-label">Visión · Zacarías 4</p>
+                    <h3 class="vision-card-title">El Candelabro de Oro</h3>
+                    <p class="vision-card-body">Menorá alimentada automáticamente por aceite, simbolizando que la obra de Dios se realiza <em>"no con ejército, ni con fuerza, sino con mi Espíritu"</em>. Los dos olivos representan los ungidos que ministran.</p>
+                    <p class="vision-verse">"No con ejército, ni con fuerza, sino con mi Espíritu, dice Jehová de los ejércitos" — Zacarías 4:6</p>
+                </div>
+
+                <div class="vision-card reveal">
+                    <p class="vision-card-label">Visión · Zacarías 5</p>
+                    <h3 class="vision-card-title">El Rollo Volante</h3>
+                    <p class="vision-card-body">Rollo gigante que vuela sobre la tierra, simbolizando <em>la maldición de Dios</em> sobre el pecado. Representa el juicio divino que alcanza a todos los transgresores de la ley.</p>
+                    <p class="vision-verse">"Esta es la maldición que sale sobre la faz de toda la tierra" — Zacarías 5:3</p>
+                </div>
+
+                <div class="vision-card reveal">
+                    <p class="vision-card-label">Visión · Zacarías 6</p>
+                    <h3 class="vision-card-title">Los Cuatro Carros</h3>
+                    <p class="vision-card-body">Carros con caballos de diferentes colores que patrullan la tierra, simbolizando <em>los juicios de Dios</em> sobre las naciones. Representan la justicia divina ejecutándose globalmente.</p>
+                    <p class="vision-verse">"Estos son los cuatro vientos de los cielos, que salen después de presentarse delante del Señor" — Zacarías 6:5</p>
+                </div>
+
+                <div class="vision-card reveal">
+                    <p class="vision-card-label">Profecía · Zacarías 6</p>
+                    <h3 class="vision-card-title">El Rey-Sacerdote</h3>
+                    <p class="vision-card-body">Profecía de <em>Josué coronado</em> como tipo del Mesías, quien será tanto Rey como Sacerdote. Apunta a Cristo como el único que une ambos oficios perfectamente en su persona.</p>
+                    <p class="vision-verse">"He aquí el varón cuyo nombre es el Renuevo, el cual brotará de sus raíces, y edificará el templo de Jehová" — Zacarías 6:12</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Sección Misterios -->
-        <section class="prophecy-section">
-            <div class="mysteries-chamber">
-                <h2 class="chamber-title">Misterios Apocalípticos</h2>
-                
-                <div class="mystery-constellation">
-                    <div class="mystery-orb">
-                        <h3 class="orb-title">El Número 666</h3>
-                        <div class="orb-content">
-                            Número de la bestia que representa la <span class="emphasis">imperfección humana</span> llevada a su máxima expresión. El 6 es el número del hombre, y su triple repetición indica completitud en la maldad.
-                        </div>
-                    </div>
-
-                    <div class="mystery-orb">
-                        <h3 class="orb-title">Los 144,000 Sellados</h3>
-                        <div class="orb-content">
-                            Número simbólico de <span class="emphasis">perfección y completitud</span> (12x12x1000) representando todos los redimidos de Israel o la iglesia completa bajo la protección divina.
-                        </div>
-                    </div>
-
-                    <div class="mystery-orb">
-                        <h3 class="orb-title">Babylon la Grande</h3>
-                        <div class="orb-content">
-                            Sistema mundial religioso-político que se opone a Dios. Representa la <span class="emphasis">culminación de la rebelión</span> humana desde la torre de Babel.
-                        </div>
-                    </div>
-
-                    <div class="mystery-orb">
-                        <h3 class="orb-title">El Milenio</h3>
-                        <div class="orb-content">
-                            Reino de mil años donde Cristo reina visiblemente. Período de <span class="emphasis">justicia perfecta</span> y cumplimiento de todas las promesas del pacto.
-                        </div>
-                    </div>
-
-                    <div class="mystery-orb">
-                        <h3 class="orb-title">Gog y Magog</h3>
-                        <div class="orb-content">
-                            <span class="emphasis">Rebelión final</span> contra Dios después del milenio. Demuestra que aún en condiciones perfectas, el corazón humano necesita regeneración.
-                        </div>
-                    </div>
-
-                    <div class="mystery-orb">
-                        <h3 class="orb-title">El Árbol de la Vida</h3>
-                        <div class="orb-content">
-                            Restauración del <span class="emphasis">paraíso perdido</span>. Simboliza la vida eterna en comunión perfecta con Dios, sin posibilidad de nueva caída.
-                        </div>
-                    </div>
+    <!-- APOCALIPSIS -->
+    <section class="section-dk">
+        <div class="container">
+            <p class="section-label">Libro IV</p>
+            <div class="book-header light-border reveal">
+                <span class="book-num light">IV</span>
+                <div>
+                    <h2 class="book-name light">Apocalipsis</h2>
+                    <p class="book-subtitle light">La revelación final de Jesucristo</p>
                 </div>
             </div>
-        </section>
-    </div>
+
+            <div class="vision-grid-3">
+                <div class="vision-card dark reveal">
+                    <p class="vision-card-label light">Visión · Ap 1</p>
+                    <h3 class="vision-card-title light">Los Siete Candeleros</h3>
+                    <p class="vision-card-body light">Representan las <em>siete iglesias</em> de Asia Menor, y también la iglesia universal en todas las épocas. Cristo camina entre ellas como Sumo Sacerdote vigilante.</p>
+                    <p class="vision-verse light">"Los siete candeleros que has visto, son las siete iglesias" — Ap 1:20</p>
+                </div>
+
+                <div class="vision-card dark reveal">
+                    <p class="vision-card-label light">Visión · Ap 6</p>
+                    <h3 class="vision-card-title light">Los Siete Sellos</h3>
+                    <p class="vision-card-body light">Juicios progresivos: <em>conquista, guerra, hambre, muerte</em>, persecución de santos, cataclismos cósmicos y silencio antes de la ira final.</p>
+                    <p class="vision-verse light">"Y miré cuando el Cordero abrió uno de los sellos" — Ap 6:1</p>
+                </div>
+
+                <div class="vision-card dark reveal">
+                    <p class="vision-card-label light">Visión · Ap 8–11</p>
+                    <h3 class="vision-card-title light">Las Siete Trompetas</h3>
+                    <p class="vision-card-body light">Juicios más intensos: <em>granizo y fuego, montaña ardiendo</em>, estrella cayendo, oscurecimiento, langostas del abismo, ejército de 200 millones y el reino de Cristo.</p>
+                    <p class="vision-verse light">"Y los siete ángeles... se dispusieron a tocarlas" — Ap 8:6</p>
+                </div>
+
+                <div class="vision-card dark reveal">
+                    <p class="vision-card-label light">Visión · Ap 12–13</p>
+                    <h3 class="vision-card-title light">La Bestia y el Dragón</h3>
+                    <p class="vision-card-body light"><em>Satanás</em> (dragón) y sus instrumentos: la bestia del mar (poder político anticristiano) y la bestia de la tierra (poder religioso falso). La trinidad satánica.</p>
+                    <p class="vision-verse light">"Fue lanzado fuera el gran dragón, la serpiente antigua, que se llama diablo y Satanás" — Ap 12:9</p>
+                </div>
+
+                <div class="vision-card dark reveal">
+                    <p class="vision-card-label light">Visión · Ap 16</p>
+                    <h3 class="vision-card-title light">Las Siete Copas</h3>
+                    <p class="vision-card-body light"><em>Juicios finales</em> de la ira de Dios: úlceras, mar como sangre, ríos como sangre, calor abrasador, tinieblas, secamiento del Éufrates y Armagedón.</p>
+                    <p class="vision-verse light">"Id y derramad sobre la tierra las siete copas de la ira de Dios" — Ap 16:1</p>
+                </div>
+
+                <div class="vision-card dark reveal">
+                    <p class="vision-card-label light">Visión · Ap 21–22</p>
+                    <h3 class="vision-card-title light">La Nueva Jerusalén</h3>
+                    <p class="vision-card-body light">Ciudad celestial que desciende del cielo, simbolizando la <em>morada eterna</em> de los redimidos. Representa la perfección de la comunión entre Dios y su pueblo.</p>
+                    <p class="vision-verse light">"Vi la santa ciudad, la nueva Jerusalén, descender del cielo, de Dios" — Ap 21:2</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÉTODOS DE INTERPRETACIÓN -->
+    <section class="section-dk" style="border-top: 1px solid rgba(184,154,95,0.08);">
+        <div class="container">
+            <p class="section-label">Hermenéutica Profética</p>
+            <h2 class="section-title light reveal">Métodos de Interpretación</h2>
+            <div class="section-rule gold"></div>
+
+            <div class="methods-grid">
+                <div class="method-card reveal">
+                    <span class="method-tag">Historicista</span>
+                    <h3 class="method-title">Panorámica Continua</h3>
+                    <p class="method-body">Interpreta las profecías apocalípticas como una <em>panorámica continua</em> de la historia de la iglesia desde el primer siglo hasta la segunda venida. Ve el cumplimiento progresivo en eventos históricos específicos.</p>
+                    <p class="method-meta"><strong>Fortaleza:</strong> conecta profecía con historia conocida<br><strong>Limitación:</strong> tendencia a alegorización excesiva</p>
+                </div>
+
+                <div class="method-card reveal">
+                    <span class="method-tag">Preterista</span>
+                    <h3 class="method-title">Cumplimiento Pasado</h3>
+                    <p class="method-body">Sostiene que la mayoría de las profecías se <em>cumplieron en el pasado</em>, principalmente en la destrucción de Jerusalén (70 d.C.) y la caída del Imperio Romano.</p>
+                    <p class="method-meta"><strong>Fortaleza:</strong> relevancia inmediata para lectores originales<br><strong>Limitación:</strong> minimiza el aspecto escatológico futuro</p>
+                </div>
+
+                <div class="method-card reveal">
+                    <span class="method-tag">Futurista</span>
+                    <h3 class="method-title">Eventos Futuros</h3>
+                    <p class="method-body">Interpreta la mayoría como <em>eventos futuros</em> que ocurrirán principalmente durante los últimos siete años antes de la segunda venida de Cristo.</p>
+                    <p class="method-meta"><strong>Fortaleza:</strong> toma en serio el aspecto profético literal<br><strong>Limitación:</strong> puede desconectar de la audiencia original</p>
+                </div>
+
+                <div class="method-card reveal">
+                    <span class="method-tag">Idealista</span>
+                    <h3 class="method-title">Símbolos Atemporales</h3>
+                    <p class="method-body">Ve las visiones como <em>símbolos atemporales</em> del conflicto entre el bien y el mal, aplicables a cualquier época sin referencia a eventos históricos específicos.</p>
+                    <p class="method-meta"><strong>Fortaleza:</strong> aplicabilidad universal a toda época<br><strong>Limitación:</strong> puede vaciar el contenido histórico específico</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CRONOLOGÍA PROFÉTICA -->
+    <section class="section-dk" style="border-top: 1px solid rgba(184,154,95,0.06); padding-bottom: 6rem;">
+        <div class="container">
+            <p class="section-label">Línea del Tiempo</p>
+            <h2 class="section-title light reveal">Cronología Profética</h2>
+            <div class="section-rule gold"></div>
+
+            <div class="timeline-flex reveal">
+                <div class="timeline-event">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-num">I</span>
+                    <h4 class="timeline-title-text">Primera Venida</h4>
+                    <p class="timeline-desc">Cumplimiento de las 69 semanas de Daniel. El Mesías viene como Siervo Sufriente.</p>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-num">II</span>
+                    <h4 class="timeline-title-text">Era de la Iglesia</h4>
+                    <p class="timeline-desc">Paréntesis profético entre la semana 69 y 70 de Daniel. Evangelización mundial.</p>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-num">III</span>
+                    <h4 class="timeline-title-text">Gran Tribulación</h4>
+                    <p class="timeline-desc">La semana 70 de Daniel. Siete años de juicio sobre la tierra y restauración de Israel.</p>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-num">IV</span>
+                    <h4 class="timeline-title-text">Segunda Venida</h4>
+                    <p class="timeline-desc">Cristo regresa como Rey conquistador. Establecimiento del Reino Milenial.</p>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-num">V</span>
+                    <h4 class="timeline-title-text">Estado Eterno</h4>
+                    <p class="timeline-desc">Nuevos cielos y nueva tierra. La Nueva Jerusalén. Culminación de todas las profecías.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISTERIOS APOCALÍPTICOS -->
+    <section class="section-dk" style="border-top: 1px solid rgba(184,154,95,0.08);">
+        <div class="container">
+            <p class="section-label">Temas Profundos</p>
+            <h2 class="section-title light reveal">Misterios Apocalípticos</h2>
+            <div class="section-rule gold"></div>
+
+            <div class="mysteries-grid">
+                <div class="mystery-card reveal">
+                    <div class="mystery-num">I</div>
+                    <h3 class="mystery-title">El Número 666</h3>
+                    <p class="mystery-body">Número de la bestia que representa la <em>imperfección humana</em> llevada a su máxima expresión. El 6 es el número del hombre; su triple repetición indica completitud en la maldad.</p>
+                </div>
+
+                <div class="mystery-card reveal">
+                    <div class="mystery-num">II</div>
+                    <h3 class="mystery-title">Los 144,000 Sellados</h3>
+                    <p class="mystery-body">Número simbólico de <em>perfección y completitud</em> (12×12×1000) representando todos los redimidos de Israel o la iglesia completa bajo protección divina.</p>
+                </div>
+
+                <div class="mystery-card reveal">
+                    <div class="mystery-num">III</div>
+                    <h3 class="mystery-title">Babilonia la Grande</h3>
+                    <p class="mystery-body">Sistema mundial religioso-político que se opone a Dios. Representa la <em>culminación de la rebelión</em> humana desde la torre de Babel hasta el fin.</p>
+                </div>
+
+                <div class="mystery-card reveal">
+                    <div class="mystery-num">IV</div>
+                    <h3 class="mystery-title">El Milenio</h3>
+                    <p class="mystery-body">Reino de mil años donde Cristo reina visiblemente. Período de <em>justicia perfecta</em> y cumplimiento de todas las promesas del pacto davídico.</p>
+                </div>
+
+                <div class="mystery-card reveal">
+                    <div class="mystery-num">V</div>
+                    <h3 class="mystery-title">Gog y Magog</h3>
+                    <p class="mystery-body"><em>Rebelión final</em> contra Dios después del milenio. Demuestra que aún en condiciones perfectas, el corazón humano caído necesita regeneración.</p>
+                </div>
+
+                <div class="mystery-card reveal">
+                    <div class="mystery-num">VI</div>
+                    <h3 class="mystery-title">El Árbol de la Vida</h3>
+                    <p class="mystery-body">Restauración del <em>paraíso perdido</em>. Simboliza la vida eterna en comunión perfecta con Dios, sin posibilidad de nueva caída ni separación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="section-dk" style="border-top: 1px solid rgba(184,154,95,0.08); padding: 5rem 0 4rem;">
+        <div class="container">
+            <div class="conclusion-inner reveal">
+                <div class="conclusion-divider"></div>
+                <p class="conclusion-label">Visión y Esperanza</p>
+                <blockquote class="conclusion-quote">
+                    "El que da testimonio de estas cosas dice: Sí, vengo en breve. Amén; sí, ven, Señor Jesús."
+                </blockquote>
+                <p class="conclusion-ref">Apocalipsis 22:20</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAV STRIP -->
+    <nav class="nav-strip">
+        <div class="nav-strip-inner">
+            <a href="soteriologia-avanzada.html" class="nav-link"><i class="fa fa-arrow-left"></i> Soteriología Avanzada</a>
+            <span class="nav-center">Estudios Bíblicos · Avanzados</span>
+            <a href="teologia-sabiduria.html" class="nav-link">Teología de la Sabiduría <i class="fa fa-arrow-right"></i></a>
+        </div>
+    </nav>
 
     <script>
-        let currentSection = 0;
-        const sections = document.querySelectorAll('.prophecy-section');
-        const runes = document.querySelectorAll('.rune-nav');
-        const container = document.getElementById('scrollContainer');
-
-        function scrollToSection(index) {
-            currentSection = index;
-            
-            if (window.innerWidth <= 768) {
-                // Mobile: scroll vertically
-                const targetY = index * window.innerHeight;
-                window.scrollTo({
-                    top: targetY,
-                    behavior: 'smooth'
-                });
-            } else {
-                // Desktop: scroll horizontally
-                const targetX = index * window.innerWidth;
-                window.scrollTo({
-                    left: targetX,
-                    behavior: 'smooth'
-                });
-            }
-            
-            // Update active rune
-            runes.forEach((rune, i) => {
-                rune.classList.remove('active');
-                if (i === index) {
-                    rune.classList.add('active');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
                 }
             });
-        }
-
-        // Handle keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' && currentSection < sections.length - 1) {
-                scrollToSection(currentSection + 1);
-            } else if (e.key === 'ArrowLeft' && currentSection > 0) {
-                scrollToSection(currentSection - 1);
-            }
-        });
-
-        // Handle scroll detection
-        let isScrolling = false;
-        
-        window.addEventListener('scroll', () => {
-            if (isScrolling) return;
-            
-            if (window.innerWidth > 768) {
-                // Desktop horizontal scroll detection
-                const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-                const sectionIndex = Math.round(scrollLeft / window.innerWidth);
-                
-                if (sectionIndex !== currentSection && sectionIndex >= 0 && sectionIndex < sections.length) {
-                    currentSection = sectionIndex;
-                    runes.forEach((rune, i) => {
-                        rune.classList.toggle('active', i === currentSection);
-                    });
-                }
-            } else {
-                // Mobile vertical scroll detection
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const sectionIndex = Math.round(scrollTop / window.innerHeight);
-                
-                if (sectionIndex !== currentSection && sectionIndex >= 0 && sectionIndex < sections.length) {
-                    currentSection = sectionIndex;
-                    runes.forEach((rune, i) => {
-                        rune.classList.toggle('active', i === currentSection);
-                    });
-                }
-            }
-        });
-
-        // Prevent scroll conflicts
-        runes.forEach(rune => {
-            rune.addEventListener('click', () => {
-                isScrolling = true;
-                setTimeout(() => {
-                    isScrolling = false;
-                }, 1000);
-            });
-        });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
+
 </body>
 </html>
