@@ -3,1127 +3,929 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctrina Intermedia | Academia Bíblica Avanzada</title>
+    <title>Doctrina Intermedia | Ministerio La Gloria es del Señor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Source+Sans+Pro:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            /* Paleta Sofisticada - Tonos Tierra y Gemas */
-            --primary-amethyst: #6B46C1;
-            --deep-emerald: #047857;
-            --rich-copper: #B45309;
-            --warm-gold: #D97706;
-            --slate-charcoal: #1E293B;
-            --pearl-white: #F8FAFC;
-            --soft-cream: #FEF7ED;
-            --sage-mist: #F0FDF4;
-            --lavender-mist: #F3F4F6;
-            --coral-accent: #F87171;
-            --teal-deep: #0F766E;
-            --bronze-dark: #92400E;
-            
-            /* Gradientes Elegantes */
-            --gradient-primary: linear-gradient(135deg, #6B46C1 0%, #047857 50%, #D97706 100%);
-            --gradient-secondary: linear-gradient(135deg, #1E293B 0%, #6B46C1 100%);
-            --gradient-accent: linear-gradient(135deg, #F87171 0%, #D97706 100%);
-            --gradient-earth: linear-gradient(135deg, #92400E 0%, #B45309 100%);
-            
-            /* Sombras Sofisticadas */
-            --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-large: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            --shadow-glow: 0 0 20px rgba(107, 70, 193, 0.3);
-            
-            /* Tipografía */
-            --font-serif: 'Playfair Display', serif;
-            --font-sans: 'Source Sans Pro', sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
-            
-            /* Transiciones */
-            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --ink:         #1a1410;
+            --ink-dark:    #0e0c0a;
+            --gold:        #b89a5f;
+            --gold-lt:     rgba(184,154,95,0.18);
+            --parchment:   #f7f4ed;
+            --parchment-dk:#ede9de;
+            --text:        #2e2920;
+            --text-muted:  #6b6257;
+            --accent:      #6b3a2a;
+            --accent-mid:  #8f5040;
+            --accent-pale: rgba(107,58,42,0.07);
+            --accent-glow: rgba(107,58,42,0.18);
+            --hero-grad:   linear-gradient(160deg, #0e0c0a 0%, #1f1a14 100%);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: var(--font-sans);
-            background-color: var(--pearl-white);
-            color: var(--slate-charcoal);
-            line-height: 1.7;
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            background: var(--parchment);
+            color: var(--text);
+            line-height: 1.75;
             overflow-x: hidden;
         }
 
-        /* Geometric Background Pattern */
+        /* ── GRAIN TEXTURE ── */
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(107, 70, 193, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(4, 120, 87, 0.05) 0%, transparent 50%),
-                linear-gradient(45deg, transparent 40%, rgba(217, 119, 6, 0.02) 50%, transparent 60%);
-            z-index: -1;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
             pointer-events: none;
+            z-index: 0;
         }
 
-        .container {
-            width: 90%;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header con Diseño Editorial */
+        /* ── HEADER ── */
         header {
-            background: var(--gradient-secondary);
-            color: white;
-            padding: 2rem 0;
-            position: sticky;
-            top: 0;
+            position: fixed;
+            top: 0; left: 0; right: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        .header-content {
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .logo {
+            background: rgba(14,12,10,0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184,154,95,0.22);
+            padding: 0 2.5rem;
+            height: 64px;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            justify-content: space-between;
         }
 
-        .logo img {
-            height: 50px;
-            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            text-decoration: none;
+        }
+
+        .logo-wrap img {
+            height: 38px;
+            opacity: 0.92;
         }
 
         .logo-text {
-            font-family: var(--font-serif);
-            font-weight: 600;
-            line-height: 1.2;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            color: rgba(247,244,237,0.85);
+            line-height: 1.25;
         }
 
         .header-nav {
-            justify-self: center;
-        }
-
-        .breadcrumb {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.78rem;
+            letter-spacing: 0.03em;
+            color: rgba(247,244,237,0.5);
         }
 
-        .breadcrumb a {
-            color: var(--warm-gold);
+        .header-nav a {
+            color: rgba(184,154,95,0.85);
             text-decoration: none;
-            transition: var(--transition-smooth);
+            transition: color 0.2s;
         }
 
-        .breadcrumb a:hover {
-            color: white;
+        .header-nav a:hover { color: var(--gold); }
+        .header-nav .sep { opacity: 0.35; }
+
+        .level-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid rgba(184,154,95,0.35);
+            padding: 0.3rem 0.85rem;
+            border-radius: 2px;
         }
 
-        .level-indicator {
-            background: var(--gradient-accent);
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            font-family: var(--font-mono);
-            font-weight: 500;
-            font-size: 0.9rem;
-            box-shadow: var(--shadow-medium);
-        }
-
-        /* Hero Section Editorial */
-        .hero {
-            padding: 6rem 0;
+        /* ── HERO ── */
+        .page-hero {
+            min-height: 78vh;
+            padding: 140px 0 100px;
+            background: var(--hero-grad);
             position: relative;
-            background: var(--gradient-primary);
-            color: white;
             overflow: hidden;
+            display: flex;
+            align-items: center;
         }
 
-        .hero::before {
+        .page-hero::after {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 100%;
-            height: 200%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,0 100,25 100,75 50,100 0,75 0,25" fill="rgba(255,255,255,0.05)"/></svg>');
-            background-size: 200px 200px;
-            transform: rotate(15deg);
-            animation: float 20s ease-in-out infinite;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(107,58,42,0.20) 0%, transparent 65%);
+            pointer-events: none;
         }
 
-        @keyframes float {
-            0%, 100% { transform: rotate(15deg) translateY(0px); }
-            50% { transform: rotate(15deg) translateY(-20px); }
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+        .hero-inner {
             position: relative;
             z-index: 2;
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .hero-content h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            line-height: 1.1;
+        .hero-kicker {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid rgba(184,154,95,0.3);
+            padding: 0.35rem 1.1rem;
             margin-bottom: 2rem;
-            background: linear-gradient(135deg, white 0%, var(--warm-gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            border-radius: 2px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.2s forwards;
         }
 
-        .hero-subtitle {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            margin-bottom: 2.5rem;
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+            color: #f7f4ed;
+            line-height: 1.12;
+            margin-bottom: 1.6rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.4s forwards;
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
             font-weight: 300;
+            color: rgba(247,244,237,0.65);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.6s forwards;
         }
 
         .hero-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
+            max-width: 680px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.8s forwards;
         }
 
         .hero-stat {
-            text-align: center;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .hero-stat-number {
-            font-family: var(--font-serif);
-            font-size: 2rem;
-            font-weight: 700;
-            display: block;
-            color: var(--warm-gold);
-        }
-
-        .hero-visual {
-            position: relative;
-            height: 400px;
-        }
-
-        .floating-element {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 1.5rem;
-            transition: var(--transition-smooth);
-        }
-
-        .floating-element:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-large);
-        }
-
-        .floating-element:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            width: 120px;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-element:nth-child(2) {
-            top: 60%;
-            right: 20%;
-            width: 140px;
-            animation: float 8s ease-in-out infinite reverse;
-        }
-
-        .floating-element:nth-child(3) {
-            bottom: 20%;
-            left: 30%;
-            width: 100px;
-            animation: float 7s ease-in-out infinite;
-        }
-
-        /* Section Title Editorial */
-        .section-header {
-            text-align: center;
-            padding: 6rem 0 4rem;
-            position: relative;
-        }
-
-        .section-header::before {
-            content: '';
-            position: absolute;
-            top: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--gradient-primary);
+            background: rgba(247,244,237,0.04);
+            border: 1px solid rgba(184,154,95,0.18);
+            padding: 1.5rem 1rem;
             border-radius: 2px;
         }
 
-        .section-title {
-            font-family: var(--font-serif);
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--primary-amethyst);
-            margin-bottom: 1.5rem;
-            font-weight: 700;
+        .hero-stat-n {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--gold);
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.4rem;
         }
 
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--slate-charcoal);
-            max-width: 600px;
+        .hero-stat-l {
+            font-size: 0.8rem;
+            letter-spacing: 0.06em;
+            color: rgba(247,244,237,0.5);
+            text-transform: uppercase;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(22px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── CONTAINER ── */
+        .container {
+            width: 90%;
+            max-width: 1200px;
             margin: 0 auto;
-            opacity: 0.8;
         }
 
-        /* Estudios Grid - Layout Magazine */
+        /* ── SECTION HEADER ── */
+        .section-hd {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-hd-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.9rem;
+        }
+
+        .section-hd h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+            color: var(--ink);
+            margin-bottom: 1rem;
+        }
+
+        .section-hd p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .rule {
+            width: 48px;
+            height: 1px;
+            background: var(--accent);
+            margin: 1rem auto 0;
+        }
+
+        /* ── STUDIES GRID ── */
         .studies-section {
-            padding: 4rem 0;
+            padding: 6rem 0 4rem;
         }
 
         .studies-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
         }
 
         .study-card {
-            background: white;
-            border-radius: 20px;
+            background: #fff;
+            border: 1px solid var(--parchment-dk);
+            border-radius: 2px;
             overflow: hidden;
-            box-shadow: var(--shadow-medium);
-            transition: var(--transition-bounce);
-            position: relative;
-            cursor: pointer;
+            transition: box-shadow 0.3s, transform 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .study-card:hover {
-            transform: translateY(-15px) rotate(1deg);
-            box-shadow: var(--shadow-large);
+            box-shadow: 0 12px 40px rgba(107,58,42,0.13);
+            transform: translateY(-4px);
         }
 
-        .study-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: var(--gradient-primary);
-        }
-
-        .study-header {
-            padding: 2rem;
-            background: linear-gradient(135deg, var(--sage-mist) 0%, var(--soft-cream) 100%);
+        .study-card-top {
+            padding: 1.8rem 1.8rem 1.4rem;
+            background: var(--parchment);
+            border-bottom: 1px solid var(--parchment-dk);
             position: relative;
         }
 
-        .study-number {
+        .study-num {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-earth);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-mono);
+            top: 1.2rem;
+            right: 1.4rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
             font-weight: 600;
-            font-size: 0.9rem;
+            color: rgba(107,58,42,0.18);
+            line-height: 1;
+            user-select: none;
         }
 
         .study-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-secondary);
-            border-radius: 15px;
+            width: 46px;
+            height: 46px;
+            background: var(--accent);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .study-title {
-            font-family: var(--font-serif);
-            font-size: 1.4rem;
-            color: var(--slate-charcoal);
-            margin-bottom: 0.8rem;
-            font-weight: 600;
+            border-radius: 2px;
+            color: #f7f4ed;
+            font-size: 1.1rem;
+            margin-bottom: 1.1rem;
         }
 
         .study-theme {
-            color: var(--deep-emerald);
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: 0.45rem;
         }
 
-        .study-content {
-            padding: 2rem;
+        .study-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--ink);
+            line-height: 1.25;
         }
 
-        .study-description {
-            color: var(--slate-charcoal);
-            margin-bottom: 1.5rem;
-            opacity: 0.8;
+        .study-body {
+            padding: 1.4rem 1.8rem 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .study-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.3rem;
+            flex: 1;
         }
 
         .study-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-bottom: 2rem;
+            gap: 0.5rem;
+            margin-bottom: 1.4rem;
         }
 
         .study-tag {
-            background: var(--lavender-mist);
-            color: var(--primary-amethyst);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-pale);
+            border: 1px solid rgba(107,58,42,0.15);
+            padding: 0.25rem 0.65rem;
+            border-radius: 2px;
         }
 
-        .study-actions {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn {
-            padding: 0.8rem 1.5rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 500;
-            font-family: var(--font-sans);
-            transition: var(--transition-smooth);
+        .study-link {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            border: none;
-            cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #f7f4ed;
+            background: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 0.6rem 1.2rem;
+            border-radius: 2px;
+            text-decoration: none;
+            align-self: flex-start;
+            transition: background 0.2s, color 0.2s;
         }
 
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .btn-outline {
+        .study-link:hover {
             background: transparent;
-            color: var(--primary-amethyst);
-            border: 2px solid var(--primary-amethyst);
+            color: var(--accent);
         }
 
-        .btn-outline:hover {
-            background: var(--primary-amethyst);
-            color: white;
-        }
-
-        /* Special Sections */
-        .special-section {
-            margin: 6rem 0;
-            padding: 4rem 0;
-            background: var(--gradient-secondary);
-            color: white;
-            border-radius: 30px;
+        /* ── DARK SECTIONS ── */
+        .dark-band {
+            background: var(--hero-grad);
+            padding: 5rem 0;
             position: relative;
             overflow: hidden;
         }
 
-        .special-section::before {
+        .dark-band + .dark-band {
+            padding-top: 0;
+        }
+
+        .dark-band::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: 50px 50px;
-            animation: drift 30s linear infinite;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 50%, rgba(107,58,42,0.14) 0%, transparent 70%);
+            pointer-events: none;
         }
 
-        @keyframes drift {
-            0% { transform: translateX(0) translateY(0); }
-            100% { transform: translateX(-50px) translateY(-50px); }
-        }
-
-        .special-content {
+        .dark-band-inner {
             position: relative;
-            z-index: 2;
+            z-index: 1;
             text-align: center;
-            max-width: 800px;
+            max-width: 680px;
             margin: 0 auto;
         }
 
-        .special-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-accent);
-            border-radius: 50%;
+        .dark-band-icon {
+            width: 64px;
+            height: 64px;
+            border: 1px solid rgba(184,154,95,0.35);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 2rem;
-            font-size: 2rem;
-            color: white;
+            border-radius: 2px;
+            color: var(--gold);
+            font-size: 1.4rem;
+            margin: 0 auto 1.8rem;
         }
 
-        .special-title {
-            font-family: var(--font-serif);
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
+        .dark-band h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: clamp(1.7rem, 3vw, 2.3rem);
+            color: #f7f4ed;
+            margin-bottom: 1rem;
         }
 
-        .special-description {
-            font-size: 1.2rem;
-            opacity: 0.9;
+        .dark-band p {
+            font-size: 1rem;
+            color: rgba(247,244,237,0.65);
             margin-bottom: 2.5rem;
         }
 
-        /* Progress Tracker */
-        .progress-tracker {
-            position: fixed;
-            top: 50%;
-            right: 2rem;
-            transform: translateY(-50%);
-            background: white;
-            border-radius: 15px;
-            padding: 1rem;
-            box-shadow: var(--shadow-large);
-            z-index: 1000;
-            transition: var(--transition-smooth);
+        .dark-band-btns {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .progress-tracker:hover {
-            transform: translateY(-50%) scale(1.05);
-        }
-
-        .progress-item {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--lavender-mist);
-            margin-bottom: 0.8rem;
-            transition: var(--transition-smooth);
-            cursor: pointer;
-        }
-
-        .progress-item.active {
-            background: var(--primary-amethyst);
-            box-shadow: 0 0 10px rgba(107, 70, 193, 0.5);
-        }
-
-        .progress-item.completed {
-            background: var(--deep-emerald);
-        }
-
-        /* Footer Editorial */
-        footer {
-            background: var(--slate-charcoal);
-            color: white;
-            padding: 4rem 0 2rem;
-            margin-top: 6rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-column h3 {
-            font-family: var(--font-serif);
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: var(--warm-gold);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
+        .btn-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-dark);
+            background: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 0.7rem 1.6rem;
+            border-radius: 2px;
             text-decoration: none;
-            transition: var(--transition-smooth);
+            transition: background 0.2s, color 0.2s;
         }
 
-        .footer-links a:hover {
-            color: var(--warm-gold);
-            transform: translateX(5px);
+        .btn-gold:hover {
+            background: transparent;
+            color: var(--gold);
         }
 
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.7;
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(247,244,237,0.75);
+            background: transparent;
+            border: 1px solid rgba(247,244,237,0.25);
+            padding: 0.7rem 1.6rem;
+            border-radius: 2px;
+            text-decoration: none;
+            transition: border-color 0.2s, color 0.2s;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                text-align: center;
-            }
-            
-            .progress-tracker {
-                display: none;
-            }
+        .btn-ghost:hover {
+            border-color: rgba(247,244,237,0.6);
+            color: #f7f4ed;
         }
 
-        @media (max-width: 768px) {
-            .header-content {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                text-align: center;
-            }
-            
-            .studies-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .hero-stats {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .study-actions {
-                flex-direction: column;
-            }
-            
-            .btn {
-                justify-content: center;
-            }
+        /* ── DARK BANDS SEPARATOR ── */
+        .bands-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
         }
 
-        /* Animation Classes */
-        .fade-in {
+        .bands-wrap .dark-band {
+            padding: 5rem 3rem;
+        }
+
+        .bands-wrap .dark-band:first-child {
+            border-right: 1px solid rgba(184,154,95,0.12);
+        }
+
+        @media (max-width: 900px) {
+            .bands-wrap { grid-template-columns: 1fr; }
+            .bands-wrap .dark-band:first-child { border-right: none; border-bottom: 1px solid rgba(184,154,95,0.12); }
+        }
+
+        /* ── REVEAL ── */
+        .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
 
-        .fade-in.visible {
+        .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: all 0.8s ease;
+        /* ── FOOTER ── */
+        footer {
+            background: var(--ink-dark);
+            color: rgba(247,244,237,0.75);
+            padding: 4.5rem 0 2rem;
+            margin-top: 0;
+            position: relative;
+            z-index: 1;
         }
 
-        .slide-in-left.visible {
-            opacity: 1;
-            transform: translateX(0);
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.8s ease;
+        .footer-col h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1.2rem;
         }
 
-        .slide-in-right.visible {
-            opacity: 1;
-            transform: translateX(0);
+        .footer-col p {
+            font-size: 0.88rem;
+            line-height: 1.7;
+        }
+
+        .footer-links { list-style: none; }
+
+        .footer-links li { margin-bottom: 0.65rem; }
+
+        .footer-links a {
+            font-size: 0.88rem;
+            color: rgba(247,244,237,0.65);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-links a i {
+            font-size: 0.75rem;
+            color: var(--accent-mid);
+            width: 14px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(184,154,95,0.15);
+            padding-top: 1.8rem;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.45;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            header { padding: 0 1.2rem; }
+            .header-nav { display: none; }
+            .studies-grid { grid-template-columns: 1fr; }
+            .hero-stats { grid-template-columns: 1fr; max-width: 280px; }
         }
     </style>
 </head>
 <body>
-    <!-- Header Editorial -->
+
+    <!-- ── HEADER ── -->
     <header>
-        <div class="container header-content">
-            <div class="logo">
-                <img src="../../images/EMD.png" alt="Logo EMD">
-                <div class="logo-text">
-                    <div>Ministerio</div>
-                    <div>"La Gloria es del Señor"</div>
-                </div>
+        <a class="logo-wrap" href="../../index.html">
+            <img src="../../images/EMD.png" alt="Logo EMD">
+            <div class="logo-text">
+                <div>Ministerio</div>
+                <div>"La Gloria es del Señor"</div>
             </div>
-            <nav class="header-nav">
-                <div class="breadcrumb">
-                    <a href="../../index.html">Inicio</a>
-                    <i class="fas fa-chevron-right"></i>
-                    <a href="./doctrina-basica.html">Estudios Bíblicos</a>
-                    <i class="fas fa-chevron-right"></i>
-                    <span>Doctrina Intermedia</span>
-                </div>
-            </nav>
-            <div class="level-indicator">
-                <i class="fas fa-graduation-cap"></i>
-                Nivel Intermedio
-            </div>
+        </a>
+        <nav class="header-nav">
+            <a href="../../index.html">Inicio</a>
+            <span class="sep"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i></span>
+            <a href="../../nuestras-ensenanzas/index.html">Enseñanzas</a>
+            <span class="sep"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i></span>
+            <a href="./doctrina-basica.html">Estudios Bíblicos</a>
+            <span class="sep"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i></span>
+            <span style="color:rgba(247,244,237,0.4)">Doctrina Intermedia</span>
+        </nav>
+        <div class="level-badge">
+            <i class="fas fa-graduation-cap" style="margin-right:0.4rem;font-size:0.7rem;"></i>
+            Nivel Intermedio
         </div>
     </header>
 
-    <!-- Hero Section Editorial -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content slide-in-left">
-                    <h1>Academia Bíblica Intermedia</h1>
-                    <p class="hero-subtitle">
-                        Profundiza en las verdades transformadoras de las Escrituras con estudios desafiantes 
-                        diseñados para fortalecer tu madurez espiritual y comprensión teológica.
-                    </p>
-                    <div class="hero-stats">
-                        <div class="hero-stat">
-                            <span class="hero-stat-number">12</span>
-                            <span>Estudios Profundos</span>
-                        </div>
-                        <div class="hero-stat">
-                            <span class="hero-stat-number">500+</span>
-                            <span>Versículos Analizados</span>
-                        </div>
-                        <div class="hero-stat">
-                            <span class="hero-stat-number">3</span>
-                            <span>Meses de Estudio</span>
-                        </div>
-                    </div>
+    <!-- ── HERO ── -->
+    <section class="page-hero">
+        <div class="hero-inner">
+            <span class="hero-kicker">
+                <i class="fas fa-book-open" style="margin-right:0.5rem;"></i>
+                Academia Bíblica &mdash; Nivel II
+            </span>
+            <h1 class="hero-title">Doctrina Intermedia</h1>
+            <p class="hero-sub">
+                Profundiza en las verdades transformadoras de las Escrituras con estudios
+                diseñados para fortalecer la madurez espiritual y la comprensión teológica.
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-n">10</span>
+                    <span class="hero-stat-l">Estudios</span>
                 </div>
-                <div class="hero-visual slide-in-right">
-                    <div class="floating-element">
-                        <i class="fas fa-scroll"></i>
-                        <div>Hermenéutica</div>
-                    </div>
-                    <div class="floating-element">
-                        <i class="fas fa-eye"></i>
-                        <div>Exégesis</div>
-                    </div>
-                    <div class="floating-element">
-                        <i class="fas fa-mountain"></i>
-                        <div>Teología</div>
-                    </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-n">500+</span>
+                    <span class="hero-stat-l">Versículos</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-n">3 meses</span>
+                    <span class="hero-stat-l">Programa</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Progress Tracker -->
-    <div class="progress-tracker">
-        <div class="progress-item active" title="Introducción"></div>
-        <div class="progress-item" title="Estudios Bíblicos"></div>
-        <div class="progress-item" title="Análisis Profundo"></div>
-        <div class="progress-item" title="Examen Final"></div>
-    </div>
-
-    <!-- Estudios Bíblicos Section -->
+    <!-- ── STUDIES GRID ── -->
     <section class="studies-section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title fade-in">Estudios Bíblicos Intermedios</h2>
-                <p class="section-subtitle fade-in">
-                    Explora temas complejos de la fe cristiana con profundidad exegética y aplicación práctica
-                </p>
+            <div class="section-hd reveal">
+                <span class="section-hd-label">Estudios del Nivel Intermedio</span>
+                <h2>Explorando la Teología Sistemática</h2>
+                <p>Temas complejos de la fe cristiana con profundidad exegética y aplicación práctica</p>
+                <div class="rule"></div>
             </div>
 
             <div class="studies-grid">
-                <!-- Estudio 1 -->
-                <div class="study-card fade-in" onclick="window.open('estudios/hermeneutica-biblica.html', '_blank')">
-                    <div class="study-header">
-                        <div class="study-number">01</div>
-                        <div class="study-icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <h3 class="study-title">Hermenéutica Bíblica Avanzada</h3>
+
+                <!-- 01 -->
+                <article class="study-card reveal">
+                    <div class="study-card-top">
+                        <span class="study-num">01</span>
+                        <div class="study-icon"><i class="fas fa-search"></i></div>
                         <div class="study-theme">Interpretación</div>
+                        <h3 class="study-title">Hermenéutica Bíblica Avanzada</h3>
                     </div>
-                    <div class="study-content">
-                        <p class="study-description">
-                            Principios avanzados de interpretación bíblica, contexto histórico-cultural, 
-                            géneros literarios y métodos exegéticos para una comprensión precisa de las Escrituras.
-                        </p>
+                    <div class="study-body">
+                        <p class="study-desc">Principios avanzados de interpretación bíblica, contexto histórico-cultural, géneros literarios y métodos exegéticos para una comprensión precisa de las Escrituras.</p>
                         <div class="study-tags">
                             <span class="study-tag">Exégesis</span>
                             <span class="study-tag">Contexto</span>
                             <span class="study-tag">Métodos</span>
                         </div>
-                        <div class="study-actions">
-                            <a href="estudios/hermeneutica-biblica.html" class="btn btn-primary">
-                                <i class="fas fa-play"></i>
-                                Estudiar Ahora
-                            </a>
-                        </div>
+                        <a href="estudios/hermeneutica-biblica.html" class="study-link">
+                            <i class="fas fa-arrow-right"></i> Estudiar
+                        </a>
                     </div>
-                </div>
+                </article>
 
-                <!-- Estudio 2 -->
-                <div class="study-card fade-in" onclick="window.open('estudios/pneumatologia-avanzada.html', '_blank')">
-                    <div class="study-header">
-                        <div class="study-number">02</div>
-                        <div class="study-icon">
-                            <i class="fas fa-dove"></i>
-                        </div>
-                        <h3 class="study-title">Pneumatología Avanzada</h3>
+                <!-- 02 -->
+                <article class="study-card reveal">
+                    <div class="study-card-top">
+                        <span class="study-num">02</span>
+                        <div class="study-icon"><i class="fas fa-dove"></i></div>
                         <div class="study-theme">Espíritu Santo</div>
+                        <h3 class="study-title">Pneumatología Avanzada</h3>
                     </div>
-                    <div class="study-content">
-                        <p class="study-description">
-                            Estudio profundo sobre la persona y obra del Espíritu Santo, sus dones, 
-                            frutos, y ministerio en la vida del creyente y la iglesia contemporánea.
-                        </p>
+                    <div class="study-body">
+                        <p class="study-desc">Estudio profundo sobre la persona y obra del Espíritu Santo, sus dones, frutos y ministerio en la vida del creyente y la iglesia contemporánea.</p>
                         <div class="study-tags">
                             <span class="study-tag">Dones</span>
                             <span class="study-tag">Frutos</span>
                             <span class="study-tag">Ministerio</span>
                         </div>
-                        <div class="study-actions">
-                            <a href="estudios/pneumatologia-avanzada.html" class="btn btn-primary">
-                                <i class="fas fa-play"></i>
-                                Estudiar Ahora
-                            </a>
-                        </div>
+                        <a href="estudios/pneumatologia-avanzada.html" class="study-link">
+                            <i class="fas fa-arrow-right"></i> Estudiar
+                        </a>
                     </div>
-                </div>
+                </article>
 
-                <!-- Estudio 3 -->
-                <div class="study-card fade-in" onclick="window.open('estudios/cristologia-profunda.html', '_blank')">
-                    <div class="study-header">
-                        <div class="study-number">03</div>
-                        <div class="study-icon">
-                            <i class="fas fa-cross"></i>
-                        </div>
-                        <h3 class="study-title">Cristología Profunda</h3>
+                <!-- 03 -->
+                <article class="study-card reveal">
+                    <div class="study-card-top">
+                        <span class="study-num">03</span>
+                        <div class="study-icon"><i class="fas fa-cross"></i></div>
                         <div class="study-theme">Persona de Cristo</div>
+                        <h3 class="study-title">Cristología Profunda</h3>
                     </div>
-                    <div class="study-content">
-                        <p class="study-description">
-                            Análisis exhaustivo de la persona y obra de Jesucristo: su naturaleza divina-humana, 
-                            oficios mesiánicos, y significado de su sacrificio expiatorio.
-                        </p>
+                    <div class="study-body">
+                        <p class="study-desc">Análisis exhaustivo de la persona y obra de Jesucristo: su naturaleza divina-humana, oficios mesiánicos y el significado de su sacrificio expiatorio.</p>
                         <div class="study-tags">
                             <span class="study-tag">Naturaleza</span>
                             <span class="study-tag">Oficios</span>
                             <span class="study-tag">Expiación</span>
                         </div>
-                        <div class="study-actions">
-                            <a href="estudios/cristologia-profunda.html" class="btn btn-primary">
-                                <i class="fas fa-play"></i>
-                                Estudiar Ahora
-                            </a>
-                        </div>
+                        <a href="estudios/cristologia-profunda.html" class="study-link">
+                            <i class="fas fa-arrow-right"></i> Estudiar
+                        </a>
                     </div>
-                </div>
+                </article>
 
-                <!-- Estudio 4 -->
-                <div class="study-card fade-in" onclick="window.open('estudios/teologia-pactos.html', '_blank')">
-                    <div class="study-header">
-                        <div class="study-number">04</div>
-                        <div class="study-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h3 class="study-title">Teología de los Pactos</h3>
+                <!-- 04 -->
+                <article class="study-card reveal">
+                    <div class="study-card-top">
+                        <span class="study-num">04</span>
+                        <div class="study-icon"><i class="fas fa-handshake"></i></div>
                         <div class="study-theme">Pactos Divinos</div>
+                        <h3 class="study-title">Teología de los Pactos</h3>
                     </div>
-                    <div class="study-content">
-                        <p class="study-description">
-                            Estudio sistemático de los pactos bíblicos: Adán, Noé, Abraham, Moisés, David 
-                            y el Nuevo Pacto, y su progresión en la historia de la salvación.
-                        </p>
+                    <div class="study-body">
+                        <p class="study-desc">Estudio sistemático de los pactos bíblicos: Adán, Noé, Abraham, Moisés, David y el Nuevo Pacto, y su progresión en la historia de la salvación.</p>
                         <div class="study-tags">
                             <span class="study-tag">Historia</span>
                             <span class="study-tag">Progresión</span>
                             <span class="study-tag">Salvación</span>
                         </div>
-                        <div class="study-actions">
-                            <a href="estudios/teologia-pactos.html" class="btn btn-primary">
-                                <i class="fas fa-play"></i>
-                                Estudiar Ahora
-                            </a>
-                        </div>
+                        <a href="estudios/teologia-pactos.html" class="study-link">
+                            <i class="fas fa-arrow-right"></i> Estudiar
+                        </a>
                     </div>
-                </div>
+                </article>
 
-                <!-- Estudio 5 -->
-                <div class="study-card fade-in" onclick="window.open('estudios/eclesiologia-practica.html', '_blank')">
-                    <div class="study-header">
-                        <div class="study-number">05</div>
-                        <div class="study-icon">
-                            <i class="fas fa-church"></i>
-                        </div>
-                        <h3 class="study-title">Eclesiología Práctica</h3>
+                <!-- 05 -->
+                <article class="study-card reveal">
+                    <div class="study-card-top">
+                        <span class="study-num">05</span>
+                        <div class="study-icon"><i class="fas fa-church"></i></div>
                         <div class="study-theme">Vida de Iglesia</div>
+                        <h3 class="study-title">Eclesiología Práctica</h3>
                     </div>
-                    <div class="study-content">
-                        <p class="study-description">
-                            La naturaleza, propósito y gobierno de la iglesia local. Disciplina, liderazgo, 
-                            ordenanzas y el papel del creyente en el cuerpo de Cristo.
-                        </p>
+                    <div class="study-body">
+                        <p class="study-desc">La naturaleza, propósito y gobierno de la iglesia local. Disciplina, liderazgo, ordenanzas y el papel del creyente en el cuerpo de Cristo.</p>
                         <div class="study-tags">
                             <span class="study-tag">Gobierno</span>
                             <span class="study-tag">Liderazgo</span>
                             <span class="study-tag">Ordenanzas</span>
                         </div>
-                        <div class="study-actions">
-                            <a href="estudios/eclesiologia-practica.html" class="btn btn-primary">
-                                <i class="fas fa-play"></i>
-                                Estudiar Ahora
-                            </a>
-                        </div>
+                        <a href="estudios/eclesiologia-practica.html" class="study-link">
+                            <i class="fas fa-arrow-right"></i> Estudiar
+                        </a>
                     </div>
-                </div>
+                </article>
 
-                <!-- Estudio 6 -->
-                <div class="study-card fade-in" onclick="window.open('estudios/soteriologia-avanzada.html', '_blank')">
-                    <div class="study-header">
-                        <div class="study-number">06</div>
-                        <div class="study-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h3 class="study-title">Soteriología Avanzada</h3>
+                <!-- 06 -->
+                <article class="study-card reveal">
+                    <div class="study-card-top">
+                        <span class="study-num">06</span>
+                        <div class="study-icon"><i class="fas fa-heart"></i></div>
                         <div class="study-theme">Doctrina de Salvación</div>
+                        <h3 class="study-title">Soteriología Avanzada</h3>
                     </div>
-                    <div class="study-content">
-                        <p class="study-description">
-                            Estudio profundo de la salvación: elección, llamamiento, regeneración, 
-                            justificación, adopción, santificación y glorificación.
-                        </p>
+                    <div class="study-body">
+                        <p class="study-desc">Estudio profundo de la salvación: elección, llamamiento, regeneración, justificación, adopción, santificación y glorificación.</p>
                         <div class="study-tags">
                             <span class="study-tag">Elección</span>
                             <span class="study-tag">Justificación</span>
                             <span class="study-tag">Santificación</span>
                         </div>
-                        <div class="study-actions">
-                            <a href="estudios/soteriologia-avanzada.html" class="btn btn-primary">
-                                <i class="fas fa-play"></i>
-                                Estudiar Ahora
-                            </a>
-                        </div>
+                        <a href="estudios/soteriologia-avanzada.html" class="study-link">
+                            <i class="fas fa-arrow-right"></i> Estudiar
+                        </a>
                     </div>
-                </div>
+                </article>
 
-                <!-- Estudio 7 -->
-                <div class="study-card fade-in" onclick="window.open('estudios/apocaliptica-biblica.html', '_blank')">
-                    <div class="study-header">
-                        <div class="study-number">07</div>
-                        <div class="study-icon">
-                            <i class="fas fa-eye-dropper"></i>
-                        </div>
-                        <h3 class="study-title">Literatura Apocalíptica</h3>
+                <!-- 07 -->
+                <article class="study-card reveal">
+                    <div class="study-card-top">
+                        <span class="study-num">07</span>
+                        <div class="study-icon"><i class="fas fa-moon"></i></div>
                         <div class="study-theme">Profecía</div>
+                        <h3 class="study-title">Literatura Apocalíptica</h3>
                     </div>
-                    <div class="study-content">
-                        <p class="study-description">
-                            Interpretación de la literatura apocalíptica bíblica: Daniel, Ezequiel, 
-                            Zacarías, Apocalipsis y su simbolismo profético.
-                        </p>
+                    <div class="study-body">
+                        <p class="study-desc">Interpretación de la literatura apocalíptica bíblica: Daniel, Ezequiel, Zacarías, Apocalipsis y su simbolismo profético.</p>
                         <div class="study-tags">
                             <span class="study-tag">Simbolismo</span>
                             <span class="study-tag">Profecía</span>
                             <span class="study-tag">Interpretación</span>
                         </div>
-                        <div class="study-actions">
-                            <a href="estudios/apocaliptica-biblica.html" class="btn btn-primary">
-                                <i class="fas fa-play"></i>
-                                Estudiar Ahora
-                            </a>
-                        </div>
+                        <a href="estudios/apocaliptica-biblica.html" class="study-link">
+                            <i class="fas fa-arrow-right"></i> Estudiar
+                        </a>
                     </div>
-                </div>
+                </article>
 
-                <!-- Estudio 8 -->
-                <div class="study-card fade-in" onclick="window.open('estudios/teologia-sabiduria.html', '_blank')">
-                    <div class="study-header">
-                        <div class="study-number">08</div>
-                        <div class="study-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h3 class="study-title">Teología de la Sabiduría</h3>
+                <!-- 08 -->
+                <article class="study-card reveal">
+                    <div class="study-card-top">
+                        <span class="study-num">08</span>
+                        <div class="study-icon"><i class="fas fa-lightbulb"></i></div>
                         <div class="study-theme">Literatura Sapiencial</div>
+                        <h3 class="study-title">Teología de la Sabiduría</h3>
                     </div>
-                    <div class="study-content">
-                        <p class="study-description">
-                            Análisis de los libros sapienciales: Proverbios, Eclesiastés, Job, 
-                            y su enseñanza sobre la vida práctica y el temor de Dios.
-                        </p>
+                    <div class="study-body">
+                        <p class="study-desc">Análisis de los libros sapienciales: Proverbios, Eclesiastés, Job, y su enseñanza sobre la vida práctica y el temor de Dios.</p>
                         <div class="study-tags">
                             <span class="study-tag">Sabiduría</span>
                             <span class="study-tag">Práctica</span>
                             <span class="study-tag">Temor de Dios</span>
                         </div>
-                        <div class="study-actions">
-                            <a href="estudios/teologia-sabiduria.html" class="btn btn-primary">
-                                <i class="fas fa-play"></i>
-                                Estudiar Ahora
-                            </a>
-                        </div>
+                        <a href="estudios/teologia-sabiduria.html" class="study-link">
+                            <i class="fas fa-arrow-right"></i> Estudiar
+                        </a>
                     </div>
-                </div>
+                </article>
 
-                <!-- Estudio 9 -->
-                <div class="study-card fade-in" onclick="window.open('estudios/ministerio-pastoral.html', '_blank')">
-                    <div class="study-header">
-                        <div class="study-number">09</div>
-                        <div class="study-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3 class="study-title">Ministerio Pastoral</h3>
+                <!-- 09 -->
+                <article class="study-card reveal">
+                    <div class="study-card-top">
+                        <span class="study-num">09</span>
+                        <div class="study-icon"><i class="fas fa-users"></i></div>
                         <div class="study-theme">Liderazgo Espiritual</div>
+                        <h3 class="study-title">Ministerio Pastoral</h3>
                     </div>
-                    <div class="study-content">
-                        <p class="study-description">
-                            Principios bíblicos del ministerio pastoral: llamamiento, cualificaciones, 
-                            responsabilidades y el cuidado del rebaño de Dios.
-                        </p>
+                    <div class="study-body">
+                        <p class="study-desc">Principios bíblicos del ministerio pastoral: llamamiento, cualificaciones, responsabilidades y el cuidado del rebaño de Dios.</p>
                         <div class="study-tags">
                             <span class="study-tag">Llamamiento</span>
                             <span class="study-tag">Cuidado</span>
                             <span class="study-tag">Responsabilidad</span>
                         </div>
-                        <div class="study-actions">
-                            <a href="estudios/ministerio-pastoral.html" class="btn btn-primary">
-                                <i class="fas fa-play"></i>
-                                Estudiar Ahora
-                            </a>
-                        </div>
+                        <a href="estudios/ministerio-pastoral.html" class="study-link">
+                            <i class="fas fa-arrow-right"></i> Estudiar
+                        </a>
                     </div>
-                </div>
+                </article>
 
-                <!-- Estudio 10 -->
-                <div class="study-card fade-in" onclick="window.open('estudios/etica-cristiana.html', '_blank')">
-                    <div class="study-header">
-                        <div class="study-number">10</div>
-                        <div class="study-icon">
-                            <i class="fas fa-balance-scale"></i>
-                        </div>
-                        <h3 class="study-title">Ética Cristiana Aplicada</h3>
+                <!-- 10 -->
+                <article class="study-card reveal">
+                    <div class="study-card-top">
+                        <span class="study-num">10</span>
+                        <div class="study-icon"><i class="fas fa-balance-scale"></i></div>
                         <div class="study-theme">Vida Moral</div>
+                        <h3 class="study-title">Ética Cristiana Aplicada</h3>
                     </div>
-                    <div class="study-content">
-                        <p class="study-description">
-                            Principios éticos bíblicos aplicados a dilemas contemporáneos: bioética, 
-                            justicia social, economía y relaciones interpersonales.
-                        </p>
+                    <div class="study-body">
+                        <p class="study-desc">Principios éticos bíblicos aplicados a dilemas contemporáneos: bioética, justicia social, economía y relaciones interpersonales.</p>
                         <div class="study-tags">
                             <span class="study-tag">Bioética</span>
                             <span class="study-tag">Justicia</span>
                             <span class="study-tag">Contemporáneo</span>
                         </div>
-                        <div class="study-actions">
-                            <a href="estudios/etica-cristiana.html" class="btn btn-primary">
-                                <i class="fas fa-play"></i>
-                                Estudiar Ahora
-                            </a>
-                        </div>
+                        <a href="estudios/etica-cristiana.html" class="study-link">
+                            <i class="fas fa-arrow-right"></i> Estudiar
+                        </a>
                     </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── DARK BANDS ── -->
+    <div class="bands-wrap">
+        <div class="dark-band">
+            <div class="dark-band-inner">
+                <div class="dark-band-icon">
+                    <i class="fas fa-microscope"></i>
+                </div>
+                <h2>Análisis Exegético Profundo</h2>
+                <p>Desarrolla habilidades avanzadas de análisis bíblico a través de un estudio metodológico que combina hermenéutica, crítica textual y teología sistemática.</p>
+                <div class="dark-band-btns">
+                    <a href="./estudios/analisisexgetico.html" class="btn-gold">
+                        <i class="fas fa-search-plus"></i> Comenzar
+                    </a>
+                    <a href="./estudios/hermeneutica-biblica.html" class="btn-ghost">
+                        <i class="fas fa-book-open"></i> Metodología
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Análisis Profundo Section -->
-    <section class="special-section">
-        <div class="container special-content">
-            <div class="special-icon">
-                <i class="fas fa-microscope"></i>
-            </div>
-            <h2 class="special-title">Análisis Exegético Profundo</h2>
-            <p class="special-description">
-                Desarrolla habilidades avanzadas de análisis bíblico a través de un estudio metodológico 
-                que combina hermenéutica, crítica textual y teología sistemática.
-            </p>
-            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                <a href="./estudios/analisisexgetico.html" class="btn btn-primary">
-                    <i class="fas fa-search-plus"></i>
-                    Comenzar Análisis
-                </a>
-                <a href="./estudios/hermeneutica-biblica.html" class="btn btn-outline">
-                    <i class="fas fa-book-open"></i>
-                    Metodología
-                </a>
+        <div class="dark-band">
+            <div class="dark-band-inner">
+                <div class="dark-band-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h2>Examen de Reto Bíblico</h2>
+                <p>Pon a prueba tu conocimiento teológico con un examen comprensivo que abarca todos los aspectos del nivel intermedio. ¿Estás preparado para el desafío?</p>
+                <div class="dark-band-btns">
+                    <a href="./estudios/examen.html" class="btn-gold">
+                        <i class="fas fa-medal"></i> Tomar Examen
+                    </a>
+                    <a href="./estudios/acertijos.html" class="btn-ghost">
+                        <i class="fas fa-puzzle-piece"></i> Acertijos
+                    </a>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Examen Final Section -->
-    <section class="special-section" style="background: var(--gradient-accent);">
-        <div class="container special-content">
-            <div class="special-icon">
-                <i class="fas fa-trophy"></i>
-            </div>
-            <h2 class="special-title">Examen de Reto Bíblico</h2>
-            <p class="special-description">
-                Pon a prueba tu conocimiento teológico con un examen comprensivo que abarca 
-                todos los aspectos del nivel intermedio. ¿Estás preparado para el desafío?
-            </p>
-            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                <a href="./estudios/examen.html" class="btn btn-primary">
-                    <i class="fas fa-medal"></i>
-                    Tomar Examen
-                </a>
-                <a href="./estudios/acertijos.html" class="btn btn-outline">
-                    <i class="fas fa-clipboard-list"></i>
-                    Acertijo Bíblicos
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Editorial -->
+    <!-- ── FOOTER ── -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
+            <div class="footer-grid">
+                <div class="footer-col">
                     <h3>Academia Intermedia</h3>
-                    <p>
-                        Profundiza en tu conocimiento bíblico con estudios rigurosos y aplicación práctica. 
-                        Cada lección está diseñada para desafiar tu comprensión y fortalecer tu fe.
-                    </p>
+                    <p>Profundiza en tu conocimiento bíblico con estudios rigurosos y aplicación práctica. Cada lección está diseñada para desafiar tu comprensión y fortalecer tu fe.</p>
                 </div>
-                <div class="footer-column">
+                <div class="footer-col">
                     <h3>Recursos Adicionales</h3>
                     <ul class="footer-links">
                         <li><a href="./doctrina-basica.html"><i class="fas fa-arrow-left"></i> Doctrina Básica</a></li>
@@ -1132,7 +934,7 @@
                         <li><a href="./devocionales.html"><i class="fas fa-heart"></i> Devocionales</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
+                <div class="footer-col">
                     <h3>Herramientas de Estudio</h3>
                     <ul class="footer-links">
                         <li><a href="../Estudios Exegéticos/diccionarios-comentarios.html"><i class="fas fa-book"></i> Diccionarios</a></li>
@@ -1140,95 +942,34 @@
                         <li><a href="../Estudios Exegéticos/enlaces-recursos.html"><i class="fas fa-link"></i> Enlaces Útiles</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3>Contacto Académico</h3>
+                <div class="footer-col">
+                    <h3>Contacto</h3>
                     <ul class="footer-links">
                         <li><a href="mailto:ministeriolagloriaesdelsenor7@gmail.com"><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</a></li>
                         <li><a href="tel:+17873456940"><i class="fas fa-phone"></i> +1 787-345-6940</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 Ministerio "La Gloria es del Señor" - Academia Bíblica Intermedia. Todos los derechos reservados.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ministerio "La Gloria es del Señor" &mdash; Academia Bíblica Intermedia</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts para Animaciones -->
     <script>
-        // Intersection Observer para animaciones
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    io.unobserve(e.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-        // Observar todos los elementos con clases de animación
-        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
-            observer.observe(el);
+        document.querySelectorAll('.reveal').forEach((el, i) => {
+            el.style.transitionDelay = (i % 4) * 0.07 + 's';
+            io.observe(el);
         });
-
-        // Progress Tracker functionality
-        const progressItems = document.querySelectorAll('.progress-item');
-        const sections = ['hero', 'studies-section', 'special-section'];
-        
-        window.addEventListener('scroll', () => {
-            const scrollPos = window.scrollY + window.innerHeight / 2;
-            
-            sections.forEach((sectionId, index) => {
-                const section = document.querySelector(`.${sectionId}`);
-                if (section) {
-                    const sectionTop = section.offsetTop;
-                    const sectionBottom = sectionTop + section.offsetHeight;
-                    
-                    if (scrollPos >= sectionTop && scrollPos <= sectionBottom) {
-                        progressItems.forEach((item, i) => {
-                            item.classList.remove('active');
-                            if (i === index) {
-                                item.classList.add('active');
-                            }
-                            if (i < index) {
-                                item.classList.add('completed');
-                            } else {
-                                item.classList.remove('completed');
-                            }
-                        });
-                    }
-                }
-            });
-        });
-
-        // Smooth scrolling para progress tracker
-        progressItems.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                const targetSection = document.querySelector(`.${sections[index]}`);
-                if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Hover effects para study cards
-        document.querySelectorAll('.study-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-15px) rotate(1deg)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) rotate(0deg)';
-            });
-        });
-
-        // Console messages para desarrollo
-        console.log('Academia Bíblica Intermedia cargada exitosamente');
-        console.log('Sistema de navegación y animaciones activo');
     </script>
 </body>
 </html>

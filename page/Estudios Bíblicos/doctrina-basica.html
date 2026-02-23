@@ -3,378 +3,378 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctrina Básica | Estudios Bíblicos</title>
+    <title>Doctrina Básica — Ministerio "La Gloria es del Señor"</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #1E40AF;
-            --light-blue: #3B82F6;
-            --sky-blue: #60A5FA;
-            --soft-blue: #DBEAFE;
-            --growth-green: #10B981;
-            --mint-green: #6EE7B7;
-            --light-green: #D1FAE5;
-            --golden-yellow: #F59E0B;
-            --warm-yellow: #FCD34D;
-            --light-yellow: #FEF3C7;
-            --pure-white: #FFFFFF;
-            --soft-gray: #F8FAFC;
-            --text-dark: #1F2937;
-            --text-medium: #4B5563;
-            --text-light: #6B7280;
-            
-            --gradient-faith: linear-gradient(135deg, #1E40AF 0%, #3B82F6 50%, #10B981 100%);
-            --gradient-light: linear-gradient(135deg, #DBEAFE 0%, #D1FAE5 100%);
-            --gradient-warm: linear-gradient(135deg, #FEF3C7 0%, #DBEAFE 100%);
-            
-            --shadow-small: 0 2px 4px rgba(30, 64, 175, 0.1);
-            --shadow-medium: 0 4px 12px rgba(30, 64, 175, 0.15);
-            --shadow-large: 0 8px 25px rgba(30, 64, 175, 0.2);
-            --shadow-glow: 0 0 20px rgba(16, 185, 129, 0.3);
-            
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --font-display: 'Space Grotesk', sans-serif;
-            --font-body: 'Nunito', sans-serif;
-            --font-ui: 'Inter', sans-serif;
+            --ink:          #1a1410;
+            --ink-deep:     #0e0c0a;
+            --gold:         #b89a5f;
+            --gold-light:   #d4b87a;
+            --parchment:    #f7f4ed;
+            --parchment-dk: #ede9df;
+            --accent:       #1d3a5f;
+            --accent-mid:   #2a5280;
+            --accent-pale:  rgba(29,58,95,0.07);
+            --text-body:    #2d2620;
+            --text-muted:   #7a6e62;
+            --header-bg:    rgba(14,12,10,0.97);
+            --hero-grad:    linear-gradient(160deg, #0e0c0a 0%, #1f1a14 100%);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: var(--font-body);
-            background-color: var(--soft-gray);
-            color: var(--text-dark);
-            line-height: 1.6;
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            background: var(--parchment);
+            color: var(--text-body);
             overflow-x: hidden;
-            min-height: 100vh;
         }
 
-        /* Background pattern overlay */
-        body::before {
-            content: '';
+        /* ── SITE HEADER (fixed) ── */
+        .site-header {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(219, 234, 254, 0.95) 100%),
-                url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="cross" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M15 5 L15 25 M5 15 L25 15" stroke="%233B82F6" stroke-width="0.5" fill="none" opacity="0.1"/></pattern></defs><rect width="60" height="60" fill="url(%23cross)"/></svg>');
-            background-size: cover, 60px 60px;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header Styles */
-        header {
-            background: var(--gradient-faith);
-            color: white;
-            padding: 1.5rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow-medium);
-        }
-
-        .header-content {
+            top: 0; left: 0; right: 0;
+            z-index: 200;
+            height: 64px;
+            background: var(--header-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184,154,95,0.18);
+            padding: 0 2.5rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
 
-        .logo {
+        .header-logo {
             display: flex;
             align-items: center;
             gap: 1rem;
+            text-decoration: none;
         }
 
-        .logo img {
-            height: 50px;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        .header-logo img {
+            height: 36px;
+            width: auto;
+            opacity: 0.9;
         }
 
-        .logo-text {
-            font-family: var(--font-display);
-            font-weight: 600;
-            line-height: 1.2;
+        .header-logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--gold);
+            letter-spacing: 0.04em;
+            line-height: 1.25;
         }
 
-        .progress-indicator {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 0.5rem 1rem;
-            font-family: var(--font-ui);
-            font-size: 0.9rem;
+        .header-logo-text span {
+            display: block;
+            font-size: 0.78rem;
+            font-style: italic;
+            color: rgba(184,154,95,0.65);
+        }
+
+        .header-badge {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(184,154,95,0.65);
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        /* Breadcrumb */
-        .breadcrumb {
-            background: var(--pure-white);
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--soft-blue);
-        }
+        .header-badge i { font-size: 0.7rem; }
 
-        .breadcrumb-nav {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-family: var(--font-ui);
-            font-size: 0.9rem;
-        }
-
-        .breadcrumb-nav a {
-            color: var(--primary-blue);
-            text-decoration: none;
-            transition: var(--transition);
-            padding: 0.3rem 0.6rem;
-            border-radius: 6px;
-        }
-
-        .breadcrumb-nav a:hover {
-            background: var(--soft-blue);
-        }
-
-        .breadcrumb-nav i {
-            color: var(--light-blue);
-            font-size: 0.8rem;
-        }
-
-        /* Hero Section with better background */
-        .hero {
-            position: relative;
-            padding: 4rem 0;
-            text-align: center;
-            overflow: hidden;
-            background: transparent; /* antes: var(--gradient-light) */
-}
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('./images/febasica.png');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.1;
-            z-index: 0;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(30, 64, 175, 0.1) 0%, transparent 50%);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-icon {
-            background: var(--gradient-faith);
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 2rem;
-            box-shadow: var(--shadow-glow);
-        }
-
-        .hero-icon i {
-            color: white;
-            font-size: 2rem;
-        }
-
-        .hero-title {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
-            color: var(--primary-blue);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            color: var(--text-medium);
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .hero-stat {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow-small);
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .hero-stat:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .hero-stat-number {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--growth-green);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-stat-label {
-            font-size: 0.9rem;
-            color: var(--text-medium);
-            font-weight: 500;
-        }
-
-        /* Progress Bar */
-        .learning-progress {
-            background: white;
-            background-image: 
-                linear-gradient(90deg, rgba(255, 255, 255, 0.9) 0%, rgba(219, 234, 254, 0.95) 100%);
-            padding: 2rem 0;
-            border-bottom: 1px solid var(--soft-blue);
+        /* ── PROGRESS BAR (sticky below header) ── */
+        .progress-bar-wrap {
             position: sticky;
-            top: 85px;
-            z-index: 999;
+            top: 64px;
+            z-index: 100;
+            background: #fff;
+            border-bottom: 1px solid var(--parchment-dk);
+            padding: 0.75rem 2.5rem;
         }
 
-        .progress-container {
+        .progress-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
-        .progress-title {
-            font-family: var(--font-display);
-            font-weight: 600;
-            color: var(--primary-blue);
+        .progress-label {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-muted);
         }
 
         .progress-percentage {
-            font-family: var(--font-ui);
-            font-weight: 600;
-            color: var(--growth-green);
+            font-family: 'Lato', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            color: var(--accent);
         }
 
-        .progress-bar {
+        .progress-track {
             width: 100%;
-            height: 8px;
-            background: var(--soft-blue);
-            border-radius: 4px;
+            height: 3px;
+            background: var(--parchment-dk);
+            border-radius: 2px;
             overflow: hidden;
         }
 
         .progress-fill {
             height: 100%;
-            background: var(--gradient-faith);
-            border-radius: 4px;
-            transition: width 0.5s ease;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--gold) 100%);
+            border-radius: 2px;
+            transition: width 0.6s ease;
             width: 0%;
         }
 
-        /* Doctrine Cards */
-        .doctrines-section {
-            padding: 4rem 0;
+        /* ── HERO ── */
+        .page-hero {
             position: relative;
+            background: var(--hero-grad);
+            padding: 130px 2.5rem 90px;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(29,58,95,0.3) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 860px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid rgba(184,154,95,0.32);
+            padding: 0.35rem 1.1rem;
+            margin-bottom: 2rem;
+            animation: fadeUp 0.7s ease both;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+            font-weight: 300;
+            font-style: italic;
+            color: #f7f4ed;
+            line-height: 1.12;
+            margin-bottom: 1.4rem;
+            animation: fadeUp 0.7s ease 0.12s both;
+        }
+
+        .hero-title em {
+            font-style: normal;
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(247,244,237,0.5);
+            max-width: 560px;
+            margin: 0 auto 3rem;
+            animation: fadeUp 0.7s ease 0.22s both;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: rgba(184,154,95,0.15);
+            border: 1px solid rgba(184,154,95,0.15);
+            animation: fadeUp 0.7s ease 0.32s both;
+        }
+
+        .hero-stat {
+            padding: 1.6rem 1rem;
+            background: rgba(255,255,255,0.03);
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .hero-stat:hover { background: rgba(255,255,255,0.06); }
+
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: var(--gold);
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .stat-label {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(247,244,237,0.45);
+        }
+
+        .hero-rule {
+            width: 48px;
+            height: 1px;
+            background: var(--gold);
+            margin: 2.5rem auto 0;
+            opacity: 0.4;
+            animation: fadeUp 0.7s ease 0.4s both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(22px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── BREADCRUMB ── */
+        .breadcrumb {
+            background: #fff;
+            border-bottom: 1px solid var(--parchment-dk);
+            padding: 0.85rem 2.5rem;
+        }
+
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .breadcrumb-nav a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .breadcrumb-nav a:hover { opacity: 0.7; }
+        .breadcrumb-nav i { font-size: 0.55rem; color: var(--parchment-dk); }
+
+        /* ── MAIN ── */
+        .page-main {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 2.5rem 7rem;
+        }
+
+        /* ── SECTION HEADERS ── */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.67rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.8rem;
         }
 
         .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--ink);
+            line-height: 1.2;
         }
 
-        .section-title h2 {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
-            font-weight: 700;
+        .section-rule {
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+            margin: 1.1rem auto 0;
         }
 
-        .section-title p {
-            font-size: 1.1rem;
-            color: var(--text-medium);
-            max-width: 600px;
-            margin: 0 auto;
+        .section-desc {
+            font-size: 0.93rem;
+            font-weight: 300;
+            line-height: 1.76;
+            color: var(--text-muted);
+            max-width: 620px;
+            margin: 1.4rem auto 0;
         }
+
+        /* ── DOCTRINES SECTION ── */
+        .doctrines-section { margin: 5rem 0; }
 
         .doctrines-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1px;
+            background: var(--parchment-dk);
         }
 
+        /* Doctrine cards injected by JS — base styles for JS-generated markup */
         .doctrine-card {
-            background: white;
-            border-radius: 16px;
+            background: #fff;
             overflow: hidden;
-            box-shadow: var(--shadow-small);
-            transition: var(--transition);
-            position: relative;
+            transition: background 0.3s;
             cursor: pointer;
+            position: relative;
         }
 
-        .doctrine-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-large);
-        }
+        .doctrine-card:hover { background: var(--parchment); }
 
         .doctrine-card.completed {
-            border: 2px solid var(--growth-green);
-            box-shadow: var(--shadow-glow);
+            background: var(--accent-pale);
         }
 
         .doctrine-header {
-            background: var(--gradient-faith);
-            color: white;
-            padding: 2rem;
-            text-align: center;
+            background: var(--accent);
+            color: #f7f4ed;
+            padding: 1.8rem 2rem;
             position: relative;
         }
 
@@ -382,241 +382,272 @@
             position: absolute;
             top: 1rem;
             right: 1rem;
-            background: rgba(255, 255, 255, 0.2);
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 0.9rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.75rem;
+            font-style: italic;
+            color: rgba(247,244,237,0.4);
+            letter-spacing: 0.1em;
         }
 
         .doctrine-icon {
-            background: rgba(255, 255, 255, 0.2);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(247,244,237,0.25);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
-        }
-
-        .doctrine-icon i {
-            font-size: 1.5rem;
+            font-size: 1rem;
+            margin-bottom: 1rem;
         }
 
         .doctrine-title {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.28rem;
+            font-weight: 400;
+            margin-bottom: 0.3rem;
         }
 
         .doctrine-verse {
-            font-size: 0.9rem;
-            opacity: 0.9;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            color: rgba(247,244,237,0.55);
             font-style: italic;
         }
 
-        .doctrine-content {
-            padding: 2rem;
-        }
+        .doctrine-content { padding: 1.8rem 2rem; }
 
         .doctrine-description {
-            margin-bottom: 1.5rem;
-            color: var(--text-medium);
-            line-height: 1.7;
+            font-size: 0.88rem;
+            font-weight: 300;
+            line-height: 1.72;
+            color: var(--text-body);
+            margin-bottom: 1.4rem;
         }
 
         .key-points {
-            background: var(--soft-blue);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
+            background: var(--accent-pale);
+            border-left: 2px solid var(--accent);
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1.4rem;
         }
 
         .key-points h4 {
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
-            font-family: var(--font-display);
-            font-weight: 600;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.8rem;
         }
 
-        .key-points ul {
-            list-style: none;
-            padding: 0;
-        }
+        .key-points ul { list-style: none; }
 
         .key-points li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
+            font-size: 0.86rem;
+            font-weight: 300;
+            color: var(--text-body);
+            padding: 0.35rem 0;
+            padding-left: 1.2rem;
             position: relative;
+            border-bottom: 1px solid rgba(29,58,95,0.08);
         }
 
+        .key-points li:last-child { border-bottom: none; }
+
         .key-points li::before {
-            content: '✓';
+            content: '—';
             position: absolute;
             left: 0;
-            color: var(--growth-green);
-            font-weight: bold;
+            color: var(--accent);
+            font-size: 0.7rem;
         }
 
         .bible-reference {
-            background: var(--light-yellow);
-            border-left: 4px solid var(--golden-yellow);
-            padding: 1rem;
-            border-radius: 0 8px 8px 0;
-            margin: 1.5rem 0;
-            font-style: italic;
+            background: #fff;
+            border: 1px solid var(--parchment-dk);
+            border-left: 3px solid var(--gold);
+            padding: 1.2rem 1.5rem;
+            margin: 1.2rem 0;
         }
 
         .bible-reference-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            font-style: italic;
+            line-height: 1.65;
+            color: var(--ink);
             margin-bottom: 0.5rem;
         }
 
         .bible-reference-cite {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
             text-align: right;
-            font-weight: 600;
-            color: var(--primary-blue);
-            font-size: 0.9rem;
         }
 
         .action-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
             flex-wrap: wrap;
+            margin-top: 1.4rem;
         }
 
         .btn {
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            font-family: var(--font-ui);
-            font-weight: 500;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 0.65rem 1.4rem;
+            border: 1px solid transparent;
+            cursor: pointer;
             text-decoration: none;
-            transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            border: none;
-            font-size: 0.9rem;
+            gap: 0.45rem;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+            border-radius: 2px;
         }
 
         .btn-primary {
-            background: var(--primary-blue);
-            color: white;
+            background: var(--accent);
+            color: #f7f4ed;
+            border-color: var(--accent);
         }
 
         .btn-primary:hover {
-            background: var(--light-blue);
-            transform: translateY(-2px);
+            background: var(--accent-mid);
+            border-color: var(--accent-mid);
         }
 
         .btn-secondary {
-            background: var(--soft-blue);
-            color: var(--primary-blue);
+            background: transparent;
+            color: var(--accent);
+            border-color: rgba(29,58,95,0.3);
         }
 
         .btn-secondary:hover {
-            background: var(--sky-blue);
-            color: white;
+            background: var(--accent-pale);
+            border-color: var(--accent);
         }
 
         .btn-success {
-            background: var(--growth-green);
-            color: white;
+            background: var(--gold);
+            color: var(--ink);
+            border-color: var(--gold);
         }
 
-        /* Quiz Section */
+        .btn-success:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+        }
+
+        /* ── QUIZ SECTION ── */
         .quiz-section {
-            background: var(--gradient-warm);
-            padding: 4rem 0;
-            margin: 3rem 0;
+            margin: 5rem 0;
+            padding: 4rem 3rem;
+            background: var(--hero-grad);
             position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
+            opacity: 0.45;
+            pointer-events: none;
         }
 
         .quiz-container {
-            max-width: 800px;
+            position: relative;
+            z-index: 2;
+            max-width: 780px;
             margin: 0 auto;
-            background: white;
-            border-radius: 16px;
+            background: rgba(247,244,237,0.97);
             padding: 3rem;
-            box-shadow: var(--shadow-medium);
         }
 
         .quiz-title {
-            font-family: var(--font-display);
+            font-family: 'Cormorant Garamond', serif;
             font-size: 2rem;
-            color: var(--primary-blue);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--ink);
             text-align: center;
             margin-bottom: 2rem;
         }
 
-        .quiz-question {
-            display: none;
-        }
-
+        .quiz-question { display: none; }
         .quiz-question.active {
             display: block;
-            animation: slideIn 0.5s ease;
+            animation: slideIn 0.4s ease;
         }
 
         @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(16px); }
+            to   { opacity: 1; transform: translateX(0); }
         }
 
         .question-text {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: var(--text-dark);
-            font-weight: 500;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--ink);
+            margin-bottom: 1.8rem;
         }
 
         .quiz-options {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            gap: 0.6rem;
+            margin-bottom: 1.8rem;
         }
 
         .quiz-option {
-            background: var(--soft-gray);
-            border: 2px solid transparent;
-            border-radius: 8px;
-            padding: 1rem;
+            background: var(--parchment);
+            border: 1px solid var(--parchment-dk);
+            padding: 0.9rem 1.2rem;
             cursor: pointer;
-            transition: var(--transition);
-            font-family: var(--font-body);
+            font-family: 'Lato', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 300;
+            color: var(--text-body);
+            transition: background 0.2s, border-color 0.2s;
+            text-align: left;
+            border-radius: 2px;
         }
 
         .quiz-option:hover {
-            background: var(--soft-blue);
-            border-color: var(--light-blue);
+            background: #fff;
+            border-color: var(--accent);
         }
 
         .quiz-option.selected {
-            background: var(--light-green);
-            border-color: var(--growth-green);
+            background: var(--accent-pale);
+            border-color: var(--accent);
+            color: var(--accent);
         }
 
         .quiz-option.correct {
-            background: var(--light-green);
-            border-color: var(--growth-green);
+            background: rgba(43,74,54,0.1);
+            border-color: #2b4a36;
+            color: #2b4a36;
         }
 
         .quiz-option.incorrect {
-            background: #FEE2E2;
-            border-color: #EF4444;
+            background: rgba(122,45,60,0.08);
+            border-color: #7a2d3c;
+            color: #7a2d3c;
         }
 
         .quiz-navigation {
@@ -628,80 +659,93 @@
         }
 
         .quiz-progress {
-            font-family: var(--font-ui);
-            color: var(--text-medium);
+            font-family: 'Lato', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
         }
 
-        /* Dynamic Guide Section */
+        /* ── GUIDE SECTION ── */
         .guide-section {
-            background: white;
-            padding: 4rem 0;
-            margin: 3rem 0;
+            margin: 5rem 0;
             display: block !important;
             visibility: visible !important;
             opacity: 1 !important;
+            position: relative !important;
+            z-index: 10 !important;
+            min-height: 200px;
         }
 
         .guide-container {
-            max-width: 800px;
+            max-width: 780px;
             margin: 0 auto;
             text-align: center;
         }
 
         .guide-title {
-            font-family: var(--font-display);
+            font-family: 'Cormorant Garamond', serif;
             font-size: 2rem;
-            color: var(--primary-blue);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--ink);
             margin-bottom: 2rem;
         }
 
         .guide-card {
-            background: var(--gradient-light);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow-small);
+            background: #fff;
+            border: 1px solid var(--parchment-dk);
+            border-top: 2px solid var(--accent);
+            padding: 2rem 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
         }
 
         .guide-question {
-            font-size: 1.2rem;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--ink);
+            margin-bottom: 0.8rem;
         }
 
         .guide-answer {
-            color: var(--text-medium);
-            line-height: 1.8;
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.76;
+            color: var(--text-body);
         }
 
         .guide-loading {
             padding: 3rem;
             text-align: center;
-            color: var(--text-medium);
         }
 
         .guide-loading i {
-            font-size: 2rem;
-            color: var(--primary-blue);
+            font-size: 1.6rem;
+            color: var(--accent);
             margin-bottom: 1rem;
-            display: inline-block;
-            animation: spin 1s linear infinite;
+            display: block;
         }
+
+        .guide-loading p {
+            font-size: 0.88rem;
+            font-weight: 300;
+            color: var(--text-muted);
+        }
+
+        .fa-spin { animation: spin 1s linear infinite; }
 
         @keyframes spin {
             from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            to   { transform: rotate(360deg); }
         }
 
-        .fa-spin {
-            animation: spin 1s linear infinite;
-        }
-
-        /* Certificate Section */
+        /* ── CERTIFICATE SECTION ── */
         .certificate-section {
-            background: var(--gradient-faith);
-            color: white;
-            padding: 4rem 0;
+            margin: 5rem 0;
+            padding: 4rem 3rem;
+            background: var(--accent);
             text-align: center;
             display: none;
         }
@@ -713,203 +757,121 @@
 
         @keyframes fadeIn {
             from { opacity: 0; }
-            to { opacity: 1; }
+            to   { opacity: 1; }
         }
 
         .certificate-container {
-            max-width: 600px;
+            max-width: 560px;
             margin: 0 auto;
-            background: white;
-            color: var(--text-dark);
-            border-radius: 16px;
+            background: var(--parchment);
             padding: 3rem;
-            box-shadow: var(--shadow-large);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .certificate-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
-        }
-
-        .certificate-content {
-            position: relative;
-            z-index: 2;
         }
 
         .certificate-icon {
-            background: var(--gradient-faith);
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            border: 1px solid var(--gold);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 2rem;
-            color: white;
-            font-size: 2rem;
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin: 0 auto 1.5rem;
         }
 
         .certificate-title {
-            font-family: var(--font-display);
+            font-family: 'Cormorant Garamond', serif;
             font-size: 2rem;
-            color: var(--primary-blue);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--ink);
             margin-bottom: 1rem;
         }
 
         .certificate-text {
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.75;
+            color: var(--text-body);
             margin-bottom: 2rem;
-            color: var(--text-medium);
         }
 
-        /* Footer */
-        footer {
-            background: var(--primary-blue);
-            color: white;
-            padding: 3rem 0 1rem;
-            position: relative;
+        /* ── FOOTER ── */
+        .site-footer {
+            background: var(--hero-grad);
+            border-top: 1px solid rgba(184,154,95,0.14);
+            padding: 3.5rem 2.5rem 2rem;
         }
 
-        .footer-content {
+        .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1120px;
+            margin: 0 auto 2.5rem;
         }
 
-        .footer-column h3 {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
+        .footer-col-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--gold);
             margin-bottom: 1rem;
-            color: var(--warm-yellow);
         }
 
-        .footer-column p,
-        .footer-column li {
-            opacity: 0.9;
-            margin-bottom: 0.8rem;
-            line-height: 1.6;
+        .footer-col-text {
+            font-size: 0.82rem;
+            font-weight: 300;
+            line-height: 1.72;
+            color: rgba(247,244,237,0.45);
         }
 
-        .footer-links {
-            list-style: none;
-        }
+        .footer-links { list-style: none; }
+
+        .footer-links li { margin-bottom: 0.6rem; }
 
         .footer-links a {
-            color: white;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: rgba(247,244,237,0.5);
             text-decoration: none;
-            transition: var(--transition);
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            transition: color 0.25s;
         }
 
-        .footer-links a:hover {
-            color: var(--warm-yellow);
-            transform: translateX(5px);
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-divider {
+            max-width: 1120px;
+            margin: 0 auto;
+            border: none;
+            border-top: 1px solid rgba(184,154,95,0.12);
+            margin-bottom: 1.5rem;
         }
 
-        .copyright {
+        .footer-copy {
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            opacity: 0.8;
-            font-size: 0.9rem;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            color: rgba(247,244,237,0.35);
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-            
-            .doctrines-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .doctrine-header,
-            .doctrine-content {
-                padding: 1.5rem;
-            }
-            
-            .quiz-container {
-                padding: 2rem;
-                margin: 0 1rem;
-            }
-            
-            .action-buttons {
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .hero-stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-        }
+        .footer-copy span { color: rgba(184,154,95,0.45); }
 
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 1.8rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .doctrine-title {
-                font-size: 1.2rem;
-            }
-            
-            .quiz-container {
-                padding: 1.5rem;
-            }
-            
-            .certificate-container {
-                padding: 2rem;
-                margin: 0 1rem;
-            }
-            
-            .doctrines-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        /* ── LOADING / ANIMATION ── */
+        .loading { animation: pulse 2s infinite; }
 
-        /* Loading Animation */
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
 
-        .loading {
-            animation: pulse 2s infinite;
-        }
-
-        /* Scroll Animations */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -921,250 +883,228 @@
             transform: translateY(0);
         }
 
-        /* Hidden elements */
-        .hidden {
-            display: none !important;
-        }
-        
-        /* Force guide section visible with high specificity */
+        .hidden { display: none !important; }
+
         body #guideSection,
         body .guide-section#guideSection {
             display: block !important;
             visibility: visible !important;
             opacity: 1 !important;
-            position: relative !important;
-            z-index: 10 !important;
-            min-height: 200px;
         }
-        
-        #guideSection.hidden {
-            display: block !important;
+
+        #guideSection.hidden { display: block !important; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .hero-stats    { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid   { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        @media (max-width: 640px) {
+            .site-header        { padding: 0 1.2rem; }
+            .header-logo-text   { display: none; }
+            .progress-bar-wrap  { padding: 0.6rem 1.2rem; }
+            .page-hero          { padding: 110px 1.2rem 70px; }
+            .page-main          { padding: 0 1.2rem 4rem; }
+            .quiz-section       { padding: 3rem 1.5rem; }
+            .quiz-container     { padding: 2rem 1.5rem; }
+            .certificate-section { padding: 3rem 1.5rem; }
+            .breadcrumb         { padding: 0.75rem 1.2rem; }
+            .hero-stats         { grid-template-columns: repeat(2, 1fr); }
+            .action-buttons     { flex-direction: column; }
+            .btn                { width: 100%; justify-content: center; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <img src="../../images/EMD.png" alt="Logo EMD">
-                <div class="logo-text">
-                    <div>Ministerio</div>
-                    <div>"La Gloria es del Señor"</div>
-                </div>
+
+    <header class="site-header">
+        <a href="../../index.html" class="header-logo">
+            <img src="../../images/EMD.png" alt="Logo EMD">
+            <div class="header-logo-text">
+                Ministerio
+                <span>"La Gloria es del Señor"</span>
             </div>
-            <div class="progress-indicator">
-                <i class="fas fa-graduation-cap"></i>
-                <span>Academia de Fe</span>
-            </div>
+        </a>
+        <div class="header-badge">
+            <i class="fas fa-graduation-cap"></i>
+            Academia de Fe
         </div>
     </header>
 
-    <div class="breadcrumb">
-        <div class="container">
-            <nav class="breadcrumb-nav">
-                <a href="../../index.html">Inicio</a>
-                <i class="fas fa-chevron-right"></i>
-                <a href="../Estudios Bíblicos/doctrina-basica.html">Estudios Bíblicos</a>
-                <i class="fas fa-chevron-right"></i>
-                <span>Doctrina Básica</span>
-            </nav>
+    <div class="progress-bar-wrap">
+        <div class="progress-meta">
+            <span class="progress-label">Tu Progreso de Aprendizaje</span>
+            <span class="progress-percentage" id="progressPct">0% Completado</span>
+        </div>
+        <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
         </div>
     </div>
 
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="hero-icon">
-                <i class="fas fa-book-open"></i>
-            </div>
-            <h1 class="hero-title">Doctrina Básica para Nuevos Creyentes</h1>
-            <p class="hero-subtitle">
-                Fundamentos sólidos de la fe cristiana presentados de manera clara y práctica para tu crecimiento espiritual
-            </p>
+    <section class="page-hero">
+        <div class="hero-inner">
+            <span class="hero-eyebrow">Estudios Bíblicos</span>
+            <h1 class="hero-title">Doctrina <em>Básica</em></h1>
+            <p class="hero-subtitle">Fundamentos sólidos de la fe cristiana para nuevos creyentes</p>
             <div class="hero-stats">
                 <div class="hero-stat">
-                    <span class="hero-stat-number">10</span>
-                    <span class="hero-stat-label">Doctrinas Esenciales</span>
+                    <span class="stat-num">10</span>
+                    <span class="stat-label">Doctrinas Esenciales</span>
                 </div>
                 <div class="hero-stat">
-                    <span class="hero-stat-number">100+</span>
-                    <span class="hero-stat-label">Versículos Clave</span>
+                    <span class="stat-num">100+</span>
+                    <span class="stat-label">Versículos Clave</span>
                 </div>
                 <div class="hero-stat">
-                    <span class="hero-stat-number">20</span>
-                    <span class="hero-stat-label">Preguntas de Repaso</span>
+                    <span class="stat-num">20</span>
+                    <span class="stat-label">Preguntas de Repaso</span>
                 </div>
                 <div class="hero-stat">
-                    <span class="hero-stat-number">∞</span>
-                    <span class="hero-stat-label">Crecimiento Espiritual</span>
+                    <span class="stat-num">∞</span>
+                    <span class="stat-label">Crecimiento Espiritual</span>
                 </div>
             </div>
+            <div class="hero-rule"></div>
         </div>
     </section>
 
-    <div class="learning-progress">
-        <div class="container">
-            <div class="progress-container">
-                <div class="progress-title">Tu Progreso de Aprendizaje</div>
-                <div class="progress-percentage">0% Completado</div>
-            </div>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-        </div>
+    <div class="breadcrumb">
+        <nav class="breadcrumb-nav">
+            <a href="../../index.html">Inicio</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="../../nuestras-ensenanzas/index.html">Estudios Bíblicos</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Doctrina Básica</span>
+        </nav>
     </div>
 
-    <section class="doctrines-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Las 10 Doctrinas Fundamentales</h2>
-                <p>Estas son las verdades inamovibles del evangelio que todo creyente debe conocer y comprender</p>
-            </div>
+    <main class="page-main">
 
+        <!-- DOCTRINAS -->
+        <section class="doctrines-section">
+            <div class="section-header">
+                <span class="section-label">Fundamentos</span>
+                <h2 class="section-title">Las 10 Doctrinas Fundamentales</h2>
+                <div class="section-rule"></div>
+                <p class="section-desc">Estas son las verdades inamovibles del evangelio que todo creyente debe conocer y comprender.</p>
+            </div>
             <div class="doctrines-grid" id="doctrinesGrid">
-                <!-- Las tarjetas de doctrina se cargarán dinámicamente aquí -->
+                <!-- Cargado dinámicamente por doctrine-cards.js -->
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Quiz Section -->
-    <section class="quiz-section">
-        <div class="container">
+        <!-- QUIZ -->
+        <section class="quiz-section">
             <div class="quiz-container" id="quizContainer">
                 <h2 class="quiz-title">Evaluación de Conocimientos</h2>
                 <div id="quizContent">
-                    <!-- El contenido del quiz se cargará dinámicamente -->
+                    <!-- Cargado dinámicamente por doctrine-quiz.js -->
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Dynamic Guide Section -->
-    <section class="guide-section" id="guideSection">
-        <div class="container">
+        <!-- GUÍA DINÁMICA -->
+        <section class="guide-section" id="guideSection">
             <div class="guide-container">
                 <h2 class="guide-title">Guía Personalizada para Tu Crecimiento</h2>
                 <div id="guideContent">
-                    <!-- El contenido de la guía se cargará dinámicamente -->
                     <div class="guide-loading">
                         <i class="fas fa-spinner fa-spin"></i>
-                        <p>Preparando tu guía personalizada...</p>
+                        <p>Preparando tu guía personalizada…</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Certificate Section -->
-    <section class="certificate-section" id="certificateSection">
-        <div class="container">
+        <!-- CERTIFICADO -->
+        <section class="certificate-section" id="certificateSection">
             <div class="certificate-container">
-                <div class="certificate-content">
-                    <div class="certificate-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h2 class="certificate-title">¡Felicitaciones!</h2>
-                    <p class="certificate-text">
-                        Has completado exitosamente el curso de Doctrina Básica para Nuevos Creyentes. 
-                        Ahora tienes una base sólida en los fundamentos de la fe cristiana.
-                    </p>
-                    <div class="action-buttons">
-                        <button class="btn btn-success" onclick="certificateManager.download()">
-                            <i class="fas fa-download"></i>
-                            Descargar Certificado
-                        </button>
-                        <a href="../doctrina-intermedia.html" class="btn btn-primary">
-                            <i class="fas fa-arrow-right"></i>
-                            Doctrina Intermedia
-                        </a>
-                    </div>
+                <div class="certificate-icon"><i class="fas fa-award"></i></div>
+                <h2 class="certificate-title">¡Felicitaciones!</h2>
+                <p class="certificate-text">
+                    Has completado exitosamente el curso de Doctrina Básica para Nuevos Creyentes.
+                    Ahora tienes una base sólida en los fundamentos de la fe cristiana.
+                </p>
+                <div class="action-buttons" style="justify-content:center;">
+                    <button class="btn btn-success" onclick="certificateManager.download()">
+                        <i class="fas fa-download"></i>
+                        Descargar Certificado
+                    </button>
+                    <a href="doctrina-intermedia.html" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i>
+                        Doctrina Intermedia
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Sobre Este Curso</h3>
-                    <p>Este curso presenta las doctrinas fundamentales de la fe cristiana de manera clara y bíblica, diseñado especialmente para nuevos creyentes que desean crecer en su conocimiento de Dios.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Próximos Pasos</h3>
-                    <ul class="footer-links">
-                        <li><a href="./doctrina-intermedia.html"><i class="fas fa-arrow-right"></i> Doctrina Intermedia</a></li>
-                        <li><a href="./doctrina-avanzada.html"><i class="fas fa-arrow-right"></i> Doctrina Avanzada</a></li>
-                        <li><a href="./devocionales.html"><i class="fas fa-arrow-right"></i> Devocionales</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contacto</h3>
-                    <ul class="footer-links">
-                        <li><a href="mailto:ministeriolagloriaesdelsenor7@gmail.com"><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</a></li>
-                        <li><a href="tel:+17873456940"><i class="fas fa-phone"></i> +1 787-345-6940</a></li>
-                    </ul>
-                </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-col-title">Sobre Este Curso</div>
+                <p class="footer-col-text">Este curso presenta las doctrinas fundamentales de la fe cristiana de manera clara y bíblica, diseñado especialmente para nuevos creyentes que desean crecer en su conocimiento de Dios.</p>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            <div>
+                <div class="footer-col-title">Próximos Pasos</div>
+                <ul class="footer-links">
+                    <li><a href="doctrina-intermedia.html"><i class="fas fa-arrow-right"></i> Doctrina Intermedia</a></li>
+                    <li><a href="doctrina-avanzada.html"><i class="fas fa-arrow-right"></i> Doctrina Avanzada</a></li>
+                    <li><a href="devocionales.html"><i class="fas fa-arrow-right"></i> Devocionales</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-col-title">Contacto</div>
+                <ul class="footer-links">
+                    <li><a href="mailto:ministeriolagloriaesdelsenor7@gmail.com"><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</a></li>
+                    <li><a href="tel:+17873456940"><i class="fas fa-phone"></i> +1 787-345-6940</a></li>
+                </ul>
             </div>
         </div>
+        <hr class="footer-divider">
+        <p class="footer-copy">
+            &copy; 2025 <span>Ministerio "La Gloria es del Señor"</span> &nbsp;·&nbsp; Todos los recursos son gratuitos para la edificación de los creyentes
+        </p>
     </footer>
 
-    <!-- Load JavaScript Files -->
+    <!-- Módulos JS dinámicos -->
     <script src="javascript/progress-tracker.js"></script>
     <script src="javascript/doctrine-cards.js"></script>
     <script src="javascript/doctrine-quiz.js"></script>
     <script src="javascript/dynamic-guide.js"></script>
-    
-    <!-- Script de inicialización adicional -->
+
     <script>
-        // Verificar que todos los módulos estén cargados
         window.addEventListener('load', function() {
-            console.log('Página completamente cargada');
-            
-            // Dar tiempo para que todos los scripts se carguen
             setTimeout(() => {
-                // Verificar disponibilidad de módulos
                 if (window.dynamicGuide) {
-                    console.log('dynamicGuide disponible');
-                    
-                    // Forzar visibilidad de la sección de guías
                     const guideSection = document.getElementById('guideSection');
                     if (guideSection) {
                         guideSection.style.display = 'block';
                         guideSection.classList.remove('hidden');
-                        console.log('Sección de guías visible');
                     }
-                    
-                    // Si el contenido aún muestra el spinner, inicializar
                     const content = document.getElementById('guideContent');
                     if (content && content.querySelector('.guide-loading')) {
-                        console.log('Inicializando guías manualmente...');
-                        window.initGuides();
+                        window.initGuides && window.initGuides();
                     }
-                } else {
-                    console.error('dynamicGuide no está disponible');
-                    console.log('Intenta ejecutar initGuides() manualmente en la consola');
                 }
             }, 1500);
+
+            setTimeout(() => {
+                const guideContent = document.getElementById('guideContent');
+                if (guideContent && guideContent.querySelector('.guide-loading')) {
+                    console.warn('Guías no cargadas. Ejecuta: initGuides()');
+                }
+            }, 3000);
         });
-        
-        // Mensaje de ayuda inicial
-        console.log('Cargando sistema de Doctrina Básica...');
-        console.log('Si las guías no aparecen automáticamente, ejecuta: initGuides()');
-        
-        // Verificación final después de 3 segundos
-        setTimeout(() => {
-            const guideContent = document.getElementById('guideContent');
-            if (guideContent && guideContent.querySelector('.guide-loading')) {
-                console.warn('Las guías no se cargaron automáticamente.');
-                console.log('Ejecuta uno de estos comandos:');
-                console.log('- testGuideSimple() : Prueba básica');
-                console.log('- initGuides() : Inicializar guías');
-                console.log('- testGuide() : Mostrar bienvenida');
-            }
-        }, 3000);
+
+        // Fade-in scroll observer
+        const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => revealObs.observe(el));
     </script>
 </body>
 </html>

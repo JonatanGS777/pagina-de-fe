@@ -3,958 +3,1001 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devocionales - Ministerio "La Gloria es del Señor"</title>
+    <title>Devocionales — Ministerio "La Gloria es del Señor"</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-sage: #4a6741;
-            --secondary-olive: #6b8e5a;
-            --accent-gold: #d4af37;
-            --accent-copper: #b7772c;
-            --background-cream: #faf9f6;
-            --text-charcoal: #2c2c2c;
-            --text-soft: #5a5a5a;
-            --card-white: #ffffff;
-            --border-light: #e8e6e1;
-            --shadow-soft: 0 8px 32px rgba(74, 103, 65, 0.12);
-            --shadow-medium: 0 12px 40px rgba(74, 103, 65, 0.18);
-            --gradient-dawn: linear-gradient(135deg, #faf9f6 0%, #f5f3ee 100%);
-            --gradient-nature: linear-gradient(135deg, #4a6741 0%, #6b8e5a 50%, #8fbc8f 100%);
-            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --ink:          #1a1410;
+            --ink-deep:     #0e0c0a;
+            --gold:         #b89a5f;
+            --gold-light:   #d4b87a;
+            --parchment:    #f7f4ed;
+            --parchment-dk: #ede9df;
+            --accent:       #2b4a36;
+            --accent-mid:   #3d6b4e;
+            --accent-pale:  rgba(43,74,54,0.07);
+            --text-body:    #2d2620;
+            --text-muted:   #7a6e62;
+            --header-bg:    rgba(14,12,10,0.97);
+            --hero-grad:    linear-gradient(160deg, #0e0c0a 0%, #1f1a14 100%);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--gradient-dawn);
-            color: var(--text-charcoal);
-            line-height: 1.6;
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            background: var(--parchment);
+            color: var(--text-body);
             overflow-x: hidden;
         }
 
-        .page-header {
-            background: var(--gradient-nature);
-            padding: 2rem 0 4rem;
+        /* ── HEADER ── */
+        .site-header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            height: 64px;
+            background: var(--header-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184,154,95,0.18);
+            padding: 0 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .header-logo img {
+            height: 36px;
+            width: auto;
+            opacity: 0.9;
+        }
+
+        .header-logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--gold);
+            letter-spacing: 0.04em;
+            line-height: 1.25;
+        }
+
+        .header-logo-text span {
+            display: block;
+            font-size: 0.78rem;
+            font-style: italic;
+            color: rgba(184,154,95,0.65);
+        }
+
+        .nav-back {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(184,154,95,0.7);
+            text-decoration: none;
+            transition: color 0.25s;
+        }
+
+        .nav-back:hover { color: var(--gold); }
+        .nav-back i { margin-right: 0.45rem; font-size: 0.65rem; }
+
+        /* ── HERO ── */
+        .page-hero {
             position: relative;
+            background: var(--hero-grad);
+            padding: 130px 2.5rem 90px;
             overflow: hidden;
         }
 
-        .page-header::before {
+        .page-hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
+            opacity: 0.5;
             pointer-events: none;
         }
 
-        .header-navigation {
+        .page-hero::after {
+            content: '';
             position: absolute;
-            top: 1.5rem;
-            left: 2rem;
-            z-index: 10;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(43,74,54,0.25) 0%, transparent 65%);
+            pointer-events: none;
         }
 
-        .nav-link {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            transition: var(--transition-smooth);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .ministry-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+        .hero-inner {
             position: relative;
-            z-index: 5;
-        }
-
-        .logo-image {
-            height: 80px;
-            width: auto;
-            filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
-            transition: var(--transition-smooth);
-        }
-
-        .logo-image:hover {
-            transform: scale(1.05);
-            filter: drop-shadow(0 6px 30px rgba(0, 0, 0, 0.4));
-        }
-
-        .ministry-name {
-            font-family: 'Merriweather', serif;
-            color: white;
-            text-align: left;
-        }
-
-        .ministry-line {
-            font-size: 1.2rem;
-            font-weight: 400;
-            line-height: 1.3;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .ministry-line:first-child {
-            font-size: 1rem;
-            opacity: 0.95;
-        }
-
-        .page-title {
+            z-index: 2;
+            max-width: 840px;
+            margin: 0 auto;
             text-align: center;
-            color: white;
-            position: relative;
-            z-index: 5;
         }
 
-        .main-title {
-            font-family: 'Merriweather', serif;
-            font-size: 3.2rem;
+        .hero-eyebrow {
+            display: inline-block;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.68rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            letter-spacing: -1px;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid rgba(184,154,95,0.32);
+            padding: 0.35rem 1.1rem;
+            margin-bottom: 2rem;
+            animation: fadeUp 0.7s ease both;
         }
 
-        .subtitle {
-            font-size: 1.3rem;
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 6vw, 4.8rem);
             font-weight: 300;
-            opacity: 0.95;
-            max-width: 600px;
+            font-style: italic;
+            color: #f7f4ed;
+            line-height: 1.1;
+            margin-bottom: 1.4rem;
+            animation: fadeUp 0.7s ease 0.12s both;
+        }
+
+        .hero-title em {
+            font-style: normal;
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 300;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(247,244,237,0.5);
+            animation: fadeUp 0.7s ease 0.24s both;
+        }
+
+        .hero-rule {
+            width: 48px;
+            height: 1px;
+            background: var(--gold);
+            margin: 2rem auto 0;
+            opacity: 0.45;
+            animation: fadeUp 0.7s ease 0.34s both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(22px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── MAIN ── */
+        .page-main {
+            max-width: 1120px;
             margin: 0 auto;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 0 2.5rem 7rem;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .main-content {
-            padding: 6rem 0;
-        }
-
-        .section {
-            margin-bottom: 6rem;
-        }
-
+        /* ── SECTION HEADERS ── */
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.67rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.8rem;
         }
 
         .section-title {
-            font-family: 'Merriweather', serif;
-            font-size: 2.5rem;
-            color: var(--primary-sage);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--ink);
+            line-height: 1.2;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-copper) 0%, var(--accent-gold) 100%);
-            border-radius: 2px;
+        .section-rule {
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+            margin: 1.1rem auto 0;
         }
 
-        .section-description {
-            font-size: 1.1rem;
-            color: var(--text-soft);
-            max-width: 700px;
+        .section-desc {
+            font-size: 0.93rem;
+            font-weight: 300;
+            line-height: 1.76;
+            color: var(--text-muted);
+            max-width: 620px;
+            margin: 1.4rem auto 0;
+        }
+
+        /* ── FUNDAMENTO BÍBLICO ── */
+        .fundamento-section { margin: 6rem 0; }
+
+        .scripture-blocks {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            max-width: 820px;
             margin: 0 auto;
-            line-height: 1.8;
         }
 
-        .devotional-grid {
+        .s-block {
+            background: #fff;
+            border: 1px solid var(--parchment-dk);
+            border-left: 3px solid var(--accent);
+            padding: 2.2rem 2.5rem;
+            transition: border-color 0.3s;
+        }
+
+        .s-block + .s-block { border-top: none; }
+
+        .s-block:hover { border-color: var(--accent); }
+
+        .s-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            line-height: 1.76;
+            color: var(--ink);
+            margin-bottom: 0.9rem;
+        }
+
+        .s-ref {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            text-align: right;
+        }
+
+        /* ── CRONOGRAMAS ── */
+        .cronogramas-section { margin: 6rem 0; }
+
+        .cronogramas-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--parchment-dk);
         }
 
-        .devotional-card {
-            background: var(--card-white);
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-soft);
-            transition: var(--transition-smooth);
-            border: 1px solid var(--border-light);
+        .crono-card {
+            background: #fff;
+            padding: 0;
+            transition: background 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .crono-card:hover { background: var(--parchment); }
+
+        .crono-card--avanzado {
+            background: var(--accent);
+        }
+
+        .crono-card--avanzado:hover { background: var(--accent-mid); }
+
+        .crono-header {
+            padding: 2rem 2rem 1.2rem;
+            border-bottom: 1px solid var(--parchment-dk);
+        }
+
+        .crono-card--avanzado .crono-header {
+            border-color: rgba(247,244,237,0.1);
+        }
+
+        .crono-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(43,74,54,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.92rem;
+            color: var(--accent);
+            margin-bottom: 1.1rem;
+        }
+
+        .crono-card--avanzado .crono-icon {
+            border-color: rgba(247,244,237,0.3);
+            color: var(--gold-light);
+        }
+
+        .crono-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--ink);
+            margin-bottom: 0.45rem;
+        }
+
+        .crono-card--avanzado .crono-title { color: #f7f4ed; }
+
+        .crono-desc {
+            font-size: 0.85rem;
+            font-weight: 300;
+            line-height: 1.65;
+            color: var(--text-muted);
+        }
+
+        .crono-card--avanzado .crono-desc { color: rgba(247,244,237,0.6); }
+
+        .crono-schedule {
+            list-style: none;
+            padding: 0 2rem 2rem;
+            flex: 1;
+        }
+
+        .crono-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.8rem;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid var(--parchment-dk);
+            font-size: 0.86rem;
+        }
+
+        .crono-card--avanzado .crono-item {
+            border-color: rgba(247,244,237,0.1);
+        }
+
+        .crono-item:last-child { border-bottom: none; }
+
+        .crono-time {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: var(--accent);
+            min-width: 72px;
+            flex-shrink: 0;
+        }
+
+        .crono-card--avanzado .crono-time { color: var(--gold-light); }
+
+        .crono-act {
+            font-weight: 300;
+            color: var(--text-body);
+            line-height: 1.4;
+        }
+
+        .crono-card--avanzado .crono-act { color: rgba(247,244,237,0.82); }
+
+        /* ── HORARIOS BÍBLICOS ── */
+        .horarios-section {
+            margin: 6rem 0;
+            padding: 4.5rem 3rem;
+            background: var(--hero-grad);
             position: relative;
             overflow: hidden;
         }
 
-        .devotional-card::before {
+        .horarios-section::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-sage) 0%, var(--secondary-olive) 100%);
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
+            opacity: 0.45;
+            pointer-events: none;
         }
 
-        .devotional-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-medium);
-        }
+        .horarios-section .section-label { color: var(--gold-light); }
+        .horarios-section .section-title { color: #f7f4ed; }
+        .horarios-section .section-rule  { background: rgba(184,154,95,0.45); }
+        .horarios-section .section-desc  { color: rgba(247,244,237,0.5); }
 
-        .card-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-sage) 0%, var(--secondary-olive) 100%);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            color: white;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(74, 103, 65, 0.3);
-        }
-
-        .card-title {
-            font-family: 'Merriweather', serif;
-            font-size: 1.4rem;
-            color: var(--primary-sage);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .card-description {
-            color: var(--text-soft);
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
-
-        .schedule-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .schedule-item {
-            display: flex;
-            align-items: center;
-            padding: 0.8rem 0;
-            border-bottom: 1px solid var(--border-light);
-            transition: var(--transition-smooth);
-        }
-
-        .schedule-item:last-child {
-            border-bottom: none;
-        }
-
-        .schedule-item:hover {
-            background: rgba(74, 103, 65, 0.03);
-            border-radius: 8px;
-            margin: 0 -0.5rem;
-            padding-left: 1.3rem;
-            padding-right: 1.3rem;
-        }
-
-        .schedule-time {
-            font-weight: 600;
-            color: var(--accent-copper);
-            min-width: 80px;
-            font-size: 0.9rem;
-        }
-
-        .schedule-activity {
-            flex: 1;
-            color: var(--text-charcoal);
-            margin-left: 1rem;
-        }
-
-        .scripture-highlight {
-            background: linear-gradient(135deg, rgba(74, 103, 65, 0.08) 0%, rgba(107, 142, 90, 0.05) 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 3rem 0;
-            border-left: 4px solid var(--accent-gold);
+        .horarios-inner {
             position: relative;
+            z-index: 2;
         }
 
-        .scripture-text {
-            font-family: 'Crimson Text', serif;
-            font-size: 1.3rem;
-            font-style: italic;
-            color: var(--text-charcoal);
-            margin-bottom: 1rem;
+        .horarios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .horario-block {
+            border: 1px solid rgba(184,154,95,0.18);
+            background: rgba(255,255,255,0.04);
+            padding: 2rem;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .horario-block:hover {
+            border-color: rgba(184,154,95,0.42);
+            background: rgba(255,255,255,0.07);
+        }
+
+        .horario-time {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.4rem;
+        }
+
+        .horario-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.18rem;
+            font-weight: 400;
+            color: #f7f4ed;
+            margin-bottom: 0.8rem;
+        }
+
+        .horario-desc {
+            font-size: 0.85rem;
+            font-weight: 300;
             line-height: 1.7;
+            color: rgba(247,244,237,0.55);
         }
 
-        .scripture-reference {
-            font-weight: 600;
-            color: var(--primary-sage);
-            text-align: right;
-            font-size: 1rem;
+        /* ── CALENDARIO ── */
+        .calendario-section { margin: 6rem 0; }
+
+        .calendario-wrap {
+            background: #fff;
+            border: 1px solid var(--parchment-dk);
         }
 
-        .fasting-calendar {
-            background: var(--card-white);
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-soft);
-            margin-top: 3rem;
-            border: 1px solid var(--border-light);
+        .calendario-top {
+            padding: 2rem 2.5rem;
+            border-bottom: 1px solid var(--parchment-dk);
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
         }
 
-        .calendar-header {
-            text-align: center;
-            margin-bottom: 2rem;
+        .calendario-mes {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--ink);
         }
 
-        .calendar-title {
-            font-family: 'Merriweather', serif;
-            font-size: 1.8rem;
-            color: var(--primary-sage);
-            margin-bottom: 0.5rem;
+        .calendario-subtitulo {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
         }
 
-        .calendar-subtitle {
-            color: var(--text-soft);
-            font-size: 1rem;
-        }
-
-        .calendar-grid {
+        .calendario-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 0.5rem;
-            margin-top: 2rem;
+            gap: 1px;
+            background: var(--parchment-dk);
+            padding: 0 1.5rem 1.5rem;
         }
 
-        .calendar-day {
+        .cal-day {
             aspect-ratio: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 8px;
-            font-weight: 500;
-            transition: var(--transition-smooth);
+            font-family: 'Lato', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 400;
+            transition: transform 0.2s;
+            cursor: default;
+        }
+
+        .cal-day--header {
+            background: var(--parchment);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            aspect-ratio: auto;
+            padding: 0.7rem 0;
+        }
+
+        .cal-day--normal {
+            background: var(--parchment);
+            color: var(--text-muted);
+        }
+
+        .cal-day--empty {
+            background: var(--parchment);
+        }
+
+        .cal-day--fasting {
+            background: var(--accent);
+            color: #f7f4ed;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .cal-day--fasting:hover { transform: scale(1.08); z-index: 2; }
+
+        .cal-day--prayer {
+            background: var(--gold);
+            color: var(--ink);
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .cal-day--prayer:hover { transform: scale(1.08); z-index: 2; }
+
+        .cal-day--special {
+            background: var(--ink);
+            color: var(--gold);
+            font-weight: 700;
             cursor: pointer;
             position: relative;
         }
 
-        .day-header {
-            background: var(--primary-sage);
-            color: white;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .day-normal {
-            background: var(--background-cream);
-            color: var(--text-soft);
-        }
-
-        .day-fasting {
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-copper) 100%);
-            color: white;
-            font-weight: 600;
-        }
-
-        .day-prayer {
-            background: linear-gradient(135deg, var(--primary-sage) 0%, var(--secondary-olive) 100%);
-            color: white;
-        }
-
-        .day-special {
-            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
-            color: white;
-            position: relative;
-        }
-
-        .day-special::after {
-            content: '★';
+        .cal-day--special::after {
+            content: '·';
             position: absolute;
-            top: -5px;
-            right: -5px;
-            font-size: 0.7rem;
-            color: var(--accent-gold);
+            top: 4px;
+            right: 6px;
+            font-size: 1rem;
+            color: var(--gold);
+            line-height: 1;
         }
 
-        .calendar-legend {
+        .cal-day--special:hover { transform: scale(1.08); z-index: 2; }
+
+        .cal-legend {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-light);
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            border-top: 1px solid var(--parchment-dk);
         }
 
         .legend-item {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.7rem;
+            padding: 1.1rem 1.5rem;
+            border-right: 1px solid var(--parchment-dk);
         }
 
-        .legend-color {
-            width: 20px;
-            height: 20px;
-            border-radius: 4px;
+        .legend-item:last-child { border-right: none; }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
         }
+
+        .legend-dot--fasting { background: var(--accent); }
+        .legend-dot--prayer  { background: var(--gold); }
+        .legend-dot--special { background: var(--ink); }
+        .legend-dot--normal  { background: var(--parchment-dk); border: 1px solid var(--text-muted); }
 
         .legend-text {
-            font-size: 0.9rem;
-            color: var(--text-soft);
+            font-family: 'Lato', sans-serif;
+            font-size: 0.76rem;
+            font-weight: 300;
+            color: var(--text-muted);
         }
 
-        .prayer-times {
-            background: var(--card-white);
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-soft);
-            margin-top: 3rem;
-            border: 1px solid var(--border-light);
-        }
-
-        .times-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .time-block {
-            padding: 1.5rem;
-            background: linear-gradient(135deg, rgba(74, 103, 65, 0.05) 0%, rgba(107, 142, 90, 0.03) 100%);
-            border-radius: 12px;
-            border-left: 3px solid var(--accent-copper);
-        }
-
-        .time-title {
-            font-weight: 600;
-            color: var(--primary-sage);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .time-period {
-            color: var(--accent-copper);
-            font-weight: 500;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .time-focus {
-            color: var(--text-soft);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .footer {
-            background: var(--gradient-nature);
-            padding: 2rem 0;
-            margin-top: 6rem;
+        /* ── PULL QUOTE ── */
+        .pull-quote {
+            margin: 4rem 0;
+            padding: 3.5rem 3rem;
+            background: var(--accent);
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .footer::before {
-            content: '';
+        .pull-quote::before {
+            content: '\201C';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+            top: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14rem;
+            color: rgba(255,255,255,0.05);
+            line-height: 1;
             pointer-events: none;
         }
 
-        .copyright {
-            text-align: center;
+        .pull-quote-text {
             position: relative;
             z-index: 1;
-        }
-
-        .copyright p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        .copyright-note {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.8rem !important;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.25rem, 2.4vw, 1.65rem);
             font-style: italic;
-            opacity: 0.9;
+            font-weight: 300;
+            line-height: 1.72;
+            color: rgba(247,244,237,0.9);
+            max-width: 700px;
+            margin: 0 auto 1.4rem;
         }
 
-        @media (max-width: 768px) {
-            .main-title {
-                font-size: 2.5rem;
-            }
+        .pull-quote-ref {
+            position: relative;
+            z-index: 1;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(247,244,237,0.42);
+        }
 
-            .subtitle {
-                font-size: 1.1rem;
-            }
+        /* ── FOOTER ── */
+        .site-footer {
+            background: var(--hero-grad);
+            border-top: 1px solid rgba(184,154,95,0.14);
+            padding: 2.5rem;
+            text-align: center;
+        }
 
-            .ministry-logo {
-                flex-direction: column;
-                gap: 1rem;
-            }
+        .footer-copy {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            color: rgba(247,244,237,0.38);
+        }
 
-            .ministry-name {
-                text-align: center;
-            }
+        .footer-copy span { color: rgba(184,154,95,0.48); }
 
-            .logo-image {
-                height: 70px;
-            }
+        /* ── REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
 
-            .header-navigation {
-                position: static;
-                text-align: center;
-                margin-bottom: 2rem;
-            }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-            .devotional-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .cronogramas-grid { grid-template-columns: 1fr; }
+            .horarios-grid    { grid-template-columns: repeat(2, 1fr); }
+            .cal-legend       { grid-template-columns: repeat(2, 1fr); }
+        }
 
-            .calendar-grid {
-                gap: 0.3rem;
-            }
-
-            .calendar-day {
-                font-size: 0.8rem;
-            }
-
-            .times-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .main-content {
-                padding: 4rem 0;
-            }
-
-            .section {
-                margin-bottom: 4rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
+        @media (max-width: 640px) {
+            .site-header       { padding: 0 1.2rem; }
+            .header-logo-text  { display: none; }
+            .page-hero         { padding: 110px 1.2rem 70px; }
+            .page-main         { padding: 0 1.2rem 4rem; }
+            .horarios-section  { padding: 3rem 1.5rem; }
+            .horarios-grid     { grid-template-columns: 1fr; }
+            .pull-quote        { padding: 3rem 1.5rem; }
+            .calendario-grid   { padding: 0 0.5rem 0.5rem; }
+            .cal-legend        { grid-template-columns: 1fr 1fr; }
+            .calendario-top    { padding: 1.5rem; flex-direction: column; gap: 0.3rem; }
         }
     </style>
 </head>
 <body>
-    <header class="page-header">
-        <div class="header-navigation">
-            <a href="../../index.html" class="nav-link">← Volver al Inicio</a>
-        </div>
-        
-        <div class="container">
-            <div class="ministry-logo">
-                <img src="../../../images/EMD.png" alt="Logo EMD" class="logo-image">
-                <div class="ministry-name">
-                    <div class="ministry-line">Ministerio</div>
-                    <div class="ministry-line">"La Gloria es del Señor"</div>
-                </div>
+
+    <header class="site-header">
+        <a href="../../index.html" class="header-logo">
+            <img src="../../images/EMD.png" alt="Logo EMD">
+            <div class="header-logo-text">
+                Ministerio
+                <span>"La Gloria es del Señor"</span>
             </div>
-            
-            <div class="page-title">
-                <h1 class="main-title">Devocionales</h1>
-                <p class="subtitle">Cronogramas estructurados de oración, ayuno y crecimiento espiritual</p>
-            </div>
-        </div>
+        </a>
+        <a href="../../nuestras-ensenanzas/index.html" class="nav-back">
+            <i class="fas fa-arrow-left"></i> Estudios Bíblicos
+        </a>
     </header>
 
-    <main class="main-content">
-        <div class="container">
-            <section class="section">
-                <div class="section-header">
-                    <h2 class="section-title">Fundamento Bíblico</h2>
-                    <p class="section-description">
-                        La vida devocional estructurada no es una opción para el creyente serio, sino una necesidad vital para mantener una relación íntima con Dios y crecer en madurez espiritual.
-                    </p>
-                </div>
-
-                <div class="scripture-highlight">
-                    <p class="scripture-text">
-                        "Muy de mañana, levantándose aún muy de noche, salió y se fue a un lugar desierto, y allí oraba."
-                    </p>
-                    <p class="scripture-reference">Marcos 1:35</p>
-                </div>
-
-                <div class="scripture-highlight">
-                    <p class="scripture-text">
-                        "Y cuando ayunéis, no seáis austeros, como los hipócritas; porque ellos demudan sus rostros para mostrar a los hombres que ayunan; de cierto os digo que ya tienen su recompensa. Pero tú, cuando ayunes, unge tu cabeza y lava tu rostro, para no mostrar a los hombres que ayunas, sino a tu Padre que está en secreto; y tu Padre que ve en lo secreto te recompensará en público."
-                    </p>
-                    <p class="scripture-reference">Mateo 6:16-18</p>
-                </div>
-            </section>
-
-            <section class="section">
-                <div class="section-header">
-                    <h2 class="section-title">Cronogramas de Oración</h2>
-                    <p class="section-description">
-                        Programas estructurados para diferentes niveles de madurez espiritual, desde principiantes hasta intercesores avanzados.
-                    </p>
-                </div>
-
-                <div class="devotional-grid">
-                    <div class="devotional-card">
-                        <div class="card-icon">
-                            <i class="fas fa-seedling"></i>
-                        </div>
-                        <h3 class="card-title">Nivel Principiante</h3>
-                        <p class="card-description">
-                            Para nuevos creyentes o aquellos que desean establecer una rutina devocional sólida.
-                        </p>
-                        <ul class="schedule-list">
-                            <li class="schedule-item">
-                                <span class="schedule-time">6:00 AM</span>
-                                <span class="schedule-activity">Oración matutina (15 min)</span>
-                            </li>
-                            <li class="schedule-item">
-                                <span class="schedule-time">12:00 PM</span>
-                                <span class="schedule-activity">Lectura bíblica (10 min)</span>
-                            </li>
-                            <li class="schedule-item">
-                                <span class="schedule-time">9:00 PM</span>
-                                <span class="schedule-activity">Oración nocturna (10 min)</span>
-                            </li>
-                            <li class="schedule-item">
-                                <span class="schedule-time">Sáb</span>
-                                <span class="schedule-activity">Ayuno de Daniel (12 horas)</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="devotional-card">
-                        <div class="card-icon">
-                            <i class="fas fa-tree"></i>
-                        </div>
-                        <h3 class="card-title">Nivel Intermedio</h3>
-                        <p class="card-description">
-                            Para creyentes con experiencia que buscan profundizar su relación con Dios.
-                        </p>
-                        <ul class="schedule-list">
-                            <li class="schedule-item">
-                                <span class="schedule-time">5:30 AM</span>
-                                <span class="schedule-activity">Oración y adoración (30 min)</span>
-                            </li>
-                            <li class="schedule-item">
-                                <span class="schedule-time">12:00 PM</span>
-                                <span class="schedule-activity">Estudio bíblico (20 min)</span>
-                            </li>
-                            <li class="schedule-item">
-                                <span class="schedule-time">6:00 PM</span>
-                                <span class="schedule-activity">Intercesión (15 min)</span>
-                            </li>
-                            <li class="schedule-item">
-                                <span class="schedule-time">10:00 PM</span>
-                                <span class="schedule-activity">Reflexión y gratitud (10 min)</span>
-                            </li>
-                            <li class="schedule-item">
-                                <span class="schedule-time">Mié</span>
-                                <span class="schedule-activity">Ayuno de 24 horas</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="devotional-card">
-                        <div class="card-icon">
-                            <i class="fas fa-mountain"></i>
-                        </div>
-                        <h3 class="card-title">Nivel Avanzado</h3>
-                        <p class="card-description">
-                            Para intercesores y líderes espirituales comprometidos con una vida de oración intensa.
-                        </p>
-                        <ul class="schedule-list">
-                            <li class="schedule-item">
-                                <span class="schedule-time">5:00 AM</span>
-                                <span class="schedule-activity">Oración matutina (60 min)</span>
-                            </li>
-                            <li class="schedule-item">
-                                <span class="schedule-time">9:00 AM</span>
-                                <span class="schedule-activity">Estudio profundo (30 min)</span>
-                            </li>
-                            <li class="schedule-item">
-                                <span class="schedule-time">12:00 PM</span>
-                                <span class="schedule-activity">Intercesión mediodía (20 min)</span>
-                            </li>
-                            <li class="schedule-item">
-                                <span class="schedule-time">6:00 PM</span>
-                                <span class="schedule-activity">Oración vespertina (45 min)</span>
-                            </li>
-                            <li class="schedule-item">
-                                <span class="schedule-time">11:00 PM</span>
-                                <span class="schedule-activity">Vigilia nocturna (30 min)</span>
-                            </li>
-                            <li class="schedule-item">
-                                <span class="schedule-time">Lun-Mié</span>
-                                <span class="schedule-activity">Ayuno de 3 días</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <div class="section-header">
-                    <h2 class="section-title">Horarios de Oración Bíblicos</h2>
-                    <p class="section-description">
-                        Basados en los patrones bíblicos de oración establecidos por los santos del Antiguo y Nuevo Testamento.
-                    </p>
-                </div>
-
-                <div class="prayer-times">
-                    <div class="times-grid">
-                        <div class="time-block">
-                            <div class="time-title">Oración Matutina</div>
-                            <div class="time-period">5:00 - 6:00 AM</div>
-                            <div class="time-focus">
-                                Búsqueda de la presencia de Dios, confesión y establecimiento de propósitos para el día. Siguiendo el ejemplo de Jesús quien se levantaba "muy de mañana" (Marcos 1:35).
-                            </div>
-                        </div>
-
-                        <div class="time-block">
-                            <div class="time-title">Hora Tercera</div>
-                            <div class="time-period">9:00 AM</div>
-                            <div class="time-focus">
-                                Oración por sabiduría y dirección divina para las actividades del día. Momento en que el Espíritu Santo descendió en Pentecostés (Hechos 2:15).
-                            </div>
-                        </div>
-
-                        <div class="time-block">
-                            <div class="time-title">Hora Sexta</div>
-                            <div class="time-period">12:00 PM</div>
-                            <div class="time-focus">
-                                Pausa para adoración y gratitud. Pedro tuvo su visión a esta hora (Hechos 10:9). Momento para reorientar el corazón hacia Dios.
-                            </div>
-                        </div>
-
-                        <div class="time-block">
-                            <div class="time-title">Hora Novena</div>
-                            <div class="time-period">3:00 PM</div>
-                            <div class="time-focus">
-                                Intercesión y súplica. Hora en que Jesús murió y cuando Pedro y Juan subían al templo (Hechos 3:1). Momento de muerte al yo.
-                            </div>
-                        </div>
-
-                        <div class="time-block">
-                            <div class="time-title">Oración Vespertina</div>
-                            <div class="time-period">6:00 - 7:00 PM</div>
-                            <div class="time-focus">
-                                Reflexión del día, confesión y perdón. Revisión de las obras de Dios durante la jornada y preparación para el descanso nocturno.
-                            </div>
-                        </div>
-
-                        <div class="time-block">
-                            <div class="time-title">Vigilia Nocturna</div>
-                            <div class="time-period">11:00 PM - 12:00 AM</div>
-                            <div class="time-focus">
-                                Oración profunda e intercesión intensa. Siguiendo el ejemplo de Anna, quien "no se apartaba del templo, sirviendo de noche y de día" (Lucas 2:37).
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <div class="section-header">
-                    <h2 class="section-title">Calendario de Ayuno</h2>
-                    <p class="section-description">
-                        Programa anual de ayunos estructurados para el crecimiento espiritual y la búsqueda de la voluntad de Dios.
-                    </p>
-                </div>
-
-                <div class="fasting-calendar">
-                    <div class="calendar-header">
-                        <h3 class="calendar-title">Enero 2025</h3>
-                        <p class="calendar-subtitle">Mes de Consagración y Nuevos Comienzos</p>
-                    </div>
-
-                    <div class="calendar-grid">
-                        <div class="calendar-day day-header">Dom</div>
-                        <div class="calendar-day day-header">Lun</div>
-                        <div class="calendar-day day-header">Mar</div>
-                        <div class="calendar-day day-header">Mié</div>
-                        <div class="calendar-day day-header">Jue</div>
-                        <div class="calendar-day day-header">Vie</div>
-                        <div class="calendar-day day-header">Sáb</div>
-                        
-                        <div class="calendar-day day-normal"></div>
-                        <div class="calendar-day day-normal"></div>
-                        <div class="calendar-day day-normal"></div>
-                        <div class="calendar-day day-special">1</div>
-                        <div class="calendar-day day-normal">2</div>
-                        <div class="calendar-day day-normal">3</div>
-                        <div class="calendar-day day-fasting">4</div>
-                        
-                        <div class="calendar-day day-normal">5</div>
-                        <div class="calendar-day day-fasting">6</div>
-                        <div class="calendar-day day-fasting">7</div>
-                        <div class="calendar-day day-prayer">8</div>
-                        <div class="calendar-day day-normal">9</div>
-                        <div class="calendar-day day-normal">10</div>
-                        <div class="calendar-day day-fasting">11</div>
-                        
-                        <div class="calendar-day day-normal">12</div>
-                        <div class="calendar-day day-fasting">13</div>
-                        <div class="calendar-day day-fasting">14</div>
-                        <div class="calendar-day day-prayer">15</div>
-                        <div class="calendar-day day-normal">16</div>
-                        <div class="calendar-day day-normal">17</div>
-                        <div class="calendar-day day-fasting">18</div>
-                        
-                        <div class="calendar-day day-normal">19</div>
-                        <div class="calendar-day day-fasting">20</div>
-                        <div class="calendar-day day-fasting">21</div>
-                        <div class="calendar-day day-prayer">22</div>
-                        <div class="calendar-day day-normal">23</div>
-                        <div class="calendar-day day-normal">24</div>
-                        <div class="calendar-day day-fasting">25</div>
-                        
-                        <div class="calendar-day day-normal">26</div>
-                        <div class="calendar-day day-fasting">27</div>
-                        <div class="calendar-day day-fasting">28</div>
-                        <div class="calendar-day day-prayer">29</div>
-                        <div class="calendar-day day-normal">30</div>
-                        <div class="calendar-day day-special">31</div>
-                        <div class="calendar-day day-normal"></div>
-                    </div>
-
-                    <div class="calendar-legend">
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: linear-gradient(135deg, #d4af37 0%, #b7772c 100%);"></div>
-                            <span class="legend-text">Ayuno de 24 horas</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: linear-gradient(135deg, #4a6741 0%, #6b8e5a 100%);"></div>
-                            <span class="legend-text">Día de oración intensiva</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);"></div>
-                            <span class="legend-text">Ayuno especial (3 días)</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: #faf9f6;"></div>
-                            <span class="legend-text">Día normal de oración</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="scripture-highlight">
-                <p class="scripture-text">
-                    "Mas tú, cuando ores, entra en tu aposento, y cerrada la puerta, ora a tu Padre que está en secreto; y tu Padre que ve en lo secreto te recompensará en público."
-                </p>
-                <p class="scripture-reference">Mateo 6:6</p>
-            </div>
+    <section class="page-hero">
+        <div class="hero-inner">
+            <span class="hero-eyebrow">Estudios Bíblicos</span>
+            <h1 class="hero-title"><em>Devocionales</em></h1>
+            <p class="hero-subtitle">Cronogramas de oración, ayuno y crecimiento espiritual</p>
+            <div class="hero-rule"></div>
         </div>
+    </section>
+
+    <main class="page-main">
+
+        <!-- FUNDAMENTO BÍBLICO -->
+        <section class="fundamento-section reveal">
+            <div class="section-header">
+                <span class="section-label">Fundamento</span>
+                <h2 class="section-title">Fundamento Bíblico</h2>
+                <div class="section-rule"></div>
+                <p class="section-desc">La vida devocional estructurada no es una opción para el creyente serio, sino una necesidad vital para mantener una relación íntima con Dios y crecer en madurez espiritual.</p>
+            </div>
+            <div class="scripture-blocks">
+                <div class="s-block">
+                    <p class="s-text">"Muy de mañana, levantándose aún muy de noche, salió y se fue a un lugar desierto, y allí oraba."</p>
+                    <p class="s-ref">Marcos 1:35</p>
+                </div>
+                <div class="s-block">
+                    <p class="s-text">"Y cuando ayunéis, no seáis austeros, como los hipócritas; porque ellos demudan sus rostros para mostrar a los hombres que ayunan… Pero tú, cuando ayunes, unge tu cabeza y lava tu rostro, para no mostrar a los hombres que ayunas, sino a tu Padre que está en secreto; y tu Padre que ve en lo secreto te recompensará en público."</p>
+                    <p class="s-ref">Mateo 6:16–18</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CRONOGRAMAS -->
+        <section class="cronogramas-section reveal">
+            <div class="section-header">
+                <span class="section-label">Cronogramas</span>
+                <h2 class="section-title">Cronogramas de Oración</h2>
+                <div class="section-rule"></div>
+                <p class="section-desc">Programas estructurados para diferentes niveles de madurez espiritual, desde principiantes hasta intercesores avanzados.</p>
+            </div>
+            <div class="cronogramas-grid">
+                <div class="crono-card">
+                    <div class="crono-header">
+                        <div class="crono-icon"><i class="fas fa-seedling"></i></div>
+                        <h3 class="crono-title">Nivel Principiante</h3>
+                        <p class="crono-desc">Para nuevos creyentes o quienes desean establecer una rutina devocional sólida.</p>
+                    </div>
+                    <ul class="crono-schedule">
+                        <li class="crono-item">
+                            <span class="crono-time">6:00 AM</span>
+                            <span class="crono-act">Oración matutina (15 min)</span>
+                        </li>
+                        <li class="crono-item">
+                            <span class="crono-time">12:00 PM</span>
+                            <span class="crono-act">Lectura bíblica (10 min)</span>
+                        </li>
+                        <li class="crono-item">
+                            <span class="crono-time">9:00 PM</span>
+                            <span class="crono-act">Oración nocturna (10 min)</span>
+                        </li>
+                        <li class="crono-item">
+                            <span class="crono-time">Sáb</span>
+                            <span class="crono-act">Ayuno de Daniel (12 horas)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="crono-card">
+                    <div class="crono-header">
+                        <div class="crono-icon"><i class="fas fa-tree"></i></div>
+                        <h3 class="crono-title">Nivel Intermedio</h3>
+                        <p class="crono-desc">Para creyentes con experiencia que buscan profundizar su relación con Dios.</p>
+                    </div>
+                    <ul class="crono-schedule">
+                        <li class="crono-item">
+                            <span class="crono-time">5:30 AM</span>
+                            <span class="crono-act">Oración y adoración (30 min)</span>
+                        </li>
+                        <li class="crono-item">
+                            <span class="crono-time">12:00 PM</span>
+                            <span class="crono-act">Estudio bíblico (20 min)</span>
+                        </li>
+                        <li class="crono-item">
+                            <span class="crono-time">6:00 PM</span>
+                            <span class="crono-act">Intercesión (15 min)</span>
+                        </li>
+                        <li class="crono-item">
+                            <span class="crono-time">10:00 PM</span>
+                            <span class="crono-act">Reflexión y gratitud (10 min)</span>
+                        </li>
+                        <li class="crono-item">
+                            <span class="crono-time">Mié</span>
+                            <span class="crono-act">Ayuno de 24 horas</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="crono-card crono-card--avanzado">
+                    <div class="crono-header">
+                        <div class="crono-icon"><i class="fas fa-mountain"></i></div>
+                        <h3 class="crono-title">Nivel Avanzado</h3>
+                        <p class="crono-desc">Para intercesores y líderes comprometidos con una vida de oración intensa.</p>
+                    </div>
+                    <ul class="crono-schedule">
+                        <li class="crono-item">
+                            <span class="crono-time">5:00 AM</span>
+                            <span class="crono-act">Oración matutina (60 min)</span>
+                        </li>
+                        <li class="crono-item">
+                            <span class="crono-time">9:00 AM</span>
+                            <span class="crono-act">Estudio profundo (30 min)</span>
+                        </li>
+                        <li class="crono-item">
+                            <span class="crono-time">12:00 PM</span>
+                            <span class="crono-act">Intercesión mediodía (20 min)</span>
+                        </li>
+                        <li class="crono-item">
+                            <span class="crono-time">6:00 PM</span>
+                            <span class="crono-act">Oración vespertina (45 min)</span>
+                        </li>
+                        <li class="crono-item">
+                            <span class="crono-time">11:00 PM</span>
+                            <span class="crono-act">Vigilia nocturna (30 min)</span>
+                        </li>
+                        <li class="crono-item">
+                            <span class="crono-time">Lun–Mié</span>
+                            <span class="crono-act">Ayuno de 3 días</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- HORARIOS BÍBLICOS -->
+        <section class="horarios-section reveal">
+            <div class="horarios-inner">
+                <div class="section-header">
+                    <span class="section-label">Patrón bíblico</span>
+                    <h2 class="section-title">Horarios de Oración Bíblicos</h2>
+                    <div class="section-rule"></div>
+                    <p class="section-desc">Basados en los patrones establecidos por los santos del Antiguo y Nuevo Testamento.</p>
+                </div>
+                <div class="horarios-grid">
+                    <div class="horario-block">
+                        <div class="horario-time">5:00 – 6:00 AM</div>
+                        <div class="horario-name">Oración Matutina</div>
+                        <p class="horario-desc">Búsqueda de la presencia de Dios, confesión y establecimiento de propósitos. Siguiendo el ejemplo de Jesús quien se levantaba "muy de mañana" (Marcos 1:35).</p>
+                    </div>
+                    <div class="horario-block">
+                        <div class="horario-time">9:00 AM</div>
+                        <div class="horario-name">Hora Tercera</div>
+                        <p class="horario-desc">Oración por sabiduría y dirección divina. Momento en que el Espíritu Santo descendió en Pentecostés (Hechos 2:15).</p>
+                    </div>
+                    <div class="horario-block">
+                        <div class="horario-time">12:00 PM</div>
+                        <div class="horario-name">Hora Sexta</div>
+                        <p class="horario-desc">Pausa para adoración y gratitud. Pedro tuvo su visión a esta hora (Hechos 10:9). Reorientar el corazón hacia Dios.</p>
+                    </div>
+                    <div class="horario-block">
+                        <div class="horario-time">3:00 PM</div>
+                        <div class="horario-name">Hora Novena</div>
+                        <p class="horario-desc">Intercesión y súplica. Hora en que Jesús murió y cuando Pedro y Juan subían al templo (Hechos 3:1). Momento de muerte al yo.</p>
+                    </div>
+                    <div class="horario-block">
+                        <div class="horario-time">6:00 – 7:00 PM</div>
+                        <div class="horario-name">Oración Vespertina</div>
+                        <p class="horario-desc">Reflexión del día, confesión y perdón. Revisión de las obras de Dios y preparación para el descanso nocturno.</p>
+                    </div>
+                    <div class="horario-block">
+                        <div class="horario-time">11:00 PM – 12:00 AM</div>
+                        <div class="horario-name">Vigilia Nocturna</div>
+                        <p class="horario-desc">Oración profunda e intercesión intensa. Siguiendo el ejemplo de Ana, quien "no se apartaba del templo, sirviendo de noche y de día" (Lucas 2:37).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALENDARIO -->
+        <section class="calendario-section reveal">
+            <div class="section-header">
+                <span class="section-label">Ayuno</span>
+                <h2 class="section-title">Calendario de Ayuno</h2>
+                <div class="section-rule"></div>
+                <p class="section-desc">Programa anual de ayunos estructurados para el crecimiento espiritual y la búsqueda de la voluntad de Dios.</p>
+            </div>
+            <div class="calendario-wrap">
+                <div class="calendario-top">
+                    <div class="calendario-mes">Enero 2025</div>
+                    <div class="calendario-subtitulo">Mes de Consagración y Nuevos Comienzos</div>
+                </div>
+                <div class="calendario-grid">
+                    <div class="cal-day cal-day--header">Dom</div>
+                    <div class="cal-day cal-day--header">Lun</div>
+                    <div class="cal-day cal-day--header">Mar</div>
+                    <div class="cal-day cal-day--header">Mié</div>
+                    <div class="cal-day cal-day--header">Jue</div>
+                    <div class="cal-day cal-day--header">Vie</div>
+                    <div class="cal-day cal-day--header">Sáb</div>
+
+                    <div class="cal-day cal-day--empty"></div>
+                    <div class="cal-day cal-day--empty"></div>
+                    <div class="cal-day cal-day--empty"></div>
+                    <div class="cal-day cal-day--special">1</div>
+                    <div class="cal-day cal-day--normal">2</div>
+                    <div class="cal-day cal-day--normal">3</div>
+                    <div class="cal-day cal-day--fasting">4</div>
+
+                    <div class="cal-day cal-day--normal">5</div>
+                    <div class="cal-day cal-day--fasting">6</div>
+                    <div class="cal-day cal-day--fasting">7</div>
+                    <div class="cal-day cal-day--prayer">8</div>
+                    <div class="cal-day cal-day--normal">9</div>
+                    <div class="cal-day cal-day--normal">10</div>
+                    <div class="cal-day cal-day--fasting">11</div>
+
+                    <div class="cal-day cal-day--normal">12</div>
+                    <div class="cal-day cal-day--fasting">13</div>
+                    <div class="cal-day cal-day--fasting">14</div>
+                    <div class="cal-day cal-day--prayer">15</div>
+                    <div class="cal-day cal-day--normal">16</div>
+                    <div class="cal-day cal-day--normal">17</div>
+                    <div class="cal-day cal-day--fasting">18</div>
+
+                    <div class="cal-day cal-day--normal">19</div>
+                    <div class="cal-day cal-day--fasting">20</div>
+                    <div class="cal-day cal-day--fasting">21</div>
+                    <div class="cal-day cal-day--prayer">22</div>
+                    <div class="cal-day cal-day--normal">23</div>
+                    <div class="cal-day cal-day--normal">24</div>
+                    <div class="cal-day cal-day--fasting">25</div>
+
+                    <div class="cal-day cal-day--normal">26</div>
+                    <div class="cal-day cal-day--fasting">27</div>
+                    <div class="cal-day cal-day--fasting">28</div>
+                    <div class="cal-day cal-day--prayer">29</div>
+                    <div class="cal-day cal-day--normal">30</div>
+                    <div class="cal-day cal-day--special">31</div>
+                    <div class="cal-day cal-day--empty"></div>
+                </div>
+                <div class="cal-legend">
+                    <div class="legend-item">
+                        <div class="legend-dot legend-dot--fasting"></div>
+                        <span class="legend-text">Ayuno de 24 horas</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot legend-dot--prayer"></div>
+                        <span class="legend-text">Día de oración intensiva</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot legend-dot--special"></div>
+                        <span class="legend-text">Ayuno especial (3 días)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot legend-dot--normal"></div>
+                        <span class="legend-text">Día normal de oración</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PULL QUOTE -->
+        <div class="pull-quote reveal">
+            <p class="pull-quote-text">
+                "Mas tú, cuando ores, entra en tu aposento, y cerrada la puerta, ora a tu Padre que está en secreto; y tu Padre que ve en lo secreto te recompensará en público."
+            </p>
+            <p class="pull-quote-ref">Mateo 6:6</p>
+        </div>
+
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="copyright">
-                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
-                <p class="copyright-note">Todos los recursos de esta página son gratuitos y para la edificación de los creyentes</p>
-            </div>
-        </div>
+    <footer class="site-footer">
+        <p class="footer-copy">
+            &copy; 2025 <span>Ministerio "La Gloria es del Señor"</span> &nbsp;·&nbsp; Todos los recursos son gratuitos para la edificación de los creyentes
+        </p>
     </footer>
 
     <script>
-        // Animación de entrada para las tarjetas
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, observerOptions);
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-        // Aplicar animaciones a las tarjetas
-        document.querySelectorAll('.devotional-card, .time-block, .scripture-highlight').forEach((el, index) => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = `opacity 0.8s ease ${index * 0.1}s, transform 0.8s ease ${index * 0.1}s`;
-            observer.observe(el);
-        });
-
-        // Interactividad del calendario
-        document.querySelectorAll('.calendar-day').forEach(day => {
-            if (day.textContent && !day.classList.contains('day-header')) {
-                day.addEventListener('click', function() {
-                    // Remover selección anterior
-                    document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
-                    
-                    // Agregar selección actual
-                    this.classList.add('selected');
-                    
-                    // Aquí podrías agregar lógica para mostrar detalles del día
-                    console.log(`Día seleccionado: ${this.textContent}`);
-                });
-            }
-        });
-
-        // Efecto de hover para los horarios de oración
-        document.querySelectorAll('.schedule-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateX(5px)';
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateX(0)';
-            });
-        });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
-
-    <style>
-        .calendar-day.selected {
-            ring: 2px solid var(--accent-gold);
-            transform: scale(1.1);
-        }
-        
-        .schedule-item {
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-    </style>
 </body>
 </html>
