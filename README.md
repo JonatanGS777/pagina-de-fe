@@ -87,6 +87,15 @@ El rediseño sigue los principios de la [Frontend Design Skill](#frontend-design
 - **Botones**: rectangulares (`border-radius: 2px`), uppercase Lato, inversión hover
 - **Animaciones**: `fadeUp` escalonado (`animation-delay`), sin partículas flotantes
 - **Fondo**: textura grain via SVG inline + vignette radial
+- **Hero con imagen**: usar `background` multi-capa directo en el elemento — la imagen queda al 100% de opacidad y solo se oscurece con el overlay:
+  ```css
+  .page-hero {
+      background:
+          linear-gradient(160deg, rgba(10,8,20,0.52) 0%, rgba(26,20,40,0.45) 55%, rgba(14,12,10,0.42) 100%),
+          url('./images/nombre.png') center top / cover no-repeat;
+  }
+  ```
+  **⚠️ Nunca usar `::before` con `opacity` para la imagen** — el overlay encima lo hace invisible.
 
 ---
 
