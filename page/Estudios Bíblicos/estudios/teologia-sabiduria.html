@@ -3,1008 +3,673 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teología de la Sabiduría - Literatura Sapiencial</title>
+    <title>Teología de la Sabiduría — Página de Fe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --ink: #1a1410;
+            --gold: #b89a5f;
+            --parchment: #f7f4ed;
+            --parchment-dk: #ece8df;
+            --dark: #0e0c0a;
+            --accent: #2e3820;
+            --accent-mid: #5a6e3a;
+            --accent-pale: rgba(46,56,32,0.07);
+            --hero-grad: linear-gradient(160deg, #0e0c0a 0%, #0c1008 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body::before {
+            content: '';
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 9999; opacity: 0.35;
         }
 
         body {
-            font-family: 'Playfair Display', 'Times New Roman', serif;
-            background: 
-                radial-gradient(ellipse at center, #1a1612 0%, #0f0d0a 70%, #080706 100%);
-            color: #c9a96e;
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            background: var(--parchment);
+            color: var(--ink);
             overflow-x: hidden;
-            min-height: 100vh;
-            perspective: 1000px;
-            position: relative;
         }
 
-        .dust-particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
+        /* ─── HEADER ─── */
+        header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(14,12,10,0.97);
+            border-bottom: 1px solid rgba(184,154,95,0.22);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
-
-        .dust {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: radial-gradient(circle, #d4af37 0%, transparent 70%);
-            border-radius: 50%;
-            opacity: 0.4;
-            animation: float 8s linear infinite;
+        .header-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 2rem; height: 64px;
         }
-
-        .dust:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
-        .dust:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 10s; }
-        .dust:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 14s; }
-        .dust:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 11s; }
-        .dust:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 13s; }
-        .dust:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 9s; }
-        .dust:nth-child(7) { left: 70%; animation-delay: 2.5s; animation-duration: 15s; }
-        .dust:nth-child(8) { left: 80%; animation-delay: 4.5s; animation-duration: 12s; }
-        .dust:nth-child(9) { left: 90%; animation-delay: 1.5s; animation-duration: 10s; }
-
-        @keyframes float {
-            0% { 
-                transform: translateY(100vh) translateX(0px) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.4;
-                transform: translateY(90vh) translateX(10px) scale(1);
-            }
-            90% {
-                opacity: 0.4;
-                transform: translateY(10vh) translateX(-10px) scale(1);
-            }
-            100% { 
-                transform: translateY(-10vh) translateX(0px) scale(0);
-                opacity: 0;
-            }
+        .site-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 1.25rem;
+            color: var(--gold); text-decoration: none;
+            letter-spacing: 0.03em;
         }
-
-        .library-entrance {
-            background: 
-                linear-gradient(180deg, #2d2416 0%, #3d2f1f 50%, #4a3724 100%);
-            color: #f4e4bc;
-            padding: 80px 40px;
-            text-align: center;
-            position: relative;
-            border-bottom: 8px solid #8b6914;
-            box-shadow: 
-                inset 0 0 100px rgba(0,0,0,0.5),
-                0 10px 30px rgba(0,0,0,0.8);
+        nav { display: flex; gap: 2rem; align-items: center; }
+        nav a {
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; color: rgba(247,244,237,0.65);
+            text-decoration: none; transition: color 0.2s;
         }
+        nav a:hover { color: var(--gold); }
 
-        .library-entrance::before {
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 88vh; display: flex; align-items: center;
+            background: var(--hero-grad);
+            position: relative; overflow: hidden;
+            padding-top: 64px;
+        }
+        .hero::before {
             content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                repeating-linear-gradient(
-                    0deg,
-                    transparent 0px,
-                    transparent 40px,
-                    rgba(139, 105, 20, 0.1) 40px,
-                    rgba(139, 105, 20, 0.1) 42px
-                ),
-                repeating-linear-gradient(
-                    90deg,
-                    transparent 0px,
-                    transparent 60px,
-                    rgba(139, 105, 20, 0.1) 60px,
-                    rgba(139, 105, 20, 0.1) 62px
-                );
+            position: absolute; top: -20%; left: -20%; width: 140%; height: 140%;
+            background: radial-gradient(ellipse 60% 50% at 50% 55%, rgba(46,56,32,0.28) 0%, transparent 70%);
             pointer-events: none;
         }
-
-        .entrance-arch {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 40px;
-            border: 4px solid #8b6914;
-            border-bottom: none;
-            border-radius: 100px 100px 0 0;
-            box-shadow: inset 0 5px 15px rgba(0,0,0,0.3);
+        .hero-inner {
+            max-width: 1200px; margin: 0 auto;
+            padding: 5rem 2rem 4rem;
+            position: relative; z-index: 1;
+        }
+        .hero-eyebrow {
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--gold);
+            margin-bottom: 1.5rem; opacity: 0;
+            animation: fadeUp 0.7s ease forwards;
+        }
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 700; line-height: 1.05;
+            color: #f7f4ed; letter-spacing: -0.01em;
+            margin-bottom: 1.25rem;
+            opacity: 0; animation: fadeUp 0.7s 0.15s ease forwards;
+        }
+        .hero-rule {
+            width: 3rem; height: 1px; background: var(--gold);
+            margin: 1.5rem 0;
+            opacity: 0; animation: fadeUp 0.7s 0.3s ease forwards;
+        }
+        .hero-sub {
+            font-size: 1.1rem; font-weight: 300; line-height: 1.75;
+            color: rgba(247,244,237,0.72); max-width: 580px;
+            margin-bottom: 2rem;
+            opacity: 0; animation: fadeUp 0.7s 0.45s ease forwards;
+        }
+        .hero-tags {
+            display: flex; gap: 0.75rem; flex-wrap: wrap;
+            opacity: 0; animation: fadeUp 0.7s 0.6s ease forwards;
+        }
+        .hero-tag {
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em;
+            text-transform: uppercase; color: rgba(247,244,237,0.5);
+            border: 1px solid rgba(184,154,95,0.3); padding: 0.4rem 0.9rem;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
-        .entrance-arch::before {
-            content: '⚱ BIBLIOTHECA SAPIENTIA ⚱';
-            position: absolute;
-            top: -35px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.8em;
-            color: #d4af37;
-            letter-spacing: 2px;
-            font-weight: 600;
+        /* ─── INTRO QUOTE ─── */
+        .intro-quote {
+            background: var(--parchment-dk);
+            border-left: 3px solid var(--accent);
+            padding: 2.5rem 3rem;
+        }
+        .intro-quote blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 1.45rem;
+            line-height: 1.65; color: var(--ink);
+            max-width: 860px;
+        }
+        .intro-quote cite {
+            display: block; margin-top: 1rem;
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--accent-mid);
         }
 
-        .title-wisdom {
-            font-size: 4.5em;
-            font-weight: 900;
-            margin-bottom: 20px;
-            color: #d4af37;
-            text-shadow: 
-                0 0 20px #8b6914,
-                2px 2px 8px rgba(0,0,0,0.8);
-            letter-spacing: 3px;
-            position: relative;
-            z-index: 2;
-            animation: wisdom-glow 4s ease-in-out infinite alternate;
+        /* ─── SECTIONS ─── */
+        .section-light { background: var(--parchment);    padding: 5rem 0; }
+        .section-mid   { background: var(--parchment-dk); padding: 5rem 0; }
+        .section-dk    { background: var(--ink);          padding: 5rem 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        .section-label {
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 2.6rem; font-weight: 700;
+            line-height: 1.15; color: var(--ink); margin-bottom: 1rem;
+        }
+        .section-title.light { color: #f7f4ed; }
+        .section-rule {
+            width: 2.5rem; height: 1px;
+            background: var(--accent); margin-bottom: 3rem;
+        }
+        .section-rule.gold { background: var(--gold); }
+
+        /* ─── BOOK HEADER ─── */
+        .book-header {
+            display: flex; align-items: baseline; gap: 1.25rem;
+            margin-bottom: 2.25rem; padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(26,20,16,0.1);
+        }
+        .book-header.dk { border-bottom-color: rgba(247,244,237,0.1); }
+        .book-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 3.5rem; font-weight: 700;
+            color: rgba(90,110,58,0.25); line-height: 1;
+        }
+        .book-num.light { color: rgba(184,154,95,0.22); }
+        .book-name-wrap { }
+        .book-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 2rem; font-weight: 700;
+            color: var(--ink); line-height: 1.1;
+        }
+        .book-name.light { color: #f7f4ed; }
+        .book-sub {
+            font-size: 0.72rem; font-weight: 300; letter-spacing: 0.1em;
+            color: rgba(26,20,16,0.5); margin-top: 0.2rem;
+        }
+        .book-sub.light { color: rgba(247,244,237,0.45); }
+
+        /* ─── CONTENT GRIDS ─── */
+        .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+
+        /* ─── CONTENT CARDS (light bg) ─── */
+        .content-card {
+            background: #fff;
+            border-top: 3px solid var(--accent);
+            padding: 2.25rem;
+        }
+        .content-card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 1.3rem; font-weight: 700;
+            color: var(--ink); margin-bottom: 0.9rem; line-height: 1.2;
+        }
+        .content-card-body {
+            font-size: 0.87rem; line-height: 1.76;
+            color: rgba(26,20,16,0.7); margin-bottom: 0.9rem;
+        }
+        .content-card-body em { font-style: italic; color: var(--ink); }
+        .content-card-body strong { font-weight: 700; color: var(--ink); }
+        .content-verse {
+            font-size: 0.78rem; font-style: italic;
+            color: var(--accent-mid);
+            border-left: 2px solid rgba(90,110,58,0.3);
+            padding-left: 0.75rem; line-height: 1.55;
         }
 
-        @keyframes wisdom-glow {
-            0% { 
-                text-shadow: 
-                    0 0 20px #8b6914,
-                    2px 2px 8px rgba(0,0,0,0.8);
-            }
-            100% { 
-                text-shadow: 
-                    0 0 40px #d4af37,
-                    0 0 60px #8b6914,
-                    2px 2px 8px rgba(0,0,0,0.8);
-            }
+        /* ─── CONTENT CARDS (dark bg) ─── */
+        .content-card.dk {
+            background: rgba(247,244,237,0.04);
+            border-top-color: var(--gold);
+        }
+        .content-card.dk .content-card-title { color: #f7f4ed; }
+        .content-card.dk .content-card-body  { color: rgba(247,244,237,0.62); }
+        .content-card.dk .content-card-body em     { color: rgba(247,244,237,0.85); }
+        .content-card.dk .content-card-body strong { color: rgba(247,244,237,0.85); }
+        .content-card.dk .content-verse {
+            color: rgba(184,154,95,0.85);
+            border-left-color: rgba(184,154,95,0.3);
         }
 
-        .subtitle-wisdom {
-            font-size: 2em;
-            color: #b8860b;
-            font-weight: 400;
-            letter-spacing: 12px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            position: relative;
-            z-index: 2;
+        /* ─── PRINCIPLES (dark section) ─── */
+        .principle-card {
+            background: rgba(247,244,237,0.04);
+            border-top: 1px solid rgba(184,154,95,0.16);
+            padding: 2.5rem;
         }
-
-        .description-wisdom {
-            font-size: 1.4em;
-            max-width: 900px;
-            margin: 0 auto 40px auto;
-            line-height: 1.8;
-            color: #daa520;
-            font-style: italic;
-            position: relative;
-            z-index: 2;
+        .principle-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 2.2rem; font-weight: 700;
+            color: rgba(90,110,58,0.4); line-height: 1;
+            margin-bottom: 0.5rem;
         }
-
-        .keywords-wisdom {
-            font-size: 1.3em;
-            letter-spacing: 8px;
-            font-weight: 700;
-            color: #d4af37;
-            text-transform: uppercase;
-            position: relative;
-            z-index: 2;
-        }
-
-        .library-hall {
-            background: 
-                linear-gradient(180deg, #1a1612 0%, #2d2416 50%, #1a1612 100%);
-            padding: 60px 40px;
-            min-height: 100vh;
-            position: relative;
-            z-index: 2;
-        }
-
-        .wisdom-quote {
-            text-align: center;
-            font-size: 1.8em;
-            color: #daa520;
-            font-style: italic;
-            margin-bottom: 60px;
-            padding: 30px;
-            background: rgba(212, 175, 55, 0.1);
-            border-radius: 15px;
-            border: 2px solid #8b6914;
-            position: relative;
-        }
-
-        .wisdom-quote::before {
-            content: '"';
-            position: absolute;
-            top: -20px;
-            left: 30px;
-            font-size: 4em;
-            color: #d4af37;
-            font-family: serif;
-        }
-
-        .bookshelf-3d {
-            perspective: 1200px;
-            margin: 40px 0;
-            position: relative;
-        }
-
-        .shelf-row {
-            display: flex;
-            justify-content: center;
-            margin: 60px 0;
-            transform-style: preserve-3d;
-            animation: shelf-float 6s ease-in-out infinite alternate;
-        }
-
-        .shelf-row:nth-child(even) {
-            animation-delay: 3s;
-        }
-
-        @keyframes shelf-float {
-            0% { transform: rotateX(2deg) translateZ(10px); }
-            100% { transform: rotateX(-2deg) translateZ(-10px); }
-        }
-
-        .book-spine {
-            width: 80px;
-            height: 300px;
-            margin: 0 5px;
-            background: linear-gradient(180deg, #8b4513 0%, #a0522d 50%, #654321 100%);
-            border: 2px solid #4a2c1a;
-            border-radius: 0 8px 8px 0;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            box-shadow: 
-                -5px 0 15px rgba(0,0,0,0.4),
-                inset 2px 0 5px rgba(255,255,255,0.1);
-            transform-style: preserve-3d;
-        }
-
-        .book-spine:hover {
-            transform: 
-                translateX(30px) 
-                rotateY(-15deg) 
-                scale(1.1)
-                translateZ(20px);
-            box-shadow: 
-                -15px 5px 30px rgba(0,0,0,0.6),
-                inset 2px 0 10px rgba(255,255,255,0.2);
-            z-index: 10;
-        }
-
-        .book-spine.proverbios {
-            background: linear-gradient(180deg, #4169e1 0%, #1e90ff 50%, #0066cc 100%);
-            border-color: #003d7a;
-        }
-
-        .book-spine.eclesiastes {
-            background: linear-gradient(180deg, #8b008b 0%, #9932cc 50%, #663399 100%);
-            border-color: #4b0082;
-        }
-
-        .book-spine.job {
-            background: linear-gradient(180deg, #dc143c 0%, #b22222 50%, #8b0000 100%);
-            border-color: #660000;
-        }
-
-        .book-spine.sabiduria-intro {
-            background: linear-gradient(180deg, #daa520 0%, #b8860b 50%, #8b6914 100%);
-            border-color: #654321;
-        }
-
-        .book-title {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-50%) rotate(-90deg);
-            color: white;
-            font-weight: 700;
-            font-size: 1.1em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            white-space: nowrap;
-            letter-spacing: 2px;
-        }
-
-        .book-binding {
-            position: absolute;
-            left: -2px;
-            top: 0;
-            width: 8px;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, transparent 50%, rgba(0,0,0,0.3) 100%);
-            border-radius: 4px 0 0 4px;
-        }
-
-        .page-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 1000;
-            display: none;
-            overflow-y: auto;
-        }
-
-        .page-content {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 60px;
-            background: 
-                linear-gradient(45deg, #f4e4bc 0%, #e6d3a7 25%, #d4af37 50%, #e6d3a7 75%, #f4e4bc 100%);
-            background-size: 60px 60px;
-            border-radius: 20px;
-            border: 8px solid #8b6914;
-            box-shadow: 
-                0 20px 60px rgba(0,0,0,0.8),
-                inset 0 0 50px rgba(139, 105, 20, 0.2);
-            color: #2d1810;
-            position: relative;
-            animation: page-unfold 0.8s ease-out;
-        }
-
-        @keyframes page-unfold {
-            0% { 
-                transform: rotateY(-90deg) scale(0.5);
-                opacity: 0;
-            }
-            100% { 
-                transform: rotateY(0deg) scale(1);
-                opacity: 1;
-            }
-        }
-
-        .close-page {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 2em;
-            color: #8b6914;
-            cursor: pointer;
-            background: #f4e4bc;
-            border: 2px solid #8b6914;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .close-page:hover {
-            background: #d4af37;
-            transform: scale(1.1) rotate(90deg);
-        }
-
-        .page-title {
-            font-size: 3.5em;
-            text-align: center;
-            margin-bottom: 40px;
-            color: #8b6914;
-            font-weight: 800;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            border-bottom: 4px double #8b6914;
-            padding-bottom: 20px;
-        }
-
-        .wisdom-sections {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin: 40px 0;
-        }
-
-        .wisdom-card {
-            background: rgba(244, 228, 188, 0.8);
-            padding: 30px;
-            border-radius: 15px;
-            border: 3px solid #8b6914;
-            box-shadow: 
-                0 10px 25px rgba(0,0,0,0.3),
-                inset 0 0 20px rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
-        }
-
-        .wisdom-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 
-                0 20px 40px rgba(0,0,0,0.4),
-                inset 0 0 30px rgba(255,255,255,0.3);
-        }
-
-        .card-title {
-            font-size: 1.8em;
-            color: #8b6914;
-            margin-bottom: 15px;
-            font-weight: 700;
-            text-align: center;
-            border-bottom: 2px solid #8b6914;
-            padding-bottom: 10px;
-        }
-
-        .card-content {
-            font-size: 1.1em;
-            line-height: 1.7;
-            color: #4a2c1a;
-            margin-bottom: 15px;
-        }
-
-        .wisdom-verse {
-            background: rgba(139, 105, 20, 0.1);
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid #8b6914;
-            font-style: italic;
-            color: #8b6914;
-            margin: 15px 0;
-        }
-
-        .candle-light {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 80px;
-            height: 120px;
-            z-index: 100;
-        }
-
-        .candle-flame {
-            width: 20px;
-            height: 30px;
-            background: radial-gradient(ellipse at bottom, #ff6b00 0%, #ff4500 40%, #ff8c00 60%, transparent 100%);
-            border-radius: 50% 50% 0 0;
-            margin: 0 auto;
-            animation: flicker-candle 1.5s ease-in-out infinite alternate;
-            box-shadow: 0 0 20px #ff6b00;
-        }
-
-        @keyframes flicker-candle {
-            0% { 
-                transform: scale(1) rotate(-1deg);
-                box-shadow: 0 0 20px #ff6b00;
-            }
-            100% { 
-                transform: scale(1.1) rotate(1deg);
-                box-shadow: 0 0 30px #ff8c00;
-            }
-        }
-
-        .candle-body {
-            width: 30px;
-            height: 80px;
-            background: linear-gradient(180deg, #f4e4bc 0%, #e6d3a7 100%);
-            margin: 0 auto;
-            border-radius: 0 0 5px 5px;
-            border: 2px solid #d4af37;
-            position: relative;
-        }
-
-        .candle-body::before {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 10px;
-            background: #4a2c1a;
-        }
-
-        .interpretation-chamber {
-            background: 
-                radial-gradient(circle at center, #2d1810 0%, #1a0f08 70%, #0d0704 100%);
-            padding: 80px 40px;
-            margin: 60px 0 0 0;
-            color: #c9a96e;
-            border-top: 8px solid #8b6914;
-        }
-
-        .chamber-title {
-            font-size: 3em;
-            text-align: center;
-            margin-bottom: 50px;
-            color: #d4af37;
-            font-weight: 800;
-            text-shadow: 0 0 30px #8b6914;
-        }
-
-        .principles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-        }
-
-        .principle-scroll {
-            background: 
-                linear-gradient(135deg, rgba(244, 228, 188, 0.1) 0%, rgba(212, 175, 55, 0.1) 100%);
-            padding: 30px;
-            border-radius: 15px;
-            border: 2px solid #8b6914;
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
-        }
-
-        .principle-scroll:hover {
-            background: rgba(244, 228, 188, 0.15);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(139, 105, 20, 0.3);
-        }
-
         .principle-title {
-            font-size: 1.8em;
-            color: #daa520;
-            margin-bottom: 20px;
-            font-weight: 700;
-            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 1.35rem; font-weight: 700;
+            color: #f7f4ed; margin-bottom: 0.75rem;
+        }
+        .principle-body {
+            font-size: 0.87rem; line-height: 1.76;
+            color: rgba(247,244,237,0.58);
+        }
+        .principle-body em { font-style: italic; color: rgba(247,244,237,0.82); }
+
+        /* ─── SECTION DIVIDER ─── */
+        .section-sep {
+            border: none;
+            border-top: 1px solid rgba(184,154,95,0.08);
         }
 
-        .principle-content {
-            font-size: 1.1em;
-            line-height: 1.7;
-            color: #c9a96e;
+        /* ─── CONCLUSION ─── */
+        .conclusion-inner {
+            max-width: 700px; margin: 0 auto; text-align: center;
+        }
+        .conclusion-divider {
+            width: 2.5rem; height: 1px; background: var(--gold);
+            margin: 0 auto 2rem;
+        }
+        .conclusion-label {
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em;
+            text-transform: uppercase; color: rgba(184,154,95,0.55);
+            margin-bottom: 1.5rem;
+        }
+        .conclusion-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 1.9rem; font-weight: 600;
+            line-height: 1.5; color: #f7f4ed; margin-bottom: 1.25rem;
+        }
+        .conclusion-ref {
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--gold);
         }
 
-        .emphasis {
-            color: #d4af37;
-            font-weight: 700;
+        /* ─── NAV STRIP ─── */
+        .nav-strip {
+            background: var(--ink);
+            border-top: 1px solid rgba(184,154,95,0.12);
+            padding: 1.75rem 0;
+        }
+        .nav-strip-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-link {
+            font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; color: rgba(247,244,237,0.4);
+            text-decoration: none; transition: color 0.2s;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .nav-link:hover { color: var(--gold); }
+        .nav-center {
+            font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em;
+            text-transform: uppercase; color: rgba(184,154,95,0.45);
         }
 
-        .scripture-ref {
-            color: #daa520;
-            font-style: italic;
-            font-weight: 600;
-        }
+        /* ─── REVEAL ─── */
+        .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        @media (max-width: 768px) {
-            .shelf-row {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .book-spine {
-                width: 60px;
-                height: 200px;
-                margin: 10px;
-            }
-            
-            .wisdom-sections,
-            .principles-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .page-content {
-                margin: 20px;
-                padding: 30px;
-            }
-            
-            .title-wisdom {
-                font-size: 3em;
-            }
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            .grid-3 { grid-template-columns: repeat(2,1fr); }
+        }
+        @media (max-width: 640px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .hero-title { font-size: 2.8rem; }
+            .intro-quote { padding: 2rem 1.5rem; }
+            .intro-quote blockquote { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
-    <div class="dust-particles">
-        <div class="dust"></div>
-        <div class="dust"></div>
-        <div class="dust"></div>
-        <div class="dust"></div>
-        <div class="dust"></div>
-        <div class="dust"></div>
-        <div class="dust"></div>
-        <div class="dust"></div>
-        <div class="dust"></div>
-    </div>
 
-    <div class="candle-light">
-        <div class="candle-flame"></div>
-        <div class="candle-body"></div>
-    </div>
-
-    <header class="library-entrance">
-        <div class="entrance-arch"></div>
-        <h1 class="title-wisdom">Teología de la Sabiduría</h1>
-        <p class="subtitle-wisdom">LITERATURA SAPIENCIAL</p>
-        <p class="description-wisdom">Análisis de los libros sapienciales: Proverbios, Eclesiastés, Job, y su enseñanza sobre la vida práctica y el temor de Dios.</p>
-        <div class="keywords-wisdom">• SABIDURÍA • PRÁCTICA • TEMOR DE DIOS •</div>
+    <!-- HEADER -->
+    <header>
+        <div class="header-inner">
+            <a href="../../../index.html" class="site-logo">La Gloria es del Señor</a>
+            <nav>
+                <a href="../../../index.html">Inicio</a>
+                <a href="../../../nuestras-ensenanzas/index.html">Enseñanzas</a>
+                <a href="../../../Comunidad/forum.html">Comunidad</a>
+            </nav>
+        </div>
     </header>
 
-    <div class="library-hall">
-        <div class="wisdom-quote">
-            El principio de la sabiduría es el temor de Jehová; Los insensatos desprecian la sabiduría y la enseñanza.
-            <div style="text-align: right; margin-top: 15px; font-size: 0.9em; color: #8b6914;">— Proverbios 1:7</div>
-        </div>
-
-        <div class="bookshelf-3d">
-            <div class="shelf-row">
-                <div class="book-spine sabiduria-intro" onclick="openBook('intro')">
-                    <div class="book-binding"></div>
-                    <div class="book-title">INTRODUCCIÓN</div>
-                </div>
-                <div class="book-spine proverbios" onclick="openBook('proverbios')">
-                    <div class="book-binding"></div>
-                    <div class="book-title">PROVERBIOS</div>
-                </div>
-                <div class="book-spine eclesiastes" onclick="openBook('eclesiastes')">
-                    <div class="book-binding"></div>
-                    <div class="book-title">ECLESIASTÉS</div>
-                </div>
-                <div class="book-spine job" onclick="openBook('job')">
-                    <div class="book-binding"></div>
-                    <div class="book-title">JOB</div>
-                </div>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-inner">
+            <p class="hero-eyebrow">Literatura Sapiencial · Estudios Bíblicos Avanzados</p>
+            <h1 class="hero-title">Teología de<br>la Sabiduría</h1>
+            <div class="hero-rule"></div>
+            <p class="hero-sub">Análisis de los libros sapienciales: Proverbios, Eclesiastés, Job y su enseñanza sobre la vida práctica y el temor de Dios.</p>
+            <div class="hero-tags">
+                <span class="hero-tag">Sabiduría</span>
+                <span class="hero-tag">Práctica</span>
+                <span class="hero-tag">Temor de Dios</span>
+                <span class="hero-tag">Literatura Sapiencial</span>
             </div>
         </div>
+    </section>
+
+    <!-- INTRO QUOTE -->
+    <div class="intro-quote">
+        <blockquote>"El principio de la sabiduría es el temor de Jehová; los insensatos desprecian la sabiduría y la enseñanza."</blockquote>
+        <cite>Proverbios 1:7</cite>
     </div>
 
-    <div class="interpretation-chamber">
-        <h2 class="chamber-title">Principios de Interpretación Sapiencial</h2>
-        
-        <div class="principles-grid">
-            <div class="principle-scroll">
-                <h3 class="principle-title">🎯 Sabiduría Práctica</h3>
-                <div class="principle-content">
-                    La literatura sapiencial se enfoca en <span class="emphasis">la aplicación práctica</span> de la verdad divina en la vida cotidiana. No es sabiduría abstracta sino <span class="emphasis">habilidad para vivir</span> conforme a los principios de Dios.
+    <!-- NATURALEZA DE LA SABIDURÍA -->
+    <section class="section-light">
+        <div class="container">
+            <p class="section-label">Fundamentos</p>
+            <div class="book-header reveal">
+                <span class="book-num">I</span>
+                <div class="book-name-wrap">
+                    <h2 class="book-name">La Sabiduría Bíblica</h2>
+                    <p class="book-sub">Naturaleza, características y contexto del género sapiencial</p>
                 </div>
             </div>
 
-            <div class="principle-scroll">
-                <h3 class="principle-title">⚖️ Principios vs. Promesas</h3>
-                <div class="principle-content">
-                    Los proverbios presentan <span class="emphasis">principios generales</span>, no promesas absolutas. Son observaciones sobre cómo funciona normalmente la vida bajo la providencia divina, pero admiten excepciones.
+            <div class="grid-2">
+                <div class="content-card reveal">
+                    <h3 class="content-card-title">Naturaleza de la Sabiduría</h3>
+                    <p class="content-card-body">La sabiduría bíblica (<em>chokmah</em> en hebreo) es más que conocimiento intelectual. Es <em>habilidad para vivir</em> — la capacidad de navegar la vida de manera que honre a Dios y beneficie tanto al individuo como a la comunidad.</p>
+                    <p class="content-verse">"Y si alguno de vosotros tiene falta de sabiduría, pídala a Dios, el cual da a todos abundantemente y sin reproche, y le será dada." — Santiago 1:5</p>
                 </div>
-            </div>
 
-            <div class="principle-scroll">
-                <h3 class="principle-title">🏛️ Orden Creacional</h3>
-                <div class="principle-content">
-                    La sabiduría bíblica reconoce que Dios ha establecido un <span class="emphasis">orden moral</span> en la creación. Vivir en armonía con este orden trae bendición; violarlo trae consecuencias.
+                <div class="content-card reveal">
+                    <h3 class="content-card-title">Características del Género</h3>
+                    <p class="content-card-body">La literatura sapiencial se caracteriza por:<br>
+                    <strong>Observación:</strong> análisis cuidadoso de la vida y la naturaleza<br>
+                    <strong>Reflexión:</strong> meditación profunda sobre el significado<br>
+                    <strong>Aplicación:</strong> principios prácticos para la vida diaria<br>
+                    <strong>Universalidad:</strong> verdades aplicables a toda la humanidad</p>
                 </div>
-            </div>
 
-            <div class="principle-scroll">
-                <h3 class="principle-title">👑 Temor de Jehová</h3>
-                <div class="principle-content">
-                    El <span class="emphasis">"temor de Jehová"</span> es el fundamento de toda sabiduría verdadera. Incluye reverencia, obediencia y reconocimiento de la soberanía absoluta de Dios sobre toda la vida.
+                <div class="content-card reveal">
+                    <h3 class="content-card-title">Contexto del Antiguo Cercano Oriente</h3>
+                    <p class="content-card-body">Israel no fue la única cultura que produjo literatura sapiencial. Egipto, Mesopotamia y otras culturas tenían sus propias tradiciones. Sin embargo, la sabiduría bíblica es única en su <em>fundamento teológico</em>: el temor de Jehová como principio ordenador de toda vida.</p>
+                </div>
+
+                <div class="content-card reveal">
+                    <h3 class="content-card-title">La Paradoja Sapiencial</h3>
+                    <p class="content-card-body">Los libros sapienciales presentan tanto el <em>orden</em> (Proverbios) como la <em>anomalía</em> (Job, Eclesiastés). Esta tensión refleja la complejidad de la vida y la necesidad de dependencia en Dios aun cuando no entendemos sus caminos.</p>
+                    <p class="content-verse">"Confía en Jehová con todo tu corazón, y no te apoyes en tu propia prudencia." — Proverbios 3:5</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Overlay para páginas de libros -->
-    <div class="page-overlay" id="pageOverlay">
-        <div class="page-content" id="pageContent">
-            <div class="close-page" onclick="closePage()">×</div>
-            <div id="bookContent"></div>
+    <!-- PROVERBIOS -->
+    <section class="section-dk">
+        <div class="container">
+            <p class="section-label">Libro II</p>
+            <div class="book-header dk reveal">
+                <span class="book-num light">II</span>
+                <div class="book-name-wrap">
+                    <h2 class="book-name light">Proverbios</h2>
+                    <p class="book-sub light">Manual de sabiduría práctica</p>
+                </div>
+            </div>
+
+            <div class="grid-3">
+                <div class="content-card dk reveal">
+                    <h3 class="content-card-title">Estructura del Libro</h3>
+                    <p class="content-card-body">
+                        <strong>Cap. 1–9:</strong> Discursos sobre la sabiduría personificada<br>
+                        <strong>Cap. 10:1–22:16:</strong> Proverbios de Salomón<br>
+                        <strong>Cap. 22:17–24:34:</strong> Palabras de los sabios<br>
+                        <strong>Cap. 25–29:</strong> Más proverbios de Salomón<br>
+                        <strong>Cap. 30–31:</strong> Palabras de Agur y Lemuel
+                    </p>
+                </div>
+
+                <div class="content-card dk reveal">
+                    <h3 class="content-card-title">La Sabiduría Personificada</h3>
+                    <p class="content-card-body">En Proverbios 8, la sabiduría aparece como una <em>persona</em> que existía desde el principio, deleitándose en la creación. Esto apunta hacia Cristo como <em>"la sabiduría de Dios"</em> encarnada y revelada.</p>
+                    <p class="content-verse">"Jehová me poseía en el principio, ya de antiguo, antes de sus obras... Cuando formaba los cielos, allí estaba yo." — Proverbios 8:22, 27</p>
+                </div>
+
+                <div class="content-card dk reveal">
+                    <h3 class="content-card-title">Temas Principales</h3>
+                    <p class="content-card-body">
+                        <strong>Relaciones:</strong> matrimonio, amistad, autoridad<br>
+                        <strong>Trabajo:</strong> diligencia vs. pereza<br>
+                        <strong>Palabras:</strong> el poder del habla correcta<br>
+                        <strong>Finanzas:</strong> generosidad vs. codicia<br>
+                        <strong>Carácter:</strong> integridad vs. corrupción<br>
+                        <strong>Justicia:</strong> defensa del oprimido
+                    </p>
+                </div>
+
+                <div class="content-card dk reveal">
+                    <h3 class="content-card-title">Interpretación de Proverbios</h3>
+                    <p class="content-card-body">Los proverbios son <em>principios generales</em>, no promesas universales. Deben interpretarse como observaciones sobre patrones normales, dentro del contexto de toda la Escritura, reconociendo que vivimos en un mundo caído con excepciones temporales.</p>
+                    <p class="content-verse">"La respuesta blanda quita la ira; mas la palabra áspera hace subir el furor." — Proverbios 15:1</p>
+                </div>
+
+                <div class="content-card dk reveal">
+                    <h3 class="content-card-title">Aplicación Práctica</h3>
+                    <p class="content-card-body">Proverbios enseña <em>habilidades para la vida</em>:<br>
+                        <strong>Discernimiento:</strong> ver más allá de las apariencias<br>
+                        <strong>Disciplina:</strong> autocontrol en todas las áreas<br>
+                        <strong>Diligencia:</strong> trabajo constante y excelente<br>
+                        <strong>Humildad:</strong> reconocer nuestras limitaciones<br>
+                        <strong>Prudencia:</strong> anticipar consecuencias
+                    </p>
+                </div>
+
+                <div class="content-card dk reveal">
+                    <h3 class="content-card-title">El Temor de Jehová</h3>
+                    <p class="content-card-body">Aparece 14 veces como el <em>fundamento</em> de toda sabiduría. Incluye reverencia profunda hacia Dios, reconocimiento de su santidad, obediencia a sus mandamientos, confianza en su providencia y sumisión a su soberanía.</p>
+                    <p class="content-verse">"El temor de Jehová es el principio del conocimiento; los insensatos desprecian la sabiduría y la enseñanza." — Proverbios 1:7</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- ECLESIASTÉS -->
+    <section class="section-light">
+        <div class="container">
+            <p class="section-label">Libro III</p>
+            <div class="book-header reveal">
+                <span class="book-num">III</span>
+                <div class="book-name-wrap">
+                    <h2 class="book-name">Eclesiastés</h2>
+                    <p class="book-sub">La búsqueda de significado</p>
+                </div>
+            </div>
+
+            <div class="grid-3">
+                <div class="content-card reveal">
+                    <h3 class="content-card-title">El Problema de la Vanidad</h3>
+                    <p class="content-card-body">"Vanidad de vanidades" (<em>hevel hevelim</em>) aparece 38 veces. <em>Hevel</em> significa "aliento" o "vapor" — algo <em>transitorio e inasible</em>. El Predicador observa la futilidad de la vida bajo el sol sin referencia a Dios.</p>
+                    <p class="content-verse">"Vanidad de vanidades, dijo el Predicador; vanidad de vanidades, todo es vanidad." — Eclesiastés 1:2</p>
+                </div>
+
+                <div class="content-card reveal">
+                    <h3 class="content-card-title">Los Ciclos de la Vida</h3>
+                    <p class="content-card-body">Eclesiastés 3:1-8 presenta la reflexión sobre los tiempos. La vida tiene <em>ritmos establecidos por Dios</em>, pero desde la perspectiva humana limitada, estos ciclos pueden parecer sin sentido o frustrantes.</p>
+                    <p class="content-verse">"Todo tiene su tiempo, y todo lo que se quiere debajo del cielo tiene su hora." — Eclesiastés 3:1</p>
+                </div>
+
+                <div class="content-card reveal">
+                    <h3 class="content-card-title">Experimentos del Predicador</h3>
+                    <p class="content-card-body">El autor experimenta con:<br>
+                        <strong>Placer:</strong> diversión y entretenimiento (2:1-11)<br>
+                        <strong>Sabiduría:</strong> conocimiento y entendimiento (1:12-18)<br>
+                        <strong>Trabajo:</strong> logros y construcción (2:4-6)<br>
+                        <strong>Riqueza:</strong> acumulación de bienes (2:7-8)<br>
+                        Todos resultan insatisfactorios sin Dios.
+                    </p>
+                </div>
+
+                <div class="content-card reveal">
+                    <h3 class="content-card-title">"Debajo del Sol"</h3>
+                    <p class="content-card-body">Esta frase aparece 29 veces, indicando la perspectiva <em>puramente terrenal</em>. El Predicador analiza la vida desde una cosmovisión secular antes de llegar a la conclusión teológica definitiva en el capítulo 12.</p>
+                </div>
+
+                <div class="content-card reveal">
+                    <h3 class="content-card-title">Los Dones de Dios</h3>
+                    <p class="content-card-body">A pesar de la vanidad, el Predicador identifica <em>dones divinos</em> que dan significado: comer y beber con gratitud (2:24), encontrar satisfacción en el trabajo (3:13), disfrutar de la vida con el cónyuge (9:9) y reconocer la mano de Dios en todo (3:14).</p>
+                    <p class="content-verse">"No hay cosa mejor para el hombre sino que coma y beba, y que su alma se alegre en su trabajo. También he visto que esto es de la mano de Dios." — Eclesiastés 2:24</p>
+                </div>
+
+                <div class="content-card reveal">
+                    <h3 class="content-card-title">La Conclusión Final</h3>
+                    <p class="content-card-body">Después de explorar la vanidad, el libro culmina con una clara declaración teológica: <em>teme a Dios y guarda sus mandamientos</em>. Esta es la respuesta definitiva a todas las preguntas existenciales del ser humano.</p>
+                    <p class="content-verse">"El fin de todo el discurso oído es este: Teme a Dios, y guarda sus mandamientos; porque esto es el todo del hombre." — Eclesiastés 12:13</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JOB -->
+    <section class="section-dk">
+        <div class="container">
+            <p class="section-label">Libro IV</p>
+            <div class="book-header dk reveal">
+                <span class="book-num light">IV</span>
+                <div class="book-name-wrap">
+                    <h2 class="book-name light">Job</h2>
+                    <p class="book-sub light">El misterio del sufrimiento</p>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="content-card dk reveal">
+                    <h3 class="content-card-title">Estructura Literaria</h3>
+                    <p class="content-card-body">
+                        <strong>Prólogo (1–2):</strong> marco narrativo en prosa<br>
+                        <strong>Diálogos (3–37):</strong> poesía — Job vs. sus amigos<br>
+                        <strong>Discursos de Dios (38–41):</strong> la respuesta divina<br>
+                        <strong>Epílogo (42):</strong> restauración en prosa<br>
+                        Esta estructura enfatiza que el sufrimiento no siempre tiene <em>explicaciones simples</em>.
+                    </p>
+                </div>
+
+                <div class="content-card dk reveal">
+                    <h3 class="content-card-title">Los Personajes</h3>
+                    <p class="content-card-body">
+                        <strong>Job:</strong> hombre íntegro que sufre inexplicablemente<br>
+                        <strong>Elifaz:</strong> apela a la experiencia y tradición<br>
+                        <strong>Bildad:</strong> enfatiza la justicia retributiva<br>
+                        <strong>Zofar:</strong> insiste en el pecado oculto de Job<br>
+                        <strong>Eliú:</strong> joven que habla de la disciplina divina<br>
+                        <strong>Dios:</strong> quien responde desde el torbellino
+                    </p>
+                </div>
+
+                <div class="content-card dk reveal">
+                    <h3 class="content-card-title">El Drama Cósmico</h3>
+                    <p class="content-card-body">El libro revela un <em>conflicto cósmico</em> entre Dios y Satanás sobre la naturaleza de la fe verdadera. La pregunta central: ¿Sirve Job a Dios por interés o por amor genuino?</p>
+                    <p class="content-verse">"¿No has considerado a mi siervo Job, que no hay otro como él en la tierra, varón perfecto y recto, temeroso de Dios y apartado del mal?" — Job 1:8</p>
+                </div>
+
+                <div class="content-card dk reveal">
+                    <h3 class="content-card-title">La Teología Retributiva</h3>
+                    <p class="content-card-body">Los amigos de Job representan la <em>teología retributiva</em>: los justos prosperan, los malvados sufren. Aunque esta es a menudo verdad (como enseña Proverbios), Job demuestra que no es una regla absoluta ni universal.</p>
+                </div>
+
+                <div class="content-card dk reveal">
+                    <h3 class="content-card-title">La Respuesta de Dios</h3>
+                    <p class="content-card-body">Dios no explica el sufrimiento de Job, sino que revela Su <em>grandeza y sabiduría</em> incomprensibles. A veces la respuesta a "¿Por qué?" es "¿Quién eres tú para preguntar?"</p>
+                    <p class="content-verse">"¿Dónde estabas tú cuando yo fundaba la tierra? Házmelo saber, si tienes inteligencia." — Job 38:4</p>
+                </div>
+
+                <div class="content-card dk reveal">
+                    <h3 class="content-card-title">Tipos de Sufrimiento</h3>
+                    <p class="content-card-body">Job enseña que el sufrimiento puede ser:<br>
+                        <strong>Disciplinario:</strong> para corrección y crecimiento<br>
+                        <strong>Probatorio:</strong> para demostrar la fe genuina<br>
+                        <strong>Misterioso:</strong> por razones no reveladas<br>
+                        <strong>Redentor:</strong> para propósitos mayores de Dios
+                    </p>
+                </div>
+
+                <div class="content-card dk reveal">
+                    <h3 class="content-card-title">La Transformación de Job</h3>
+                    <p class="content-card-body">Al final, Job conoce a Dios de manera más profunda. Su sufrimiento lo lleva de conocimiento <em>intelectual</em> a experiencia <em>personal</em>. La prueba produce madurez espiritual que ninguna prosperidad hubiera podido lograr.</p>
+                    <p class="content-verse">"De oídas te había oído; mas ahora mis ojos te ven." — Job 42:5</p>
+                </div>
+
+                <div class="content-card dk reveal">
+                    <h3 class="content-card-title">Prefiguración de Cristo</h3>
+                    <p class="content-card-body">Job prefigura a Cristo como el <em>siervo sufriente</em>: sufre siendo inocente, es rechazado por amigos, mantiene fe en medio del dolor, es vindicado por Dios y su sufrimiento redunda en beneficio de otros.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRINCIPIOS DE INTERPRETACIÓN -->
+    <section class="section-dk" style="border-top: 1px solid rgba(184,154,95,0.08);">
+        <div class="container">
+            <p class="section-label">Hermenéutica Sapiencial</p>
+            <h2 class="section-title light reveal">Principios de Interpretación</h2>
+            <div class="section-rule gold"></div>
+
+            <div class="grid-2">
+                <div class="principle-card reveal">
+                    <div class="principle-num">I</div>
+                    <h3 class="principle-title">Sabiduría Práctica</h3>
+                    <p class="principle-body">La literatura sapiencial se enfoca en <em>la aplicación práctica</em> de la verdad divina en la vida cotidiana. No es sabiduría abstracta sino <em>habilidad para vivir</em> conforme a los principios de Dios en situaciones concretas.</p>
+                </div>
+
+                <div class="principle-card reveal">
+                    <div class="principle-num">II</div>
+                    <h3 class="principle-title">Principios vs. Promesas</h3>
+                    <p class="principle-body">Los proverbios presentan <em>principios generales</em>, no promesas absolutas. Son observaciones sobre cómo funciona normalmente la vida bajo la providencia divina, pero admiten excepciones — como Job y Eclesiastés demuestran.</p>
+                </div>
+
+                <div class="principle-card reveal">
+                    <div class="principle-num">III</div>
+                    <h3 class="principle-title">Orden Creacional</h3>
+                    <p class="principle-body">La sabiduría bíblica reconoce que Dios ha establecido un <em>orden moral</em> en la creación. Vivir en armonía con este orden trae bendición; violarlo trae consecuencias. Este orden no es aleatorio sino reflejo del carácter divino.</p>
+                </div>
+
+                <div class="principle-card reveal">
+                    <div class="principle-num">IV</div>
+                    <h3 class="principle-title">Temor de Jehová</h3>
+                    <p class="principle-body">El <em>"temor de Jehová"</em> es el fundamento de toda sabiduría verdadera. Incluye reverencia, obediencia y reconocimiento de la soberanía absoluta de Dios sobre toda la vida — no terror, sino asombro reverente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="section-dk" style="border-top: 1px solid rgba(184,154,95,0.08); padding: 5rem 0 4rem;">
+        <div class="container">
+            <div class="conclusion-inner reveal">
+                <div class="conclusion-divider"></div>
+                <p class="conclusion-label">La Cima de la Sabiduría</p>
+                <blockquote class="conclusion-quote">
+                    "El fin de todo el discurso oído es este: Teme a Dios, y guarda sus mandamientos; porque esto es el todo del hombre."
+                </blockquote>
+                <p class="conclusion-ref">Eclesiastés 12:13</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAV STRIP -->
+    <nav class="nav-strip">
+        <div class="nav-strip-inner">
+            <a href="apocaliptica-biblica.html" class="nav-link"><i class="fa fa-arrow-left"></i> Apocalíptica Bíblica</a>
+            <span class="nav-center">Estudios Bíblicos · Avanzados</span>
+            <a href="ministerio-pastoral.html" class="nav-link">Ministerio Pastoral <i class="fa fa-arrow-right"></i></a>
+        </div>
+    </nav>
 
     <script>
-        const bookContents = {
-            intro: {
-                title: "Introducción a la Literatura Sapiencial",
-                content: `
-                    <div class="wisdom-sections">
-                        <div class="wisdom-card">
-                            <h3 class="card-title">🎓 Naturaleza de la Sabiduría</h3>
-                            <div class="card-content">
-                                La sabiduría bíblica (<em>chokmah</em> en hebreo) es más que conocimiento intelectual. Es <span class="emphasis">habilidad para vivir</span> - la capacidad de navegar la vida de manera que honre a Dios y beneficie tanto al individuo como a la comunidad.
-                            </div>
-                            <div class="wisdom-verse">
-                                "Y si alguno de vosotros tiene falta de sabiduría, pídala a Dios, el cual da a todos abundantemente y sin reproche, y le será dada." - Santiago 1:5
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">📚 Características del Género</h3>
-                            <div class="card-content">
-                                La literatura sapiencial se caracteriza por:
-                                <br>• <strong>Observación:</strong> Análisis cuidadoso de la vida y la naturaleza
-                                <br>• <strong>Reflexión:</strong> Meditación profunda sobre el significado
-                                <br>• <strong>Aplicación:</strong> Principios prácticos para la vida diaria
-                                <br>• <strong>Universalidad:</strong> Verdades aplicables a toda la humanidad
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">🌍 Contexto del Antiguo Cercano Oriente</h3>
-                            <div class="card-content">
-                                Israel no fue la única cultura que produjo literatura sapiencial. Egipto, Mesopotamia y otras culturas tenían sus propias tradiciones. Sin embargo, la sabiduría bíblica es única en su <span class="emphasis">fundamento teológico</span>: el temor de Jehová.
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">🔄 La Paradoja Sapiencial</h3>
-                            <div class="card-content">
-                                Los libros sapienciales presentan tanto el <span class="emphasis">orden</span> (Proverbios) como la <span class="emphasis">anomalía</span> (Job, Eclesiastés). Esta tensión refleja la complejidad de la vida y la necesidad de dependencia en Dios aún cuando no entendemos sus caminos.
-                            </div>
-                            <div class="wisdom-verse">
-                                "Confía en Jehová con todo tu corazón, y no te apoyes en tu propia prudencia." - Proverbios 3:5
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            proverbios: {
-                title: "Proverbios: Manual de Sabiduría Práctica",
-                content: `
-                    <div class="wisdom-sections">
-                        <div class="wisdom-card">
-                            <h3 class="card-title">📖 Estructura del Libro</h3>
-                            <div class="card-content">
-                                <strong>Capítulos 1-9:</strong> Discursos sobre la sabiduría personificada
-                                <br><strong>Capítulos 10:1-22:16:</strong> Proverbios de Salomón
-                                <br><strong>Capítulos 22:17-24:34:</strong> Palabras de los sabios
-                                <br><strong>Capítulos 25-29:</strong> Más proverbios de Salomón
-                                <br><strong>Capítulos 30-31:</strong> Palabras de Agur y Lemuel
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">👩 La Sabiduría Personificada</h3>
-                            <div class="card-content">
-                                En Proverbios 8, la sabiduría aparece como una <span class="emphasis">persona</span> que existía desde el principio, deleitándose en la creación. Esto apunta hacia Cristo como <span class="emphasis">"la sabiduría de Dios"</span> encarnada.
-                            </div>
-                            <div class="wisdom-verse">
-                                "Jehová me poseía en el principio, ya de antiguo, antes de sus obras... Cuando formaba los cielos, allí estaba yo." - Proverbios 8:22, 27
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">🏠 Temas Principales</h3>
-                            <div class="card-content">
-                                <strong>Relaciones:</strong> Matrimonio, amistad, autoridad
-                                <br><strong>Trabajo:</strong> Diligencia vs. pereza
-                                <br><strong>Palabras:</strong> El poder del habla correcta
-                                <br><strong>Finanzas:</strong> Generosidad vs. codicia
-                                <br><strong>Carácter:</strong> Integridad vs. corrupción
-                                <br><strong>Justicia:</strong> Defensa del oprimido
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">⚖️ Interpretación de Proverbios</h3>
-                            <div class="card-content">
-                                Los proverbios son <span class="emphasis">principios generales</span>, no promesas universales. Deben interpretarse:
-                                <br>• Como observaciones sobre patrones normales
-                                <br>• Dentro del contexto de toda la Escritura
-                                <br>• Reconociendo que vivimos en un mundo caído
-                                <br>• Entendiendo que hay excepciones temporales
-                            </div>
-                            <div class="wisdom-verse">
-                                "La respuesta blanda quita la ira; mas la palabra áspera hace subir el furor." - Proverbios 15:1
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">🎯 Aplicación Práctica</h3>
-                            <div class="card-content">
-                                Proverbios enseña <span class="emphasis">habilidades para la vida</span>:
-                                <br>• <strong>Discernimiento:</strong> Ver más allá de las apariencias
-                                <br>• <strong>Disciplina:</strong> Autocontrol en todas las áreas
-                                <br>• <strong>Diligencia:</strong> Trabajo constante y excelente
-                                <br>• <strong>Humildad:</strong> Reconocer nuestras limitaciones
-                                <br>• <strong>Prudencia:</strong> Anticipar consecuencias
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">👑 El Temor de Jehová</h3>
-                            <div class="card-content">
-                                Aparece 14 veces en Proverbios como el <span class="emphasis">fundamento</span> de toda sabiduría. Incluye:
-                                <br>• Reverencia profunda hacia Dios
-                                <br>• Reconocimiento de su santidad
-                                <br>• Obediencia a sus mandamientos
-                                <br>• Confianza en su providencia
-                                <br>• Sumisión a su soberanía
-                            </div>
-                            <div class="wisdom-verse">
-                                "El temor de Jehová es el principio del conocimiento; Los insensatos desprecian la sabiduría y la enseñanza." - Proverbios 1:7
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            eclesiastes: {
-                title: "Eclesiastés: La Búsqueda de Significado",
-                content: `
-                    <div class="wisdom-sections">
-                        <div class="wisdom-card">
-                            <h3 class="card-title">🌪️ El Problema de la Vanidad</h3>
-                            <div class="card-content">
-                                "Vanidad de vanidades" (<em>hevel hevelim</em>) aparece 38 veces. <em>Hevel</em> significa "aliento" o "vapor" - algo <span class="emphasis">transitorio e inasible</span>. El Predicador observa la futilidad de la vida bajo el sol sin referencia a Dios.
-                            </div>
-                            <div class="wisdom-verse">
-                                "Vanidad de vanidades, dijo el Predicador; vanidad de vanidades, todo es vanidad." - Eclesiastés 1:2
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">🔄 Los Ciclos de la Vida</h3>
-                            <div class="card-content">
-                                Eclesiastés 3:1-8 presenta la famosa reflexión sobre los tiempos. La vida tiene <span class="emphasis">ritmos establecidos por Dios</span>, pero desde la perspectiva humana limitada, estos ciclos pueden parecer sin sentido o frustrantes.
-                            </div>
-                            <div class="wisdom-verse">
-                                "Todo tiene su tiempo, y todo lo que se quiere debajo del cielo tiene su hora." - Eclesiastés 3:1
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">🎭 Experimentos del Predicador</h3>
-                            <div class="card-content">
-                                El autor (tradicionalmente Salomón) experimenta con:
-                                <br>• <strong>Placer:</strong> Diversión y entretenimiento (2:1-11)
-                                <br>• <strong>Sabiduría:</strong> Conocimiento y entendimiento (1:12-18)
-                                <br>• <strong>Trabajo:</strong> Logros y construcción (2:4-6)
-                                <br>• <strong>Riqueza:</strong> Acumulación de bienes (2:7-8)
-                                <br>Todos resultan insatisfactorios sin Dios.
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">⚡ "Debajo del Sol"</h3>
-                            <div class="card-content">
-                                Esta frase aparece 29 veces, indicando la perspectiva <span class="emphasis">puramente terrenal</span>. El Predicador analiza la vida desde una cosmovisión secular antes de llegar a la conclusión teológica en el capítulo 12.
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">🎁 Los Dones de Dios</h3>
-                            <div class="card-content">
-                                A pesar de la vanidad, el Predicador identifica <span class="emphasis">dones divinos</span> que dan significado:
-                                <br>• Comer y beber con gratitud (2:24)
-                                <br>• Encontrar satisfacción en el trabajo (3:13)
-                                <br>• Disfrutar de la vida con el cónyuge (9:9)
-                                <br>• Reconocer la mano de Dios en todo (3:14)
-                            </div>
-                            <div class="wisdom-verse">
-                                "No hay cosa mejor para el hombre sino que coma y beba, y que su alma se alegre en su trabajo. También he visto que esto es de la mano de Dios." - Eclesiastés 2:24
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">⚖️ La Conclusión Final</h3>
-                            <div class="card-content">
-                                Después de explorar la vanidad, el libro culmina con una clara declaración teológica: <span class="emphasis">teme a Dios y guarda sus mandamientos</span>. Esta es la respuesta a todas las preguntas existenciales.
-                            </div>
-                            <div class="wisdom-verse">
-                                "El fin de todo el discurso oído es este: Teme a Dios, y guarda sus mandamientos; porque esto es el todo del hombre." - Eclesiastés 12:13
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            job: {
-                title: "Job: El Misterio del Sufrimiento",
-                content: `
-                    <div class="wisdom-sections">
-                        <div class="wisdom-card">
-                            <h3 class="card-title">📖 Estructura Literaria</h3>
-                            <div class="card-content">
-                                <strong>Prólogo (1-2):</strong> Marco narrativo en prosa
-                                <br><strong>Diálogos (3-37):</strong> Poesía - Job vs. sus amigos
-                                <br><strong>Discursos de Dios (38-41):</strong> La respuesta divina
-                                <br><strong>Epílogo (42):</strong> Restauración en prosa
-                                <br>Esta estructura enfatiza que el sufrimiento no siempre tiene <span class="emphasis">explicaciones simples</span>.
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">👥 Los Personajes</h3>
-                            <div class="card-content">
-                                <strong>Job:</strong> Hombre íntegro que sufre inexplicablemente
-                                <br><strong>Elifaz:</strong> Apela a la experiencia y tradición
-                                <br><strong>Bildad:</strong> Enfatiza la justicia retributiva
-                                <br><strong>Zofar:</strong> Insiste en el pecado oculto de Job
-                                <br><strong>Eliú:</strong> Joven que habla de la disciplina divina
-                                <br><strong>Dios:</strong> Quien responde desde el torbellino
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">🎭 El Drama Cósmico</h3>
-                            <div class="card-content">
-                                El libro revela un <span class="emphasis">conflicto cósmico</span> entre Dios y Satanás sobre la naturaleza de la fe verdadera. La pregunta central: ¿Sirve Job a Dios por interés o por amor genuino?
-                            </div>
-                            <div class="wisdom-verse">
-                                "Y dijo Jehová a Satanás: ¿No has considerado a mi siervo Job, que no hay otro como él en la tierra, varón perfecto y recto, temeroso de Dios y apartado del mal?" - Job 1:8
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">❌ La Teología Retributiva</h3>
-                            <div class="card-content">
-                                Los amigos de Job representan la <span class="emphasis">teología retributiva</span>: los justos prosperan, los malvados sufren. Aunque esta es a menudo verdad (como enseña Proverbios), Job demuestra que no es una regla absoluta.
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">🌪️ La Respuesta de Dios</h3>
-                            <div class="card-content">
-                                Dios no explica el sufrimiento de Job, sino que revela Su <span class="emphasis">grandeza y sabiduría</span> incomprensibles. A veces la respuesta a "¿Por qué?" es "¿Quién eres tú para preguntar?"
-                            </div>
-                            <div class="wisdom-verse">
-                                "¿Dónde estabas tú cuando yo fundaba la tierra? Házmelo saber, si tienes inteligencia." - Job 38:4
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">🔄 Tipos de Sufrimiento</h3>
-                            <div class="card-content">
-                                Job enseña que el sufrimiento puede ser:
-                                <br>• <strong>Disciplinario:</strong> Para corrección y crecimiento
-                                <br>• <strong>Probatorio:</strong> Para demostrar la fe genuina
-                                <br>• <strong>Mysterioso:</strong> Por razones no reveladas
-                                <br>• <strong>Redentor:</strong> Para propósitos mayores de Dios
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">✨ La Transformación de Job</h3>
-                            <div class="card-content">
-                                Al final, Job conoce a Dios de manera más profunda. Su sufrimiento lo lleva de conocimiento <span class="emphasis">intelectual</span> a experiencia <span class="emphasis">personal</span>. La prueba produce madurez espiritual.
-                            </div>
-                            <div class="wisdom-verse">
-                                "De oídas te había oído; mas ahora mis ojos te ven. Por tanto me aborrezco, y me arrepiento en polvo y ceniza." - Job 42:5-6
-                            </div>
-                        </div>
-
-                        <div class="wisdom-card">
-                            <h3 class="card-title">✝️ Prefiguración de Cristo</h3>
-                            <div class="card-content">
-                                Job prefigura a Cristo como el <span class="emphasis">siervo sufriente</span>:
-                                <br>• Sufre siendo inocente
-                                <br>• Es rechazado por amigos
-                                <br>• Mantiene fe en medio del dolor
-                                <br>• Es vindicado por Dios
-                                <br>• Su sufrimiento beneficia a otros
-                            </div>
-                        </div>
-                    </div>
-                `
-            }
-        };
-
-        function openBook(bookKey) {
-            const overlay = document.getElementById('pageOverlay');
-            const content = document.getElementById('bookContent');
-            const book = bookContents[bookKey];
-            
-            content.innerHTML = `
-                <h2 class="page-title">${book.title}</h2>
-                ${book.content}
-            `;
-            
-            overlay.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closePage() {
-            const overlay = document.getElementById('pageOverlay');
-            overlay.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Cerrar con ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closePage();
-            }
-        });
-
-        // Cerrar clickeando fuera del contenido
-        document.getElementById('pageOverlay').addEventListener('click', (e) => {
-            if (e.target.id === 'pageOverlay') {
-                closePage();
-            }
-        });
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
+
 </body>
 </html>

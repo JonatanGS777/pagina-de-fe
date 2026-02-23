@@ -167,6 +167,7 @@ Página de Fe/
 | `page/Estudios Bíblicos/estudios/eclesiologia-practica.html` | Completado — port wine `#4a1640` |
 | `page/Estudios Bíblicos/estudios/soteriologia-avanzada.html` | Completado — slate indigo `#1e2858` |
 | `page/Estudios Bíblicos/estudios/apocaliptica-biblica.html` | Completado — dark sienna `#4a2810` |
+| `page/Estudios Bíblicos/estudios/teologia-sabiduria.html` | Completado — dark olive-green `#2e3820` |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
@@ -177,7 +178,6 @@ Página de Fe/
 - [ ] `estudios/etica-cristiana.html`
 - [ ] `estudios/examen.html`
 - [ ] `estudios/ministerio-pastoral.html`
-- [ ] `estudios/teologia-sabiduria.html`
 
 #### `page/Estudios Exegéticos/`
 
