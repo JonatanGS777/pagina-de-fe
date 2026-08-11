@@ -1,0 +1,122 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // --- Funciones Auxiliares ---
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Rol almacenado en userProfiles/{uid}.role — 'member' (default), 'moderator' o 'admin'.
+    function getUserRole(uid) {
+      return get(/databases/$(database)/documents/userProfiles/$(uid)).data.get('role', 'member');
+    }
+
+    // Los 3 correos son un acceso de respaldo (bootstrap) que siempre es admin,
+    // independientemente de lo que diga Firestore — evita quedar bloqueados si
+    // el documento userProfiles se borra o se corrompe. El campo `role` es la
+    // vía normal para dar/quitar admin a cualquier otro usuario.
+    function isAdmin() {
+      return isAuthenticated() && (
+        request.auth.token.email == 'ministeriolagloriaesdelsenor7@gmail.com' ||
+        request.auth.token.email == 'yonatanguerrero430@gmail.com' ||
+        request.auth.token.email == 'yonatanguerrero555@gmail.com' ||
+        getUserRole(request.auth.uid) == 'admin'
+      );
+    }
+
+    function isModerator() {
+      return isAuthenticated() && (isAdmin() || getUserRole(request.auth.uid) == 'moderator');
+    }
+
+    function isAuthor(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // --- Reglas por Colección ---
+
+    // Reglas para perfiles de usuario
+    match /userProfiles/{userId} {
+      allow read: if (isAuthenticated() && request.auth.uid == userId) ||
+                      (isAuthenticated() && request.query.keys().hasOnly(['displayName', 'photoURL', 'isPublic']));
+
+      // Crear el propio perfil: no se permite auto-asignarse un rol distinto a 'member'.
+      allow create: if isAuthenticated() && request.auth.uid == userId &&
+                        (!('role' in request.resource.data) || request.resource.data.role == 'member');
+
+      // Editar el propio perfil: cualquier campo EXCEPTO 'role'.
+      // Cambiar 'role' (el propio o el de otros) requiere ser admin.
+      allow update: if isAuthenticated() && (
+          (request.auth.uid == userId &&
+            !request.resource.data.diff(resource.data).affectedKeys().hasAny(['role'])) ||
+          isAdmin()
+      );
+
+      allow delete: if isAdmin();
+    }
+
+    // Reglas para el Foro
+    match /forumTopics/{topicId} {
+      // Solo miembros autenticados pueden leer el foro (antes: "if true", público).
+      allow get, list: if isAuthenticated();
+
+      allow create: if isAuthenticated();
+      allow delete: if isAuthenticated() && (resource.data.author.uid == request.auth.uid || isModerator());
+
+      allow update: if isAuthenticated() && (
+          (resource.data.author.uid == request.auth.uid || isModerator()) ||
+          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['replies', 'lastReply', 'likes', 'likedBy', 'bookmarkedBy', 'views'])
+      );
+
+      // Reglas para Comentarios dentro de un tema
+      match /comments/{commentId} {
+        // Solo miembros autenticados pueden leer comentarios (antes: "if true", público).
+        allow read: if isAuthenticated();
+        allow create: if isAuthenticated();
+        allow update, delete: if isAuthenticated() && (resource.data.author.uid == request.auth.uid || isModerator());
+      }
+    }
+
+    // Regla necesaria para consultas de grupo en todos los comentarios
+    // Solo miembros autenticados (antes: "if true", público).
+    match /{path=**}/comments/{commentId} {
+        allow read: if isAuthenticated();
+    }
+
+    // Reglas para estadísticas del foro
+    match /forumStats/{statsId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    // Reglas para reportes
+    match /reports/{reportId} {
+      allow create: if isAuthenticated() && request.resource.data.reportedBy == request.auth.uid;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Reglas para notificaciones
+    match /notifications/{userId}/items/{notificationId} {
+      allow read, delete: if isAuthor(userId);
+      allow update: if isAuthor(userId) && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['read', 'readAt']);
+      allow create: if isAuthenticated();
+    }
+
+    // Reglas para configuraciones de usuario
+    match /userSettings/{userId} {
+      allow read, write: if isAuthor(userId);
+    }
+
+    // Reglas para moderación
+    match /moderation/{moderationId} {
+      allow read, write: if isAdmin();
+    }
+
+    // Reglas para favoritos
+    match /favorites/{favoriteId} {
+      allow read, create: if isAuthenticated();
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+  }
+}
