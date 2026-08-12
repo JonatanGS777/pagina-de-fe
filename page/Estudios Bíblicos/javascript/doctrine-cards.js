@@ -1,5 +1,7 @@
 // doctrine-cards.js - Sistema de Tarjetas de Estudio de Doctrina Básica
 
+const ROMAN_NUMERALS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+
 const doctrineCards = {
     // Datos de las 10 doctrinas fundamentales
     doctrines: [
@@ -264,7 +266,7 @@ const doctrineCards = {
 
         card.innerHTML = `
             <div class="doctrine-header">
-                <div class="doctrine-number">${doctrine.id}</div>
+                <div class="doctrine-number">${ROMAN_NUMERALS[doctrine.id - 1] || doctrine.id}</div>
                 <div class="doctrine-icon">
                     <i class="fas ${doctrine.icon}"></i>
                 </div>

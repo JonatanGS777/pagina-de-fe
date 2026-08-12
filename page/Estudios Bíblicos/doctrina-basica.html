@@ -24,9 +24,9 @@
             --gold-light:   #d4b87a;
             --parchment:    #f7f4ed;
             --parchment-dk: #ede9df;
-            --accent:       #1d3a5f;
-            --accent-mid:   #2a5280;
-            --accent-pale:  rgba(29,58,95,0.07);
+            --accent:       #1a1410;
+            --accent-mid:   #6b4f2a;
+            --accent-pale:  rgba(184,154,95,0.1);
             --text-body:    #2d2620;
             --text-muted:   #564d43;
             --header-bg:    rgba(14,12,10,0.97);
@@ -194,21 +194,19 @@
             letter-spacing: 0.24em;
             text-transform: uppercase;
             color: var(--gold);
-            border: 1px solid rgba(184,154,95,0.32);
+            border: 2px solid rgba(184,154,95,0.4);
             padding: 0.35rem 1.1rem;
             margin-bottom: 2rem;
-            animation: fadeUp 0.7s ease both;
         }
 
         .hero-title {
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(2.6rem, 5.5vw, 4.4rem);
-            font-weight: 300;
+            font-weight: 600;
             font-style: italic;
             color: #f7f4ed;
             line-height: 1.12;
             margin-bottom: 1.4rem;
-            animation: fadeUp 0.7s ease 0.12s both;
         }
 
         .hero-title em {
@@ -225,16 +223,14 @@
             color: rgba(247,244,237,0.5);
             max-width: 560px;
             margin: 0 auto 3rem;
-            animation: fadeUp 0.7s ease 0.22s both;
         }
 
         .hero-stats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1px;
-            background: rgba(184,154,95,0.15);
-            border: 1px solid rgba(184,154,95,0.15);
-            animation: fadeUp 0.7s ease 0.32s both;
+            background: rgba(184,154,95,0.2);
+            border: 1px solid rgba(184,154,95,0.2);
         }
 
         .hero-stat {
@@ -266,12 +262,11 @@
         }
 
         .hero-rule {
-            width: 48px;
-            height: 1px;
+            width: 64px;
+            height: 3px;
             background: var(--gold);
             margin: 2.5rem auto 0;
-            opacity: 0.4;
-            animation: fadeUp 0.7s ease 0.4s both;
+            opacity: 0.85;
         }
 
         @keyframes fadeUp {
@@ -331,18 +326,18 @@
 
         .section-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-            font-weight: 300;
+            font-size: clamp(2rem, 3.8vw, 2.9rem);
+            font-weight: 600;
             font-style: italic;
             color: var(--ink);
             line-height: 1.2;
         }
 
         .section-rule {
-            width: 40px;
-            height: 1px;
+            width: 64px;
+            height: 3px;
             background: var(--gold);
-            margin: 1.1rem auto 0;
+            margin: 1.3rem auto 0;
         }
 
         .section-desc {
@@ -360,8 +355,9 @@
         .doctrines-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 1px;
-            background: var(--parchment-dk);
+            gap: 3px;
+            background: var(--ink);
+            border: 3px solid var(--ink);
         }
 
         /* Doctrine cards injected by JS — base styles for JS-generated markup */
@@ -382,25 +378,26 @@
         .doctrine-header {
             background: var(--accent);
             color: #f7f4ed;
-            padding: 1.8rem 2rem;
+            padding: 2rem 2rem 1.8rem;
             position: relative;
+            border-bottom: 3px solid var(--gold);
         }
 
         .doctrine-number {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 0.75rem;
+            font-size: 2.8rem;
+            font-weight: 600;
             font-style: italic;
-            color: rgba(247,244,237,0.4);
-            letter-spacing: 0.1em;
+            line-height: 1;
+            color: var(--gold);
+            letter-spacing: 0.01em;
+            margin-bottom: 0.7rem;
         }
 
         .doctrine-icon {
             width: 40px;
             height: 40px;
-            border: 1px solid rgba(247,244,237,0.25);
+            border: 2px solid var(--gold);
             display: flex;
             align-items: center;
             justify-content: center;
