@@ -742,48 +742,76 @@
         .menu-item-has-children {
             position: relative;
         }
-        
+
         .menu-item-has-children > a {
             display: flex;
             align-items: center;
+            gap: 0.4rem;
         }
-        
+
+        .menu-item-has-children > a::before {
+            content: '▾';
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.35);
+            transition: var(--transition);
+        }
+
+        .menu-item-has-children:hover > a::before {
+            color: var(--gold-accent);
+            transform: rotate(180deg);
+        }
+
         .sub-menu {
             position: absolute;
             top: 100%;
             left: 0;
-            width: 220px;
-            background-color: white;
-            box-shadow: var(--box-shadow);
-            border-radius: 8px;
-            padding: 0.8rem 0;
+            width: 250px;
+            background: rgba(14, 12, 10, 0.98);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(184, 154, 95, 0.22);
+            border-top: 2px solid var(--gold-accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+            border-radius: 2px;
+            padding: 0.3rem 0;
             display: none;
             z-index: 100;
-            transform: translateY(10px);
+            transform: translateY(6px);
             opacity: 0;
             transition: var(--transition);
         }
-        
+
         .sub-menu li {
             width: 100%;
         }
-        
+
+        .sub-menu li + li {
+            border-top: 1px solid rgba(184, 154, 95, 0.1);
+        }
+
         .sub-menu a {
-            padding: 0.7rem 1.2rem;
-            font-size: 0.9rem;
+            padding: 0.75rem 1.4rem;
+            font-size: 0.84rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            letter-spacing: 0.01em;
             width: 100%;
-            color: var(--dark-color);
+            color: rgba(247, 244, 237, 0.72);
+            border-left: 2px solid transparent;
+            transition: var(--transition);
         }
-        
+
         .sub-menu a:hover {
-            background-color: rgba(123, 34, 64, 0.05);
-            color: var(--primary-color);
+            background-color: rgba(201, 170, 106, 0.08);
+            color: var(--secondary-color);
+            border-left-color: var(--gold-accent);
+            padding-left: 1.7rem;
         }
-        
+
         .sub-menu a::after {
             display: none;
         }
-        
+
         .menu-item-has-children:hover .sub-menu {
             display: block;
             transform: translateY(0);
@@ -1235,92 +1263,134 @@
             .nav-toggle {
                 display: block;
             }
-            
+
+            .nav-backdrop {
+                position: fixed;
+                inset: 0;
+                background: rgba(8, 6, 5, 0.6);
+                backdrop-filter: blur(3px);
+                -webkit-backdrop-filter: blur(3px);
+                z-index: 2400;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.35s ease, visibility 0.35s ease;
+            }
+
+            .nav-backdrop.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
             nav {
                 position: fixed;
                 top: 0;
                 right: -300px;
                 width: 280px;
                 height: 100vh;
-                background-color: var(--dark-color);
+                background: var(--gradient-bg);
+                border-left: 1px solid rgba(184, 154, 95, 0.25);
+                box-shadow: -12px 0 32px rgba(0, 0, 0, 0.4);
                 z-index: 2500;
-                transition: right 0.3s ease;
-                padding: 2rem;
+                transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+                padding: 6rem 2rem 2rem;
                 overflow-y: auto;
             }
-            
+
             nav.active {
                 right: 0;
             }
-            
+
             nav ul {
                 flex-direction: column;
                 gap: 0;
             }
-            
+
             nav li {
                 width: 100%;
             }
-            
+
             nav a {
                 padding: 1rem 0;
                 width: 100%;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                border-bottom: 1px solid rgba(184, 154, 95, 0.15);
             }
-            
+
             nav a::after {
                 display: none;
             }
-            
+
+            .menu-item-has-children > a::before {
+                display: none;
+            }
+
             .menu-item-has-children > a {
                 justify-content: space-between;
             }
-            
+
             .menu-item-has-children > a::after {
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 content: '+';
+                width: 22px;
+                height: 22px;
+                font-size: 0.9rem;
+                color: var(--gold-accent);
+                border: 1px solid rgba(184, 154, 95, 0.35);
+                border-radius: 50%;
                 transition: var(--transition);
             }
-            
+
             .menu-item-has-children.active > a::after {
-                transform: rotate(45deg);
+                transform: rotate(135deg);
+                background: rgba(201, 170, 106, 0.12);
             }
-            
+
+            .menu-item-has-children.active > a {
+                color: var(--secondary-color);
+            }
+
             .sub-menu {
                 position: static;
                 width: 100%;
                 box-shadow: none;
-                background-color: rgba(0, 0, 0, 0.2);
+                background: rgba(0, 0, 0, 0.18);
+                border: none;
                 border-radius: 0;
                 padding-left: 1rem;
                 max-height: 0;
                 overflow: hidden;
-                transition: max-height 0.3s ease-out;
+                transition: max-height 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
                 transform: none;
                 opacity: 1;
             }
-            
+
             .menu-item-has-children.active > .sub-menu {
                 max-height: 500px;
             }
-            
+
             .menu-item-has-children:hover .sub-menu {
                 display: none;
                 transform: none;
             }
-            
+
             .menu-item-has-children.active .sub-menu {
                 display: block;
             }
-            
+
             .sub-menu a {
-                color: #ddd;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                color: rgba(247, 244, 237, 0.7);
+                border-bottom: 1px solid rgba(184, 154, 95, 0.08);
+                border-left: none;
+                padding: 0.85rem 0.5rem;
+                font-size: 0.82rem;
             }
-            
+
             .sub-menu a:hover {
-                background-color: rgba(255, 255, 255, 0.05);
+                background-color: transparent;
                 color: var(--secondary-color);
+                border-left: none;
+                padding-left: 0.5rem;
             }
             
             .hero {
@@ -1520,6 +1590,8 @@
                     </button>
                 </div>
                 
+                <div class="nav-backdrop"></div>
+
                 <nav>
                     <ul>
                         <li><a href="index.html">Inicio</a></li>
@@ -2160,6 +2232,7 @@
             setupMobileMenu() {
                 const navToggle = document.querySelector('.nav-toggle');
                 const nav = document.querySelector('nav');
+                const backdrop = document.querySelector('.nav-backdrop');
 
                 if (!navToggle || !nav) return;
 
@@ -2167,9 +2240,19 @@
                 const newNavToggle = navToggle.cloneNode(true);
                 navToggle.parentNode.replaceChild(newNavToggle, navToggle);
 
+                const closeNav = () => {
+                    nav.classList.remove('active');
+                    if (backdrop) backdrop.classList.remove('active');
+                };
+
                 newNavToggle.addEventListener('click', () => {
                     nav.classList.toggle('active');
+                    if (backdrop) backdrop.classList.toggle('active');
                 });
+
+                if (backdrop) {
+                    backdrop.addEventListener('click', closeNav);
+                }
 
                 nav.addEventListener('click', (e) => {
                     if (window.innerWidth > 768) return;
@@ -2179,10 +2262,16 @@
                         toggleLink.parentNode.classList.toggle('active');
                     }
                 });
-                
+
                 document.addEventListener('click', (event) => {
                     if (!nav.contains(event.target) && !newNavToggle.contains(event.target)) {
-                        nav.classList.remove('active');
+                        closeNav();
+                    }
+                });
+
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape' && nav.classList.contains('active')) {
+                        closeNav();
                     }
                 });
             },
