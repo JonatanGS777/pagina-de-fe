@@ -74,7 +74,11 @@ service cloud.firestore {
         // Solo miembros autenticados pueden leer comentarios (antes: "if true", público).
         allow read: if isAuthenticated();
         allow create: if isAuthenticated();
-        allow update, delete: if isAuthenticated() && (resource.data.author.uid == request.auth.uid || isModerator());
+        allow update, delete: if isAuthenticated() && (
+            resource.data.author.uid == request.auth.uid ||
+            isModerator() ||
+            request.resource.data.diff(resource.data).affectedKeys().hasOnly(['likes', 'likedBy', 'replies'])
+        );
       }
     }
 

@@ -29,6 +29,7 @@ let getCurrentUser, trackMinistryEvent;
 
 // Variables globales
 let currentUser = null;
+let currentUserRole = 'member'; // 'member' | 'moderator' | 'admin'
 let authInitialized = false;
 let currentCategory = 'all';
 let currentFilter = 'recent';
@@ -689,6 +690,22 @@ async function checkAuthentication() {
 function saveUserToLocalStorage() {
     if (currentUser) {
         localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    }
+}
+
+// Cargar rol del usuario actual desde Firestore (userProfiles/{uid}.role)
+async function loadUserRole() {
+    try {
+        if (!currentUser?.uid) return;
+        const userRef = doc(db, 'userProfiles', currentUser.uid);
+        const snap = await getDoc(userRef);
+        if (snap.exists()) {
+            currentUserRole = snap.data().role || 'member';
+        }
+        console.log(`👤 Rol del usuario: ${currentUserRole}`);
+    } catch (err) {
+        console.warn('⚠️ No se pudo cargar el rol del usuario:', err);
+        currentUserRole = 'member';
     }
 }
 
@@ -2140,7 +2157,9 @@ async function initializeForum() {
         }
         
         console.log(`👤 ¡Bienvenido al foro, ${currentUser.displayName}!`);
-        
+
+        await loadUserRole();
+
         await setupEventListenersOptimized();
         console.log('✅ Event listeners configurados');
 
@@ -2183,10 +2202,18 @@ async function initializeForumWithVerification() {
         console.log('🏛️ Inicializando foro con verificación automática...');
         
         await initializeForum();
-        
+
+        // La verificación/corrección automática escribe en 'forumStats', restringido a
+        // admin/moderador por las reglas de Firestore. Para miembros normales esa escritura
+        // siempre fallaría (permission-denied) y nunca resolvería la inconsistencia, generando
+        // el toast de "mantenimiento" y errores de consola en cada visita al foro.
+        if (currentUserRole !== 'admin' && currentUserRole !== 'moderator') {
+            return;
+        }
+
         safeSetTimeout(async () => {
             console.log('🔍 Ejecutando verificación automática post-carga...');
-            
+
             try {
                 const isConsistent = await verifyDataConsistency();
                 if (!isConsistent) {
