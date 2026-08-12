@@ -419,6 +419,19 @@
             .tab { border-right: none; border-bottom: 1px solid var(--parchment-dk); }
             .pregunta { padding-left: 4rem; }
         }
+    
+        /* Insignia circular del logo EMD (aplicada a todas las páginas) */
+        img[alt="Logo EMD"] {
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(201, 170, 106, 0.5);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(201, 170, 106, 0.08);
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        img[alt="Logo EMD"]:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 0 5px rgba(201, 170, 106, 0.15);
+        }
     </style>
 </head>
 <body>
@@ -426,7 +439,7 @@
     <!-- ── HEADER ── -->
     <header>
         <a class="logo-wrap" href="../../../index.html">
-            <img src="../../../images/EMD.png" alt="Logo EMD">
+            <img src="../../../images/EMD.png?v=2" alt="Logo EMD">
             <div class="logo-text">
                 <div>Ministerio</div>
                 <div>"La Gloria es del Señor"</div>

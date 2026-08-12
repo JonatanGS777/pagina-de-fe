@@ -770,6 +770,19 @@
         .question-type.true-false { background: var(--info-cyan); }
         .question-type.sequence { background: var(--rose-red); }
         .question-type.identify { background: var(--navy-blue); }
+    
+        /* Insignia circular del logo EMD (aplicada a todas las páginas) */
+        img[alt="Logo EMD"] {
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(201, 170, 106, 0.5);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(201, 170, 106, 0.08);
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        img[alt="Logo EMD"]:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 0 5px rgba(201, 170, 106, 0.15);
+        }
     </style>
 </head>
 <body>
@@ -777,7 +790,7 @@
     <header>
         <div class="container header-content">
             <div class="exam-logo">
-                <img src="../../../images/EMD.png" alt="Logo EMD">
+                <img src="../../../images/EMD.png?v=2" alt="Logo EMD">
                 <div class="exam-title">
                     <div>Examen de Reto</div>
                     <div>Bíblico Intermedio</div>
