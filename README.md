@@ -17,6 +17,14 @@ Sitio web estático del ministerio cristiano, desplegado en **Vercel** con auten
 - **Performance:** creada `images/og-hero-ministerio.jpg` (112 KB, 1200×630) como imagen social optimizada, evitando servir el hero original de 2.8 MB en previews de WhatsApp/redes.
 - **Pendiente identificado, no resuelto aún:** headers de seguridad HTTP (CSP, X-Frame-Options, etc.), `robots.txt`/`sitemap.xml` reales, favicon, SRI en CDNs externos, consolidar `.com`/`.org`/`www`/apex en un solo dominio canónico con redirects.
 
+### 2026-08-12 — Corrección de permisos en comentarios del foro
+
+- **Bug encontrado:** tras el endurecimiento de reglas del 2026-08-11, la regla de `forumTopics/{topicId}/comments/{commentId}` no tenía la misma excepción de campos que la regla del tema padre, así que dar "me gusta" o responder a un comentario de **otro** usuario fallaba con `permission-denied` para cualquiera que no fuera el autor del comentario o un moderador/admin.
+- **Fix (`firestore.rules`):** se agregó `request.resource.data.diff(resource.data).affectedKeys().hasOnly(['likes', 'likedBy', 'replies'])` como condición adicional de `allow update` en `comments`, igual que ya existía a nivel de tema. Desplegado con `firebase deploy --only firestore:rules`.
+- **Fix secundario (`Comunidad/js/forum.js`):** el foro nunca cargaba el rol del usuario actual, así que la verificación/corrección automática de estadísticas (`verifyDataConsistency` + `performFullMaintenance`, que escriben en `forumStats`, restringido a `isAdmin()`) se ejecutaba para todos los usuarios en cada visita al foro. Para miembros normales esa escritura siempre fallaba sin poder corregir la inconsistencia, repitiendo el ciclo y mostrando el toast "Realizando mantenimiento de datos..." en cada carga. Se agregó `loadUserRole()` (igual que en `topic.js`) y la verificación automática ahora solo corre si el usuario es admin o moderador. Los contadores visibles del header (`total-topics`/`total-comments`) no se vieron afectados: se calculan en el cliente desde los temas cargados, no desde `forumStats`.
+- **Nota:** `comunidad.js` (raíz del proyecto, con el widget `CommunityModule` de estadísticas para `index.html`) no está cargado por ningún `<script>` en `index.html` — es código huérfano de una versión anterior del sitio.
+- **Entorno local:** se encontró y eliminó un token de GitHub expuesto en texto plano (`export GITHUB_TOKEN=...`) en `~/.zshrc` de la máquina de desarrollo — no es parte del repo, pero bloqueaba `git push`/`gh` al tener prioridad sobre la sesión válida guardada en el keychain.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
