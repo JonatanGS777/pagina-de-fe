@@ -734,7 +734,114 @@
             transform: scale(1.05);
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 0 5px rgba(201, 170, 106, 0.15);
         }
+    
+        /* ── Insignia de menú desplegable unificada (aplicada a todas las páginas) ── */
+        .menu-item-has-children > a {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .menu-item-has-children > a::before {
+            content: '▾';
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.35);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .menu-item-has-children > a::after {
+            display: none !important;
+        }
+        .menu-item-has-children:hover > a::before {
+            color: #c9aa6a;
+            transform: rotate(180deg);
+        }
+        .sub-menu {
+            background: rgba(14, 12, 10, 0.98) !important;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(184, 154, 95, 0.22) !important;
+            border-top: 2px solid #c9aa6a !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45) !important;
+            border-radius: 2px !important;
+            padding: 0.3rem 0 !important;
+        }
+        .sub-menu li + li {
+            border-top: 1px solid rgba(184, 154, 95, 0.1);
+        }
+        .sub-menu a {
+            font-family: 'Lato', sans-serif !important;
+            font-weight: 300;
+            letter-spacing: 0.01em;
+            color: rgba(247, 244, 237, 0.72) !important;
+            border-left: 2px solid transparent;
+            border-bottom: none !important;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        }
+        .sub-menu a:hover {
+            background-color: rgba(201, 170, 106, 0.08) !important;
+            color: #b89a5f !important;
+            border-left-color: #c9aa6a;
+            padding-left: 1.7rem !important;
+        }
+
+        .nav-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(8, 6, 5, 0.6);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            z-index: 2400;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+        }
+        .nav-backdrop.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                background: linear-gradient(160deg, #0e0c0a 0%, #1f1a14 100%) !important;
+            }
+            .menu-item-has-children > a::before {
+                display: none;
+            }
+            .menu-item-has-children > a::after {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                content: '+' !important;
+                width: 22px;
+                height: 22px;
+                font-size: 0.9rem;
+                font-family: initial !important;
+                color: #c9aa6a !important;
+                border: 1px solid rgba(184, 154, 95, 0.35);
+                border-radius: 50%;
+                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            }
+            .menu-item-has-children.active > a::after {
+                transform: rotate(135deg) !important;
+                background: rgba(201, 170, 106, 0.12);
+            }
+            .sub-menu {
+                background: rgba(0, 0, 0, 0.18) !important;
+                border: none !important;
+                border-top: none !important;
+                box-shadow: none !important;
+            }
+            .sub-menu a {
+                color: rgba(247, 244, 237, 0.7) !important;
+                border-bottom: 1px solid rgba(184, 154, 95, 0.08) !important;
+            }
+            .sub-menu a:hover {
+                background-color: transparent !important;
+                padding-left: 0.5rem !important;
+                border-left: none;
+            }
+        }
     </style>
+
 </head>
 <body>
     <header>
@@ -749,6 +856,8 @@
             <button class="nav-toggle">
                 <i class="fas fa-bars"></i>
             </button>
+            <div class="nav-backdrop"></div>
+
             <nav>
                 <ul>
                     <li><a href="../../index.html">Inicio</a></li>
@@ -1039,5 +1148,33 @@
             });
         });
     </script>
+
+    <script>
+    (function() {
+        var nav = document.querySelector('nav');
+        var backdrop = document.querySelector('.nav-backdrop');
+        var navToggle = document.querySelector('.nav-toggle');
+        if (!nav || !backdrop) return;
+
+        function closeNav() {
+            nav.classList.remove('active');
+            backdrop.classList.remove('active');
+        }
+
+        if (navToggle) {
+            navToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                backdrop.classList.toggle('active');
+            });
+        }
+
+        backdrop.addEventListener('click', closeNav);
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && nav.classList.contains('active')) closeNav();
+        });
+    })();
+    </script>
+
 </body>
 </html>
