@@ -25,6 +25,18 @@ Sitio web estático del ministerio cristiano, desplegado en **Vercel** con auten
 - **Nota:** `comunidad.js` (raíz del proyecto, con el widget `CommunityModule` de estadísticas para `index.html`) no está cargado por ningún `<script>` en `index.html` — es código huérfano de una versión anterior del sitio.
 - **Entorno local:** se encontró y eliminó un token de GitHub expuesto en texto plano (`export GITHUB_TOKEN=...`) en `~/.zshrc` de la máquina de desarrollo — no es parte del repo, pero bloqueaba `git push`/`gh` al tener prioridad sobre la sesión válida guardada en el keychain.
 
+### 2026-08-12 — Logo circular, menú rediseñado, íconos Lucide, favicon, nuevo hero y rediseño "monumental" de Estudios Bíblicos
+
+- **Logo:** reemplazado el logo cuadrado (fondo blanco, ilegible a tamaño de header) por una insignia circular tipo medallón (pergamino + anillo dorado, recortada del logo moderno del águila) en `images/EMD.png`. Aplicada en las 36 páginas que referencian el logo vía el selector `img[alt="Logo EMD"]` (cubre `.logo`, `.header-logo`, `.logo-wrap`, `.logo-img`, `.exam-logo`, `.project-logo` sin tocar el layout propio de cada página).
+- **Menú de navegación (`index.html` + 15 páginas con dropdown real):** el dropdown de escritorio pasó de una caja blanca genérica a una tarjeta oscura con blur, borde superior dorado y acento dorado en hover, coherente con la paleta del sitio. El panel móvil ganó un backdrop oscuro (antes no existía — el contenido detrás quedaba interactuable con el menú abierto), transición más suave y un indicador circular en vez de un "+" plano. De paso se corrigió un bug preexistente en `page/Tiempo del Fin/profecias-cumplidas.html`: el botón `.nav-toggle` no existía en el HTML (solo un `</button>` huérfano), así que el menú móvil nunca abría ahí; también se corrigió un link roto (`../iguras Bíblicas/...` → `../Figuras Bíblicas/...`).
+- **Íconos Lucide (25 páginas, ~292 reemplazos):** el emoji pictórico decorativo (📖🏛️🕍👑🔥🕊️📜✨❌✅⚠️🧬⚔️ y ~90 tipos más) se sustituyó por SVG de Lucide insertados inline en el HTML — sin CDN ni dependencia JS nueva, con `stroke="currentColor"` para heredar el color del texto. Se dejaron sin tocar banderas de países, flechas/checks tipográficos (→ ← ✓ ✗) y la cruz ✝. `page/Estudios Exegéticos/templo.html` sirvió de piloto (80 emojis) antes de replicar el mapeo al resto.
+- **Favicon:** generado desde el logo circular — `favicon.ico` (16/32/48 embebidos), PNGs sueltos hasta 512px y `apple-touch-icon.png`. Los tamaños chicos (16-32px) usan una variante simplificada sin el anillo dorado delgado (se volvía ilegible); los grandes usan el badge completo. Aplicado en las 77 páginas del sitio.
+- **Hero de `index.html`:** reemplazada `images/hero-ministerio.jpg` (grupo de personas, 2.7 MB) por `images/hero-escrituras-antiguas.jpg` (bodegón de manuscritos antiguos iluminados, 280 KB) — generada a pedido para alinearse con la paleta del sitio y evitar el riesgo de anatomía rara de IA en escenas con personas. Se regeneró también `images/og-hero-escrituras.jpg` (1200×630) para las metaetiquetas sociales. Limpieza adicional en `index.html`: 6 reglas que aún usaban Montserrat pasaron a Cormorant Garamond (encabezados) / Lato (números y botones), y 14+2 usos de un morado fuera de paleta (`rgba(94,75,139)`) y un dorado suelto (`#d4af37`) se reemplazaron por los valores RGB exactos de `--accent-color`/`--primary-color`/`--gold-accent`. El `<h1>` del hero pasó de Cormorant Garamond a Lato itálica (se agregó la variante itálica de Lato al link de Google Fonts, que antes solo cargaba pesos regulares).
+- **Rediseño "monumental" de Estudios Bíblicos (13 páginas):** `doctrina-basica.html` (única página del sitio con barra de progreso, tarjetas de doctrina y quiz tipo curso) se rediseñó con una dirección más contundente acorde a que describe "verdades inamovibles del evangelio": números de doctrina en numeral romano grande (I–X, antes un dígito diminuto), su acento azul (`#1d3a5f`, chocaba con el logo dorado en la misma barra de progreso) reemplazado por tinta, títulos con más peso y sin animaciones de entrada suaves. Ese mismo criterio (peso tipográfico más fuerte, sin animación de entrada, reglas más gruesas) se extendió a las otras 12 páginas de Estudios Bíblicos — **conservando el color de acento único de cada una** (terracota, verde bosque, amatista, slate indigo, etc.), ya que ninguna de esas 12 tiene la barra de progreso que causaba el choque específico en `doctrina-basica.html`.
+- **Nota técnica (caché):** `images/EMD.png` y `favicon.ico` se sirven con `cache-control: public, max-age=31536000, immutable` en Vercel. Cualquier archivo estático que se reemplace manteniendo el mismo nombre necesita cache-busting (`?v=N` en el HTML) o, preferible, un nombre de archivo nuevo — de lo contrario navegadores (y el edge de Vercel, que puede cachear un 404 de una visita anterior al deploy) siguen sirviendo la versión vieja hasta por un año.
+- **Nota técnica (animaciones):** al quitar `animation: fadeUp ...` de un elemento, verificar si también tiene una propiedad `opacity: 0;` estática por separado — varias páginas usan `fill-mode: forwards` (que depende de esa propiedad para el estado inicial) en vez de `both` (que no la necesita). Quitar solo la animación sin quitar el `opacity: 0;` deja el elemento invisible para siempre.
+- **Pendiente identificado, no resuelto:** la sección `page/Tiempo del Fin/` (14 páginas) no tiene identidad tipográfica compartida — cada página usa una fuente distinta (Poppins, Montserrat, Merriweather, Playfair Display, Inter, Orbitron, Arial, Segoe UI+Courier New) y su propia paleta de color, sin relación con Cormorant Garamond/Lato ni con tinta/oro/pergamino. Solo `fundamentos/plan-divino.html` está alineada. Ya estaba correctamente listada como pendiente más abajo; queda como hallazgo detallado para cuando se aborde esa sección.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -94,7 +106,7 @@ Con 1,000+ usuarios activos en el foro se supera el límite de lecturas. Activar
 | Analítica | Firebase Analytics |
 | Frontend | HTML / CSS / JS ES Modules (sin bundler) |
 | Fuentes | Cormorant Garamond + Lato (Google Fonts) |
-| Iconos | Font Awesome 6 |
+| Iconos | Font Awesome 6 (CDN) + Lucide (SVG inline, sin CDN, ~292 usos en 25 páginas) |
 | SSL | Let's Encrypt (auto-emitido y renovado por Vercel) |
 
 ---
@@ -142,15 +154,17 @@ Agregado en `index.html` (2026-08-11):
 - Twitter Card (`summary_large_image`)
 - `<link rel="canonical" href="https://lagloriaesdelsenor.com/">` — evita contenido duplicado entre `.com` / `.org` / `www` / apex, que sirven el mismo contenido sin redirigir entre sí
 
-**Imagen social:** `images/og-hero-ministerio.jpg` (1200×630px, ~112 KB, JPEG calidad 60) — versión recortada y comprimida de `images/hero-ministerio.jpg` (2.8 MB) específica para `og:image`/`twitter:image`. El hero de la página sigue usando la imagen original sin comprimir. Regenerar si cambia la imagen de fondo del hero:
+**Imagen social:** `images/og-hero-escrituras.jpg` (1200×630px, ~63 KB, JPEG calidad 60) — versión recortada y comprimida de `images/hero-escrituras-antiguas.jpg` (280 KB) específica para `og:image`/`twitter:image` (reemplazó a `hero-ministerio.jpg`/`og-hero-ministerio.jpg` el 2026-08-12). El hero de la página sigue usando la imagen sin recortar. Regenerar si cambia la imagen de fondo del hero (ajustar nombres de archivo según corresponda):
 
 ```
-sips -z 800 1200 images/hero-ministerio.jpg --out /tmp/step1.jpg
+sips -z 800 1200 images/hero-escrituras-antiguas.jpg --out /tmp/step1.jpg
 sips -c 630 1200 /tmp/step1.jpg --out /tmp/step2.jpg
-sips -s format jpeg -s formatOptions 60 /tmp/step2.jpg --out images/og-hero-ministerio.jpg
+sips -s format jpeg -s formatOptions 60 /tmp/step2.jpg --out images/og-hero-escrituras.jpg
 ```
 
-**Pendiente (no implementado aún):** headers de seguridad HTTP (`Content-Security-Policy`, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`), `robots.txt` real, `sitemap.xml`, favicon, SRI en recursos de CDN (Font Awesome/Google Fonts).
+**Favicon:** implementado el 2026-08-12 — ver entrada de esa fecha en el historial. `favicon.ico` + PNGs (16 a 512px) + `apple-touch-icon.png` en la raíz del proyecto, referenciados con rutas absolutas (`/favicon.ico`) en las 77 páginas.
+
+**Pendiente (no implementado aún):** headers de seguridad HTTP (`Content-Security-Policy`, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`), `robots.txt` real, `sitemap.xml`, SRI en recursos de CDN (Font Awesome/Google Fonts).
 
 ---
 
@@ -262,7 +276,7 @@ Página de Fe/
 | `page/Época de Jesús/estudio-contemporaneo.html` | Completado — wine `#7a2d3c` |
 | `page/Estudios Bíblicos/revelacion-espiritu.html` | Completado — amethyst `#4a3070` |
 | `page/Estudios Bíblicos/devocionales.html` | Completado — forest green `#2b4a36` |
-| `page/Estudios Bíblicos/doctrina-basica.html` | Completado — deep blue `#1d3a5f` |
+| `page/Estudios Bíblicos/doctrina-basica.html` | Completado — estilo "monumental" propio (numerales romanos, tinta/oro, sin animación de entrada; ver historial 2026-08-12) |
 | `page/Estudios Bíblicos/doctrina-intermedia.html` | Completado — terracotta `#6b3a2a` |
 | `page/Estudios Bíblicos/doctrina-avanzada.html` | Completado — midnight purple `#2a1e4a` |
 | `page/Estudios Bíblicos/estudios/hermeneutica-biblica.html` | Completado — deep teal `#1e4040` |
