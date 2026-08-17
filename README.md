@@ -103,6 +103,14 @@ Sitio web estático del ministerio cristiano, desplegado en **Vercel** con auten
 - Sello de cera con fleur-de-lis (⚜) en el hero y divisor heráldico de línea doble. La lista de las 13 familias gobernantes recibió una clase especial `.family-roll`: se presenta como un "rollo genealógico" con numerales romanos I–XIII vía CSS counters, único elemento con tratamiento especial por ser el registro que da nombre al artículo. Imágenes con filtro sepia sutil y marco tipo lámina enmarcada.
 - **Nota:** no se inventaron encabezados `<h2>` ni se reestructuró el texto en secciones — el artículo original no tenía subtítulos, solo párrafos corridos con figuras intercaladas; se restylearon los elementos existentes sin tocar contenido ni añadir estructura nueva.
 
+### 2026-08-17 — Novena página de Falsas Doctrinas: lineas-sangre-illuminati.html
+
+- **`page/Falsas Doctrinas/lineas-sangre-illuminati.html`:** página añadida a la categoría con un estilo propio **"Archivo Vaticano"** (manuscrito heráldico sobre vitela), elegido por el contenido (orden mundial jesuita y 13 líneas de sangre de la nobleza negra romana). Tipografía Marcellus (títulos lapidarios) + Lora (cuerpo), ambas sin uso previo en la categoría. Paleta: tinta oscura `#14100b`, vitela `#efe6cd`, rojo cardenal `#8c2431`, dorado `#b08d3e`.
+- Concepto: hojas de "documento de archivo" (`.doc`) sobre vitela con lineado de lino y sombra profunda; sello de archivo (ojo) en el hero; rollo heráldico `.roll` con numerales romanos I–XIII para las 13 casas saturninas de Alan Lamont; tres "registros" `.register` (Springmeier 1995, Nobleza Negra 2000, Pléyades 2003) con numeración decimal tras el nombre del investigador; citas históricas sobre los jesuitas como "testimonios" `.quote` con cita en rojo cardenal; anexo bíblico dorado `.annex` (Daniel 2:21, Proverbios 21:1, Efesios 6:12, 1 Pedro 5:8, Apocalipsis 11:15).
+- **Contenido:** artículo completo de Mente Alternativa (orden mundial jesuita — Lamont vs. Springmeier vs. Pléyades vs. Swerdlow), obtenido vía Wayback Machine porque el sitio original responde 403 a bots. Se respetaron los subtítulos originales del artículo (sí los tenía, a diferencia de `reptilianos-consejo-13.html`). Se añadieron etiquetas "Sin verificar" (fuentes no académicas) siguiendo el precedente de `sociedades-secretas.html`, y un Anexo Bíblico con sello dorado como cierre doctrinal, acorde al propósito de la categoría.
+- **Menús:** se agregó "Líneas de Sangre Illuminati" al dropdown "Falsas Doctrinas" en los 14 archivos del sitio que lo tienen, justo después de "Reptilianos y Consejo de los 13" (misma lista de archivos que la entrada anterior).
+- **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para futuras páginas de `Falsas Doctrinas/`.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -360,6 +368,8 @@ Página de Fe/
 | `page/Falsas Doctrinas/masoneria.html` | Completado — estilo propio "Tribunal de la Verdad" (veredicto/sentencia, no el sistema tinta/oro; ver historial 2026-08-17). Contenido del artículo sin verificar, ver nota en historial |
 | `page/Falsas Doctrinas/pseudoprofetas.html` | Completado — estilo propio "Galería de Retratos Falsos" (no el sistema tinta/oro; ver historial 2026-08-17). Conserva el menú dropdown completo (no simplificado a nav-back) |
 | `page/Falsas Doctrinas/sectas-anticristianas.html` | Completado — estilo propio "Compás Doctrinal" (no el sistema tinta/oro; ver historial 2026-08-17). Conserva el menú dropdown completo |
+| `page/Falsas Doctrinas/reptilianos-consejo-13.html` | Completado — estilo propio "Linaje Real" (borgoña/dorado heráldico; ver historial 2026-08-17) |
+| `page/Falsas Doctrinas/lineas-sangre-illuminati.html` | Completado — estilo propio "Archivo Vaticano" (manuscrito heráldico sobre vitela; ver historial 2026-08-17) |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
