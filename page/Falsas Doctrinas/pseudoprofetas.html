@@ -14,20 +14,20 @@
     <title>Pseudoprofetas a lo largo de la Historia | Ministerio "La Gloria es del Señor"</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #4a235a; /* Púrpura profundo */
-            --secondary-color: #008080; /* Teal */
-            --accent-color: #ff9800; /* Ámbar */
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --gradient-bg: linear-gradient(135deg, rgba(74, 35, 90, 0.9) 0%, rgba(0, 128, 128, 0.85) 100%);
-            --card-gradient: linear-gradient(135deg, rgba(74, 35, 90, 0.05) 0%, rgba(0, 128, 128, 0.05) 100%);
+            --primary-color: #3d2f1f; /* Tinta museo */
+            --secondary-color: #8c2f2f; /* Rojo alerta */
+            --accent-color: #a8862f; /* Dorado placa */
+            --light-color: #e4d9c4; /* Sepia expediente */
+            --dark-color: #1c1712; /* Pared de museo */
+            --gradient-bg: linear-gradient(135deg, rgba(61, 47, 31, 0.93) 0%, rgba(140, 47, 47, 0.85) 100%);
+            --card-gradient: linear-gradient(135deg, rgba(61, 47, 31, 0.05) 0%, rgba(140, 47, 47, 0.05) 100%);
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.06);
-            --border-radius: 12px;
+            --box-shadow: 0 10px 20px rgba(28, 23, 18, 0.12), 0 6px 6px rgba(28, 23, 18, 0.08);
+            --border-radius: 3px;
         }
         
         * {
@@ -37,7 +37,7 @@
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Source Serif 4', serif;
             line-height: 1.6;
             color: var(--dark-color);
             background-color: var(--light-color);
@@ -79,7 +79,7 @@
         }
         
         .logo-text {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Big Shoulders Display', sans-serif;
             font-weight: 700;
             line-height: 1.2;
         }
@@ -107,7 +107,7 @@
         nav a {
             color: white;
             text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Big Shoulders Display', sans-serif;
             font-weight: 600;
             transition: var(--transition);
             display: block;
@@ -198,37 +198,38 @@
         /* Hero Section */
         .hero {
             position: relative;
-            background-image: url('./images/falsosprofetas.png');
-            background-size: cover;
-            background-position: center;
-            color: white;
+            background:
+                linear-gradient(165deg, rgba(28, 23, 18, 0.82) 0%, rgba(61, 47, 31, 0.72) 55%, rgba(28, 23, 18, 0.88) 100%),
+                url('./images/falsosprofetas.png') center / cover no-repeat;
+            color: var(--light-color);
             text-align: center;
             padding: 100px 0;
-            z-index: 1;
         }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        
+
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
             position: relative;
         }
-        
+
+        .hero-eyebrow {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
         .hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3rem;
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-weight: 700;
+            font-size: 3.4rem;
             margin-bottom: 1.5rem;
-            line-height: 1.2;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.1;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
         }
         
         .hero p {
@@ -258,7 +259,7 @@
         }
         
         .section-title h2 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Big Shoulders Display', sans-serif;
             font-size: 2.2rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
@@ -278,7 +279,7 @@
         }
         
         .section-title p {
-            color: #666;
+            color: #5a4d3a;
             font-weight: 300;
             font-size: 1.1rem;
             max-width: 700px;
@@ -296,7 +297,7 @@
             content: '';
             position: absolute;
             width: 4px;
-            background-color: rgba(74, 35, 90, 0.2);
+            background-color: rgba(61, 47, 31, 0.2);
             top: 0;
             bottom: 0;
             left: 50%;
@@ -343,7 +344,7 @@
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             background: var(--card-gradient);
-            border: 1px solid rgba(74, 35, 90, 0.1);
+            border: 1px solid rgba(61, 47, 31, 0.15);
             transition: var(--transition);
         }
         
@@ -379,21 +380,21 @@
         }
         
         .time-content h3 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Big Shoulders Display', sans-serif;
             color: var(--primary-color);
             margin-bottom: 0.8rem;
             font-size: 1.4rem;
         }
         
         .time-content p {
-            color: #666;
+            color: #5a4d3a;
             line-height: 1.7;
         }
         
         /* Cards Section */
         .cards-section {
             padding: 3rem 0 5rem;
-            background-color: #f9f9f9;
+            background-color: var(--light-color);
         }
         
         .cards-container {
@@ -404,49 +405,55 @@
         }
         
         .card {
-            background: white;
+            background: var(--light-color);
+            border: 1px solid rgba(61, 47, 31, 0.2);
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--box-shadow);
             transition: var(--transition);
             position: relative;
         }
-        
+
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 40px rgba(28, 23, 18, 0.2);
         }
-        
+
         .card-flag {
             position: absolute;
             top: 1rem;
             right: 1rem;
-            background: var(--accent-color);
+            background: var(--secondary-color);
             color: white;
             padding: 0.3rem 0.7rem;
-            font-size: 0.8rem;
-            border-radius: 30px;
+            font-size: 0.75rem;
+            font-family: 'Big Shoulders Display', sans-serif;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-radius: 2px;
             font-weight: 600;
             z-index: 2;
         }
-        
+
         .card-img {
             height: 220px;
             overflow: hidden;
             position: relative;
+            border-bottom: 3px solid var(--accent-color);
         }
-        
+
         .card-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            filter: sepia(0.55) contrast(1.08) saturate(1.1);
             transition: var(--transition);
         }
-        
+
         .card:hover .card-img img {
             transform: scale(1.1);
         }
-        
+
         .card-img::after {
             content: '';
             position: absolute;
@@ -454,25 +461,36 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
+            background: linear-gradient(to bottom, rgba(28,23,18,0) 0%, rgba(28,23,18,0.65) 100%);
         }
-        
+
         .card-content {
             padding: 1.8rem;
         }
-        
+
         .card-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            font-size: 1.6rem;
+            margin-bottom: 0.3rem;
             color: var(--primary-color);
         }
-        
+
+        .card-plaque {
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
         .card-meta {
             display: flex;
             align-items: center;
             margin-bottom: 1rem;
-            color: #777;
+            color: var(--primary-color);
+            opacity: 0.7;
             font-size: 0.9rem;
         }
         
@@ -486,7 +504,7 @@
         }
         
         .card-text {
-            color: #666;
+            color: #5a4d3a;
             margin-bottom: 1.5rem;
             line-height: 1.7;
         }
@@ -527,7 +545,7 @@
         }
         
         .warning-title {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Big Shoulders Display', sans-serif;
             font-size: 2.2rem;
             margin-bottom: 1.5rem;
         }
@@ -545,7 +563,7 @@
             padding: 0.8rem 2rem;
             border-radius: 50px;
             text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Big Shoulders Display', sans-serif;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -572,7 +590,7 @@
         /* Scripture Section */
         .scripture-section {
             padding: 5rem 0;
-            background-color: #f9f9f9;
+            background-color: var(--light-color);
             text-align: center;
         }
         
@@ -602,11 +620,11 @@
             line-height: 1.8;
             margin-bottom: 1.5rem;
             font-style: italic;
-            color: #555;
+            color: #5a4d3a;
         }
         
         .scripture-ref {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Big Shoulders Display', sans-serif;
             font-weight: 600;
             color: var(--primary-color);
             font-size: 1.1rem;
@@ -658,25 +676,25 @@
         }
         
         .feature h3 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Big Shoulders Display', sans-serif;
             font-size: 1.3rem;
             margin-bottom: 1rem;
             color: var(--primary-color);
         }
         
         .feature p {
-            color: #666;
+            color: #5a4d3a;
             line-height: 1.7;
         }
         
-        /* Tabla Estilos para la sección de Falsos Maestros */
+        /* Fichas de la sección de Falsos Maestros */
         .table-section {
             padding: 6rem 0;
-            background-color: #f0f2f5;
+            background-color: var(--light-color);
             position: relative;
             overflow: hidden;
         }
-        
+
         .table-section::before {
             content: '';
             position: absolute;
@@ -684,136 +702,122 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%234a235a' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233d2f1f' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
-        
-        .table-container {
-            overflow-x: auto;
+
+        .teacher-files-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
             margin-top: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .teacher-file {
             background: white;
-            position: relative;
+            border: 1px solid rgba(61, 47, 31, 0.18);
+            border-top: 4px solid var(--secondary-color);
+            box-shadow: var(--box-shadow);
+            padding: 1.8rem;
+            transition: var(--transition);
+            animation: fadeInUp 0.6s ease backwards;
         }
-        
-        .false-teachers-table {
-            width: 100%;
-            border-collapse: collapse;
-            border-spacing: 0;
-            color: #333;
-            overflow: hidden;
-            table-layout: fixed;
+
+        .teacher-file:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(28, 23, 18, 0.18);
         }
-        
-        .false-teachers-table thead {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
+
+        .file-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.8rem;
+            margin-bottom: 0.2rem;
         }
-        
-        .false-teachers-table th {
-            padding: 1.2rem 1rem;
-            text-align: left;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
-            position: relative;
+
+        .file-period {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            opacity: 0.6;
+            white-space: nowrap;
         }
-        
-        .false-teachers-table th:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--accent-color);
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
+
+        .file-movement {
+            font-size: 0.92rem;
+            font-style: italic;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
         }
-        
-        .false-teachers-table thead:hover th:after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-        
-        .false-teachers-table tbody tr {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-        
-        .false-teachers-table tbody tr:last-child {
-            border-bottom: none;
-        }
-        
-        .false-teachers-table tbody tr:hover {
-            background-color: rgba(74, 35, 90, 0.03);
-            transform: translateY(-2px);
-        }
-        
-        .false-teachers-table td {
-            padding: 1.2rem 1rem;
-            vertical-align: top;
-            border: none;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-        
+
         .teacher-name {
             display: flex;
             align-items: center;
-            font-weight: 600;
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: 0.02em;
             color: var(--primary-color);
         }
-        
+
         .teacher-name i {
             margin-right: 10px;
             font-size: 1.1rem;
             color: var(--accent-color);
         }
-        
-        .false-teachers-table ul {
+
+        .teacher-file ul {
             padding-left: 1.2rem;
-            margin: 0;
+            margin: 0 0 1.2rem;
             list-style-type: none;
         }
-        
-        .false-teachers-table ul li {
+
+        .teacher-file ul li {
             position: relative;
             padding: 0.3rem 0;
             line-height: 1.4;
+            font-size: 0.92rem;
+            color: #5a4d3a;
         }
-        
-        .false-teachers-table ul li:before {
+
+        .teacher-file ul li:before {
             content: '•';
             position: absolute;
             left: -1rem;
             color: var(--accent-color);
         }
-        
+
+        .file-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px dashed rgba(61, 47, 31, 0.25);
+        }
+
         .consequence-tag {
             display: inline-block;
             padding: 0.4rem 0.8rem;
-            border-radius: 30px;
-            font-size: 0.85rem;
+            border-radius: 2px;
+            font-size: 0.82rem;
             font-weight: 500;
         }
-        
+
         .consequence-tag.severe {
-            background-color: rgba(220, 53, 69, 0.1);
-            color: #dc3545;
-            border: 1px solid rgba(220, 53, 69, 0.2);
+            background-color: rgba(140, 47, 47, 0.1);
+            color: var(--secondary-color);
+            border: 1px solid rgba(140, 47, 47, 0.25);
         }
-        
+
         .consequence-tag.moderate {
-            background-color: rgba(255, 152, 0, 0.1);
-            color: #ff9800;
-            border: 1px solid rgba(255, 152, 0, 0.2);
+            background-color: rgba(168, 134, 47, 0.12);
+            color: #8a6d1f;
+            border: 1px solid rgba(168, 134, 47, 0.3);
         }
-        
+
         .resource-link {
             display: inline-flex;
             align-items: center;
@@ -825,15 +829,16 @@
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 10px rgba(28, 23, 18, 0.15);
+            flex-shrink: 0;
         }
-        
+
         .resource-link:hover {
             transform: translateY(-3px) rotate(360deg);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(28, 23, 18, 0.25);
         }
-        
-        /* Animación para las filas al cargar la página */
+
+        /* Animación para las fichas al cargar la página */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -845,33 +850,12 @@
             }
         }
         
-        .false-teachers-table tbody tr {
-            animation: fadeInUp 0.6s ease backwards;
-        }
-        
-        .false-teachers-table tbody tr:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-        
-        .false-teachers-table tbody tr:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        
-        .false-teachers-table tbody tr:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-        
-        .false-teachers-table tbody tr:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-        
-        .false-teachers-table tbody tr:nth-child(5) {
-            animation-delay: 0.5s;
-        }
-        
-        .false-teachers-table tbody tr:nth-child(6) {
-            animation-delay: 0.6s;
-        }
+        .teacher-file:nth-child(1) { animation-delay: 0.1s; }
+        .teacher-file:nth-child(2) { animation-delay: 0.2s; }
+        .teacher-file:nth-child(3) { animation-delay: 0.3s; }
+        .teacher-file:nth-child(4) { animation-delay: 0.4s; }
+        .teacher-file:nth-child(5) { animation-delay: 0.5s; }
+        .teacher-file:nth-child(6) { animation-delay: 0.6s; }
         
         /* Footer */
         footer {
@@ -888,7 +872,7 @@
         }
         
         .footer-col h4 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Big Shoulders Display', sans-serif;
             font-size: 1.3rem;
             margin-bottom: 1.5rem;
             position: relative;
@@ -955,69 +939,6 @@
             border-top: 1px solid #333;
             font-size: 0.9rem;
             color: #aaa;
-        }
-        
-        /* Responsive Design para la tabla */
-        @media (max-width: 992px) {
-            .false-teachers-table {
-                display: block;
-            }
-            
-            .false-teachers-table thead {
-                display: none;
-            }
-            
-            .false-teachers-table tbody {
-                display: block;
-            }
-            
-            .false-teachers-table tr {
-                display: block;
-                margin-bottom: 1.5rem;
-                border: 1px solid rgba(0, 0, 0, 0.1);
-                border-radius: 8px;
-                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-                overflow: hidden;
-            }
-            
-            .false-teachers-table td {
-                display: block;
-                text-align: right;
-                padding: 0.8rem 1rem;
-                position: relative;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            }
-            
-            .false-teachers-table td:last-child {
-                border-bottom: none;
-            }
-            
-            .false-teachers-table td::before {
-                content: attr(data-label);
-                position: absolute;
-                left: 1rem;
-                font-weight: 700;
-                text-align: left;
-                color: var(--primary-color);
-            }
-            
-            .teacher-name {
-                justify-content: flex-end;
-            }
-            
-            .teacher-name i {
-                order: 2;
-                margin-right: 0;
-                margin-left: 10px;
-            }
-            
-            .false-teachers-table ul {
-                text-align: left;
-            }
-            
-            .resource-link {
-                margin-right: 0;
-            }
         }
         
         /* Mobile Styles */
@@ -1277,7 +1198,7 @@
     <header>
         <div class="container header-content">
             <div class="logo">
-                <img src="../../../images/EMD.png?v=2" alt="Logo EMD">
+                <img src="../../images/EMD.png?v=2" alt="Logo EMD">
                 <div class="logo-text">
                     <div>Ministerio</div>
                     <div>"La Gloria es del Señor"</div>
@@ -1290,7 +1211,7 @@
 
             <nav>
                 <ul>
-                    <li><a href="../../../index.html">Inicio</a></li>
+                    <li><a href="../../index.html">Inicio</a></li>
                     <li class="menu-item-has-children">
                         <a>Figuras Bíblicas</a>
                         <ul class="sub-menu">
@@ -1312,6 +1233,7 @@
                             <li><a href="sociedades-secretas.html">Sociedades Secretas</a></li>
                             <li><a href="sectas-anticristianas.html">Sectas Anticristianas</a></li>
                             <li class="current-page"><a href="pseudoprofetas.html">Pseudoprofetas</a></li>
+                            <li><a href="reptilianos-consejo-13.html">Reptilianos y Consejo de los 13</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children">
@@ -1363,6 +1285,7 @@
 
     <section class="hero">
         <div class="container hero-content">
+            <div class="hero-eyebrow">Galería de Retratos Falsos</div>
             <h1>Pseudoprofetas a lo largo de la Historia</h1>
             <div class="divider"></div>
             <p>Un análisis histórico y bíblico de aquellos que se han proclamado como mesías o profetas pero cuyos mensajes contradicen las enseñanzas cristianas fundamentales.</p>
@@ -1430,6 +1353,7 @@
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Simón el Mago</h3>
+                        <span class="card-plaque"></span>
                         <div class="card-meta">
                             <span><i class="fas fa-calendar"></i> Siglo I</span>
                             <span><i class="fas fa-map-marker-alt"></i> Samaria</span>
@@ -1445,6 +1369,7 @@
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Montano</h3>
+                        <span class="card-plaque"></span>
                         <div class="card-meta">
                             <span><i class="fas fa-calendar"></i> Siglo II</span>
                             <span><i class="fas fa-map-marker-alt"></i> Frigia</span>
@@ -1460,6 +1385,7 @@
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Joseph Smith</h3>
+                        <span class="card-plaque"></span>
                         <div class="card-meta">
                             <span><i class="fas fa-calendar"></i> 1805-1844</span>
                             <span><i class="fas fa-map-marker-alt"></i> Estados Unidos</span>
@@ -1475,6 +1401,7 @@
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Sun Myung Moon</h3>
+                        <span class="card-plaque"></span>
                         <div class="card-meta">
                             <span><i class="fas fa-calendar"></i> 1920-2012</span>
                             <span><i class="fas fa-map-marker-alt"></i> Corea</span>
@@ -1490,6 +1417,7 @@
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">José Luis de Jesús Miranda</h3>
+                        <span class="card-plaque"></span>
                         <div class="card-meta">
                             <span><i class="fas fa-calendar"></i> 1946-2013</span>
                             <span><i class="fas fa-map-marker-alt"></i> Puerto Rico</span>
@@ -1505,6 +1433,7 @@
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">David Koresh</h3>
+                        <span class="card-plaque"></span>
                         <div class="card-meta">
                             <span><i class="fas fa-calendar"></i> 1959-1993</span>
                             <span><i class="fas fa-map-marker-alt"></i> Estados Unidos</span>
@@ -1525,176 +1454,125 @@
                 <p>Tabla comparativa de otros líderes religiosos que han promovido enseñanzas contrarias a la fe cristiana.</p>
             </div>
             
-            <div class="table-container">
-                <table class="false-teachers-table">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Período</th>
-                            <th>Movimiento</th>
-                            <th>Enseñanzas Falsas</th>
-                            <th>Consecuencias</th>
-                            <th>Recursos</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-label="Nombre">
-                                <div class="teacher-name">
-                                    <i class="fas fa-user-times"></i>
-                                    <span>Jim Jones</span>
-                                </div>
-                            </td>
-                            <td data-label="Período">1931-1978</td>
-                            <td data-label="Movimiento">Templo del Pueblo</td>
-                            <td data-label="Enseñanzas Falsas">
-                                <ul>
-                                    <li>Se proclamó como encarnación de Cristo</li>
-                                    <li>Mezcla de socialismo, comunismo y cristianismo</li>
-                                    <li>Doctrina del "suicidio revolucionario"</li>
-                                </ul>
-                            </td>
-                            <td data-label="Consecuencias">
-                                <span class="consequence-tag severe">Suicidio masivo de 909 personas en Jonestown, Guyana</span>
-                            </td>
-                            <td data-label="Recursos">
-                                <a href="https://www.bbc.com/mundo/noticias-46174209" target="_blank" class="resource-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td data-label="Nombre">
-                                <div class="teacher-name">
-                                    <i class="fas fa-user-times"></i>
-                                    <span>Charles Taze Russell</span>
-                                </div>
-                            </td>
-                            <td data-label="Período">1852-1916</td>
-                            <td data-label="Movimiento">Testigos de Jehová</td>
-                            <td data-label="Enseñanzas Falsas">
-                                <ul>
-                                    <li>Negación de la Trinidad</li>
-                                    <li>Negación de la deidad de Cristo</li>
-                                    <li>Numerosas predicciones fallidas del fin del mundo</li>
-                                    <li>Traducción alterada de las Escrituras</li>
-                                </ul>
-                            </td>
-                            <td data-label="Consecuencias">
-                                <span class="consequence-tag moderate">Millones de seguidores actuales con doctrina tergiversada</span>
-                            </td>
-                            <td data-label="Recursos">
-                                <a href="https://www.coalicionporelevangelio.org/articulo/falsos-maestros-charles-taze-russell//" target="_blank" class="resource-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td data-label="Nombre">
-                                <div class="teacher-name">
-                                    <i class="fas fa-user-times"></i>
-                                    <span>Ellen G. White</span>
-                                </div>
-                            </td>
-                            <td data-label="Período">1827-1915</td>
-                            <td data-label="Movimiento">Adventistas del Séptimo Día</td>
-                            <td data-label="Enseñanzas Falsas">
-                                <ul>
-                                    <li>Afirmaciones de visiones y revelaciones divinas</li>
-                                    <li>Observancia sabática como necesaria para salvación</li>
-                                    <li>Doctrina del "sueño del alma" (no hay consciencia inmediata después de la muerte)</li>
-                                    <li>Teología de la "investigación del juicio"</li>
-                                </ul>
-                            </td>
-                            <td data-label="Consecuencias">
-                                <span class="consequence-tag moderate">Sus escritos equiparados a las Escrituras por muchos seguidores</span>
-                            </td>
-                            <td data-label="Recursos">
-                                <a href="https://www.gotquestions.org/espanol/Ellen-G-White.html" target="_blank" class="resource-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td data-label="Nombre">
-                                <div class="teacher-name">
-                                    <i class="fas fa-user-times"></i>
-                                    <span>L. Ron Hubbard</span>
-                                </div>
-                            </td>
-                            <td data-label="Período">1911-1986</td>
-                            <td data-label="Movimiento">Cienciología</td>
-                            <td data-label="Enseñanzas Falsas">
-                                <ul>
-                                    <li>Concepto del "thetán" en lugar del alma</li>
-                                    <li>Teoría de los "engramas" como fuente de problemas</li>
-                                    <li>Doctrina de Xenu y alienígenas</li>
-                                    <li>Técnicas de "auditing" como camino a la salvación</li>
-                                </ul>
-                            </td>
-                            <td data-label="Consecuencias">
-                                <span class="consequence-tag moderate">Organización coercitiva con millones en activos y acusaciones de abuso</span>
-                            </td>
-                            <td data-label="Recursos">
-                                <a href="https://www.gq.com.mx/estilo-de-vida/articulo/que-es-la-cienciologia-y-por-que-nunca-deberias-formar-parte-de-esa-religion" target="_blank" class="resource-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td data-label="Nombre">
-                                <div class="teacher-name">
-                                    <i class="fas fa-user-times"></i>
-                                    <span>Marshall Applewhite</span>
-                                </div>
-                            </td>
-                            <td data-label="Período">1931-1997</td>
-                            <td data-label="Movimiento">Heaven's Gate</td>
-                            <td data-label="Enseñanzas Falsas">
-                                <ul>
-                                    <li>Mezcla de cristianismo con OVNI-logía</li>
-                                    <li>Creencia en "subir de nivel" a través del suicidio</li>
-                                    <li>Afirmación de ser la encarnación de Jesús</li>
-                                    <li>Doctrina de que los cuerpos son "vehículos" desechables</li>
-                                </ul>
-                            </td>
-                            <td data-label="Consecuencias">
-                                <span class="consequence-tag severe">Suicidio masivo de 39 miembros en 1997</span>
-                            </td>
-                            <td data-label="Recursos">
-                                <a href="https://www.revistaquestaodeciencia.com.br/espanol/2019/03/22/supercheria-religion-y-supresion-de-la-libertad" target="_blank" class="resource-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td data-label="Nombre">
-                                <div class="teacher-name">
-                                    <i class="fas fa-user-times"></i>
-                                    <span>Sathya Sai Baba</span>
-                                </div>
-                            </td>
-                            <td data-label="Período">1926-2011</td>
-                            <td data-label="Movimiento">Organización Sathya Sai</td>
-                            <td data-label="Enseñanzas Falsas">
-                                <ul>
-                                    <li>Afirmación de ser encarnación divina de Shiva</li>
-                                    <li>Mezcla sincrética de todas las religiones</li>
-                                    <li>Supuesta realización de milagros (desacreditados)</li>
-                                    <li>Doctrina de ser el avatar de la era</li>
-                                </ul>
-                            </td>
-                            <td data-label="Consecuencias">
-                                <span class="consequence-tag moderate">Millones de seguidores, gran fortuna acumulada, divinización de un hombre</span>
-                            </td>
-                            <td data-label="Recursos">
-                                <a href="https://www.bbc.com/mundo/noticias/2011/04/110424_sai_baba_obituario_rg" target="_blank" class="resource-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="teacher-files-grid">
+                <article class="teacher-file">
+                    <div class="file-header">
+                        <div class="teacher-name"><i class="fas fa-user-times"></i><span>Jim Jones</span></div>
+                        <span class="file-period">1931-1978</span>
+                    </div>
+                    <div class="file-movement">Templo del Pueblo</div>
+                    <ul>
+                        <li>Se proclamó como encarnación de Cristo</li>
+                        <li>Mezcla de socialismo, comunismo y cristianismo</li>
+                        <li>Doctrina del "suicidio revolucionario"</li>
+                    </ul>
+                    <div class="file-footer">
+                        <span class="consequence-tag severe">Suicidio masivo de 909 personas en Jonestown, Guyana</span>
+                        <a href="https://www.bbc.com/mundo/noticias-46174209" target="_blank" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="teacher-file">
+                    <div class="file-header">
+                        <div class="teacher-name"><i class="fas fa-user-times"></i><span>Charles Taze Russell</span></div>
+                        <span class="file-period">1852-1916</span>
+                    </div>
+                    <div class="file-movement">Testigos de Jehová</div>
+                    <ul>
+                        <li>Negación de la Trinidad</li>
+                        <li>Negación de la deidad de Cristo</li>
+                        <li>Numerosas predicciones fallidas del fin del mundo</li>
+                        <li>Traducción alterada de las Escrituras</li>
+                    </ul>
+                    <div class="file-footer">
+                        <span class="consequence-tag moderate">Millones de seguidores actuales con doctrina tergiversada</span>
+                        <a href="https://www.coalicionporelevangelio.org/articulo/falsos-maestros-charles-taze-russell//" target="_blank" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="teacher-file">
+                    <div class="file-header">
+                        <div class="teacher-name"><i class="fas fa-user-times"></i><span>Ellen G. White</span></div>
+                        <span class="file-period">1827-1915</span>
+                    </div>
+                    <div class="file-movement">Adventistas del Séptimo Día</div>
+                    <ul>
+                        <li>Afirmaciones de visiones y revelaciones divinas</li>
+                        <li>Observancia sabática como necesaria para salvación</li>
+                        <li>Doctrina del "sueño del alma" (no hay consciencia inmediata después de la muerte)</li>
+                        <li>Teología de la "investigación del juicio"</li>
+                    </ul>
+                    <div class="file-footer">
+                        <span class="consequence-tag moderate">Sus escritos equiparados a las Escrituras por muchos seguidores</span>
+                        <a href="https://www.gotquestions.org/espanol/Ellen-G-White.html" target="_blank" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="teacher-file">
+                    <div class="file-header">
+                        <div class="teacher-name"><i class="fas fa-user-times"></i><span>L. Ron Hubbard</span></div>
+                        <span class="file-period">1911-1986</span>
+                    </div>
+                    <div class="file-movement">Cienciología</div>
+                    <ul>
+                        <li>Concepto del "thetán" en lugar del alma</li>
+                        <li>Teoría de los "engramas" como fuente de problemas</li>
+                        <li>Doctrina de Xenu y alienígenas</li>
+                        <li>Técnicas de "auditing" como camino a la salvación</li>
+                    </ul>
+                    <div class="file-footer">
+                        <span class="consequence-tag moderate">Organización coercitiva con millones en activos y acusaciones de abuso</span>
+                        <a href="https://www.gq.com.mx/estilo-de-vida/articulo/que-es-la-cienciologia-y-por-que-nunca-deberias-formar-parte-de-esa-religion" target="_blank" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="teacher-file">
+                    <div class="file-header">
+                        <div class="teacher-name"><i class="fas fa-user-times"></i><span>Marshall Applewhite</span></div>
+                        <span class="file-period">1931-1997</span>
+                    </div>
+                    <div class="file-movement">Heaven's Gate</div>
+                    <ul>
+                        <li>Mezcla de cristianismo con OVNI-logía</li>
+                        <li>Creencia en "subir de nivel" a través del suicidio</li>
+                        <li>Afirmación de ser la encarnación de Jesús</li>
+                        <li>Doctrina de que los cuerpos son "vehículos" desechables</li>
+                    </ul>
+                    <div class="file-footer">
+                        <span class="consequence-tag severe">Suicidio masivo de 39 miembros en 1997</span>
+                        <a href="https://www.revistaquestaodeciencia.com.br/espanol/2019/03/22/supercheria-religion-y-supresion-de-la-libertad" target="_blank" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="teacher-file">
+                    <div class="file-header">
+                        <div class="teacher-name"><i class="fas fa-user-times"></i><span>Sathya Sai Baba</span></div>
+                        <span class="file-period">1926-2011</span>
+                    </div>
+                    <div class="file-movement">Organización Sathya Sai</div>
+                    <ul>
+                        <li>Afirmación de ser encarnación divina de Shiva</li>
+                        <li>Mezcla sincrética de todas las religiones</li>
+                        <li>Supuesta realización de milagros (desacreditados)</li>
+                        <li>Doctrina de ser el avatar de la era</li>
+                    </ul>
+                    <div class="file-footer">
+                        <span class="consequence-tag moderate">Millones de seguidores, gran fortuna acumulada, divinización de un hombre</span>
+                        <a href="https://www.bbc.com/mundo/noticias/2011/04/110424_sai_baba_obituario_rg" target="_blank" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
