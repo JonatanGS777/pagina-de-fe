@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Los Alienígenas Reptiles y el Consejo de las 13 Familias Reales - por Stewart Swerdlow (Biblioteca Pleyades)">
+<title>Los Reptilianos y el Consejo de Los 13</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a120d;
+    --bg-soft: #0d1f16;
+    --card: #11251a;
+    --ink: #cfd9d0;
+    --muted: #7d8f82;
+    --blood: #a8283a;
+    --blood-soft: #d1495a;
+    --scale: #3f5a4a;
+    --scale-light: #6b8a76;
+    --line: rgba(168, 40, 58, .28);
+    --serif: 'Cinzel', Georgia, 'Times New Roman', serif;
+    --cond: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    --sans: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background:
+      radial-gradient(900px 600px at 88% -10%, rgba(168, 40, 58, .10), transparent 60%),
+      radial-gradient(900px 700px at -10% 25%, rgba(63, 90, 74, .14), transparent 55%),
+      radial-gradient(circle at 100% 50%, transparent 20%, rgba(63,90,74,.05) 21%, rgba(63,90,74,.05) 34%, transparent 35%, transparent),
+      radial-gradient(circle at 0% 50%, transparent 20%, rgba(63,90,74,.05) 21%, rgba(63,90,74,.05) 34%, transparent 35%, transparent) 0 -50px,
+      var(--bg);
+    background-size: auto, auto, 60px 100px, 60px 100px, auto;
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.85;
+    min-height: 100vh;
+  }
+  ::selection { background: rgba(168, 40, 58, .32); color: #fff; }
+
+  /* --- reading progress --- */
+  #progress {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+    background: linear-gradient(90deg, var(--blood), var(--scale-light));
+    z-index: 60; box-shadow: 0 0 12px rgba(168, 40, 58, .6);
+  }
+
+  /* --- top bar --- */
+  header.bar {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: .8rem 1.5rem;
+    background: rgba(10, 18, 13, .82);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+  }
+  header.bar .brand {
+    display: flex; align-items: center; gap: .7rem;
+    font-family: var(--serif); font-size: 1rem; letter-spacing: .04em;
+    color: #e9efe9; text-decoration: none; font-weight: 600;
+  }
+  header.bar .brand::before {
+    content: '\25c8'; color: var(--blood-soft); font-size: .9rem;
+    text-shadow: 0 0 10px rgba(168, 40, 58, .8);
+  }
+  header.bar nav { display: flex; align-items: center; gap: 1.3rem; }
+  header.bar nav a {
+    color: var(--muted); text-decoration: none;
+    font-family: var(--cond); font-size: .92rem; font-weight: 600;
+    letter-spacing: .06em; text-transform: uppercase;
+    transition: color .25s;
+  }
+  header.bar nav a:hover { color: var(--blood-soft); }
+  .nav-back {
+    display: flex; align-items: center; gap: .4rem;
+    padding: .35rem .75rem;
+    border: 1px solid var(--line); border-radius: 3px;
+    background: rgba(168, 40, 58, .06);
+  }
+  .nav-back:hover { background: rgba(168, 40, 58, .16); border-color: var(--blood-soft); }
+  .nav-back i { font-size: .75rem; }
+
+  /* --- layout --- */
+  .page { max-width: 780px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* --- hero --- */
+  .hero { text-align: center; padding: 4.5rem 0 2.5rem; }
+  .kicker {
+    font-family: var(--cond); font-weight: 600;
+    font-size: .82rem; letter-spacing: .35em; text-transform: uppercase;
+    color: var(--blood-soft); margin-bottom: 1.2rem;
+  }
+  .page-title {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2rem, 5.5vw, 3.1rem); line-height: 1.2;
+    background: linear-gradient(120deg, #e9c6cb 0%, var(--blood-soft) 45%, var(--scale-light) 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    margin-bottom: 1.4rem;
+  }
+  .meta { color: var(--muted); font-size: .88rem; line-height: 1.9; }
+  .meta strong { color: #dfe6de; font-weight: 600; }
+  .meta a { color: var(--blood-soft); text-decoration: none; }
+  .meta a:hover { text-decoration: underline; }
+
+  /* serrated "shedding" divider, evokes a scale/skin edge */
+  .ornament {
+    height: 10px; max-width: 260px; margin: 1.8rem auto 0; opacity: .8;
+    background-image: repeating-linear-gradient(135deg, var(--scale-light) 0 4px, transparent 4px 9px);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+  }
+
+  /* --- article --- */
+  .article { padding: 1rem 0 3rem; }
+  .article p {
+    font-size: 1.02rem; color: #c9d3ca; margin-bottom: 1.35rem;
+    text-align: justify; hyphens: auto;
+  }
+  .article p:first-of-type::first-letter {
+    font-family: var(--serif); font-size: 3.3rem; font-weight: 600;
+    float: left; line-height: .85; padding: .25rem .55rem 0 0;
+    color: var(--blood-soft);
+  }
+  .article h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: 1.9rem; color: var(--blood-soft);
+    margin: 3.2rem 0 1.2rem; letter-spacing: .01em;
+    display: flex; align-items: center; gap: .8rem;
+  }
+  .article h2::before {
+    content: '\25c8'; font-size: 1rem; color: var(--scale-light); flex: none;
+  }
+
+  .article ul { margin: 0 0 1.6rem 1.35rem; }
+  .article ul li { margin-bottom: .45rem; color: #c9d3ca; font-size: 1.02rem; }
+  .article ul li::marker { color: var(--blood-soft); }
+
+  figure { margin: 2.6rem 0; text-align: center; }
+  figure a { display: block; }
+  figure img {
+    width: 100%; max-width: 560px; height: auto;
+    border-radius: 3px;
+    border: 1px solid var(--line);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, .55);
+    transition: transform .45s ease, box-shadow .45s ease;
+  }
+  figure a:hover img { transform: translateY(-5px); box-shadow: 0 26px 60px rgba(0, 0, 0, .65); }
+  figcaption {
+    max-width: 560px; margin: .9rem auto 0;
+    font-family: var(--cond); font-size: .92rem; font-style: normal; color: var(--muted);
+    letter-spacing: .02em;
+  }
+
+  .nota {
+    margin: 2.4rem 0; padding: 1.2rem 1.4rem;
+    background: linear-gradient(90deg, rgba(168, 40, 58, .10), rgba(168, 40, 58, .02));
+    border-left: 3px solid var(--blood);
+    border-radius: 0 3px 3px 0;
+    font-size: .98rem; color: #d8b9bd;
+  }
+  .nota strong { color: var(--blood-soft); }
+
+  /* --- references --- */
+  .refs {
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    margin-top: 3rem; padding: 3rem 0 4rem;
+  }
+  .refs h2 {
+    font-family: var(--serif); font-weight: 600; font-size: 1.8rem;
+    color: var(--blood-soft); margin-bottom: .6rem;
+  }
+  .refs .src { color: var(--muted); font-size: .9rem; margin-bottom: 1.2rem; }
+  .refs ul { list-style: none; }
+  .refs ul li { margin-bottom: .8rem; }
+  .refs ul a {
+    color: var(--scale-light); text-decoration: none; font-size: .98rem;
+    border-bottom: 1px solid rgba(107, 138, 118, .35); padding-bottom: 1px;
+    transition: color .25s, border-color .25s;
+  }
+  .refs ul a:hover { color: #9fc2ac; border-color: #9fc2ac; }
+  .refs .fine {
+    margin-top: 1.6rem; padding: 1.2rem 1.3rem;
+    background: var(--card); border: 1px solid rgba(255, 255, 255, .07);
+    border-radius: 3px; font-size: .82rem; color: var(--muted); line-height: 1.8;
+  }
+  .refs .fine b { color: #cfd8ce; font-weight: 600; }
+
+  footer {
+    border-top: 1px solid rgba(255, 255, 255, .06);
+    padding: 1.6rem 1.5rem; text-align: center;
+    color: #5c675e; font-size: .78rem; letter-spacing: .05em;
+  }
+
+  /* --- back to top --- */
+  #toTop {
+    position: fixed; right: 1.4rem; bottom: 1.4rem; z-index: 50;
+    width: 44px; height: 44px; border-radius: 3px;
+    border: 1px solid var(--line); background: rgba(17, 37, 26, .88);
+    color: var(--blood-soft); font-size: 1.15rem; cursor: pointer;
+    opacity: 0; pointer-events: none; transition: opacity .3s, transform .3s;
+    backdrop-filter: blur(8px);
+  }
+  #toTop.visible { opacity: 1; pointer-events: auto; }
+  #toTop:hover { transform: translateY(-3px); }
+
+  @media (max-width: 560px) {
+    header.bar .brand span.tag { display: none; }
+    header.bar nav a:not(.nav-back) { display: none; }
+    .page-title { font-size: 2rem; }
+    figure img { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<header class="bar">
+  <a class="brand" href="#"><span class="tag">Los Reptilianos y el Consejo de Los 13</span></a>
+  <nav>
+    <a href="#articulo">Artículo</a>
+    <a href="#referencias">Referencias</a>
+    <a href="falsasdoctrinas.html" class="nav-back"><i class="fas fa-arrow-left"></i>Falsas Doctrinas</a>
+  </nav>
+</header>
+
+<main class="page">
+  <section class="hero">
+    <p class="kicker">Biblioteca Pleyades · Linaje Draconiano</p>
+    <h1 class="page-title">Los Alienígenas Reptiles<br>y el Consejo de las<br>13 Familias 'reales'</h1>
+    <p class="meta">
+      por <strong>Stewart Swerdlow</strong><br>
+      Extractos de <strong>&ldquo;Blue Blood, True Blood: Conflict &amp; Creation&rdquo;</strong><br>
+      traducción de <strong>Adela Kaufmann</strong> · 05 Enero, 2015
+    </p>
+  </section>
+
+  <div class="ornament"></div>
+
+  <article class="article" id="articulo">
+<figure><a href='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_01.jpg' target='_blank' rel='noopener'><img src='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_01.jpg' loading='lazy' alt='Ilustración simbólica del linaje reptiliano y las familias gobernantes'></a></figure>
+<p>El líder de los Illuminati en la Tierra se llama " Pindar ".</p>
+<p>Pindar es miembro de uno de los 13 gobernantes familias Illuminati, y es siempre masculino. El título, Pindar, es un término abreviado para "Pináculo de los Draco", también conocido como el "Pene del Dragón".</p>
+<p>Simbólicamente, esto representa la cima del poder, el control, la creación, la penetración, la expansión, la invasión, y el miedo. El titular de este rango se reporta al líder reptiliano de raza pura en la Tierra interna. Recientemente, hay informes de que el Marqués de Libeaux es el Pindar, pero esta es desinformación . El verdadero Pindar es la cabeza de la familia Rothschild, como ha sido durante varios cientos de años.</p>
+<p>Tiene su base en Alemania, cerca de Frankfurt. A finales de 1970, supervisó el proyecto hermano del Proyecto Montauk , llamado M.A.L.D.A. (por sus siglas en ingles), que es un anagrama de Activación Dimensional Montauk-Alsacia-Lorena . Este proyecto se encuentra cerca de la ciudad de Estrasburgo, Francia, históricamente una vez parte de Alemania.</p>
+<p>Curiosamente, hay una bodega de vinos en el extremo este de Long Island, no lejos de Montauk Point, llamado Viñedos Pindar .</p>
+<p>Este vino está creciendo en popularidad, ganando elogios internacionales. Esto encaja muy bien en el plan, ya que esta zona será una parte del distrito capital de las Naciones Unidas para la Tierra en el Estado Imperio (Empire State)!</p>
+<p>El vino tinto es un símbolo de la sangre ingerida por los reptilianos. El vino puede llegar a ser santificado como lo es en la Iglesia Católica Romana , un chivo expiatorio para los reptilianos.</p>
+<figure><a href='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_02.jpg' target='_blank' rel='noopener'><img src='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_02.jpg' loading='lazy' alt='Simbolismo del vino y la sangre en la ceremonia religiosa'></a></figure>
+<p>En la Iglesia Católica, el vino reemplaza la sangre en la ceremonia.</p>
+<p>Los Illuminati aquí en la Tierra han establecido una estructura piramidal de control idéntico al sistema que existe en el Imperio Draco .</p>
+<p>La pirámide con el ojo reptiliano, que se encuentra en el billete de un dólar estadounidense, es un símbolo de esta estructura de control. El ojo es el límite en la pirámide, lo que explica por qué la superficie original de la Gran Pirámide en Egipto fue coronada en oro sólido.</p>
+<p>Pindar está representado por la tapa de oro en la pirámide. La siguiente capa, u "ojo", en la pirámide representa a las 13 familias gobernantes.</p>
+<p>Son los siguientes:</p>
+<ul><li>Rothschild (Bauer o Bower) - Pindar</li><li>Bruce</li><li>Cavendish (Kennedy)</li><li>De Medici</li><li>Hanover</li><li>Habsburgo</li><li>Krupp</li><li>Plantagenet</li><li>Rockefeller</li><li>Romanov</li><li>Sinclair (St. Clair)</li><li>Warburg (del Banco)</li><li>Windsor (Saxe-Coburg-Gothe)</li></ul>
+<p>A cada una de las 13 familias gobernantes se le ha dado una superficie de la Tierra y/o una función particular para cumplir en la Tierra.</p>
+<p>Estas funciones particulares incluyen,</p>
+<ul><li>finanzas globales</li><li>tecnología militar/de desarrollo</li><li>control mental</li><li>religión</li><li>medios de comunicación</li></ul>
+<p>Cada una de las 13 familias gobernantes tiene un Consejo de Los 13 también.</p>
+<figure><a href='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_03.jpg' target='_blank' rel='noopener'><img src='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_03.jpg' loading='lazy' alt='Representación del número 13 y su significado esotérico'></a></figure>
+<p>El número 13, tiene un gran significado para ellos.</p>
+<p>Ellos saben que hay 12 tipos de energías que pasan a través de los 10 aspectos de Dios-Mente. La totalidad de las 12 energías es igual a una energía de 13. Esto se considera el conocimiento más potente.</p>
+<p>También saben que en realidad hay 13 signos del zodíaco, no los comúnmente reconocidos 12. Han mantenido el 13 escondido durante siglos porque es el signo del Dragón.</p>
+<p>Ellos mantienen las cualidades y características de este signo en secreto para evitar dar pistas sobre el patrón-mental reptiliano.</p>
+<p>La siguiente capa son las familias que son los segundos al mando, las hacen el trabajo de apoyo para el Pindar y las 13 familias gobernantes. Mientras todos los 13 miembros de la familia gobernante son metamorfos (que cambian de forma), todos los miembros de las 300 familias que apoyan no lo son. Ellos, sin embargo, todos tienen un alto porcentaje de ADN reptiliano.</p>
+<p>Se les conoce como el "Comité de los 300 ".</p>
+<p>Estas familias incluyen nombres tan notables como,</p>
+<p>Agnelli, Balliol, Beale, Bell, Bouvier, Bush, Cameron, Campbell, Carnegie, Carrington, Coolidge, Delano, Douglas, Ford, Gardner, Graham, Hamilton, Harriman, Heinz, Kuhn, Lindsay, Loeb, Mellon, Montgomery, Morgan, Norman, Oppenheimer, Rhodes, Roosevelt, Russell, Savoy, Schiff, Seton, Spencer, Stewart/Stuart, Taft, y Wilson.</p>
+<p>Hay muchos otros.</p>
+<figure><a href='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_04.jpg' target='_blank' rel='noopener'><img src='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_04.jpg' loading='lazy' alt='Instituciones vinculadas al Comité de los 300'></a></figure>
+<p>El Comité de Los 300 utilizan muchas instituciones de renombre para lograr sus objetivos, incluyendo,</p>
+<ul><li>Consejo de Relaciones Exteriores</li><li>Bilderberg</li><li>Comisión Trilateral</li><li>Club de Roma</li><li>Instituto Real de Asuntos Internacionales</li><li>Mafia</li><li>CIA</li><li>NSA</li><li>Mossad</li><li>Servicios Secretos</li><li>Fondo Monetario Internacional</li><li>Reserva Federal</li><li>Servicio de Impuestos Internos</li><li>Interpol,</li></ul>
+<p>...para nombrar unos pocos.</p>
+<p>Todas estas son organizaciones privadas o corporaciones constituidas en forma de dispositivos de servicio público, pero esto está lejos de la verdad.</p>
+<p>La estructura Illuminati también creas países artificiales para alcanzar sus objetivos.</p>
+<p>Ejemplos de estos son,</p>
+<p>los Estados Unidos, Suiza, Kuwait, la Unión Soviética, Panamá, Israel, Italia, Yugoslavia, el Reino Unido, la mayor parte de África Negra, todos los países árabes, y todo Centro y Sur América.</p>
+<p>Estas naciones fueron creadas para acumular riqueza para las familias gobernantes y sus partidarios, para ocultar o mantener su riqueza, y crear condiciones inestables necesarias para iniciar guerras o aumentar los presupuestos militares.</p>
+<p>Suiza fue creada como un centro bancario neutral para que las familias Illuminati tuvieran un lugar seguro para guardar sus fondos sin temor a la destrucción por guerras y miradas indiscretas. Los Estados Unidos fue establecido con 13 colonias, una para cada una de las familias Illuminati.</p>
+<p>La bandera original tenía 13 estrellas, y todavía tiene 13 rayas. El águila, el símbolo de los Estados Unidos, tiene 13 flechas en sus garras. Los Estados Unidos es en realidad una empresa de activos de la Compañía de Virginia que se estableció en 1604 en Inglaterra con la participación directa de los Rothschild .</p>
+<p>Las finanzas de los Rothschild eran necesarias para financiar la exploración y explotación del continente norteamericano. Los activos de la Compañía de Virginia, incluyendo los Estados Unidos, son propiedad del Sacro Imperio Romano a través del Vaticano .</p>
+<figure><a href='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_05.jpg' target='_blank' rel='noopener'><img src='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_05.jpg' loading='lazy' alt='Traspaso de activos ingleses a la Iglesia Católica en 1213'></a></figure>
+<p>Esto ocurrió en 1213, cuando el rey James dio todos los activos ingleses al Papa Reptil ( Inocencio III ). Albaceazgo se mantiene con la familia real británica, pero la propiedad real está con la Iglesia Católica Romana.</p>
+<p>El continente americano no tiene su nombre por Américo Vespucio , como lo aprendimos todos en la escuela. Los Illuminati nunca nombrarían un continente, en realidad dos continentes, en honor de un cartógrafo italiano.</p>
+<p>El nombre es en realidad una combinación de las palabras:</p>
+<ul><li>"Am" es la palabra hebrea para "pueblo"</li><li>"Ame" también es la forma de comandos del verbo latín/español "amar"</li><li>"Eri" o "ari" es un término hebreo para "león"</li><li>"Rica" es la forma femenina de la palabra española para "rico"</li><li>"Ka" es la antigua palabra egipcia para alma, espíritu o fuerza dentro de un cuerpo</li></ul>
+<p>Hay dos capas de significados.</p>
+<p>El hebreo antiguo/egipcia se traduce para decir,</p>
+<p>"la gente del león con fuerza de espíritu".</p>
+<p>Por lo tanto, la pirámide y el ojo que todo lo ve en el billete de un dólar.</p>
+<p>La versión latinizada se traduce para decir, "amar las riquezas", de una manera feminizada/física de la realidad. Esto da una idea de lo que tenían en mente.</p>
+<figure><a href='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_06.jpg' target='_blank' rel='noopener'><img src='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_06.jpg' loading='lazy' alt='Las Líneas de Colonización Occidentales de Mu'></a><figcaption>Las Líneas de Colonización Occidentales de Mu</figcaption></figure>
+<p>Tomando esto un paso más allá, uno ve la mezcla de las ideas femeninas Latinas/ águilas con las ideas hebreas/león masculinas. La declaración simbólica de América es que es una combinación de la Lemuria y la Atlántida ; una mezcla de humanos/Lira con Reptil/Draco.</p>
+<p>Tal vez el anagrama LSD, una droga creada por los Illuminati, tiene un significado oculto, así:</p>
+<p>¡ Lyra - Sirio - Draco !</p>
+<p>¡ La combinación de estas tres civilizaciones produciría el más poderoso imperio, tecnológico jamás conocido!</p>
+<p>En 1776, la creación de los Estados Unidos como una nación independiente coincidió con la declaración de la existencia pública de la organización oficial de Los Illuminati por su miembro Adam Weishaupt , en Baviera.</p>
+<p>Públicamente, Weishaupt parecía estar decidido a crear una organización formada por la élite europea que elevaría a la humanidad. Por supuesto, esto era parte de una ceremonia mundial Illuminati. La creación de los Estados Unidos y la ceremonia mundial Illuminati. La creación de los Estados Unidos y la organización Illuminati eran inicios artificiales para el consumo público.</p>
+<p>Los Estados Unidos fue el dispositivo que se utilizó para lograr que los Illuminati tuvieran la aceptación del público.</p>
+<p>Los miembros actuales Illuminati creen que Adam Weishaupt era alguien similar a George Washington, y es en realidad la imagen de Weishaupt la que aparece en el billete de un dólar. George Washington era un propietario de esclavos y un rico dueño de plantaciones.</p>
+<p>Él es conocido por haber violado a algunas de sus esclavas y utilizado algunos de los esclavos en la ceremonia ritual. Hay muchas personas de raza negra que puede rastrear literalmente su genética a los padres fundadores.</p>
+<p>George Washington también ordenó la construcción del faro de Montauk en 1796.</p>
+<figure><a href='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_07.jpg' target='_blank' rel='noopener'><img src='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_07.jpg' loading='lazy' alt='El faro de Montauk construido en 1796'></a></figure>
+<p>Este faro incluye un área para el almacenamiento subterráneo de suministro en caso de una invasión de la costa británica.</p>
+<p>Si él hubiera sabido en lo que se convertiría esa zona - o ¿no?</p>
+<p>Las 13 familias dirigentes Illuminati constantemente compiten por el control entre ellos.</p>
+<p>Durante este período de tiempo, los españoles, ingleses y franceses Illuminati todos lucharon para ganar control sobre Norteamérica y Sudamérica. Los Rothschild mantuvieron estas facciones Illuminati en línea mediante el envío de tropas de Hesse para controlar la situación. Los líderes disfrutaban de estos juegos de guerra, enfrentando a unos contra otros para ver quién iba a ganar.</p>
+<p>Los cientos de miles de vidas perdidas no tenían sentido para ellos.</p>
+<p>La Doctrina del Destino Manifiesto de los Estados Unidos fue creado para ampliar el territorio de los arios a expensas de las poblaciones nativas.</p>
+<p>Como siempre, los Illuminati buscan destruir los pueblos indígenas y sus culturas. Este es un intento de destruir su conocimiento de Dios-Mente, así como la posibilidad de que los nativos impartieran esta información a otras personas.</p>
+<p>Especialmente importante es la necesidad de eliminar a las culturas nativas con conocimientos ancestrales de la Atlántida y Lira .</p>
+<figure><a href='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_08.jpg' target='_blank' rel='noopener'><img src='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_08.jpg' loading='lazy' alt='El Camino de las Lágrimas y la eliminación de culturas nativas'></a></figure>
+<p>Los nativos que les dieron los problemas más grandes fueron los indios Cherokee porque esta tribu retuvo la mayor parte de sus conocimientos de la Atlántida, incluso el acceso a la frecuencia de información ' Oso/Pie Grande '.</p>
+<p>Por esta razón, estas personas fueron arrancadas de su tierra natal en las montañas de los Apalaches del Sur, y por la fuerza los hicieron marchar a Oklahoma en lo que hoy se conoce como El Camino de las Lágrimas.</p>
+<p>Muchos murieron en el camino. Sólo un remanente se mantuvo en Carolina del Norte, Tennessee y Georgia. En el norte, la gran nación Iroquois/Mohawk fue disuelta. Los Montauks, descendientes directos de los atlantes, que llaman a su líder Faraón, fueron eliminados sistemáticamente.</p>
+<p>Los Rothschild estuvieron involucrados de manera agresiva con la trata de esclavos desde África, importando esclavos a América del Norte y del Sur, así como el Caribe.</p>
+<figure><a href='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_09.jpg' target='_blank' rel='noopener'><img src='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_09.jpg' loading='lazy' alt='La trata de esclavos africana y su vínculo con la agenda Illuminati'></a></figure>
+<p>Fueron muy cuidadosos de no importar negros de las áreas del este de Etiopía o Sudán, donde se encuentran los descendientes de Salomón, en cambio se concentraron en África occidental y central para las poblaciones de esclavos.</p>
+<p>Estas áreas tenían la mezcla pura de Anunnaki y la genética de simios, y la programación conveniente para la agenda Illuminati. Los Rothschild decidieron que la división de las colonias de los Estados Unidos duplicaría sus ganancias. Así que ellos crearon y apoyaron política y financieramente, la Guerra Civil. La Guerra Civil fue en realidad un ritual ceremonial mundial para traer la esclavitud a su siguiente nivel.</p>
+<p>Esta guerra permitió al Norte ganar, y abolir públicamente la esclavitud.</p>
+<p>Los mejores esclavos son los que no se dan cuenta de que son esclavos. Esto alivia la rebelión y la resistencia. Esta era la situación inmediatamente posterior a la Guerra Civil. Los negros en el Sur siguen siendo esclavos. Todavía hay segregación, incluso en el Norte.</p>
+<p>Los Illuminati aún consideran que los negros son ciudadanos de segunda o tercera clase.</p>
+<p>Sólo que ahora la esclavitud es sutil y enmascarada.</p>
+<div class='nota'>NOTA: Aquellos que están en el poder nos consideramos A TODOS comedores inútiles y han utilizado técnicas de "divide y vencerás" en contra de nosotros para evitar que nos unamos. Lo que "TODOS" necesitamos tener en cuenta es que una vez que la parte inferior de la pirámide se una, el resto colapsará.</div>
+<p>Desde la Guerra Civil, ha habido otras guerras puestas en escena que atrincheraron la tendencia hacia la globalización.</p>
+<p>La Guerra Española-Americana de 1898-1899 adquirió más tierras para los Illuminati estadounidenses, colocando de una mayor parte de la superficie de la Tierra bajo la jurisdicción estadounidense.</p>
+<p>La Primera Guerra Mundial fue diseñada para cambiar el mapa de Europa, así como la tecnología de la guerra química y de gérmenes para uso futuro. Esto coincidió con el brote de influenza en todo el mundo, diseñado para reducir la población mundial, haciendo más fácil su control. La Primera Guerra Mundial también sentó las bases para el papel de Alemania en la próxima guerra.</p>
+<p>La Segunda Guerra Mundial fue una prueba final de los proyectos de globalización y de exterminio.</p>
+<p>También fue diseñada,</p>
+<ul><li>para probar las maquinaciones de control mental</li><li>para probar el uso de fluoruro que amortigua la actividad cerebral y ralentiza la resistencia a la autoridad</li><li>para experimentar con campos de trabajo esclavo y estudiar el desarrollo de la resistencia</li><li>para enseñar a las masas a espiar e informar unos sobre los otros</li></ul>
+<p>La Segunda Guerra Mundial trajo a buen término tres objetivos principales de los Illuminati:</p>
+<ul><li>El primero fue que los simbolismos ocultos Illuminati fueron llevados a la atención pública desde los fuertes subterráneos en el Tíbet y Egipto, como la cruz gamada y el ankh.</li><li>El segundo fue la creación del Estado de Israel como base para la Nueva Religión Mundial .</li><li>La última fue la creación de armas nucleares como parte de la ceremonia mundial Illuminati.</li></ul>
+<p>Durante la Segunda Guerra Mundial, los alemanes ayudaron a perfeccionar los "esclavos sexuales" como un medio de transmisión de información entre la élite.</p>
+<p>Las esclavas sexuales pueden ser hombres o mujeres, que están programados sexualmente usando los procedimientos de Wilhelm Reich , que son ilegales en los Estados Unidos, pero que son utilizados por los Illuminati y el gobierno. Estas esclavas sexuales entregan mensajes y mantienen a los durmientes programados en línea.</p>
+<figure><a href='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_10.jpg' target='_blank' rel='noopener'><img src='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_10.jpg' loading='lazy' alt='Programación de esclavos sexuales según el relato de Swerdlow'></a></figure>
+<p>El esclavo sexual es descargado con un mensaje o la función a través de diversos actos y drogas sexuales, que sólo pueden ser liberados al repetir el mismo acto sexual con el objetivo, o persona, para ser activado.</p>
+<p>Ellos están capacitados para saber palabras de activación de su objetivo y detonar eventos para activar, eliminar o cambiar la programación.</p>
+<p>En los últimos años, varias mujeres se han presentado afirmando ser esclavas sexuales de figuras políticas reconocidas a nivel mundial.</p>
+<p>Muchos fueron utilizados como mensajeros de información entre los Illuminati masculinos de alto nivel. Por lo general, personas parecidas a las figuras políticas son utilizados en programación incipiente como un punto focal para el esclavo-sexual. El esclavo es sometido a un proceso de desensibilización, por lo que no hay placer en el acto sexual; no es más que un deber a ser ejecutado.</p>
+<p>Muchas veces el esclavo se vuelve sexualmente promiscuo, teniendo repetidamente relaciones sexuales con personas que se parecen al objetivo o blanco previsto. Es una vida triste. Al final de la Segunda Guerra Mundial, uno de los tres principales rituales globales Illuminati fue logrado.</p>
+<p>Esta fue la explosión nuclear que tuvo lugar en 1945 en el paralelo 33 como una prueba para el ataque nuclear sobre Japón. Esta explosión fue simbólica, representando la creación simultánea y la destrucción de la materia y la energía.</p>
+<p>El año era simbólico también. En numerología, 1 + 9 = 10, que representan los 10 aspectos de Dios-Mente. El número 10 se descompone a 1 + 0 = 1, lo que representa un nuevo comienzo. Continuando, 4 + 5 = 9, que representa el final de un ciclo. Simbólicamente, todo el evento representó el final de un ciclo para prepararse para un nuevo comienzo usando la nueva creación de Dios-Mente a partir de la destrucción.</p>
+<p>Además, un cilindro conteniendo material todavía no explicado por el gobierno estaba en camiones en las pruebas de explosión nuclear. Este cilindro fue hecho a partir de acero puro y supuestamente era de las mismas dimensiones físicas como la Cábala lo describe para la creación de Golems .</p>
+<p>La Kábala es metafísica antigua hebrea que ha sido un elemento básico de los Illuminati por milenios. Los Golems son seres artificiales que son utilizados como una fuerza esclava. Es muy probable que este era un ritual simbólico para la creación de la sociedad de los Golems.</p>
+<p>La II Guerra Mundial también permitió a los Illuminati europeos/estadounidenses destruir los deseos de los Illuminati japoneses de dominación global. La familia real japonesa, representada por el emperador Hirohito, siempre han sido condenados al ostracismo como no-legítimos por las13 familias gobernantes.</p>
+<p>La reclamación de Japón de ser descendientes directos de Lemurianos de pura sangre .</p>
+<figure><a href='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_11.jpg' target='_blank' rel='noopener'><img src='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_11.jpg' loading='lazy' alt='La familia real japonesa y su lugar en la jerarquía Draco descrita por Swerdlow'></a></figure>
+<p>Los Illuminati europeos/americanos afirman que los Illuminati japoneses son descendientes de una especie inferior en la jerarquía Draco .</p>
+<p>Esta especie inferior es considerada una clase trabajadora sin ningún peso o influencia política. Los Illuminati estadounidenses/europeos también afirman que los indios orientales son una especie inferior en la jerarquía Draco.</p>
+<p>Las 13 familias gobernantes consideran que el pelo y la piel clara es una característica de la élite.</p>
+<p>El 17 de enero de 1994, Japón envió un evento sísmico a California. Exactamente un año después, el 17 de enero de 1995, la ciudad de Kobe, Japón fue destruida sísmicamente.</p>
+<p>Kobe era el hogar de los centros japoneses de armamento electromagnético. Los Illuminati estadounidenses/europeos no toleran espinas en sus costados. La destrucción de Japón y su familia real continuará en los próximos meses/años.</p>
+<p>Cada año, los Illuminati celebran reuniones para planificar los eventos del año siguiente para lograr su principal objetivo formulado hace milenios, de control global y dominación.</p>
+<p>En la década de 1850, ellos identificaron su fecha objetivo para la dominación completa con una agenda denominada Plan 2,000 . Esto ya ha sido ajustado para 2003.</p>
+<p>El fiasco de la elección de George W. Bush Jr . a la Casa Blanca, es una señal clave de que están dando en el blanco. ¡ La lección pública de las "elecciones" presidenciales de Estados Unidos de 2000 es que los ciudadanos ya no votan por nadie!</p>
+<p>Incluso los Illuminati ahora están encontrando cada vez más difícil ocultar sus planes.</p>
+<p>Regresar a Los Illuminati</p>
+  </article>
+
+  <section class="refs" id="referencias">
+    <h2>Referencias</h2>
+    <p class="src">Este material fue tomado de las siguientes fuentes:</p>
+    <ul>
+      <li><a href="https://www.bibliotecapleyades.net/sumer_anunnaki/reptiles/reptiles116.htm" target="_blank" rel="noopener">Biblioteca Pleyades &mdash; Los Reptilianos y el Consejo de Los 13 (reptiles116.htm)</a></li>
+      <li><a href="https://www.bibliotecapleyades.net/sumer_anunnaki/reptiles/reptiles115.htm" target="_blank" rel="noopener">Versión original en inglés (reptiles115.htm)</a></li>
+    </ul>
+    <div class="fine">
+      <b>Autor:</b> Stewart Swerdlow &mdash; Extractos de &ldquo;Blue Blood, True Blood: Conflict &amp; Creation&rdquo;<br>
+      <b>Traducción:</b> Adela Kaufmann &nbsp;·&nbsp; <b>Sitio Web:</b> in5d &nbsp;·&nbsp; <b>Fecha:</b> 05 Enero, 2015<br>
+      Copyright de las fuentes originales. Página de referencia creada con fines informativos.
+    </div>
+  </section>
+</main>
+
+<footer>
+  Los Reptilianos y el Consejo de Los 13 &middot; Material reproducido con fines informativos &middot; Fuente: Biblioteca Pleyades
+</footer>
+
+<button id="toTop" aria-label="Volver arriba">&uarr;</button>
+
+<script>
+  var bar = document.getElementById('progress');
+  var topBtn = document.getElementById('toTop');
+  window.addEventListener('scroll', function () {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    topBtn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  topBtn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>
