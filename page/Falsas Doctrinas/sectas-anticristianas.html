@@ -14,20 +14,20 @@
     <title>Sectas Anticristianas | Ministerio "La Gloria es del Señor"</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c3e50; /* Azul profundo */
-            --secondary-color: #8e44ad; /* Púrpura suave */
-            --accent-color: #1abc9c; /* Turquesa */
-            --warning-color: #e74c3c; /* Rojo para advertencias */
-            --light-color: #f8f9fa;
-            --dark-color: #2c3e50;
-            --gradient-bg: linear-gradient(135deg, rgba(44, 62, 80, 0.95) 0%, rgba(142, 68, 173, 0.85) 100%);
-            --card-gradient: linear-gradient(135deg, rgba(44, 62, 80, 0.85) 0%, rgba(142, 68, 173, 0.75) 100%);
+            --primary-color: #263544; /* Pizarra */
+            --secondary-color: #a13d3d; /* Rojo desviación */
+            --accent-color: #b8925a; /* Dorado de referencia */
+            --warning-color: #a13d3d;
+            --light-color: #f2ede1; /* Marfil */
+            --dark-color: #1a2530; /* Pizarra profunda */
+            --gradient-bg: linear-gradient(135deg, rgba(38, 53, 68, 0.95) 0%, rgba(161, 61, 61, 0.82) 100%);
+            --card-gradient: linear-gradient(135deg, rgba(38, 53, 68, 0.9) 0%, rgba(161, 61, 61, 0.7) 100%);
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.06);
+            --box-shadow: 0 10px 20px rgba(26, 37, 48, 0.12), 0 6px 6px rgba(26, 37, 48, 0.08);
         }
         
         * {
@@ -37,7 +37,7 @@
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Work Sans', sans-serif;
             line-height: 1.6;
             color: var(--dark-color);
             background-color: var(--light-color);
@@ -79,7 +79,7 @@
         }
         
         .logo-text {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Spectral', serif;
             font-weight: 700;
             line-height: 1.2;
         }
@@ -107,7 +107,7 @@
         nav a {
             color: white;
             text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Spectral', serif;
             font-weight: 600;
             transition: var(--transition);
             display: block;
@@ -188,8 +188,9 @@
 
         /* Estilos específicos para la página de Sectas */
         .page-header {
-            background-image: url("images/sectas.png");
-            background-size: contain;
+            background:
+                linear-gradient(165deg, rgba(26, 37, 48, 0.86) 0%, rgba(38, 53, 68, 0.74) 55%, rgba(161, 61, 61, 0.5) 100%),
+                url("images/sectas.png") center / cover no-repeat;
             color: white;
             padding: 5rem 0;
             margin-bottom: 4rem;
@@ -197,27 +198,27 @@
             position: relative;
             overflow: hidden;
         }
-        
-        .page-header::before {
-            content: "";
+
+        .compass-rose {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0,0 L100,0 L100,100 L0,100 Z" f');
-            background-size: 30px 30px;
-            opacity: 0.3;
+            top: 50%;
+            left: 50%;
+            width: 460px;
+            height: 460px;
+            transform: translate(-50%, -50%);
+            color: var(--accent-color);
+            opacity: 0.14;
+            pointer-events: none;
         }
-        
+
         .page-header h1 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Spectral', serif;
             font-size: 3rem;
             margin-bottom: 1.5rem;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             position: relative;
         }
-        
+
         .page-header p {
             font-size: 1.2rem;
             max-width: 800px;
@@ -245,17 +246,17 @@
         
         .secta-card {
             background-color: white;
-            border-radius: 16px;
+            border-radius: 6px;
             overflow: hidden;
             box-shadow: var(--box-shadow);
             transition: var(--transition);
             position: relative;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(38, 53, 68, 0.08);
         }
-        
+
         .secta-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 40px rgba(26, 37, 48, 0.18);
         }
         
         .card-header {
@@ -278,7 +279,7 @@
         }
         
         .card-header h2 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Spectral', serif;
             font-size: 1.3rem;
             margin-bottom: 5px;
             font-weight: 700;
@@ -320,20 +321,20 @@
         }
         
         .additional-info {
-            background-color: rgba(44, 62, 80, 0.05);
+            background-color: rgba(38, 53, 68, 0.05);
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 4px;
             margin-top: 20px;
             position: relative;
             overflow: hidden;
         }
-        
+
         .additional-info::before {
             content: "";
             position: absolute;
             width: 100px;
             height: 100px;
-            background: radial-gradient(circle, rgba(142, 68, 173, 0.05) 0%, rgba(142, 68, 173, 0) 70%);
+            background: radial-gradient(circle, rgba(161, 61, 61, 0.06) 0%, rgba(161, 61, 61, 0) 70%);
             top: -50px;
             left: -50px;
             border-radius: 50%;
@@ -343,31 +344,67 @@
             color: var(--secondary-color);
             margin-bottom: 12px;
             font-size: 1.1rem;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Spectral', serif;
             font-weight: 600;
             position: relative;
         }
         
         .observaciones {
             background-color: white;
-            border-radius: 16px;
+            border-radius: 6px;
             padding: 40px;
             margin-bottom: 50px;
             box-shadow: var(--box-shadow);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(38, 53, 68, 0.08);
         }
-        
+
         .observaciones::before {
             content: "";
             position: absolute;
             width: 200px;
             height: 200px;
-            background: radial-gradient(circle, rgba(26, 188, 156, 0.05) 0%, rgba(26, 188, 156, 0) 70%);
+            background: radial-gradient(circle, rgba(184, 146, 90, 0.08) 0%, rgba(184, 146, 90, 0) 70%);
             top: -100px;
             right: -100px;
             border-radius: 50%;
+        }
+
+        .solas-compass {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem auto 2.5rem;
+            max-width: 620px;
+        }
+
+        .sola-point {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            width: 100px;
+            text-align: center;
+        }
+
+        .sola-point .needle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+        }
+
+        .sola-point span {
+            font-family: 'Spectral', serif;
+            font-style: italic;
+            font-size: 0.85rem;
+            color: var(--primary-color);
         }
         
         .observaciones h2 {
@@ -376,7 +413,7 @@
             font-size: 1.8rem;
             padding-bottom: 12px;
             display: inline-block;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Spectral', serif;
             position: relative;
         }
         
@@ -429,7 +466,7 @@
         
         .back-to-top:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(142, 68, 173, 0.3);
+            box-shadow: 0 8px 20px rgba(161, 61, 61, 0.3);
         }
         
         /* Footer Styles */
@@ -460,7 +497,7 @@
         }
         
         .footer-col h4 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Spectral', serif;
             font-size: 1.3rem;
             margin-bottom: 1.5rem;
             position: relative;
@@ -519,7 +556,7 @@
         .social-links a:hover {
             background-color: var(--accent-color);
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(26, 188, 156, 0.3);
+            box-shadow: 0 5px 15px rgba(184, 146, 90, 0.35);
         }
         
         .copyright {
@@ -796,6 +833,7 @@
                             <li><a href="sociedades-secretas.html">Sociedades Secretas</a></li>
                             <li><a href="sectas-anticristianas.html">Sectas Anticristianas</a></li>
                             <li><a href="pseudoprofetas.html">Pseudoprofetas</a></li>
+                            <li><a href="reptilianos-consejo-13.html">Reptilianos y Consejo de los 13</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children">
@@ -846,6 +884,14 @@
     </header>
 
     <section class="page-header">
+        <svg class="compass-rose" viewBox="0 0 200 200" fill="none" stroke="currentColor">
+            <circle cx="100" cy="100" r="96" stroke-width="1"/>
+            <circle cx="100" cy="100" r="72" stroke-width="1"/>
+            <circle cx="100" cy="100" r="2.5" fill="currentColor" stroke="none"/>
+            <path d="M100 4 L100 196 M4 100 L196 100" stroke-width="1.2"/>
+            <path d="M28 28 L172 172 M172 28 L28 172" stroke-width="0.6" stroke-dasharray="2 5"/>
+            <path d="M100 4 L92 30 L100 22 L108 30 Z" fill="currentColor" stroke="none"/>
+        </svg>
         <div class="container">
             <h1><i class="fas fa-exclamation-triangle"></i> Sectas Anticristianas</h1>
             <p>Información sobre 15 grupos religiosos cuyas enseñanzas contradicen los principios fundamentales del protestantismo bíblico</p>
@@ -861,7 +907,7 @@
             <div class="secta-card">
                 <div class="card-header">
                     <h2>Testigos de Jehová</h2>
-                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="warning-icon"><i class="fas fa-compass"></i></div>
                 </div>
                 <div class="card-body">
                     <ul>
@@ -879,7 +925,7 @@
             <div class="secta-card">
                 <div class="card-header">
                     <h2>Iglesia de Jesucristo de los Santos de los Últimos Días (Mormones)</h2>
-                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="warning-icon"><i class="fas fa-compass"></i></div>
                 </div>
                 <div class="card-body">
                     <ul>
@@ -897,7 +943,7 @@
             <div class="secta-card">
                 <div class="card-header">
                     <h2>Ciencia Cristiana</h2>
-                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="warning-icon"><i class="fas fa-compass"></i></div>
                 </div>
                 <div class="card-body">
                     <ul>
@@ -915,7 +961,7 @@
             <div class="secta-card">
                 <div class="card-header">
                     <h2>Iglesia de la Unificación (Moonies)</h2>
-                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="warning-icon"><i class="fas fa-compass"></i></div>
                 </div>
                 <div class="card-body">
                     <ul>
@@ -933,7 +979,7 @@
             <div class="secta-card">
                 <div class="card-header">
                     <h2>Gnosticismo moderno</h2>
-                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="warning-icon"><i class="fas fa-compass"></i></div>
                 </div>
                 <div class="card-body">
                     <ul>
@@ -951,7 +997,7 @@
             <div class="secta-card">
                 <div class="card-header">
                     <h2>Unidad de todas las religiones / Universalismo unitario</h2>
-                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="warning-icon"><i class="fas fa-compass"></i></div>
                 </div>
                 <div class="card-body">
                     <ul>
@@ -969,7 +1015,7 @@
             <div class="secta-card">
                 <div class="card-header">
                     <h2>Nueva Era (New Age)</h2>
-                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="warning-icon"><i class="fas fa-compass"></i></div>
                 </div>
                 <div class="card-body">
                     <ul>
@@ -987,7 +1033,7 @@
             <div class="secta-card">
                 <div class="card-header">
                     <h2>Iglesia de la Cienciología</h2>
-                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="warning-icon"><i class="fas fa-compass"></i></div>
                 </div>
                 <div class="card-body">
                     <ul>
@@ -1005,7 +1051,7 @@
             <div class="secta-card">
                 <div class="card-header">
                     <h2>Raelismo</h2>
-                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="warning-icon"><i class="fas fa-compass"></i></div>
                 </div>
                 <div class="card-body">
                     <ul>
@@ -1023,7 +1069,7 @@
             <div class="secta-card">
                 <div class="card-header">
                     <h2>Movimiento Gnóstico Moderno</h2>
-                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="warning-icon"><i class="fas fa-compass"></i></div>
                 </div>
                 <div class="card-body">
                     <ul>
@@ -1041,7 +1087,7 @@
             <div class="secta-card">
                 <div class="card-header">
                     <h2>Iglesia Mundial de Dios (antigua línea de Herbert W. Armstrong)</h2>
-                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="warning-icon"><i class="fas fa-compass"></i></div>
                 </div>
                 <div class="card-body">
                     <ul>
@@ -1059,7 +1105,7 @@
             <div class="secta-card">
                 <div class="card-header">
                     <h2>Espiritismo (Ej. Allan Kardec)</h2>
-                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="warning-icon"><i class="fas fa-compass"></i></div>
                 </div>
                 <div class="card-body">
                     <ul>
@@ -1077,7 +1123,7 @@
             <div class="secta-card">
                 <div class="card-header">
                     <h2>Iglesia de Dios Sociedad Misionera Mundial</h2>
-                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="warning-icon"><i class="fas fa-compass"></i></div>
                 </div>
                 <div class="card-body">
                     <ul>
@@ -1095,7 +1141,7 @@
             <div class="secta-card">
                 <div class="card-header">
                     <h2>Nación del Islam</h2>
-                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="warning-icon"><i class="fas fa-compass"></i></div>
                 </div>
                 <div class="card-body">
                     <ul>
@@ -1113,7 +1159,7 @@
             <div class="secta-card">
                 <div class="card-header">
                     <h2>Movimiento Humanista Secular</h2>
-                    <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="warning-icon"><i class="fas fa-compass"></i></div>
                 </div>
                 <div class="card-body">
                     <ul>
@@ -1130,6 +1176,13 @@
 
         <div class="observaciones">
             <h2><i class="fas fa-exclamation-circle"></i> Observaciones</h2>
+            <div class="solas-compass">
+                <div class="sola-point"><div class="needle"><i class="fas fa-compass"></i></div><span>Sola Scriptura</span></div>
+                <div class="sola-point"><div class="needle"><i class="fas fa-compass"></i></div><span>Sola Fide</span></div>
+                <div class="sola-point"><div class="needle"><i class="fas fa-compass"></i></div><span>Sola Gratia</span></div>
+                <div class="sola-point"><div class="needle"><i class="fas fa-compass"></i></div><span>Solus Christus</span></div>
+                <div class="sola-point"><div class="needle"><i class="fas fa-compass"></i></div><span>Soli Deo Gloria</span></div>
+            </div>
             <ul>
                 <li>Estas agrupaciones están <strong>catalogadas como sectas o movimientos pseudo-cristianos</strong> porque <strong>usan lenguaje bíblico o cristiano</strong> pero <strong>niegan doctrinas centrales del evangelio bíblico</strong>.</li>
                 <li>Desde una perspectiva protestante clásica (sola Scriptura, sola fide, sola gratia, solus Christus, soli Deo gloria), estos grupos <strong>violan uno o más pilares fundamentales</strong> de la fe.</li>
