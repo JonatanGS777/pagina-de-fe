@@ -37,6 +37,13 @@ Sitio web estático del ministerio cristiano, desplegado en **Vercel** con auten
 - **Nota técnica (animaciones):** al quitar `animation: fadeUp ...` de un elemento, verificar si también tiene una propiedad `opacity: 0;` estática por separado — varias páginas usan `fill-mode: forwards` (que depende de esa propiedad para el estado inicial) en vez de `both` (que no la necesita). Quitar solo la animación sin quitar el `opacity: 0;` deja el elemento invisible para siempre.
 - **Pendiente identificado, no resuelto:** la sección `page/Tiempo del Fin/` (14 páginas) no tiene identidad tipográfica compartida — cada página usa una fuente distinta (Poppins, Montserrat, Merriweather, Playfair Display, Inter, Orbitron, Arial, Segoe UI+Courier New) y su propia paleta de color, sin relación con Cormorant Garamond/Lato ni con tinta/oro/pergamino. Solo `fundamentos/plan-divino.html` está alineada. Ya estaba correctamente listada como pendiente más abajo; queda como hallazgo detallado para cuando se aborde esa sección.
 
+### 2026-08-14 — Rediseño "Expediente Clasificado" de sociedades-secretas.html
+
+- **`page/Falsas Doctrinas/sociedades-secretas.html`:** rediseñada con un concepto distinto al sistema "Refinado y Solemne" del resto del sitio — un dossier de investigación/archivo redactado, elegido por encajar temáticamente con contenido sobre sociedades secretas y teorías de conspiración. Tipografía Special Elite (máquina de escribir, títulos/sellos) + Courier Prime (monospace, cuerpo). Paleta: mesa oscura `#14110d`/`#0a0806`, papel kraft `#efe6cf`/`#cbb992`, rojo de sello `#8b1a1a`, con el acento dorado `#b89a5f` reservado solo para la sección final de resolución ("Anexo V — Perspectiva Bíblica", con sello dorado distintivo).
+- Cada sección original se convirtió en una "hoja de expediente" (`.file-sheet`) con pestaña de carpeta, cinta adhesiva y ligera rotación; las tarjetas de sociedades secretas se anclaron con "chinches" sobre un tablero de corcho (`.corkboard`).
+- Se aprovechó el rediseño para añadir `rel="noopener noreferrer"` a enlaces externos y una etiqueta "Sin verificar" en las tarjetas de referencias externas (fuentes de teorías de conspiración sin verificación académica).
+- **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para las otras páginas pendientes de `Falsas Doctrinas/` (masonería, gnosticismos, etc.); cada una debe evaluarse por separado.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -287,6 +294,7 @@ Página de Fe/
 | `page/Estudios Bíblicos/estudios/soteriologia-avanzada.html` | Completado — slate indigo `#1e2858` |
 | `page/Estudios Bíblicos/estudios/apocaliptica-biblica.html` | Completado — dark sienna `#4a2810` |
 | `page/Estudios Bíblicos/estudios/teologia-sabiduria.html` | Completado — dark olive-green `#2e3820` |
+| `page/Falsas Doctrinas/sociedades-secretas.html` | Completado — estilo propio "Expediente Clasificado" (dossier/archivo, no el sistema tinta/oro; ver historial 2026-08-14) |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
@@ -325,7 +333,6 @@ Página de Fe/
 - [ ] `masoneria.html`
 - [ ] `pseudoprofetas.html`
 - [ ] `sectas-anticristianas.html`
-- [ ] `sociedades-secretas.html`
 
 #### `page/Figuras Bíblicas/`
 
