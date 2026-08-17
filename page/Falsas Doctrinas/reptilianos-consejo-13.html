@@ -58,14 +58,17 @@
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, .06);
   }
-  header.bar .brand {
-    display: flex; align-items: center; gap: .7rem;
-    font-family: var(--serif); font-size: 1rem; letter-spacing: .04em;
-    color: #e9efe9; text-decoration: none; font-weight: 600;
+  .header-logo {
+    display: flex; align-items: center; gap: .7rem; text-decoration: none;
   }
-  header.bar .brand::before {
-    content: '\25c8'; color: var(--blood-soft); font-size: .9rem;
-    text-shadow: 0 0 10px rgba(168, 40, 58, .8);
+  .header-logo img { height: 38px; width: auto; }
+  .header-logo-text {
+    font-family: var(--serif); font-size: .82rem; letter-spacing: .04em;
+    color: #e9efe9; line-height: 1.3; font-weight: 600;
+  }
+  .header-logo-text span {
+    display: block; font-family: var(--sans); font-style: italic;
+    font-weight: 400; font-size: .7rem; color: var(--muted);
   }
   header.bar nav { display: flex; align-items: center; gap: 1.3rem; }
   header.bar nav a {
@@ -209,7 +212,8 @@
   #toTop:hover { transform: translateY(-3px); }
 
   @media (max-width: 560px) {
-    header.bar .brand span.tag { display: none; }
+    .header-logo img { height: 32px; }
+    .header-logo-text span { display: none; }
     header.bar nav a:not(.nav-back) { display: none; }
     .page-title { font-size: 2rem; }
     figure img { max-width: 100%; }
@@ -220,7 +224,13 @@
 <div id="progress"></div>
 
 <header class="bar">
-  <a class="brand" href="#"><span class="tag">Los Reptilianos y el Consejo de Los 13</span></a>
+  <a href="../../index.html" class="header-logo">
+    <img src="../../images/EMD.png?v=2" alt="Logo EMD">
+    <div class="header-logo-text">
+      Ministerio
+      <span>"La Gloria es del Señor"</span>
+    </div>
+  </a>
   <nav>
     <a href="#articulo">Artículo</a>
     <a href="#referencias">Referencias</a>
