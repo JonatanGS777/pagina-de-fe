@@ -11,157 +11,247 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Gnosticismo: Un Análisis Detallado</title>
+    <title>Gnosticismo | Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #8D5B4C;        /* Terracota suave – calidez y tradición */
-            --secondary-color: #A6B98E;      /* Verde olivo claro – serenidad y armonía */
-            --accent-color: #D9A05B;         /* Dorado tostado – acento natural y sutil */
-            --light-color: #FAF8F5;          /* Marfil claro – fondo perfecto para lectura */
-            --dark-color: #2F2F2F;           /* Gris carbón – excelente contraste para texto */
-            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            --text-gradient: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            --arcilla:       #8D5B4C;   /* Arcilla cocida */
+            --arcilla-deep:  #6e453a;
+            --ocre:          #c99a5c;   /* Ocre desértico */
+            --dorado:        #d9a05b;   /* Dorado hallazgo */
+            --dorado-light:  #e8b878;
+            --subterraneo:      #1a1410;   /* Tono subterráneo, lo oculto */
+            --subterraneo-deep: #100c09;
+            --sand:          #ece2ce;   /* Fondo arena */
+            --card:          #f6efe0;   /* Fragmento desenterrado */
+            --ink:           #2b2016;
+            --ink-soft:      #5c4a37;
+            --ink-faint:     #8a7358;
+            --shadow-card:   0 10px 26px rgba(26, 20, 16, 0.16);
+            --shadow-deep:   0 16px 40px rgba(26, 20, 16, 0.32);
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Spectral', serif;
-            line-height: 1.9;
-            color: #333;
-            background-color: #f5f5f5;
+            font-family: 'Newsreader', serif;
+            line-height: 1.8;
+            color: var(--ink);
+            background-color: var(--sand);
             overflow-x: hidden;
             width: 100%;
+            position: relative;
         }
-        
-        /* Header simplificado con fondo - ajustado para imagen completa */
-        header {
-            background: linear-gradient(rgba(45, 45, 45, 0.6), rgba(45, 45, 45, 0.6)),
-                url('./images/fondo-gnosticismo.jpg') center center/cover no-repeat;
-            color: white;
-            padding: 3rem 0;
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+            mix-blend-mode: multiply;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header, main, footer { position: relative; z-index: 1; }
+
+        img[alt="Logo EMD"] {
+            height: 44px;
+            width: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(217, 160, 91, 0.55);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.4), 0 0 0 4px rgba(217,160,91,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        img[alt="Logo EMD"]:hover {
+            transform: scale(1.06) rotate(-3deg);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.45), 0 0 0 5px rgba(217,160,91,0.18);
+        }
+
+        /* ── HEADER DEL SITIO ── */
+        .site-header {
+            position: sticky;
+            top: 0; left: 0; right: 0;
+            z-index: 500;
+            background: rgba(16, 12, 9, 0.96);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(217, 160, 91, 0.4);
+            padding: 0.9rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .header-logo { display: flex; align-items: center; gap: 0.9rem; text-decoration: none; }
+
+        .header-logo-text {
+            font-family: 'Fraunces', serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.04em;
+            color: var(--card);
+            line-height: 1.3;
+        }
+
+        .header-logo-text span {
+            display: block;
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            font-size: 0.72rem;
+            color: rgba(246, 239, 224, 0.6);
+        }
+
+        .nav-back {
+            font-family: 'Fraunces', serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--dorado-light);
+            text-decoration: none;
+            border: 1px solid rgba(217, 160, 91, 0.5);
+            padding: 0.5rem 0.9rem;
+            transition: all 0.25s ease;
+        }
+
+        .nav-back:hover { background: rgba(217, 160, 91, 0.15); border-color: var(--dorado-light); }
+        .nav-back i { margin-right: 0.4rem; }
+
+        /* ── HERO / HALLAZGO ── */
+        .hero {
+            background:
+                linear-gradient(175deg, rgba(16,12,9,0.55) 0%, rgba(26,20,16,0.72) 60%, rgba(16,12,9,0.88) 100%),
+                url('./images/fondo-gnosticismo.jpg') center center / cover no-repeat;
+            color: var(--card);
+            padding: 5rem 0 4rem;
             text-align: center;
             position: relative;
             width: 100%;
-            min-height: 280px; /* Altura aumentada para mostrar la imagen completa */
+            min-height: 380px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-attachment: fixed; /* Efecto parallax para mejor visualización */
-            overflow: hidden; /* Evita que la imagen se desborde */
+            background-attachment: fixed;
+            overflow: hidden;
         }
-        
-        header::before {
+
+        .hero::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-            z-index: 0;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+            pointer-events: none;
         }
-        
+
+        .hero-inner { position: relative; z-index: 1; max-width: 760px; padding: 0 1.5rem; }
+
+        .hero-eyebrow {
+            font-family: 'Fraunces', serif;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--dorado-light);
+            margin-bottom: 1.1rem;
+        }
+
+        .hero h1 {
+            font-family: 'Fraunces', serif;
+            font-weight: 700;
+            font-size: 3.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-style: italic;
+            font-weight: 400;
+            color: rgba(246, 239, 224, 0.88);
+            max-width: 640px;
+            margin: 0 auto 1.8rem;
+        }
+
+        .broken-seal { color: var(--dorado-light); opacity: 0.85; }
+        .broken-seal svg { width: 62px; height: 62px; }
+
         .container {
             max-width: 1200px;
             width: 100%;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
-        
-        /* Estilos para el título de la página */
-        .page-title {
-            text-align: center;
-            margin: 3rem 0;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .page-title h1 {
-            font-size: 3.5rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
+
+        /* Etiqueta de estrato */
+        .strata-label {
+            display: block;
+            font-family: 'Fraunces', serif;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            color: var(--dorado);
+            margin: 0 0 0.6rem;
         }
-        
-        .page-title p {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            font-style: italic;
-        }
-        
-        /* Tabla de contenidos */
+
+        /* Índice del hallazgo */
         .toc {
-            background-color: var(--light-color);
-            border-radius: 8px;
+            background-color: var(--card);
+            border: 1px solid rgba(141, 91, 76, 0.25);
+            border-radius: 2px 16px 2px 16px;
             padding: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 3rem 0;
+            box-shadow: var(--shadow-card);
         }
-        
+
         .toc h3 {
-            color: var(--primary-color);
+            font-family: 'Fraunces', serif;
+            color: var(--arcilla-deep);
             margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--secondary-color);
-            font-size: 1.8rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid var(--dorado);
+            font-size: 1.6rem;
         }
-        
-        .toc ol {
-            list-style-type: decimal;
-            margin-left: 1.5rem;
-        }
-        
-        .toc li {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        
+
+        .toc ol { list-style-type: decimal; margin-left: 1.5rem; }
+        .toc li { margin-bottom: 1rem; font-size: 1.05rem; }
+
         .toc a {
             text-decoration: none;
-            color: var(--dark-color);
+            color: var(--ink-soft);
             transition: color 0.3s;
             display: block;
             padding: 0.3rem 0;
         }
-        
-        .toc a:hover {
-            color: var(--primary-color);
-            padding-left: 0.5rem;
-        }
-        
+
+        .toc a:hover { color: var(--arcilla-deep); padding-left: 0.5rem; }
+
         /* Estilos de sección */
         main {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            background-color: var(--sand);
             margin-bottom: 2rem;
-            overflow: hidden;
         }
-        
-        article {
-            padding: 2rem;
-        }
-        
-        section {
-            margin-bottom: 4rem;
-            padding-top: 2rem;
-        }
-        
+
+        article { padding: 2rem 0; }
+
+        section { margin-bottom: 4rem; padding-top: 2rem; }
+
         h2 {
-            color: var(--primary-color);
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            color: var(--arcilla-deep);
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--secondary-color);
+            border-bottom: 2px solid var(--ocre);
             position: relative;
-            font-size: 2.2rem;
+            font-size: 2.1rem;
         }
-        
+
         h2::after {
             content: "";
             position: absolute;
@@ -169,238 +259,183 @@
             left: 0;
             width: 100px;
             height: 2px;
-            background-color: var(--accent-color);
+            background-color: var(--dorado);
         }
-        
+
         h3 {
-            color: var(--secondary-color);
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            color: var(--arcilla);
             margin: 1.5rem 0 1rem;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
         }
-        
+
         h4 {
-            color: var(--accent-color);
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            color: var(--dorado);
             margin: 1.2rem 0 0.8rem;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
         }
-        
-        p {
-            margin-bottom: 1.2rem;
-            text-align: justify;
+
+        p { margin-bottom: 1.2rem; text-align: justify; color: var(--ink-soft); }
+
+        /* Tabla comparativa – fragmento de códice */
+        .table-wrap {
+            margin: 2rem 0;
+            border-top: 2px dashed var(--arcilla);
+            padding-top: 1.2rem;
         }
-        
-        /* Tablas responsivas */
+
+        .table-wrap-label {
+            text-align: center;
+            font-family: 'Fraunces', serif;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            margin-bottom: 1rem;
+        }
+
         .tabla-comparativa {
             width: 100%;
             border-collapse: collapse;
-            margin: 2rem 0;
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
-            border-radius: 8px;
-            overflow: hidden;
+            box-shadow: var(--shadow-card);
             display: block;
-            overflow-x: auto; /* Permite desplazamiento horizontal en pantallas pequeñas */
+            overflow-x: auto;
+            background: var(--card);
         }
-        
-        .tabla-comparativa thead {
-            background: var(--gradient);
-            color: white;
-        }
-        
+
+        .tabla-comparativa thead { background: var(--subterraneo); color: var(--dorado-light); }
+
         .tabla-comparativa th, .tabla-comparativa td {
             padding: 1rem;
             text-align: left;
-            border-bottom: 1px solid #eee;
-            min-width: 200px; /* Ancho mínimo para prevenir compresión excesiva */
-        }
-        
-        .tabla-comparativa tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        
-        .tabla-comparativa tr:hover {
-            background-color: #f1f1f1;
-        }
-        
-        .bibliografia {
-            background-color: #f8f9fa;
-            padding: 1.5rem;
-            border-left: 5px solid var(--accent-color);
-            margin-top: 3rem;
-            overflow-x: auto; /* Para listas largas */
-        }
-        
-        .bibliografia h2 {
-            border-bottom: none;
-        }
-        
-        .bibliografia h2::after {
-            display: none;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: var(--dark-color);
-            color: white;
-            margin-top: 2rem;
-            width: 100%;
+            border-bottom: 1px solid rgba(141, 91, 76, 0.15);
+            min-width: 200px;
         }
 
-        footer p {
-    margin-bottom: 0;
-    text-align: center;
-    width: 100%;
-}
-        
-        /* Mejores media queries para responsividad */
-        /* Mejora para la imagen en pantallas más grandes */
-        @media (min-width: 1400px) {
-            header {
-                min-height: 350px;
-            }
-        }
-        
-        @media (max-width: 992px) {
-            .page-title h1 {
-                font-size: 3rem;
-            }
-            
-            .page-title p {
-                font-size: 1.3rem;
-            }
-            
-            .card, .highlight {
-                padding: 1.2rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .page-title h1 {
-                font-size: 2.5rem;
-            }
-            
-            .page-title p {
-                font-size: 1.2rem;
-            }
-            
-            article {
-                padding: 1.5rem;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            h3 {
-                font-size: 1.4rem;
-            }
-            
-            .toc {
-                padding: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            header {
-                min-height: 220px;
-                padding: 1.5rem 0;
-                background-attachment: scroll; /* Mejor rendimiento en dispositivos móviles */
-            }
-            
-            .page-title {
-                margin: 2rem 0;
-                padding-bottom: 1.5rem;
-            }
-            
-            .page-title h1 {
-                font-size: 2rem;
-            }
-            
-            .page-title p {
-                font-size: 1rem;
-            }
-            
-            article {
-                padding: 1rem;
-            }
-            
-            h2 {
-                font-size: 1.5rem;
-            }
-            
-            h3 {
-                font-size: 1.2rem;
-            }
-            
-            p, li {
-                font-size: 0.95rem;
-            }
-            
-            .toc {
-                padding: 1rem;
-            }
-            
-            .toc li {
-                margin-bottom: 0.5rem;
-                font-size: 1rem;
-            }
-        }
-        
-        .card {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        .tabla-comparativa th { font-family: 'Fraunces', serif; font-weight: 600; letter-spacing: 0.02em; }
+
+        .tabla-comparativa tr:nth-child(even) { background-color: var(--sand); }
+        .tabla-comparativa tr:hover { background-color: rgba(217, 160, 91, 0.12); }
+
+        .bibliografia {
+            background-color: var(--card);
             padding: 1.5rem;
+            border-left: 5px solid var(--dorado);
+            margin-top: 3rem;
+            overflow-x: auto;
+        }
+
+        .bibliografia h2 { border-bottom: none; font-size: 1.7rem; }
+        .bibliografia h2::after { display: none; }
+
+        footer {
+            text-align: center;
+            padding: 2.2rem;
+            background-color: var(--subterraneo-deep);
+            color: rgba(246, 239, 224, 0.6);
+            margin-top: 2rem;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        footer p { margin-bottom: 0; text-align: center; width: 100%; }
+
+        /* Mejores media queries para responsividad */
+        @media (min-width: 1400px) {
+            .hero { min-height: 440px; }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 2.6rem; }
+            .hero-subtitle { font-size: 1.1rem; }
+            .card, .highlight { padding: 1.2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            article { padding: 1.5rem 0; }
+            h2 { font-size: 1.8rem; }
+            h3 { font-size: 1.4rem; }
+            .toc { padding: 1.5rem; }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                min-height: 300px;
+                padding: 3rem 0;
+                background-attachment: scroll;
+            }
+            .hero h1 { font-size: 1.8rem; letter-spacing: 1px; }
+            .hero-subtitle { font-size: 1rem; }
+            article { padding: 1rem 0; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.2rem; }
+            p, li { font-size: 0.95rem; }
+            .toc { padding: 1rem; }
+            .toc li { margin-bottom: 0.5rem; font-size: 1rem; }
+        }
+
+        .card {
+            background-color: var(--card);
+            border: 1px solid rgba(141, 91, 76, 0.2);
+            border-radius: 2px 14px 4px 10px;
+            box-shadow: var(--shadow-card);
+            padding: 1.6rem 1.8rem;
             margin-bottom: 2rem;
             transition: transform 0.3s ease;
             width: 100%;
         }
-        
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        
+
+        .card:hover { transform: translateY(-5px); }
+
         .highlight {
-            background: linear-gradient(120deg, rgba(106, 48, 147, 0.1), rgba(160, 68, 255, 0.1));
-            padding: 1.5rem;
-            border-radius: 8px;
+            background: linear-gradient(120deg, rgba(217, 160, 91, 0.14), rgba(141, 91, 76, 0.08));
+            padding: 1.5rem 1.8rem;
+            border-radius: 2px;
             margin: 1.5rem 0;
-            border-left: 4px solid var(--primary-color);
+            border-left: 4px solid var(--dorado);
             width: 100%;
         }
-        
+
         /* Mejoras para listas */
-        ul, ol {
-            margin-left: 2rem;
-            margin-bottom: 1.2rem;
-        }
-        
-        li {
-            margin-bottom: 0.5rem;
-        }
-        
+        ul, ol { margin-left: 2rem; margin-bottom: 1.2rem; }
+        li { margin-bottom: 0.5rem; }
+
         /* Asegura que las imágenes sean responsivas */
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
+        img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
     </style>
 </head>
 <body>
-    <header>
-        <!-- Encabezado con fondo - reemplazar la URL con la imagen real -->
-        <!-- NOTA: Para usar una imagen local, cambia la URL a './images/fondo-gnosticismo.jpg' -->
+    <header class="site-header">
+        <a href="../../index.html" class="header-logo">
+            <img src="../../images/EMD.png?v=2" alt="Logo EMD">
+            <div class="header-logo-text">
+                Ministerio
+                <span>"La Gloria es del Señor"</span>
+            </div>
+        </a>
+        <a href="falsasdoctrinas.html" class="nav-back"><i class="fas fa-arrow-left"></i>Falsas Doctrinas</a>
     </header>
-    
+
+    <div class="hero">
+        <div class="hero-inner">
+            <div class="hero-eyebrow">Nag Hammadi, 1945</div>
+            <h1>El Gnosticismo</h1>
+            <p class="hero-subtitle">Un análisis de las corrientes gnósticas y su relación con el cristianismo primitivo (siglos I-IV d.C.)</p>
+            <div class="broken-seal">
+                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="50" cy="50" r="40"/>
+                    <path d="M18 38 L44 50 L36 58 L60 66 L52 76 L74 68" stroke-width="1.8"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
     <main>
         <div class="container">
-            <div class="page-title">
-                <h1>EL GNOSTICISMO</h1>
-                <p>Un análisis de las corrientes gnósticas y su relación con el cristianismo primitivo (siglos I-IV d.C.)</p>
-            </div>
-            
             <article>
                 <div class="toc">
                     <h3>Contenido</h3>
@@ -416,6 +451,7 @@
                 </div>
                 
                 <section id="introduccion">
+                    <span class="strata-label">Estrato I</span>
                     <h2>Introducción</h2>
                     <div class="card">
                         <p>El gnosticismo se refiere a un conjunto heterogéneo de corrientes religiosas de los siglos I al IV d.C., caracterizadas por enfatizar la gnosis (conocimiento esotérico) como vía de salvación. El término <em>gnosis</em> proviene del griego y significa "conocimiento" o "conciencia" – específicamente un conocimiento místico obtenido por experiencia directa de lo divino.</p>
@@ -435,6 +471,7 @@
                 </section>
                 
                 <section id="teologico">
+                    <span class="strata-label">Estrato II</span>
                     <h2>Enfoque Teológico: Doctrinas gnósticas vs. ortodoxia cristiana primitiva</h2>
                     
                     <p>En términos teológicos, el gnosticismo cristiano presenta una cosmovisión y doctrina de la salvación muy diferente a la de la fe cristiana ortodoxa tal como se consolidó posteriormente. Los cristianos gnósticos concedían autoridad suprema al conocimiento espiritual secreto (gnosis) por encima de las enseñanzas públicas y la tradición de la Iglesia naciente.</p>
@@ -449,7 +486,8 @@
                     
                     <h3>Tabla Comparativa: Teología Gnóstica vs. Cristiana Ortodoxa</h3>
                     
-                    <div id="tabla">
+                    <div id="tabla" class="table-wrap">
+                        <div class="table-wrap-label">— fragmento del códice —</div>
                         <table class="tabla-comparativa">
                             <thead>
                                 <tr>
@@ -507,6 +545,7 @@
                 </section>
                 
                 <section id="declive">
+                    <span class="strata-label">Estrato III</span>
                     <h2>Finales del siglo II – siglo IV: Reacción ortodoxa y declive</h2>
                     
                     <div class="card">
@@ -540,6 +579,7 @@
                 </section>
                 
                 <section id="historico">
+                    <span class="strata-label">Estrato IV</span>
                     <h2>Enfoque Histórico: Orígenes del gnosticismo e influencia en los siglos I–II</h2>
                     
                     <p>Históricamente, el fenómeno gnóstico surge en el cruce de caminos del judaísmo tardío, el helenismo grecorromano y el naciente cristianismo. Sus orígenes exactos son complejos y han sido objeto de debate académico. No se trató de una "invasión" externa al cristianismo, sino de un desarrollo sincrético dentro del mismo caldo cultural del Mediterráneo oriental en la era apostólica.</p>
@@ -603,6 +643,7 @@
                 </section>
                 
                 <section id="literatura">
+                    <span class="strata-label">Estrato V</span>
                     <h2>Enfoque literario: Elementos gnósticos en el Nuevo Testamento</h2>
                     
                     <p>Dado que el gnosticismo se desarrolló simultáneamente con la composición y difusión de los escritos del Nuevo Testamento, es natural encontrar ecos, paralelos o polémicas vinculadas a ideas gnósticas dentro de la misma Biblia. Varios libros del NT abordan – ya sea implícita o explícitamente – conceptos que los gnósticos enfatizaban, bien sea para refutarlos o porque comparten un trasfondo cultural común.</p>
@@ -657,6 +698,7 @@
                 </section>
                 
                 <section id="nag-hammadi">
+                    <span class="strata-label">Estrato VI</span>
                     <h2>Textos gnósticos extracanónicos: Nag Hammadi y su relación con los textos canónicos</h2>
                     
                     <div class="card">
@@ -714,6 +756,7 @@
                 </section>
                 
                 <section id="conclusion">
+                    <span class="strata-label">Estrato VII</span>
                     <h2>Conclusión</h2>
                     
                     <div class="highlight">
