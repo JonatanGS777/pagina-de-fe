@@ -44,6 +44,55 @@ Sitio web estático del ministerio cristiano, desplegado en **Vercel** con auten
 - Se aprovechó el rediseño para añadir `rel="noopener noreferrer"` a enlaces externos y una etiqueta "Sin verificar" en las tarjetas de referencias externas (fuentes de teorías de conspiración sin verificación académica).
 - **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para las otras páginas pendientes de `Falsas Doctrinas/` (masonería, gnosticismos, etc.); cada una debe evaluarse por separado.
 
+### 2026-08-17 — Rediseño "Atlas del Error" de falsasdoctrinas.html
+
+- **`page/Falsas Doctrinas/falsasdoctrinas.html`:** rediseñada como la página de entrada/índice de toda la categoría, con un concepto de cartografía antigua elegido entre 3 direcciones propuestas (Atlas del Error, Constelación Doctrinal, Cámara del Centinela). Tipografía Cinzel (títulos tipo atlas grabado) + EB Garamond (cuerpo, cursiva en subtítulos). Paleta: pergamino envejecido `#ece0c2`, tinta sepia `#2e2013`, ruta/óxido `#8a5a2b`, rojo óxido `#8f3624` para acentos de advertencia, dorado brújula `#a9822f`.
+- Fondo con cuadrícula tipo latitud/longitud + grano + viñeta radial. Rosa de los vientos SVG girando lentamente detrás del hero. La timeline bíblica (4 eras) pasó de tarjetas con ícono pálido a medallones con numeral romano (I-IV) conectados por una línea punteada vertical. El grid de 8 doctrinas pasó a tarjetas con borde punteado tipo territorio de mapa, leve rotación alterna y un pin circular rojo que sobresale del borde superior; las etiquetas de versículo se convirtieron en "coordenadas" con borde punteado.
+- Se quitaron el cursor personalizado, el toggle de modo oscuro y el efecto parallax por scroll del template original (no forman parte de la convención ya establecida en las páginas migradas del sitio: header simplificado con logo + nav, sin esos extras).
+- **Nota:** igual que con `sociedades-secretas.html`, este estilo es específico al rol de esta página como índice/panorama de la categoría — no reciclar como plantilla para las demás páginas pendientes de `Falsas Doctrinas/`.
+
+### 2026-08-17 — Rediseño "Papiro de Alejandría" de filosofias-griegas.html
+
+- **`page/Falsas Doctrinas/filosofias-griegas.html`:** rediseñada con un concepto de biblioteca antigua/papiro, elegido entre 3 direcciones propuestas (Papiro de Alejandría, Ágora Filosófica, Diálogo y Contraste) por encajar con el contenido (Filón de Alejandría y la Septuaginta ya son parte central de la cronología de la página). Tipografía Cormorant Unicase (versalitas, títulos tipo rótulo de rollo) + Source Serif 4 (cuerpo académico). Paleta: papiro cálido `#e8d9b5`, tinta sepia `#3a2c1a`, rojo alejandrino `#7a3520`, dorado bibliotecario `#a8863f`.
+- Cada sección se etiquetó como "Rollo I" a "Rollo V" (Introducción, Las Cuatro Escuelas, Cronología, Comparativa, Conclusiones). Las tarjetas de las 4 escuelas filosóficas llevan bordes asimétricos tipo pergamino imperfecto, filtro sepia sutil en las imágenes y un sello circular con el mismo ícono que su pestaña en el índice de navegación.
+- La cronología de 6 eventos se reconstruyó con el patrón de grid alternado ya usado en el timeline de `falsasdoctrinas.html`, reemplazando el código original que manipulaba `transform` inline vía JavaScript en cada scroll (frágil y difícil de mantener).
+- **Limpieza:** se quitó el menú hamburguesa móvil completo con su lógica de submenús (`menu-item-has-children`, panel deslizante) — código muerto heredado de una plantilla compartida, ya que el `<nav>` real de esta página solo contenía un enlace ("Inicio"). Se reemplazó por el header simplificado (logo + nav-back) ya convencional en el resto del sitio.
+- **Pendiente identificado, no resuelto:** las 5 imágenes de esta página (`platonismo.jpg`, `neoplatonismo.jpg`, `epicureismo.jpg`, `estoicismo.jpg`, `filosofia-griega.jpg`) pesan ~3 MB cada una (~15 MB total) sin optimizar, muy por encima del hero de `index.html` (112 KB tras optimización, ver historial 2026-08-11).
+- **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para las demás páginas pendientes de `Falsas Doctrinas/`.
+
+### 2026-08-17 — Rediseño "Vasija de Nag Hammadi" de gnosticismos.html
+
+- **`page/Falsas Doctrinas/gnosticismos.html`:** rediseñada con un concepto de excavación arqueológica, elegido entre 3 direcciones propuestas (Vasija de Nag Hammadi, Diagrama del Pleroma, Luz y Sombra) por el hecho histórico de que los textos gnósticos de Nag Hammadi estuvieron literalmente enterrados en vasijas de barro en el desierto egipcio hasta 1945. Tipografía Fraunces (títulos) + Newsreader (cuerpo). Paleta: arcilla cocida `#8D5B4C` (ya en uso, se mantuvo por continuidad), ocre desértico `#c99a5c`, subterráneo casi negro `#1a1410`, dorado hallazgo `#d9a05b`.
+- **Fix de header faltante:** esta página no tenía el header del sitio — el `<header>` era un contenedor vacío con solo una imagen de fondo (comentarios placeholder incluidos). Se agregó el header estándar (logo + nav-back a `falsasdoctrinas.html`) y se fusionó el bloque de imagen con el título de la página (antes vivían separados: la imagen sin texto arriba, el `<h1>` en un bloque blanco aparte más abajo).
+- **Fix de bug de paleta:** `.highlight` usaba un morado `rgba(106, 48, 147, ...)` que no correspondía a ninguna variable CSS de la página (el resto del sitio usa terracota/oliva/dorado) — reemplazado por un degradado dorado/arcilla coherente con el resto de la paleta.
+- Cada una de las 7 secciones se etiquetó como "Estrato I" a "Estrato VII", en línea con el concepto de capas de excavación. La tabla comparativa de teología gnóstica vs. ortodoxa se envolvió como "fragmento del códice desenterrado".
+- **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para las demás páginas pendientes de `Falsas Doctrinas/`.
+
+### 2026-08-17 — Rediseño "Tribunal de la Verdad" de masoneria.html
+
+- **`page/Falsas Doctrinas/masoneria.html`:** rediseñada con un concepto de veredicto/sentencia judicial, elegido entre 3 direcciones propuestas (Tribunal de la Verdad, Piedra y Compás, Pirámide y Ojo) por el tono acusatorio del texto (a diferencia del resto de la categoría, no cita Escritura ni mantiene un marco académico/doctrinal). Tipografía Bitter (títulos) + PT Serif (cuerpo). Paleta: negro sentencia `#16130f`, rojo veredicto `#7a1e1e`, piedra heredada `#5a4e3c`, dorado mazo `#a8862f`.
+- Cada una de las 7 secciones se etiquetó como "Cargo I" a "Cargo VII". Se agregó un sello circular rotado "VEREDICTO" en el hero. El símbolo masónico ∴ del header original se conservó como marca de agua tenue (ya estaba en el diseño previo).
+- **Header:** convertido al patrón estándar del sitio (logo + nav-back a `falsasdoctrinas.html`); antes el logo estaba envuelto en un enlace con ruta relativa redundante, sin botón de regreso diferenciado.
+- **Advertencia de contenido (no resuelta, decisión del usuario):** este artículo nombra a personas reales identificables (miembros de familias reales, un productor de Hollywood, políticos) con acusaciones de pertenencia a un "culto luciferino" sin fuentes verificables, citando una única fuente no académica ("Ahuwah Zeus — Masonic House of Lies"). Se le presentó la situación al usuario antes de proceder; decidió mantener el contenido intacto y solo aplicar el rediseño visual. El texto no fue modificado.
+- **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para las demás páginas pendientes de `Falsas Doctrinas/`.
+
+### 2026-08-17 — Rediseño "Galería de Retratos Falsos" de pseudoprofetas.html
+
+- **`page/Falsas Doctrinas/pseudoprofetas.html`:** rediseñada con un concepto tipo "rogues' gallery" (registro de identificación con fotos), elegido entre 3 direcciones propuestas (Galería de Retratos Falsos, Anales del Engaño, Falsos Faros) por ser literalmente un catálogo biográfico de personas reales que se hicieron pasar por profetas o mesías. Tipografía Big Shoulders Display (títulos) + Source Serif 4 (cuerpo). Paleta: sepia expediente `#e4d9c4`, tinta museo `#3d2f1f`, rojo alerta `#8c2f2f`, dorado placa `#a8862f`.
+- **Header/menú preservados:** a diferencia del resto de la categoría, esta página conserva el menú dropdown completo del sitio (una de las "15 páginas con dropdown real" del historial 2026-08-12) — no se simplificó a logo+nav-back. El nuevo estilo se propaga automáticamente porque el header usa las mismas variables CSS (`--primary-color`, `--accent-color`, etc.) que el resto de la página.
+- Las 6 tarjetas de pseudoprofetas históricos (Simón el Mago, Montano, Joseph Smith, Sun Myung Moon, José Luis de Jesús Miranda, David Koresh) llevan ahora filtro sepia en las fotos y una placa dorada bajo el nombre. La tabla de 6 "Otros Falsos Maestros" se convirtió en fichas apiladas tipo expediente (`.teacher-files-grid`), eliminando el CSS responsive frágil que la tabla original necesitaba (conversión manual a bloques vía `data-label` + pseudo-elementos) — las fichas son responsive por diseño sin necesitar ese código.
+- **Bug de rutas corregido (preexistente, no introducido en este rediseño):** el logo (`img[alt="Logo EMD"]`) y el enlace "Inicio" del menú usaban `../../../` (tres niveles) en vez de `../../` (dos niveles), rompiendo ambos porque el archivo está en `page/Falsas Doctrinas/`, no tres niveles de profundidad. El usuario detectó que el logo no se veía; se corrigieron ambas rutas.
+- **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para `sectas-anticristianas.html`.
+
+### 2026-08-17 — Rediseño "Compás Doctrinal" de sectas-anticristianas.html — categoría Falsas Doctrinas completa
+
+- **`page/Falsas Doctrinas/sectas-anticristianas.html`:** rediseñada con un concepto de instrumento de medición doctrinal, elegido entre 3 direcciones propuestas (Compás Doctrinal, Herbario de Herejías, Directorio del Extravío) porque la sección de Observaciones ya usaba las 5 solas de la Reforma como estándar fijo de evaluación para los 15 grupos catalogados. Tipografía Spectral (títulos) + Work Sans (cuerpo). Paleta: pizarra `#263544`, marfil `#f2ede1`, rojo desviación `#a13d3d`, dorado de referencia `#b8925a`.
+- **Header/menú preservado:** otra de las páginas con dropdown completo del sitio; el nuevo estilo se propaga vía las mismas variables CSS del resto de la página.
+- Las 15 tarjetas de grupos cambiaron su ícono de `fa-exclamation-circle` a `fa-compass` (aguja desviada). Se agregó un diagrama visual de las 5 solas (Sola Scriptura, Sola Fide, Sola Gratia, Solus Christus, Soli Deo Gloria) en la sección de Observaciones, que antes solo las mencionaba en una oración de texto corrido.
+- **Bug de hero corregido (preexistente):** el `::before` decorativo cargaba un data-URI de SVG con el atributo `fill` cortado a mitad (`...L0,100 Z" f'`), inerte desde que se escribió. Además, `background-size: contain` sin `background-repeat: no-repeat` hacía que la imagen de fondo se repitiera en mosaico. Se reemplazó por una sola imagen con overlay de degradado directo.
+- Se corrigieron varios colores hardcodeados de la paleta púrpura/turquesa original (`rgba(142, 68, 173, ...)`, `rgba(26, 188, 156, ...)`) que no seguían las variables CSS de la página, quedando inconsistentes tras el cambio de paleta.
+- **Con esta página, las 7 páginas de `Falsas Doctrinas/` quedan completas:** `falsasdoctrinas.html` (Atlas del Error), `filosofias-griegas.html` (Papiro de Alejandría), `gnosticismos.html` (Vasija de Nag Hammadi), `masoneria.html` (Tribunal de la Verdad), `sociedades-secretas.html` (Expediente Clasificado), `pseudoprofetas.html` (Galería de Retratos Falsos) y `sectas-anticristianas.html` (Compás Doctrinal) — cada una con su propia dirección estética, sin plantilla compartida entre ellas.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -295,6 +344,12 @@ Página de Fe/
 | `page/Estudios Bíblicos/estudios/apocaliptica-biblica.html` | Completado — dark sienna `#4a2810` |
 | `page/Estudios Bíblicos/estudios/teologia-sabiduria.html` | Completado — dark olive-green `#2e3820` |
 | `page/Falsas Doctrinas/sociedades-secretas.html` | Completado — estilo propio "Expediente Clasificado" (dossier/archivo, no el sistema tinta/oro; ver historial 2026-08-14) |
+| `page/Falsas Doctrinas/falsasdoctrinas.html` | Completado — estilo propio "Atlas del Error" (cartografía antigua, no el sistema tinta/oro; ver historial 2026-08-17) |
+| `page/Falsas Doctrinas/filosofias-griegas.html` | Completado — estilo propio "Papiro de Alejandría" (biblioteca antigua, no el sistema tinta/oro; ver historial 2026-08-17) |
+| `page/Falsas Doctrinas/gnosticismos.html` | Completado — estilo propio "Vasija de Nag Hammadi" (excavación arqueológica, no el sistema tinta/oro; ver historial 2026-08-17) |
+| `page/Falsas Doctrinas/masoneria.html` | Completado — estilo propio "Tribunal de la Verdad" (veredicto/sentencia, no el sistema tinta/oro; ver historial 2026-08-17). Contenido del artículo sin verificar, ver nota en historial |
+| `page/Falsas Doctrinas/pseudoprofetas.html` | Completado — estilo propio "Galería de Retratos Falsos" (no el sistema tinta/oro; ver historial 2026-08-17). Conserva el menú dropdown completo (no simplificado a nav-back) |
+| `page/Falsas Doctrinas/sectas-anticristianas.html` | Completado — estilo propio "Compás Doctrinal" (no el sistema tinta/oro; ver historial 2026-08-17). Conserva el menú dropdown completo |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
@@ -324,15 +379,6 @@ Página de Fe/
 - [ ] `planes/plan-cronologico.html`
 - [ ] `planes/plan-devocional.html`
 - [ ] `planes/plan-tematico.html`
-
-#### `page/Falsas Doctrinas/`
-
-- [ ] `falsasdoctrinas.html`
-- [ ] `filosofias-griegas.html`
-- [ ] `gnosticismos.html`
-- [ ] `masoneria.html`
-- [ ] `pseudoprofetas.html`
-- [ ] `sectas-anticristianas.html`
 
 #### `page/Figuras Bíblicas/`
 
