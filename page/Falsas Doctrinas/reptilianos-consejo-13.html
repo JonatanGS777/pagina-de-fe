@@ -7,46 +7,44 @@
 <title>Los Reptilianos y el Consejo de Los 13</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Crimson+Pro:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a120d;
-    --bg-soft: #0d1f16;
-    --card: #11251a;
-    --ink: #cfd9d0;
-    --muted: #7d8f82;
-    --blood: #a8283a;
-    --blood-soft: #d1495a;
-    --scale: #3f5a4a;
-    --scale-light: #6b8a76;
-    --line: rgba(168, 40, 58, .28);
-    --serif: 'Cinzel', Georgia, 'Times New Roman', serif;
-    --cond: 'Barlow Condensed', 'Arial Narrow', sans-serif;
-    --sans: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    --bg: #170a10;
+    --bg-soft: #22101a;
+    --card: #2a1420;
+    --ink: #ecdfc8;
+    --muted: #a8927a;
+    --wine: #6b1530;
+    --wine-soft: #a8395a;
+    --gold: #c9a44c;
+    --gold-light: #e3c680;
+    --line: rgba(201, 164, 76, .28);
+    --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --body: 'Crimson Pro', Georgia, serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
     background:
-      radial-gradient(900px 600px at 88% -10%, rgba(168, 40, 58, .10), transparent 60%),
-      radial-gradient(900px 700px at -10% 25%, rgba(63, 90, 74, .14), transparent 55%),
-      radial-gradient(circle at 100% 50%, transparent 20%, rgba(63,90,74,.05) 21%, rgba(63,90,74,.05) 34%, transparent 35%, transparent),
-      radial-gradient(circle at 0% 50%, transparent 20%, rgba(63,90,74,.05) 21%, rgba(63,90,74,.05) 34%, transparent 35%, transparent) 0 -50px,
+      radial-gradient(1000px 650px at 85% -10%, rgba(201, 164, 76, .08), transparent 60%),
+      radial-gradient(900px 700px at -10% 30%, rgba(107, 21, 48, .22), transparent 55%),
+      repeating-linear-gradient(135deg, rgba(201, 164, 76, .035) 0 1px, transparent 1px 34px),
+      repeating-linear-gradient(45deg, rgba(201, 164, 76, .035) 0 1px, transparent 1px 34px),
       var(--bg);
-    background-size: auto, auto, 60px 100px, 60px 100px, auto;
     color: var(--ink);
-    font-family: var(--sans);
+    font-family: var(--body);
     line-height: 1.85;
     min-height: 100vh;
   }
-  ::selection { background: rgba(168, 40, 58, .32); color: #fff; }
+  ::selection { background: rgba(201, 164, 76, .32); color: #2a1420; }
 
   /* --- reading progress --- */
   #progress {
     position: fixed; top: 0; left: 0; height: 3px; width: 0%;
-    background: linear-gradient(90deg, var(--blood), var(--scale-light));
-    z-index: 60; box-shadow: 0 0 12px rgba(168, 40, 58, .6);
+    background: linear-gradient(90deg, var(--wine-soft), var(--gold));
+    z-index: 60; box-shadow: 0 0 12px rgba(201, 164, 76, .5);
   }
 
   /* --- top bar --- */
@@ -54,157 +52,195 @@
     position: sticky; top: 0; z-index: 50;
     display: flex; align-items: center; justify-content: space-between; gap: 1rem;
     padding: .8rem 1.5rem;
-    background: rgba(10, 18, 13, .82);
+    background: rgba(23, 10, 16, .86);
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, .06);
+    border-bottom: 1px solid rgba(201, 164, 76, .18);
   }
   .header-logo {
     display: flex; align-items: center; gap: .7rem; text-decoration: none;
   }
   .header-logo img { height: 38px; width: auto; }
   .header-logo-text {
-    font-family: var(--serif); font-size: .82rem; letter-spacing: .04em;
-    color: #e9efe9; line-height: 1.3; font-weight: 600;
+    font-family: var(--serif); font-size: .85rem; letter-spacing: .04em;
+    color: var(--gold-light); line-height: 1.3; font-weight: 600;
   }
   .header-logo-text span {
-    display: block; font-family: var(--sans); font-style: italic;
+    display: block; font-family: var(--body); font-style: italic;
     font-weight: 400; font-size: .7rem; color: var(--muted);
   }
   header.bar nav { display: flex; align-items: center; gap: 1.3rem; }
   header.bar nav a {
     color: var(--muted); text-decoration: none;
-    font-family: var(--cond); font-size: .92rem; font-weight: 600;
-    letter-spacing: .06em; text-transform: uppercase;
+    font-family: var(--serif); font-size: .95rem; font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase;
     transition: color .25s;
   }
-  header.bar nav a:hover { color: var(--blood-soft); }
+  header.bar nav a:hover { color: var(--gold-light); }
   .nav-back {
     display: flex; align-items: center; gap: .4rem;
     padding: .35rem .75rem;
     border: 1px solid var(--line); border-radius: 3px;
-    background: rgba(168, 40, 58, .06);
+    background: rgba(201, 164, 76, .06);
   }
-  .nav-back:hover { background: rgba(168, 40, 58, .16); border-color: var(--blood-soft); }
+  .nav-back:hover { background: rgba(201, 164, 76, .14); border-color: var(--gold); }
   .nav-back i { font-size: .75rem; }
 
   /* --- layout --- */
   .page { max-width: 780px; margin: 0 auto; padding: 0 1.5rem; }
 
   /* --- hero --- */
-  .hero { text-align: center; padding: 4.5rem 0 2.5rem; }
+  .hero { text-align: center; padding: 3.6rem 0 2.5rem; }
+
+  /* wax seal */
+  .seal {
+    width: 64px; height: 64px; margin: 0 auto 1.4rem;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, var(--wine-soft), var(--wine) 60%, #4a0f22 100%);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .5), inset 0 0 0 2px rgba(227, 198, 128, .35), inset 0 0 14px rgba(0, 0, 0, .4);
+    color: var(--gold-light); font-size: 1.5rem;
+    transform: rotate(-6deg);
+  }
+
   .kicker {
-    font-family: var(--cond); font-weight: 600;
+    font-family: var(--serif); font-weight: 600;
     font-size: .82rem; letter-spacing: .35em; text-transform: uppercase;
-    color: var(--blood-soft); margin-bottom: 1.2rem;
+    color: var(--gold); margin-bottom: 1.2rem;
   }
   .page-title {
-    font-family: var(--serif); font-weight: 600;
+    font-family: var(--serif); font-weight: 700;
     font-size: clamp(2rem, 5.5vw, 3.1rem); line-height: 1.2;
-    background: linear-gradient(120deg, #e9c6cb 0%, var(--blood-soft) 45%, var(--scale-light) 100%);
+    background: linear-gradient(120deg, var(--gold-light) 0%, var(--gold) 45%, var(--wine-soft) 100%);
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent; color: transparent;
     margin-bottom: 1.4rem;
   }
-  .meta { color: var(--muted); font-size: .88rem; line-height: 1.9; }
-  .meta strong { color: #dfe6de; font-weight: 600; }
-  .meta a { color: var(--blood-soft); text-decoration: none; }
+  .meta { color: var(--muted); font-size: .9rem; line-height: 1.9; font-style: italic; }
+  .meta strong { color: var(--ink); font-weight: 600; font-style: normal; }
+  .meta a { color: var(--gold); text-decoration: none; }
   .meta a:hover { text-decoration: underline; }
 
-  /* serrated "shedding" divider, evokes a scale/skin edge */
+  /* heraldic divider */
   .ornament {
-    height: 10px; max-width: 260px; margin: 1.8rem auto 0; opacity: .8;
-    background-image: repeating-linear-gradient(135deg, var(--scale-light) 0 4px, transparent 4px 9px);
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+    display: flex; align-items: center; justify-content: center; gap: .8rem;
+    max-width: 320px; margin: 1.8rem auto 0; opacity: .9;
   }
+  .ornament::before, .ornament::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .ornament span { color: var(--gold); font-size: .9rem; }
 
   /* --- article --- */
   .article { padding: 1rem 0 3rem; }
   .article p {
-    font-size: 1.02rem; color: #c9d3ca; margin-bottom: 1.35rem;
+    font-size: 1.05rem; color: #ddd0bb; margin-bottom: 1.35rem;
     text-align: justify; hyphens: auto;
   }
   .article p:first-of-type::first-letter {
-    font-family: var(--serif); font-size: 3.3rem; font-weight: 600;
-    float: left; line-height: .85; padding: .25rem .55rem 0 0;
-    color: var(--blood-soft);
+    font-family: var(--serif); font-size: 3.6rem; font-weight: 700; font-style: italic;
+    float: left; line-height: .8; padding: .2rem .5rem 0 0;
+    color: var(--gold);
   }
   .article h2 {
-    font-family: var(--serif); font-weight: 600;
-    font-size: 1.9rem; color: var(--blood-soft);
+    font-family: var(--serif); font-weight: 700;
+    font-size: 1.9rem; color: var(--gold-light);
     margin: 3.2rem 0 1.2rem; letter-spacing: .01em;
     display: flex; align-items: center; gap: .8rem;
   }
   .article h2::before {
-    content: '\25c8'; font-size: 1rem; color: var(--scale-light); flex: none;
+    content: '\269C'; font-size: 1.1rem; color: var(--gold); flex: none;
   }
 
   .article ul { margin: 0 0 1.6rem 1.35rem; }
-  .article ul li { margin-bottom: .45rem; color: #c9d3ca; font-size: 1.02rem; }
-  .article ul li::marker { color: var(--blood-soft); }
+  .article ul li { margin-bottom: .45rem; color: #ddd0bb; font-size: 1.02rem; }
+  .article ul li::marker { color: var(--gold); }
+
+  /* the 13 ruling families, styled as a genealogical roll */
+  .family-roll {
+    list-style: none; counter-reset: roll;
+    margin: 1.6rem 0; padding: 1.3rem 1.5rem;
+    background: var(--card);
+    border: 1px solid var(--line); border-radius: 4px;
+  }
+  .family-roll li {
+    counter-increment: roll;
+    display: flex; align-items: baseline; gap: .7rem;
+    padding: .4rem 0;
+    border-bottom: 1px dashed rgba(201, 164, 76, .18);
+    font-family: var(--serif); font-size: 1.1rem; color: var(--ink);
+  }
+  .family-roll li:last-child { border-bottom: none; }
+  .family-roll li::before {
+    content: counter(roll, upper-roman);
+    min-width: 2.1rem; text-align: right;
+    color: var(--gold); font-weight: 600; font-size: .92rem;
+  }
 
   figure { margin: 2.6rem 0; text-align: center; }
   figure a { display: block; }
   figure img {
     width: 100%; max-width: 560px; height: auto;
-    border-radius: 3px;
-    border: 1px solid var(--line);
+    border-radius: 2px;
+    border: 6px solid var(--card);
+    outline: 1px solid var(--line);
     box-shadow: 0 18px 45px rgba(0, 0, 0, .55);
-    transition: transform .45s ease, box-shadow .45s ease;
+    filter: sepia(.25) saturate(.85);
+    transition: transform .45s ease, box-shadow .45s ease, filter .45s ease;
   }
-  figure a:hover img { transform: translateY(-5px); box-shadow: 0 26px 60px rgba(0, 0, 0, .65); }
+  figure a:hover img { transform: translateY(-5px); box-shadow: 0 26px 60px rgba(0, 0, 0, .65); filter: none; }
   figcaption {
     max-width: 560px; margin: .9rem auto 0;
-    font-family: var(--cond); font-size: .92rem; font-style: normal; color: var(--muted);
+    font-family: var(--serif); font-size: .95rem; font-style: italic; color: var(--muted);
     letter-spacing: .02em;
   }
 
   .nota {
     margin: 2.4rem 0; padding: 1.2rem 1.4rem;
-    background: linear-gradient(90deg, rgba(168, 40, 58, .10), rgba(168, 40, 58, .02));
-    border-left: 3px solid var(--blood);
+    background: linear-gradient(90deg, rgba(201, 164, 76, .10), rgba(201, 164, 76, .02));
+    border-left: 3px solid var(--gold);
     border-radius: 0 3px 3px 0;
-    font-size: .98rem; color: #d8b9bd;
+    font-size: .98rem; color: #e6d3b0; font-style: italic;
   }
-  .nota strong { color: var(--blood-soft); }
+  .nota strong { color: var(--gold); font-style: normal; }
 
   /* --- references --- */
   .refs {
-    border-top: 1px solid rgba(255, 255, 255, .08);
+    border-top: 1px solid var(--line);
     margin-top: 3rem; padding: 3rem 0 4rem;
   }
   .refs h2 {
-    font-family: var(--serif); font-weight: 600; font-size: 1.8rem;
-    color: var(--blood-soft); margin-bottom: .6rem;
+    font-family: var(--serif); font-weight: 700; font-size: 1.8rem;
+    color: var(--gold-light); margin-bottom: .6rem;
   }
   .refs .src { color: var(--muted); font-size: .9rem; margin-bottom: 1.2rem; }
   .refs ul { list-style: none; }
   .refs ul li { margin-bottom: .8rem; }
   .refs ul a {
-    color: var(--scale-light); text-decoration: none; font-size: .98rem;
-    border-bottom: 1px solid rgba(107, 138, 118, .35); padding-bottom: 1px;
+    color: var(--wine-soft); text-decoration: none; font-size: .98rem;
+    border-bottom: 1px solid rgba(168, 57, 90, .35); padding-bottom: 1px;
     transition: color .25s, border-color .25s;
   }
-  .refs ul a:hover { color: #9fc2ac; border-color: #9fc2ac; }
+  .refs ul a:hover { color: var(--gold); border-color: var(--gold); }
   .refs .fine {
     margin-top: 1.6rem; padding: 1.2rem 1.3rem;
-    background: var(--card); border: 1px solid rgba(255, 255, 255, .07);
+    background: var(--card); border: 1px solid var(--line);
     border-radius: 3px; font-size: .82rem; color: var(--muted); line-height: 1.8;
   }
-  .refs .fine b { color: #cfd8ce; font-weight: 600; }
+  .refs .fine b { color: var(--ink); font-weight: 600; }
 
   footer {
-    border-top: 1px solid rgba(255, 255, 255, .06);
+    border-top: 1px solid var(--line);
     padding: 1.6rem 1.5rem; text-align: center;
-    color: #5c675e; font-size: .78rem; letter-spacing: .05em;
+    color: #7a6753; font-size: .78rem; letter-spacing: .05em;
   }
 
   /* --- back to top --- */
   #toTop {
     position: fixed; right: 1.4rem; bottom: 1.4rem; z-index: 50;
     width: 44px; height: 44px; border-radius: 3px;
-    border: 1px solid var(--line); background: rgba(17, 37, 26, .88);
-    color: var(--blood-soft); font-size: 1.15rem; cursor: pointer;
+    border: 1px solid var(--line); background: rgba(42, 20, 32, .9);
+    color: var(--gold); font-size: 1.15rem; cursor: pointer;
     opacity: 0; pointer-events: none; transition: opacity .3s, transform .3s;
     backdrop-filter: blur(8px);
   }
@@ -240,7 +276,8 @@
 
 <main class="page">
   <section class="hero">
-    <p class="kicker">Biblioteca Pleyades · Linaje Draconiano</p>
+    <div class="seal">&#9884;</div>
+    <p class="kicker">Biblioteca Pleyades · Registro de las Casas Reales</p>
     <h1 class="page-title">Los Alienígenas Reptiles<br>y el Consejo de las<br>13 Familias 'reales'</h1>
     <p class="meta">
       por <strong>Stewart Swerdlow</strong><br>
@@ -249,7 +286,7 @@
     </p>
   </section>
 
-  <div class="ornament"></div>
+  <div class="ornament"><span>&#9884;</span></div>
 
   <article class="article" id="articulo">
 <figure><a href='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_01.jpg' target='_blank' rel='noopener'><img src='https://www.bibliotecapleyades.net/imagenes_sumeranu/reptiles115_01.jpg' loading='lazy' alt='Ilustración simbólica del linaje reptiliano y las familias gobernantes'></a></figure>
@@ -266,7 +303,7 @@
 <p>La pirámide con el ojo reptiliano, que se encuentra en el billete de un dólar estadounidense, es un símbolo de esta estructura de control. El ojo es el límite en la pirámide, lo que explica por qué la superficie original de la Gran Pirámide en Egipto fue coronada en oro sólido.</p>
 <p>Pindar está representado por la tapa de oro en la pirámide. La siguiente capa, u "ojo", en la pirámide representa a las 13 familias gobernantes.</p>
 <p>Son los siguientes:</p>
-<ul><li>Rothschild (Bauer o Bower) - Pindar</li><li>Bruce</li><li>Cavendish (Kennedy)</li><li>De Medici</li><li>Hanover</li><li>Habsburgo</li><li>Krupp</li><li>Plantagenet</li><li>Rockefeller</li><li>Romanov</li><li>Sinclair (St. Clair)</li><li>Warburg (del Banco)</li><li>Windsor (Saxe-Coburg-Gothe)</li></ul>
+<ul class="family-roll"><li>Rothschild (Bauer o Bower) - Pindar</li><li>Bruce</li><li>Cavendish (Kennedy)</li><li>De Medici</li><li>Hanover</li><li>Habsburgo</li><li>Krupp</li><li>Plantagenet</li><li>Rockefeller</li><li>Romanov</li><li>Sinclair (St. Clair)</li><li>Warburg (del Banco)</li><li>Windsor (Saxe-Coburg-Gothe)</li></ul>
 <p>A cada una de las 13 familias gobernantes se le ha dado una superficie de la Tierra y/o una función particular para cumplir en la Tierra.</p>
 <p>Estas funciones particulares incluyen,</p>
 <ul><li>finanzas globales</li><li>tecnología militar/de desarrollo</li><li>control mental</li><li>religión</li><li>medios de comunicación</li></ul>
