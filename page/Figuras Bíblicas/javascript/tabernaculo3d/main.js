@@ -61,7 +61,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.target.set(0, 2.5, 0);
 controls.enableDamping = true;
 controls.dampingFactor = 0.08;
-controls.minDistance = 1.5;
+controls.minDistance = 0.6;
 controls.maxDistance = 200;
 controls.maxPolarAngle = 1.53;
 controls.update();
@@ -89,6 +89,14 @@ const ui = buildUI(parts, {
   deselect: deselect,
 });
 
+/* Paredes, velos y mobiliario interior: al elegir cualquiera de estas
+   partes se activa "Ver interior" automáticamente, para que las paredes
+   no bloqueen la vista al acercarse o al orbitar desde otro ángulo. */
+const INTERIOR_IDS = new Set([
+  "lugar-santo", "lugar-santisimo", "candelero", "mesa", "incensario",
+  "arca", "propiciatorio", "tablas", "barras", "pantalla", "velo",
+]);
+
 function selectPart(id, doFly) {
   if (walkMode) return;
   deselect(false);
@@ -98,6 +106,10 @@ function selectPart(id, doFly) {
   highlight(p.group, 0x3a2400, 0.55);
   ui.showInfo(id);
   ui.highlight(id);
+  if (INTERIOR_IDS.has(id) && !tglGhost.checked) {
+    tglGhost.checked = true;
+    tglGhost.dispatchEvent(new Event("change"));
+  }
   if (doFly && document.getElementById("tgl-fly").checked) {
     flyTo(p.cam, p.look, 1.35);
   }
