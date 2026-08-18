@@ -492,17 +492,22 @@
 
 @media (max-width: 860px) {
   #panel {
-    top: 150px;
+    top: 190px;
     width: 230px;
+    max-height: calc(100vh - 250px);
   }
   #hud {
     top: 84px;
     left: 8px;
     right: 8px;
     padding: 6px;
+    flex-wrap: wrap;
+    row-gap: 8px;
   }
   #hud .brand { padding: 6px 10px; }
   #hud .brand h1 { font-size: 13px; }
+  #hud .brand p { display: none; }
+  .hud-actions { flex: 1 1 100%; justify-content: flex-start; }
   .hud-actions .tgl { display: none; }
   #info-card {
     right: 10px;
