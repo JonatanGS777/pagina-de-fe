@@ -322,6 +322,40 @@
         .study-card--evangelista { border-color: var(--c-evangelista); }
         .study-card--maestro { border-color: var(--c-maestro); }
 
+        .study-banner {
+            position: relative;
+            height: 240px;
+            margin: -2.6rem -2.6rem 1.8rem;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.8rem 2.2rem;
+            overflow: hidden;
+        }
+        .study-banner::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(14,12,10,0.1) 0%, rgba(14,12,10,0.8) 100%);
+        }
+        .study-banner-icon {
+            position: absolute; top: 1.4rem; left: 1.6rem; z-index: 2;
+            width: 42px; height: 42px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(14,12,10,0.5);
+            border: 1px solid rgba(247,244,237,0.35);
+            color: #f7f4ed;
+            font-size: 1.05rem;
+        }
+        .study-banner-title {
+            position: relative; z-index: 2;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #f7f4ed;
+        }
+        .study-banner-title span { font-style: italic; color: var(--gold-light); }
+
         .study-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.6rem; }
         .study-icon { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
         .study-card--apostol .study-icon { background: var(--c-apostol-pl); color: var(--c-apostol); }
@@ -332,6 +366,7 @@
 
         .study-title { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 600; color: var(--ink); }
         .study-title span { font-style: italic; }
+        .study-subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.08rem; color: var(--text-muted); margin-bottom: 1.4rem; }
         .study-intro { font-size: 0.9rem; font-weight: 300; line-height: 1.78; color: var(--text-body); margin-bottom: 1.6rem; }
 
         .study-sub { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px dashed var(--parchment-dk); }
@@ -452,6 +487,8 @@
             .std-grid { grid-template-columns: 1fr 1fr; }
             .evang-grid { grid-template-columns: 1fr 1fr; }
             .study-card { padding: 2rem 1.5rem; }
+            .study-banner { height: 170px; margin: -2rem -1.5rem 1.4rem; padding: 1.2rem 1.4rem; }
+            .study-banner-title { font-size: 1.3rem; }
             .christo-row { grid-template-columns: 1fr; }
             .christo-min { border-right: none; border-bottom: 1px solid var(--parchment-dk); }
             .concl-item { grid-template-columns: 44px 1fr; }
@@ -725,10 +762,11 @@
 
             <div class="study-stack">
                 <div class="study-card study-card--apostol">
-                    <div class="study-head">
-                        <div class="study-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.086 18.412A2 2 0 0112.67 19H5v-7.672a2 2 0 01.586-1.414L11.75 3.75a6 6 0 118.49 8.49z" /><path d="M16 8 2 22" /><path d="M17.488 15H9" /></svg></div>
-                        <h3 class="study-title">Águila – <span>Apóstol</span>: el ministerio que abre territorio</h3>
+                    <div class="study-banner" style="background-image:url('images/aguila-vuelo.jpg')">
+                        <div class="study-banner-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.086 18.412A2 2 0 0112.67 19H5v-7.672a2 2 0 01.586-1.414L11.75 3.75a6 6 0 118.49 8.49z" /><path d="M16 8 2 22" /><path d="M17.488 15H9" /></svg></div>
+                        <h3 class="study-banner-title">Águila – <span>Apóstol</span></h3>
                     </div>
+                    <p class="study-subtitle">El ministerio que abre territorio</p>
                     <p class="study-intro">El apóstol es, etimológicamente, el "enviado" (<em>apóstolos</em>): alguien comisionado para ir más allá de lo ya establecido. El águila, el ave de mayor envergadura y alcance migratorio entre las aves rapaces del Cercano Oriente antiguo, ilustra con notable precisión esta vocación de extensión, fundamento y gobierno espiritual.</p>
                     <div class="study-sub">
                         <div class="study-sub-title">Fundamento y territorio</div>
@@ -744,10 +782,11 @@
                 </div>
 
                 <div class="study-card study-card--profeta">
-                    <div class="study-head">
-                        <div class="study-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" /><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" /><path d="M8 6v8" /></svg></div>
-                        <h3 class="study-title">León – <span>Profeta</span>: la voz que no puede callar</h3>
+                    <div class="study-banner" style="background-image:url('images/leon-rugido.jpg')">
+                        <div class="study-banner-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" /><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" /><path d="M8 6v8" /></svg></div>
+                        <h3 class="study-banner-title">León – <span>Profeta</span></h3>
                     </div>
+                    <p class="study-subtitle">La voz que no puede callar</p>
                     <p class="study-intro">El profeta habla lo que Dios ha dicho, con la misma urgencia involuntaria con que un león ruge. Amós 3:8 no describe una opción retórica, sino una necesidad: el profeta no elige hablar; es constreñido a hacerlo.</p>
                     <div class="study-sub">
                         <div class="study-sub-title">Autoridad real y apertura de lo oculto</div>
@@ -763,10 +802,11 @@
                 </div>
 
                 <div class="study-card study-card--pastor">
-                    <div class="study-head">
-                        <div class="study-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg></div>
-                        <h3 class="study-title">Oveja – <span>Pastor</span>: la autoridad que nace de la sumisión</h3>
+                    <div class="study-banner" style="background-image:url('images/oveja-pastor.jpg')">
+                        <div class="study-banner-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg></div>
+                        <h3 class="study-banner-title">Oveja – <span>Pastor</span></h3>
                     </div>
+                    <p class="study-subtitle">La autoridad que nace de la sumisión</p>
                     <p class="study-intro">Este es el símbolo que exige mayor matiz teológico, porque bíblicamente la relación estándar es Pastor → ovejas, no pastor = oveja. Sin embargo, un examen más detenido de la Escritura revela un patrón que resuelve esta tensión: todo pastor humano es, antes que nada, una oveja bajo el Pastor Supremo.</p>
                     <div class="study-sub">
                         <div class="study-sub-title">El patrón del "bajo-pastor" (under-shepherd)</div>
@@ -801,10 +841,11 @@
                 </div>
 
                 <div class="study-card study-card--maestro">
-                    <div class="study-head">
-                        <div class="study-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16" /><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" /></svg></div>
-                        <h3 class="study-title">Becerro/Buey – <span>Maestro</span>: el yugo del aprendizaje</h3>
+                    <div class="study-banner" style="background-image:url('images/buey-yugo.jpg')">
+                        <div class="study-banner-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16" /><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" /></svg></div>
+                        <h3 class="study-banner-title">Becerro/Buey – <span>Maestro</span></h3>
                     </div>
+                    <p class="study-subtitle">El yugo del aprendizaje</p>
                     <p class="study-intro">El buey bíblico no es un animal decorativo de fuerza bruta; es, específicamente, el animal de yugo y trilla, asociado con trabajo sostenido, alimentación mutua y colaboración bajo una misma carga. Esta asociación resulta notablemente precisa para el ministerio de enseñanza.</p>
                     <div class="study-sub">
                         <div class="study-sub-title">El yugo como imagen central de la enseñanza</div>
