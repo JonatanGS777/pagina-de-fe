@@ -133,6 +133,36 @@ Sitio web estático del ministerio cristiano, desplegado en **Vercel** con auten
 - **Bug recurrente encontrado en 2 páginas:** un `::before` con `content: '<svg>...</svg>'` — el CSS `content` no renderiza HTML/SVG, solo lo muestra como texto literal; el ícono decorativo nunca fue visible. Reemplazado por un elemento HTML real con SVG inline en ambos casos.
 - **Bug de fuente recurrente en 3 páginas:** `font-family: 'NombreFuente'` referenciado en CSS sin el `<link>` correspondiente a Google Fonts, cayendo silenciosamente a la fuente de reserva del sistema.
 
+### 2026-08-18: rediseño del trío "Academia Bíblica" (Cimientos → Andamiaje → Observatorio)
+
+- **`page/Estudios Bíblicos/doctrina-basica.html`**: estilo **"Cimientos"** (piedra caliza + óxido/rebar, tipografía Zilla Slab + IBM Plex Sans). Primera fase del trío arquitectónico (Básica = cimientos de un edificio).
+- **`page/Estudios Bíblicos/doctrina-intermedia.html`**: estilo **"Andamiaje"**, continúa la metáfora de construcción un nivel arriba (plano técnico/cianotipo, Archivo Black + IBM Plex Mono, azul de plano + naranja de seguridad). Las 10 tarjetas de estudio pasaron a "fichas de plano" P-01 a P-10.
+- **`page/Estudios Bíblicos/doctrina-avanzada.html`**: estilo **"Observatorio"**, cierra el trío con la cámara más alta del edificio (cielo nocturno con telescopio, Fraunces + Spectral, paleta índigo/latón). Se corrigieron errores de gramática preexistentes en el aviso de madurez espiritual y en dos tarjetas de maestros (incluyendo una inconsistencia de nombre, "Diony" → "Dioni"), sin alterar nombres, cifras ni enlaces externos de los 6 maestros recomendados ni de los 3 recursos complementarios.
+- Las tres reemplazan sus versiones anteriores (ver historial 2026-08-12); Font Awesome reemplazado por Lucide en las tres.
+
+### 2026-08-18: limpieza de guion largo y mayúsculas de contenido en todo el sitio
+
+- El usuario estableció una regla permanente de estilo de escritura: no usar guion largo en ningún texto del sitio (títulos, párrafos, código comentado). Se corrigieron ~20 páginas ya rediseñadas, reemplazando cada aparición según el contexto: separadores de `<title>` → `|`, pares cortos tipo "Águila / Apóstol" → `·`, incisos dentro de una oración → coma, paréntesis o dos puntos.
+- En la misma pasada se completó la limpieza de `text-transform: uppercase` en etiquetas de contenido que había quedado pendiente del historial 2026-08-17 (13 páginas de `estudios/` + `Cronograma Detallado.html`), incluyendo dos casos nuevos (`deliverable-title`, `timeline-week`) con el mismo patrón de etiqueta de dato ya corregido antes.
+- **Bug de causa raíz encontrado:** `.sub-menu a` (los ítems del menú desplegable) heredaba `text-transform: uppercase` de la regla `nav a` sin resetearlo, forzando **todo** el listado del dropdown "Estudios Bíblicos" a mayúscula sostenida; no era un problema de una página específica sino del menú global. Afectaba solo a `index.html` y `page/Época de Jesús/estudio-contemporaneo.html`; se verificaron los otros 14 archivos con menú desplegable antiguo y ninguno más lo tenía.
+
+### 2026-08-18: rediseño de revelacion-espiritu.html y devocionales.html
+
+- **`page/Estudios Bíblicos/revelacion-espiritu.html`**: estilo **"El Huerto de PaRDeS"** (la jerarquía del conocimiento, suelo/tronco/fruto, y los cuatro niveles de PaRDeS reimaginados como el corte transversal de un árbol frutal, ya que "PaRDeS" significa literalmente "huerto" en hebreo). Fraunces + Newsreader, paleta tierra/raíz/corteza/fruto dorado.
+- **`page/Estudios Bíblicos/devocionales.html`**: estilo **"Bitácora Espiritual"** (cronogramas de oración, horarios bíblicos y calendario de ayuno reimaginados como un cuaderno personal de disciplinas: tipografía a mano (Caveat) sobre papel rayado, tarjetas con ligera rotación tipo hoja pegada, calendario "clavado" con una chincheta).
+- Ambas reemplazan el estilo base "Refinado y Solemne" genérico que tenían antes (ver tabla de estado); Font Awesome reemplazado por Lucide en las dos.
+
+### 2026-08-18: fotografías reales en aguila-cinco-ministerios.html
+
+- Las 4 tarjetas de "Desarrollo teológico profundo" con foto disponible (águila, león, oveja, buey) ganaron un banner fotográfico de fondo con degradado oscuro y título superpuesto, usando imágenes generadas por el usuario. Cordero-Evangelista conserva su ícono: no había foto en alta resolución disponible para ese símbolo.
+- Imágenes optimizadas a JPEG ~300–540 KB c/u y guardadas en `page/Estudios Bíblicos/images/` (`aguila-vuelo.jpg`, `leon-rugido.jpg`, `oveja-pastor.jpg`, `buey-yugo.jpg`).
+
+### 2026-08-18: rediseño "Dos Testamentos, Un Río" de at-a-nt.html (Figuras Bíblicas)
+
+- **`page/Figuras Bíblicas/at-a-nt.html`**: la página más grande de contenido del sitio, directorio completo de los 66 libros de la Biblia (39 AT + 27 NT, organizados en 11 categorías), tipología hacia el resto de la categoría y línea de tiempo de la revelación progresiva. Rediseñada con AT (piedra/tierra) y NT (cielo) como dos corrientes que confluyen: dualidad de color que ya existía en el CSS original (`--at-color`/`--nt-color`) y que ahora es el concepto central de toda la página, no solo de una pestaña. Cormorant SC + Literata, reemplaza Poppins + Montserrat + Font Awesome.
+- **Bug de páginas huérfanas corregido:** la grilla de tipología solo enlazaba a 4 de las 6 páginas hermanas de la categoría. Se agregaron `temple-3d.html` (no estaba enlazada en ningún lado del archivo) y `tipologia-cantares.html` (solo vivía en el menú dropdown, no en esta página).
+- Con esta página, `page/Figuras Bíblicas/at-a-nt.html` pasa de "pendiente" a completada; las 6 páginas restantes de la categoría siguen pendientes.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -303,6 +333,12 @@ El rediseño sigue los principios de la [Frontend Design Skill](#frontend-design
   ```
   **⚠️ Nunca usar `::before` con `opacity` para la imagen** — el overlay encima lo hace invisible.
 
+### Reglas de redacción (aplican a todo el sitio, no solo a esta dirección estética)
+
+- **Sin guion largo** en ningún texto: títulos, párrafos, código comentado. Alternativas según contexto: `|` en separadores de `<title>`, `·` en pares cortos, coma/paréntesis/dos puntos en incisos dentro de una oración (ver historial 2026-08-18).
+- **Sin abuso de mayúsculas** (`text-transform: uppercase`) en títulos de página ni en contenido (referencias bíblicas, nombres de entidades, descripciones, etiquetas de dato bajo un número). Se reserva para chips de categoría/sección (eyebrow, section-label, badges de nivel/nav) y botones, nunca para texto narrativo o listas de contenido (ver historial 2026-08-17 y 2026-08-18).
+- Íconos: siempre Lucide SVG inline (`stroke="currentColor"`), nunca Font Awesome ni emoji nuevos, en cualquier página nueva o editada.
+
 ---
 
 ## Estructura del proyecto
@@ -370,11 +406,12 @@ Página de Fe/
 | `page/Época de Jesús/contexto-historico.html` | Completado — sage `#4a7856` |
 | `page/Época de Jesús/apologia-cristiana.html` | Completado — gold `#b89a5f` |
 | `page/Época de Jesús/estudio-contemporaneo.html` | Completado — wine `#7a2d3c` |
-| `page/Estudios Bíblicos/revelacion-espiritu.html` | Completado — amethyst `#4a3070` |
-| `page/Estudios Bíblicos/devocionales.html` | Completado — forest green `#2b4a36` |
-| `page/Estudios Bíblicos/doctrina-basica.html` | Completado — estilo "monumental" propio (numerales romanos, tinta/oro, sin animación de entrada; ver historial 2026-08-12) |
-| `page/Estudios Bíblicos/doctrina-intermedia.html` | Completado — terracotta `#6b3a2a` |
-| `page/Estudios Bíblicos/doctrina-avanzada.html` | Completado — midnight purple `#2a1e4a` |
+| `page/Estudios Bíblicos/revelacion-espiritu.html` | Completado: estilo propio "El Huerto de PaRDeS" (corte transversal de árbol; ver historial 2026-08-18) |
+| `page/Estudios Bíblicos/devocionales.html` | Completado: estilo propio "Bitácora Espiritual" (cuaderno personal; ver historial 2026-08-18) |
+| `page/Estudios Bíblicos/doctrina-basica.html` | Completado: estilo propio "Cimientos" (piedra caliza/óxido-rebar; ver historial 2026-08-18) |
+| `page/Estudios Bíblicos/doctrina-intermedia.html` | Completado: estilo propio "Andamiaje" (plano técnico/cianotipo; ver historial 2026-08-18) |
+| `page/Estudios Bíblicos/doctrina-avanzada.html` | Completado: estilo propio "Observatorio" (cielo nocturno/telescopio; ver historial 2026-08-18) |
+| `page/Estudios Bíblicos/aguila-cinco-ministerios.html` | Completado: estilo propio "Cielo Abierto" (acento cerúleo, con fotografías reales en 4 de los 5 símbolos; ver historial 2026-08-17 y 2026-08-18) |
 | `page/Estudios Bíblicos/estudios/hermeneutica-biblica.html` | Completado — deep teal `#1e4040` |
 | `page/Estudios Bíblicos/estudios/pneumatologia-avanzada.html` | Completado — ember `#5c2a0a` |
 | `page/Estudios Bíblicos/estudios/cristologia-profunda.html` | Completado — crimson `#7a1528` |
@@ -398,6 +435,7 @@ Página de Fe/
 | `page/Estudios Bíblicos/estudios/examen.html` | Refinado — ya tenía header y fuentes correctas; Font Awesome (19 usos) reemplazado por Lucide; ver historial 2026-08-17 |
 | `page/Estudios Bíblicos/estudios/ministerio-pastoral.html` | Refinado — se conservó el concepto de "plano arquitectónico de la iglesia"; 36 emoji reemplazados por Lucide, header agregado, 'Roboto Slab' antes sin cargar; ver historial 2026-08-17 |
 | `page/Estudios Bíblicos/recursos/Cronograma Detallado.html` | Refinado — página hermana de analisisexgetico.html; Font Awesome (20 usos) reemplazado por Lucide, logo EMD agregado al header para consistencia con su página madre; ver historial 2026-08-17 |
+| `page/Figuras Bíblicas/at-a-nt.html` | Completado: estilo propio "Dos Testamentos, Un Río" (directorio de los 66 libros de la Biblia; ver historial 2026-08-18) |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
@@ -422,7 +460,6 @@ Página de Fe/
 
 #### `page/Figuras Bíblicas/`
 
-- [ ] `at-a-nt.html`
 - [ ] `figuras-cristo.html`
 - [ ] `nombres-simbologia.html`
 - [ ] `sacrificios-figuras.html`
