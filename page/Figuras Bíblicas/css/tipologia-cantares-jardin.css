@@ -1,0 +1,1203 @@
+:root {
+    --wine: #681f3a;
+    --wine-deep: #260d18;
+    --wine-dark: #16090f;
+    --wine-soft: rgba(104, 31, 58, 0.08);
+    --olive: #354b38;
+    --olive-deep: #1e3024;
+    --sage: #71806d;
+    --sage-soft: rgba(53, 75, 56, 0.08);
+    --gold: #b88a37;
+    --gold-light: #dec17a;
+    --gold-soft: rgba(184, 138, 55, 0.14);
+    --vellum: #f2ead9;
+    --vellum-light: #fbf7ee;
+    --vellum-dark: #e4d7bf;
+    --ink: #30251e;
+    --ink-soft: #584b40;
+    --muted: #786b5e;
+    --line: rgba(76, 57, 42, 0.17);
+    --surface: rgba(251, 247, 238, 0.92);
+    --surface-solid: #fbf7ee;
+    --header-height: 68px;
+    --content-width: 980px;
+    --sidebar-width: 340px;
+    --transition: 260ms cubic-bezier(0.22, 1, 0.36, 1);
+    --box-shadow: 0 24px 70px rgba(49, 32, 21, 0.09);
+}
+
+[data-theme="dark"] {
+    --vellum: #17150f;
+    --vellum-light: #211d16;
+    --vellum-dark: #30281d;
+    --ink: #f2e8d4;
+    --ink-soft: #d4c6ae;
+    --muted: #ad9f8a;
+    --line: rgba(222, 193, 122, 0.17);
+    --surface: rgba(33, 29, 22, 0.94);
+    --surface-solid: #211d16;
+    --wine-soft: rgba(154, 60, 91, 0.14);
+    --sage-soft: rgba(113, 128, 109, 0.14);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    padding-top: 0;
+    background:
+        radial-gradient(circle at 12% 22%, var(--wine-soft), transparent 28rem),
+        radial-gradient(circle at 90% 48%, var(--sage-soft), transparent 32rem),
+        var(--vellum);
+    color: var(--ink);
+    font-family: 'Literata', serif;
+    font-weight: 300;
+    line-height: 1.82;
+    overflow-x: hidden;
+}
+
+body::before {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image:
+        repeating-linear-gradient(0deg, rgba(74, 52, 35, 0.018) 0 1px, transparent 1px 4px),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 5px);
+    content: '';
+    pointer-events: none;
+}
+
+::selection {
+    background: var(--gold-light);
+    color: var(--wine-deep);
+}
+
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.site-header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 1100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+    padding: 0 2.5rem;
+    border-bottom: 1px solid rgba(222, 193, 122, 0.22);
+    background: rgba(22, 9, 15, 0.94);
+    box-shadow: none;
+    color: var(--vellum-light);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    color: #f7eedc;
+    text-decoration: none;
+}
+
+.header-logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.header-logo-text {
+    color: #f7eedc;
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.045em;
+    line-height: 1.2;
+}
+
+.header-logo-text span {
+    display: block;
+    margin-top: 0.2rem;
+    color: rgba(242, 234, 217, 0.5);
+    font-family: 'Literata', serif;
+    font-size: 0.65rem;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 0;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-right: 0.5rem;
+    padding: 0.48rem 0.9rem;
+    border: 1px solid rgba(222, 193, 122, 0.32);
+    color: var(--gold-light);
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: border-color var(--transition), background var(--transition);
+}
+
+.header-badge:hover {
+    border-color: var(--gold-light);
+    background: rgba(222, 193, 122, 0.08);
+}
+
+.btn-icon {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 0;
+    background: transparent;
+    color: rgba(242, 234, 217, 0.78);
+    font-size: 1rem;
+    cursor: pointer;
+    place-items: center;
+    transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.btn-icon:hover,
+.btn-icon[aria-expanded="true"] {
+    border-color: rgba(222, 193, 122, 0.32);
+    background: rgba(222, 193, 122, 0.08);
+    color: var(--gold-light);
+}
+
+.progress-container {
+    top: var(--header-height);
+    z-index: 1101;
+    height: 2px;
+}
+
+.progress-bar {
+    height: 2px;
+    background: linear-gradient(90deg, var(--wine), var(--gold-light), var(--olive));
+}
+
+.garden-hero {
+    position: relative;
+    display: grid;
+    min-height: 86svh;
+    margin-top: var(--header-height);
+    overflow: hidden;
+    background: var(--wine-dark);
+    color: var(--vellum-light);
+    isolation: isolate;
+    place-items: center;
+}
+
+.garden-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background: url('../images/cantares-jardin-sellado-hero.jpg') center 56% / cover no-repeat;
+    filter: saturate(0.86) contrast(1.06) brightness(0.72);
+    transform: scale(1.025);
+}
+
+.garden-hero::before {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+        linear-gradient(90deg, rgba(22, 9, 15, 0.72), rgba(22, 9, 15, 0.27) 34%, rgba(22, 9, 15, 0.42) 68%, rgba(22, 9, 15, 0.76)),
+        linear-gradient(180deg, rgba(22, 9, 15, 0.18), rgba(22, 9, 15, 0.34) 54%, rgba(22, 9, 15, 0.96));
+    content: '';
+}
+
+.garden-hero::after {
+    position: absolute;
+    inset: 1.8rem;
+    z-index: -1;
+    border: 1px solid rgba(222, 193, 122, 0.2);
+    content: '';
+    pointer-events: none;
+}
+
+.garden-hero-inner {
+    width: min(920px, calc(100% - 3rem));
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+}
+
+.garden-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 2rem;
+    padding: 0.45rem 1.1rem;
+    border: 1px solid rgba(222, 193, 122, 0.38);
+    color: var(--gold-light);
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.garden-eyebrow::before,
+.garden-eyebrow::after {
+    color: rgba(222, 193, 122, 0.65);
+    content: '❧';
+    font-size: 0.78rem;
+}
+
+.garden-title {
+    max-width: 860px;
+    margin: 0 auto;
+    color: #fff9ed;
+    font-family: 'Cormorant SC', serif;
+    font-size: clamp(3rem, 7vw, 5.7rem);
+    font-weight: 600;
+    letter-spacing: 0.015em;
+    line-height: 0.98;
+    text-wrap: balance;
+    text-shadow: 0 8px 35px rgba(0, 0, 0, 0.38);
+}
+
+.garden-title em {
+    display: block;
+    margin-top: 0.18em;
+    color: var(--gold-light);
+    font-style: normal;
+}
+
+.garden-rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 140px;
+    margin: 2rem auto 1.7rem;
+    color: var(--gold-light);
+}
+
+.garden-rule::before,
+.garden-rule::after {
+    width: 52px;
+    height: 1px;
+    background: currentColor;
+    content: '';
+    opacity: 0.62;
+}
+
+.garden-rule span {
+    font-size: 0.8rem;
+}
+
+.garden-subtitle {
+    max-width: 690px;
+    margin: 0 auto;
+    color: rgba(255, 249, 237, 0.78);
+    font-size: clamp(1rem, 2vw, 1.18rem);
+    font-style: italic;
+    line-height: 1.75;
+    text-wrap: balance;
+}
+
+.garden-verse {
+    max-width: 590px;
+    margin: 2.2rem auto 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(222, 193, 122, 0.25);
+    color: rgba(255, 249, 237, 0.88);
+    font-size: 0.88rem;
+    letter-spacing: 0.02em;
+}
+
+.garden-verse strong {
+    color: var(--gold-light);
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.garden-scroll {
+    position: absolute;
+    bottom: 1.8rem;
+    left: 50%;
+    display: grid;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(222, 193, 122, 0.3);
+    color: var(--gold-light);
+    font-size: 0.8rem;
+    text-decoration: none;
+    transform: translateX(-50%);
+    place-items: center;
+    transition: background var(--transition), border-color var(--transition);
+}
+
+.garden-scroll:hover {
+    border-color: var(--gold-light);
+    background: rgba(222, 193, 122, 0.1);
+}
+
+main {
+    position: relative;
+    display: block;
+}
+
+.toc {
+    top: var(--header-height);
+    z-index: 1090;
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--header-height));
+    padding: 2.4rem 1.5rem;
+    border-right: 1px solid rgba(222, 193, 122, 0.25);
+    background:
+        linear-gradient(rgba(30, 48, 36, 0.97), rgba(22, 34, 26, 0.985)),
+        url('../images/cantares-jardin-sellado-hero.jpg') center / cover;
+    box-shadow: 24px 0 70px rgba(22, 9, 15, 0.28);
+    color: var(--vellum-light);
+}
+
+.toc-title {
+    margin-bottom: 1.4rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid rgba(222, 193, 122, 0.28);
+    color: var(--gold-light);
+    font-family: 'Cormorant SC', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.toc li {
+    margin-bottom: 0.25rem;
+}
+
+.toc a,
+.toc .toc-level-2 {
+    padding: 0.56rem 0.65rem;
+    border-radius: 0;
+    color: rgba(242, 234, 217, 0.72);
+    font-family: 'Literata', serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+    line-height: 1.45;
+}
+
+.toc .toc-level-2 {
+    padding-left: 1.45rem;
+    font-size: 0.74rem !important;
+}
+
+.toc a:hover,
+.toc a.active {
+    background: rgba(222, 193, 122, 0.1);
+    color: var(--gold-light);
+}
+
+.content {
+    width: min(var(--content-width), calc(100% - 3rem));
+    max-width: none;
+    margin: 0 auto;
+    padding: 3.6rem 0 7rem;
+    counter-reset: study-section;
+}
+
+.reading-tools {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 2.2rem;
+    padding-bottom: 1.4rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.breadcrumbs {
+    gap: 0.45rem;
+    margin: 0;
+    color: var(--muted);
+    font-family: 'Literata', serif;
+    font-size: 0.76rem;
+}
+
+.breadcrumbs a {
+    color: var(--muted);
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs .current {
+    color: var(--wine);
+}
+
+.reading-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.55rem;
+}
+
+.print-button {
+    margin: 0;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid var(--line);
+    border-radius: 0;
+    background: var(--surface);
+    color: var(--ink-soft);
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.print-button:hover {
+    border-color: var(--wine);
+    background: var(--wine);
+    color: #fff8ec;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 0.35rem;
+    margin: 0;
+}
+
+.share-btn,
+.share-btn.facebook,
+.share-btn.twitter,
+.share-btn.whatsapp,
+.share-btn.email {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--line);
+    border-radius: 0;
+    background: transparent;
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.share-btn:hover {
+    border-color: var(--gold);
+    background: var(--gold-soft);
+    box-shadow: none;
+    color: var(--wine);
+    transform: translateY(-2px);
+}
+
+.study-overview {
+    position: relative;
+    margin: 2.5rem 0 2rem;
+    padding: clamp(2.5rem, 6vw, 4.5rem);
+    overflow: hidden;
+    background:
+        linear-gradient(125deg, rgba(38, 13, 24, 0.97), rgba(53, 75, 56, 0.92)),
+        url('../images/cantares-jardin-sellado-hero.jpg') center / cover;
+    color: #fff8ec;
+    box-shadow: var(--box-shadow);
+    scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+.study-overview::after {
+    position: absolute;
+    inset: 1rem;
+    border: 1px solid rgba(222, 193, 122, 0.24);
+    content: '';
+    pointer-events: none;
+}
+
+.overview-kicker {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin-bottom: 0.8rem;
+    color: var(--gold-light);
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+}
+
+.study-overview h2 {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0;
+    padding: 0;
+    color: #fff8ec;
+    font-family: 'Cormorant SC', serif;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 600;
+    line-height: 1.08;
+    text-wrap: balance;
+}
+
+.study-overview h2::after {
+    display: none;
+}
+
+.study-overview > p {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 1.2rem 0 2rem;
+    color: rgba(255, 248, 236, 0.72);
+    font-size: 0.96rem;
+}
+
+.overview-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    border: 1px solid rgba(222, 193, 122, 0.2);
+    background: rgba(222, 193, 122, 0.2);
+}
+
+.overview-pillar {
+    display: flex;
+    min-height: 126px;
+    padding: 1.25rem 1rem;
+    background: rgba(22, 9, 15, 0.54);
+    color: rgba(255, 248, 236, 0.78);
+    text-decoration: none;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: background var(--transition), color var(--transition);
+}
+
+.overview-pillar span {
+    color: var(--gold-light);
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+}
+
+.overview-pillar strong {
+    font-family: 'Cormorant SC', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 1.25;
+}
+
+.overview-pillar:hover {
+    background: rgba(104, 31, 58, 0.72);
+    color: #fff8ec;
+}
+
+.author-info {
+    position: relative;
+    gap: 1.2rem;
+    margin: 0 0 4.5rem;
+    padding: 1.4rem 1.6rem;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gold);
+    border-radius: 0;
+    background: var(--surface);
+    box-shadow: 0 12px 35px rgba(49, 32, 21, 0.05);
+}
+
+.author-avatar {
+    width: 68px;
+    height: 68px;
+    margin: 0;
+    border: 2px solid var(--gold-light);
+    outline: 4px solid var(--gold-soft);
+}
+
+.author-bio {
+    color: var(--ink-soft);
+    font-family: 'Literata', serif;
+    font-size: 0.84rem;
+    line-height: 1.65;
+}
+
+.author-bio p {
+    margin-bottom: 0;
+}
+
+.author-name {
+    color: var(--wine);
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.content > .section {
+    position: relative;
+    margin: 0 0 4rem;
+    padding: clamp(2rem, 6vw, 4.5rem);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--wine);
+    background: var(--surface);
+    box-shadow: var(--box-shadow);
+    counter-increment: study-section;
+    scroll-margin-top: calc(var(--header-height) + 28px);
+}
+
+.content > .section::after {
+    position: absolute;
+    top: 1.1rem;
+    right: 1.2rem;
+    color: var(--gold);
+    content: '❧';
+    font-size: 1.15rem;
+    opacity: 0.5;
+}
+
+.content > .section > h2 {
+    margin: 0 0 2rem;
+    padding: 0 0 1.2rem;
+    color: var(--wine);
+    font-family: 'Cormorant SC', serif;
+    font-size: clamp(1.85rem, 4vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1.12;
+    text-wrap: balance;
+}
+
+.content > .section > h2::before {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--gold);
+    content: 'Capítulo ' counter(study-section, upper-roman);
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+}
+
+.content > .section > h2::after {
+    width: 48px;
+    height: 1px;
+    background: var(--gold);
+}
+
+.section h3 {
+    position: relative;
+    margin: 2.7rem 0 1.1rem;
+    padding-left: 1.25rem;
+    color: var(--olive);
+    font-family: 'Cormorant SC', serif;
+    font-size: clamp(1.35rem, 2.8vw, 1.78rem);
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.section h3::before {
+    position: absolute;
+    top: 0.47em;
+    left: 0;
+    width: 7px;
+    height: 7px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    content: '';
+}
+
+.section h4 {
+    margin: 2.2rem 0 0.85rem;
+    color: var(--wine);
+    font-family: 'Cormorant SC', serif;
+    font-size: 1.18rem;
+    font-weight: 700;
+    letter-spacing: 0.035em;
+}
+
+.section p,
+.section li {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+}
+
+.section p {
+    margin-bottom: 1.35rem;
+}
+
+.section ul,
+.section ol {
+    margin: 1.35rem 0 1.8rem;
+    padding-left: 1.4rem;
+}
+
+.section li {
+    margin-bottom: 0.65rem;
+    padding-left: 0.3rem;
+}
+
+.section li::marker {
+    color: var(--gold);
+}
+
+.subsection {
+    position: relative;
+    margin-top: 2.5rem;
+    padding: 0.5rem 0 0.5rem 2rem;
+    border-left: 1px solid var(--gold);
+}
+
+.subsection::before {
+    position: absolute;
+    top: 1rem;
+    left: -5px;
+    width: 9px;
+    height: 9px;
+    border: 2px solid var(--surface-solid);
+    border-radius: 50%;
+    background: var(--wine);
+    box-shadow: 0 0 0 1px var(--gold);
+    content: '';
+}
+
+blockquote,
+.bible-verse {
+    position: relative;
+    margin: 2.3rem 0;
+    padding: 2.4rem clamp(1.6rem, 5vw, 3rem);
+    overflow: hidden;
+    border: 0;
+    border-radius: 0;
+    background: linear-gradient(135deg, var(--olive-deep), #293d2f);
+    color: #f7eedc;
+    box-shadow: 0 18px 45px rgba(30, 48, 36, 0.15);
+}
+
+blockquote::before,
+.bible-verse::before {
+    position: absolute;
+    top: -2rem;
+    left: 1rem;
+    color: rgba(222, 193, 122, 0.12);
+    content: '\201C';
+    font-family: 'Cormorant SC', serif;
+    font-size: 9rem;
+    line-height: 1;
+}
+
+blockquote p,
+.bible-verse p,
+.verse-text {
+    position: relative;
+    color: rgba(247, 238, 220, 0.92) !important;
+    font-style: italic;
+}
+
+.verse-ref {
+    color: var(--gold-light) !important;
+    font-family: 'Cormorant SC', serif;
+    font-style: normal !important;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.table-container {
+    margin: 2.3rem 0;
+    border: 1px solid var(--line);
+    border-radius: 0;
+    background: var(--surface-solid);
+    box-shadow: 0 16px 45px rgba(49, 32, 21, 0.07);
+}
+
+table {
+    margin: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background: var(--surface-solid);
+    color: var(--ink-soft);
+    font-family: 'Literata', serif;
+    font-size: 0.8rem;
+    white-space: normal;
+}
+
+thead tr {
+    background: linear-gradient(120deg, var(--wine-deep), var(--olive-deep));
+}
+
+th {
+    color: #fff8ec;
+    font-family: 'Cormorant SC', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+}
+
+th,
+td {
+    padding: 1rem;
+    border-color: var(--line);
+    vertical-align: top;
+}
+
+tbody tr,
+tbody tr:nth-child(odd),
+tbody tr:nth-child(even) {
+    background: var(--surface-solid);
+}
+
+tbody tr:hover {
+    background: var(--gold-soft);
+}
+
+td:first-child {
+    color: var(--wine);
+}
+
+.badge {
+    border-radius: 0;
+    font-family: 'Cormorant SC', serif;
+    letter-spacing: 0.08em;
+}
+
+.highlight {
+    border-radius: 0;
+    background: var(--gold-soft);
+    color: var(--wine);
+}
+
+.references {
+    border-top: 3px solid var(--olive) !important;
+}
+
+.references ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 2rem;
+}
+
+.references li {
+    margin: 0;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    font-family: 'Literata', serif;
+    font-size: 0.78rem;
+    line-height: 1.6;
+    text-indent: 0;
+}
+
+.back-to-top {
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(222, 193, 122, 0.42);
+    border-radius: 0;
+    background: var(--wine-deep);
+    box-shadow: 0 12px 30px rgba(22, 9, 15, 0.22);
+    color: var(--gold-light);
+}
+
+.back-to-top:hover {
+    background: var(--olive-deep);
+}
+
+body > footer {
+    margin-top: 0;
+    padding: 4.5rem 0 1.5rem;
+    border-top: 1px solid rgba(222, 193, 122, 0.2);
+    background:
+        linear-gradient(115deg, rgba(22, 9, 15, 0.98), rgba(30, 48, 36, 0.97)),
+        url('../images/cantares-jardin-sellado-hero.jpg') center 70% / cover;
+    color: rgba(242, 234, 217, 0.68);
+}
+
+.footer-content {
+    max-width: 1120px;
+    gap: 3.5rem;
+}
+
+.footer-col h4 {
+    color: var(--gold-light);
+    font-family: 'Cormorant SC', serif;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.footer-col h4::after {
+    height: 1px;
+    background: var(--gold);
+}
+
+.footer-col p,
+.footer-links a {
+    color: rgba(242, 234, 217, 0.58);
+    font-family: 'Literata', serif;
+    font-size: 0.78rem;
+    line-height: 1.75;
+}
+
+.footer-links a:hover {
+    color: var(--gold-light);
+}
+
+.social-links a {
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(222, 193, 122, 0.28);
+    border-radius: 0;
+    background: transparent;
+    color: var(--gold-light);
+}
+
+.social-links a:hover {
+    background: rgba(222, 193, 122, 0.1);
+}
+
+.copyright {
+    max-width: 1120px;
+    border-top-color: rgba(222, 193, 122, 0.16);
+    color: rgba(242, 234, 217, 0.38);
+    font-size: 0.72rem;
+}
+
+.reveal-ready {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 700ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-ready.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (max-width: 900px) {
+    .site-header {
+        padding: 0 1.2rem;
+    }
+
+    .garden-hero {
+        min-height: 78svh;
+    }
+
+    .garden-hero-bg {
+        background-position: 57% center;
+    }
+
+    .overview-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .reading-tools {
+        grid-template-columns: 1fr;
+    }
+
+    .reading-actions {
+        justify-content: flex-start;
+    }
+
+    .references ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    :root {
+        --header-height: 62px;
+    }
+
+    .site-header {
+        gap: 0.75rem;
+        padding: 0 0.85rem;
+    }
+
+    .header-logo {
+        gap: 0.6rem;
+    }
+
+    .header-logo img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .header-logo-text {
+        font-size: 0.72rem;
+    }
+
+    .header-logo-text span,
+    .header-badge span {
+        display: none;
+    }
+
+    .header-badge {
+        margin-right: 0;
+        padding: 0.45rem 0.6rem;
+    }
+
+    .btn-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .garden-hero {
+        min-height: 81svh;
+    }
+
+    .garden-hero::after {
+        inset: 0.8rem;
+    }
+
+    .garden-hero-inner {
+        width: calc(100% - 1.6rem);
+        padding: 4rem 0.8rem 4.5rem;
+    }
+
+    .garden-eyebrow {
+        margin-bottom: 1.5rem;
+        font-size: 0.64rem;
+        letter-spacing: 0.13em;
+    }
+
+    .garden-title {
+        font-size: clamp(2.45rem, 13vw, 3.5rem);
+    }
+
+    .garden-subtitle {
+        font-size: 0.92rem;
+    }
+
+    .garden-verse {
+        font-size: 0.78rem;
+    }
+
+    .toc {
+        width: min(88vw, 340px);
+    }
+
+    .content {
+        width: min(100% - 1.5rem, var(--content-width));
+        padding-top: 2.2rem;
+    }
+
+    .reading-tools {
+        gap: 1rem;
+    }
+
+    .breadcrumbs {
+        font-size: 0.7rem;
+    }
+
+    .reading-actions {
+        flex-wrap: wrap;
+    }
+
+    .study-overview {
+        margin-top: 1.4rem;
+        padding: 2.8rem 1.4rem;
+    }
+
+    .study-overview::after {
+        inset: 0.65rem;
+    }
+
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .overview-pillar {
+        min-height: 92px;
+    }
+
+    .author-info {
+        padding: 1.5rem 1.2rem;
+        text-align: center;
+    }
+
+    .content > .section {
+        margin-bottom: 2.2rem;
+        padding: 2.2rem 1.25rem;
+    }
+
+    .content > .section::after {
+        display: none;
+    }
+
+    .section h3 {
+        padding-left: 1rem;
+    }
+
+    .subsection {
+        padding-left: 1rem;
+    }
+
+    .table-container {
+        margin-right: -0.4rem;
+        margin-left: -0.4rem;
+    }
+
+    table {
+        min-width: 760px;
+        font-size: 0.74rem;
+    }
+
+    body > footer {
+        padding-top: 3.3rem;
+    }
+
+    .footer-content {
+        gap: 2rem;
+    }
+}
+
+@media print {
+    .garden-hero {
+        min-height: auto;
+        margin: 0;
+        padding: 2rem;
+        background: #fff;
+        color: #000;
+    }
+
+    .garden-hero-bg,
+    .garden-scroll,
+    .garden-hero::before,
+    .garden-hero::after,
+    .study-overview,
+    .reading-tools {
+        display: none;
+    }
+
+    .garden-title,
+    .garden-title em,
+    .garden-subtitle,
+    .garden-verse {
+        color: #000;
+        text-shadow: none;
+    }
+
+    .content > .section {
+        padding: 1rem 0;
+        border: 0;
+        box-shadow: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
