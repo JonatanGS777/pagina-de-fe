@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CSS2DRenderer } from "three/addons/renderers/CSS2DRenderer.js";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
-import { buildWorld } from "./temple.js";
+import { buildWorld } from "./temple.js?v=2";
 import { buildUI } from "./ui.js";
 
 /* ------------------------------------------------------------------ */

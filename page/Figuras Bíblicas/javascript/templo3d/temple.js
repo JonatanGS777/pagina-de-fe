@@ -202,7 +202,7 @@ export function buildWorld(scene) {
   /* ====================== PODIO DEL TEMPLO =========================== */
   const podiumG = new THREE.Group();
   box([25, 0.4, 74], m("stoneLight"), 0, 0.7, 5, podiumG);          // 0.5 → 0.9
-  box([27, 0.5, 1.6], m("stoneLight"), 0, 0.45, 41.2, podiumG);     // escalón frontal
+  box([27, 0.5, 1.6], m("stoneLight"), 0, 0.25, 41.2, podiumG);     // escalón frontal (antes flotaba: centro 0.45 con alto 0.5 dejaba la base en y=0.2)
   box([25, 0.55, 1.6], m("stoneLight"), 0, 0.275, 39.6, podiumG);   // 2.º escalón
   part("temple", "El Templo (Edificio)", "הֵיכָל", "1 Reyes 6:2",
     "El edificio principal del santuario: 60 codos de largo, 20 de ancho y 30 de alto (≈ 30 × 10 × 15 m), orientado al este sobre el monte Moriah. Muros de piedra con revestimiento de cedro y oro.",
@@ -425,13 +425,21 @@ export function buildWorld(scene) {
   /* ---- Altar del incienso ---- */
   const incenseG = new THREE.Group();
   {
+    /* Coordenadas locales al origen del grupo (antes venían con la
+       posición de la sala horneada directo en cada box/cylinder, del
+       mismo tamaño que el resto de la habitación a escala 1 codo = 1
+       unidad, mientras el altar se dibujó a la mitad de esa escala -
+       se ve pequeño respecto al Hekal). Se recentra en el origen local
+       para poder escalar el objeto x2 sin moverlo de su sitio real. */
     const g = m("gold");
-    box([0.5, 1, 0.5], g, 0, 0.5 + Y0, -7, incenseG);
-    box([0.6, 0.06, 0.6], m("goldDark"), 0, 1.03 + Y0, -7, incenseG);
-    for (const [x, z] of [[-0.22, -7.22], [0.22, -7.22], [-0.22, -6.78], [0.22, -6.78]]) {
-      cylinder(0.04, 0.04, 0.16, 8, g, x, 1.14 + Y0, z, incenseG);
+    box([0.5, 1, 0.5], g, 0, 0.5, 0, incenseG);
+    box([0.6, 0.06, 0.6], m("goldDark"), 0, 1.03, 0, incenseG);
+    for (const [x, z] of [[-0.22, -0.22], [0.22, -0.22], [-0.22, 0.22], [0.22, 0.22]]) {
+      cylinder(0.04, 0.04, 0.16, 8, g, x, 1.14, z, incenseG);
     }
   }
+  incenseG.scale.setScalar(2);
+  incenseG.position.set(0, Y0, -7);
   part("incense", "Altar del Incienso", "מִזְבַּח הַקְּטֹרֶת", "1 Reyes 7:48",
     "Altar de madera de cedro revestido de oro, de un codo, colocado ante el velo del Santuario; sobre él ardía el incienso cada mañana y cada tarde.",
     [6, 4.5, 12], [0, 5, -7], incenseG, [0, 2.7, -7]);
@@ -466,26 +474,30 @@ export function buildWorld(scene) {
       new THREE.Vector3(0.45, y0 + dy, 0),
       new THREE.Vector3(0.45, y0 + dy + 0.18, 0),
     ]);
+    /* Geometría local al origen de cada candelero (antes venía con
+       "+ Y0" horneado directo, a la mitad del tamaño real de la sala -
+       se ve pequeño junto al resto del Hekal). Y0 pasa a ser la
+       posición del grupo, y cada candelero se escala x2 en su sitio. */
     for (const sx of [1, -1]) {
       for (const z of [4, 9, 14, 19, 24]) {
         const g = new THREE.Group();
-        cylinder(0.42, 0.5, 0.12, 14, m("goldDark"), 0, 0.06 + Y0, 0, g);
-        cylinder(0.07, 0.09, 1.5, 10, gold, 0, 0.87 + Y0, 0, g);
+        cylinder(0.42, 0.5, 0.12, 14, m("goldDark"), 0, 0.06, 0, g);
+        cylinder(0.07, 0.09, 1.5, 10, gold, 0, 0.87, 0, g);
         for (const s of [1, -1]) {
           for (let i = 0; i < 3; i++) {
-            const y0 = 0.55 + i * 0.28 + Y0;
+            const y0 = 0.55 + i * 0.28;
             const tube = new THREE.Mesh(
-              new THREE.TubeGeometry(armCurve(y0 - Y0, 0.55), 14, 0.034, 6),
+              new THREE.TubeGeometry(armCurve(y0, 0.55), 14, 0.034, 6),
               gold
             );
             tube.rotation.y = s === 1 ? 0 : Math.PI;
-            tube.position.set(0, Y0, 0);
             g.add(tube);
             cylinder(0.06, 0.04, 0.2, 8, m("flame"), s * 0.45, y0 + 0.73, 0, g, false);
           }
         }
-        cylinder(0.06, 0.04, 0.22, 8, m("flame"), 0, 1.6 + Y0, 0, g, false);
-        g.position.set(7 * sx, 0, z);
+        cylinder(0.06, 0.04, 0.22, 8, m("flame"), 0, 1.6, 0, g, false);
+        g.scale.setScalar(2);
+        g.position.set(7 * sx, Y0, z);
         menorotG.add(g);
       }
     }
