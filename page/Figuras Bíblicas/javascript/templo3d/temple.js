@@ -448,17 +448,22 @@ export function buildWorld(scene) {
   /* ---- Mesa del pan de la proposición ---- */
   const tableG = new THREE.Group();
   {
-    for (const [x, z] of [[-6.55, 11.85], [-6.55, 12.15], [-7.45, 11.85], [-7.45, 12.15]]) {
-      box([0.1, 0.85, 0.1], m("gold"), x, 1.325 + Y0, z, tableG);   // patas
+    /* Coordenadas locales, recentradas en (-7, Y0, 12) - mismo problema
+       de escala que el candelero/altar del incienso/arca: "2 × 1 codos"
+       real quedó dibujada como 1 × 0.5. */
+    for (const [x, z] of [[0.45, -0.15], [0.45, 0.15], [-0.45, -0.15], [-0.45, 0.15]]) {
+      box([0.1, 0.85, 0.1], m("gold"), x, 1.325, z, tableG);   // patas
     }
-    box([0.9, 0.08, 0.4], m("goldDark"), -7, 1.74 + Y0, 12, tableG); // bastidor
-    box([1, 0.06, 0.5], m("gold"), -7, 1.81 + Y0, 12, tableG);       // tablero
+    box([0.9, 0.08, 0.4], m("goldDark"), 0, 1.74, 0, tableG); // bastidor
+    box([1, 0.06, 0.5], m("gold"), 0, 1.81, 0, tableG);       // tablero
     for (let r = 0; r < 2; r++) {
       for (let c = 0; c < 6; c++) {
-        box([0.15, 0.09, 0.1], m("cedar"), -7.2 + c * 0.29 + 0.15, 1.895 + Y0, 11.82 + r * 0.36, tableG);
+        box([0.15, 0.09, 0.1], m("cedar"), c * 0.29 - 0.05, 1.895, -0.18 + r * 0.36, tableG);
       }
     }
   }
+  tableG.scale.setScalar(2);
+  tableG.position.set(-7, Y0, 12);
   part("table", "Mesa del Pan de la Proposición", "שֻׁלְחָן", "1 Reyes 7:48",
     "Mesa de oro, de 2 × 1 codos, al lado norte del Lugar Santo, con los doce panes de la proposición renovados cada sábado.",
     [7, 4, 14], [-7, 3.5, 12], tableG, [-7, 2.7, 12]);
@@ -510,17 +515,21 @@ export function buildWorld(scene) {
   /* ---- Arca del Pacto (sobre plataforma del Debir, piso 1.9) ---- */
   const arkG = new THREE.Group();
   {
+    /* Coordenadas locales, recentradas en (0, 1.9, -20) - el piso de la
+       plataforma del Debir - para poder escalar x2 en su sitio (mismo
+       problema del candelero/altar del incienso: se dibujó a la mitad
+       de la escala real del edificio). */
     const g = m("gold");
-    box([1.25, 0.75, 0.75], g, 0, 2.275, -20, arkG);
-    box([1.5, 0.1, 0.95], m("goldDark"), 0, 2.7, -20, arkG);
-    cylinder(0.025, 0.025, 2.6, 8, g, 0, 2.2, -20, arkG);
-    for (const [x, z] of [[-0.45, -20.38], [0.45, -20.38], [-0.45, -19.62], [0.45, -19.62]]) {
-      cylinder(0.06, 0.06, 0.09, 10, m("bronzeDark"), x, 2.1, z, arkG);
+    box([1.25, 0.75, 0.75], g, 0, 0.375, 0, arkG);
+    box([1.5, 0.1, 0.95], m("goldDark"), 0, 0.8, 0, arkG);
+    cylinder(0.025, 0.025, 2.6, 8, g, 0, 0.3, 0, arkG);
+    for (const [x, z] of [[-0.45, -0.38], [0.45, -0.38], [-0.45, 0.38], [0.45, 0.38]]) {
+      cylinder(0.06, 0.06, 0.09, 10, m("bronzeDark"), x, 0.2, z, arkG);
     }
     /* querubines del propiciatorio: alas extendidas hacia arriba (Éx 25:20) */
     for (const sx of [1, -1]) {
       const cg = new THREE.Group();
-      cg.position.set(sx * 0.55, 3.02, -20);
+      cg.position.set(sx * 0.55, 1.12, 0);
       cg.rotation.y = -sx * Math.PI / 2 + sx * 0.25;
       const gd = m("goldDark");
       box([0.22, 0.5, 0.24], g, 0, 0.25, 0, cg);          // cuerpo
@@ -536,8 +545,10 @@ export function buildWorld(scene) {
       }
       arkG.add(cg);
     }
-    halo(0, 3.9, -20, 1.6, 0.35, arkG);                   // resplandor sobre el Arca
+    halo(0, 2.0, 0, 1.6, 0.35, arkG);                     // resplandor sobre el Arca
   }
+  arkG.scale.setScalar(2);
+  arkG.position.set(0, 1.9, -20);
   part("ark", "Arca del Pacto", "אֲרוֹן הַבְּרִית", "Éxodo 25:10-22",
     "Cofre de madera de acacia revestida de oro (2.5 × 1.5 codos) con el propiciatorio y dos querubines, depositado en el Santo de los Santos con las tablas de la Ley.",
     [0, 6, -7], [0, 7.5, -20], arkG, [0, 3.9, -20], true);
