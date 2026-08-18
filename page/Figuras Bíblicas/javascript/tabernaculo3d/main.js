@@ -250,6 +250,10 @@ function enterWalk() {
   btnWalk.classList.add("active");
   walkHint.classList.remove("hidden");
   renderer.domElement.requestPointerLock();
+  if (!tglGhost.checked) {
+    tglGhost.checked = true;
+    tglGhost.dispatchEvent(new Event("change"));
+  }
 }
 function exitWalk() {
   walkMode = false;
@@ -276,6 +280,28 @@ document.addEventListener("mousemove", (ev) => {
 document.addEventListener("keydown", (e) => (keys[e.code] = true));
 document.addEventListener("keyup", (e) => (keys[e.code] = false));
 
+/* Paredes sólidas de la tienda (tablas de acacia), ver tabernaculo.js:
+   tentW=5, zWest=-9.5, zEast=5.5. Un pequeño margen de seguridad (0.24)
+   sobre el grosor real de la tabla (0.21) evita que la cámara del modo
+   caminata quede incrustada dentro de la geometría. */
+const TENT_WALLS = [
+  { x0: -2.75, x1: 2.75, z0: -9.9, z1: -9.1 },  // pared oeste (fondo, tras el Lugar Santísimo)
+  { x0: 2.08, x1: 2.92, z0: -9.5, z1: 5.5 },    // pared sur (tablas a x=2.5, ancho de tabla 0.75)
+  { x0: -2.92, x1: -2.08, z0: -9.5, z1: 5.5 },  // pared norte (tablas a x=-2.5)
+];
+function resolveWallCollision(x, z) {
+  for (const w of TENT_WALLS) {
+    if (x > w.x0 && x < w.x1 && z > w.z0 && z < w.z1) {
+      const d = [x - w.x0, w.x1 - x, z - w.z0, w.z1 - z];
+      const min = Math.min(...d);
+      if (min === d[0]) x = w.x0;
+      else if (min === d[1]) x = w.x1;
+      else if (min === d[2]) z = w.z0;
+      else z = w.z1;
+    }
+  }
+  return { x, z };
+}
 function tickWalk(dt) {
   if (!walkMode || !document.pointerLockElement) return;
   const f = Number(keys["KeyW"]) - Number(keys["KeyS"]);
@@ -283,8 +309,12 @@ function tickWalk(dt) {
   if (f || r) {
     const speed = 7 * dt;
     const sin = Math.sin(yaw), cos = Math.cos(yaw);
-    camera.position.x += (-sin * f + cos * r) * speed;
-    camera.position.z += (-cos * f - sin * r) * speed;
+    const next = resolveWallCollision(
+      camera.position.x + (-sin * f + cos * r) * speed,
+      camera.position.z + (-cos * f - sin * r) * speed
+    );
+    camera.position.x = next.x;
+    camera.position.z = next.z;
   }
   camera.position.x = Math.max(-27, Math.min(27, camera.position.x));
   camera.position.z = Math.max(-14.5, Math.min(14.5, camera.position.z));
