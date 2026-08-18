@@ -2,6 +2,12 @@ import * as THREE from "three";
 import { CSS2DObject } from "three/addons/renderers/CSS2DRenderer.js";
 
 export const CUBIT = 0.5;
+/* Factor de escala aplicado a todo el modelo (grupo raíz) para dar más
+   espacio de navegación en el interior sin retocar cada coordenada a
+   mano. Todo lo que se calcule en coordenadas de mundo fuera del grupo
+   (cámaras de vuelo, colisión del modo caminata en main.js) debe
+   multiplicarse por este mismo factor. */
+export const SCALE = 1.4;
 const Y0 = 0; // nivel del suelo del atrio
 
 /* ------------------------------------------------------------------ */
@@ -244,10 +250,14 @@ export function buildWorld(scene) {
 
   function part(id, name, hebrew, ref, desc, cam, look, g, lbl, lblGold = false) {
     group.add(g);
+    /* cam/look/lbl son coordenadas de mundo (fuera del grupo escalado),
+       así que hay que escalarlas a mano para que sigan encuadrando la
+       pieza correcta tras aplicar group.scale al final de buildWorld(). */
     parts.push({
       id, name, hebrew, ref, desc,
-      cam: new THREE.Vector3(...cam), look: new THREE.Vector3(...look),
-      group: g, label: lbl ? label(name, lbl, lblGold) : null,
+      cam: new THREE.Vector3(...cam).multiplyScalar(SCALE),
+      look: new THREE.Vector3(...look).multiplyScalar(SCALE),
+      group: g, label: lbl ? label(name, lbl.map((v) => v * SCALE), lblGold) : null,
     });
     return g;
   }
@@ -701,5 +711,6 @@ export function buildWorld(scene) {
   part("arca", "Arca del Pacto", "אֲרוֹן", "Éxodo 25:10-16", "Cofre de acacia revestido de oro (2,5 × 1,5 × 1,5 codos) con moldura, cuatro argollas y varas; guardaba las tablas de la Ley.", [0, 2.3, -8.6], [0, 1.0, -9.75], arcaG, [0, 1.9, -9.65]);
   part("propiciatorio", "Propiciatorio y Querubines", "כַּפֹּרֶת", "Éxodo 25:17-22", "Tapa de oro puro con dos querubines de alas extendidas (5 codos), entre los cuales Dios prometió encontrarse con su pueblo.", [2.0, 2.2, -9.4], [0, 1.35, -9.75], propG, [0.8, 2.35, -9.65], true);
 
+  group.scale.setScalar(SCALE);
   return { parts, selectables, ghostShell, dust: { points: dust, base: dustBase }, scene: group };
 }

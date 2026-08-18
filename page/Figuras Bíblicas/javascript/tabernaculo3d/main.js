@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CSS2DRenderer } from "three/addons/renderers/CSS2DRenderer.js";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
-import { buildWorld } from "./tabernaculo.js";
+import { buildWorld, SCALE } from "./tabernaculo.js?v=2";
 import { buildUI } from "./ui.js";
 
 /* ------------------------------------------------------------------ */
@@ -20,7 +20,9 @@ const scene = new THREE.Scene();
 scene.fog = new THREE.Fog(0xe8d5a8, 260, 720);
 
 const camera = new THREE.PerspectiveCamera(70, innerWidth / innerHeight, 0.1, 2000);
-camera.position.set(0, 30, 52);
+const OVERVIEW_POS = new THREE.Vector3(0, 30, 52).multiplyScalar(SCALE);
+const OVERVIEW_TARGET = new THREE.Vector3(0, 2.5, 0).multiplyScalar(SCALE);
+camera.position.copy(OVERVIEW_POS);
 
 const pmrem = new THREE.PMREMGenerator(renderer);
 scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
@@ -58,10 +60,10 @@ for (const p of parts) byId[p.id] = p;
 
 /* ---------- Controles ---------- */
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.target.set(0, 2.5, 0);
+controls.target.copy(OVERVIEW_TARGET);
 controls.enableDamping = true;
 controls.dampingFactor = 0.08;
-controls.minDistance = 0.6;
+controls.minDistance = 0.6 * SCALE;
 controls.maxDistance = 200;
 controls.maxPolarAngle = 1.53;
 controls.update();
@@ -196,11 +198,11 @@ renderer.domElement.addEventListener("pointermove", (ev) => {
 /* ---------- Botones ---------- */
 document.getElementById("btn-enter").addEventListener("click", () => {
   document.getElementById("intro").classList.add("fade");
-  flyTo(new THREE.Vector3(0, 30, 52), new THREE.Vector3(0, 2.5, 0), 2.2);
+  flyTo(OVERVIEW_POS, OVERVIEW_TARGET, 2.2);
 });
 document.getElementById("btn-overview").addEventListener("click", () => {
   if (walkMode) exitWalk();
-  flyTo(new THREE.Vector3(0, 30, 52), new THREE.Vector3(0, 2.5, 0), 1.6);
+  flyTo(OVERVIEW_POS, OVERVIEW_TARGET, 1.6);
 });
 const btnRotate = document.getElementById("btn-rotate");
 btnRotate.addEventListener("click", () => {
@@ -239,14 +241,14 @@ const btnWalk = document.getElementById("btn-walk");
 const walkHint = document.getElementById("walk-hint");
 const keys = {};
 let yaw = -Math.PI / 2, pitch = 0;
-let walkY = 1.7;
+let walkY = 1.7 * SCALE;
 
 function enterWalk() {
   walkMode = true;
   controls.enabled = false;
   yaw = camera.rotation.y;
   pitch = camera.rotation.x;
-  walkY = Math.max(1.7, camera.position.y);
+  walkY = Math.max(1.7 * SCALE, camera.position.y);
   btnWalk.classList.add("active");
   walkHint.classList.remove("hidden");
   renderer.domElement.requestPointerLock();
@@ -288,7 +290,7 @@ const TENT_WALLS = [
   { x0: -2.75, x1: 2.75, z0: -9.9, z1: -9.1 },  // pared oeste (fondo, tras el Lugar Santísimo)
   { x0: 2.08, x1: 2.92, z0: -9.5, z1: 5.5 },    // pared sur (tablas a x=2.5, ancho de tabla 0.75)
   { x0: -2.92, x1: -2.08, z0: -9.5, z1: 5.5 },  // pared norte (tablas a x=-2.5)
-];
+].map((w) => ({ x0: w.x0 * SCALE, x1: w.x1 * SCALE, z0: w.z0 * SCALE, z1: w.z1 * SCALE }));
 function resolveWallCollision(x, z) {
   for (const w of TENT_WALLS) {
     if (x > w.x0 && x < w.x1 && z > w.z0 && z < w.z1) {
@@ -307,7 +309,7 @@ function tickWalk(dt) {
   const f = Number(keys["KeyW"]) - Number(keys["KeyS"]);
   const r = Number(keys["KeyD"]) - Number(keys["KeyA"]);
   if (f || r) {
-    const speed = 7 * dt;
+    const speed = 7 * SCALE * dt;
     const sin = Math.sin(yaw), cos = Math.cos(yaw);
     const next = resolveWallCollision(
       camera.position.x + (-sin * f + cos * r) * speed,
@@ -316,8 +318,8 @@ function tickWalk(dt) {
     camera.position.x = next.x;
     camera.position.z = next.z;
   }
-  camera.position.x = Math.max(-27, Math.min(27, camera.position.x));
-  camera.position.z = Math.max(-14.5, Math.min(14.5, camera.position.z));
+  camera.position.x = Math.max(-27 * SCALE, Math.min(27 * SCALE, camera.position.x));
+  camera.position.z = Math.max(-14.5 * SCALE, Math.min(14.5 * SCALE, camera.position.z));
   camera.position.y = walkY;
   camera.rotation.order = "YXZ";
   camera.rotation.y = yaw;
@@ -363,7 +365,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "o" || e.key === "O") btnRotate.click();
   if (e.key === "r" || e.key === "R") {
     if (walkMode) exitWalk();
-    flyTo(new THREE.Vector3(0, 30, 52), new THREE.Vector3(0, 2.5, 0), 1.6);
+    flyTo(OVERVIEW_POS, OVERVIEW_TARGET, 1.6);
   }
   if (e.key === "f" || e.key === "F") {
     if (document.fullscreenElement) document.exitFullscreen();
