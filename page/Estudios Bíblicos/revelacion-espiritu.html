@@ -11,972 +11,303 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revelación del Espíritu — Ministerio "La Gloria es del Señor"</title>
+    <title>Revelación del Espíritu | Ministerio "La Gloria es del Señor"</title>
+    <meta name="description" content="La jerarquía del conocimiento divino, la estructura de la Deidad y los cuatro niveles de PaRDeS: el huerto de la revelación bíblica progresiva.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ink:          #1a1410;
-            --ink-deep:     #0e0c0a;
-            --gold:         #b89a5f;
-            --gold-light:   #d4b87a;
-            --parchment:    #f7f4ed;
-            --parchment-dk: #ede9df;
-            --accent:       #4a3070;
-            --accent-mid:   #6b4a9a;
-            --accent-pale:  rgba(74,48,112,0.07);
-            --text-body:    #2d2620;
-            --text-muted:   #7a6e62;
-            --header-bg:    rgba(14,12,10,0.97);
-            --hero-grad:    linear-gradient(160deg, #0e0c0a 0%, #1f1a14 100%);
+            --tierra:      #241a10;
+            --tierra-deep: #160f09;
+            --raiz:        #2e3d1f;
+            --corteza:     #5a4530;
+            --fruto:       #c99a3e;
+            --fruto-lt:    #ddb968;
+            --huerto:      #e8dfc4;
+            --huerto-dk:   #dccfab;
+            --texto:       #2a2015;
+            --texto-mt:    #6b5c47;
+            --fruto-pale:  rgba(201,154,62,0.09);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Lato', sans-serif;
+            font-family: 'Newsreader', serif;
             font-weight: 300;
-            background: var(--parchment);
-            color: var(--text-body);
+            background: var(--huerto);
+            color: var(--texto);
             overflow-x: hidden;
         }
 
+        .ic { width: 1em; height: 1em; vertical-align: -0.15em; flex-shrink: 0; display: inline-block; }
+
         /* ── HEADER ── */
         .site-header {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
             height: 64px;
-            background: var(--header-bg);
+            background: rgba(22,15,9,0.97);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(184,154,95,0.18);
+            border-bottom: 1px solid rgba(201,154,62,0.28);
             padding: 0 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            display: flex; align-items: center; justify-content: space-between;
         }
 
-        .header-logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-        }
+        .header-logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
+        .header-logo img { height: 36px; width: auto; opacity: 0.95; }
 
-        .header-logo img {
-            height: 36px;
-            width: auto;
-            opacity: 0.9;
-        }
-
-        .header-logo-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.95rem;
-            font-weight: 400;
-            color: var(--gold);
-            letter-spacing: 0.04em;
-            line-height: 1.25;
-        }
-
-        .header-logo-text span {
-            display: block;
-            font-size: 0.78rem;
-            font-style: italic;
-            color: rgba(184,154,95,0.65);
-        }
+        .header-logo-text { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.95rem; font-weight: 500; color: var(--fruto-lt); line-height: 1.25; }
+        .header-logo-text span { display: block; font-size: 0.78rem; font-style: normal; color: rgba(232,223,196,0.55); }
 
         .nav-back {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 400;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: rgba(184,154,95,0.7);
-            text-decoration: none;
-            transition: color 0.25s;
+            display: flex; align-items: center;
+            font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+            color: rgba(201,154,62,0.75); text-decoration: none; transition: color 0.25s;
         }
-
-        .nav-back:hover { color: var(--gold); }
-        .nav-back i { margin-right: 0.45rem; font-size: 0.65rem; }
+        .nav-back:hover { color: var(--fruto-lt); }
+        .nav-back .ic { margin-right: 0.5rem; font-size: 0.7rem; }
 
         /* ── HERO ── */
-        .page-hero {
-            position: relative;
-            background: var(--hero-grad);
-            padding: 130px 2.5rem 90px;
-            overflow: hidden;
-        }
+        .page-hero { position: relative; background: linear-gradient(180deg, var(--tierra-deep) 0%, var(--tierra) 100%); padding: 130px 2.5rem 80px; overflow: hidden; }
 
         .page-hero::before {
             content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
-            opacity: 0.5;
+            position: absolute; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.05'/%3E%3C/svg%3E");
             pointer-events: none;
         }
 
         .page-hero::after {
             content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 50% 0%, rgba(74,48,112,0.22) 0%, transparent 65%);
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 50% 100%, rgba(46,61,31,0.4) 0%, transparent 65%);
             pointer-events: none;
         }
 
-        .hero-inner {
-            position: relative;
-            z-index: 2;
-            max-width: 840px;
-            margin: 0 auto;
-            text-align: center;
-        }
+        .hero-inner { position: relative; z-index: 2; max-width: 780px; margin: 0 auto; text-align: center; }
 
         .hero-eyebrow {
-            display: inline-block;
-            font-family: 'Lato', sans-serif;
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.24em;
-            text-transform: uppercase;
-            color: var(--gold);
-            border: 1px solid rgba(184,154,95,0.32);
-            padding: 0.35rem 1.1rem;
-            margin-bottom: 2rem;
- }
-
-        .hero-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.8rem, 6vw, 4.8rem);
-            font-weight: 600;
-            font-style: italic;
-            color: #f7f4ed;
-            line-height: 1.1;
-            margin-bottom: 1.4rem;
- }
-
-        .hero-title em {
-            font-style: normal;
-            color: var(--gold);
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--fruto-lt);
+            border: 1px solid rgba(201,154,62,0.32); padding: 0.35rem 1.1rem; margin-bottom: 2rem;
         }
 
-        .hero-subtitle {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.94rem;
-            font-weight: 300;
-            letter-spacing: 0.02em;
-            color: rgba(247,244,237,0.5);
- }
-
-        .hero-rule {
-            width: 48px;
-            height: 3px;
-            background: var(--gold);
-            margin: 2rem auto 0;
-            opacity: 0.45;
- }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(22px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
+        .hero-title { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: clamp(2.6rem, 6vw, 4.4rem); color: var(--huerto); line-height: 1.1; margin-bottom: 1rem; }
+        .hero-title em { font-style: normal; color: var(--fruto); }
+        .hero-subtitle { font-family: 'Newsreader', serif; font-style: italic; font-size: 1.05rem; color: rgba(232,223,196,0.62); }
+        .hero-rule { width: 44px; height: 2px; background: var(--fruto); margin: 1.8rem auto 0; opacity: 0.6; }
 
         /* ── MAIN ── */
-        .page-main {
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 0 2.5rem 7rem;
-        }
+        .page-main { max-width: 1080px; margin: 0 auto; padding: 0 2.5rem 6rem; }
 
-        /* ── VERSE INTRO ── */
+        /* ── VERSE INTRO (semilla) ── */
         .verse-intro {
-            max-width: 780px;
-            margin: 6rem auto 0;
-            padding: 3.5rem 3rem;
-            background: #fff;
-            border: 1px solid var(--parchment-dk);
-            border-top: 3px solid var(--accent);
-            box-shadow: 0 2px 20px rgba(14,12,10,0.06);
-            text-align: center;
+            max-width: 780px; margin: 5rem auto 0; padding: 3.2rem 3rem;
+            background: #fff; border: 1px solid var(--huerto-dk); border-top: 3px solid var(--fruto);
+            box-shadow: 0 2px 20px rgba(36,26,16,0.07); text-align: center;
         }
-
-        .verse-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.42rem;
-            font-style: italic;
-            font-weight: 400;
-            line-height: 1.78;
-            color: var(--ink);
-            margin-bottom: 1.5rem;
-        }
-
-        .verse-ref {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.76rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            color: var(--accent);
-        }
+        .verse-text { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.28rem; font-weight: 400; line-height: 1.75; color: var(--texto); margin-bottom: 1.4rem; }
+        .verse-ref { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.06em; color: var(--corteza); }
 
         /* ── SECTION HEADERS ── */
-        .section-header {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
+        .section-header { text-align: center; margin-bottom: 3.2rem; }
+        .section-label { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--corteza); margin-bottom: 0.8rem; }
+        .section-title { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: clamp(1.7rem, 3.4vw, 2.4rem); color: var(--texto); line-height: 1.2; }
+        .section-rule { width: 38px; height: 2px; background: var(--fruto); margin: 1.1rem auto 0; }
 
-        .section-label {
-            display: inline-block;
-            font-family: 'Lato', sans-serif;
-            font-size: 0.67rem;
-            font-weight: 700;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 0.8rem;
-        }
+        section.block { margin: 6rem 0; }
 
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-            font-weight: 600;
-            font-style: italic;
-            color: var(--ink);
-            line-height: 1.2;
-        }
+        /* ── JERARQUÍA (capas del huerto) ── */
+        .knowledge-levels { max-width: 840px; margin: 0 auto; }
 
-        .section-rule {
-            width: 40px;
-            height: 3px;
-            background: var(--gold);
-            margin: 1.1rem auto 0;
-        }
-
-        /* ── KNOWLEDGE HIERARCHY ── */
-        .hierarchy-section { margin: 6rem 0; }
-
-        .knowledge-levels {
-            max-width: 860px;
-            margin: 0 auto;
-        }
-
-        .k-level {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            background: #fff;
-            border: 1px solid var(--parchment-dk);
-            transition: border-color 0.3s, box-shadow 0.3s;
-            position: relative;
-        }
-
+        .k-level { display: grid; grid-template-columns: 80px 1fr; background: #fff; border: 1px solid var(--huerto-dk); position: relative; }
         .k-level + .k-level { border-top: none; }
 
-        .k-level:hover {
-            border-color: var(--accent);
-            box-shadow: 0 4px 24px rgba(74,48,112,0.1);
-            z-index: 2;
-        }
+        .k-level--top { border-left: 5px solid var(--fruto); }
+        .k-level--mid { border-left: 5px solid var(--corteza); }
+        .k-level--bot { border-left: 5px solid var(--raiz); }
 
-        .k-level--top { border-left: 4px solid var(--accent); }
-        .k-level--mid { border-left: 4px solid var(--gold); }
-        .k-level--bot { border-left: 4px solid var(--text-muted); }
+        .k-num { display: flex; align-items: center; justify-content: center; background: var(--huerto); border-right: 1px solid var(--huerto-dk); }
+        .k-num span { font-family: 'Fraunces', serif; font-style: italic; font-size: 2.1rem; font-weight: 400; color: var(--texto-mt); }
+        .k-level--top .k-num span { color: var(--fruto); }
+        .k-level--mid .k-num span { color: var(--corteza); }
+        .k-level--bot .k-num span { color: var(--raiz); }
 
-        .k-num {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--parchment);
-            border-right: 1px solid var(--parchment-dk);
-        }
+        .k-body { padding: 1.9rem 2rem 1.9rem 2.2rem; }
+        .k-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--texto-mt); margin-bottom: 0.6rem; }
+        .k-level--top .k-badge { color: var(--fruto); }
+        .k-level--mid .k-badge { color: var(--corteza); }
+        .k-level--bot .k-badge { color: var(--raiz); }
+        .k-name { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.24rem; color: var(--texto); margin-bottom: 0.6rem; }
+        .k-desc { font-size: 0.9rem; font-weight: 300; line-height: 1.72; color: var(--texto); }
 
-        .k-num span {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem;
-            font-weight: 300;
-            font-style: italic;
-            color: var(--text-muted);
-        }
-
-        .k-level--top .k-num span { color: var(--accent); }
-        .k-level--mid .k-num span { color: var(--gold); }
-
-        .k-body { padding: 2rem 2rem 2rem 2.2rem; }
-
-        .k-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'Lato', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-            color: var(--text-muted);
-            margin-bottom: 0.6rem;
-        }
-
-        .k-level--top .k-badge { color: var(--accent); }
-        .k-level--mid .k-badge { color: var(--gold); }
-
-        .k-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.32rem;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: 0.75rem;
-        }
-
-        .k-desc {
-            font-size: 0.93rem;
-            font-weight: 300;
-            line-height: 1.72;
-            color: var(--text-body);
-        }
-
-        /* ── DEITY SECTION (dark) ── */
-        .deity-section {
-            margin: 6rem 0;
-            padding: 4.5rem 3rem;
-            background: var(--hero-grad);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .deity-section::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
-            opacity: 0.45;
-            pointer-events: none;
-        }
-
-        .deity-section .section-label { color: var(--gold-light); }
-        .deity-section .section-title { color: #f7f4ed; }
-        .deity-section .section-rule { background: rgba(184,154,95,0.45); }
-
+        /* ── DEIDAD (el tronco) ── */
+        .deity-section { padding: 4.5rem 3rem; background: linear-gradient(180deg, var(--tierra) 0%, var(--raiz) 100%); position: relative; overflow: hidden; }
+        .deity-section .section-label { color: var(--fruto-lt); }
+        .deity-section .section-title { color: var(--huerto); }
+        .deity-section .section-rule { background: var(--fruto); opacity: 0.5; }
         .deity-inner { position: relative; z-index: 2; }
 
-        .deity-node-wrap {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2.5rem;
-        }
+        .deity-node-wrap { display: flex; justify-content: center; margin-bottom: 2.5rem; }
+        .deity-node { border: 1px solid var(--fruto); padding: 0.9rem 2.8rem; text-align: center; }
+        .deity-node-label { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.4rem; font-weight: 500; letter-spacing: 0.06em; color: var(--fruto-lt); }
+        .deity-node-ref { font-size: 0.62rem; letter-spacing: 0.06em; color: rgba(232,223,196,0.5); margin-top: 0.2rem; }
 
-        .deity-node {
-            border: 1px solid var(--gold);
-            padding: 0.9rem 2.8rem;
-            text-align: center;
-        }
-
-        .deity-node-label {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: 0.18em;
-            color: var(--gold);
-        }
-
-        .deity-node-ref {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.62rem;
-            letter-spacing: 0.1em;
-            color: rgba(184,154,95,0.55);
-            margin-top: 0.2rem;
-        }
-
-        .trinity-cols {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .t-col {
-            border: 1px solid rgba(184,154,95,0.18);
-            background: rgba(255,255,255,0.04);
-            transition: border-color 0.3s, background 0.3s;
-        }
-
-        .t-col:hover {
-            border-color: rgba(184,154,95,0.42);
-            background: rgba(255,255,255,0.07);
-        }
-
-        .t-col-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            border-bottom: 1px solid rgba(184,154,95,0.12);
-        }
-
-        .t-col-icon {
-            width: 42px;
-            height: 42px;
-            border: 1px solid rgba(184,154,95,0.28);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-
-        .t-col--spirit .t-col-icon { color: #7ab4c8; border-color: rgba(122,180,200,0.3); }
-        .t-col--father .t-col-icon { color: var(--gold); }
-        .t-col--son   .t-col-icon { color: #8ec88e; border-color: rgba(142,200,142,0.3); }
-
-        .t-col-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.12rem;
-            font-weight: 400;
-            letter-spacing: 0.08em;
-            color: #f7f4ed;
-        }
-
-        .t-col-ref {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.6rem;
-            letter-spacing: 0.1em;
-            color: rgba(184,154,95,0.48);
-            margin-top: 0.2rem;
-        }
-
+        .trinity-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .t-col { border: 1px solid rgba(201,154,62,0.18); background: rgba(255,255,255,0.04); transition: border-color 0.3s, background 0.3s; }
+        .t-col:hover { border-color: rgba(201,154,62,0.4); background: rgba(255,255,255,0.07); }
+        .t-col-header { display: flex; align-items: center; gap: 1rem; padding: 1.5rem; border-bottom: 1px solid rgba(201,154,62,0.12); }
+        .t-col-icon { width: 42px; height: 42px; border: 1px solid rgba(201,154,62,0.28); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+        .t-col--spirit .t-col-icon { color: #7ac8a4; border-color: rgba(122,200,164,0.3); }
+        .t-col--father .t-col-icon { color: var(--fruto); }
+        .t-col--son .t-col-icon { color: #8eb4c8; border-color: rgba(142,180,200,0.3); }
+        .t-col-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.02rem; letter-spacing: 0.04em; color: var(--huerto); }
+        .t-col-ref { font-size: 0.6rem; letter-spacing: 0.06em; color: rgba(201,154,62,0.5); margin-top: 0.2rem; }
         .t-col-body { padding: 1.5rem; }
-
-        .tc-label {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.03em;
-            color: rgba(247,244,237,0.4);
-            margin-bottom: 0.9rem;
-        }
-
-        .tags-wrap {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-        }
-
-        .tag {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 300;
-            color: rgba(247,244,237,0.62);
-            border: 1px solid rgba(184,154,95,0.16);
-            padding: 0.28rem 0.7rem;
-            transition: border-color 0.2s, color 0.2s;
-        }
-
-        .tag:hover {
-            border-color: rgba(184,154,95,0.45);
-            color: var(--gold-light);
-        }
-
-        .love-badge {
-            display: flex;
-            justify-content: center;
-            margin: 0.7rem 0 0.9rem;
-        }
-
-        .love-badge span {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
-            font-weight: 500;
-            letter-spacing: 0.2em;
-            color: var(--gold);
-            border: 1px solid rgba(184,154,95,0.38);
-            padding: 0.38rem 1.4rem;
-        }
-
+        .tc-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(232,223,196,0.4); margin-bottom: 0.9rem; }
+        .tags-wrap { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+        .tag { font-size: 0.76rem; font-weight: 300; color: rgba(232,223,196,0.65); border: 1px solid rgba(201,154,62,0.16); padding: 0.28rem 0.7rem; transition: border-color 0.2s, color 0.2s; }
+        .tag:hover { border-color: rgba(201,154,62,0.45); color: var(--fruto-lt); }
+        .love-badge { display: flex; justify-content: center; margin: 0.7rem 0 0.9rem; }
+        .love-badge span { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1rem; letter-spacing: 0.12em; color: var(--fruto); border: 1px solid rgba(201,154,62,0.4); padding: 0.38rem 1.4rem; }
         .rev-levels { display: flex; flex-direction: column; gap: 0.45rem; }
+        .rev-lvl { padding: 0.55rem 0.8rem; border: 1px solid rgba(201,154,62,0.14); font-size: 0.76rem; font-weight: 300; color: rgba(232,223,196,0.58); text-align: center; }
+        .rev-lvl--spirit { border-color: rgba(122,200,164,0.28); color: #8ec8a2; }
 
-        .rev-lvl {
-            padding: 0.55rem 0.8rem;
-            border: 1px solid rgba(184,154,95,0.14);
-            font-family: 'Lato', sans-serif;
-            font-size: 0.73rem;
-            font-weight: 300;
-            color: rgba(247,244,237,0.55);
-            text-align: center;
-        }
+        /* ── RECEPTORES (frutos cosechados) ── */
+        .rev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--huerto-dk); }
+        .rev-card { background: #fff; padding: 2.3rem 2rem; transition: background 0.3s; }
+        .rev-card:hover { background: var(--huerto); }
+        .rev-card-icon { width: 40px; height: 40px; border: 1px solid rgba(90,69,48,0.22); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; color: var(--corteza); margin-bottom: 1.3rem; }
+        .rev-card-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.16rem; color: var(--texto); margin-bottom: 0.5rem; }
+        .rev-card-scripture { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.94rem; color: var(--texto-mt); line-height: 1.6; margin-bottom: 0.35rem; }
+        .rev-card-ref { font-size: 0.63rem; font-weight: 600; letter-spacing: 0.08em; color: var(--corteza); margin-bottom: 0.9rem; }
+        .rev-card-desc { font-size: 0.85rem; font-weight: 300; line-height: 1.74; color: var(--texto); }
 
-        .rev-lvl--spirit {
-            border-color: rgba(142,200,142,0.28);
-            color: #8ec88e;
-        }
+        /* ── PULL QUOTE (grabado en la corteza) ── */
+        .pull-quote { margin: 4rem 0; padding: 4rem 3rem; background: var(--corteza); text-align: center; position: relative; overflow: hidden; }
+        .pull-quote::before { content: '\201C'; position: absolute; top: -1rem; left: 50%; transform: translateX(-50%); font-family: 'Fraunces', serif; font-size: 14rem; color: rgba(255,255,255,0.06); line-height: 1; pointer-events: none; }
+        .pull-quote-text { position: relative; z-index: 1; font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(1.2rem, 2.3vw, 1.6rem); font-weight: 500; line-height: 1.68; color: rgba(232,223,196,0.94); max-width: 740px; margin: 0 auto 1.4rem; }
+        .pull-quote-ref { position: relative; z-index: 1; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; color: rgba(232,223,196,0.5); }
 
-        /* ── REVELATION CARDS ── */
-        .revelation-section { margin: 6rem 0; }
-
-        .rev-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: var(--parchment-dk);
-        }
-
-        .rev-card {
-            background: #fff;
-            padding: 2.4rem 2rem;
-            transition: background 0.3s;
-        }
-
-        .rev-card:hover { background: var(--parchment); }
-
-        .rev-card-icon {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(74,48,112,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.95rem;
-            color: var(--accent);
-            margin-bottom: 1.3rem;
-        }
-
-        .rev-card-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.22rem;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: 0.5rem;
-        }
-
-        .rev-card-scripture {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.98rem;
-            font-style: italic;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 0.35rem;
-        }
-
-        .rev-card-ref {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.03em;
-            color: var(--accent);
-            margin-bottom: 0.9rem;
-        }
-
-        .rev-card-desc {
-            font-size: 0.87rem;
-            font-weight: 300;
-            line-height: 1.76;
-            color: var(--text-body);
-        }
-
-        /* ── PULL QUOTE ── */
-        .pull-quote {
-            margin: 4rem 0;
-            padding: 4rem 3rem;
-            background: var(--accent);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pull-quote::before {
-            content: '\201C';
-            position: absolute;
-            top: -1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 14rem;
-            color: rgba(255,255,255,0.05);
-            line-height: 1;
-            pointer-events: none;
-        }
-
-        .pull-quote-text {
-            position: relative;
-            z-index: 1;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.25rem, 2.4vw, 1.7rem);
-            font-style: italic;
-            font-weight: 600;
-            line-height: 1.72;
-            color: rgba(247,244,237,0.9);
-            max-width: 740px;
-            margin: 0 auto 1.5rem;
-        }
-
-        .pull-quote-ref {
-            position: relative;
-            z-index: 1;
-            font-family: 'Lato', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            color: rgba(247,244,237,0.45);
-        }
-
-        /* ── DEPTH / SCRIPTURE SECTION ── */
-        .depth-section { margin: 6rem 0; }
-
-        .scripture-list {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 4rem;
-        }
-
-        .scripture-entry {
-            display: grid;
-            grid-template-columns: 100px 1fr;
-            background: #fff;
-            border: 1px solid var(--parchment-dk);
-            position: relative;
-            transition: border-color 0.3s;
-        }
-
+        /* ── PROFUNDIDAD (raíces) ── */
+        .scripture-list { max-width: 860px; margin: 0 auto 4rem; display: flex; flex-direction: column; }
+        .scripture-entry { display: grid; grid-template-columns: 100px 1fr; background: #fff; border: 1px solid var(--huerto-dk); position: relative; }
         .scripture-entry + .scripture-entry { border-top: none; }
-
-        .scripture-entry:hover {
-            border-color: rgba(74,48,112,0.28);
-            z-index: 2;
-        }
-
-        .s-num {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--parchment);
-            border-right: 1px solid var(--parchment-dk);
-            padding: 1.5rem 0.5rem;
-        }
-
-        .s-num span {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.82rem;
-            font-style: italic;
-            color: var(--accent);
-            letter-spacing: 0.04em;
-            text-align: center;
-        }
-
+        .s-num { display: flex; align-items: center; justify-content: center; background: var(--huerto); border-right: 1px solid var(--huerto-dk); padding: 1.5rem 0.5rem; }
+        .s-num span { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.86rem; color: var(--corteza); letter-spacing: 0.02em; text-align: center; }
         .s-body { padding: 2rem 2.2rem; }
+        .s-verse { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.06rem; line-height: 1.7; color: var(--texto); margin-bottom: 1rem; }
+        .s-expl { font-size: 0.86rem; font-weight: 300; line-height: 1.7; color: var(--texto); padding-left: 1rem; border-left: 2px solid rgba(90,69,48,0.2); }
+        .s-expl strong { font-weight: 600; color: var(--corteza); }
 
-        .s-verse {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.12rem;
-            font-style: italic;
-            line-height: 1.72;
-            color: var(--ink);
-            margin-bottom: 1rem;
-        }
-
-        .s-expl {
-            font-size: 0.87rem;
-            font-weight: 300;
-            line-height: 1.72;
-            color: var(--text-body);
-            padding-left: 1rem;
-            border-left: 2px solid rgba(74,48,112,0.18);
-        }
-
-        .s-expl strong {
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        /* ── COMPARISON ── */
-        .comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            margin-bottom: 3rem;
-        }
-
-        .cmp-col { padding: 2.5rem; }
-
-        .cmp-col--shallow {
-            background: #fff;
-            border: 1px solid var(--parchment-dk);
-        }
-
-        .cmp-col--deep {
-            background: var(--accent);
-        }
-
-        .cmp-head {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 1.8rem;
-        }
-
-        .cmp-icon {
-            width: 36px;
-            height: 36px;
-            border: 1px solid currentColor;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.82rem;
-        }
-
-        .cmp-col--shallow .cmp-icon { color: var(--text-muted); }
-        .cmp-col--deep   .cmp-icon { color: rgba(247,244,237,0.65); }
-
-        .cmp-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.12rem;
-            font-weight: 600;
-        }
-
-        .cmp-col--shallow .cmp-title { color: var(--ink); }
-        .cmp-col--deep   .cmp-title { color: #f7f4ed; }
-
+        .comparison { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 3rem; max-width: 860px; margin-left: auto; margin-right: auto; }
+        .cmp-col { padding: 2.4rem; }
+        .cmp-col--shallow { background: #fff; border: 1px solid var(--huerto-dk); }
+        .cmp-col--deep { background: var(--raiz); }
+        .cmp-head { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.7rem; }
+        .cmp-icon { width: 34px; height: 34px; border: 1px solid currentColor; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+        .cmp-col--shallow .cmp-icon { color: var(--texto-mt); }
+        .cmp-col--deep .cmp-icon { color: rgba(232,223,196,0.65); }
+        .cmp-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.06rem; }
+        .cmp-col--shallow .cmp-title { color: var(--texto); }
+        .cmp-col--deep .cmp-title { color: var(--huerto); }
         .cmp-list { list-style: none; }
-
-        .cmp-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.7rem;
-            padding: 0.65rem 0;
-            font-size: 0.87rem;
-            font-weight: 300;
-            line-height: 1.5;
-            border-bottom: 1px solid;
-        }
-
-        .cmp-col--shallow .cmp-list li {
-            border-color: var(--parchment-dk);
-            color: var(--text-body);
-        }
-
-        .cmp-col--deep .cmp-list li {
-            border-color: rgba(247,244,237,0.1);
-            color: rgba(247,244,237,0.82);
-        }
-
+        .cmp-list li { display: flex; align-items: flex-start; gap: 0.7rem; padding: 0.6rem 0; font-size: 0.85rem; font-weight: 300; line-height: 1.5; border-bottom: 1px solid; }
+        .cmp-col--shallow .cmp-list li { border-color: var(--huerto-dk); color: var(--texto); }
+        .cmp-col--deep .cmp-list li { border-color: rgba(232,223,196,0.1); color: rgba(232,223,196,0.8); }
         .cmp-list li:last-child { border-bottom: none; }
+        .cmp-list li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; margin-top: 0.48rem; }
+        .cmp-col--shallow .cmp-list li::before { background: var(--texto-mt); }
+        .cmp-col--deep .cmp-list li::before { background: var(--fruto-lt); }
 
-        .cmp-list li::before {
-            content: '';
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            flex-shrink: 0;
-            margin-top: 0.48rem;
-        }
+        .warning-box { max-width: 860px; margin: 0 auto; padding: 2.8rem 2.4rem; border: 1px solid rgba(90,69,48,0.25); background: var(--fruto-pale); text-align: center; }
+        .warning-label { display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--corteza); margin-bottom: 1rem; }
+        .warning-verse { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.22rem; color: var(--texto); line-height: 1.6; margin-bottom: 0.5rem; }
+        .warning-ref { font-size: 0.63rem; font-weight: 600; letter-spacing: 0.08em; color: var(--corteza); opacity: 0.75; margin-bottom: 1.4rem; }
+        .warning-text { font-size: 0.88rem; font-weight: 300; line-height: 1.74; color: var(--texto); max-width: 680px; margin: 0 auto; }
 
-        .cmp-col--shallow .cmp-list li::before { background: var(--text-muted); }
-        .cmp-col--deep   .cmp-list li::before { background: var(--gold-light); }
-
-        /* ── WARNING BOX ── */
-        .warning-box {
-            padding: 3rem 2.5rem;
-            border: 1px solid rgba(74,48,112,0.22);
-            background: var(--accent-pale);
-            text-align: center;
-        }
-
-        .warning-label {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.64rem;
-            font-weight: 700;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        .warning-verse {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.28rem;
-            font-style: italic;
-            color: var(--ink);
-            line-height: 1.65;
-            margin-bottom: 0.5rem;
-        }
-
-        .warning-ref {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.03em;
-            color: var(--accent);
-            opacity: 0.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .warning-text {
-            font-size: 0.9rem;
-            font-weight: 300;
-            line-height: 1.76;
-            color: var(--text-body);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* ── PARDES ── */
+        /* ── PARDES: corte transversal del huerto ── */
         .pardes-section { margin: 6rem 0; }
+        .pardes-intro { text-align: center; font-size: 0.92rem; font-weight: 300; line-height: 1.74; color: var(--texto-mt); max-width: 640px; margin: 0 auto 3.5rem; }
+        .pardes-intro strong { color: var(--corteza); font-weight: 600; }
 
-        .pardes-intro {
-            text-align: center;
-            font-size: 0.93rem;
-            font-weight: 300;
-            line-height: 1.76;
-            color: var(--text-muted);
-            max-width: 660px;
-            margin: 0 auto 3.5rem;
-        }
-
-        .pardes-intro strong { color: var(--accent); font-weight: 700; }
-
-        .pardes-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-            background: var(--parchment-dk);
-            margin-bottom: 2rem;
-        }
-
-        .p-card {
+        .cross-section {
+            max-width: 620px; margin: 0 auto 2rem;
+            border: 1px solid var(--huerto-dk);
             background: #fff;
-            padding: 2.5rem 1.8rem;
-            text-align: center;
-            transition: background 0.3s;
         }
 
-        .p-card:hover { background: var(--parchment); }
+        .cs-layer { display: grid; grid-template-columns: 140px 1fr; border-bottom: 1px solid var(--huerto-dk); transition: background 0.3s; }
+        .cs-layer:last-child { border-bottom: none; }
+        .cs-layer:hover { background: var(--huerto); }
 
-        .p-card--sod { background: var(--accent); }
-        .p-card--sod:hover { background: var(--accent-mid); }
+        .cs-mark { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.6rem 0.5rem; border-right: 1px solid var(--huerto-dk); gap: 0.5rem; }
+        .cs-hebrew { font-family: 'Fraunces', serif; font-size: 1.6rem; direction: rtl; }
+        .cs-name { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; }
 
-        .p-hebrew {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.4rem;
-            color: var(--accent);
-            margin-bottom: 0.9rem;
-            direction: rtl;
-        }
+        .cs-layer--peshat { background: linear-gradient(180deg, #fff 0%, var(--huerto) 100%); }
+        .cs-layer--peshat .cs-hebrew, .cs-layer--peshat .cs-name { color: var(--corteza); }
+        .cs-layer--remez .cs-mark { background: rgba(46,61,31,0.05); }
+        .cs-layer--remez .cs-hebrew, .cs-layer--remez .cs-name { color: var(--raiz); }
+        .cs-layer--derash .cs-mark { background: rgba(90,69,48,0.08); }
+        .cs-layer--derash .cs-hebrew, .cs-layer--derash .cs-name { color: var(--corteza); }
+        .cs-layer--sod { background: var(--tierra); }
+        .cs-layer--sod .cs-mark { background: rgba(201,154,62,0.1); border-color: rgba(201,154,62,0.2); }
+        .cs-layer--sod .cs-hebrew, .cs-layer--sod .cs-name { color: var(--fruto-lt); }
 
-        .p-card--sod .p-hebrew { color: var(--gold-light); }
+        .cs-body { padding: 1.6rem 1.8rem; }
+        .cs-key { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--texto); }
+        .cs-layer--sod .cs-key { color: rgba(232,223,196,0.85); }
+        .cs-desc { font-size: 0.85rem; font-weight: 300; line-height: 1.68; color: var(--texto-mt); }
+        .cs-layer--sod .cs-desc { color: rgba(232,223,196,0.6); }
 
-        .p-name {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            color: var(--accent);
-            margin-bottom: 0.3rem;
-        }
-
-        .p-card--sod .p-name { color: var(--gold-light); }
-
-        .p-key {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.05rem;
-            font-style: italic;
-            color: var(--ink);
-            margin-bottom: 0.8rem;
-        }
-
-        .p-card--sod .p-key { color: rgba(247,244,237,0.78); }
-
-        .p-desc {
-            font-size: 0.82rem;
-            font-weight: 300;
-            line-height: 1.65;
-            color: var(--text-muted);
-        }
-
-        .p-card--sod .p-desc { color: rgba(247,244,237,0.62); }
-
-        .pardes-note {
-            padding: 2rem 2.5rem;
-            background: #fff;
-            border: 1px solid rgba(74,48,112,0.14);
-            border-left: 3px solid var(--accent);
-            text-align: center;
-        }
-
-        .pardes-note p {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.08rem;
-            font-style: italic;
-            line-height: 1.7;
-            color: var(--ink);
-        }
-
-        .pardes-note em {
-            font-style: normal;
-            font-weight: 600;
-            color: var(--accent);
-        }
+        .pardes-note { max-width: 620px; margin: 0 auto; padding: 2rem 2.3rem; background: #fff; border: 1px solid rgba(90,69,48,0.16); border-left: 3px solid var(--fruto); text-align: center; }
+        .pardes-note p { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.04rem; line-height: 1.68; color: var(--texto); }
+        .pardes-note em { font-style: normal; font-weight: 600; color: var(--corteza); }
 
         /* ── FOOTER ── */
-        .site-footer {
-            background: var(--hero-grad);
-            border-top: 1px solid rgba(184,154,95,0.14);
-            padding: 2.5rem;
-            text-align: center;
-        }
-
-        .footer-copy {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 300;
-            letter-spacing: 0.08em;
-            color: rgba(247,244,237,0.38);
-        }
-
-        .footer-copy span { color: rgba(184,154,95,0.48); }
+        .site-footer { background: var(--tierra-deep); border-top: 1px solid rgba(201,154,62,0.14); padding: 2.5rem; text-align: center; }
+        .footer-copy { font-size: 0.72rem; font-weight: 300; letter-spacing: 0.04em; color: rgba(232,223,196,0.4); }
+        .footer-copy span { color: rgba(201,154,62,0.5); }
 
         /* ── REVEAL ── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.75s ease, transform 0.75s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.75s ease, transform 0.75s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
-            .trinity-cols     { grid-template-columns: 1fr; }
-            .rev-grid         { grid-template-columns: repeat(2, 1fr); }
-            .pardes-grid      { grid-template-columns: repeat(2, 1fr); }
-            .comparison       { grid-template-columns: 1fr; }
+            .trinity-cols { grid-template-columns: 1fr; }
+            .rev-grid { grid-template-columns: repeat(2, 1fr); }
+            .comparison { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 640px) {
-            .site-header      { padding: 0 1.2rem; }
+            .site-header { padding: 0 1.2rem; }
             .header-logo-text { display: none; }
-            .page-hero        { padding: 110px 1.2rem 70px; }
-            .page-main        { padding: 0 1.2rem 4rem; }
-            .verse-intro      { padding: 2.5rem 1.5rem; }
-            .verse-text       { font-size: 1.2rem; }
-            .k-level          { grid-template-columns: 60px 1fr; }
-            .deity-section    { padding: 3rem 1.5rem; }
-            .rev-grid         { grid-template-columns: 1fr; }
-            .pardes-grid      { grid-template-columns: 1fr 1fr; }
-            .scripture-entry  { grid-template-columns: 70px 1fr; }
-            .pull-quote       { padding: 3rem 1.5rem; }
+            .page-hero { padding: 110px 1.2rem 60px; }
+            .page-main { padding: 0 1.2rem 4rem; }
+            .verse-intro { padding: 2.4rem 1.4rem; }
+            .verse-text { font-size: 1.14rem; }
+            .k-level { grid-template-columns: 60px 1fr; }
+            .deity-section { padding: 3rem 1.4rem; }
+            .rev-grid { grid-template-columns: 1fr; }
+            .scripture-entry { grid-template-columns: 70px 1fr; }
+            .cs-layer { grid-template-columns: 90px 1fr; }
+            .pull-quote { padding: 3rem 1.4rem; }
         }
-    
-        /* Insignia circular del logo EMD (aplicada a todas las páginas) */
+
         img[alt="Logo EMD"] {
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid rgba(201, 170, 106, 0.5);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(201, 170, 106, 0.08);
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-radius: 50%; object-fit: cover;
+            border: 2px solid rgba(201,154,62,0.4);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+            transition: transform 0.3s cubic-bezier(0.25,0.8,0.25,1);
         }
-        img[alt="Logo EMD"]:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 0 5px rgba(201, 170, 106, 0.15);
-        }
+        img[alt="Logo EMD"]:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
@@ -990,15 +321,19 @@
             </div>
         </a>
         <a href="../../nuestras-ensenanzas/index.html" class="nav-back">
-            <i class="fas fa-arrow-left"></i> Estudios Bíblicos
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+            Estudios Bíblicos
         </a>
     </header>
 
     <section class="page-hero">
         <div class="hero-inner">
-            <span class="hero-eyebrow">Estudios Bíblicos</span>
+            <span class="hero-eyebrow">
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" /><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" /></svg>
+                Estudios Bíblicos
+            </span>
             <h1 class="hero-title">Revelación del <em>Espíritu</em></h1>
-            <p class="hero-subtitle">Los fundamentos del conocimiento superior divino</p>
+            <p class="hero-subtitle">El huerto de PaRDeS: los fundamentos del conocimiento superior divino</p>
             <div class="hero-rule"></div>
         </div>
     </section>
@@ -1013,34 +348,34 @@
         </div>
 
         <!-- JERARQUÍA -->
-        <section class="hierarchy-section reveal">
+        <section class="block reveal">
             <div class="section-header">
-                <span class="section-label">Jerarquía</span>
-                <h2 class="section-title">La Jerarquía del Conocimiento Divino</h2>
+                <span class="section-label">Capas del huerto</span>
+                <h2 class="section-title">La jerarquía del conocimiento divino</h2>
                 <div class="section-rule"></div>
             </div>
             <div class="knowledge-levels">
                 <div class="k-level k-level--top">
                     <div class="k-num"><span>III</span></div>
                     <div class="k-body">
-                        <div class="k-badge"><i class="fas fa-crown"></i> Nivel superior</div>
-                        <h3 class="k-name">Conocimiento Superior del Espíritu</h3>
-                        <p class="k-desc">La revelación directa del Espíritu Santo que escudriña aun lo profundo de Dios. Este conocimiento trasciende la comprensión humana y académica, siendo revelado sobrenaturalmente a aquellos que buscan intimidad con el Altísimo. Es el nivel donde los misterios escondidos en Cristo son desvelados.</p>
+                        <div class="k-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z" /><path d="M5 21h14" /></svg> El fruto</div>
+                        <h3 class="k-name">Conocimiento superior del Espíritu</h3>
+                        <p class="k-desc">La revelación directa del Espíritu Santo que escudriña aun lo profundo de Dios. Este conocimiento trasciende la comprensión humana y académica, siendo revelado sobrenaturalmente a aquellos que buscan intimidad con el Altísimo. Es el nivel donde los misterios escondidos en Cristo son desvelados: el fruto más alto y más dulce del árbol.</p>
                     </div>
                 </div>
                 <div class="k-level k-level--mid">
                     <div class="k-num"><span>II</span></div>
                     <div class="k-body">
-                        <div class="k-badge"><i class="fas fa-scroll"></i> Nivel bíblico</div>
-                        <h3 class="k-name">Conocimiento Bíblico y Textual Académico</h3>
-                        <p class="k-desc">El estudio sistemático de las Escrituras mediante hermenéutica, exégesis, contexto histórico y arqueología bíblica. Incluye el análisis de los idiomas originales: hebreo, arameo y griego. Es fundamental pero limitado sin la iluminación del Espíritu.</p>
+                        <div class="k-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 12h-5" /><path d="M15 8h-5" /><path d="M19 17V5a2 2 0 0 0-2-2H4" /><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" /></svg> El tronco</div>
+                        <h3 class="k-name">Conocimiento bíblico y textual académico</h3>
+                        <p class="k-desc">El estudio sistemático de las Escrituras mediante hermenéutica, exégesis, contexto histórico y arqueología bíblica. Incluye el análisis de los idiomas originales: hebreo, arameo y griego. Es fundamental pero limitado sin la iluminación del Espíritu: sostiene el árbol, pero no es el fruto.</p>
                     </div>
                 </div>
                 <div class="k-level k-level--bot">
                     <div class="k-num"><span>I</span></div>
                     <div class="k-body">
-                        <div class="k-badge"><i class="fas fa-atom"></i> Nivel natural</div>
-                        <h3 class="k-name">Conocimiento Científico Terrenal</h3>
+                        <div class="k-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3" /><path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4" /><path d="M5 21h14" /></svg> El suelo</div>
+                        <h3 class="k-name">Conocimiento científico terrenal</h3>
                         <p class="k-desc">Las disciplinas científicas que estudian la creación: física, química, astrofísica, biología, paleontología y geología. Aunque valiosas, están limitadas al reino natural y no pueden penetrar los misterios espirituales del Reino de Dios.</p>
                     </div>
                 </div>
@@ -1051,22 +386,22 @@
         <section class="deity-section reveal">
             <div class="deity-inner">
                 <div class="section-header">
-                    <span class="section-label">Estructura</span>
+                    <span class="section-label">El tronco</span>
                     <h2 class="section-title">Estructura de la Deidad</h2>
                     <div class="section-rule"></div>
                 </div>
                 <div class="deity-node-wrap">
                     <div class="deity-node">
-                        <div class="deity-node-label">DEIDAD</div>
+                        <div class="deity-node-label">Deidad</div>
                         <div class="deity-node-ref">Colosenses 2:9</div>
                     </div>
                 </div>
                 <div class="trinity-cols">
                     <div class="t-col t-col--spirit">
                         <div class="t-col-header">
-                            <div class="t-col-icon"><i class="fas fa-wind"></i></div>
+                            <div class="t-col-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.8 19.6A2 2 0 1 0 14 16H2" /><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2" /><path d="M9.8 4.4A2 2 0 1 1 11 8H2" /></svg></div>
                             <div>
-                                <div class="t-col-title">EL ESPÍRITU</div>
+                                <div class="t-col-title">El Espíritu</div>
                                 <div class="t-col-ref">1 Corintios 12:1</div>
                             </div>
                         </div>
@@ -1087,15 +422,15 @@
                     </div>
                     <div class="t-col t-col--father">
                         <div class="t-col-header">
-                            <div class="t-col-icon"><i class="fas fa-heart"></i></div>
+                            <div class="t-col-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></svg></div>
                             <div>
-                                <div class="t-col-title">EL PADRE</div>
+                                <div class="t-col-title">El Padre</div>
                                 <div class="t-col-ref">1 Juan 4:8</div>
                             </div>
                         </div>
                         <div class="t-col-body">
                             <div class="tc-label">Fruto del Espíritu</div>
-                            <div class="love-badge"><span>AMOR</span></div>
+                            <div class="love-badge"><span>Amor</span></div>
                             <div class="tags-wrap">
                                 <span class="tag">Gozo</span>
                                 <span class="tag">Paz</span>
@@ -1113,9 +448,9 @@
                     </div>
                     <div class="t-col t-col--son">
                         <div class="t-col-header">
-                            <div class="t-col-icon"><i class="fas fa-scroll"></i></div>
+                            <div class="t-col-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 12h-5" /><path d="M15 8h-5" /><path d="M19 17V5a2 2 0 0 0-2-2H4" /><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" /></svg></div>
                             <div>
-                                <div class="t-col-title">EL HIJO</div>
+                                <div class="t-col-title">El Hijo</div>
                                 <div class="t-col-ref">Colosenses 1:26</div>
                             </div>
                         </div>
@@ -1135,51 +470,51 @@
         </section>
 
         <!-- RECEPTORES -->
-        <section class="revelation-section reveal">
+        <section class="block reveal">
             <div class="section-header">
-                <span class="section-label">Ejemplos bíblicos</span>
-                <h2 class="section-title">Receptores de la Revelación Divina</h2>
+                <span class="section-label">Frutos cosechados</span>
+                <h2 class="section-title">Receptores de la revelación divina</h2>
                 <div class="section-rule"></div>
             </div>
             <div class="rev-grid">
                 <div class="rev-card">
-                    <div class="rev-card-icon"><i class="fas fa-mountain"></i></div>
+                    <div class="rev-card-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 4 8 5-5 5 15H2L8 3z" /></svg></div>
                     <h3 class="rev-card-title">Moisés en el Sinaí</h3>
                     <p class="rev-card-scripture">"Y subió Moisés a Dios; y Jehová lo llamó desde el monte, diciendo…"</p>
                     <p class="rev-card-ref">Éxodo 19:3</p>
                     <p class="rev-card-desc">En la soledad del monte santo, Moisés recibió revelación directa de Dios. No fue mediante estudio académico sino por encuentro sobrenatural. La Ley, el Tabernáculo y sus ceremonias fueron revelados en visión celestial, estableciendo el patrón de cómo Dios revela Sus misterios a quienes se apartan para encontrarse con Él.</p>
                 </div>
                 <div class="rev-card">
-                    <div class="rev-card-icon"><i class="fas fa-scroll"></i></div>
-                    <h3 class="rev-card-title">Pablo y los Misterios</h3>
+                    <div class="rev-card-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 12h-5" /><path d="M15 8h-5" /><path d="M19 17V5a2 2 0 0 0-2-2H4" /><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" /></svg></div>
+                    <h3 class="rev-card-title">Pablo y los misterios</h3>
                     <p class="rev-card-scripture">"Conozco a un hombre en Cristo… fue arrebatado al tercer cielo… y oyó palabras inefables que no le es dado al hombre expresar."</p>
                     <p class="rev-card-ref">2 Corintios 12:2–4</p>
                     <p class="rev-card-desc">El apóstol Pablo recibió revelaciones extraordinarias que trascendían el entendimiento humano. Los misterios del evangelio y la sabiduría oculta de Dios le fueron revelados por el Espíritu, estableciendo la base del conocimiento espiritual superior.</p>
                 </div>
                 <div class="rev-card">
-                    <div class="rev-card-icon"><i class="fas fa-eye"></i></div>
-                    <h3 class="rev-card-title">Juan el Vidente</h3>
+                    <div class="rev-card-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg></div>
+                    <h3 class="rev-card-title">Juan el vidente</h3>
                     <p class="rev-card-scripture">"Yo estaba en el Espíritu en el día del Señor, y oí detrás de mí una gran voz como de trompeta…"</p>
                     <p class="rev-card-ref">Apocalipsis 1:10</p>
                     <p class="rev-card-desc">En estado de éxtasis espiritual Juan recibió la revelación de Jesucristo. Los misterios del tiempo del fin y la gloria celestial fueron revelados en visiones sobrenaturales que trascienden toda comprensión académica.</p>
                 </div>
                 <div class="rev-card">
-                    <div class="rev-card-icon"><i class="fas fa-crown"></i></div>
-                    <h3 class="rev-card-title">Daniel y los Tiempos</h3>
+                    <div class="rev-card-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z" /><path d="M5 21h14" /></svg></div>
+                    <h3 class="rev-card-title">Daniel y los tiempos</h3>
                     <p class="rev-card-scripture">"El reveló lo profundo y lo escondido; conoce lo que está en tinieblas, y con él mora la luz."</p>
                     <p class="rev-card-ref">Daniel 2:22</p>
                     <p class="rev-card-desc">A Daniel le fueron revelados los misterios de los tiempos mediante sueños y visiones. La interpretación de los sueños de Nabucodonosor no vino por sabiduría humana, sino por revelación directa del Dios que descubre los misterios.</p>
                 </div>
                 <div class="rev-card">
-                    <div class="rev-card-icon"><i class="fas fa-search"></i></div>
-                    <h3 class="rev-card-title">Jeremías y lo Oculto</h3>
+                    <div class="rev-card-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></div>
+                    <h3 class="rev-card-title">Jeremías y lo oculto</h3>
                     <p class="rev-card-scripture">"Clama a mí, y yo te responderé, y te enseñaré cosas grandes y ocultas que tú no conoces."</p>
                     <p class="rev-card-ref">Jeremías 33:3</p>
                     <p class="rev-card-desc">Dios prometió a Jeremías revelarle cosas que no podían conocerse por métodos naturales. Esta promesa establece que Dios reserva secretos para quienes claman a Él en intimidad y búsqueda sincera.</p>
                 </div>
                 <div class="rev-card">
-                    <div class="rev-card-icon"><i class="fas fa-child"></i></div>
-                    <h3 class="rev-card-title">Revelado a los Niños</h3>
+                    <div class="rev-card-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5" /><path d="M15 12h.01" /><path d="M19.38 6.813A9 9 0 0 1 20.8 10.2a2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1" /><path d="M9 12h.01" /></svg></div>
+                    <h3 class="rev-card-title">Revelado a los niños</h3>
                     <p class="rev-card-scripture">"Te alabo, Padre, porque escondiste estas cosas de los sabios y de los entendidos, y las revelaste a los niños."</p>
                     <p class="rev-card-ref">Mateo 11:25</p>
                     <p class="rev-card-desc">Jesús proclamó que los misterios del Reino se revelan a quienes tienen corazón de niño. La sencillez y la dependencia total en Dios son las llaves de los tesoros de la sabiduría divina.</p>
@@ -1196,10 +531,10 @@
         </div>
 
         <!-- PROFUNDIDAD -->
-        <section class="depth-section reveal">
+        <section class="depth-section block reveal">
             <div class="section-header">
                 <span class="section-label">1 Corintios 2</span>
-                <h2 class="section-title">Lo Superficial y lo Profundo</h2>
+                <h2 class="section-title">Raíces superficiales y raíces profundas</h2>
                 <div class="section-rule"></div>
             </div>
 
@@ -1208,28 +543,28 @@
                     <div class="s-num"><span>v.&nbsp;6–7</span></div>
                     <div class="s-body">
                         <p class="s-verse">"Sin embargo, hablamos sabiduría entre los que han alcanzado madurez; y sabiduría, no de este siglo, ni de los príncipes de este siglo, que perecen. Mas hablamos sabiduría de Dios en misterio, la sabiduría oculta, la cual Dios predestinó antes de los siglos para nuestra gloria."</p>
-                        <p class="s-expl"><strong>Los Maduros vs. los Inmaduros:</strong> Solo quienes han alcanzado madurez espiritual pueden recibir la sabiduría oculta en misterio. Los creyentes superficiales se conforman con leche espiritual.</p>
+                        <p class="s-expl"><strong>Los maduros vs. los inmaduros:</strong> Solo quienes han alcanzado madurez espiritual pueden recibir la sabiduría oculta en misterio. Los creyentes superficiales se conforman con leche espiritual.</p>
                     </div>
                 </div>
                 <div class="scripture-entry">
                     <div class="s-num"><span>v.&nbsp;9–10</span></div>
                     <div class="s-body">
                         <p class="s-verse">"Cosas que ojo no vio, ni oído oyó, ni han subido en corazón de hombre, son las que Dios ha preparado para los que le aman. Pero Dios nos las reveló a nosotros por el Espíritu; porque el Espíritu todo lo escudriña, aun lo profundo de Dios."</p>
-                        <p class="s-expl"><strong>Revelación Sobrenatural:</strong> Estas revelaciones no pueden alcanzarse por medios naturales o intelectuales. Solo el Espíritu las revela a quienes aman verdaderamente a Dios.</p>
+                        <p class="s-expl"><strong>Revelación sobrenatural:</strong> Estas revelaciones no pueden alcanzarse por medios naturales o intelectuales. Solo el Espíritu las revela a quienes aman verdaderamente a Dios.</p>
                     </div>
                 </div>
                 <div class="scripture-entry">
                     <div class="s-num"><span>v.&nbsp;14–15</span></div>
                     <div class="s-body">
                         <p class="s-verse">"Pero el hombre natural no percibe las cosas que son del Espíritu de Dios, porque para él son locura, y no las puede entender, porque se han de discernir espiritualmente. En cambio el espiritual juzga todas las cosas; pero él no es juzgado de nadie."</p>
-                        <p class="s-expl"><strong>La Incapacidad Natural:</strong> El hombre natural —incluyendo creyentes que viven en lo natural— no puede entender las cosas del Espíritu. Se requiere discernimiento espiritual.</p>
+                        <p class="s-expl"><strong>La incapacidad natural:</strong> El hombre natural, incluyendo a creyentes que viven en lo natural, no puede entender las cosas del Espíritu. Se requiere discernimiento espiritual.</p>
                     </div>
                 </div>
                 <div class="scripture-entry">
                     <div class="s-num"><span>v.&nbsp;16</span></div>
                     <div class="s-body">
                         <p class="s-verse">"Porque ¿quién conoció la mente del Señor? ¿Quién le instruirá? Mas nosotros tenemos la mente de Cristo."</p>
-                        <p class="s-expl"><strong>La Mente de Cristo:</strong> Solo quienes han desarrollado la mente de Cristo pueden acceder a los pensamientos divinos y comprender los misterios del Reino.</p>
+                        <p class="s-expl"><strong>La mente de Cristo:</strong> Solo quienes han desarrollado la mente de Cristo pueden acceder a los pensamientos divinos y comprender los misterios del Reino.</p>
                     </div>
                 </div>
             </div>
@@ -1237,8 +572,8 @@
             <div class="comparison">
                 <div class="cmp-col cmp-col--shallow">
                     <div class="cmp-head">
-                        <div class="cmp-icon"><i class="fas fa-water"></i></div>
-                        <div class="cmp-title">El Cristiano Superficial</div>
+                        <div class="cmp-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12q2.5 2 5 0t5 0 5 0 5 0" /><path d="M2 19q2.5 2 5 0t5 0 5 0 5 0" /><path d="M2 5q2.5 2 5 0t5 0 5 0 5 0" /></svg></div>
+                        <div class="cmp-title">Raíces superficiales</div>
                     </div>
                     <ul class="cmp-list">
                         <li>Se conforma con doctrinas básicas</li>
@@ -1252,8 +587,8 @@
                 </div>
                 <div class="cmp-col cmp-col--deep">
                     <div class="cmp-head">
-                        <div class="cmp-icon"><i class="fas fa-gem"></i></div>
-                        <div class="cmp-title">El Cristiano Profundo</div>
+                        <div class="cmp-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 3 8 9l4 13 4-13-2.5-6" /><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z" /><path d="M2 9h20" /></svg></div>
+                        <div class="cmp-title">Raíces profundas</div>
                     </div>
                     <ul class="cmp-list">
                         <li>Busca los misterios escondidos</li>
@@ -1268,7 +603,7 @@
             </div>
 
             <div class="warning-box">
-                <div class="warning-label"><i class="fas fa-exclamation-triangle"></i>&ensp;La Capacidad Determina el Acceso</div>
+                <div class="warning-label"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /><path d="M12 9v4" /><path d="M12 17h.01" /></svg> La capacidad determina el acceso</div>
                 <p class="warning-verse">"Cualquiera que tiene, se le dará, y tendrá más; pero al que no tiene, aun lo que tiene se le quitará."</p>
                 <p class="warning-ref">Mateo 13:12</p>
                 <p class="warning-text">Dios no puede revelar misterios profundos a vasijas que no han desarrollado la capacidad espiritual para contenerlos. Los grandes reveladores como Daniel ("muy amado"), Pablo (arrebatado al tercer cielo) y Juan (el discípulo amado) desarrollaron esta capacidad a través de una búsqueda intensa y una relación íntima con Dios.</p>
@@ -1279,38 +614,44 @@
         <section class="pardes-section reveal">
             <div class="section-header">
                 <span class="section-label">Hermenéutica hebrea</span>
-                <h2 class="section-title">Los Cuatro Niveles — PaRDeS</h2>
+                <h2 class="section-title">El corte transversal del huerto</h2>
                 <div class="section-rule"></div>
             </div>
-            <p class="pardes-intro">Los métodos rabínicos revelan que cada pasaje de las Escrituras contiene cuatro niveles progresivos de entendimiento, representados en el acrónimo <strong>PaRDeS</strong> (פַּרְדֵּס) — "Paraíso", el jardín de la revelación divina.</p>
-            <div class="pardes-grid">
-                <div class="p-card">
-                    <div class="p-hebrew">פְּשָׁט</div>
-                    <div class="p-name">Peshat</div>
-                    <div class="p-key">Simple / Llano</div>
-                    <p class="p-desc">El significado más obvio y directo del texto. La comprensión literal que cualquier lector puede obtener al leer las Escrituras.</p>
+            <p class="pardes-intro">Los métodos rabínicos revelan que cada pasaje de las Escrituras contiene cuatro niveles progresivos de entendimiento, representados en el acrónimo <strong>PaRDeS</strong> (פַּרְדֵּס): "Paraíso", el jardín de la revelación divina. Cada nivel es una capa más profunda del mismo huerto.</p>
+
+            <div class="cross-section">
+                <div class="cs-layer cs-layer--peshat">
+                    <div class="cs-mark"><span class="cs-hebrew">פְּשָׁט</span><span class="cs-name">Peshat</span></div>
+                    <div class="cs-body">
+                        <div class="cs-key">Simple / Llano</div>
+                        <p class="cs-desc">El significado más obvio y directo del texto. La comprensión literal que cualquier lector puede obtener al leer las Escrituras.</p>
+                    </div>
                 </div>
-                <div class="p-card">
-                    <div class="p-hebrew">רֶמֶז</div>
-                    <div class="p-name">Remez</div>
-                    <div class="p-key">Indicios / Alusiones</div>
-                    <p class="p-desc">El significado alegórico y simbólico oculto más allá del sentido literal. Los patrones y conexiones tipológicas entre los textos.</p>
+                <div class="cs-layer cs-layer--remez">
+                    <div class="cs-mark"><span class="cs-hebrew">רֶמֶז</span><span class="cs-name">Remez</span></div>
+                    <div class="cs-body">
+                        <div class="cs-key">Indicios / Alusiones</div>
+                        <p class="cs-desc">El significado alegórico y simbólico oculto más allá del sentido literal. Los patrones y conexiones tipológicas entre los textos.</p>
+                    </div>
                 </div>
-                <div class="p-card">
-                    <div class="p-hebrew">דְּרַשׁ</div>
-                    <div class="p-name">Derash</div>
-                    <div class="p-key">Indagar / Buscar</div>
-                    <p class="p-desc">El significado comparativo obtenido al examinar palabras similares en otros pasajes. El método midráshico de interpretación.</p>
+                <div class="cs-layer cs-layer--derash">
+                    <div class="cs-mark"><span class="cs-hebrew">דְּרַשׁ</span><span class="cs-name">Derash</span></div>
+                    <div class="cs-body">
+                        <div class="cs-key">Indagar / Buscar</div>
+                        <p class="cs-desc">El significado comparativo obtenido al examinar palabras similares en otros pasajes. El método midráshico de interpretación.</p>
+                    </div>
                 </div>
-                <div class="p-card p-card--sod">
-                    <div class="p-hebrew">סוֹד</div>
-                    <div class="p-name">Sod</div>
-                    <div class="p-key">Secreto / Misterio</div>
-                    <p class="p-desc">El significado esotérico y místico más profundo, revelado solo por el Espíritu. Los misterios ocultos en Cristo.</p>
+                <div class="cs-layer cs-layer--sod">
+                    <div class="cs-mark"><span class="cs-hebrew">סוֹד</span><span class="cs-name">Sod</span></div>
+                    <div class="cs-body">
+                        <div class="cs-key">Secreto / Misterio</div>
+                        <p class="cs-desc">El significado esotérico y místico más profundo, revelado solo por el Espíritu. Los misterios ocultos en Cristo.</p>
+                    </div>
                 </div>
             </div>
+
             <div class="pardes-note">
-                <p>El nivel <em>SOD</em> representa la revelación suprema del Espíritu, donde los misterios escondidos desde la fundación del mundo son desvelados a quienes han alcanzado profundidad en el Espíritu de verdad y los secretos del Reino.</p>
+                <p>El nivel <em>Sod</em> representa la revelación suprema del Espíritu, donde los misterios escondidos desde la fundación del mundo son desvelados a quienes han alcanzado profundidad en el Espíritu de verdad y los secretos del Reino.</p>
             </div>
         </section>
 
@@ -1318,7 +659,7 @@
 
     <footer class="site-footer">
         <p class="footer-copy">
-            &copy; 2025 <span>Ministerio "La Gloria es del Señor"</span> &nbsp;·&nbsp; Todos los recursos son gratuitos para la edificación de los creyentes
+            &copy; 2026 <span>Ministerio "La Gloria es del Señor"</span> &nbsp;·&nbsp; Todos los recursos son gratuitos para la edificación de los creyentes
         </p>
     </footer>
 
