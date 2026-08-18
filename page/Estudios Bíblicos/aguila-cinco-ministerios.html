@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" href="/favicon.ico?v=1" sizes="any">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png?v=1" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png?v=1" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-48x48.png?v=1" sizes="48x48">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png?v=1" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-512x512.png?v=1" sizes="512x512">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=1">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Águila y los Cinco Ministerios — Ministerio "La Gloria es del Señor"</title>
+    <meta name="description" content="Estudio exegético-teológico de la tipología ministerial de Efesios 4:11 — águila, león, oveja, cordero y becerro/buey como símbolos de apóstol, profeta, pastor, evangelista y maestro.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink:          #1a1410;
+            --ink-deep:     #0e0c0a;
+            --gold:         #b89a5f;
+            --gold-light:   #d4b87a;
+            --parchment:    #f7f4ed;
+            --parchment-dk: #ede9df;
+            --accent:       #1c5a78;
+            --accent-mid:   #2b7a9e;
+            --accent-pale:  rgba(28,90,120,0.07);
+            --amber:        #c17f3a;
+            --amber-pale:   rgba(193,127,58,0.1);
+            --text-body:    #2d2620;
+            --text-muted:   #7a6e62;
+            --header-bg:    rgba(14,12,10,0.97);
+            --hero-grad:    linear-gradient(160deg, #0e0c0a 0%, #1f1a14 100%);
+
+            --c-apostol:    #1c5a78;
+            --c-apostol-pl: rgba(28,90,120,0.08);
+            --c-profeta:    #93641b;
+            --c-profeta-pl: rgba(147,100,27,0.08);
+            --c-pastor:     #4f6e4a;
+            --c-pastor-pl:  rgba(79,110,74,0.08);
+            --c-evangelista:#8a3324;
+            --c-evang-pl:   rgba(138,51,36,0.08);
+            --c-maestro:    #5a4326;
+            --c-maestro-pl: rgba(90,67,38,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            background: var(--parchment);
+            color: var(--text-body);
+            overflow-x: hidden;
+        }
+
+        .ic { width: 1em; height: 1em; vertical-align: -0.15em; flex-shrink: 0; display: inline-block; }
+
+        /* ── HEADER ── */
+        .site-header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            height: 64px;
+            background: var(--header-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184,154,95,0.18);
+            padding: 0 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
+        .header-logo img { height: 36px; width: auto; opacity: 0.9; }
+
+        .header-logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--gold);
+            letter-spacing: 0.04em;
+            line-height: 1.25;
+        }
+
+        .header-logo-text span { display: block; font-size: 0.78rem; font-style: italic; color: rgba(184,154,95,0.65); }
+
+        .nav-back {
+            display: flex;
+            align-items: center;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(184,154,95,0.7);
+            text-decoration: none;
+            transition: color 0.25s;
+        }
+
+        .nav-back:hover { color: var(--gold); }
+        .nav-back .ic { margin-right: 0.5rem; font-size: 0.7rem; }
+
+        /* ── HERO ── */
+        .page-hero { position: relative; background: var(--hero-grad); padding: 130px 2.5rem 80px; overflow: hidden; }
+
+        .page-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
+            opacity: 0.5; pointer-events: none;
+        }
+
+        .page-hero::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(28,90,120,0.28) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-inner { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; text-align: center; }
+
+        .hero-eyebrow {
+            display: inline-block;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid rgba(184,154,95,0.32);
+            padding: 0.35rem 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.6rem, 6vw, 4.6rem);
+            font-weight: 600;
+            font-style: italic;
+            color: #f7f4ed;
+            line-height: 1.12;
+            margin-bottom: 1.3rem;
+        }
+
+        .hero-title em { font-style: normal; color: var(--gold); }
+
+        .hero-subtitle {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 300;
+            letter-spacing: 0.06em;
+            color: rgba(247,244,237,0.55);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .hero-rule { width: 48px; height: 3px; background: var(--gold); margin: 2rem auto 2.2rem; opacity: 0.45; }
+
+        .hero-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem; }
+
+        .hero-tag {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: rgba(247,244,237,0.72);
+            border: 1px solid rgba(184,154,95,0.22);
+            padding: 0.35rem 0.9rem;
+        }
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ── MAIN ── */
+        .page-main { max-width: 1120px; margin: 0 auto; padding: 0 2.5rem 7rem; }
+
+        /* ── VERSE INTRO ── */
+        .verse-intro {
+            max-width: 800px;
+            margin: 5.5rem auto 0;
+            padding: 3.5rem 3rem;
+            background: #fff;
+            border: 1px solid var(--parchment-dk);
+            border-top: 3px solid var(--accent);
+            box-shadow: 0 2px 20px rgba(14,12,10,0.06);
+            text-align: center;
+        }
+
+        .verse-text { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; font-weight: 400; line-height: 1.78; color: var(--ink); margin-bottom: 1.5rem; }
+        .verse-ref { font-family: 'Lato', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+
+        /* ── SECTION HEADERS ── */
+        .section-header { text-align: center; margin-bottom: 3.2rem; }
+        .section-label { display: inline-block; font-family: 'Lato', sans-serif; font-size: 0.67rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+        .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 600; font-style: italic; color: var(--ink); line-height: 1.2; }
+        .section-rule { width: 40px; height: 3px; background: var(--gold); margin: 1.1rem auto 0; }
+        .section-intro { max-width: 720px; margin: 1.4rem auto 0; text-align: center; font-size: 0.92rem; font-weight: 300; line-height: 1.78; color: var(--text-muted); }
+
+        section.block { margin: 6rem 0; }
+
+        /* ── DIMENSION GRID (Cap. 1) ── */
+        .dim-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--parchment-dk); }
+        .dim-card { background: #fff; padding: 2.2rem 1.9rem; transition: background 0.3s; }
+        .dim-card:hover { background: var(--parchment); }
+        .dim-icon { width: 40px; height: 40px; border: 1px solid rgba(28,90,120,0.22); display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--accent); margin-bottom: 1.2rem; }
+        .dim-title { font-family: 'Cormorant Garamond', serif; font-size: 1.18rem; font-weight: 600; color: var(--ink); margin-bottom: 0.45rem; }
+        .dim-ref { font-family: 'Lato', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+        .dim-desc { font-size: 0.86rem; font-weight: 300; line-height: 1.72; color: var(--text-body); }
+
+        /* ── CALLOUT ── */
+        .callout { margin-top: 1px; padding: 2rem 2.4rem; border: 1px solid rgba(28,90,120,0.2); background: var(--accent-pale); }
+        .callout-label { display: flex; align-items: center; gap: 0.5rem; font-family: 'Lato', sans-serif; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.9rem; }
+        .callout-text { font-family: 'Cormorant Garamond', serif; font-size: 1.16rem; font-style: italic; line-height: 1.68; color: var(--ink); }
+        .callout--warn { border-color: rgba(147,100,27,0.28); background: var(--c-profeta-pl); }
+        .callout--warn .callout-label { color: var(--c-profeta); }
+        .callout--warn .callout-text { font-family: 'Lato', sans-serif; font-style: normal; font-size: 0.9rem; font-weight: 300; line-height: 1.78; color: var(--text-body); }
+        .callout--warn .callout-text strong { color: var(--c-profeta); font-weight: 700; }
+
+        /* ── SCHEME LIST (Cap. 2–3) ── */
+        .scheme-list { display: flex; flex-direction: column; max-width: 920px; margin: 0 auto; }
+        .scheme-card { display: grid; grid-template-columns: 92px 1fr; background: #fff; border: 1px solid var(--parchment-dk); position: relative; transition: box-shadow 0.3s; }
+        .scheme-card + .scheme-card { border-top: none; }
+        .scheme-card:hover { box-shadow: 0 4px 24px rgba(14,12,10,0.08); z-index: 2; }
+        .scheme-icon-col { display: flex; align-items: center; justify-content: center; background: var(--parchment); border-right: 1px solid var(--parchment-dk); }
+        .scheme-icon { width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; }
+        .scheme-body { padding: 1.8rem 2.1rem; border-left: 4px solid; }
+        .scheme-names { display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.35rem; }
+        .scheme-ministry { font-family: 'Cormorant Garamond', serif; font-size: 1.32rem; font-weight: 600; color: var(--ink); }
+        .scheme-animal { font-family: 'Lato', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+        .scheme-desc { font-size: 0.86rem; font-weight: 300; line-height: 1.72; color: var(--text-body); }
+
+        .scheme-card--apostol .scheme-icon { color: var(--c-apostol); border-color: var(--c-apostol); }
+        .scheme-card--apostol .scheme-body { border-color: var(--c-apostol); }
+        .scheme-card--apostol .scheme-animal { color: var(--c-apostol); }
+        .scheme-card--profeta .scheme-icon { color: var(--c-profeta); border-color: var(--c-profeta); }
+        .scheme-card--profeta .scheme-body { border-color: var(--c-profeta); }
+        .scheme-card--profeta .scheme-animal { color: var(--c-profeta); }
+        .scheme-card--pastor .scheme-icon { color: var(--c-pastor); border-color: var(--c-pastor); }
+        .scheme-card--pastor .scheme-body { border-color: var(--c-pastor); }
+        .scheme-card--pastor .scheme-animal { color: var(--c-pastor); }
+        .scheme-card--evangelista .scheme-icon { color: var(--c-evangelista); border-color: var(--c-evangelista); }
+        .scheme-card--evangelista .scheme-body { border-color: var(--c-evangelista); }
+        .scheme-card--evangelista .scheme-animal { color: var(--c-evangelista); }
+        .scheme-card--maestro .scheme-icon { color: var(--c-maestro); border-color: var(--c-maestro); }
+        .scheme-card--maestro .scheme-body { border-color: var(--c-maestro); }
+        .scheme-card--maestro .scheme-animal { color: var(--c-maestro); }
+
+        /* ── LEVELS COMPARE ── */
+        .levels-compare { display: grid; grid-template-columns: 1fr 1fr; margin-top: 3rem; max-width: 920px; margin-left: auto; margin-right: auto; }
+        .lvl-col { padding: 2.4rem 2.2rem; }
+        .lvl-col--doctrine { background: #fff; border: 1px solid var(--parchment-dk); }
+        .lvl-col--typology { background: var(--accent); }
+        .lvl-head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.1rem; }
+        .lvl-icon { width: 34px; height: 34px; border: 1px solid currentColor; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+        .lvl-col--doctrine .lvl-icon { color: var(--text-muted); }
+        .lvl-col--typology .lvl-icon { color: rgba(247,244,237,0.7); }
+        .lvl-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; }
+        .lvl-col--doctrine .lvl-title { color: var(--ink); }
+        .lvl-col--typology .lvl-title { color: #f7f4ed; }
+        .lvl-text { font-size: 0.87rem; font-weight: 300; line-height: 1.76; }
+        .lvl-col--doctrine .lvl-text { color: var(--text-body); }
+        .lvl-col--typology .lvl-text { color: rgba(247,244,237,0.82); }
+
+        /* ── PULL QUOTE ── */
+        .pull-quote { margin: 4rem 0; padding: 4rem 3rem; background: var(--accent); text-align: center; position: relative; overflow: hidden; }
+        .pull-quote::before {
+            content: '\201C'; position: absolute; top: -1rem; left: 50%; transform: translateX(-50%);
+            font-family: 'Cormorant Garamond', serif; font-size: 14rem; color: rgba(255,255,255,0.06); line-height: 1; pointer-events: none;
+        }
+        .pull-quote-text { position: relative; z-index: 1; font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem, 2.3vw, 1.6rem); font-style: italic; font-weight: 600; line-height: 1.72; color: rgba(247,244,237,0.92); max-width: 740px; margin: 0 auto 1.4rem; }
+        .pull-quote-ref { position: relative; z-index: 1; font-family: 'Lato', sans-serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(247,244,237,0.5); }
+
+        /* ── EXEGETICAL LIST ── */
+        .exeg-list { max-width: 860px; margin: 3rem auto 0; display: flex; flex-direction: column; }
+        .exeg-item { display: grid; grid-template-columns: 3rem 1fr; padding: 1.4rem 0; border-bottom: 1px solid var(--parchment-dk); }
+        .exeg-item:last-child { border-bottom: none; }
+        .exeg-num { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-style: italic; color: var(--gold); }
+        .exeg-title { font-weight: 700; color: var(--ink); font-size: 0.88rem; }
+        .exeg-body { font-size: 0.87rem; font-weight: 300; line-height: 1.74; color: var(--text-body); margin-top: 0.35rem; }
+
+        /* ── LIVING CREATURES / DARK SECTION ── */
+        .dark-section { padding: 4.5rem 3rem; background: var(--hero-grad); position: relative; overflow: hidden; }
+        .dark-section::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
+            opacity: 0.45; pointer-events: none;
+        }
+        .dark-section .section-label { color: var(--gold-light); }
+        .dark-section .section-title { color: #f7f4ed; }
+        .dark-section .section-rule { background: rgba(184,154,95,0.45); }
+        .dark-inner { position: relative; z-index: 2; max-width: 920px; margin: 0 auto; }
+
+        .verse-chip { border: 1px solid rgba(184,154,95,0.22); background: rgba(255,255,255,0.04); padding: 1.6rem 1.9rem; margin-bottom: 1rem; }
+        .verse-chip-ref { font-family: 'Lato', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.6rem; }
+        .verse-chip-text { font-family: 'Cormorant Garamond', serif; font-size: 1.06rem; font-style: italic; line-height: 1.68; color: rgba(247,244,237,0.88); }
+
+        .std-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(184,154,95,0.14); margin: 2rem 0; }
+        .std-cell { background: rgba(255,255,255,0.03); padding: 1.3rem 1rem; text-align: center; }
+        .std-cell-label { font-family: 'Lato', sans-serif; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(247,244,237,0.4); margin-bottom: 0.5rem; }
+        .std-cell-value { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; color: var(--gold-light); }
+        .std-cell-value small { display: block; font-family: 'Lato', sans-serif; font-style: normal; font-size: 0.62rem; letter-spacing: 0.06em; color: rgba(247,244,237,0.42); margin-top: 0.2rem; }
+
+        .evang-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(184,154,95,0.14); margin: 1.5rem 0 2rem; }
+        .evang-cell { background: rgba(255,255,255,0.03); padding: 1.4rem 1.1rem; }
+        .evang-name { font-family: 'Cormorant Garamond', serif; font-size: 1.08rem; font-style: italic; color: var(--gold-light); margin-bottom: 0.3rem; }
+        .evang-sym { font-family: 'Lato', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,244,237,0.55); margin-bottom: 0.6rem; }
+        .evang-reason { font-size: 0.76rem; font-weight: 300; line-height: 1.6; color: rgba(247,244,237,0.62); }
+
+        .dark-note { border-left: 3px solid var(--gold); padding: 1.3rem 1.6rem; background: rgba(184,154,95,0.06); font-size: 0.86rem; font-weight: 300; line-height: 1.74; color: rgba(247,244,237,0.72); }
+        .dark-note strong { color: var(--gold-light); font-weight: 600; }
+
+        /* ── DEEP STUDY CARDS (Cap. 6) ── */
+        .study-stack { display: flex; flex-direction: column; gap: 1px; background: var(--parchment-dk); max-width: 960px; margin: 0 auto; }
+        .study-card { background: #fff; padding: 2.6rem 2.6rem 2.4rem; border-left: 5px solid; }
+        .study-card--apostol { border-color: var(--c-apostol); }
+        .study-card--profeta { border-color: var(--c-profeta); }
+        .study-card--pastor { border-color: var(--c-pastor); }
+        .study-card--evangelista { border-color: var(--c-evangelista); }
+        .study-card--maestro { border-color: var(--c-maestro); }
+
+        .study-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.6rem; }
+        .study-icon { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+        .study-card--apostol .study-icon { background: var(--c-apostol-pl); color: var(--c-apostol); }
+        .study-card--profeta .study-icon { background: var(--c-profeta-pl); color: var(--c-profeta); }
+        .study-card--pastor .study-icon { background: var(--c-pastor-pl); color: var(--c-pastor); }
+        .study-card--evangelista .study-icon { background: var(--c-evang-pl); color: var(--c-evangelista); }
+        .study-card--maestro .study-icon { background: var(--c-maestro-pl); color: var(--c-maestro); }
+
+        .study-title { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 600; color: var(--ink); }
+        .study-title span { font-style: italic; }
+        .study-intro { font-size: 0.9rem; font-weight: 300; line-height: 1.78; color: var(--text-body); margin-bottom: 1.6rem; }
+
+        .study-sub { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px dashed var(--parchment-dk); }
+        .study-sub-title { font-family: 'Lato', sans-serif; font-size: 0.76rem; font-weight: 700; color: var(--ink); margin-bottom: 0.7rem; }
+        .study-verse { font-family: 'Cormorant Garamond', serif; font-size: 1.02rem; font-style: italic; line-height: 1.7; color: var(--text-body); margin-bottom: 0.5rem; }
+        .study-verse-ref { font-family: 'Lato', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.7rem; display: block; }
+        .study-card--apostol .study-verse-ref { color: var(--c-apostol); }
+        .study-card--profeta .study-verse-ref { color: var(--c-profeta); }
+        .study-card--pastor .study-verse-ref { color: var(--c-pastor); }
+        .study-card--evangelista .study-verse-ref { color: var(--c-evangelista); }
+        .study-card--maestro .study-verse-ref { color: var(--c-maestro); }
+        .study-para { font-size: 0.87rem; font-weight: 300; line-height: 1.76; color: var(--text-body); }
+
+        .patron-tag { display: inline-flex; align-items: center; gap: 0.6rem; margin-top: 1.6rem; padding: 0.7rem 1.2rem; font-family: 'Lato', sans-serif; font-size: 0.8rem; font-weight: 400; line-height: 1.5; }
+        .study-card--apostol .patron-tag { background: var(--c-apostol-pl); color: var(--c-apostol); }
+        .study-card--profeta .patron-tag { background: var(--c-profeta-pl); color: var(--c-profeta); }
+        .study-card--pastor .patron-tag { background: var(--c-pastor-pl); color: var(--c-pastor); }
+        .study-card--evangelista .patron-tag { background: var(--c-evang-pl); color: var(--c-evangelista); }
+        .study-card--maestro .patron-tag { background: var(--c-maestro-pl); color: var(--c-maestro); }
+        .patron-tag strong { font-weight: 700; }
+
+        /* ── PATTERNS (Cap. 7) ── */
+        .pattern-block { max-width: 920px; margin: 0 auto 3.6rem; }
+        .pattern-num { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.3rem; }
+        .pattern-num-badge { width: 34px; height: 34px; border: 1px solid var(--gold); color: var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; flex-shrink: 0; }
+        .pattern-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; font-style: italic; color: var(--ink); }
+        .pattern-text { font-size: 0.88rem; font-weight: 300; line-height: 1.78; color: var(--text-body); margin-bottom: 1.4rem; }
+
+        .christo-grid { display: flex; flex-direction: column; margin-bottom: 1.4rem; }
+        .christo-row { display: grid; grid-template-columns: 130px 1fr; border: 1px solid var(--parchment-dk); background: #fff; }
+        .christo-row + .christo-row { border-top: none; }
+        .christo-min { display: flex; align-items: center; justify-content: center; background: var(--parchment); border-right: 1px solid var(--parchment-dk); font-family: 'Lato', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-align: center; padding: 1rem 0.5rem; }
+        .christo-body { padding: 1.1rem 1.5rem; }
+        .christo-verse { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.98rem; color: var(--ink); }
+        .christo-ref { font-family: 'Lato', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-left: 0.5rem; }
+
+        .zoo-grid { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 1.4rem; }
+        .zoo-col { padding: 2rem; border: 1px solid var(--parchment-dk); }
+        .zoo-col--wild { background: #fff; border-right: none; }
+        .zoo-col--tame { background: var(--parchment); }
+        .zoo-label { font-family: 'Lato', sans-serif; font-size: 0.64rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.7rem; }
+        .zoo-animals { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--ink); margin-bottom: 0.6rem; }
+        .zoo-func { font-size: 0.85rem; font-weight: 300; line-height: 1.68; color: var(--text-body); }
+
+        .submission-list { list-style: none; margin-bottom: 1.4rem; }
+        .submission-list li { display: flex; gap: 0.8rem; padding: 0.9rem 0; border-bottom: 1px solid var(--parchment-dk); font-size: 0.87rem; font-weight: 300; line-height: 1.7; color: var(--text-body); }
+        .submission-list li:last-child { border-bottom: none; }
+        .submission-list .ic { color: var(--gold); font-size: 1rem; margin-top: 0.15rem; }
+
+        .cycle-wrap { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.4rem; margin: 2rem 0 1.4rem; }
+        .cycle-node { background: #fff; border: 1px solid var(--parchment-dk); border-top: 3px solid var(--accent); padding: 1rem 1.3rem; text-align: center; min-width: 118px; }
+        .cycle-node-title { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--ink); }
+        .cycle-node-sub { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.15rem; }
+        .cycle-arrow { color: var(--gold); font-size: 1.1rem; }
+
+        /* ── CONCLUSIONS (Cap. 8) ── */
+        .concl-list { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; }
+        .concl-item { display: grid; grid-template-columns: 64px 1fr; padding: 1.5rem 0; border-bottom: 1px solid var(--parchment-dk); }
+        .concl-item:first-child { padding-top: 0; }
+        .concl-item:last-child { border-bottom: none; }
+        .concl-roman { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-style: italic; color: var(--gold); }
+        .concl-text { font-size: 0.9rem; font-weight: 300; line-height: 1.8; color: var(--text-body); }
+        .concl-text strong { color: var(--ink); font-weight: 700; }
+
+        .concl-final { max-width: 880px; margin: 2.8rem auto 0; padding: 2.6rem 2.8rem; background: var(--accent); position: relative; }
+        .concl-final-label { display: flex; align-items: center; gap: 0.6rem; font-family: 'Lato', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem; }
+        .concl-final-text { font-family: 'Cormorant Garamond', serif; font-size: 1.16rem; font-style: italic; line-height: 1.74; color: rgba(247,244,237,0.94); }
+        .concl-final-text strong { font-style: normal; color: var(--gold-light); font-weight: 600; }
+
+        /* ── BIBLIO INDEX ── */
+        .biblio-list { max-width: 920px; margin: 0 auto; display: flex; flex-direction: column; }
+        .biblio-row { display: grid; grid-template-columns: 160px 1fr; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--parchment-dk); align-items: baseline; }
+        .biblio-row:last-child { border-bottom: none; }
+        .biblio-chip { font-family: 'Lato', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; }
+        .biblio-refs { font-size: 0.82rem; font-weight: 300; line-height: 1.7; color: var(--text-muted); }
+        .biblio-row--apostol .biblio-chip { color: var(--c-apostol); }
+        .biblio-row--profeta .biblio-chip { color: var(--c-profeta); }
+        .biblio-row--pastor .biblio-chip { color: var(--c-pastor); }
+        .biblio-row--evangelista .biblio-chip { color: var(--c-evangelista); }
+        .biblio-row--maestro .biblio-chip { color: var(--c-maestro); }
+        .biblio-row--other .biblio-chip { color: var(--text-muted); }
+
+        /* ── METHOD NOTE ── */
+        .method-note { max-width: 880px; margin: 5rem auto 0; padding: 2rem 2.4rem; border: 1px solid var(--parchment-dk); background: #fff; }
+        .method-note-label { display: flex; align-items: center; gap: 0.5rem; font-family: 'Lato', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.8rem; }
+        .method-note-label .ic { color: var(--gold); }
+        .method-note-text { font-size: 0.82rem; font-weight: 300; line-height: 1.76; color: var(--text-muted); }
+
+        /* ── FOOTER ── */
+        .site-footer { background: var(--hero-grad); border-top: 1px solid rgba(184,154,95,0.14); padding: 2.5rem; text-align: center; }
+        .footer-copy { font-family: 'Lato', sans-serif; font-size: 0.7rem; font-weight: 300; letter-spacing: 0.08em; color: rgba(247,244,237,0.38); }
+        .footer-copy span { color: rgba(184,154,95,0.48); }
+
+        /* ── REVEAL ── */
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.75s ease, transform 0.75s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .dim-grid { grid-template-columns: repeat(2, 1fr); }
+            .levels-compare { grid-template-columns: 1fr; }
+            .std-grid { grid-template-columns: repeat(2, 1fr); }
+            .evang-grid { grid-template-columns: repeat(2, 1fr); }
+            .zoo-grid { grid-template-columns: 1fr; }
+            .zoo-col--wild { border-right: 1px solid var(--parchment-dk); border-bottom: none; }
+        }
+
+        @media (max-width: 640px) {
+            .site-header { padding: 0 1.2rem; }
+            .header-logo-text { display: none; }
+            .page-hero { padding: 110px 1.2rem 60px; }
+            .page-main { padding: 0 1.2rem 4rem; }
+            .verse-intro { padding: 2.3rem 1.4rem; margin-top: 4rem; }
+            .verse-text { font-size: 1.14rem; }
+            .dim-grid { grid-template-columns: 1fr; }
+            .scheme-card { grid-template-columns: 64px 1fr; }
+            .scheme-body { padding: 1.4rem 1.4rem; }
+            .std-grid { grid-template-columns: 1fr 1fr; }
+            .evang-grid { grid-template-columns: 1fr 1fr; }
+            .study-card { padding: 2rem 1.5rem; }
+            .christo-row { grid-template-columns: 1fr; }
+            .christo-min { border-right: none; border-bottom: 1px solid var(--parchment-dk); }
+            .concl-item { grid-template-columns: 44px 1fr; }
+            .biblio-row { grid-template-columns: 1fr; gap: 0.3rem; }
+            .pull-quote { padding: 3rem 1.5rem; }
+            .dark-section { padding: 3rem 1.4rem; }
+        }
+
+        /* Insignia circular del logo EMD */
+        img[alt="Logo EMD"] {
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(201, 170, 106, 0.5);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(201, 170, 106, 0.08);
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        img[alt="Logo EMD"]:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 0 5px rgba(201, 170, 106, 0.15);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="../../index.html" class="header-logo">
+            <img src="../../images/EMD.png?v=2" alt="Logo EMD">
+            <div class="header-logo-text">
+                Ministerio
+                <span>"La Gloria es del Señor"</span>
+            </div>
+        </a>
+        <a href="../../nuestras-ensenanzas/index.html" class="nav-back">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+            Estudios Bíblicos
+        </a>
+    </header>
+
+    <section class="page-hero">
+        <div class="hero-inner">
+            <span class="hero-eyebrow">Estudios Bíblicos · Exégesis y Tipología</span>
+            <h1 class="hero-title">El Águila y los <em>Cinco Ministerios</em></h1>
+            <p class="hero-subtitle">Fundamentos bíblicos, tipología animal y patrones teológicos de Efesios 4:11 — apóstol, profeta, pastor, evangelista y maestro, leídos a través del águila, el león, la oveja, el cordero y el buey.</p>
+            <div class="hero-rule"></div>
+            <div class="hero-tags">
+                <span class="hero-tag">Águila — Apóstol</span>
+                <span class="hero-tag">León — Profeta</span>
+                <span class="hero-tag">Oveja — Pastor</span>
+                <span class="hero-tag">Cordero — Evangelista</span>
+                <span class="hero-tag">Becerro/Buey — Maestro</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="page-main">
+
+        <div class="verse-intro reveal">
+            <p class="verse-text">
+                "Y él mismo constituyó a unos, apóstoles; a otros, profetas; a otros, evangelistas; a otros, pastores y maestros, a fin de perfeccionar a los santos para la obra del ministerio, para la edificación del cuerpo de Cristo, hasta que todos lleguemos a la unidad de la fe y del conocimiento del Hijo de Dios, a un varón perfecto, a la medida de la estatura de la plenitud de Cristo."
+            </p>
+            <p class="verse-ref">Efesios 4:11–13</p>
+        </div>
+
+        <!-- CAP 1 — EL ÁGUILA COMO SÍMBOLO -->
+        <section class="block reveal">
+            <div class="section-header">
+                <span class="section-label">Capítulo 1</span>
+                <h2 class="section-title">El Águila como Símbolo Bíblico de Ministerio</h2>
+                <div class="section-rule"></div>
+                <p class="section-intro">La Biblia nunca establece una regla fija del tipo "si Dios te da un águila, significa exactamente este ministerio". Pero sí usa el águila como imagen repetida de altura, renovación, protección, fuerza, visión y acción divina — conviene distinguir entre lo que el texto dice expresamente y la inferencia teológica que puede construirse sobre ello.</p>
+            </div>
+
+            <div class="dim-grid">
+                <div class="dim-card">
+                    <div class="dim-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /><path d="M20 2v4" /><path d="M22 4h-4" /><circle cx="4" cy="20" r="2" /></svg></div>
+                    <h3 class="dim-title">Renovación</h3>
+                    <p class="dim-ref">Isaías 40:31</p>
+                    <p class="dim-desc">"Los que esperan a Jehová tendrán nuevas fuerzas; levantarán alas como las águilas." Un llamado que no depende de fuerza humana, sino de aprender a esperar en Dios y renovarse aun después de temporadas difíciles.</p>
+                </div>
+                <div class="dim-card">
+                    <div class="dim-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /></svg></div>
+                    <h3 class="dim-title">Protección y formación</h3>
+                    <p class="dim-ref">Deuteronomio 32:11–12</p>
+                    <p class="dim-desc">Dios comparado con un águila que despierta su nidada, revolotea sobre sus polluelos, extiende sus alas y los lleva. No es solamente cubrir; también es enseñar a volar — un ministerio que forma y levanta a otros, no que produce dependencia permanente.</p>
+                </div>
+                <div class="dim-card">
+                    <div class="dim-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /></svg></div>
+                    <h3 class="dim-title">Dirección hacia Dios</h3>
+                    <p class="dim-ref">Éxodo 19:4</p>
+                    <p class="dim-desc">"Cómo os tomé sobre alas de águilas, y os he traído a mí." El énfasis no está en el águila como individuo poderoso, sino en Dios llevando a su pueblo hacia Él — el propósito final no es que la gente admire al ministro, sino que sea llevada hacia Dios.</p>
+                </div>
+                <div class="dim-card">
+                    <div class="dim-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /><path d="M12 9v4" /><path d="M12 17h.01" /></svg></div>
+                    <h3 class="dim-title">Advertencia contra el orgullo</h3>
+                    <p class="dim-ref">Jeremías 49:16 · Abdías 4</p>
+                    <p class="dim-desc">El águila aparece también por su capacidad de establecerse en lugares elevados — en ese contexto sirve como advertencia: la altura espiritual no debe convertirse en superioridad. Un ministerio puede ser llevado a posiciones de influencia, pero debe permanecer humilde.</p>
+                </div>
+                <div class="dim-card">
+                    <div class="dim-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg></div>
+                    <h3 class="dim-title">Visión y discernimiento</h3>
+                    <p class="dim-ref">Job 39:27–30</p>
+                    <p class="dim-desc">El águila levantándose en las alturas y viendo desde lejos. De ahí puede hacerse una inferencia razonable: discernimiento, perspectiva y capacidad de observar lo que otros no perciben — aunque el símbolo por sí solo no demuestra que alguien sea profeta.</p>
+                </div>
+                <div class="dim-card">
+                    <div class="dim-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" /><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" /><path d="M8 6v8" /></svg></div>
+                    <h3 class="dim-title">Proclamación celestial</h3>
+                    <p class="dim-ref">Apocalipsis 4:7 · 8:13</p>
+                    <p class="dim-desc">Uno de los cuatro seres vivientes es "semejante a un águila volando"; en Apocalipsis 8:13 un águila proclama un mensaje en medio del cielo. Esto permite asociar simbólicamente al águila con la proclamación desde una perspectiva celestial.</p>
+                </div>
+                <div class="callout reveal" style="grid-column: 1 / -1;">
+                    <div class="callout-label">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /></svg>
+                        Inferencia teológica central
+                    </div>
+                    <p class="callout-text">Un ministerio llamado a subir en perspectiva espiritual para después ayudar a otros a levantarse; un ministerio de visión, formación, protección, renovación y proclamación, cuya fuerza no procede del ministro sino de Dios.</p>
+                </div>
+                <div class="callout callout--warn reveal" style="grid-column: 1 / -1;">
+                    <div class="callout-label">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /><path d="M12 9v4" /><path d="M12 17h.01" /></svg>
+                        Precisión necesaria
+                    </div>
+                    <p class="callout-text">Hay una diferencia importante entre decir "Dios me mostró un águila" y concluir inmediatamente "por tanto soy profeta". Bíblicamente, el símbolo puede sugerir características del llamado, pero el ministerio se confirma principalmente por <strong>la Palabra, el carácter, los dones, el fruto, el servicio y la dirección de Dios</strong>, no solamente por el símbolo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAP 2-3 — EL ESQUEMA -->
+        <section class="block reveal">
+            <div class="section-header">
+                <span class="section-label">Capítulos 2 y 3</span>
+                <h2 class="section-title">El Esquema de los Cinco Ministerios y sus Símbolos</h2>
+                <div class="section-rule"></div>
+                <p class="section-intro">Esta correspondencia puede usarse como tipología o simbolismo ministerial, pero no aparece en la Biblia como una clasificación explícita de Efesios 4:11. El águila no es igual al apóstol — es su símbolo: representa ciertos rasgos de su función, no una identidad literal.</p>
+            </div>
+
+            <div class="scheme-list">
+                <div class="scheme-card scheme-card--apostol">
+                    <div class="scheme-icon-col"><div class="scheme-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.086 18.412A2 2 0 0112.67 19H5v-7.672a2 2 0 01.586-1.414L11.75 3.75a6 6 0 118.49 8.49z" /><path d="M16 8 2 22" /><path d="M17.488 15H9" /></svg></div></div>
+                    <div class="scheme-body">
+                        <div class="scheme-names"><h3 class="scheme-ministry">Apóstol</h3><span class="scheme-animal">Águila</span></div>
+                        <p class="scheme-desc">Visión amplia, altura, gobierno, capacidad de abrir camino y establecer. El apóstol suele pensar en territorio, fundamento y expansión — puede relacionarse simbólicamente con la perspectiva elevada del águila.</p>
+                    </div>
+                </div>
+                <div class="scheme-card scheme-card--profeta">
+                    <div class="scheme-icon-col"><div class="scheme-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" /><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" /><path d="M8 6v8" /></svg></div></div>
+                    <div class="scheme-body">
+                        <div class="scheme-names"><h3 class="scheme-ministry">Profeta</h3><span class="scheme-animal">León</span></div>
+                        <p class="scheme-desc">Voz, autoridad, valentía y proclamación. Amós 3:8 hace una asociación poderosa: "Si el león ruge, ¿quién no temerá? Si habla Jehová el Señor, ¿quién no profetizará?" — la relación profética con el rugido del león es especialmente fuerte.</p>
+                    </div>
+                </div>
+                <div class="scheme-card scheme-card--pastor">
+                    <div class="scheme-icon-col"><div class="scheme-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></svg></div></div>
+                    <div class="scheme-body">
+                        <div class="scheme-names"><h3 class="scheme-ministry">Pastor</h3><span class="scheme-animal">Oveja</span></div>
+                        <p class="scheme-desc">El símbolo que exige mayor matiz: bíblicamente el pastor cuida las ovejas, no es una de ellas. Sin embargo, si se usa la oveja para el pastor, puede enfatizar humildad, mansedumbre y la necesidad de que el propio pastor permanezca bajo el cuidado del Pastor Supremo.</p>
+                    </div>
+                </div>
+                <div class="scheme-card scheme-card--evangelista">
+                    <div class="scheme-icon-col"><div class="scheme-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg></div></div>
+                    <div class="scheme-body">
+                        <div class="scheme-names"><h3 class="scheme-ministry">Evangelista</h3><span class="scheme-animal">Cordero</span></div>
+                        <p class="scheme-desc">Representa el mensaje central del evangelista: Jesucristo, el Cordero de Dios. Juan 1:29 — "He aquí el Cordero de Dios, que quita el pecado del mundo." El evangelista, en este sentido, proclama al Cordero.</p>
+                    </div>
+                </div>
+                <div class="scheme-card scheme-card--maestro">
+                    <div class="scheme-icon-col"><div class="scheme-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16" /><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" /></svg></div></div>
+                    <div class="scheme-body">
+                        <div class="scheme-names"><h3 class="scheme-ministry">Maestro</h3><span class="scheme-animal">Becerro / Buey</span></div>
+                        <p class="scheme-desc">Se relaciona con trabajo, servicio, constancia y alimento. Pablo utiliza la imagen del buey para quienes trabajan enseñando y ministrando: "No pondrás bozal al buey que trilla" (1 Corintios 9:9; 1 Timoteo 5:18).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="levels-compare">
+                <div class="lvl-col lvl-col--doctrine reveal">
+                    <div class="lvl-head">
+                        <div class="lvl-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 12h-5" /><path d="M15 8h-5" /><path d="M19 17V5a2 2 0 0 0-2-2H4" /><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" /></svg></div>
+                        <div class="lvl-title">Doctrina explícita</div>
+                    </div>
+                    <p class="lvl-text">Efesios 4:11 presenta apóstoles, profetas, evangelistas, pastores y maestros. Este es el texto que sostiene doctrinalmente la existencia de los cinco ministerios.</p>
+                </div>
+                <div class="lvl-col lvl-col--typology reveal">
+                    <div class="lvl-head">
+                        <div class="lvl-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.086 18.412A2 2 0 0112.67 19H5v-7.672a2 2 0 01.586-1.414L11.75 3.75a6 6 0 118.49 8.49z" /><path d="M16 8 2 22" /><path d="M17.488 15H9" /></svg></div>
+                        <div class="lvl-title">Tipología ministerial</div>
+                    </div>
+                    <p class="lvl-text">Se pueden utilizar águila, león, oveja, cordero y becerro como imágenes para describir aspectos de esos ministerios, siempre que no se presente la correspondencia como si fuera una declaración textual de la Biblia.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAP 4 — FUNDAMENTO DOCTRINAL -->
+        <section class="block reveal">
+            <div class="pull-quote">
+                <p class="pull-quote-text">Y él mismo constituyó a unos, apóstoles; a otros, profetas; a otros, evangelistas; a otros, pastores y maestros, a fin de perfeccionar a los santos para la obra del ministerio, hasta que todos lleguemos a la unidad de la fe... a la medida de la estatura de la plenitud de Cristo.</p>
+                <p class="pull-quote-ref">Efesios 4:11–13 — Fundamento doctrinal explícito</p>
+            </div>
+            <div class="exeg-list">
+                <div class="exeg-item">
+                    <span class="exeg-num">01</span>
+                    <div>
+                        <div class="exeg-title">Origen del don</div>
+                        <p class="exeg-body">El versículo 11 conecta directamente con Efesios 4:7–10, donde Pablo cita el Salmo 68:18 ("subiendo a lo alto, llevó cautiva la cautividad, y dio dones a los hombres"). Los cinco ministerios son, por tanto, dones del Cristo ascendido — no logros humanos ni títulos autoasignados.</p>
+                    </div>
+                </div>
+                <div class="exeg-item">
+                    <span class="exeg-num">02</span>
+                    <div>
+                        <div class="exeg-title">Propósito funcional</div>
+                        <p class="exeg-body">El texto no presenta los cinco ministerios como jerarquía de honor, sino como dotación funcional "a fin de perfeccionar a los santos para la obra del ministerio". El objetivo final es la madurez del cuerpo entero, no el lucimiento individual del ministro.</p>
+                    </div>
+                </div>
+                <div class="exeg-item">
+                    <span class="exeg-num">03</span>
+                    <div>
+                        <div class="exeg-title">Meta cristológica</div>
+                        <p class="exeg-body">La finalidad última señalada por Pablo es llegar "a la medida de la estatura de la plenitud de Cristo" (v. 13). Si los cinco ministerios apuntan hacia la plenitud de Cristo, es razonable esperar que sus símbolos —águila, león, oveja, cordero, buey— encuentren su significado más profundo en Cristo mismo, quien reúne en su persona todas estas cualidades.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAP 5 — CUATRO SERES VIVIENTES -->
+        <section class="dark-section block reveal">
+            <div class="dark-inner">
+                <div class="section-header">
+                    <span class="section-label">Capítulo 5</span>
+                    <h2 class="section-title">Trasfondo de los Cuatro Seres Vivientes en la Tradición Interpretativa</h2>
+                    <div class="section-rule"></div>
+                </div>
+
+                <div class="verse-chip">
+                    <div class="verse-chip-ref">Ezequiel 1:10 — La visión inaugural</div>
+                    <p class="verse-chip-text">"Y el aspecto de sus rostros era rostro de hombre; y rostro de león a la parte derecha en los cuatro; y a la izquierda rostro de buey en los cuatro; y también rostro de águila en los cuatro."</p>
+                </div>
+                <div class="verse-chip">
+                    <div class="verse-chip-ref">Apocalipsis 4:6–8 — La visión del trono celestial</div>
+                    <p class="verse-chip-text">"El primer ser viviente era semejante a un león; el segundo era semejante a un becerro; el tercero tenía rostro como de hombre; y el cuarto era semejante a un águila volando."</p>
+                </div>
+
+                <div class="dark-note" style="margin-bottom: 2rem;">
+                    <strong>Un dato que enriquece el esquema:</strong> Apocalipsis 5:5–6, inmediatamente después de la visión de los cuatro seres vivientes, presenta al León de la tribu de Judá que es, a la vez, el Cordero inmolado en pie en medio del trono. Cuatro seres vivientes más el Cordero central suman exactamente cinco imágenes animales en el mismo bloque visionario de Apocalipsis 4–5 — un paralelo notable con los cinco símbolos del esquema ministerial, aunque el texto no establece esa correspondencia de forma explícita.</div>
+
+                <p class="pattern-text" style="color: rgba(247,244,237,0.7); text-align:center; max-width:760px; margin: 0 auto 1rem;">Existe además una tradición interpretativa judía, apoyada en Números 2, que asocia las cuatro criaturas con los estandartes de las cuatro tribus principales que acampaban alrededor del tabernáculo:</p>
+                <div class="std-grid">
+                    <div class="std-cell"><div class="std-cell-label">Judá · Oriente</div><div class="std-cell-value">León<small>Gn 49:9 · Nm 2:3</small></div></div>
+                    <div class="std-cell"><div class="std-cell-label">Rubén · Sur</div><div class="std-cell-value">Hombre<small>Nm 2:10</small></div></div>
+                    <div class="std-cell"><div class="std-cell-label">Efraín · Occidente</div><div class="std-cell-value">Buey<small>Nm 2:18 · Dt 33:17</small></div></div>
+                    <div class="std-cell"><div class="std-cell-label">Dan · Norte</div><div class="std-cell-value">Águila<small>Nm 2:25 · Gn 49:17</small></div></div>
+                </div>
+                <div class="dark-note" style="margin-bottom: 2.6rem;">Esta correspondencia entre tribus y estandartes proviene de la tradición rabínica postbíblica (Midrash Bemidbar Rabá), no del texto explícito de Números 2. Se incluye como dato histórico-interpretativo: útil para entender de dónde surge la asociación entre estos cuatro animales y el pueblo de Dios organizado alrededor de su presencia — una imagen que resuena con Efesios 4: ministerios diversos organizados alrededor de Cristo.</div>
+
+                <p class="pattern-text" style="color: rgba(247,244,237,0.7); text-align:center; max-width:760px; margin: 0 auto 1rem;">Desde el siglo II, los padres de la Iglesia aplicaron los cuatro seres vivientes a los cuatro evangelios. La asignación consolidada en Occidente, transmitida por Jerónimo (<em>Comentario a Ezequiel</em>, c. 410 d.C.):</p>
+                <div class="evang-grid">
+                    <div class="evang-cell"><div class="evang-name">Mateo</div><div class="evang-sym">Hombre</div><p class="evang-reason">Abre con la genealogía humana de Jesús.</p></div>
+                    <div class="evang-cell"><div class="evang-name">Marcos</div><div class="evang-sym">León</div><p class="evang-reason">Abre con la voz que ruge en el desierto (Mr 1:3).</p></div>
+                    <div class="evang-cell"><div class="evang-name">Lucas</div><div class="evang-sym">Buey / Becerro</div><p class="evang-reason">Abre con el sacrificio de Zacarías en el templo.</p></div>
+                    <div class="evang-cell"><div class="evang-name">Juan</div><div class="evang-sym">Águila</div><p class="evang-reason">Abre con el vuelo teológico más alto: el Logos preexistente.</p></div>
+                </div>
+                <div class="dark-note">Estos cuatro símbolos —antes de referirse a ministerios humanos— se aplicaron primero a dimensiones de la persona y obra de Cristo: su humanidad (hombre), su autoridad real y voz de juicio (león), su servicio sacrificial (buey) y su naturaleza divina trascendente (águila). Si los cinco ministerios de Efesios 4 son dones del Cristo ascendido, y sus símbolos tradicionales describen originalmente facetas de Cristo mismo, entonces cada ministerio —con su símbolo respectivo— puede entenderse como una extensión de una dimensión particular del propio ministerio de Cristo, distribuida ahora en su cuerpo.</div>
+            </div>
+        </section>
+
+        <!-- CAP 6 — DESARROLLO TEOLÓGICO PROFUNDO -->
+        <section class="block reveal">
+            <div class="section-header">
+                <span class="section-label">Capítulo 6</span>
+                <h2 class="section-title">Desarrollo Teológico Profundo de Cada Símbolo-Ministerio</h2>
+                <div class="section-rule"></div>
+            </div>
+
+            <div class="study-stack">
+                <div class="study-card study-card--apostol">
+                    <div class="study-head">
+                        <div class="study-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.086 18.412A2 2 0 0112.67 19H5v-7.672a2 2 0 01.586-1.414L11.75 3.75a6 6 0 118.49 8.49z" /><path d="M16 8 2 22" /><path d="M17.488 15H9" /></svg></div>
+                        <h3 class="study-title">Águila – <span>Apóstol</span>: el ministerio que abre territorio</h3>
+                    </div>
+                    <p class="study-intro">El apóstol es, etimológicamente, el "enviado" (<em>apóstolos</em>): alguien comisionado para ir más allá de lo ya establecido. El águila —el ave de mayor envergadura y alcance migratorio entre las aves rapaces del Cercano Oriente antiguo— ilustra con notable precisión esta vocación de extensión, fundamento y gobierno espiritual.</p>
+                    <div class="study-sub">
+                        <div class="study-sub-title">Fundamento y territorio</div>
+                        <span class="study-verse-ref">1 Corintios 3:10–11 · Romanos 15:20 · Efesios 2:20</span>
+                        <p class="study-para">Pablo describe su vocación apostólica en términos de fundamento: "puse el fundamento... porque nadie puede poner otro fundamento que el que está puesto, que es Jesucristo." Su principio ministerial es "no edificar sobre fundamento ajeno". El águila no anida en cualquier lugar: elige peñascos altos e inaccesibles (Job 39:27–28; Jeremías 49:16). Del mismo modo, el ministerio apostólico busca terreno nuevo para establecer fundamento sobre la única roca que es Cristo.</p>
+                    </div>
+                    <div class="study-sub">
+                        <div class="study-sub-title">Protección en el desplazamiento</div>
+                        <span class="study-verse-ref">Apocalipsis 12:14</span>
+                        <p class="study-para">A la mujer (figura del pueblo de Dios perseguido) "se le dieron las dos alas de la gran águila, para que volase de delante de la serpiente al desierto". Aquí el águila no solo funda: protege en tránsito. El ministerio apostólico frecuentemente conduce al pueblo de Dios a través de territorio hostil o desconocido, no solamente hacia un destino fijo.</p>
+                    </div>
+                    <div class="patron-tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 4 8 5-5 5 15H2L8 3z" /></svg> <span><strong>Patrón apostólico:</strong> águila → fundamento + expansión + protección en tránsito. El apóstol establece lo que no existía, confiando en una fuerza que no es propia.</span></div>
+                </div>
+
+                <div class="study-card study-card--profeta">
+                    <div class="study-head">
+                        <div class="study-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" /><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" /><path d="M8 6v8" /></svg></div>
+                        <h3 class="study-title">León – <span>Profeta</span>: la voz que no puede callar</h3>
+                    </div>
+                    <p class="study-intro">El profeta habla lo que Dios ha dicho, con la misma urgencia involuntaria con que un león ruge. Amós 3:8 no describe una opción retórica, sino una necesidad: el profeta no elige hablar; es constreñido a hacerlo.</p>
+                    <div class="study-sub">
+                        <div class="study-sub-title">Autoridad real y apertura de lo oculto</div>
+                        <span class="study-verse-ref">Génesis 49:9–10 · Apocalipsis 5:5 · Amós 3:7</span>
+                        <p class="study-para">Génesis 49 llama a Judá "cachorro de león", vinculando la imagen leonina con el cetro y la autoridad legítima de gobierno mesiánico. Apocalipsis 5:5 retoma esta imagen aplicada a Cristo —"el León de la tribu de Judá... ha vencido para abrir el libro"—, en un contexto donde abrir lo sellado es precisamente la función profética por excelencia: revelar lo que estaba oculto.</p>
+                    </div>
+                    <div class="study-sub">
+                        <div class="study-sub-title">Valentía ante la autoridad humana</div>
+                        <span class="study-verse-ref">Proverbios 28:1 · 2 Samuel 12 · 1 Reyes 18 · Mateo 14:4</span>
+                        <p class="study-para">"Los justos están confiados como el león." Se ilustra en episodios concretos: Natán confrontando a David, Elías ante Acab, Juan el Bautista ante Herodes — en los tres casos, el profeta habla con autoridad frente a quien humanamente tiene poder sobre su vida. 1 Pedro 5:8 advierte que el mismo símbolo —rugido leonino— se aplica también a la voz acusadora del adversario: se requiere discernimiento del fruto y del contenido del mensaje (Mateo 7:15–20).</p>
+                    </div>
+                    <div class="patron-tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z" /><path d="M5 21h14" /></svg> <span><strong>Patrón profético:</strong> león → voz + autoridad + valentía ante el poder. El profeta abre lo oculto y confronta lo establecido, con una urgencia que no depende del favor humano.</span></div>
+                </div>
+
+                <div class="study-card study-card--pastor">
+                    <div class="study-head">
+                        <div class="study-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg></div>
+                        <h3 class="study-title">Oveja – <span>Pastor</span>: la autoridad que nace de la sumisión</h3>
+                    </div>
+                    <p class="study-intro">Este es el símbolo que exige mayor matiz teológico, porque bíblicamente la relación estándar es Pastor → ovejas, no pastor = oveja. Sin embargo, un examen más detenido de la Escritura revela un patrón que resuelve esta tensión: todo pastor humano es, antes que nada, una oveja bajo el Pastor Supremo.</p>
+                    <div class="study-sub">
+                        <div class="study-sub-title">El patrón del "bajo-pastor" (under-shepherd)</div>
+                        <span class="study-verse-ref">1 Pedro 5:1–4 · Hebreos 13:20</span>
+                        <p class="study-para">Pedro se dirige a los ancianos como "anciano también con ellos" — se coloca a sí mismo dentro del rebaño antes de instruir a otros pastores— y los exhorta: "Apacentad la grey de Dios... no como teniendo señorío sobre los que están a vuestro cuidado, sino siendo ejemplos de la grey." El pasaje distingue tres niveles: el Príncipe de los pastores (Cristo), los ancianos/pastores humanos que ejercen autoridad delegada, y la grey. El propio Pedro se ubica como oveja del Buen Pastor: el pastor solo tiene autoridad para cuidar ovejas en la medida en que él mismo permanece como oveja obediente bajo Cristo.</p>
+                    </div>
+                    <div class="study-sub">
+                        <div class="study-sub-title">La restauración de Pedro: modelo narrativo</div>
+                        <span class="study-verse-ref">Juan 21:15–17 · Ezequiel 34:16</span>
+                        <p class="study-para">Tres veces Jesús pregunta a Pedro "¿me amas?", y tres veces responde con un mandato pastoral progresivo: "Apacienta mis corderos... Pastorea mis ovejas... Apacienta mis ovejas." La comisión pastoral surge directamente de una pregunta sobre el amor personal a Cristo, no sobre capacidad administrativa o dones naturales de liderazgo.</p>
+                    </div>
+                    <div class="patron-tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></svg> <span><strong>Patrón pastoral:</strong> oveja → cercanía + mansedumbre + autoridad derivada de la sumisión. El pastor no es primero pastor y después oveja; es primero oveja fiel al Pastor Supremo, y desde esa fidelidad recibe autorización para cuidar a otras ovejas.</span></div>
+                </div>
+
+                <div class="study-card study-card--evangelista">
+                    <div class="study-head">
+                        <div class="study-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg></div>
+                        <h3 class="study-title">Cordero – <span>Evangelista</span>: el mensaje encarnado en el mensajero</h3>
+                    </div>
+                    <p class="study-intro">De los cinco símbolos, el cordero es el único que no describe primariamente una cualidad del ministro, sino el contenido mismo del mensaje que el evangelista proclama. Esto lo distingue estructuralmente de los otros cuatro.</p>
+                    <div class="study-sub">
+                        <div class="study-sub-title">El precedente narrativo: Felipe el evangelista</div>
+                        <span class="study-verse-ref">Hechos 8:26–35 · Hechos 21:8 · Isaías 53:7</span>
+                        <p class="study-para">Hechos 8 narra el único episodio del Nuevo Testamento donde alguien llamado explícitamente "evangelista" es mostrado en plena acción evangelizadora. El eunuco etíope está leyendo precisamente Isaías 53:7 —"Como oveja a la muerte fue llevado; y como cordero mudo delante del que lo trasquila"— cuando Felipe se le acerca y, comenzando desde ese mismo pasaje del Cordero, le anunció el evangelio de Jesús. Es, en cierto sentido, el texto fundacional del símbolo cordero-evangelista.</p>
+                    </div>
+                    <div class="study-sub">
+                        <div class="study-sub-title">El cordero pascual y la proclamación de libertad</div>
+                        <span class="study-verse-ref">1 Corintios 5:7 · Éxodo 12 · 1 Pedro 1:18–19 · Génesis 22:8</span>
+                        <p class="study-para">"Nuestra pascua, que es Cristo, ya fue sacrificada por nosotros." Fuimos redimidos "con la sangre preciosa de Cristo, como de un cordero sin mancha y sin contaminación." El mensaje central del evangelista no es una idea abstracta, sino un acontecimiento histórico de sustitución y liberación, del cual el cordero es la imagen sacrificial constante desde Génesis 22 ("Dios se proveerá de cordero") hasta Apocalipsis 5.</p>
+                    </div>
+                    <div class="patron-tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" /></svg> <span><strong>Patrón evangelístico:</strong> cordero → sustitución + sacrificio + anuncio de libertad. El evangelista no proclama una teoría; proclama un Cordero histórico, ya inmolado, cuya sangre libera.</span></div>
+                </div>
+
+                <div class="study-card study-card--maestro">
+                    <div class="study-head">
+                        <div class="study-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16" /><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" /></svg></div>
+                        <h3 class="study-title">Becerro/Buey – <span>Maestro</span>: el yugo del aprendizaje</h3>
+                    </div>
+                    <p class="study-intro">El buey bíblico no es un animal decorativo de fuerza bruta; es, específicamente, el animal de yugo y trilla, asociado con trabajo sostenido, alimentación mutua y colaboración bajo una misma carga. Esta asociación resulta notablemente precisa para el ministerio de enseñanza.</p>
+                    <div class="study-sub">
+                        <div class="study-sub-title">El yugo como imagen central de la enseñanza</div>
+                        <span class="study-verse-ref">Mateo 11:29 · Deuteronomio 25:4 · 1 Corintios 9:9 · 1 Timoteo 5:17–18</span>
+                        <p class="study-para">Jesús mismo, actuando como Maestro, dice: "Llevad mi yugo sobre vosotros, y aprended de mí." Deuteronomio 25:4 —citado por Pablo— ordena: "No pondrás bozal al buey que trilla." La ley permitía que el buey comiera del grano mientras lo trillaba para otros. Pablo aplica esto explícitamente a quienes "trabajan en predicar y enseñar": el maestro se alimenta espiritualmente de la misma Palabra que trabaja para otros — no es un simple transmisor externo de información.</p>
+                    </div>
+                    <div class="study-sub">
+                        <div class="study-sub-title">Fruto que depende del trabajo sostenido</div>
+                        <span class="study-verse-ref">Proverbios 14:4</span>
+                        <p class="study-para">"Sin bueyes el granero está limpio; mas por la fuerza del buey hay abundancia de pan." Sin el trabajo —poco vistoso, incluso "sucio"— del buey, el granero permanece ordenado pero vacío. Aplicado al ministerio de enseñanza: sin el trabajo sostenido de estudiar y explicar la Palabra con cuidado, la comunidad permanece ordenada pero sin alimento real.</p>
+                    </div>
+                    <div class="patron-tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22 16 8" /><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /><path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z" /></svg> <span><strong>Patrón docente:</strong> buey/becerro → trabajo sostenido + yugo compartido + alimento mutuo. El maestro avanza bajo el mismo yugo de Cristo que impone a discípulos, y en ese proceso de trillar la Palabra para otros, él mismo se nutre.</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAP 7 — PATRONES TRANSVERSALES -->
+        <section class="block reveal">
+            <div class="section-header">
+                <span class="section-label">Capítulo 7</span>
+                <h2 class="section-title">Patrones Teológicos Transversales</h2>
+                <div class="section-rule"></div>
+                <p class="section-intro">Cinco patrones que conectan los cinco símbolos entre sí, en lugar de tratarlos como piezas aisladas.</p>
+            </div>
+
+            <div class="pattern-block">
+                <div class="pattern-num"><div class="pattern-num-badge">I</div><h3 class="pattern-title">Patrón cristológico central: Cristo cumple los cinco ministerios</h3></div>
+                <p class="pattern-text">Este es, con diferencia, el patrón más sólido exegéticamente, porque no depende de asociaciones simbólicas indirectas sino de títulos explícitos que la Escritura aplica a Cristo:</p>
+                <div class="christo-grid">
+                    <div class="christo-row"><div class="christo-min">Apóstol</div><div class="christo-body"><span class="christo-verse">"Considerad al apóstol y sumo sacerdote de nuestra profesión, Cristo Jesús."</span><span class="christo-ref">Hebreos 3:1</span></div></div>
+                    <div class="christo-row"><div class="christo-min">Profeta</div><div class="christo-body"><span class="christo-verse">"Profeta os levantará el Señor Dios vuestro, de entre vuestros hermanos, como a mí."</span><span class="christo-ref">Hechos 3:22</span></div></div>
+                    <div class="christo-row"><div class="christo-min">Pastor</div><div class="christo-body"><span class="christo-verse">"Yo soy el buen pastor; el buen pastor su vida da por las ovejas."</span><span class="christo-ref">Juan 10:11</span></div></div>
+                    <div class="christo-row"><div class="christo-min">Evangelista</div><div class="christo-body"><span class="christo-verse">"El Espíritu del Señor está sobre mí... me ha enviado a dar buenas nuevas a los pobres."</span><span class="christo-ref">Lucas 4:18</span></div></div>
+                    <div class="christo-row"><div class="christo-min">Maestro</div><div class="christo-body"><span class="christo-verse">"Vosotros no queráis que os llamen Rabí, porque uno es vuestro Maestro, el Cristo."</span><span class="christo-ref">Mateo 23:8</span></div></div>
+                </div>
+                <div class="callout">
+                    <p class="callout-text" style="font-family:'Lato',sans-serif; font-style:normal; font-size:0.87rem; font-weight:300; line-height:1.78;">Cristo no es simplemente el dador de los cinco ministerios (Ef 4:11) desde fuera de ellos: es, en su propia persona y misión terrenal, el cumplimiento perfecto de los cinco a la vez. El quíntuple ministerio no añade nada nuevo a Cristo: distribuye en el cuerpo facetas de un ministerio que en Cristo estaban unidas. Esto explica también por qué Apocalipsis 5:5–6 presenta a Cristo simultáneamente como León (autoridad para abrir lo sellado) y Cordero inmolado (sacrificio consumado) en la misma visión: en Él, los símbolos que en la iglesia aparecen repartidos entre distintos ministros, coexisten sin tensión.</p>
+                </div>
+            </div>
+
+            <div class="pattern-block">
+                <div class="pattern-num"><div class="pattern-num-badge">II</div><h3 class="pattern-title">Patrón salvaje / doméstico: dos modos de servicio</h3></div>
+                <p class="pattern-text">Un segundo patrón surge al observar la naturaleza zoológica de los cinco animales.</p>
+                <div class="zoo-grid">
+                    <div class="zoo-col zoo-col--wild">
+                        <div class="zoo-label">Animales salvajes, de territorio propio</div>
+                        <div class="zoo-animals">Águila (Apóstol) · León (Profeta)</div>
+                        <p class="zoo-func">Actúan por autoridad e iniciativa propia dentro de su territorio. Función predominante: fundar, confrontar, abrir camino.</p>
+                    </div>
+                    <div class="zoo-col zoo-col--tame">
+                        <div class="zoo-label">Animales domésticos, del rebaño / labranza</div>
+                        <div class="zoo-animals">Oveja (Pastor) · Cordero (Evangelista) · Buey (Maestro)</div>
+                        <p class="zoo-func">Existen en función de un rebaño, un dueño o una labor compartida. Función predominante: cuidar, alimentar, sostener.</p>
+                    </div>
+                </div>
+                <div class="callout">
+                    <p class="callout-text" style="font-family:'Lato',sans-serif; font-style:normal; font-size:0.87rem; font-weight:300; line-height:1.78;">Esta división zoológica coincide de manera llamativa con una distinción funcional que puede observarse en el propio texto de Efesios 4:11–12: Efesios 2:20 agrupa explícitamente a apóstoles y profetas como el "fundamento" sobre el cual se edifica la casa, mientras que evangelista, pastor y maestro operan de manera más continua dentro del cuerpo ya congregado, alimentándolo y madurándolo (Ef 4:12–13). Dos modos complementarios de un mismo ministerio de Cristo: uno orientado a abrir y fundar, otro orientado a cuidar y consolidar. Ninguno de los dos es superior.</p>
+                </div>
+            </div>
+
+            <div class="pattern-block">
+                <div class="pattern-num"><div class="pattern-num-badge">III</div><h3 class="pattern-title">Patrón de la fuerza sometida: poder que se expresa en sumisión</h3></div>
+                <p class="pattern-text">Cada uno de los tres símbolos de mayor connotación de poder o estatus —águila, león, buey— lleva incorporada en su propio trasfondo bíblico una advertencia o inversión hacia la humildad.</p>
+                <ul class="submission-list">
+                    <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /></svg> El <strong>águila</strong> que se establece en las alturas recibe advertencia profética de juicio si esa altura se convierte en orgullo: "aunque te encumbres como águila... de ahí te derribaré, dice Jehová" (Jeremías 49:16).</li>
+                    <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z" /><path d="M5 21h14" /></svg> El <strong>león</strong> de Judá, que "ha vencido" (Ap 5:5), se revela en el verso inmediatamente siguiente como cordero inmolado (Ap 5:6): su victoria no se manifiesta con fuerza depredadora, sino con sacrificio consumado — quizás la inversión teológica más radical de todo el simbolismo bíblico: el León vence <em>siendo</em> Cordero.</li>
+                    <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22 16 8" /><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /><path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z" /></svg> El <strong>buey</strong>, aunque fuerte, es en la jerarquía social del mundo bíblico el animal de trabajo y servicio, no de estatus — a diferencia del caballo, símbolo de guerra y realeza (cf. Salmo 20:7; Zacarías 9:9, donde el Mesías entra "humilde, y cabalgando sobre un asno", no sobre caballo de guerra).</li>
+                </ul>
+                <div class="callout">
+                    <p class="callout-text" style="font-family:'Lato',sans-serif; font-style:normal; font-size:0.87rem; font-weight:300; line-height:1.78;">Existe un principio bíblico recurrente —formulado explícitamente en Filipenses 2:6–8, donde Cristo "siendo en forma de Dios... se despojó a sí mismo... y se humilló a sí mismo"— según el cual la autoridad legítima en el reino de Dios se ejerce mediante sumisión, no mediante afirmación de poder. Ningún ministerio, por más "elevado" o "fuerte" que su símbolo sugiera, queda exento del llamado a la humildad de Cristo; al contrario, entre mayor visión, autoridad o fuerza simbólica conlleve un ministerio, mayor es la advertencia bíblica correspondiente contra el orgullo.</p>
+                </div>
+            </div>
+
+            <div class="pattern-block">
+                <div class="pattern-num"><div class="pattern-num-badge">IV</div><h3 class="pattern-title">Patrón de unidad alrededor de un centro</h3></div>
+                <p class="pattern-text">La tradición interpretativa judía asocia a los cuatro seres vivientes con los estandartes de cuatro tribus acampadas alrededor del tabernáculo (Números 2), y Apocalipsis 4–5 presenta a los cuatro seres vivientes alrededor del trono, con el Cordero en medio del trono (Ap 5:6).</p>
+                <div class="callout">
+                    <p class="callout-text" style="font-family:'Lato',sans-serif; font-style:normal; font-size:0.87rem; font-weight:300; line-height:1.78;">La disposición espacial es teológicamente significativa: los símbolos no compiten por el centro; se disponen alrededor de un centro que no ocupan ellos mismos. Aplicado a Efesios 4, esto refuerza el propósito explícito del texto (v. 13): los cinco ministerios no existen para múltiples centros de atención dentro de la iglesia, sino que —como las tribus alrededor del tabernáculo, o los seres vivientes alrededor del trono— se organizan en función de un único centro, que es Cristo, "para que en todo tenga la preeminencia" (Colosenses 1:18). Un ministerio que use su símbolo para desplazar a Cristo del centro de la atención de la comunidad, invierte precisamente el patrón que el propio símbolo bíblico enseña.</p>
+                </div>
+            </div>
+
+            <div class="pattern-block">
+                <div class="pattern-num"><div class="pattern-num-badge">V</div><h3 class="pattern-title">Patrón de secuencia funcional: un posible ciclo ministerial</h3></div>
+                <p class="pattern-text">Con mayor cautela interpretativa —el texto bíblico ofrece aquí menos apoyo directo— puede observarse una posible secuencia funcional entre los cinco ministerios, si se ordenan según el momento en que típicamente actúan en la vida de una comunidad o de una persona:</p>
+                <div class="cycle-wrap">
+                    <div class="cycle-node"><div class="cycle-node-title">Profeta</div><div class="cycle-node-sub">declara</div></div>
+                    <span class="cycle-arrow">→</span>
+                    <div class="cycle-node"><div class="cycle-node-title">Evangelista</div><div class="cycle-node-sub">proclama</div></div>
+                    <span class="cycle-arrow">→</span>
+                    <div class="cycle-node"><div class="cycle-node-title">Pastor</div><div class="cycle-node-sub">cuida</div></div>
+                    <span class="cycle-arrow">→</span>
+                    <div class="cycle-node"><div class="cycle-node-title">Maestro</div><div class="cycle-node-sub">establece</div></div>
+                    <span class="cycle-arrow">→</span>
+                    <div class="cycle-node"><div class="cycle-node-title">Apóstol</div><div class="cycle-node-sub">expande</div></div>
+                    <span class="cycle-arrow">⤾</span>
+                </div>
+                <div class="callout callout--warn">
+                    <p class="callout-text">La voz profética suele preceder narrativamente al mensaje explícito del evangelio (Juan el Bautista anuncia antes de que Cristo inicie su ministerio público; los profetas del Antiguo Testamento anuncian antes de la primera venida). El mensaje evangelístico produce conversos que necesitan ser pastoreados en comunidad. La comunidad pastoreada necesita ser enseñada con solidez doctrinal para no ser "llevada por doquiera de todo viento de doctrina" (Ef 4:14). Y una comunidad ya enseñada y madura se vuelve, a su vez, base para nuevo envío apostólico hacia territorio no alcanzado (cf. el patrón de Antioquía en Hechos 13:1–3). El ciclo se cierra cuando ese nuevo territorio alcanzado requiere, de nuevo, una voz profética que lo confronte y lo llame a la verdad. <strong>Esta secuencia no debe leerse como ley fija:</strong> en la práctica pastoral los cinco ministerios operan simultáneamente y de forma entrelazada. Se ofrece como un patrón ilustrativo, no como una fórmula secuencial obligatoria.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAP 8 — CONCLUSIONES -->
+        <section class="block reveal">
+            <div class="section-header">
+                <span class="section-label">Capítulo 8</span>
+                <h2 class="section-title">Conclusiones Generales</h2>
+                <div class="section-rule"></div>
+            </div>
+            <div class="concl-list">
+                <div class="concl-item">
+                    <span class="concl-roman">I</span>
+                    <p class="concl-text">La correspondencia águila–apóstol, león–profeta, oveja–pastor, cordero–evangelista, becerro/buey–maestro es una <strong>tipología simbólica legítima y bíblicamente fundamentable</strong>, pero no una declaración textual explícita de Efesios 4:11. Debe presentarse siempre con esta distinción.</p>
+                </div>
+                <div class="concl-item">
+                    <span class="concl-roman">II</span>
+                    <p class="concl-text">Cada símbolo, examinado individualmente, tiene un anclaje bíblico propio y coherente: el águila en la renovación, la formación y la expansión (Is 40:31; Dt 32:11–12; Ex 19:4); el león en la voz profética y la autoridad de revelar lo oculto (Am 3:8; Gn 49:9; Ap 5:5); la oveja en la autoridad pastoral derivada de la sumisión al Pastor Supremo (1 P 5:1–4; Jn 21:15–17); el cordero en el contenido sustitutorio y sacrificial del mensaje evangelístico (Hch 8:26–35; 1 Co 5:7); y el buey en el trabajo sostenido y el yugo compartido de la enseñanza (Mt 11:29; Dt 25:4; 1 Ti 5:17–18).</p>
+                </div>
+                <div class="concl-item">
+                    <span class="concl-roman">III</span>
+                    <p class="concl-text">El <strong>patrón teológico más sólido</strong> que conecta los cinco símbolos entre sí es cristológico: la Escritura aplica a Jesús mismo, de forma explícita y en pasajes distintos, los cinco títulos —apóstol (Heb 3:1), profeta (Hch 3:22), pastor (Jn 10:11), evangelizador (Lc 4:18) y maestro (Mt 23:8)—. El quíntuple ministerio de Efesios 4:11 distribuye en el cuerpo de Cristo facetas que en Cristo mismo estaban unidas.</p>
+                </div>
+                <div class="concl-item">
+                    <span class="concl-roman">IV</span>
+                    <p class="concl-text">Un segundo patrón —de menor certeza exegética pero notable coherencia— distingue entre <strong>animales salvajes</strong> (águila, león: fundamento y confrontación) y <strong>animales domésticos</strong> (oveja, cordero, buey: cuidado y sostenimiento), lo cual resuena con la propia estructura de Efesios 2:20 y 4:12.</p>
+                </div>
+                <div class="concl-item">
+                    <span class="concl-roman">V</span>
+                    <p class="concl-text">Un tercer patrón muestra que <strong>todo símbolo de fuerza o altura en este esquema viene acompañado en la Escritura de una advertencia hacia la humildad</strong>: el águila no debe enorgullecerse de su altura (Abd 4; Jer 49:16); el león revela su victoria definitiva convertido en cordero inmolado (Ap 5:5–6); el buey, siendo fuerte, se define bíblicamente por el servicio, no el estatus.</p>
+                </div>
+                <div class="concl-item">
+                    <span class="concl-roman">VI</span>
+                    <p class="concl-text">Todos los símbolos, en su trasfondo más antiguo (los cuatro seres vivientes de Ezequiel y Apocalipsis), aparecen dispuestos <strong>alrededor de un centro que no ocupan ellos mismos</strong> —el trono, el tabernáculo, y en última instancia Cristo—, recordando que ningún ministerio, por vívido que sea su símbolo, sustituye la centralidad de Cristo en la comunidad.</p>
+                </div>
+            </div>
+            <div class="concl-final">
+                <div class="concl-final-label">
+                    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /></svg>
+                    Conclusión final
+                </div>
+                <p class="concl-final-text">Los cinco símbolos —águila, león, oveja, cordero y buey— constituyen una <strong>tipología pastoral rica y bíblicamente sustentable</strong>, útil para iluminar dimensiones concretas de cada uno de los cinco ministerios de Efesios 4:11. Sin embargo, su valor teológico más profundo no está en la clasificación de las personas, sino en lo que revelan en conjunto: que los cinco ministerios son, en última instancia, <strong>expresiones repartidas de un mismo Cristo</strong>, que fue —y sigue siendo, por su Espíritu, en su cuerpo— Apóstol, Profeta, Pastor, Evangelista y Maestro a la vez. El discernimiento de un llamado ministerial específico no depende del símbolo recibido, sino de su confirmación mediante la Palabra, el carácter, el fruto y el servicio.</p>
+            </div>
+        </section>
+
+        <!-- ÍNDICE BÍBLICO -->
+        <section class="block reveal">
+            <div class="section-header">
+                <span class="section-label">Referencia</span>
+                <h2 class="section-title">Índice de Textos Bíblicos Citados</h2>
+                <div class="section-rule"></div>
+                <p class="section-intro">Principales pasajes utilizados en este estudio como fundamento exegético, agrupados por símbolo.</p>
+            </div>
+            <div class="biblio-list">
+                <div class="biblio-row biblio-row--apostol"><div class="biblio-chip">Águila</div><div class="biblio-refs">Éxodo 19:4 · Deuteronomio 32:11–12 · Isaías 40:31 · Job 39:27–30 · Jeremías 49:16 · Abdías 4 · Apocalipsis 4:7 · Apocalipsis 8:13 · Apocalipsis 12:14 · Salmo 103:5</div></div>
+                <div class="biblio-row biblio-row--profeta"><div class="biblio-chip">León</div><div class="biblio-refs">Génesis 49:9–10 · Amós 3:7–8 · Proverbios 28:1 · Oseas 11:10 · Joel 3:16 · Apocalipsis 5:5 · 1 Pedro 5:8</div></div>
+                <div class="biblio-row biblio-row--pastor"><div class="biblio-chip">Oveja</div><div class="biblio-refs">Salmo 23 · Isaías 53:6 · Ezequiel 34 · Juan 10:11–16 · Juan 21:15–17 · Hebreos 13:20 · 1 Pedro 5:1–4 · Hechos 20:28–29</div></div>
+                <div class="biblio-row biblio-row--evangelista"><div class="biblio-chip">Cordero</div><div class="biblio-refs">Génesis 22:8 · Éxodo 12 · Isaías 53:7 · Juan 1:29 · Hechos 8:26–35 · Hechos 21:8 · 1 Corintios 5:7 · 1 Pedro 1:18–19 · Apocalipsis 5:6–12</div></div>
+                <div class="biblio-row biblio-row--maestro"><div class="biblio-chip">Buey / Becerro</div><div class="biblio-refs">Deuteronomio 25:4 · Proverbios 14:4 · Mateo 11:29 · Mateo 23:8 · 1 Corintios 9:9–10 · 1 Timoteo 5:17–18</div></div>
+                <div class="biblio-row biblio-row--other"><div class="biblio-chip">Cuatro seres vivientes</div><div class="biblio-refs">Ezequiel 1:10 · Ezequiel 1:28 · Apocalipsis 4:6–8 · Números 2</div></div>
+                <div class="biblio-row biblio-row--other"><div class="biblio-chip">Fundamento doctrinal</div><div class="biblio-refs">Efesios 2:20 · Efesios 4:7–14 · Colosenses 1:18 · Filipenses 2:6–8 · Salmo 68:18 · Hebreos 3:1 · Hechos 3:22 · Lucas 4:18 · Hechos 13:1–3</div></div>
+            </div>
+        </section>
+
+        <div class="method-note reveal">
+            <div class="method-note-label">
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 12h-5" /><path d="M15 8h-5" /><path d="M19 17V5a2 2 0 0 0-2-2H4" /><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" /></svg>
+                Nota metodológica
+            </div>
+            <p class="method-note-text">Este estudio reorganiza y desarrolla, con fines de enseñanza teológica, una conversación exegética original sobre Efesios 4:11, ampliando la sección de los cinco símbolos ministeriales mediante exégesis adicional, trasfondo histórico-interpretativo (los cuatro seres vivientes, la tradición patrística y rabínica) y la identificación de patrones teológicos transversales. Los patrones presentados en el Capítulo 7 constituyen inferencia teológica y homilética, no doctrina dogmática; se ofrecen como herramienta de reflexión y enseñanza, sujeta siempre al primado del texto bíblico explícito.</p>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <p class="footer-copy">
+            &copy; 2026 <span>Ministerio "La Gloria es del Señor"</span> &nbsp;·&nbsp; Todos los recursos son gratuitos para la edificación de los creyentes
+        </p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
