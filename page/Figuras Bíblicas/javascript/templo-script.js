@@ -394,6 +394,7 @@ Temple3D.prototype.init = function() {
         this.animate();
         this.hideLoader();
         this.isLoaded = true;
+        this.focusOnPartFromURL();
         console.log('Modelo 3D inicializado correctamente');
     } catch (error) {
         console.error('Error initializing 3D scene:', error);
@@ -456,7 +457,7 @@ Temple3D.prototype.setupControls = function() {
     this.controls.enableDamping = true;
     this.controls.dampingFactor = 0.05;
     this.controls.screenSpacePanning = false;
-    this.controls.minDistance = 10;
+    this.controls.minDistance = 5;
     this.controls.maxDistance = 100;
     this.controls.maxPolarAngle = Math.PI / 2.1;
     
@@ -798,6 +799,7 @@ Temple3D.prototype.createHolyPlaces = function(materials) {
     
     var walls = new THREE.Mesh(wallsGeometry, wallsMaterial);
     walls.position.set(0, 6.5, -10);
+    walls.userData.excludeFromFocus = true;
     holyPlaceGroup.add(walls);
     
     this.scene.add(holyPlaceGroup);
@@ -821,6 +823,7 @@ Temple3D.prototype.createHolyPlaces = function(materials) {
     
     var holyWalls = new THREE.Mesh(holyWallsGeometry, holyWallsMaterial);
     holyWalls.position.set(0, 6.5, -25);
+    holyWalls.userData.excludeFromFocus = true;
     holiestPlaceGroup.add(holyWalls);
     
     // Velo separador
@@ -1250,6 +1253,16 @@ Temple3D.prototype.updateCurrentSelection = function(partId) {
     }
 };
 
+// Vistas fijas para las cámaras interiores (Lugar Santo y Lugar Santísimo):
+// el cálculo genérico por caja envolvente ubica la cámara siguiendo la
+// línea recta desde su posición anterior hasta el centro de la parte, y
+// para estas dos habitaciones anidadas esa línea atraviesa los muros de
+// las salas exteriores, dejando la cámara encerrada dentro de una pared.
+var INTERIOR_FOCUS_VIEWS = {
+    'lugar-santo': { camera: [0, 10, 5], target: [0, 3, -10] },
+    'lugar-santisimo': { camera: [4, 5, -21], target: [0, 2, -25] }
+};
+
 Temple3D.prototype.focusOnPart = function(partId) {
     // Buscar la parte
     var part = this.templeParts[partId];
@@ -1257,9 +1270,32 @@ Temple3D.prototype.focusOnPart = function(partId) {
         console.warn('Parte no encontrada: ' + partId);
         return;
     }
-    
-    // Calcular la posición central
-    var box = new THREE.Box3().setFromObject(part);
+
+    var interiorView = INTERIOR_FOCUS_VIEWS[partId];
+    if (interiorView) {
+        this.targetPosition.set(interiorView.camera[0], interiorView.camera[1], interiorView.camera[2]);
+        this.currentPosition.copy(this.camera.position);
+        this.controls.target.set(interiorView.target[0], interiorView.target[1], interiorView.target[2]);
+        this.isAnimating = true;
+        this.animationStartTime = this.clock.getElapsedTime();
+        this.animationDuration = 1.5;
+        this.showPartDetails(partId);
+        return;
+    }
+
+    // Calcular la posición central a partir de las mallas relevantes
+    // (ignora paredes envolventes marcadas con excludeFromFocus, para que
+    // la cámara no termine encerrada dentro de una habitación)
+    var box = new THREE.Box3();
+    part.updateMatrixWorld(true);
+    part.traverse(function(child) {
+        if (child.isMesh && !child.userData.excludeFromFocus) {
+            box.expandByObject(child);
+        }
+    });
+    if (box.isEmpty()) {
+        box.setFromObject(part);
+    }
     var center = new THREE.Vector3();
     box.getCenter(center);
     var size = new THREE.Vector3();
@@ -1284,6 +1320,17 @@ Temple3D.prototype.focusOnPart = function(partId) {
     
     // Mostrar detalles de la parte
     this.showPartDetails(partId);
+};
+
+// Enfoca automáticamente el componente indicado en la URL (?part=menora),
+// usado por los enlaces "Ver en 3D" de cada tarjeta en templo-figuras.html
+Temple3D.prototype.focusOnPartFromURL = function() {
+    var params = new URLSearchParams(window.location.search);
+    var partId = params.get('part');
+    if (!partId || !this.templeParts[partId]) return;
+
+    this.focusOnPart(partId);
+    this.updateCurrentSelection(partId);
 };
 
 Temple3D.prototype.showPartDetails = function(partId) {
