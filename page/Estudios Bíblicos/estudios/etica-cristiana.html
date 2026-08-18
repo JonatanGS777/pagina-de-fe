@@ -11,13 +11,59 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ética Cristiana Aplicada - Vida Moral</title>
+    <title>Ética Cristiana Aplicada — Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
+        .ic { width: 1em; height: 1em; vertical-align: -0.15em; flex-shrink: 0; display: inline-block; }
+
+        .site-header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 200;
+            background: rgba(13,17,23,0.94);
+            border-bottom: 1px solid rgba(218,165,32,0.28);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .site-logo {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: #daa520;
+            text-decoration: none;
+        }
+
+        .nav-back {
+            display: flex;
+            align-items: center;
+            font-family: 'Crimson Text', serif;
+            font-size: 0.95rem;
+            color: rgba(245,245,245,0.7);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-back .ic { margin-right: 0.5rem; }
+        .nav-back:hover { color: #daa520; }
 
         body {
             font-family: 'Crimson Text', 'Times New Roman', serif;
@@ -63,9 +109,9 @@
         }
 
         .courtroom-header {
-            background: 
+            background:
                 linear-gradient(180deg, #0d1117 0%, #161b22 50%, #21262d 100%);
-            padding: 80px 40px;
+            padding: 140px 40px 80px;
             text-align: center;
             border-bottom: 6px solid #daa520;
             position: relative;
@@ -75,73 +121,45 @@
                 inset 0 0 100px rgba(218, 165, 32, 0.1);
         }
 
-        .courtroom-header::before {
-            content: '<svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 3v18" />
-  <path d="m19 8 3 8a5 5 0 0 1-6 0zV7" />
-  <path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" />
-  <path d="m5 8 3 8a5 5 0 0 1-6 0zV7" />
-  <path d="M7 21h10" />
-</svg> TRIBUNAL DE ÉTICA CRISTIANA <svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 3v18" />
-  <path d="m19 8 3 8a5 5 0 0 1-6 0zV7" />
-  <path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" />
-  <path d="m5 8 3 8a5 5 0 0 1-6 0zV7" />
-  <path d="M7 21h10" />
-</svg>';
+        .court-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
             position: absolute;
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 1.2em;
+            font-size: 1.1em;
+            font-style: italic;
             color: #daa520;
             font-weight: 700;
-            letter-spacing: 3px;
+            letter-spacing: 0.5px;
             border: 2px solid #daa520;
             padding: 10px 30px;
             border-radius: 25px;
             background: rgba(13, 17, 23, 0.8);
         }
 
+        .court-badge .ic { font-size: 1.15em; }
+
         .judicial-title {
             font-size: 4.5em;
             font-weight: 900;
             margin-bottom: 20px;
             color: #daa520;
-            text-shadow: 
+            text-shadow:
                 0 0 30px rgba(218, 165, 32, 0.8),
                 2px 2px 8px rgba(0,0,0,0.9);
-            letter-spacing: 3px;
-            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .judicial-subtitle {
-            font-size: 2em;
+            font-size: 1.4em;
+            font-style: italic;
             color: #f5f5f5;
             font-weight: 300;
-            letter-spacing: 8px;
+            letter-spacing: 1px;
             margin-bottom: 30px;
             opacity: 0.9;
         }
@@ -180,11 +198,11 @@
         .cabinet-title {
             text-align: center;
             font-size: 2.5em;
+            font-style: italic;
             color: #daa520;
             margin-bottom: 50px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
             border-bottom: 3px solid #daa520;
             padding-bottom: 20px;
         }
@@ -529,10 +547,10 @@
 
         .verdict-title {
             color: #daa520;
-            font-size: 2.5em;
+            font-size: 2.2em;
+            font-style: italic;
             margin-bottom: 25px;
-            font-weight: 800;
-            text-transform: uppercase;
+            font-weight: 700;
         }
 
         .verdict-content {
@@ -578,9 +596,19 @@
     </style>
 </head>
 <body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="../../../index.html" class="site-logo">La Gloria es del Señor</a>
+            <a href="../doctrina-intermedia.html" class="nav-back">
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+                Volver a Estudios
+            </a>
+        </div>
+    </header>
+
     <div class="courthouse-pillars"></div>
     <div class="scales-animation"><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
+
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -599,8 +627,13 @@
 </svg></div>
 
     <header class="courtroom-header">
+        <div class="court-badge">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18" /><path d="m19 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" /><path d="m5 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M7 21h10" /></svg>
+            Tribunal de Ética Cristiana
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18" /><path d="m19 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" /><path d="m5 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M7 21h10" /></svg>
+        </div>
         <h1 class="judicial-title">Ética Cristiana Aplicada</h1>
-        <p class="judicial-subtitle">VIDA MORAL</p>
+        <p class="judicial-subtitle">Vida moral</p>
         <p class="judicial-description">Principios éticos bíblicos aplicados a dilemas contemporáneos: bioética, justicia social, economía y relaciones interpersonales.</p>
         <div class="judicial-keywords">• BIOÉTICA • JUSTICIA • CONTEMPORÁNEO •</div>
     </header>
@@ -612,12 +645,12 @@
             <div class="case-file" onclick="openCase('aborto')">
                 <div class="case-number">CASO #001</div>
                 <h3 class="case-title">El Derecho a la Vida vs. Autonomía Corporal</h3>
-                <div class="case-category">BIOÉTICA - ABORTO</div>
+                <div class="case-category">Bioética · Aborto</div>
                 <div class="case-preview">
                     Una mujer embarazada con complicaciones médicas debe decidir entre continuar el embarazo o terminarlo. ¿Cuándo comienza la vida humana? ¿Qué dice la Escritura sobre la santidad de la vida?
                 </div>
                 <div class="case-complexity">
-                    <span class="difficulty-level">Complejidad: ALTA</span>
+                    <span class="difficulty-level">Complejidad: Alta</span>
                     <span class="urgency-indicator urgency-high">URGENTE</span>
                 </div>
             </div>
@@ -625,12 +658,12 @@
             <div class="case-file" onclick="openCase('empresas')">
                 <div class="case-number">CASO #002</div>
                 <h3 class="case-title">Ganancia vs. Responsabilidad Social</h3>
-                <div class="case-category">ÉTICA EMPRESARIAL</div>
+                <div class="case-category">Ética Empresarial</div>
                 <div class="case-preview">
                     Una empresa cristiana debe decidir entre maximizar ganancias despidiendo empleados o mantener el empleo con menores beneficios. ¿Qué principios bíblicos aplican?
                 </div>
                 <div class="case-complexity">
-                    <span class="difficulty-level">Complejidad: MEDIA</span>
+                    <span class="difficulty-level">Complejidad: Media</span>
                     <span class="urgency-indicator urgency-medium">MODERADO</span>
                 </div>
             </div>
@@ -638,12 +671,12 @@
             <div class="case-file" onclick="openCase('justicia')">
                 <div class="case-number">CASO #003</div>
                 <h3 class="case-title">Justicia Retributiva vs. Restaurativa</h3>
-                <div class="case-category">JUSTICIA SOCIAL</div>
+                <div class="case-category">Justicia Social</div>
                 <div class="case-preview">
                     Un joven cristiano comete un delito. ¿Debe la iglesia apoyar castigo severo o enfocarse en restauración? ¿Cómo balance la justicia divina con la misericordia?
                 </div>
                 <div class="case-complexity">
-                    <span class="difficulty-level">Complejidad: ALTA</span>
+                    <span class="difficulty-level">Complejidad: Alta</span>
                     <span class="urgency-indicator urgency-medium">MODERADO</span>
                 </div>
             </div>
@@ -651,12 +684,12 @@
             <div class="case-file" onclick="openCase('tecnologia')">
                 <div class="case-number">CASO #004</div>
                 <h3 class="case-title">Inteligencia Artificial y Dignidad Humana</h3>
-                <div class="case-category">TECNOLOGÍA ÉTICA</div>
+                <div class="case-category">Tecnología Ética</div>
                 <div class="case-preview">
                     Una iglesia considera usar IA para consejería pastoral. ¿Puede la tecnología reemplazar el cuidado humano? ¿Qué hace única la imagen de Dios en el hombre?
                 </div>
                 <div class="case-complexity">
-                    <span class="difficulty-level">Complejidad: MEDIA</span>
+                    <span class="difficulty-level">Complejidad: Media</span>
                     <span class="urgency-indicator urgency-low">BAJO</span>
                 </div>
             </div>
@@ -664,12 +697,12 @@
             <div class="case-file" onclick="openCase('matrimonio')">
                 <div class="case-number">CASO #005</div>
                 <h3 class="case-title">Redefinición del Matrimonio</h3>
-                <div class="case-category">ÉTICA RELACIONAL</div>
+                <div class="case-category">Ética Relacional</div>
                 <div class="case-preview">
                     La sociedad presiona para redefinir el matrimonio. ¿Cómo debe responder la iglesia? ¿Cuál es el diseño bíblico original para la familia?
                 </div>
                 <div class="case-complexity">
-                    <span class="difficulty-level">Complejidad: ALTA</span>
+                    <span class="difficulty-level">Complejidad: Alta</span>
                     <span class="urgency-indicator urgency-high">URGENTE</span>
                 </div>
             </div>
@@ -677,12 +710,12 @@
             <div class="case-file" onclick="openCase('economia')">
                 <div class="case-number">CASO #006</div>
                 <h3 class="case-title">Riqueza y Responsabilidad Cristiana</h3>
-                <div class="case-category">ÉTICA ECONÓMICA</div>
+                <div class="case-category">Ética Económica</div>
                 <div class="case-preview">
                     Un cristiano millonario debe decidir cómo usar su riqueza. ¿Es pecado ser rico? ¿Cuál es la responsabilidad bíblica hacia los pobres?
                 </div>
                 <div class="case-complexity">
-                    <span class="difficulty-level">Complejidad: MEDIA</span>
+                    <span class="difficulty-level">Complejidad: Media</span>
                     <span class="urgency-indicator urgency-medium">MODERADO</span>
                 </div>
             </div>
@@ -704,7 +737,7 @@
                 content: `
                     <div class="evidence-sections">
                         <div class="evidence-card">
-                            <div class="evidence-title">📋 Evidencia Científica</div>
+                            <div class="evidence-title"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path d="M12 11h4" /><path d="M12 16h4" /><path d="M8 11h.01" /><path d="M8 16h.01" /></svg> Evidencia Científica</div>
                             <div class="evidence-content">
                                 La biología moderna confirma que la <span class="emphasis">vida humana única</span> comienza en la fertilización. El embrión posee ADN distinto, se desarrolla continuamente y cumple todos los criterios científicos de vida.
                             </div>
@@ -730,7 +763,7 @@
                         </div>
 
                         <div class="evidence-card">
-                            <div class="evidence-title">💔 Casos Difíciles</div>
+                            <div class="evidence-title"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.409 5.824c-.702.792-1.15 1.496-1.415 2.166l2.153 2.156a.5.5 0 0 1 0 .707l-2.293 2.293a.5.5 0 0 0 0 .707L12 15" /><path d="M13.508 20.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5a5.5 5.5 0 0 1 9.591-3.677.6.6 0 0 0 .818.001A5.5 5.5 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5z" /></svg> Casos Difíciles</div>
                             <div class="evidence-content">
                                 Reconocemos situaciones complejas: violación, incesto, riesgo materno. Sin embargo, <span class="emphasis">dos errores no hacen un acierto</span>. La iglesia debe ofrecer apoyo integral, no soluciones que comprometen la vida.
                             </div>
@@ -773,7 +806,7 @@
                 content: `
                     <div class="evidence-sections">
                         <div class="evidence-card">
-                            <div class="evidence-title">💼 El Dilema Empresarial</div>
+                            <div class="evidence-title"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /><rect width="20" height="14" x="2" y="6" rx="2" /></svg> El Dilema Empresarial</div>
                             <div class="evidence-content">
                                 Los líderes cristianos enfrentan tensión entre <span class="emphasis">maximizar beneficios</span> para accionistas y <span class="emphasis">cuidar empleados</span>. ¿Pueden coexistir la rentabilidad y la responsabilidad social?
                             </div>
@@ -784,7 +817,7 @@
                         </div>
 
                         <div class="evidence-card">
-                            <div class="evidence-title">📊 Principios Bíblicos de Negocio</div>
+                            <div class="evidence-title"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16" /><path d="M18 17V9" /><path d="M13 17V5" /><path d="M8 17v-3" /></svg> Principios Bíblicos de Negocio</div>
                             <div class="evidence-content">
                                 Las Escrituras establecen principios claros:
                                 <br>• <strong>Integridad:</strong> Honestidad en todas las transacciones
@@ -799,7 +832,7 @@
                         </div>
 
                         <div class="evidence-card">
-                            <div class="evidence-title">🤝 Stakeholder vs. Shareholder</div>
+                            <div class="evidence-title"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3" /><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /><path d="m21 3 1 11h-2" /><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /><path d="M3 4h8" /></svg> Stakeholder vs. Shareholder</div>
                             <div class="evidence-content">
                                 El modelo bíblico considera <span class="emphasis">todos los afectados</span>: empleados, clientes, comunidad, no solo accionistas. El éxito se mide por impacto integral, no solo ganancia financiera.
                             </div>
@@ -835,7 +868,7 @@
                         </div>
 
                         <div class="evidence-card">
-                            <div class="evidence-title">🔄 Justicia Restaurativa</div>
+                            <div class="evidence-title"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /><path d="M21 3v5h-5" /><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /><path d="M8 16H3v5" /></svg> Justicia Restaurativa</div>
                             <div class="evidence-content">
                                 El modelo bíblico enfatiza <span class="emphasis">restauración sobre retribución</span>. Busca sanar relaciones, reparar daños y reintegrar al ofensor a la comunidad cuando hay arrepentimiento genuino.
                             </div>
@@ -846,7 +879,7 @@
                         </div>
 
                         <div class="evidence-card">
-                            <div class="evidence-title">🛡️ Protección de la Sociedad</div>
+                            <div class="evidence-title"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /></svg> Protección de la Sociedad</div>
                             <div class="evidence-content">
                                 La justicia también protege a los inocentes. Cuando no hay arrepentimiento o el riesgo es alto, <span class="emphasis">la protección social</span> puede requerir separación temporal del ofensor.
                             </div>
@@ -871,7 +904,7 @@
                 content: `
                     <div class="evidence-sections">
                         <div class="evidence-card">
-                            <div class="evidence-title">🤖 Imagen de Dios vs. IA</div>
+                            <div class="evidence-title"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8" /><rect width="16" height="12" x="4" y="8" rx="2" /><path d="M2 14h2" /><path d="M20 14h2" /><path d="M15 13v2" /><path d="M9 13v2" /></svg> Imagen de Dios vs. IA</div>
                             <div class="evidence-content">
                                 Los humanos poseen <span class="emphasis">dignidad única</span> como portadores de la imagen de Dios: creatividad, moralidad, relacionalidad y espiritualidad. La IA puede simular pero no poseer estas cualidades.
                             </div>
@@ -882,7 +915,7 @@
                         </div>
 
                         <div class="evidence-card">
-                            <div class="evidence-title">💝 Cuidado Pastoral Humano</div>
+                            <div class="evidence-title"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></svg> Cuidado Pastoral Humano</div>
                             <div class="evidence-content">
                                 El ministerio pastoral requiere <span class="emphasis">presencia humana genuina</span>: empatía, discernimiento espiritual, oración y conexión alma-alma que ninguna tecnología puede replicar.
                             </div>
@@ -893,7 +926,7 @@
                         </div>
 
                         <div class="evidence-card">
-                            <div class="evidence-title">🔧 Uso Ético de la Tecnología</div>
+                            <div class="evidence-title"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" /></svg> Uso Ético de la Tecnología</div>
                             <div class="evidence-content">
                                 La IA puede ser <span class="emphasis">herramienta útil</span> para investigación, organización y educación, pero nunca reemplazo para relaciones humanas auténticas y cuidado pastoral personal.
                             </div>
@@ -918,7 +951,7 @@
                 content: `
                     <div class="evidence-sections">
                         <div class="evidence-card">
-                            <div class="evidence-title">💒 Diseño Original</div>
+                            <div class="evidence-title"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 9h4" /><path d="M12 7v5" /><path d="M14 21v-3a2 2 0 0 0-4 0v3" /><path d="m18 9 3.52 2.147a1 1 0 0 1 .48.854V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6.999a1 1 0 0 1 .48-.854L6 9" /><path d="M6 21V7a1 1 0 0 1 .376-.782l5-3.999a1 1 0 0 1 1.249.001l5 4A1 1 0 0 1 18 7v14" /></svg> Diseño Original</div>
                             <div class="evidence-content">
                                 Desde la creación, Dios estableció el matrimonio como <span class="emphasis">unión de un hombre y una mujer</span> en pacto permanente. Este diseño revela verdades sobre la naturaleza humana y la relación Cristo-Iglesia.
                             </div>
@@ -929,7 +962,7 @@
                         </div>
 
                         <div class="evidence-card">
-                            <div class="evidence-title">👨‍👩‍👧‍👦 Propósito del Matrimonio</div>
+                            <div class="evidence-title"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg> Propósito del Matrimonio</div>
                             <div class="evidence-content">
                                 El matrimonio bíblico cumple propósitos divinos:
                                 <br>• <strong>Compañerismo:</strong> "No es bueno que el hombre esté solo"
@@ -944,7 +977,7 @@
                         </div>
 
                         <div class="evidence-card">
-                            <div class="evidence-title">🌍 Respuesta Cultural</div>
+                            <div class="evidence-title"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></svg> Respuesta Cultural</div>
                             <div class="evidence-content">
                                 La iglesia debe mantener <span class="emphasis">fidelidad bíblica</span> mientras muestra amor genuino a todas las personas. Rechazamos el pecado pero amamos al pecador, ofreciendo esperanza de transformación en Cristo.
                             </div>
@@ -969,7 +1002,7 @@
                 content: `
                     <div class="evidence-sections">
                         <div class="evidence-card">
-                            <div class="evidence-title">💰 La Riqueza en Perspectiva</div>
+                            <div class="evidence-title"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.744 17.736a6 6 0 1 1-7.48-7.48" /><path d="M15 6h1v4" /><path d="m6.134 14.768.866-.5 2 3.464" /><circle cx="16" cy="8" r="6" /></svg> La Riqueza en Perspectiva</div>
                             <div class="evidence-content">
                                 La Escritura no condena la riqueza en sí, sino <span class="emphasis">el amor al dinero</span>. Abrahan, Job y otros fueron bendecidos materialmente. El problema surge cuando la riqueza se convierte en ídolo.
                             </div>
@@ -980,7 +1013,7 @@
                         </div>
 
                         <div class="evidence-card">
-                            <div class="evidence-title">🎯 Responsabilidades del Rico</div>
+                            <div class="evidence-title"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg> Responsabilidades del Rico</div>
                             <div class="evidence-content">
                                 Los cristianos prósperos tienen responsabilidades específicas:
                                 <br>• <strong>Humildad:</strong> Reconocer que todo viene de Dios
