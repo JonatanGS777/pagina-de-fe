@@ -11,8 +11,53 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ministerio Pastoral - Liderazgo Espiritual</title>
+    <title>Ministerio Pastoral — Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        .ic { width: 1em; height: 1em; vertical-align: -0.15em; flex-shrink: 0; display: inline-block; }
+
+        .site-header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 200;
+            background: rgba(15,23,42,0.92);
+            border-bottom: 1px solid rgba(147,197,253,0.28);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .site-logo {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #93c5fd;
+            text-decoration: none;
+        }
+
+        .nav-back {
+            display: flex;
+            align-items: center;
+            font-size: 0.92rem;
+            color: rgba(248,250,252,0.65);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-back .ic { margin-right: 0.5rem; }
+        .nav-back:hover { color: #93c5fd; }
+
         * {
             margin: 0;
             padding: 0;
@@ -79,9 +124,9 @@
         }
 
         .title-blueprint {
-            background: 
+            background:
                 linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-            padding: 60px 40px;
+            padding: 120px 40px 60px;
             text-align: center;
             border-bottom: 4px solid #f59e0b;
             position: relative;
@@ -120,10 +165,11 @@
         }
 
         .blueprint-subtitle {
-            font-size: 1.8em;
+            font-size: 1.4em;
+            font-style: italic;
             color: #fbbf24;
             font-weight: 300;
-            letter-spacing: 8px;
+            letter-spacing: 1px;
             margin-bottom: 25px;
             position: relative;
             z-index: 1;
@@ -605,6 +651,16 @@
     </style>
 </head>
 <body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="../../../index.html" class="site-logo">La Gloria es del Señor</a>
+            <a href="../doctrina-intermedia.html" class="nav-back">
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+                Volver a Estudios
+            </a>
+        </div>
+    </header>
+
     <div class="blueprint-grid"></div>
     
     <div class="drafting-tools">
@@ -662,7 +718,7 @@
 
     <header class="title-blueprint">
         <h1 class="blueprint-title">Ministerio Pastoral</h1>
-        <p class="blueprint-subtitle">LIDERAZGO ESPIRITUAL</p>
+        <p class="blueprint-subtitle">Liderazgo espiritual</p>
         <p class="blueprint-description">Principios bíblicos del ministerio pastoral: llamamiento, cualificaciones, responsabilidades y el cuidado del rebaño de Dios.</p>
         <div class="blueprint-keywords">• LLAMAMIENTO • CUIDADO • RESPONSABILIDAD •</div>
     </header>
@@ -710,7 +766,7 @@
 >
   <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
 </svg></div>
-                <div class="area-title">OFICINA PASTORAL</div>
+                <div class="area-title">Oficina Pastoral</div>
                 <div class="area-subtitle">Estudio y Preparación</div>
             </div>
             
@@ -878,7 +934,7 @@
     <script>
         const ministryData = {
             pulpit: {
-                title: "🎤 MINISTERIO DEL PÚLPITO",
+                title: "<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19v3" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><rect x="9" y="2" width="6" height="13" rx="3" /></svg> Ministerio del Púlpito",
                 content: `
                     <div class="biblical-foundation">
                         <div class="verse">"Predica la palabra; que instes a tiempo y fuera de tiempo; redarguye, reprende, exhorta con toda paciencia y doctrina."</div>
@@ -888,7 +944,7 @@
                     <div class="ministry-grid">
                         <div class="ministry-card">
                             <div class="card-header">
-                                📜 <span>Preparación Exegética</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 12h-5" /><path d="M15 8h-5" /><path d="M19 17V5a2 2 0 0 0-2-2H4" /><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" /></svg> <span>Preparación Exegética</span>
                             </div>
                             <div class="card-content">
                                 El pastor debe ser un <span class="emphasis">expositor fiel</span> de la Palabra. Esto requiere estudio riguroso, oración intensa y dependencia del Espíritu Santo para discernir el significado del texto y su aplicación contemporánea.
@@ -907,7 +963,7 @@
 
                         <div class="ministry-card">
                             <div class="card-header">
-                                🔥 <span>Predicación Expositiva</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4" /></svg> <span>Predicación Expositiva</span>
                             </div>
                             <div class="card-content">
                                 La predicación expositiva permite que <span class="emphasis">el texto hable por sí mismo</span>. El predicador es un heraldo que proclama fielmente el mensaje divino, no sus propias opiniones.
@@ -934,7 +990,7 @@
 
                         <div class="ministry-card">
                             <div class="card-header">
-                                ⚖️ <span>Predicación Balanceada</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18" /><path d="m19 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" /><path d="m5 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M7 21h10" /></svg> <span>Predicación Balanceada</span>
                             </div>
                             <div class="card-content">
                                 El ministerio del púlpito debe incluir toda la <span class="emphasis">diversidad de la revelación</span>: evangelismo, edificación, reprensión, consolación y enseñanza doctrinal.
@@ -948,7 +1004,7 @@
                 `
             },
             office: {
-                title: "📚 OFICINA PASTORAL",
+                title: "<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16" /><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" /></svg> Oficina Pastoral",
                 content: `
                     <div class="biblical-foundation">
                         <div class="verse">"Procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse, que usa bien la palabra de verdad."</div>
@@ -958,7 +1014,7 @@
                     <div class="ministry-grid">
                         <div class="ministry-card">
                             <div class="card-header">
-                                📖 <span>Vida de Estudio</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16" /><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" /></svg> <span>Vida de Estudio</span>
                             </div>
                             <div class="card-content">
                                 El pastor debe ser un <span class="emphasis">estudiante perpetuo</span> de la Palabra de Dios. Su oficina es un santuario de preparación donde se encuentra con Dios antes de ministrar al pueblo.
@@ -977,7 +1033,7 @@
 
                         <div class="ministry-card">
                             <div class="card-header">
-                                🕯️ <span>Vida de Oración</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4" /></svg> <span>Vida de Oración</span>
                             </div>
                             <div class="card-content">
                                 La oficina pastoral debe ser primordialmente un <span class="emphasis">lugar de oración</span>. Sin comunión íntima con Dios, todo el ministerio carece de poder espiritual.
@@ -1004,7 +1060,7 @@
 
                         <div class="ministry-card">
                             <div class="card-header">
-                                📋 <span>Planificación Ministerial</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="M12 11h4" /><path d="M12 16h4" /><path d="M8 11h.01" /><path d="M8 16h.01" /></svg> <span>Planificación Ministerial</span>
                             </div>
                             <div class="card-content">
                                 La oficina es el centro de <span class="emphasis">planificación estratégica</span> donde el pastor busca la visión de Dios para la iglesia y desarrolla planes para cumplir la misión.
@@ -1018,7 +1074,7 @@
                 `
             },
             counseling: {
-                title: "🤝 MINISTERIO DE CONSEJERÍA",
+                title: "<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3" /><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /><path d="m21 3 1 11h-2" /><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /><path d="M3 4h8" /></svg> Ministerio de Consejería",
                 content: `
                     <div class="biblical-foundation">
                         <div class="verse">"Hermanos, si alguno fuere sorprendido en alguna falta, vosotros que sois espirituales, restauradle con espíritu de mansedumbre, considerándote a ti mismo, no sea que tú también seas tentado."</div>
@@ -1028,7 +1084,7 @@
                     <div class="ministry-grid">
                         <div class="ministry-card">
                             <div class="card-header">
-                                💝 <span>Cuidado Pastoral</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></svg> <span>Cuidado Pastoral</span>
                             </div>
                             <div class="card-content">
                                 La consejería pastoral es una extensión del <span class="emphasis">corazón de pastor</span>. Involucra escuchar con empatía, aconsejar con sabiduría bíblica y caminar junto a las personas en sus luchas.
@@ -1047,7 +1103,7 @@
 
                         <div class="ministry-card">
                             <div class="card-header">
-                                🩹 <span>Restauración Espiritual</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 10.01h.01" /><path d="M10 14.01h.01" /><path d="M14 10.01h.01" /><path d="M14 14.01h.01" /><path d="M18 6v12" /><path d="M6 6v12" /><rect x="2" y="6" width="20" height="12" rx="2" /></svg> <span>Restauración Espiritual</span>
                             </div>
                             <div class="card-content">
                                 El objetivo de la consejería pastoral es la <span class="emphasis">restauración completa</span> de la persona: espiritual, emocional y relacional, siempre basada en principios bíblicos.
@@ -1074,7 +1130,7 @@
 
                         <div class="ministry-card">
                             <div class="card-header">
-                                🛡️ <span>Límites y Referencias</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /></svg> <span>Límites y Referencias</span>
                             </div>
                             <div class="card-content">
                                 El pastor sabio reconoce sus <span class="emphasis">limitaciones</span> y sabe cuándo referir casos que requieren ayuda profesional especializada, manteniendo siempre el fundamento bíblico.
@@ -1088,7 +1144,7 @@
                 `
             },
             fellowship: {
-                title: "☕ MINISTERIO DE COMPAÑERISMO",
+                title: "<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v2" /><path d="M14 2v2" /><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1" /><path d="M6 2v2" /></svg> Ministerio de Compañerismo",
                 content: `
                     <div class="biblical-foundation">
                         <div class="verse">"Y perseveraban en la doctrina de los apóstoles, en la comunión unos con otros, en el partimiento del pan y en las oraciones."</div>
@@ -1098,7 +1154,7 @@
                     <div class="ministry-grid">
                         <div class="ministry-card">
                             <div class="card-header">
-                                🤗 <span>Koinonía Genuina</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762" /></svg> <span>Koinonía Genuina</span>
                             </div>
                             <div class="card-content">
                                 El compañerismo cristiano va más allá de la socialización. Es <span class="emphasis">koinonía</span> - participación en la vida divina que crea vínculos profundos entre los creyentes.
@@ -1117,7 +1173,7 @@
 
                         <div class="ministry-card">
                             <div class="card-header">
-                                🏠 <span>Ambiente Familiar</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg> <span>Ambiente Familiar</span>
                             </div>
                             <div class="card-content">
                                 El pastor debe crear un ambiente donde todos se sientan <span class="emphasis">parte de la familia de Dios</span>, especialmente los nuevos creyentes y visitantes.
@@ -1144,7 +1200,7 @@
 
                         <div class="ministry-card">
                             <div class="card-header">
-                                💬 <span>Comunicación Pastoral</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg> <span>Comunicación Pastoral</span>
                             </div>
                             <div class="card-content">
                                 Los momentos de compañerismo son oportunidades invaluables para <span class="emphasis">comunicación informal</span> que fortalece la relación pastor-congregación.
@@ -1158,7 +1214,7 @@
                 `
             },
             altar: {
-                title: "🛐 MINISTERIO DEL ALTAR",
+                title: "<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 9h4" /><path d="M12 7v5" /><path d="M14 21v-3a2 2 0 0 0-4 0v3" /><path d="m18 9 3.52 2.147a1 1 0 0 1 .48.854V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6.999a1 1 0 0 1 .48-.854L6 9" /><path d="M6 21V7a1 1 0 0 1 .376-.782l5-3.999a1 1 0 0 1 1.249.001l5 4A1 1 0 0 1 18 7v14" /></svg> Ministerio del Altar",
                 content: `
                     <div class="biblical-foundation">
                         <div class="verse">"Acercaos a Dios, y él se acercará a vosotros. Pecadores, limpiad las manos; y vosotros los de doble ánimo, purificad vuestros corazones."</div>
@@ -1168,7 +1224,7 @@
                     <div class="ministry-grid">
                         <div class="ministry-card">
                             <div class="card-header">
-                                🙏 <span>Intercesión Pastoral</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2" /><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2" /><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8" /><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" /></svg> <span>Intercesión Pastoral</span>
                             </div>
                             <div class="card-content">
                                 El altar es el lugar donde el pastor ejerce su <span class="emphasis">ministerio sacerdotal</span>, intercediendo por las necesidades de la congregación y buscando el rostro de Dios.
@@ -1187,7 +1243,7 @@
 
                         <div class="ministry-card">
                             <div class="card-header">
-                                ✋ <span>Imposición de Manos</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2" /><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2" /><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8" /><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" /></svg> <span>Imposición de Manos</span>
                             </div>
                             <div class="card-content">
                                 La imposición de manos es un <span class="emphasis">acto de identificación</span> donde el pastor se une a las necesidades de la persona, pidiendo la bendición y sanidad de Dios.
@@ -1214,7 +1270,7 @@
 
                         <div class="ministry-card">
                             <div class="card-header">
-                                🔥 <span>Avivamiento y Renovación</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4" /></svg> <span>Avivamiento y Renovación</span>
                             </div>
                             <div class="card-content">
                                 El altar es el lugar donde <span class="emphasis">Dios encuentra a su pueblo</span> para renovación espiritual, confesión de pecados y experiencias transformadoras.
@@ -1228,7 +1284,7 @@
                 `
             },
             teaching: {
-                title: "📖 MINISTERIO DE ENSEÑANZA",
+                title: "<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16" /><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" /></svg> Ministerio de Enseñanza",
                 content: `
                     <div class="biblical-foundation">
                         <div class="verse">"Y él mismo constituyó a unos, apóstoles; a otros, profetas; a otros, evangelistas; a otros, pastores y maestros, a fin de perfeccionar a los santos para la obra del ministerio."</div>
@@ -1238,7 +1294,7 @@
                     <div class="ministry-grid">
                         <div class="ministry-card">
                             <div class="card-header">
-                                🎓 <span>Educación Cristiana</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" /><path d="M22 10v6" /><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /></svg> <span>Educación Cristiana</span>
                             </div>
                             <div class="card-content">
                                 El pastor-maestro tiene la responsabilidad de <span class="emphasis">equipar a los santos</span> para el servicio cristiano a través de enseñanza sistemática y comprensiva de la Palabra.
@@ -1257,7 +1313,7 @@
 
                         <div class="ministry-card">
                             <div class="card-header">
-                                🌱 <span>Discipulado Intencional</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3" /><path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4" /><path d="M5 21h14" /></svg> <span>Discipulado Intencional</span>
                             </div>
                             <div class="card-content">
                                 La enseñanza pastoral va más allá de la transmisión de información; busca la <span class="emphasis">transformación del carácter</span> conformándolo a Cristo.
@@ -1284,7 +1340,7 @@
 
                         <div class="ministry-card">
                             <div class="card-header">
-                                👥 <span>Desarrollo de Liderazgo</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg> <span>Desarrollo de Liderazgo</span>
                             </div>
                             <div class="card-content">
                                 El pastor-maestro debe <span class="emphasis">multiplicarse</span> preparando a otros para el ministerio y asegurando la continuidad del liderazgo en la iglesia.
@@ -1298,7 +1354,7 @@
                 `
             },
             visitation: {
-                title: "🚗 MINISTERIO DE VISITACIÓN",
+                title: "<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" /><circle cx="7" cy="17" r="2" /><path d="M9 17h6" /><circle cx="17" cy="17" r="2" /></svg> Ministerio de Visitación",
                 content: `
                     <div class="biblical-foundation">
                         <div class="verse">"La religión pura y sin mácula delante de Dios el Padre es esta: Visitar a los huérfanos y a las viudas en sus tribulaciones, y guardarse sin mancha del mundo."</div>
@@ -1308,7 +1364,7 @@
                     <div class="ministry-grid">
                         <div class="ministry-card">
                             <div class="card-header">
-                                🏥 <span>Cuidado en Crisis</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v4" /><path d="M14 21v-3a2 2 0 0 0-4 0v3" /><path d="M14 9h-4" /><path d="M18 11h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2h2" /><path d="M18 21V5a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16" /></svg> <span>Cuidado en Crisis</span>
                             </div>
                             <div class="card-content">
                                 La visitación pastoral demuestra el <span class="emphasis">corazón de Cristo</span> llevando consuelo, esperanza y presencia divina a quienes atraviesan momentos difíciles.
@@ -1327,7 +1383,7 @@
 
                         <div class="ministry-card">
                             <div class="card-header">
-                                💝 <span>Presencia Significativa</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></svg> <span>Presencia Significativa</span>
                             </div>
                             <div class="card-content">
                                 A veces la <span class="emphasis">presencia silenciosa</span> del pastor dice más que muchas palabras. Su simple presencia comunica el amor de Dios y el cuidado de la iglesia.
@@ -1354,7 +1410,7 @@
 
                         <div class="ministry-card">
                             <div class="card-header">
-                                🌍 <span>Alcance Comunitario</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></svg> <span>Alcance Comunitario</span>
                             </div>
                             <div class="card-content">
                                 La visitación se extiende más allá de la congregación para alcanzar a la <span class="emphasis">comunidad circundante</span> con el amor de Cristo y el testimonio del evangelio.
@@ -1368,7 +1424,7 @@
                 `
             },
             administration: {
-                title: "📋 ADMINISTRACIÓN PASTORAL",
+                title: "<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="M12 11h4" /><path d="M12 16h4" /><path d="M8 11h.01" /><path d="M8 16h.01" /></svg> Administración Pastoral",
                 content: `
                     <div class="biblical-foundation">
                         <div class="verse">"Y el que preside, con solicitud; el que hace misericordia, con alegría."</div>
@@ -1378,7 +1434,7 @@
                     <div class="ministry-grid">
                         <div class="ministry-card">
                             <div class="card-header">
-                                👑 <span>Liderazgo Visionario</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z" /><path d="M5 21h14" /></svg> <span>Liderazgo Visionario</span>
                             </div>
                             <div class="card-content">
                                 El pastor como administrador debe tener <span class="emphasis">visión clara</span> del propósito de la iglesia y la habilidad para comunicar y ejecutar esa visión efectivamente.
@@ -1397,7 +1453,7 @@
 
                         <div class="ministry-card">
                             <div class="card-header">
-                                🤝 <span>Trabajo en Equipo</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3" /><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /><path d="m21 3 1 11h-2" /><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /><path d="M3 4h8" /></svg> <span>Trabajo en Equipo</span>
                             </div>
                             <div class="card-content">
                                 La administración pastoral efectiva requiere <span class="emphasis">delegación sabia</span> y desarrollo de un equipo ministerial competente y comprometido.
@@ -1424,7 +1480,7 @@
 
                         <div class="ministry-card">
                             <div class="card-header">
-                                ⚖️ <span>Mayordomía Responsable</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18" /><path d="m19 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" /><path d="m5 8 3 8a5 5 0 0 1-6 0zV7" /><path d="M7 21h10" /></svg> <span>Mayordomía Responsable</span>
                             </div>
                             <div class="card-content">
                                 El pastor administrador debe manejar los <span class="emphasis">recursos de Dios</span> con integridad, transparencia y eficiencia para el avance del Reino.
@@ -1438,7 +1494,7 @@
                 `
             },
             discipleship: {
-                title: "🌱 MINISTERIO DE DISCIPULADO",
+                title: "<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3" /><path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4" /><path d="M5 21h14" /></svg> Ministerio de Discipulado",
                 content: `
                     <div class="biblical-foundation">
                         <div class="verse">"Por tanto, id, y haced discípulos a todas las naciones, bautizándolos en el nombre del Padre, y del Hijo, y del Espíritu Santo; enseñándoles que guarden todas las cosas que os he mandado."</div>
@@ -1448,7 +1504,7 @@
                     <div class="ministry-grid">
                         <div class="ministry-card">
                             <div class="card-header">
-                                🎯 <span>Formación Intencional</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg> <span>Formación Intencional</span>
                             </div>
                             <div class="card-content">
                                 El discipulado pastoral es un proceso <span class="emphasis">intencional y relacional</span> que busca formar creyentes maduros que puedan reproducirse espiritualmente.
@@ -1482,7 +1538,7 @@
 
                         <div class="ministry-card">
                             <div class="card-header">
-                                🔄 <span>Reproducción Espiritual</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /><path d="M21 3v5h-5" /><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /><path d="M8 16H3v5" /></svg> <span>Reproducción Espiritual</span>
                             </div>
                             <div class="card-content">
                                 El objetivo final del discipulado es que cada creyente se convierta en un <span class="emphasis">discipulador</span> que puede formar a otros, creando un ciclo continuo de multiplicación.
@@ -1509,7 +1565,7 @@
 
                         <div class="ministry-card">
                             <div class="card-header">
-                                🎖️ <span>Madurez Espiritual</span>
+                                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15" /><path d="M11 12 5.12 2.2" /><path d="m13 12 5.88-9.8" /><path d="M8 7h8" /><circle cx="12" cy="17" r="5" /><path d="M12 18v-2h-.5" /></svg> <span>Madurez Espiritual</span>
                             </div>
                             <div class="card-content">
                                 El discipulado pastoral busca desarrollar <span class="emphasis">creyentes maduros</span> que reflejen el carácter de Cristo y sean útiles en la obra del Reino.
