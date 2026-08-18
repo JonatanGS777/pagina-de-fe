@@ -19,7 +19,7 @@ wrap.appendChild(renderer.domElement);
 const scene = new THREE.Scene();
 scene.fog = new THREE.Fog(0xe8d5a8, 260, 720);
 
-const camera = new THREE.PerspectiveCamera(55, innerWidth / innerHeight, 0.1, 2000);
+const camera = new THREE.PerspectiveCamera(70, innerWidth / innerHeight, 0.1, 2000);
 camera.position.set(0, 30, 52);
 
 const pmrem = new THREE.PMREMGenerator(renderer);
