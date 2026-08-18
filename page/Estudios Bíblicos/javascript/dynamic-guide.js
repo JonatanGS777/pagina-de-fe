@@ -379,34 +379,34 @@ const dynamicGuide = {
             <div class="welcome-guide">
                 <div class="guide-card special-welcome">
                     <div class="welcome-animation">
-                        <i class="fas fa-praying-hands"></i>
+                        ${faIcon('fa-praying-hands')}
                     </div>
                     <h3>¡Bienvenido a tu viaje de fe!</h3>
                     <p>Nos alegra mucho que hayas decidido crecer en tu conocimiento de Dios. 
                        Este curso te ayudará a establecer bases sólidas para tu vida cristiana.</p>
                     <div class="welcome-features">
                         <div class="feature-item">
-                            <i class="fas fa-book-open"></i>
+                            ${faIcon('fa-book-open')}
                             <span>10 Doctrinas Fundamentales</span>
                         </div>
                         <div class="feature-item">
-                            <i class="fas fa-comments"></i>
+                            ${faIcon('fa-comments')}
                             <span>Guías Personalizadas</span>
                         </div>
                         <div class="feature-item">
-                            <i class="fas fa-trophy"></i>
+                            ${faIcon('fa-trophy')}
                             <span>Sistema de Logros</span>
                         </div>
                     </div>
                     <div class="guide-actions">
                         <button class="btn btn-primary btn-large" onclick="dynamicGuide.startJourney()">
-                            <i class="fas fa-play"></i> Comenzar mi viaje
+                            ${faIcon('fa-play')} Comenzar mi viaje
                         </button>
                         <button class="btn btn-secondary" onclick="dynamicGuide.showAllQuestions()">
-                            <i class="fas fa-list"></i> Ver todas las preguntas
+                            ${faIcon('fa-list')} Ver todas las preguntas
                         </button>
                         <button class="btn btn-outline" onclick="dynamicGuide.showResetOptions()">
-                            <i class="fas fa-refresh"></i> Reiniciar Progreso
+                            ${faIcon('fa-refresh')} Reiniciar Progreso
                         </button>
                     </div>
                 </div>
@@ -447,17 +447,17 @@ const dynamicGuide = {
                 <p>¿Qué te gustaría reiniciar?</p>
                 <div class="reset-options">
                     <div class="reset-option" onclick="dynamicGuide.resetGuides()">
-                        <i class="fas fa-refresh"></i>
+                        ${faIcon('fa-refresh')}
                         <h4>Reset Completo</h4>
                         <p>Reinicia TODO: doctrinas, guías, quizzes, puntos y estadísticas a 0%</p>
                     </div>
                     <div class="reset-option" onclick="dynamicGuide.resetDoctrinesToo()">
-                        <i class="fas fa-copy"></i>
+                        ${faIcon('fa-copy')}
                         <h4>Reset Completo (Copia)</h4>
                         <p>Hace exactamente lo mismo que "Reset Completo" (misma función)</p>
                     </div>
                     <div class="reset-option warning" onclick="dynamicGuide.resetEverything()">
-                        <i class="fas fa-trash-alt"></i>
+                        ${faIcon('fa-trash-alt')}
                         <h4>Eliminar y Recargar</h4>
                         <p>Elimina todo Y recarga la página para empezar completamente limpio</p>
                     </div>
@@ -708,7 +708,7 @@ const dynamicGuide = {
         guideContent.innerHTML = `
             <div class="guide-header">
                 <h2 class="guide-title">
-                    <i class="fas fa-compass"></i> 
+                    ${faIcon('fa-compass')} 
                     Guía para ${this.translateStage(this.userProfile.stage)}
                 </h2>
                 <div class="guide-progress">
@@ -720,10 +720,10 @@ const dynamicGuide = {
             </div>
             <div class="guide-controls">
                 <button class="btn btn-outline btn-small" onclick="dynamicGuide.showResetOptions()">
-                    <i class="fas fa-refresh"></i> Reiniciar
+                    ${faIcon('fa-refresh')} Reiniciar
                 </button>
                 <button class="btn btn-secondary btn-small" onclick="dynamicGuide.showSavedQuestions()">
-                    <i class="fas fa-bookmark"></i> Guardadas (${this.userProfile.preferences?.savedQuestions?.length || 0})
+                    ${faIcon('fa-bookmark')} Guardadas (${this.userProfile.preferences?.savedQuestions?.length || 0})
                 </button>
             </div>
             ${questions.map((q, index) => this.renderQuestionCard(q, index)).join('')}
@@ -742,7 +742,7 @@ const dynamicGuide = {
             <div class="guide-card fade-in" style="animation-delay: ${index * 0.1}s">
                 <div class="guide-card-header">
                     <h3 class="guide-question">
-                        <i class="fas fa-question-circle"></i> ${question.question}
+                        ${faIcon('fa-question-circle')} ${question.question}
                     </h3>
                     ${question.priority === 1 ? '<span class="priority-badge">Importante</span>' : ''}
                 </div>
@@ -750,7 +750,7 @@ const dynamicGuide = {
                     <p>${question.answer}</p>
                 </div>
                 <div class="guide-verses">
-                    <strong><i class="fas fa-bible"></i> Versículos clave:</strong>
+                    <strong>${faIcon('fa-bible')} Versículos clave:</strong>
                     <div class="verse-tags">
                         ${question.verses.map(verse => `
                             <span class="verse-tag" onclick="dynamicGuide.showVerse('${verse}')">
@@ -760,7 +760,7 @@ const dynamicGuide = {
                     </div>
                 </div>
                 <div class="guide-next-steps">
-                    <strong><i class="fas fa-shoe-prints"></i> Próximos pasos:</strong>
+                    <strong>${faIcon('fa-shoe-prints')} Próximos pasos:</strong>
                     <ul class="steps-list">
                         ${question.nextSteps.map((step, stepIndex) => `
                             <li>
@@ -773,19 +773,19 @@ const dynamicGuide = {
                 </div>
                 ${relatedDoctrine ? `
                     <div class="related-doctrine">
-                        <i class="fas fa-link"></i>
+                        ${faIcon('fa-link')}
                         <span>Relacionado con: <strong>${relatedDoctrine.title}</strong></span>
                     </div>
                 ` : ''}
                 <div class="guide-actions">
                     <button class="btn btn-secondary" onclick="dynamicGuide.markAsRead('${question.question}')">
-                        <i class="fas fa-check"></i> Entendido
+                        ${faIcon('fa-check')} Entendido
                     </button>
                     <button class="btn btn-outline" onclick="dynamicGuide.saveForLater('${question.question}')">
-                        <i class="fas fa-bookmark"></i> Guardar
+                        ${faIcon('fa-bookmark')} Guardar
                     </button>
                     <button class="btn btn-primary" onclick="dynamicGuide.needMoreHelp('${question.question}')">
-                        <i class="fas fa-hands-helping"></i> Necesito ayuda
+                        ${faIcon('fa-hands-helping')} Necesito ayuda
                     </button>
                 </div>
             </div>
@@ -837,10 +837,10 @@ const dynamicGuide = {
                             <p>${q.answer}</p>
                             <div class="saved-actions">
                                 <button class="btn btn-secondary btn-small" onclick="dynamicGuide.removeSaved('${q.question}')">
-                                    <i class="fas fa-trash"></i> Eliminar
+                                    ${faIcon('fa-trash')} Eliminar
                                 </button>
                                 <button class="btn btn-primary btn-small" onclick="dynamicGuide.studySaved('${q.question}')">
-                                    <i class="fas fa-eye"></i> Estudiar
+                                    ${faIcon('fa-eye')} Estudiar
                                 </button>
                             </div>
                         </div>
@@ -848,7 +848,7 @@ const dynamicGuide = {
                 </div>
                 <div class="saved-modal-actions">
                     <button class="btn btn-outline" onclick="dynamicGuide.clearAllSaved()">
-                        <i class="fas fa-trash-alt"></i> Limpiar Todo
+                        ${faIcon('fa-trash-alt')} Limpiar Todo
                     </button>
                     <button class="btn btn-secondary" onclick="dynamicGuide.closeSavedModal()">
                         Cerrar
@@ -977,16 +977,16 @@ const dynamicGuide = {
         modal.innerHTML = `
             <div class="verse-modal-content">
                 <span class="modal-close" onclick="this.parentElement.parentElement.remove()">&times;</span>
-                <h3><i class="fas fa-bible"></i> ${verse}</h3>
+                <h3>${faIcon('fa-bible')} ${verse}</h3>
                 <p class="verse-text">
                     <em>"${verseTexts[verse] || 'Texto del versículo no disponible en caché. Búscalo en tu Biblia.'}"</em>
                 </p>
                 <div class="verse-actions">
                     <button class="btn btn-secondary" onclick="dynamicGuide.copyVerse('${verse}')">
-                        <i class="fas fa-copy"></i> Copiar
+                        ${faIcon('fa-copy')} Copiar
                     </button>
                     <button class="btn btn-primary" onclick="this.parentElement.parentElement.parentElement.remove()">
-                        <i class="fas fa-times"></i> Cerrar
+                        ${faIcon('fa-times')} Cerrar
                     </button>
                 </div>
             </div>
@@ -1012,42 +1012,42 @@ const dynamicGuide = {
         modal.innerHTML = `
             <div class="help-modal-content">
                 <span class="modal-close" onclick="dynamicGuide.closeHelpModal()">&times;</span>
-                <h2><i class="fas fa-hands-helping"></i> Recursos de Ayuda</h2>
+                <h2>${faIcon('fa-hands-helping')} Recursos de Ayuda</h2>
                 <p>Para la pregunta: <strong>"${question}"</strong></p>
                 <div class="help-tabs">
                     <button class="tab-btn active" onclick="dynamicGuide.showHelpTab('resources')">
-                        <i class="fas fa-book"></i> Recursos
+                        ${faIcon('fa-book')} Recursos
                     </button>
                     <button class="tab-btn" onclick="dynamicGuide.showHelpTab('contact')">
-                        <i class="fas fa-user-friends"></i> Contacto
+                        ${faIcon('fa-user-friends')} Contacto
                     </button>
                     <button class="tab-btn" onclick="dynamicGuide.showHelpTab('prayer')">
-                        <i class="fas fa-pray"></i> Oración
+                        ${faIcon('fa-pray')} Oración
                     </button>
                 </div>
                 <div class="help-content">
                     <div id="resources-tab" class="tab-content active">
                         <div class="help-resources">
                             <div class="help-resource">
-                                <i class="fas fa-user-friends"></i>
+                                ${faIcon('fa-user-friends')}
                                 <h4>Habla con un Mentor</h4>
                                 <p>Conecta con un cristiano maduro que pueda guiarte personalmente.</p>
                                 <button class="btn btn-secondary">Solicitar Mentor</button>
                             </div>
                             <div class="help-resource">
-                                <i class="fas fa-book-open"></i>
+                                ${faIcon('fa-book-open')}
                                 <h4>Estudios Adicionales</h4>
                                 <p>Profundiza en el tema con materiales de estudio específicos.</p>
                                 <button class="btn btn-secondary">Ver Materiales</button>
                             </div>
                             <div class="help-resource">
-                                <i class="fas fa-users"></i>
+                                ${faIcon('fa-users')}
                                 <h4>Grupo de Estudio</h4>
                                 <p>Únete a un grupo pequeño donde puedas hacer preguntas.</p>
                                 <button class="btn btn-secondary">Buscar Grupos</button>
                             </div>
                             <div class="help-resource">
-                                <i class="fas fa-video"></i>
+                                ${faIcon('fa-video')}
                                 <h4>Videos Explicativos</h4>
                                 <p>Mira videos que explican este tema de forma visual.</p>
                                 <button class="btn btn-secondary">Ver Videos</button>
@@ -1059,18 +1059,18 @@ const dynamicGuide = {
                             <p>Si necesitas ayuda personalizada, no dudes en contactarnos:</p>
                             <div class="contact-methods">
                                 <a href="mailto:yonatanguerrero555@gmail.com" class="contact-method">
-                                    <i class="fas fa-envelope"></i>
+                                    ${faIcon('fa-envelope')}
                                     <span>yonatanguerrero555@gmail.com</span>
                                 </a>
                                 <a href="tel:+17873456940" class="contact-method">
-                                    <i class="fas fa-phone"></i>
+                                    ${faIcon('fa-phone')}
                                     <span>+1 787-345-6940</span>
                                 </a>
                                 <div class="contact-form">
                                     <h4>Envía tu pregunta:</h4>
                                     <textarea placeholder="Escribe tu pregunta aquí..." rows="4" id="helpQuestion"></textarea>
                                     <button class="btn btn-primary" onclick="dynamicGuide.sendHelpRequest()">
-                                        <i class="fas fa-paper-plane"></i> Enviar Pregunta
+                                        ${faIcon('fa-paper-plane')} Enviar Pregunta
                                     </button>
                                 </div>
                             </div>
@@ -1094,7 +1094,7 @@ const dynamicGuide = {
                                     tu verdad. En el nombre de Jesús, Amén."
                                 </p>
                                 <button class="btn btn-outline" onclick="dynamicGuide.copyPrayer('${question}')">
-                                    <i class="fas fa-copy"></i> Copiar Oración
+                                    ${faIcon('fa-copy')} Copiar Oración
                                 </button>
                             </div>
                         </div>
@@ -1207,7 +1207,7 @@ const dynamicGuide = {
         const notification = document.createElement('div');
         notification.className = 'guide-encouragement';
         notification.innerHTML = `
-            <i class="fas ${message.icon}" style="color: ${message.color}"></i>
+            ${faIcon(message.icon, '', `color: ${message.color}`)}
             <span>${message.text}</span>
         `;
 
@@ -1270,12 +1270,12 @@ const dynamicGuide = {
             <div class="stage-completion">
                 <div class="completion-animation">
                     <div class="completion-icon">
-                        <i class="fas fa-trophy"></i>
+                        ${faIcon('fa-trophy')}
                     </div>
                     <div class="completion-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        ${faIcon('fa-star')}
+                        ${faIcon('fa-star')}
+                        ${faIcon('fa-star')}
                     </div>
                 </div>
                 <h2>¡Felicitaciones!</h2>
@@ -1290,7 +1290,7 @@ const dynamicGuide = {
                         <p>Nuevos temas te esperan para continuar creciendo.</p>
                     </div>
                     <button class="btn btn-primary btn-large" onclick="dynamicGuide.advanceStage()">
-                        <i class="fas fa-arrow-right"></i> Avanzar a ${this.translateStage(nextStage)}
+                        ${faIcon('fa-arrow-right')} Avanzar a ${this.translateStage(nextStage)}
                     </button>
                 ` : `
                     <div class="course-completed">
@@ -1298,10 +1298,10 @@ const dynamicGuide = {
                         <p>Tu fundamento en la fe está bien establecido.</p>
                         <div class="completion-actions">
                             <a href="../doctrina-intermedia.html" class="btn btn-primary">
-                                <i class="fas fa-graduation-cap"></i> Doctrina Intermedia
+                                ${faIcon('fa-graduation-cap')} Doctrina Intermedia
                             </a>
                             <button class="btn btn-secondary" onclick="dynamicGuide.viewCertificate()">
-                                <i class="fas fa-certificate"></i> Ver Certificado
+                                ${faIcon('fa-certificate')} Ver Certificado
                             </button>
                         </div>
                     </div>
@@ -1311,12 +1311,12 @@ const dynamicGuide = {
                     <h4>Tus Estadísticas:</h4>
                     <div class="stats-grid">
                         <div class="stat">
-                            <i class="fas fa-check-circle"></i>
+                            ${faIcon('fa-check-circle')}
                             <span class="stat-number">${this.userProfile.completedQuestions?.length || 0}</span>
                             <span class="stat-label">Preguntas Completadas</span>
                         </div>
                         <div class="stat">
-                            <i class="fas fa-calendar-alt"></i>
+                            ${faIcon('fa-calendar-alt')}
                             <span class="stat-number">${this.calculateDaysInJourney()}</span>
                             <span class="stat-label">Días de Estudio</span>
                         </div>
@@ -1325,10 +1325,10 @@ const dynamicGuide = {
                 
                 <div class="completion-options">
                     <button class="btn btn-outline" onclick="dynamicGuide.reviewQuestions()">
-                        <i class="fas fa-redo"></i> Revisar Preguntas
+                        ${faIcon('fa-redo')} Revisar Preguntas
                     </button>
                     <button class="btn btn-secondary" onclick="dynamicGuide.showResetOptions()">
-                        <i class="fas fa-refresh"></i> Comenzar de Nuevo
+                        ${faIcon('fa-refresh')} Comenzar de Nuevo
                     </button>
                 </div>
             </div>
@@ -1344,7 +1344,7 @@ const dynamicGuide = {
         modal.innerHTML = `
             <div class="advancement-content">
                 <div class="advancement-icon">
-                    <i class="fas fa-level-up-alt"></i>
+                    ${faIcon('fa-level-up-alt')}
                 </div>
                 <h2>¡Es hora de avanzar!</h2>
                 <p>Has demostrado un excelente progreso en tu etapa actual.</p>
@@ -1353,7 +1353,7 @@ const dynamicGuide = {
                         <h4>Etapa Actual</h4>
                         <p>${this.translateStage(this.userProfile.stage)}</p>
                     </div>
-                    <i class="fas fa-arrow-right"></i>
+                    ${faIcon('fa-arrow-right')}
                     <div class="new-stage">
                         <h4>Nueva Etapa</h4>
                         <p>${this.translateStage(newStage)}</p>
@@ -1365,7 +1365,7 @@ const dynamicGuide = {
                         Más tarde
                     </button>
                     <button class="btn btn-primary" onclick="dynamicGuide.confirmAdvancement('${newStage}')">
-                        <i class="fas fa-check"></i> ¡Estoy listo!
+                        ${faIcon('fa-check')} ¡Estoy listo!
                     </button>
                 </div>
             </div>
@@ -1736,21 +1736,21 @@ const dynamicGuide = {
         notification.className = 'welcome-back-notification';
         notification.innerHTML = `
             <div class="welcome-back-content">
-                <i class="fas fa-smile"></i>
+                ${faIcon('fa-smile')}
                 <h3>¡Qué bueno verte de nuevo!</h3>
                 <p>Has estado ausente por ${daysAway} días. Tu progreso te está esperando.</p>
                 <div class="welcome-back-stats">
                     <div class="stat-item">
-                        <i class="fas fa-book"></i>
+                        ${faIcon('fa-book')}
                         <span>${this.userProfile.completedQuestions?.length || 0} preguntas completadas</span>
                     </div>
                     <div class="stat-item">
-                        <i class="fas fa-layer-group"></i>
+                        ${faIcon('fa-layer-group')}
                         <span>Etapa: ${this.translateStage(this.userProfile.stage)}</span>
                     </div>
                 </div>
                 <button class="btn btn-primary" onclick="dynamicGuide.continueJourney()">
-                    <i class="fas fa-play"></i> Continuar donde lo dejé
+                    ${faIcon('fa-play')} Continuar donde lo dejé
                 </button>
             </div>
         `;
@@ -1858,7 +1858,7 @@ const dynamicGuide = {
         const notification = document.createElement('div');
         notification.className = 'guide-achievement';
         notification.innerHTML = `
-            <i class="fas fa-trophy"></i>
+            ${faIcon('fa-trophy')}
             <span>¡Logro desbloqueado: ${achievementName}!</span>
         `;
         
@@ -1902,7 +1902,7 @@ const dynamicGuide = {
         `;
         
         notification.innerHTML = `
-            <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'warning' ? 'fa-exclamation-triangle' : type === 'error' ? 'fa-times-circle' : 'fa-info-circle'}"></i>
+            ${faIcon(type === 'success' ? 'fa-check-circle' : type === 'warning' ? 'fa-exclamation-triangle' : type === 'error' ? 'fa-times-circle' : 'fa-info-circle')}
             <span>${message}</span>
         `;
 

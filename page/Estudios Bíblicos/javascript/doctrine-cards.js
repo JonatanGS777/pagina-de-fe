@@ -268,7 +268,7 @@ const doctrineCards = {
             <div class="doctrine-header">
                 <div class="doctrine-number">${ROMAN_NUMERALS[doctrine.id - 1] || doctrine.id}</div>
                 <div class="doctrine-icon">
-                    <i class="fas ${doctrine.icon}"></i>
+                    ${faIcon(doctrine.icon)}
                 </div>
                 <h3 class="doctrine-title">${doctrine.title}</h3>
                 <p class="doctrine-verse">"${doctrine.verse}"</p>
@@ -291,11 +291,11 @@ const doctrineCards = {
                 </div>
                 <div class="action-buttons">
                     <button class="btn btn-primary" onclick="doctrineCards.markCompleted(${doctrine.id})">
-                        <i class="fas fa-check"></i>
+                        ${faIcon('fa-check')}
                         Entendido
                     </button>
                     <button class="btn btn-secondary" onclick="doctrineCards.showDetails(${doctrine.id})">
-                        <i class="fas fa-info-circle"></i>
+                        ${faIcon('fa-info-circle')}
                         Más Info
                     </button>
                 </div>
@@ -313,7 +313,7 @@ const doctrineCards = {
         card.classList.add('completed');
         
         const button = card.querySelector('.btn-primary');
-        button.innerHTML = '<i class="fas fa-check"></i> Completado';
+        button.innerHTML = faIcon('fa-check') + ' Completado';
         button.classList.remove('btn-primary');
         button.classList.add('btn-success');
         button.disabled = true;
@@ -357,7 +357,7 @@ const doctrineCards = {
                     <li>¿Cómo puedes compartir esta verdad con otros?</li>
                 </ul>
                 <button class="btn btn-primary" onclick="doctrineCards.startDeepStudy(${doctrineId})">
-                    <i class="fas fa-book-reader"></i>
+                    ${faIcon('fa-book-reader')}
                     Iniciar Estudio Profundo
                 </button>
             </div>
@@ -393,7 +393,7 @@ const doctrineCards = {
                 card.classList.add('completed');
                 const button = card.querySelector('.btn-primary');
                 if (button) {
-                    button.innerHTML = '<i class="fas fa-check"></i> Completado';
+                    button.innerHTML = faIcon('fa-check') + ' Completado';
                     button.classList.remove('btn-primary');
                     button.classList.add('btn-success');
                     button.disabled = true;
@@ -470,7 +470,7 @@ const doctrineCards = {
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
         notification.innerHTML = `
-            <i class="fas fa-check-circle"></i>
+            ${faIcon('fa-check-circle')}
             <span>${message}</span>
         `;
 

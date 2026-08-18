@@ -225,38 +225,38 @@ const progressTracker = {
         const statsHTML = `
             <div id="statsPanel" class="stats-panel">
                 <button class="stats-toggle" onclick="progressTracker.toggleStats()">
-                    <i class="fas fa-chart-line"></i>
+                    ${faIcon('fa-chart-line')}
                 </button>
                 <div class="stats-content">
                     <h3>Tu Progreso</h3>
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <i class="fas fa-book"></i>
+                            ${faIcon('fa-book')}
                             <span class="stat-value" data-stat="doctrinesCompleted">0</span>
                             <span class="stat-label">Doctrinas</span>
                         </div>
                         <div class="stat-item">
-                            <i class="fas fa-clipboard-check"></i>
+                            ${faIcon('fa-clipboard-check')}
                             <span class="stat-value" data-stat="quizzesTaken">0</span>
                             <span class="stat-label">Quizzes</span>
                         </div>
                         <div class="stat-item">
-                            <i class="fas fa-percentage"></i>
+                            ${faIcon('fa-percentage')}
                             <span class="stat-value" data-stat="averageScore">0%</span>
                             <span class="stat-label">Promedio</span>
                         </div>
                         <div class="stat-item">
-                            <i class="fas fa-fire"></i>
+                            ${faIcon('fa-fire')}
                             <span class="stat-value" data-stat="studyStreak">0</span>
                             <span class="stat-label">Racha días</span>
                         </div>
                         <div class="stat-item">
-                            <i class="fas fa-clock"></i>
+                            ${faIcon('fa-clock')}
                             <span class="stat-value" data-stat="totalStudyTime">0h</span>
                             <span class="stat-label">Tiempo total</span>
                         </div>
                         <div class="stat-item">
-                            <i class="fas fa-layer-group"></i>
+                            ${faIcon('fa-layer-group')}
                             <span class="stat-value" data-stat="currentLevel">-</span>
                             <span class="stat-label">Nivel</span>
                         </div>
@@ -434,7 +434,7 @@ const progressTracker = {
         notification.innerHTML = `
             <div class="achievement-content">
                 <div class="achievement-icon">
-                    <i class="fas ${achievement.icon}"></i>
+                    ${faIcon(achievement.icon)}
                 </div>
                 <div class="achievement-info">
                     <h4>¡Logro Desbloqueado!</h4>
@@ -500,7 +500,7 @@ const progressTracker = {
         const notification = document.createElement('div');
         notification.className = 'streak-lost-notification';
         notification.innerHTML = `
-            <i class="fas fa-fire-extinguisher"></i>
+            ${faIcon('fa-fire-extinguisher')}
             <p>¡Oh no! Perdiste tu racha de estudio. ¡Pero no te desanimes, comienza una nueva hoy!</p>
         `;
         

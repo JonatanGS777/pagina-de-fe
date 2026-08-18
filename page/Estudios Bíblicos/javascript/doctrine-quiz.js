@@ -381,17 +381,17 @@ const doctrineQuiz = {
                 <h3>Selecciona el modo de evaluación:</h3>
                 <div class="quiz-modes">
                     <div class="quiz-mode-card" onclick="doctrineQuiz.startPracticeMode()">
-                        <i class="fas fa-graduation-cap"></i>
+                        ${faIcon('fa-graduation-cap')}
                         <h4>Modo Práctica</h4>
                         <p>Practica con preguntas aleatorias y retroalimentación inmediata</p>
                     </div>
                     <div class="quiz-mode-card" onclick="doctrineQuiz.startExamMode()">
-                        <i class="fas fa-clipboard-check"></i>
+                        ${faIcon('fa-clipboard-check')}
                         <h4>Modo Examen</h4>
                         <p>Evaluación completa de 20 preguntas sin retroalimentación hasta el final</p>
                     </div>
                     <div class="quiz-mode-card" onclick="doctrineQuiz.startFocusMode()">
-                        <i class="fas fa-bullseye"></i>
+                        ${faIcon('fa-bullseye')}
                         <h4>Modo Enfocado</h4>
                         <p>Practica preguntas de una doctrina específica</p>
                     </div>
@@ -444,7 +444,7 @@ const doctrineQuiz = {
                     ${doctrineOptions}
                 </div>
                 <button class="btn btn-secondary" onclick="doctrineQuiz.setupQuizModes()">
-                    <i class="fas fa-arrow-left"></i> Volver
+                    ${faIcon('fa-arrow-left')} Volver
                 </button>
             </div>
         `;
@@ -507,11 +507,11 @@ const doctrineQuiz = {
                 <div class="quiz-feedback" id="quizFeedback"></div>
                 <div class="quiz-navigation">
                     <button class="btn btn-secondary" onclick="doctrineQuiz.setupQuizModes()">
-                        <i class="fas fa-times"></i> Salir
+                        ${faIcon('fa-times')} Salir
                     </button>
                     <button class="btn btn-primary" id="nextQuestionBtn" style="display: none;" 
                             onclick="doctrineQuiz.nextQuestion()">
-                        Siguiente <i class="fas fa-arrow-right"></i>
+                        Siguiente ${faIcon('fa-arrow-right')}
                     </button>
                 </div>
             </div>
@@ -546,7 +546,7 @@ const doctrineQuiz = {
             if (this.currentQuiz.mode === 'practice') {
                 feedbackDiv.innerHTML = `
                     <div class="feedback-correct">
-                        <i class="fas fa-check-circle"></i> ¡Correcto! ${question.explanation}
+                        ${faIcon('fa-check-circle')} ¡Correcto! ${question.explanation}
                     </div>
                 `;
             }
@@ -557,7 +557,7 @@ const doctrineQuiz = {
             if (this.currentQuiz.mode === 'practice') {
                 feedbackDiv.innerHTML = `
                     <div class="feedback-incorrect">
-                        <i class="fas fa-times-circle"></i> Incorrecto. ${question.explanation}
+                        ${faIcon('fa-times-circle')} Incorrecto. ${question.explanation}
                     </div>
                 `;
             }
@@ -610,7 +610,7 @@ const doctrineQuiz = {
         quizContainer.innerHTML = `
             <div class="quiz-results">
                 <div class="results-icon">
-                    <i class="fas ${icon}"></i>
+                    ${faIcon(icon)}
                 </div>
                 <h2>Resultados del ${this.currentQuiz.mode === 'exam' ? 'Examen' : 'Quiz'}</h2>
                 <div class="results-score">
@@ -622,29 +622,29 @@ const doctrineQuiz = {
                 <p class="results-message">${message}</p>
                 <div class="results-stats">
                     <div class="stat-item">
-                        <i class="fas fa-check"></i>
+                        ${faIcon('fa-check')}
                         <span>Correctas: ${this.currentQuiz.score}</span>
                     </div>
                     <div class="stat-item">
-                        <i class="fas fa-times"></i>
+                        ${faIcon('fa-times')}
                         <span>Incorrectas: ${this.currentQuiz.questions.length - this.currentQuiz.score}</span>
                     </div>
                     <div class="stat-item">
-                        <i class="fas fa-question"></i>
+                        ${faIcon('fa-question')}
                         <span>Total: ${this.currentQuiz.questions.length}</span>
                     </div>
                 </div>
                 <div class="results-actions">
                     <button class="btn btn-primary" onclick="doctrineQuiz.reviewAnswers()">
-                        <i class="fas fa-eye"></i> Revisar Respuestas
+                        ${faIcon('fa-eye')} Revisar Respuestas
                     </button>
                     <button class="btn btn-secondary" onclick="doctrineQuiz.setupQuizModes()">
-                        <i class="fas fa-redo"></i> Nuevo Quiz
+                        ${faIcon('fa-redo')} Nuevo Quiz
                     </button>
                 </div>
                 ${percentage >= 80 ? `
                     <div class="achievement-unlocked">
-                        <i class="fas fa-medal"></i>
+                        ${faIcon('fa-medal')}
                         <span>¡Logro desbloqueado: Conocedor de Doctrinas!</span>
                     </div>
                 ` : ''}
@@ -668,7 +668,7 @@ const doctrineQuiz = {
                     <div class="review-header">
                         <span class="review-number">Pregunta ${index + 1}</span>
                         <span class="review-status">
-                            ${isCorrect ? '<i class="fas fa-check"></i> Correcta' : '<i class="fas fa-times"></i> Incorrecta'}
+                            ${isCorrect ? faIcon('fa-check') + ' Correcta' : faIcon('fa-times') + ' Incorrecta'}
                         </span>
                     </div>
                     <div class="review-question">${question.question}</div>
@@ -680,7 +680,7 @@ const doctrineQuiz = {
                             Respuesta correcta: ${question.options[question.correct]}
                         </div>
                         <div class="review-explanation">
-                            <i class="fas fa-lightbulb"></i> ${question.explanation}
+                            ${faIcon('fa-lightbulb')} ${question.explanation}
                         </div>
                     ` : ''}
                 </div>
@@ -695,7 +695,7 @@ const doctrineQuiz = {
                 </div>
                 <div class="review-actions">
                     <button class="btn btn-primary" onclick="doctrineQuiz.showResults()">
-                        <i class="fas fa-arrow-left"></i> Volver a Resultados
+                        ${faIcon('fa-arrow-left')} Volver a Resultados
                     </button>
                 </div>
             </div>
