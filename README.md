@@ -111,6 +111,28 @@ Sitio web estático del ministerio cristiano, desplegado en **Vercel** con auten
 - **Menús:** se agregó "Líneas de Sangre Illuminati" al dropdown "Falsas Doctrinas" en los 14 archivos del sitio que lo tienen, justo después de "Reptilianos y Consejo de los 13" (misma lista de archivos que la entrada anterior).
 - **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para futuras páginas de `Falsas Doctrinas/`.
 
+### 2026-08-17 — Nueva página: aguila-cinco-ministerios.html (Estudios Bíblicos)
+
+- **`page/Estudios Bíblicos/aguila-cinco-ministerios.html`:** página nueva migrada desde un PDF de 22 páginas ("El Águila y los Cinco Ministerios"), estudio exegético-teológico de la tipología ministerial de Efesios 4:11 (águila-apóstol, león-profeta, oveja-pastor, cordero-evangelista, becerro/buey-maestro). Estilo propio "Cielo Abierto" (acento cerúleo `#1c5a78`, distinto a los 8 estudios existentes en `estudios/`), con color dedicado por cada uno de los 5 símbolos ministeriales.
+- Agregada como 6ta opción del dropdown "Estudios Bíblicos" en los 14 archivos con ese menú, más `index.html`, `nuestras-ensenanzas/index.html`, y el footer de `doctrina-intermedia.html` (que tiene su propio header sin dropdown).
+
+### 2026-08-17 — Limpieza de mayúsculas en referencias y contenido (todo el sitio)
+
+- El usuario señaló que el abuso de `text-transform: uppercase` en títulos y contenido de página (referencias bíblicas, nombres de entidades, títulos de tarjetas) se veía genérico. Se corrigieron 26 páginas ya rediseñadas del sitio, quitando mayúsculas de etiquetas de contenido mientras se conservaron en chips de tema/sección (eyebrows, section-label, nav) y en elementos temáticos auténticos (sellos de dossier tipo "Clasificado"/"Veredicto", numeración de sección tipo "Cargo I"/"Rollo I").
+- **No se tocaron:** páginas pendientes con plantilla vieja (no forman parte del sistema de diseño "Refinado y Solemne" todavía).
+
+### 2026-08-17 — Refinamiento de las 6 páginas pendientes de Estudios Bíblicos
+
+- Se aplicó el mismo proceso usado en `Falsas Doctrinas/`: análisis individual por página, sin plantilla compartida. A diferencia de esa categoría, estas 6 páginas ya tenían una dirección estética propia y apropiada al contenido (no requerían reinvención) — el trabajo fue de **refinamiento**, no de rediseño desde cero:
+  - `estudios/acertijos.html` — "Excavación Refinada"; agregado header del sitio (antes huérfana), emoji → Lucide, corregido bug de contador "/30" (solo había 10 preguntas) y un `::before` roto que inyectaba SVG crudo como `content` CSS.
+  - `estudios/analisisexgetico.html` — Font Awesome (49 usos) → Lucide, mayúsculas corregidas.
+  - `estudios/etica-cristiana.html` — emoji (15) → Lucide, header agregado, `::before` roto corregido (mismo bug que acertijos.html), 'Crimson Text' cargado (nunca se cargaba vía Google Fonts).
+  - `estudios/examen.html` — Font Awesome (19 usos) → Lucide; ya tenía header y fuentes correctas.
+  - `estudios/ministerio-pastoral.html` — emoji (36) → Lucide, header agregado, 'Roboto Slab' cargado (nunca se cargaba), 9 títulos de ministerio en mayúscula sostenida normalizados.
+  - `recursos/Cronograma Detallado.html` — Font Awesome (20 usos) → Lucide, logo EMD agregado al header (antes solo texto, inconsistente con su página madre analisisexgetico.html).
+- **Bug recurrente encontrado en 2 páginas:** un `::before` con `content: '<svg>...</svg>'` — el CSS `content` no renderiza HTML/SVG, solo lo muestra como texto literal; el ícono decorativo nunca fue visible. Reemplazado por un elemento HTML real con SVG inline en ambos casos.
+- **Bug de fuente recurrente en 3 páginas:** `font-family: 'NombreFuente'` referenciado en CSS sin el `<link>` correspondiente a Google Fonts, cayendo silenciosamente a la fuente de reserva del sistema.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -370,16 +392,14 @@ Página de Fe/
 | `page/Falsas Doctrinas/sectas-anticristianas.html` | Completado — estilo propio "Compás Doctrinal" (no el sistema tinta/oro; ver historial 2026-08-17). Conserva el menú dropdown completo |
 | `page/Falsas Doctrinas/reptilianos-consejo-13.html` | Completado — estilo propio "Linaje Real" (borgoña/dorado heráldico; ver historial 2026-08-17) |
 | `page/Falsas Doctrinas/lineas-sangre-illuminati.html` | Completado — estilo propio "Archivo Vaticano" (manuscrito heráldico sobre vitela; ver historial 2026-08-17) |
+| `page/Estudios Bíblicos/estudios/acertijos.html` | Refinado — estilo propio "Excavación Refinada" (arqueología/pergaminos, ya existente); antes huérfana sin header del sitio, con emoji y con 'Cinzel' sin cargar; ver historial 2026-08-17 |
+| `page/Estudios Bíblicos/estudios/analisisexgetico.html` | Refinado — se conservó el estilo académico existente (verde bosque, Merriweather); Font Awesome (49 usos) reemplazado por Lucide, mayúsculas corregidas; ver historial 2026-08-17 |
+| `page/Estudios Bíblicos/estudios/etica-cristiana.html` | Refinado — se conservó el concepto de expedientes/tribunal existente; 15 emoji reemplazados por Lucide, header agregado, `::before` roto corregido, 'Crimson Text' antes sin cargar; ver historial 2026-08-17 |
+| `page/Estudios Bíblicos/estudios/examen.html` | Refinado — ya tenía header y fuentes correctas; Font Awesome (19 usos) reemplazado por Lucide; ver historial 2026-08-17 |
+| `page/Estudios Bíblicos/estudios/ministerio-pastoral.html` | Refinado — se conservó el concepto de "plano arquitectónico de la iglesia"; 36 emoji reemplazados por Lucide, header agregado, 'Roboto Slab' antes sin cargar; ver historial 2026-08-17 |
+| `page/Estudios Bíblicos/recursos/Cronograma Detallado.html` | Refinado — página hermana de analisisexgetico.html; Font Awesome (20 usos) reemplazado por Lucide, logo EMD agregado al header para consistencia con su página madre; ver historial 2026-08-17 |
 
 ### ⏳ Páginas pendientes de aplicar la skill
-
-#### `page/Estudios Bíblicos/`
-- [ ] `recursos/Cronograma Detallado.html`
-- [ ] `estudios/acertijos.html`
-- [ ] `estudios/analisisexgetico.html`
-- [ ] `estudios/etica-cristiana.html`
-- [ ] `estudios/examen.html`
-- [ ] `estudios/ministerio-pastoral.html`
 
 #### `page/Estudios Exegéticos/`
 
