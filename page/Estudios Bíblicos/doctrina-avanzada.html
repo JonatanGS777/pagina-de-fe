@@ -11,379 +11,266 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctrina Avanzada - Ministerio "La Gloria es del Señor"</title>
+    <title>Doctrina Avanzada — Ministerio "La Gloria es del Señor"</title>
+    <meta name="description" content="Academia Bíblica Nivel III — maestros de sólida trayectoria, fundamento escritural sobre la madurez espiritual y preguntas de reflexión profunda para el creyente maduro.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ink:         #1a1410;
-            --ink-dark:    #0e0c0a;
-            --gold:        #b89a5f;
-            --gold-lt:     rgba(184,154,95,0.18);
-            --parchment:   #f7f4ed;
-            --parchment-dk:#ede9de;
-            --text:        #2e2920;
-            --text-muted:  #6b6257;
-            --accent:      #2a1e4a;
-            --accent-mid:  #4a3a7a;
-            --accent-pale: rgba(42,30,74,0.07);
-            --accent-glow: rgba(42,30,74,0.18);
-            --hero-grad:   linear-gradient(160deg, #0e0c0a 0%, #1a1428 100%);
+            --night-deep:  #0c0f1a;
+            --night-mid:   #171d31;
+            --indigo:      #2c3a5e;
+            --indigo-mid:  #3d5080;
+            --brass:       #a67c3d;
+            --brass-light: #c9a06a;
+            --ivory:       #f2ede0;
+            --ivory-dk:    #e6ded0;
+            --slate:       #2a2620;
+            --slate-mt:    #6b6355;
+            --indigo-pale: rgba(44,58,94,0.07);
         }
 
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Lato', sans-serif;
+            font-family: 'Spectral', serif;
             font-weight: 300;
-            background: var(--parchment);
-            color: var(--text);
+            background: var(--ivory);
+            color: var(--slate);
             line-height: 1.75;
             overflow-x: hidden;
         }
 
-        /* ── GRAIN TEXTURE ── */
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 0;
-        }
+        .ic { width: 1em; height: 1em; vertical-align: -0.15em; flex-shrink: 0; display: inline-block; }
 
         /* ── HEADER ── */
-        header {
+        .site-header {
             position: fixed;
             top: 0; left: 0; right: 0;
-            z-index: 1000;
-            background: rgba(14,12,10,0.97);
+            z-index: 100;
+            height: 64px;
+            background: rgba(12,15,26,0.97);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(184,154,95,0.22);
+            border-bottom: 1px solid rgba(166,124,61,0.3);
             padding: 0 2.5rem;
-            height: 64px;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .logo-wrap {
-            display: flex;
-            align-items: center;
-            gap: 0.9rem;
-            text-decoration: none;
-        }
+        .header-logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
+        .header-logo img { height: 36px; width: auto; opacity: 0.95; }
 
-        .logo-wrap img {
-            height: 38px;
-            opacity: 0.92;
-        }
-
-        .logo-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.95rem;
-            color: rgba(247,244,237,0.85);
+        .header-logo-text {
+            font-family: 'Fraunces', serif;
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--ivory);
             line-height: 1.25;
         }
 
-        .header-nav {
+        .header-logo-text span { display: block; font-size: 0.72rem; font-style: italic; font-weight: 400; color: rgba(242,237,224,0.5); }
+
+        .header-badge {
             display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            color: var(--brass-light);
+            border: 1px solid rgba(166,124,61,0.4);
+            padding: 0.4rem 0.9rem;
+        }
+
+        /* ── HERO (observatorio nocturno) ── */
+        .page-hero {
+            position: relative;
+            background: radial-gradient(ellipse at 50% -10%, var(--indigo) 0%, var(--night-mid) 45%, var(--night-deep) 100%);
+            padding: 130px 2.5rem 80px;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image:
+                radial-gradient(1.5px 1.5px at 10% 20%, rgba(242,237,224,0.5), transparent),
+                radial-gradient(1px 1px at 25% 65%, rgba(242,237,224,0.35), transparent),
+                radial-gradient(1.5px 1.5px at 40% 15%, rgba(242,237,224,0.45), transparent),
+                radial-gradient(1px 1px at 60% 50%, rgba(242,237,224,0.3), transparent),
+                radial-gradient(1.5px 1.5px at 75% 25%, rgba(242,237,224,0.5), transparent),
+                radial-gradient(1px 1px at 88% 60%, rgba(242,237,224,0.35), transparent),
+                radial-gradient(1.5px 1.5px at 95% 10%, rgba(242,237,224,0.4), transparent),
+                radial-gradient(1px 1px at 15% 80%, rgba(242,237,224,0.3), transparent),
+                radial-gradient(1.5px 1.5px at 50% 85%, rgba(242,237,224,0.4), transparent);
+            background-size: 100% 100%;
+            pointer-events: none;
+        }
+
+        .hero-inner { position: relative; z-index: 2; max-width: 880px; margin: 0 auto; text-align: center; }
+
+        .hero-tag {
+            display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 0.78rem;
-            letter-spacing: 0.03em;
-            color: rgba(247,244,237,0.5);
-        }
-
-        .header-nav a {
-            color: rgba(184,154,95,0.85);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .header-nav a:hover { color: var(--gold); }
-        .header-nav .sep { opacity: 0.35; }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .header-link {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: rgba(247,244,237,0.6);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            transition: color 0.2s;
+            color: var(--brass-light);
+            border: 1px solid rgba(166,124,61,0.4);
+            padding: 0.4rem 1.1rem;
+            margin-bottom: 2.2rem;
         }
-
-        .header-link:hover { color: var(--gold); }
-
-        .level-badge {
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--gold);
-            border: 1px solid rgba(184,154,95,0.35);
-            padding: 0.3rem 0.85rem;
-            border-radius: 2px;
-        }
-
-        /* ── HERO ── */
-        .page-hero {
-            min-height: 85vh;
-            padding: 64px 0 0;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            background:
-                linear-gradient(160deg, rgba(10,8,20,0.52) 0%, rgba(26,20,40,0.45) 55%, rgba(14,12,10,0.42) 100%),
-                url('./images/advancetheology.png') center top / cover no-repeat;
-        }
-
-        /* Accent glow overlay */
-        .page-hero::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 50% 0%, rgba(42,30,74,0.22) 0%, transparent 65%);
-            z-index: 1;
-        }
-
-        .hero-inner {
-            position: relative;
-            z-index: 2;
-            width: 90%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 5rem 0 5rem;
-            text-align: center;
-        }
-
-        .hero-kicker {
-            display: inline-block;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--gold);
-            border: 1px solid rgba(184,154,95,0.3);
-            padding: 0.35rem 1.1rem;
-            margin-bottom: 2rem;
-            border-radius: 2px;
- }
 
         .hero-title {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Fraunces', serif;
             font-style: italic;
-            font-weight: 600;
-            font-size: clamp(3rem, 6vw, 5rem);
-            color: #f7f4ed;
-            line-height: 1.08;
-            margin-bottom: 1rem;
- }
+            font-weight: 500;
+            font-size: clamp(2.6rem, 6vw, 4.4rem);
+            color: var(--ivory);
+            line-height: 1.1;
+            margin-bottom: 0.8rem;
+        }
 
         .hero-subtitle {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Fraunces', serif;
             font-style: italic;
-            font-size: 1.3rem;
-            color: rgba(247,244,237,0.65);
-            margin-bottom: 3rem;
- }
+            font-weight: 400;
+            font-size: 1.2rem;
+            color: var(--brass-light);
+            margin-bottom: 2.8rem;
+        }
 
         /* Aviso de madurez espiritual */
         .wisdom-notice {
-            background: rgba(42,30,74,0.35);
-            border: 1px solid rgba(184,154,95,0.35);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            padding: 2.2rem 2.8rem;
-            border-radius: 2px;
+            background: rgba(44,58,94,0.28);
+            border: 1px solid rgba(166,124,61,0.32);
+            padding: 2.2rem 2.6rem;
             text-align: left;
-            max-width: 760px;
+            max-width: 740px;
             margin: 0 auto;
- }
+        }
 
         .notice-header {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.7rem;
             margin-bottom: 1.2rem;
         }
 
-        .notice-header i {
-            color: var(--gold);
-            font-size: 1.1rem;
-        }
+        .notice-header .ic { color: var(--brass-light); font-size: 1.1rem; }
 
         .notice-header strong {
-            font-family: 'Lato', sans-serif;
-            font-weight: 700;
-            font-size: 0.82rem;
-            letter-spacing: 0.12em;
+            font-family: 'Spectral', serif;
+            font-weight: 600;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--gold);
+            color: var(--brass-light);
         }
 
         .wisdom-notice p {
-            font-size: 0.95rem;
-            color: rgba(247,244,237,0.75);
-            line-height: 1.75;
+            font-size: 0.94rem;
+            color: rgba(242,237,224,0.78);
+            line-height: 1.8;
             margin-bottom: 0.9rem;
         }
 
         .wisdom-notice p:last-child { margin-bottom: 0; }
 
         .notice-foundation {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Fraunces', serif;
             font-style: italic;
-            font-size: 1.15rem !important;
-            color: var(--gold) !important;
+            font-size: 1.1rem !important;
+            color: var(--brass-light) !important;
             text-align: center;
-            border-top: 1px solid rgba(184,154,95,0.25);
+            border-top: 1px solid rgba(166,124,61,0.25);
             padding-top: 1rem;
             margin-top: 1rem;
         }
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(22px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
         /* ── CONTAINER ── */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .container { width: 90%; max-width: 1180px; margin: 0 auto; }
 
         /* ── SECTION HEADER ── */
-        .section-hd {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
+        .section-hd { text-align: center; margin-bottom: 3.5rem; }
 
         .section-hd-label {
             display: inline-block;
             font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.18em;
+            font-weight: 600;
+            letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: var(--accent-mid);
+            color: var(--brass);
             margin-bottom: 0.9rem;
         }
 
         .section-hd h2 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Fraunces', serif;
             font-style: italic;
             font-weight: 500;
-            font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-            color: var(--ink);
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            color: var(--slate);
             margin-bottom: 0.8rem;
         }
 
-        .section-hd p {
-            font-size: 1rem;
-            color: var(--text-muted);
-            max-width: 540px;
-            margin: 0 auto;
-        }
+        .section-hd p { font-size: 1rem; color: var(--slate-mt); max-width: 540px; margin: 0 auto; }
 
-        .rule {
-            width: 48px;
-            height: 1px;
-            background: var(--accent-mid);
-            margin: 1rem auto 0;
-        }
+        .rule { width: 44px; height: 1px; background: var(--brass); margin: 1.1rem auto 0; }
 
-        /* ── SCRIPTURE SECTION ── */
-        .scripture-section {
-            padding: 6rem 0 4rem;
-        }
+        /* ── SCRIPTURE SECTION (tablillas grabadas) ── */
+        .scripture-section { padding: 6rem 0 4rem; }
 
         .scriptures-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-            gap: 2rem;
+            gap: 1.8rem;
         }
 
-        .scripture-scroll {
+        .tablet-card {
             background: #fff;
-            border: 1px solid var(--parchment-dk);
-            border-left: 3px solid var(--accent-mid);
-            border-radius: 2px;
+            border: 1px solid var(--ivory-dk);
+            border-top: 3px solid var(--indigo);
             padding: 2rem 2rem 1.6rem;
             position: relative;
-            transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
-            cursor: pointer;
+            transition: box-shadow 0.3s, transform 0.3s;
         }
 
-        .scripture-scroll:hover {
-            box-shadow: 0 8px 32px rgba(42,30,74,0.12);
-            transform: translateY(-3px);
-        }
+        .tablet-card:hover { box-shadow: 0 10px 34px rgba(12,15,26,0.1); transform: translateY(-3px); }
 
-        .verse-illuminated {
-            font-family: 'Cormorant Garamond', serif;
+        .tablet-verse {
+            font-family: 'Fraunces', serif;
             font-style: italic;
-            font-size: 1.08rem;
-            line-height: 1.8;
-            color: var(--text);
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--slate);
             margin-bottom: 1.2rem;
-            position: relative;
         }
 
-        .verse-illuminated::before {
-            content: '\201C';
-            font-size: 3.5rem;
-            color: var(--accent-pale);
-            color: rgba(42,30,74,0.15);
-            position: absolute;
-            top: -1rem;
-            left: -0.8rem;
-            font-family: 'Cormorant Garamond', serif;
-            line-height: 1;
-            pointer-events: none;
-        }
-
-        .verse-reference {
-            font-size: 0.8rem;
-            font-weight: 700;
+        .tablet-ref {
+            font-size: 0.78rem;
+            font-weight: 600;
             letter-spacing: 0.03em;
-            color: var(--accent-mid);
+            color: var(--indigo);
             text-align: right;
         }
 
-        /* ── MASTERS SECTION (dark band) ── */
+        /* ── MASTERS SECTION (observatorio de maestros, dark band) ── */
         .masters-section {
-            background: var(--hero-grad);
+            background: linear-gradient(180deg, var(--night-deep) 0%, var(--night-mid) 100%);
             padding: 6rem 0;
             position: relative;
         }
 
-        .masters-section::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 50% 0%, rgba(42,30,74,0.30) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .masters-section .section-hd h2 { color: #f7f4ed; }
-        .masters-section .section-hd p  { color: rgba(247,244,237,0.55); }
-        .masters-section .section-hd-label { color: rgba(184,154,95,0.85); }
-        .masters-section .rule { background: var(--gold); opacity: 0.5; }
+        .masters-section .section-hd h2 { color: var(--ivory); }
+        .masters-section .section-hd p { color: rgba(242,237,224,0.55); }
+        .masters-section .section-hd-label { color: var(--brass-light); }
+        .masters-section .rule { background: var(--brass); opacity: 0.6; }
 
         .masters-grid {
             display: grid;
@@ -391,64 +278,51 @@
             gap: 2rem;
         }
 
-        .master-codex {
-            background: rgba(247,244,237,0.04);
-            border: 1px solid rgba(184,154,95,0.18);
-            border-radius: 2px;
+        .window-card {
+            background: rgba(242,237,224,0.04);
+            border: 1px solid rgba(166,124,61,0.22);
             overflow: hidden;
-            transition: box-shadow 0.3s, transform 0.3s;
+            transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
         }
 
-        .master-codex:hover {
-            box-shadow: 0 16px 50px rgba(0,0,0,0.4);
-            transform: translateY(-5px);
-        }
+        .window-card:hover { box-shadow: 0 16px 50px rgba(0,0,0,0.4); transform: translateY(-4px); border-color: rgba(166,124,61,0.45); }
 
-        .codex-header {
-            background: linear-gradient(160deg, rgba(42,30,74,0.6) 0%, rgba(14,12,10,0.8) 100%);
-            border-bottom: 1px solid rgba(184,154,95,0.18);
-            padding: 1.8rem 2rem;
+        .window-header {
+            background: linear-gradient(160deg, rgba(44,58,94,0.5) 0%, rgba(12,15,26,0.8) 100%);
+            border-bottom: 1px solid rgba(166,124,61,0.2);
+            padding: 1.7rem 1.9rem;
             display: flex;
             align-items: center;
-            gap: 1.2rem;
+            gap: 1.1rem;
         }
 
-        .master-initial {
-            width: 56px;
-            height: 56px;
-            background: var(--accent-mid);
-            border: 2px solid rgba(184,154,95,0.35);
-            border-radius: 2px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: #f7f4ed;
+        .window-initial {
+            width: 52px; height: 52px;
+            background: var(--indigo);
+            border: 1px solid rgba(166,124,61,0.4);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--ivory);
             flex-shrink: 0;
         }
 
-        .codex-header-text { flex: 1; }
+        .window-header-text { flex: 1; }
 
         .master-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            font-size: 1.15rem;
-            color: #f7f4ed;
-            line-height: 1.2;
-            margin-bottom: 0.3rem;
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.12rem;
+            color: var(--ivory);
+            line-height: 1.25;
+            margin-bottom: 0.25rem;
         }
 
-        .master-title {
-            font-size: 0.78rem;
-            color: rgba(184,154,95,0.75);
-            letter-spacing: 0.03em;
-        }
+        .master-title { font-size: 0.78rem; color: rgba(201,160,106,0.85); }
 
-        .codex-content {
-            padding: 1.8rem 2rem;
-        }
+        .window-body { padding: 1.7rem 1.9rem; }
 
         .master-heritage {
             display: grid;
@@ -458,161 +332,110 @@
         }
 
         .heritage-item {
-            background: rgba(42,30,74,0.25);
-            border: 1px solid rgba(184,154,95,0.12);
+            background: rgba(44,58,94,0.3);
+            border: 1px solid rgba(166,124,61,0.16);
             padding: 0.9rem 1rem;
-            border-radius: 2px;
             text-align: center;
         }
 
         .heritage-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--gold);
+            font-family: 'Fraunces', serif;
+            font-size: 1.42rem;
+            font-weight: 500;
+            color: var(--brass-light);
             display: block;
             line-height: 1.1;
         }
 
         .heritage-label {
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(247,244,237,0.45);
-            margin-top: 0.2rem;
+            font-size: 0.72rem;
+            color: rgba(242,237,224,0.5);
+            margin-top: 0.25rem;
         }
 
-        .master-wisdom {
-            font-size: 0.9rem;
-            color: rgba(247,244,237,0.65);
-            line-height: 1.75;
-            margin-bottom: 1.5rem;
-        }
+        .master-wisdom { font-size: 0.9rem; color: rgba(242,237,224,0.68); line-height: 1.75; margin-bottom: 1.5rem; }
 
-        .wisdom-areas {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
+        .wisdom-areas { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
 
         .wisdom-seal-small {
             font-size: 0.74rem;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-            color: var(--gold);
-            background: rgba(184,154,95,0.1);
-            border: 1px solid rgba(184,154,95,0.25);
+            font-weight: 500;
+            color: var(--brass-light);
+            background: rgba(166,124,61,0.1);
+            border: 1px solid rgba(166,124,61,0.28);
             padding: 0.25rem 0.65rem;
-            border-radius: 2px;
         }
 
-        .access-manuscript {
+        .access-link {
             display: inline-flex;
             align-items: center;
             gap: 0.55rem;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
+            font-size: 0.74rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--ink-dark);
-            background: var(--gold);
-            border: 1px solid var(--gold);
+            color: var(--night-deep);
+            background: var(--brass-light);
+            border: 1px solid var(--brass-light);
             padding: 0.65rem 1.4rem;
-            border-radius: 2px;
             text-decoration: none;
             transition: background 0.2s, color 0.2s;
         }
 
-        .access-manuscript:hover {
-            background: transparent;
-            color: var(--gold);
-        }
+        .access-link:hover { background: transparent; color: var(--brass-light); }
 
         .wisdom-note {
-            background: rgba(184,154,95,0.08);
-            border-left: 2px solid rgba(184,154,95,0.4);
-            padding: 0.8rem 1rem;
-            margin-top: 1rem;
+            background: rgba(166,124,61,0.08);
+            border-left: 2px solid rgba(166,124,61,0.4);
+            padding: 0.85rem 1.1rem;
+            margin-top: 1.1rem;
             font-size: 0.85rem;
             font-style: italic;
-            color: rgba(247,244,237,0.5);
+            color: rgba(242,237,224,0.55);
         }
 
         /* ── INQUIRIES SECTION ── */
-        .inquiries-section {
-            padding: 6rem 0 4rem;
-        }
+        .inquiries-section { padding: 6rem 0 4rem; }
 
         .wisdom-inquiries {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
             gap: 1.5rem;
         }
 
-        .inquiry-scroll {
+        .inquiry-card {
             background: #fff;
-            border: 1px solid var(--parchment-dk);
-            border-radius: 2px;
+            border: 1px solid var(--ivory-dk);
+            border-left: 3px solid var(--brass);
             padding: 2rem 2.2rem;
             position: relative;
             transition: box-shadow 0.3s, transform 0.3s;
-            cursor: pointer;
-            overflow: hidden;
         }
 
-        .inquiry-scroll::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 3px; height: 100%;
-            background: var(--accent-mid);
-        }
-
-        .inquiry-scroll:hover {
-            box-shadow: 0 8px 32px rgba(42,30,74,0.1);
-            transform: translateX(4px);
-        }
+        .inquiry-card:hover { box-shadow: 0 8px 32px rgba(44,58,94,0.1); transform: translateX(4px); }
 
         .inquiry-mark {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            font-weight: 600;
-            color: rgba(42,30,74,0.10);
             position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            line-height: 1;
-            user-select: none;
+            top: 1.3rem; right: 1.6rem;
+            color: var(--indigo);
         }
 
         .inquiry-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--ink);
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 1.16rem;
+            font-weight: 500;
+            color: var(--slate);
             margin-bottom: 1rem;
-            line-height: 1.5;
+            line-height: 1.55;
             padding-right: 2rem;
         }
 
-        .inquiry-reference {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            font-style: italic;
-        }
-
-        .inquiry-reference strong {
-            font-style: normal;
-            color: var(--accent-mid);
-        }
+        .inquiry-reference { font-size: 0.82rem; color: var(--slate-mt); }
+        .inquiry-reference strong { font-weight: 600; color: var(--indigo); }
 
         /* ── RESOURCES SECTION ── */
-        .resources-section {
-            padding: 4rem 0 6rem;
-            background: var(--parchment-dk);
-        }
+        .resources-section { padding: 4rem 0 6rem; background: var(--ivory-dk); }
 
         .resources-grid {
             display: grid;
@@ -622,477 +445,363 @@
 
         .resource-card {
             background: #fff;
-            border: 1px solid rgba(42,30,74,0.12);
-            border-top: 3px solid var(--accent-mid);
-            border-radius: 2px;
+            border: 1px solid rgba(44,58,94,0.12);
+            border-top: 3px solid var(--indigo);
             overflow: hidden;
             transition: box-shadow 0.3s, transform 0.3s;
         }
 
-        .resource-card:hover {
-            box-shadow: 0 10px 36px rgba(42,30,74,0.12);
-            transform: translateY(-3px);
-        }
+        .resource-card:hover { box-shadow: 0 10px 36px rgba(44,58,94,0.12); transform: translateY(-3px); }
 
         .resource-header {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-mid) 100%);
-            padding: 1.5rem 1.8rem;
+            background: linear-gradient(135deg, var(--indigo) 0%, var(--indigo-mid) 100%);
+            padding: 1.4rem 1.7rem;
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
         .resource-icon {
-            width: 46px;
-            height: 46px;
-            background: rgba(247,244,237,0.12);
-            border: 1px solid rgba(247,244,237,0.2);
-            border-radius: 2px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold);
-            font-size: 1.1rem;
+            width: 44px; height: 44px;
+            background: rgba(242,237,224,0.12);
+            border: 1px solid rgba(242,237,224,0.2);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--brass-light);
+            font-size: 1.05rem;
             flex-shrink: 0;
         }
 
-        .resource-header-text { flex: 1; }
+        .resource-name { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.02rem; color: var(--ivory); line-height: 1.25; }
+        .resource-subtitle { font-size: 0.74rem; color: rgba(201,160,106,0.85); margin-top: 0.2rem; }
 
-        .resource-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            font-size: 1.05rem;
-            color: #f7f4ed;
-            line-height: 1.2;
-        }
-
-        .resource-subtitle {
-            font-size: 0.75rem;
-            color: rgba(184,154,95,0.75);
-            margin-top: 0.2rem;
-        }
-
-        .resource-body {
-            padding: 1.5rem 1.8rem;
-        }
-
-        .resource-body p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 1.3rem;
-            line-height: 1.7;
-        }
+        .resource-body { padding: 1.5rem 1.7rem; }
+        .resource-body p { font-size: 0.89rem; color: var(--slate-mt); margin-bottom: 1.3rem; line-height: 1.72; }
 
         .resource-link {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
+            font-size: 0.74rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: #f7f4ed;
-            background: var(--accent);
-            border: 1px solid var(--accent);
+            color: var(--ivory);
+            background: var(--indigo);
+            border: 1px solid var(--indigo);
             padding: 0.6rem 1.2rem;
-            border-radius: 2px;
             text-decoration: none;
             transition: background 0.2s, color 0.2s;
         }
 
-        .resource-link:hover {
-            background: transparent;
-            color: var(--accent);
-        }
+        .resource-link:hover { background: transparent; color: var(--indigo); }
 
         /* ── FOOTER ── */
-        footer {
-            background: var(--ink-dark);
-            color: rgba(247,244,237,0.65);
-            padding: 3rem 0 1.8rem;
-            position: relative;
-            z-index: 1;
+        .site-footer {
+            background: var(--night-deep);
+            border-top: 1px solid rgba(166,124,61,0.16);
+            padding: 3rem 2.5rem 1.8rem;
         }
 
         .footer-links-row {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 2.5rem;
+            gap: 2.2rem;
             margin-bottom: 2rem;
         }
 
         .footer-link {
-            font-size: 0.82rem;
-            color: rgba(247,244,237,0.65);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.84rem;
+            color: rgba(242,237,224,0.65);
             text-decoration: none;
             transition: color 0.2s;
-            letter-spacing: 0.04em;
         }
 
-        .footer-link:hover { color: var(--gold); }
+        .footer-link:hover { color: var(--brass-light); }
+        .footer-link .ic { color: var(--brass); }
 
         .footer-bottom {
-            border-top: 1px solid rgba(184,154,95,0.15);
+            border-top: 1px solid rgba(166,124,61,0.14);
             padding-top: 1.5rem;
             text-align: center;
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Fraunces', serif;
             font-style: italic;
-            font-size: 0.9rem;
-            opacity: 0.55;
+            font-size: 0.88rem;
+            color: rgba(242,237,224,0.4);
+            max-width: 1180px;
+            margin: 0 auto;
         }
+
+        /* ── REVEAL ── */
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.75s ease, transform 0.75s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
-            .masters-grid,
-            .wisdom-inquiries { grid-template-columns: 1fr; }
+            .masters-grid, .wisdom-inquiries { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
-            header { padding: 0 1.2rem; }
-            .header-nav { display: none; }
-            .scriptures-grid,
-            .resources-grid { grid-template-columns: 1fr; }
+            .site-header { padding: 0 1.2rem; }
+            .header-logo-text { display: none; }
+            .page-hero { padding: 110px 1.2rem 60px; }
+            .scriptures-grid, .resources-grid { grid-template-columns: 1fr; }
             .master-heritage { grid-template-columns: 1fr; }
-            .wisdom-notice { padding: 1.5rem; }
+            .wisdom-notice { padding: 1.6rem; }
         }
-    
-        /* Insignia circular del logo EMD (aplicada a todas las páginas) */
+
+        /* Insignia circular del logo EMD */
         img[alt="Logo EMD"] {
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid rgba(201, 170, 106, 0.5);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(201, 170, 106, 0.08);
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 2px solid rgba(166,124,61,0.4);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+            transition: transform 0.3s cubic-bezier(0.25,0.8,0.25,1);
         }
-        img[alt="Logo EMD"]:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 0 5px rgba(201, 170, 106, 0.15);
-        }
+        img[alt="Logo EMD"]:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
 
-    <!-- ── HEADER ── -->
-    <header>
-        <a class="logo-wrap" href="../../index.html">
+    <header class="site-header">
+        <a href="../../index.html" class="header-logo">
             <img src="../../images/EMD.png?v=2" alt="Logo EMD">
-            <div class="logo-text">
-                <div>Ministerio</div>
-                <div>"La Gloria es del Señor"</div>
+            <div class="header-logo-text">
+                Ministerio
+                <span>"La Gloria es del Señor"</span>
             </div>
         </a>
-        <nav class="header-nav">
-            <a href="../../index.html">Inicio</a>
-            <span class="sep"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i></span>
-            <a href="../../nuestras-ensenanzas/index.html">Enseñanzas</a>
-            <span class="sep"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i></span>
-            <a href="./doctrina-basica.html">Estudios Bíblicos</a>
-            <span class="sep"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i></span>
-            <span style="color:rgba(247,244,237,0.4)">Doctrina Avanzada</span>
-        </nav>
-        <div class="header-actions">
-            <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" class="header-link" target="_blank">
-                <i class="fab fa-youtube"></i> Canal EDM
-            </a>
-            <div class="level-badge">
-                <i class="fas fa-crown" style="margin-right:0.4rem;font-size:0.65rem;"></i>
-                Nivel Avanzado
-            </div>
+        <div class="header-badge">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10.065 12.493-6.18 1.318a.934.934 0 0 1-1.108-.702l-.537-2.15a1.07 1.07 0 0 1 .691-1.265l13.504-4.44" /><path d="m13.56 11.747 4.332-.924" /><path d="m16 21-3.105-6.21" /><path d="M16.485 5.94a2 2 0 0 1 1.455-2.425l1.09-.272a1 1 0 0 1 1.212.727l1.515 6.06a1 1 0 0 1-.727 1.213l-1.09.272a2 2 0 0 1-2.425-1.455z" /><path d="m6.158 8.633 1.114 4.456" /><path d="m8 21 3.105-6.21" /><circle cx="12" cy="13" r="2" /></svg>
+            Academia · Nivel III
         </div>
     </header>
 
-    <!-- ── HERO ── -->
     <section class="page-hero">
         <div class="hero-inner">
-            <span class="hero-kicker">
-                <i class="fas fa-shield-halved" style="margin-right:0.5rem;"></i>
-                Academia Bíblica &mdash; Nivel III
+            <span class="hero-tag">
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /></svg>
+                Academia Bíblica — Nivel III
             </span>
             <h1 class="hero-title">Doctrina Avanzada</h1>
-            <p class="hero-subtitle">Para el Crecimiento en Sabiduría y Entendimiento</p>
+            <p class="hero-subtitle">Para el crecimiento en sabiduría y entendimiento</p>
 
             <div class="wisdom-notice">
                 <div class="notice-header">
-                    <i class="fas fa-shield-halved"></i>
+                    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /></svg>
                     <strong>Aviso de madurez espiritual</strong>
                 </div>
-                <p>Esta sección está reservada para creyentes con solidez doctrinal establecida, si usted tiene prejuicios y no da posibilidad indagar en el Señor reserve lo que sabe y siga buscando a Dios.</p>
-                <p>El propósito es la edificación mutua, no la controversia ni al insulto, por eso le exhortamos a que con madurez y altura que son característica de un siervo de Dios retenga lo bueno y se contenga a todo especie de mal, que incluye la contienda.</p>
+                <p>Esta sección está reservada para creyentes con solidez doctrinal ya establecida. Si usted todavía tiene prejuicios que le impiden indagar más profundamente en el Señor, reserve por ahora lo que sabe y continúe buscando a Dios.</p>
+                <p>El propósito de este espacio es la edificación mutua, no la controversia ni el insulto. Por eso le exhortamos a que, con la madurez y la altura que caracterizan a un siervo de Dios, retenga lo bueno y se abstenga de toda especie de mal, incluida la contienda.</p>
                 <p class="notice-foundation">
-                    Jesús es el Señor y Salvador &mdash; <em>Este es nuestro fundamento inconmovible</em>
+                    Jesús es el Señor y Salvador &mdash; <em>este es nuestro fundamento inconmovible</em>
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- ── FUNDAMENTO ESCRITURAL ── -->
     <section class="scripture-section">
         <div class="container">
-            <div class="section-hd">
+            <div class="section-hd reveal">
                 <span class="section-hd-label">Las Escrituras nos exhortan</span>
-                <h2>Fundamento Escritural</h2>
+                <h2>Fundamento escritural</h2>
                 <p>La Palabra de Dios nos exhorta al crecimiento espiritual continuo</p>
                 <div class="rule"></div>
             </div>
 
             <div class="scriptures-grid">
-                <div class="scripture-scroll parallax-element">
-                    <div class="verse-illuminated">
-                        Sin embargo, hablamos sabiduría entre los que han alcanzado madurez; y sabiduría, no de este siglo, ni de los príncipes de este siglo, que perecen. Mas hablamos sabiduría de Dios en misterio, la sabiduría oculta, la cual Dios predestinó antes de los siglos para nuestra gloria... Pero el hombre natural no percibe las cosas que son del Espíritu de Dios, porque para él son locura, y no las puede entender, porque se han de discernir espiritualmente. En cambio el espiritual juzga todas las cosas; pero él no es juzgado de nadie... Mas nosotros tenemos la mente de Cristo.
-                    </div>
-                    <div class="verse-reference">1 Corintios 2:6–16</div>
+                <div class="tablet-card reveal">
+                    <div class="tablet-verse">Sin embargo, hablamos sabiduría entre los que han alcanzado madurez; y sabiduría, no de este siglo, ni de los príncipes de este siglo, que perecen. Mas hablamos sabiduría de Dios en misterio, la sabiduría oculta, la cual Dios predestinó antes de los siglos para nuestra gloria... Pero el hombre natural no percibe las cosas que son del Espíritu de Dios, porque para él son locura, y no las puede entender, porque se han de discernir espiritualmente. En cambio el espiritual juzga todas las cosas; pero él no es juzgado de nadie... Mas nosotros tenemos la mente de Cristo.</div>
+                    <div class="tablet-ref">1 Corintios 2:6–16</div>
                 </div>
-
-                <div class="scripture-scroll parallax-element">
-                    <div class="verse-illuminated">
-                        Pero el alimento sólido es para los que han alcanzado madurez, para los que por el uso tienen los sentidos ejercitados en el discernimiento del bien y del mal.
-                    </div>
-                    <div class="verse-reference">Hebreos 5:14</div>
+                <div class="tablet-card reveal">
+                    <div class="tablet-verse">Pero el alimento sólido es para los que han alcanzado madurez, para los que por el uso tienen los sentidos ejercitados en el discernimiento del bien y del mal.</div>
+                    <div class="tablet-ref">Hebreos 5:14</div>
                 </div>
-
-                <div class="scripture-scroll parallax-element">
-                    <div class="verse-illuminated">
-                        Hasta que todos lleguemos a la unidad de la fe y del conocimiento del Hijo de Dios, a un varón perfecto, a la medida de la estatura de la plenitud de Cristo.
-                    </div>
-                    <div class="verse-reference">Efesios 4:13</div>
+                <div class="tablet-card reveal">
+                    <div class="tablet-verse">Hasta que todos lleguemos a la unidad de la fe y del conocimiento del Hijo de Dios, a un varón perfecto, a la medida de la estatura de la plenitud de Cristo.</div>
+                    <div class="tablet-ref">Efesios 4:13</div>
                 </div>
-
-                <div class="scripture-scroll parallax-element">
-                    <div class="verse-illuminated">
-                        Escudriñad las Escrituras; porque a vosotros os parece que en ellas tenéis la vida eterna; y ellas son las que dan testimonio de mí.
-                    </div>
-                    <div class="verse-reference">Juan 5:39</div>
+                <div class="tablet-card reveal">
+                    <div class="tablet-verse">Escudriñad las Escrituras; porque a vosotros os parece que en ellas tenéis la vida eterna; y ellas son las que dan testimonio de mí.</div>
+                    <div class="tablet-ref">Juan 5:39</div>
                 </div>
-
-                <div class="scripture-scroll parallax-element">
-                    <div class="verse-illuminated">
-                        Para que el Dios de nuestro Señor Jesucristo, el Padre de gloria, os dé espíritu de sabiduría y de revelación en el conocimiento de él, alumbrando los ojos de vuestro entendimiento, para que sepáis cuál es la esperanza a que él os ha llamado, y cuáles las riquezas de la gloria de su herencia en los santos, y cuál la supereminente grandeza de su poder para con nosotros los que creemos, según la operación del poder de su fuerza, la cual operó en Cristo, resucitándole de los muertos y sentándole a su diestra en los lugares celestiales, sobre todo principado y autoridad y poder y señorío, y sobre todo nombre que se nombra, no sólo en este siglo, sino también en el venidero; y sometió todas las cosas bajo sus pies, y lo dio por cabeza sobre todas las cosas a la iglesia, la cual es su cuerpo, la plenitud de Aquel que todo lo llena en todo.
-                    </div>
-                    <div class="verse-reference">Efesios 1:17–22</div>
+                <div class="tablet-card reveal">
+                    <div class="tablet-verse">Para que el Dios de nuestro Señor Jesucristo, el Padre de gloria, os dé espíritu de sabiduría y de revelación en el conocimiento de él, alumbrando los ojos de vuestro entendimiento, para que sepáis cuál es la esperanza a que él os ha llamado, y cuáles las riquezas de la gloria de su herencia en los santos, y cuál la supereminente grandeza de su poder para con nosotros los que creemos, según la operación del poder de su fuerza, la cual operó en Cristo, resucitándole de los muertos y sentándole a su diestra en los lugares celestiales, sobre todo principado y autoridad y poder y señorío, y sobre todo nombre que se nombra, no sólo en este siglo, sino también en el venidero; y sometió todas las cosas bajo sus pies, y lo dio por cabeza sobre todas las cosas a la iglesia, la cual es su cuerpo, la plenitud de Aquel que todo lo llena en todo.</div>
+                    <div class="tablet-ref">Efesios 1:17–22</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── DOCTRINA BÍBLICA PROFUNDA ── -->
     <section class="masters-section">
         <div class="container">
-            <div class="section-hd">
+            <div class="section-hd reveal">
                 <span class="section-hd-label">Siervos dedicados a la enseñanza</span>
-                <h2>Doctrina Bíblica Profunda</h2>
-                <p>Siervos dedicados a la enseñanza profunda de las Escrituras</p>
+                <h2>Doctrina bíblica profunda</h2>
+                <p>Maestros de trayectoria dedicados a la enseñanza profunda de las Escrituras</p>
                 <div class="rule"></div>
             </div>
 
             <div class="masters-grid">
 
-                <div class="master-codex">
-                    <div class="codex-header">
-                        <div class="master-initial">O</div>
-                        <div class="codex-header-text">
+                <div class="window-card reveal">
+                    <div class="window-header">
+                        <div class="window-initial">O</div>
+                        <div class="window-header-text">
                             <div class="master-name">Dr. Othoniel Ríos Paredes</div>
-                            <div class="master-title">Apóstol &bull; Fundador Misión Elim (1927–1998)</div>
+                            <div class="master-title">Apóstol · Fundador Misión Elim (1927–1998)</div>
                         </div>
                     </div>
-                    <div class="codex-content">
+                    <div class="window-body">
                         <div class="master-heritage">
-                            <div class="heritage-item">
-                                <span class="heritage-number">5,000+</span>
-                                <span class="heritage-label">Iglesias Fundadas</span>
-                            </div>
-                            <div class="heritage-item">
-                                <span class="heritage-number">37</span>
-                                <span class="heritage-label">Años de Ministerio</span>
-                            </div>
+                            <div class="heritage-item"><span class="heritage-number">5,000+</span><span class="heritage-label">Iglesias fundadas</span></div>
+                            <div class="heritage-item"><span class="heritage-number">37</span><span class="heritage-label">Años de ministerio</span></div>
                         </div>
-                        <div class="master-wisdom">
-                            Médico convertido en apóstol por visitación sobrenatural de Cristo en 1982. Su ministerio se caracterizó por experiencias profundas con el Espíritu Santo y un legado doctrinal que permanece como tesoro para la Iglesia. Estableció más de 5,000 iglesias durante 37 años de ministerio fiel.
-                        </div>
+                        <div class="master-wisdom">Médico convertido en apóstol por visitación sobrenatural de Cristo en 1982. Su ministerio se caracterizó por experiencias profundas con el Espíritu Santo y un legado doctrinal que permanece como tesoro para la Iglesia. Estableció más de 5,000 iglesias durante 37 años de ministerio fiel.</div>
                         <div class="wisdom-areas">
                             <span class="wisdom-seal-small">Apostolado</span>
                             <span class="wisdom-seal-small">Dones del Espíritu</span>
                             <span class="wisdom-seal-small">Fe</span>
                             <span class="wisdom-seal-small">Discipulado</span>
                         </div>
-                        <a href="https://www.youtube.com/@fundaciondr.othonielriospa962/videos" class="access-manuscript" target="_blank">
-                            <i class="fab fa-youtube"></i> Acceder a Enseñanzas
+                        <a href="https://www.youtube.com/@fundaciondr.othonielriospa962/videos" class="access-link" target="_blank" rel="noopener noreferrer">
+                            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" /></svg> Acceder a enseñanzas
                         </a>
                     </div>
                 </div>
 
-                <div class="master-codex">
-                    <div class="codex-header">
-                        <div class="master-initial">A</div>
-                        <div class="codex-header-text">
+                <div class="window-card reveal">
+                    <div class="window-header">
+                        <div class="window-initial">A</div>
+                        <div class="window-header-text">
                             <div class="master-name">Dr. Armando Alducín</div>
                             <div class="master-title">Fundador Vida Nueva para el Mundo</div>
                         </div>
                     </div>
-                    <div class="codex-content">
+                    <div class="window-body">
                         <div class="master-heritage">
-                            <div class="heritage-item">
-                                <span class="heritage-number">55+</span>
-                                <span class="heritage-label">Naciones Alcanzadas</span>
-                            </div>
-                            <div class="heritage-item">
-                                <span class="heritage-number">30+</span>
-                                <span class="heritage-label">Años de Ministerio</span>
-                            </div>
+                            <div class="heritage-item"><span class="heritage-number">55+</span><span class="heritage-label">Naciones alcanzadas</span></div>
+                            <div class="heritage-item"><span class="heritage-number">30+</span><span class="heritage-label">Años de ministerio</span></div>
                         </div>
-                        <div class="master-wisdom">
-                            Doctor en Teología y Filosofía, reconocido por sus estudios profundos sobre evidencias bíblicas y científicas. Sus conferencias se transmiten vía satélite a más de 55 naciones. Combina rigor académico con fe sólida, demostrando el origen sobrenatural de las Escrituras.
-                        </div>
+                        <div class="master-wisdom">Doctor en Teología y Filosofía, reconocido por sus estudios profundos sobre evidencias bíblicas y científicas. Sus conferencias se transmiten vía satélite a más de 55 naciones. Combina rigor académico con fe sólida, demostrando el origen sobrenatural de las Escrituras.</div>
                         <div class="wisdom-areas">
                             <span class="wisdom-seal-small">Evidencias Bíblicas</span>
                             <span class="wisdom-seal-small">Escatología</span>
                             <span class="wisdom-seal-small">Apologética</span>
                             <span class="wisdom-seal-small">Hermenéutica</span>
                         </div>
-                        <a href="https://www.youtube.com/@armandoalducin/videos" class="access-manuscript" target="_blank">
-                            <i class="fab fa-youtube"></i> Acceder a Enseñanzas
+                        <a href="https://www.youtube.com/@armandoalducin/videos" class="access-link" target="_blank" rel="noopener noreferrer">
+                            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" /></svg> Acceder a enseñanzas
                         </a>
                     </div>
                 </div>
 
-                <div class="master-codex">
-                    <div class="codex-header">
-                        <div class="master-initial">S</div>
-                        <div class="codex-header-text">
+                <div class="window-card reveal">
+                    <div class="window-header">
+                        <div class="window-initial">S</div>
+                        <div class="window-header-text">
                             <div class="master-name">Apóstol Sergio Enríquez</div>
                             <div class="master-title">Ministerios Ebenezer</div>
                         </div>
                     </div>
-                    <div class="codex-content">
+                    <div class="window-body">
                         <div class="master-heritage">
-                            <div class="heritage-item">
-                                <span class="heritage-number">700+</span>
-                                <span class="heritage-label">Iglesias en Cobertura</span>
-                            </div>
-                            <div class="heritage-item">
-                                <span class="heritage-number">25+</span>
-                                <span class="heritage-label">Años de Liderazgo</span>
-                            </div>
+                            <div class="heritage-item"><span class="heritage-number">700+</span><span class="heritage-label">Iglesias en cobertura</span></div>
+                            <div class="heritage-item"><span class="heritage-number">25+</span><span class="heritage-label">Años de liderazgo</span></div>
                         </div>
-                        <div class="master-wisdom">
-                            Discípulo del Apóstol Othoniel Ríos, líder de una red apostólica global con cobertura a más de 700 iglesias. Sus enseñanzas se enfocan en el ministerio apostólico y profético para los últimos tiempos, con énfasis en la autoridad espiritual.
-                        </div>
+                        <div class="master-wisdom">Discípulo del apóstol Othoniel Ríos, líder de una red apostólica global con cobertura a más de 700 iglesias. Sus enseñanzas se enfocan en el ministerio apostólico y profético para los últimos tiempos, con énfasis en la autoridad espiritual.</div>
                         <div class="wisdom-areas">
                             <span class="wisdom-seal-small">Ministerio Apostólico</span>
                             <span class="wisdom-seal-small">Profecía</span>
                             <span class="wisdom-seal-small">Últimos Tiempos</span>
                             <span class="wisdom-seal-small">Liderazgo</span>
                         </div>
-                        <a href="https://www.youtube.com/@ApostolSergioEnriquez/videos" class="access-manuscript" target="_blank">
-                            <i class="fab fa-youtube"></i> Acceder a Enseñanzas
+                        <a href="https://www.youtube.com/@ApostolSergioEnriquez/videos" class="access-link" target="_blank" rel="noopener noreferrer">
+                            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" /></svg> Acceder a enseñanzas
                         </a>
-                        <div class="wisdom-note">
-                            <strong>Discernimiento:</strong> Como con todo ministerio, recomendamos verificar las enseñanzas con la Escritura y mantener a Cristo como fundamento.
-                        </div>
+                        <div class="wisdom-note"><strong>Discernimiento:</strong> Como con todo ministerio, recomendamos verificar las enseñanzas con la Escritura y mantener a Cristo como fundamento.</div>
                     </div>
                 </div>
 
-                <div class="master-codex">
-                    <div class="codex-header">
-                        <div class="master-initial">R</div>
-                        <div class="codex-header-text">
+                <div class="window-card reveal">
+                    <div class="window-header">
+                        <div class="window-initial">R</div>
+                        <div class="window-header-text">
                             <div class="master-name">Rob Skiba &dagger;</div>
                             <div class="master-title">Estudios Hebreos y Restauración (1971–2021)</div>
                         </div>
                     </div>
-                    <div class="codex-content">
+                    <div class="window-body">
                         <div class="master-heritage">
-                            <div class="heritage-item">
-                                <span class="heritage-number">15+</span>
-                                <span class="heritage-label">Años de Estudio</span>
-                            </div>
-                            <div class="heritage-item">
-                                <span class="heritage-number">200K+</span>
-                                <span class="heritage-label">Seguidores</span>
-                            </div>
+                            <div class="heritage-item"><span class="heritage-number">15+</span><span class="heritage-label">Años de estudio</span></div>
+                            <div class="heritage-item"><span class="heritage-number">200K+</span><span class="heritage-label">Seguidores</span></div>
                         </div>
-                        <div class="master-wisdom">
-                            Ministro enfocado en la restauración del cristianismo del primer siglo. Conocido por sus estudios profundos de Génesis 6, textos hebreos y libros extra-bíblicos referenciados en la Escritura. Su trabajo arqueológico y bíblico ha bendecido a muchos creyentes.
-                        </div>
+                        <div class="master-wisdom">Ministro enfocado en la restauración del cristianismo del primer siglo. Conocido por sus estudios profundos de Génesis 6, textos hebreos y libros extra-bíblicos referenciados en la Escritura. Su trabajo arqueológico y bíblico ha bendecido a muchos creyentes.</div>
                         <div class="wisdom-areas">
                             <span class="wisdom-seal-small">Génesis 6</span>
                             <span class="wisdom-seal-small">Textos Hebreos</span>
                             <span class="wisdom-seal-small">Libro de Enoc</span>
                             <span class="wisdom-seal-small">Cristianismo Primitivo</span>
                         </div>
-                        <a href="https://www.youtube.com/@RobSkiba/videos" class="access-manuscript" target="_blank">
-                            <i class="fab fa-youtube"></i> Acceder a Archivo
+                        <a href="https://www.youtube.com/@RobSkiba/videos" class="access-link" target="_blank" rel="noopener noreferrer">
+                            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" /></svg> Acceder a archivo
                         </a>
-                        <div class="wisdom-note">
-                            <strong>Enfoque recomendado:</strong> Concentrarse en sus estudios bíblicos sólidos y verificar todo con la Escritura.
-                        </div>
+                        <div class="wisdom-note"><strong>Enfoque recomendado:</strong> Concentrarse en sus estudios bíblicos sólidos y verificar todo con la Escritura.</div>
                     </div>
                 </div>
 
-                <div class="master-codex">
-                    <div class="codex-header">
-                        <div class="master-initial">M</div>
-                        <div class="codex-header-text">
+                <div class="window-card reveal">
+                    <div class="window-header">
+                        <div class="window-initial">M</div>
+                        <div class="window-header-text">
                             <div class="master-name">Misterios de la Biblia</div>
-                            <div class="master-title">Canal Especializado con Israel</div>
+                            <div class="master-title">Canal especializado con Israel</div>
                         </div>
                     </div>
-                    <div class="codex-content">
+                    <div class="window-body">
                         <div class="master-heritage">
-                            <div class="heritage-item">
-                                <span class="heritage-number">100K+</span>
-                                <span class="heritage-label">Suscriptores</span>
-                            </div>
-                            <div class="heritage-item">
-                                <span class="heritage-number">500+</span>
-                                <span class="heritage-label">Videos</span>
-                            </div>
+                            <div class="heritage-item"><span class="heritage-number">100K+</span><span class="heritage-label">Suscriptores</span></div>
+                            <div class="heritage-item"><span class="heritage-number">500+</span><span class="heritage-label">Videos</span></div>
                         </div>
-                        <div class="master-wisdom">
-                            Pastor Israel Montaño y su canal especializado en revelar misterios bíblicos ocultos, patrones proféticos y enseñanzas profundas que fortalecen la fe. Su contenido expande el entendimiento de las Escrituras mediante análisis detallado y revelaciones espirituales.
-                        </div>
+                        <div class="master-wisdom">Pastor Israel Montaño y su canal especializado en revelar misterios bíblicos ocultos, patrones proféticos y enseñanzas profundas que fortalecen la fe. Su contenido expande el entendimiento de las Escrituras mediante análisis detallado y revelaciones espirituales.</div>
                         <div class="wisdom-areas">
                             <span class="wisdom-seal-small">Misterios Bíblicos</span>
                             <span class="wisdom-seal-small">Patrones Proféticos</span>
                             <span class="wisdom-seal-small">Estudios Profundos</span>
                             <span class="wisdom-seal-small">Revelación</span>
                         </div>
-                        <a href="https://www.youtube.com/@misteriosdelabibliaconisra9581/videos" class="access-manuscript" target="_blank">
-                            <i class="fab fa-youtube"></i> Acceder a Estudios
+                        <a href="https://www.youtube.com/@misteriosdelabibliaconisra9581/videos" class="access-link" target="_blank" rel="noopener noreferrer">
+                            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" /></svg> Acceder a estudios
                         </a>
                     </div>
                 </div>
 
-                <div class="master-codex">
-                    <div class="codex-header">
-                        <div class="master-initial">E</div>
-                        <div class="codex-header-text">
+                <div class="window-card reveal">
+                    <div class="window-header">
+                        <div class="window-initial">E</div>
+                        <div class="window-header-text">
                             <div class="master-name">Ebenezer Hon</div>
-                            <div class="master-title">Ministerio de Enseñanza y Crecimiento</div>
+                            <div class="master-title">Ministerio de enseñanza y crecimiento</div>
                         </div>
                     </div>
-                    <div class="codex-content">
+                    <div class="window-body">
                         <div class="master-heritage">
-                            <div class="heritage-item">
-                                <span class="heritage-number">50K+</span>
-                                <span class="heritage-label">Seguidores</span>
-                            </div>
-                            <div class="heritage-item">
-                                <span class="heritage-number">10+</span>
-                                <span class="heritage-label">Años Activo</span>
-                            </div>
+                            <div class="heritage-item"><span class="heritage-number">50K+</span><span class="heritage-label">Seguidores</span></div>
+                            <div class="heritage-item"><span class="heritage-number">10+</span><span class="heritage-label">Años activo</span></div>
                         </div>
-                        <div class="master-wisdom">
-                            Ministerio dedicado a la enseñanza profunda de la Palabra donde se destaca el ministro German Ponce, esta página se destaca en la aplicación práctica de verdades bíblicas. Especialista en crecimiento espiritual y desarrollo de la madurez cristiana a través de estudios sistemáticos.
-                        </div>
+                        <div class="master-wisdom">Ministerio dedicado a la enseñanza profunda de la Palabra, liderado por el ministro Germán Ponce. Se destaca por la aplicación práctica de verdades bíblicas, con especialización en crecimiento espiritual y desarrollo de la madurez cristiana a través de estudios sistemáticos.</div>
                         <div class="wisdom-areas">
                             <span class="wisdom-seal-small">Enseñanza Bíblica</span>
                             <span class="wisdom-seal-small">Crecimiento Espiritual</span>
                             <span class="wisdom-seal-small">Aplicación Práctica</span>
                             <span class="wisdom-seal-small">Madurez Cristiana</span>
                         </div>
-                        <a href="https://www.youtube.com/@EbenezerHon/videos" class="access-manuscript" target="_blank">
-                            <i class="fab fa-youtube"></i> Acceder a Enseñanzas
+                        <a href="https://www.youtube.com/@EbenezerHon/videos" class="access-link" target="_blank" rel="noopener noreferrer">
+                            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" /></svg> Acceder a enseñanzas
                         </a>
                     </div>
                 </div>
@@ -1101,97 +810,63 @@
         </div>
     </section>
 
-    <!-- ── PREGUNTAS PARA REFLEXIÓN PROFUNDA ── -->
     <section class="inquiries-section">
         <div class="container">
-            <div class="section-hd">
+            <div class="section-hd reveal">
                 <span class="section-hd-label">Para el creyente maduro</span>
-                <h2>Preguntas para Reflexión Profunda</h2>
-                <p>Desafíos intelectuales y espirituales para el creciente maduro</p>
+                <h2>Preguntas para reflexión profunda</h2>
+                <p>Desafíos intelectuales y espirituales para el creyente en crecimiento</p>
                 <div class="rule"></div>
             </div>
 
             <div class="wisdom-inquiries">
-
-                <div class="inquiry-scroll">
-                    <div class="inquiry-mark">?</div>
-                    <div class="inquiry-text">
-                        ¿Cómo reconciliamos la soberanía absoluta de Dios con la responsabilidad moral humana en el plan de salvación?
-                    </div>
-                    <div class="inquiry-reference">
-                        <strong>Medite en:</strong> Efesios 1:4-5, Filipenses 2:12-13, Romanos 9:16-24
-                    </div>
+                <div class="inquiry-card reveal">
+                    <div class="inquiry-mark"><svg class="ic" style="font-size:1.6rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" /><circle cx="12" cy="12" r="10" /></svg></div>
+                    <div class="inquiry-text">¿Cómo reconciliamos la soberanía absoluta de Dios con la responsabilidad moral humana en el plan de salvación?</div>
+                    <div class="inquiry-reference"><strong>Medite en:</strong> Efesios 1:4-5, Filipenses 2:12-13, Romanos 9:16-24</div>
                 </div>
-
-                <div class="inquiry-scroll">
-                    <div class="inquiry-mark">?</div>
-                    <div class="inquiry-text">
-                        ¿Cuál es el propósito eterno de Dios revelado progresivamente desde Génesis hasta Apocalipsis?
-                    </div>
-                    <div class="inquiry-reference">
-                        <strong>Considere:</strong> Efesios 3:8-11, Colosenses 1:25-27, Apocalipsis 21:1-5
-                    </div>
+                <div class="inquiry-card reveal">
+                    <div class="inquiry-mark"><svg class="ic" style="font-size:1.6rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" /><circle cx="12" cy="12" r="10" /></svg></div>
+                    <div class="inquiry-text">¿Cuál es el propósito eterno de Dios revelado progresivamente desde Génesis hasta Apocalipsis?</div>
+                    <div class="inquiry-reference"><strong>Considere:</strong> Efesios 3:8-11, Colosenses 1:25-27, Apocalipsis 21:1-5</div>
                 </div>
-
-                <div class="inquiry-scroll">
-                    <div class="inquiry-mark">?</div>
-                    <div class="inquiry-text">
-                        ¿Cómo interpretar correctamente las profecías que tienen cumplimiento múltiple o dual en las Escrituras?
-                    </div>
-                    <div class="inquiry-reference">
-                        <strong>Analice:</strong> Daniel 9:24-27, Mateo 24, y los principios de tipología bíblica
-                    </div>
+                <div class="inquiry-card reveal">
+                    <div class="inquiry-mark"><svg class="ic" style="font-size:1.6rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" /><circle cx="12" cy="12" r="10" /></svg></div>
+                    <div class="inquiry-text">¿Cómo interpretar correctamente las profecías que tienen cumplimiento múltiple o dual en las Escrituras?</div>
+                    <div class="inquiry-reference"><strong>Analice:</strong> Daniel 9:24-27, Mateo 24, y los principios de tipología bíblica</div>
                 </div>
-
-                <div class="inquiry-scroll">
-                    <div class="inquiry-mark">?</div>
-                    <div class="inquiry-text">
-                        ¿Cuál es la relación entre los pactos bíblicos y cómo se cumple la promesa davídica en Cristo?
-                    </div>
-                    <div class="inquiry-reference">
-                        <strong>Estudie:</strong> 2 Samuel 7:12-16, Jeremías 31:31-34, Hebreos 8:6-13
-                    </div>
+                <div class="inquiry-card reveal">
+                    <div class="inquiry-mark"><svg class="ic" style="font-size:1.6rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" /><circle cx="12" cy="12" r="10" /></svg></div>
+                    <div class="inquiry-text">¿Cuál es la relación entre los pactos bíblicos y cómo se cumple la promesa davídica en Cristo?</div>
+                    <div class="inquiry-reference"><strong>Estudie:</strong> 2 Samuel 7:12-16, Jeremías 31:31-34, Hebreos 8:6-13</div>
                 </div>
-
-                <div class="inquiry-scroll">
-                    <div class="inquiry-mark">?</div>
-                    <div class="inquiry-text">
-                        ¿Cómo entender la unidad y diversidad dentro de la Trinidad y sus implicaciones doctrinales?
-                    </div>
-                    <div class="inquiry-reference">
-                        <strong>Reflexione sobre:</strong> Juan 1:1-3, Juan 14:16-17, Mateo 28:19
-                    </div>
+                <div class="inquiry-card reveal">
+                    <div class="inquiry-mark"><svg class="ic" style="font-size:1.6rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" /><circle cx="12" cy="12" r="10" /></svg></div>
+                    <div class="inquiry-text">¿Cómo entender la unidad y diversidad dentro de la Trinidad y sus implicaciones doctrinales?</div>
+                    <div class="inquiry-reference"><strong>Reflexione sobre:</strong> Juan 1:1-3, Juan 14:16-17, Mateo 28:19</div>
                 </div>
-
-                <div class="inquiry-scroll">
-                    <div class="inquiry-mark">?</div>
-                    <div class="inquiry-text">
-                        ¿Cuál es la naturaleza del Reino de Dios: presente, futuro, o ambas dimensiones operando simultáneamente?
-                    </div>
-                    <div class="inquiry-reference">
-                        <strong>Compare:</strong> Mateo 12:28, Lucas 17:20-21, Apocalipsis 20:1-6
-                    </div>
+                <div class="inquiry-card reveal">
+                    <div class="inquiry-mark"><svg class="ic" style="font-size:1.6rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" /><circle cx="12" cy="12" r="10" /></svg></div>
+                    <div class="inquiry-text">¿Cuál es la naturaleza del Reino de Dios: presente, futuro, o ambas dimensiones operando simultáneamente?</div>
+                    <div class="inquiry-reference"><strong>Compare:</strong> Mateo 12:28, Lucas 17:20-21, Apocalipsis 20:1-6</div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ── RECURSOS COMPLEMENTARIOS ── -->
     <section class="resources-section">
         <div class="container">
-            <div class="section-hd">
+            <div class="section-hd reveal">
                 <span class="section-hd-label">Herramientas adicionales</span>
-                <h2>Recursos Complementarios</h2>
+                <h2>Recursos complementarios</h2>
                 <p>Herramientas adicionales para el estudio profundo</p>
                 <div class="rule"></div>
             </div>
 
             <div class="resources-grid">
-
-                <div class="resource-card">
+                <div class="resource-card reveal">
                     <div class="resource-header">
-                        <div class="resource-icon"><i class="fab fa-facebook"></i></div>
+                        <div class="resource-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg></div>
                         <div class="resource-header-text">
                             <div class="resource-name">Ron Wyatt Español</div>
                             <div class="resource-subtitle">Grupo Facebook — Arqueología Bíblica</div>
@@ -1199,177 +874,71 @@
                     </div>
                     <div class="resource-body">
                         <p>Únete a la comunidad en Facebook para discusiones profundas sobre la arqueología bíblica con Ron Wyatt en español. Un ambiente de aprendizaje y descubrimientos donde se promueve la veracidad de las Escrituras.</p>
-                        <a href="https://www.facebook.com/groups/203013564784978" class="resource-link" target="_blank">
-                            <i class="fab fa-facebook"></i> Unirse al Grupo
+                        <a href="https://www.facebook.com/groups/203013564784978" class="resource-link" target="_blank" rel="noopener noreferrer">
+                            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg> Unirse al grupo
                         </a>
                     </div>
                 </div>
 
-                <div class="resource-card">
+                <div class="resource-card reveal">
                     <div class="resource-header">
-                        <div class="resource-icon"><i class="fas fa-archive"></i></div>
+                        <div class="resource-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1" /><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" /><path d="M10 12h4" /></svg></div>
                         <div class="resource-header-text">
                             <div class="resource-name">Secretos Bíblicos 360</div>
-                            <div class="resource-subtitle">@SecretosBiblicos360 &bull; 289k suscriptores</div>
+                            <div class="resource-subtitle">@SecretosBiblicos360 · 289k suscriptores</div>
                         </div>
                     </div>
                     <div class="resource-body">
-                        <p>Acceso a información apocalíptica, estudios y profecías para indagar y escudriñar para enriquecer tu comprensión de las Escrituras y profundizar en temas doctrinales complejos.</p>
-                        <a href="https://www.youtube.com/@SecretosBiblicos360/videos" class="resource-link" target="_blank">
-                            <i class="fas fa-book-open"></i> Explorar Biblioteca
+                        <p>Contenido sobre profecía y literatura apocalíptica bíblica, pensado para escudriñar las Escrituras y profundizar en temas doctrinales complejos.</p>
+                        <a href="https://www.youtube.com/@SecretosBiblicos360/videos" class="resource-link" target="_blank" rel="noopener noreferrer">
+                            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16" /><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" /></svg> Explorar biblioteca
                         </a>
                     </div>
                 </div>
 
-                <div class="resource-card">
+                <div class="resource-card reveal">
                     <div class="resource-header">
-                        <div class="resource-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="resource-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" /><path d="M22 10v6" /><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /></svg></div>
                         <div class="resource-header-text">
                             <div class="resource-name">Profeta Dioni De La Rosa</div>
-                            <div class="resource-subtitle">@profetadionidelarosa &bull; 401k suscriptores</div>
+                            <div class="resource-subtitle">@profetadionidelarosa · 401k suscriptores</div>
                         </div>
                     </div>
                     <div class="resource-body">
-                        <p>Bienvenidos al canal del Profeta Diony De La Rosa. Suscríbete y sé bendecido con una palabra para ti. Recuerda que toda Gloria Le Pertenece A Nuestro Dios Jehová de los Ejércitos.</p>
-                        <a href="https://www.youtube.com/@profetadionidelarosa/videos" class="resource-link" target="_blank">
-                            <i class="fas fa-chalkboard-teacher"></i> Ver Seminarios
+                        <p>Bienvenidos al canal del Profeta Dioni De La Rosa. Suscríbete y sé bendecido con una palabra para ti. Recuerda que toda la gloria le pertenece a nuestro Dios, Jehová de los Ejércitos.</p>
+                        <a href="https://www.youtube.com/@profetadionidelarosa/videos" class="resource-link" target="_blank" rel="noopener noreferrer">
+                            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h20" /><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /><path d="m7 21 5-5 5 5" /></svg> Ver seminarios
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ── FOOTER ── -->
-    <footer>
-        <div class="container">
-            <div class="footer-links-row">
-                <a href="../../index.html" class="footer-link">Inicio</a>
-                <a href="../../page/Estudios Exegéticos/temas-exegeticos.html" class="footer-link">Estudios Exegéticos</a>
-                <a href="./doctrina-basica.html" class="footer-link">Doctrina Fundamentales</a>
-                <a href="./doctrina-intermedia.html" class="footer-link">Doctrina Intermedia</a>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2025 Ministerio "La Gloria es del Señor" &mdash; Doctrina Avanzada
-            </div>
+    <footer class="site-footer">
+        <div class="footer-links-row">
+            <a href="../../index.html" class="footer-link"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg> Inicio</a>
+            <a href="../Estudios Exegéticos/temas-exegeticos.html" class="footer-link"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg> Estudios Exegéticos</a>
+            <a href="./doctrina-basica.html" class="footer-link"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5" /><path d="M14 6a6 6 0 0 1 6 6v3" /><path d="M4 15v-3a6 6 0 0 1 6-6" /><rect x="2" y="15" width="20" height="4" rx="1" /></svg> Doctrina Básica</a>
+            <a href="./doctrina-intermedia.html" class="footer-link"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.99 6.74 1.93 3.44" /><path d="M19.136 12a10 10 0 0 1-14.271 0" /><path d="m21 21-2.16-3.84" /><path d="m3 21 8.02-14.26" /><circle cx="12" cy="5" r="2" /></svg> Doctrina Intermedia</a>
+            <a href="./aguila-cinco-ministerios.html" class="footer-link"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.086 18.412A2 2 0 0112.67 19H5v-7.672a2 2 0 01.586-1.414L11.75 3.75a6 6 0 118.49 8.49z" /><path d="M16 8 2 22" /><path d="M17.488 15H9" /></svg> El Águila y los Cinco Ministerios</a>
         </div>
+        <div class="footer-bottom">&copy; 2026 Ministerio "La Gloria es del Señor" &mdash; Doctrina Avanzada</div>
     </footer>
 
     <script>
-        // Parallax sutil en scroll
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.parallax-element');
-
-            parallaxElements.forEach((element, index) => {
-                const speed = 0.1 + (index * 0.05);
-                const yPos = -(scrolled * speed);
-                element.style.transform = `translateY(${yPos}px)`;
-            });
-        });
-
-        // Animaciones de entrada en scroll
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0) rotate(0deg)';
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    io.unobserve(e.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-        // Observar elementos para animación
-        document.querySelectorAll('.master-codex, .scripture-scroll, .inquiry-scroll').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(40px) rotate(-1deg)';
-            el.style.transition = 'all 1s cubic-bezier(0.165, 0.84, 0.44, 1)';
-            observer.observe(el);
-        });
-
-        // Efecto de hover mejorado para los códices
-        document.querySelectorAll('.master-codex').forEach(codex => {
-            codex.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1) rotate(0deg)';
-            });
-
-            codex.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1) rotate(0deg)';
-            });
-        });
-
-        // Efecto de typing en los títulos
-        function typeWriter(element, text, speed = 80) {
-            let i = 0;
-            element.innerHTML = '';
-            function typing() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(typing, speed);
-                }
-            }
-            typing();
-        }
-
-        // Efecto de iluminación en los pergaminos al hacer clic
-        document.querySelectorAll('.scripture-scroll, .inquiry-scroll').forEach(scroll => {
-            scroll.addEventListener('click', function() {
-                this.style.boxShadow = '0 0 30px rgba(42, 30, 74, 0.45)';
-                setTimeout(() => {
-                    this.style.boxShadow = '';
-                }, 1000);
-            });
-        });
-
-        // Smooth scroll para navegación interna
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Easter egg para usuarios dedicados
-        let secretSequence = [];
-        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight'];
-
-        document.addEventListener('keydown', (e) => {
-            secretSequence.push(e.code);
-            if (secretSequence.length > konamiCode.length) {
-                secretSequence.shift();
-            }
-
-            if (JSON.stringify(secretSequence) === JSON.stringify(konamiCode)) {
-                document.body.style.filter = 'sepia(1) hue-rotate(200deg)';
-                setTimeout(() => {
-                    document.body.style.filter = 'none';
-                    alert('¡Bendiciones por tu dedicación al estudio de la Palabra! 📖✨');
-                }, 2000);
-                secretSequence = [];
-            }
-        });
-
-        // Inicialización
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(() => {
-                const title = document.querySelector('.hero-title');
-                if (title) {
-                    title.style.opacity = '1';
-                    title.style.transform = 'translateY(0)';
-                }
-            }, 500);
+        document.querySelectorAll('.reveal').forEach((el, i) => {
+            el.style.transitionDelay = (i % 4) * 0.06 + 's';
+            io.observe(el);
         });
     </script>
 </body>
