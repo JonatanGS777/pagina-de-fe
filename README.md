@@ -163,6 +163,44 @@ Sitio web estático del ministerio cristiano, desplegado en **Vercel** con auten
 - **Bug de páginas huérfanas corregido:** la grilla de tipología solo enlazaba a 4 de las 6 páginas hermanas de la categoría. Se agregaron `temple-3d.html` (no estaba enlazada en ningún lado del archivo) y `tipologia-cantares.html` (solo vivía en el menú dropdown, no en esta página).
 - Con esta página, `page/Figuras Bíblicas/at-a-nt.html` pasa de "pendiente" a completada; las 6 páginas restantes de la categoría siguen pendientes.
 
+### 2026-08-18: figuras-cristo.html, sacrificios-figuras.html, templo-figuras.html y el visor 3D del Templo (Figuras Bíblicas)
+
+- **`page/Figuras Bíblicas/figuras-cristo.html`**: estilo propio "Manuscrito Iluminado" (tipografía y tratamiento de capitulares evocando un manuscrito medieval iluminado). Íconos de la sección Animales y capitulares de letra corregidos a Lucide en un pase posterior.
+- **`page/Figuras Bíblicas/sacrificios-figuras.html`**: estilo propio "El Altar de Piedra".
+- **`page/Figuras Bíblicas/templo-figuras.html`**: estilo propio "Plano del Arquitecto" (blueprint técnico, paleta azul plano/dorado). El mismo lenguaje visual se extendió al chrome de `temple-3d.html` (header, HUD, panel de partes) para que el visor 3D y su página madre se sientan como una sola pieza.
+- **`page/Figuras Bíblicas/temple-3d.html`**: el visor 3D del Templo de Salomón se reconstruyó por completo con Three.js r178 (antes una versión más antigua/limitada, ver `temple-3d-viejo.html` conservado como referencia). Se corrigió el enfoque de cámara y se activaron los enlaces `?part=` para llegar directo a una pieza específica. Los emoji de la intro y el botón "Caminar" se reemplazaron por íconos Lucide SVG.
+
+### 2026-08-18: se agrega tabernaculo-3d.html (Éxodo 25-40) a Figuras Bíblicas
+
+- **`page/Figuras Bíblicas/tabernaculo-3d.html`**: nuevo modelo 3D interactivo del Tabernáculo del desierto (mismo patrón que `temple-3d.html`), con las 17 partes del mobiliario en 3 categorías (El Atrio, La Estructura, El Santuario), sección de Componentes con filtros y atajos de teclado. Enlazado desde el dropdown de Figuras Bíblicas y desde un bloque "Su precedente" agregado en `templo-figuras.html`.
+- **Nota:** esta página se agregó en paralelo a una sesión de arreglos sobre el mismo archivo (ver siguiente entrada) — el commit inicial tenía varios bugs de integración que se corrigieron enseguida, no llegaron a quedar en producción por más de unos minutos.
+
+### 2026-08-18: arreglos extensos de los visores 3D del Templo y el Tabernáculo
+
+Tras agregarse `tabernaculo-3d.html`, una revisión a fondo (a pedido del usuario, "no se ve el tabernáculo" / "no son responsivas" / "la parte del interior no se ve bien") encontró y corrigió una cadena de bugs, varios preexistentes también en `temple-3d.html` por compartir el mismo patrón:
+
+- **CSS huérfano:** `tabernaculo-3d-app.css` se escribió desde cero en vez de adaptarse de `temple-3d-app.css` — variables de fuente apuntaban a Cinzel/Inter, nunca cargadas (quedaban en la fuente de reserva del sistema); las clases de la pantalla de bienvenida y el modal de ayuda no coincidían con las del HTML (`.intro-card` vs `.t3d-intro-card`), así que no tenían ningún estilo aplicado; faltaban las reglas de la grilla "Componentes" (`.pc-name`/`.pc-ref` sin definir en ningún archivo cargado).
+- **Caché inmutable:** el sitio sirve todo `.css`/`.js` con `Cache-Control: immutable, max-age=31536000` (`vercel.json`). Cada archivo modificado en esta sesión necesitó cache-busting (`?v=N`) en su referencia — de lo contrario los navegadores que ya habían visitado la página seguían sirviendo la versión rota indefinidamente pese a que el repo ya tuviera el arreglo.
+- **Responsividad:** `.temple-3d-nav` (header compartido por ambas páginas) no tenía ninguna regla para pantallas chicas — logo, enlace de regreso y los 3 links de navegación intentaban caber en una sola fila sin `flex-wrap`, desbordando en móvil. Se simplificó ocultando los enlaces de salto en móvil (siguen alcanzables con scroll) en vez de dejar que el header creciera a varias filas, lo que a su vez habría tapado el HUD del visor (regresión detectada y corregida en el mismo pase). Los toggles del HUD ("Etiquetas"/"Ver interior"/"Volar al elegir"), ocultos en móvil por falta de espacio, se restauraron más compactos.
+- **Navegación interior:** las paredes/velo/cubierta de la tienda son opacas por defecto y bloqueaban la vista de las piezas interiores (Lugar Santo, Lugar Santísimo) al orbitar desde ciertos ángulos. Ahora "Ver interior" se activa automáticamente al seleccionar cualquier pieza interior o al entrar en modo caminata. El modo caminata (WASD, solo PC) no tenía detección de colisión — se podía atravesar las tablas de la pared y quedar con la cámara incrustada en la geometría; se agregó colisión simple contra las 3 paredes de la tienda.
+- **Espacio interior:** el FOV de la cámara subió de 55° a 70° (técnica estándar para espacios interiores reducidos) y el modelo completo del tabernáculo se escaló x1.4 (`SCALE` en `tabernaculo.js`, aplicado al grupo raíz y replicado a cámaras de vuelo, colisión y límites de movimiento en `main.js`) para dar más holgura de navegación.
+- **Hueco en el perímetro:** la pared posterior del atrio (z=-12.5) solo tenía cortina y columnas en el tercio central, dejando ~13 unidades sin cercar a cada lado — único de los 4 muros que no llegaba hasta las esquinas. Corregido a todo el ancho, con las columnas de esquina que faltaban.
+- **Escala del mobiliario del Templo:** el candelero (10 menorás), el altar del incienso, la mesa del pan y el arca del pacto se habían dibujado a la mitad de la escala real del Hekal (confirmado comparando con sus propias descripciones en el código: "2 × 1 codos" la mesa, dibujada como 1 × 0.5). Se recentraron y escalaron x2 en su sitio, sin mover su posición. De paso, un escalón del podio del Templo que flotaba 0.2 unidades sobre el suelo (bug de un solo valor de centro mal calculado) quedó apoyado correctamente.
+
+### 2026-08-18: nombres-simbologia.html y tipologia-cantares.html completan Figuras Bíblicas
+
+- **`page/Figuras Bíblicas/nombres-simbologia.html`**: refinamiento, no rediseño — el concepto existente ("pergamino/rollo antiguo", Cinzel + EB Garamond + Tangerine) ya encajaba con el contenido (101 nombres bíblicos con buscador). Se agregó el header del sitio, que faltaba por completo (página huérfana), y se reemplazó el único uso de Font Awesome por Lucide.
+- **`page/Figuras Bíblicas/tipologia-cantares.html`**: rediseñada con estilo propio "Jardín Sellado" (imagen hero propia, CSS dedicado en `css/tipologia-cantares-jardin.css`), con un pase posterior de corrección ortográfica y de jerarquía tipográfica.
+- **Con estas dos páginas, la categoría `page/Figuras Bíblicas/` queda 100% completa** (7 páginas de contenido + `temple-3d.html` + `tabernaculo-3d.html`).
+
+### 2026-08-18: comienza el rediseño de Tiempo del Fin — introduccion.html "Atalaya del Amanecer"
+
+- Antes de empezar, se decidió con el usuario analizar cada una de las 14 páginas de `page/Tiempo del Fin/` por separado (mismo criterio que Falsas Doctrinas), no una identidad visual compartida, pese a ser una sola serie temática — decisión explícita del usuario.
+- **`page/Tiempo del Fin/introduccion.html`** (página de entrada de la categoría, primera de las 14): estilo propio "Atalaya del Amanecer" elegido entre 3 direcciones propuestas (Reloj de Arena, Atalaya del Amanecer, Apocalipsis Iluminado). Tipografía Spectral + Source Serif 4 + IBM Plex Mono, reemplaza Montserrat + Raleway y el clásico gradiente morado sobre claro que la guía de diseño del sitio marca como cliché a evitar.
+- **Bugs heredados de la plantilla genérica original, corregidos en el rediseño:** header con barra de contacto falsa + mega-menú dropdown con rutas de logo rotas (`../../../` en vez de `../../`); 23 usos de Font Awesome reemplazados por Lucide; formulario de newsletter sin backend (submit roto), reemplazado por enlaces reales a las redes del ministerio ya presentes en la página; footer con dirección/teléfono/redes falsas (`href="#"`) reemplazado por el footer compartido del sitio; un bloque de JS huérfano de "smooth scrolling" que referenciaba una variable nunca definida.
+- **Imagen del hero:** `findelostiempos.png` (2.5 MB sin optimizar) se había quitado en un primer pase a favor de un cielo estrellado 100% CSS; a pedido del usuario se restauró, comprimida a JPEG (`findelostiempos-hero.jpg`, 246 KB). La imagen (libro abierto, reloj marcando casi las doce, trompetas, meteoros, sol naciente) encajó directo con el concepto ya elegido, así que el cielo CSS y una constelación decorativa se retiraron a favor de la imagen real.
+- Contenido (versículos, preguntas frecuentes, señales de la línea de tiempo, recursos recomendados) se mantuvo íntegro en las tres páginas; solo cambió la presentación.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -436,6 +474,14 @@ Página de Fe/
 | `page/Estudios Bíblicos/estudios/ministerio-pastoral.html` | Refinado — se conservó el concepto de "plano arquitectónico de la iglesia"; 36 emoji reemplazados por Lucide, header agregado, 'Roboto Slab' antes sin cargar; ver historial 2026-08-17 |
 | `page/Estudios Bíblicos/recursos/Cronograma Detallado.html` | Refinado — página hermana de analisisexgetico.html; Font Awesome (20 usos) reemplazado por Lucide, logo EMD agregado al header para consistencia con su página madre; ver historial 2026-08-17 |
 | `page/Figuras Bíblicas/at-a-nt.html` | Completado: estilo propio "Dos Testamentos, Un Río" (directorio de los 66 libros de la Biblia; ver historial 2026-08-18) |
+| `page/Figuras Bíblicas/figuras-cristo.html` | Completado: estilo propio "Manuscrito Iluminado"; ver historial 2026-08-18 |
+| `page/Figuras Bíblicas/sacrificios-figuras.html` | Completado: estilo propio "El Altar de Piedra"; ver historial 2026-08-18 |
+| `page/Figuras Bíblicas/templo-figuras.html` | Completado: estilo propio "Plano del Arquitecto"; ver historial 2026-08-18 |
+| `page/Figuras Bíblicas/temple-3d.html` | Completado: visor 3D del Templo de Salomón reconstruido con Three.js r178, paleta "Plano del Arquitecto"; ver historial 2026-08-18 |
+| `page/Figuras Bíblicas/tabernaculo-3d.html` | Completado: visor 3D del Tabernáculo (Éxodo 25-40), mismo patrón que temple-3d.html; ver historial 2026-08-18 |
+| `page/Figuras Bíblicas/nombres-simbologia.html` | Refinado: se conservó el concepto "pergamino/rollo antiguo" existente, se agregó el header del sitio que faltaba; ver historial 2026-08-18 |
+| `page/Figuras Bíblicas/tipologia-cantares.html` | Completado: estilo propio "Jardín Sellado"; ver historial 2026-08-18 |
+| `page/Tiempo del Fin/introduccion.html` | Completado: estilo propio "Atalaya del Amanecer" (primera de 14 páginas de la categoría); ver historial 2026-08-18 |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
@@ -458,19 +504,9 @@ Página de Fe/
 - [ ] `planes/plan-devocional.html`
 - [ ] `planes/plan-tematico.html`
 
-#### `page/Figuras Bíblicas/`
-
-- [ ] `figuras-cristo.html`
-- [ ] `nombres-simbologia.html`
-- [ ] `sacrificios-figuras.html`
-- [ ] `temple-3d.html`
-- [ ] `templo-figuras.html`
-- [ ] `tipologia-cantares.html`
-
 #### `page/Tiempo del Fin/`
 
 - [ ] `escatologia.html`
-- [ ] `introduccion.html`
 - [ ] `noticias-fin.html`
 - [ ] `nuevo-orden-mundial.html`
 - [ ] `profecias-cumplidas.html`
