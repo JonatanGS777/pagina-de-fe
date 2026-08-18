@@ -11,2408 +11,733 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tipología de los Sacrificios - Ministerio EMD</title>
+    <title>Tipología de los sacrificios | Ministerio "La Gloria es del Señor"</title>
+    <meta name="description" content="Cómo los cinco sacrificios levíticos del Antiguo Testamento prefiguran y encuentran su cumplimiento perfecto en la obra redentora de Jesucristo.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2D1B69;
-            --secondary: #8B5CF6;
-            --accent: #F59E0B;
-            --success: #10B981;
-            --warning: #F59E0B;
-            --error: #EF4444;
-            --dark: #0F172A;
-            --light: #F8FAFC;
-            --white: #FFFFFF;
-            --gray-50: #F9FAFB;
-            --gray-100: #F3F4F6;
-            --gray-200: #E5E7EB;
-            --gray-300: #D1D5DB;
-            --gray-400: #9CA3AF;
-            --gray-500: #6B7280;
-            --gray-600: #4B5563;
-            --gray-700: #374151;
-            --gray-800: #1F2937;
-            --gray-900: #111827;
-            
-            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --gradient-purple: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-            
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --stone:        #e6ddc9;
+            --stone-dk:     #d4c6a8;
+            --stone-lt:     #f2ece0;
+            --basalt:       #221d18;
+            --basalt-deep:  #16120e;
+            --ember:        #b0451f;
+            --ember-light:  #d97a4a;
+            --ember-pale:   rgba(176,69,31,0.08);
+            --oxblood:      #6b1f22;
+            --oxblood-pale: rgba(107,31,34,0.07);
+            --bronze:       #8a6d3b;
+            --bronze-light: #b6934f;
+            --text-body:    #3a332a;
+            --text-muted:   #7d7364;
+            --header-bg:    rgba(22,18,14,0.97);
+            --hero-grad:    linear-gradient(180deg, rgba(20,14,9,0.25) 0%, rgba(20,14,9,0.75) 65%, rgba(20,14,9,0.94) 100%);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.7;
-            color: var(--gray-800);
-            background: var(--white);
+            font-family: 'Crimson Pro', serif;
+            font-weight: 400;
+            background: var(--stone);
+            color: var(--text-body);
             overflow-x: hidden;
         }
 
-        /* Header moderno con glassmorphism */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 1rem 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            transition: var(--transition);
-        }
+        .ic { width: 1em; height: 1em; vertical-align: -0.15em; flex-shrink: 0; display: inline-block; }
 
-        .header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: var(--shadow-lg);
+        /* ── HEADER ── */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            height: 68px;
+            background: var(--header-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(182,147,79,0.22);
+            padding: 0 2.5rem;
+            display: flex; align-items: center; justify-content: space-between;
         }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .header-logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
+        .header-logo img { height: 38px; width: auto; opacity: 0.92; }
+        .header-logo-text { font-family: 'Marcellus', serif; font-size: 0.85rem; font-weight: 400; color: var(--bronze-light); letter-spacing: 0.02em; line-height: 1.3; }
+        .header-logo-text span { display: block; font-family: 'Crimson Pro', serif; font-size: 0.76rem; font-style: italic; font-weight: 400; color: rgba(230,221,201,0.55); }
+        .header-badge {
+            display: flex; align-items: center; gap: 0.55rem;
+            font-family: 'Marcellus', serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+            color: rgba(182,147,79,0.8); border: 1px solid rgba(182,147,79,0.32); padding: 0.5rem 1.1rem;
         }
+        .header-badge .ic { font-size: 0.95rem; color: var(--bronze-light); }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 1rem;
+        /* ── HERO ── */
+        .page-hero {
+            position: relative; margin-top: 68px; min-height: 74vh;
+            display: flex; align-items: flex-end;
+            background: var(--hero-grad), url('images/altar-holocaustos-hero.jpg') center 70%/cover no-repeat;
         }
-
-        .logo-img {
-            height: 50px;
-            width: auto;
+        .hero-inner { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; padding: 3.5rem 2.5rem 4.5rem; text-align: center; }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-family: 'Marcellus', serif; font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase;
+            color: var(--bronze-light); border: 1px solid rgba(182,147,79,0.4); padding: 0.4rem 1.1rem; margin-bottom: 1.7rem;
         }
+        .hero-title { font-family: 'Marcellus', serif; font-size: clamp(2.1rem, 4.6vw, 3.4rem); font-weight: 400; color: #f5efe2; line-height: 1.24; margin-bottom: 1.3rem; }
+        .hero-title em { font-style: normal; color: var(--ember-light); }
+        .hero-subtitle { font-family: 'Crimson Pro', serif; font-size: 1.14rem; font-style: italic; color: rgba(245,239,226,0.75); max-width: 640px; margin: 0 auto; line-height: 1.7; }
+        .hero-rule { width: 52px; height: 2px; background: var(--bronze-light); margin: 1.6rem auto; opacity: 0.65; }
 
-        .logo-text {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            line-height: 1.2;
-        }
+        /* ── MAIN ── */
+        .page-main { max-width: 1120px; margin: 0 auto; padding: 0 2.5rem 6rem; }
+        section.block { margin: 6rem 0; }
 
-        .logo-text div:first-child {
-            font-size: 1.1rem;
-        }
-
-        .logo-text div:last-child {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--gray-600);
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-            background: var(--gray-50);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after {
-            width: 80%;
-        }
-
-        /* Hero section revolucionario */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-        }
-
-        .hero-shapes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            overflow: hidden;
-        }
-
-        .hero-shape {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .hero-shape:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .hero-shape:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            top: 20%;
-            right: 20%;
-            animation-delay: 5s;
-        }
-
-        .hero-shape:nth-child(3) {
-            width: 150px;
-            height: 150px;
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 10s;
-        }
-
-        .hero-shape:nth-child(4) {
-            width: 250px;
-            height: 250px;
-            bottom: 10%;
-            right: 10%;
-            animation-delay: 15s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-20px) rotate(120deg); }
-            66% { transform: translateY(20px) rotate(240deg); }
-        }
-
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            color: white;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 2rem;
-            animation: slideUp 1s ease-out;
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            animation: slideUp 1s ease-out 0.2s both;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            font-weight: 400;
-            margin-bottom: 3rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: slideUp 1s ease-out 0.4s both;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: slideUp 1s ease-out 0.6s both;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 12px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: var(--transition);
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: var(--white);
-            color: var(--primary);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(20px);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Sección de navegación de contenido */
-        .content-nav {
-            padding: 4rem 0;
-            background: var(--gray-50);
-        }
-
-        .content-nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .nav-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .nav-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-primary);
-            transform: scaleX(0);
-            transition: var(--transition);
-        }
-
-        .nav-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .nav-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .nav-card-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-primary);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .nav-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .nav-card p {
-            color: var(--gray-600);
-            line-height: 1.6;
-        }
-
-        /* Sección de sacrificios moderna */
-        .sacrifices-section {
-            padding: 6rem 0;
-            background: white;
-        }
-
-        .section-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
+        .section-header { text-align: center; margin-bottom: 3.2rem; }
         .section-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--gray-100);
-            color: var(--gray-600);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--gray-600);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-
-        /* Cards de sacrificios mejoradas */
-        .sacrifices-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .sacrifice-card {
-            background: white;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            border: 1px solid var(--gray-100);
-        }
-
-        .sacrifice-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-2xl);
-        }
-
-        .sacrifice-card-header {
-            padding: 2rem 2rem 1rem;
-            position: relative;
-        }
-
-        .sacrifice-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-primary);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .sacrifice-card:nth-child(2) .sacrifice-icon {
-            background: var(--gradient-secondary);
-        }
-
-        .sacrifice-card:nth-child(3) .sacrifice-icon {
-            background: var(--gradient-accent);
-        }
-
-        .sacrifice-card:nth-child(4) .sacrifice-icon {
-            background: var(--gradient-purple);
-        }
-
-        .sacrifice-card:nth-child(5) .sacrifice-icon {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-        }
-
-        .sacrifice-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .sacrifice-body {
-            padding: 0 2rem 2rem;
-        }
-
-        .sacrifice-description {
-            color: var(--gray-600);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .sacrifice-highlight {
-            background: var(--gray-50);
-            border-left: 4px solid var(--secondary);
-            padding: 1rem 1.5rem;
-            border-radius: 0 12px 12px 0;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            color: var(--gray-700);
-        }
-
-        .sacrifice-reference {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 12px;
-            font-weight: 600;
-            text-align: center;
-            margin-top: 1.5rem;
-        }
-
-        /* Versículo bíblico mejorado */
-        .bible-verse {
-            background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
-            border-radius: 24px;
-            padding: 3rem;
-            margin: 4rem 0;
-            position: relative;
-            border: 1px solid var(--gray-200);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .bible-verse::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 2rem;
-            font-size: 4rem;
-            color: var(--secondary);
-            opacity: 0.3;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .verse-text {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: var(--gray-700);
-            text-align: center;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-        }
-
-        .verse-reference {
-            text-align: center;
-            font-weight: 700;
-            color: var(--secondary);
-            font-size: 1.1rem;
-        }
-
-        /* Timeline moderna */
-        .timeline-section {
-            padding: 6rem 0;
-            background: var(--gray-50);
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: var(--gradient-primary);
-            border-radius: 2px;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 4rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .timeline-item:nth-child(odd) {
-            justify-content: flex-end;
-        }
-
-        .timeline-item:nth-child(even) {
-            justify-content: flex-start;
-        }
-
-        .timeline-content {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: var(--shadow-lg);
-            width: 45%;
-            position: relative;
-            border: 1px solid var(--gray-200);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-right: 2rem;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-left: 2rem;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
-            background: white;
-            border: 4px solid var(--secondary);
-            border-radius: 50%;
-            z-index: 2;
-        }
-
-        .timeline-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        /* Conclusión moderna */
-        .conclusion {
-            padding: 6rem 0;
-            background: var(--gradient-primary);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .conclusion::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            opacity: 0.1;
-        }
-
-        .conclusion-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .conclusion-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            margin-bottom: 2rem;
-        }
-
-        .conclusion-text {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            opacity: 0.9;
-            line-height: 1.7;
-        }
-
-        .conclusion-points {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .conclusion-point {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .conclusion-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.5rem;
-        }
-
-        /* Footer moderno */
-        .footer {
-            background: var(--dark);
-            color: white;
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-logo-img {
-            height: 40px;
-            width: auto;
-        }
-
-        .footer-logo h4 {
-            margin-bottom: 0.2rem;
-            font-size: 1.1rem;
-        }
-
-        .footer-logo p {
-            margin: 0;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .footer-section h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-
-        .footer-section p {
-            color: var(--gray-400);
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section a {
-            color: var(--gray-400);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: var(--gray-800);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--gray-800);
-            padding-top: 2rem;
-            text-align: center;
-            color: var(--gray-400);
-        }
-
-        /* Botón de scroll to top */
-        .scroll-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-primary);
-            border: none;
-            border-radius: 50%;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            box-shadow: var(--shadow-lg);
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(100px);
-            z-index: 50;
-        }
-
-        .scroll-top.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .scroll-top:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        /* Authors section */
-        .authors-section {
-            padding: 6rem 0;
-            background: var(--gray-50);
-        }
-
-        .authors-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .author-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid var(--gray-200);
-        }
-
-        .author-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .author-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 1.5rem;
-            border: 3px solid var(--accent);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .author-card h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .author-desc {
-            color: var(--gray-600);
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        /* Authors contributions section */
-        .authors-contributions {
-            margin-top: 4rem;
-            background: white;
-            border-radius: 24px;
-            padding: 3rem;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--gray-200);
-        }
-
-        .authors-contributions h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 2.5rem;
-            color: var(--primary);
-            position: relative;
-        }
-
-        .authors-contributions h3::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--gradient-primary);
-        }
-
-        .contribution-quote {
-            background: var(--gray-50);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--secondary);
-            position: relative;
-        }
-
-        .contribution-quote:last-child {
-            margin-bottom: 0;
-        }
-
-        .quote-author {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .contribution-quote blockquote {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            font-style: italic;
-            color: var(--gray-700);
-            font-size: 1.05rem;
-            line-height: 1.7;
-            box-shadow: var(--shadow-sm);
-            position: relative;
-        }
-
-        .contribution-quote blockquote::before {
-            content: '"';
-            position: absolute;
-            top: -5px;
-            left: 10px;
-            font-size: 2rem;
-            color: var(--secondary);
-            opacity: 0.3;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .quote-reference {
-            font-size: 0.9rem;
-            color: var(--secondary);
-            font-weight: 600;
-            margin-top: 0.5rem;
-        }
-
-        .quote-description {
-            color: var(--gray-600);
-            line-height: 1.6;
-            margin-top: 1rem;
-        }
-
-        /* Hermeneutics section */
-        .hermeneutics-section {
-            padding: 6rem 0;
-            background: white;
-        }
-
-        .hermeneutics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .hermeneutic-card {
-            background: var(--gray-50);
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid var(--gray-200);
-        }
-
-        .hermeneutic-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .hermeneutic-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-primary);
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .hermeneutic-card:nth-child(2) .hermeneutic-icon {
-            background: var(--gradient-secondary);
-        }
-
-        .hermeneutic-card:nth-child(3) .hermeneutic-icon {
-            background: var(--gradient-accent);
-        }
-
-        .hermeneutic-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .hermeneutic-card p {
-            color: var(--gray-600);
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        .hermeneutic-card strong {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .hermeneutic-principle {
-            background: var(--gradient-primary);
-            border-radius: 20px;
-            padding: 3rem;
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hermeneutic-principle::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            opacity: 0.1;
-        }
-
-        .principle-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 2rem;
-            font-size: 2rem;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .hermeneutic-principle p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Catholic rejection section */
-        .catholic-rejection {
-            padding: 6rem 0;
-            background: var(--gray-50);
-        }
-
-        .comparison-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .comparison-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            transition: var(--transition);
-            border: 1px solid var(--gray-200);
-        }
-
-        .comparison-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .comparison-header {
-            padding: 2rem;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-
-        .comparison-card.protestant .comparison-header {
-            background: var(--gradient-primary);
-        }
-
-        .comparison-card.catholic .comparison-header {
-            background: var(--gradient-secondary);
-        }
-
-        .comparison-header i {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .comparison-header h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 600;
-            margin: 0;
-        }
-
-        .comparison-content {
-            padding: 2rem;
-        }
-
-        .comparison-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .comparison-content li {
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--gray-200);
-            position: relative;
-            padding-left: 2rem;
-            color: var(--gray-700);
-            line-height: 1.6;
-        }
-
-        .comparison-content li:last-child {
-            border-bottom: none;
-        }
-
-        .comparison-content li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .comparison-content strong {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .comparison-content em {
-            color: var(--gray-600);
-            font-style: italic;
-        }
-
-        .rejection-statement {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            border-radius: 20px;
-            padding: 3rem;
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .rejection-statement::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            opacity: 0.1;
-        }
-
-        .statement-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 2rem;
-            font-size: 2rem;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .rejection-statement p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Detailed typology section */
-        .detailed-typology {
-            padding: 6rem 0;
-            background: white;
-        }
-
-        .typology-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .lamb-section {
-            background: var(--gradient-primary);
-            border-radius: 24px;
-            padding: 3rem;
-            color: white;
-            text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .lamb-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            opacity: 0.1;
-        }
-
-        .lamb-icon {
-            width: 100px;
-            height: 100px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 2rem;
-            font-size: 2.5rem;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .lamb-section h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .lamb-section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .lamb-section strong {
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        .detailed-explanations {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .explanation-card {
-            background: var(--gray-50);
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid var(--gray-200);
-            position: relative;
-        }
-
-        .explanation-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .explanation-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-primary);
-            border-radius: 20px 20px 0 0;
-        }
-
-        .explanation-card:nth-child(2)::before {
-            background: var(--gradient-secondary);
-        }
-
-        .explanation-card:nth-child(3)::before {
-            background: var(--gradient-accent);
-        }
-
-        .explanation-card:nth-child(4)::before {
-            background: var(--gradient-purple);
-        }
-
-        .explanation-card:nth-child(5)::before {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-        }
-
-        .explanation-card h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .explanation-card p {
-            color: var(--gray-600);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .explanation-card blockquote {
-            background: rgba(139, 92, 246, 0.1);
-            border-left: 4px solid var(--secondary);
-            padding: 1.5rem;
-            margin: 0;
-            border-radius: 0 12px 12px 0;
-            font-style: italic;
-            color: var(--gray-700);
-            position: relative;
-        }
-
-        .explanation-card blockquote::before {
-            content: '"';
-            position: absolute;
-            top: -5px;
-            left: 10px;
-            font-size: 2rem;
-            color: var(--secondary);
-            opacity: 0.3;
-        }
-
-        /* References section */
-        .references-section {
-            padding: 6rem 0;
-            background: var(--gray-50);
-        }
-
-        .references-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .reference-category {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid var(--gray-200);
-        }
-
-        .reference-category:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .reference-category h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--gray-200);
-        }
-
-        .reference-category ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .reference-category li {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid var(--gray-100);
-            position: relative;
-            padding-left: 1.5rem;
-            color: var(--gray-700);
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        .reference-category li:last-child {
-            border-bottom: none;
-        }
-
-        .reference-category li::before {
-            content: '<svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 5v16" />
-  <path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" />
-</svg>';
-            position: absolute;
-            left: 0;
-            font-size: 1rem;
-        }
-
-        .reference-category:nth-child(1) li::before {
-            content: '<svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
-</svg>';
-        }
-
-        .reference-category:nth-child(2) li::before {
-            content: '<svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M10 9h4" />
-  <path d="M12 7v5" />
-  <path d="M14 21v-3a2 2 0 0 0-4 0v3" />
-  <path d="m18 9 3.52 2.147a1 1 0 0 1 .48.854V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6.999a1 1 0 0 1 .48-.854L6 9" />
-  <path d="M6 21V7a1 1 0 0 1 .376-.782l5-3.999a1 1 0 0 1 1.249.001l5 4A1 1 0 0 1 18 7v14" />
-</svg>';
-        }
-
-        .reference-category:nth-child(3) li::before {
-            content: '<svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <circle cx="12" cy="12" r="10" />
-  <circle cx="12" cy="12" r="6" />
-  <circle cx="12" cy="12" r="2" />
-</svg>';
-        }
-
-        .reference-category:nth-child(4) li::before {
-            content: '<svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 5v16" />
-  <path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" />
-</svg>';
-        }
-
-        .practical-applications {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .application-card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: left;
-        }
-
-        .application-card h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-
-        .application-card p {
-            line-height: 1.7;
-            opacity: 0.95;
-        }
-
-        /* Responsive design additions */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero-cta {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .timeline::before {
-                left: 2rem;
-            }
-            
-            .timeline-item {
-                justify-content: flex-start !important;
-            }
-            
-            .timeline-content {
-                width: calc(100% - 4rem);
-                margin-left: 2rem !important;
-                margin-right: 0 !important;
-            }
-            
-            .timeline-dot {
-                left: 2rem;
-                transform: translateX(-50%);
-            }
-            
-            .section-container {
-                padding: 0 1rem;
-            }
-            
-            .comparison-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .authors-grid,
-            .hermeneutics-grid,
-            .detailed-explanations,
-            .references-grid,
-            .practical-applications {
-                grid-template-columns: 1fr;
-            }
-            
-            .lamb-section,
-            .authors-contributions {
-                padding: 2rem;
-            }
-            
-            .explanation-card,
-            .reference-category,
-            .application-card,
-            .contribution-quote {
-                padding: 1.5rem;
-            }
-        }
-
-        /* Animaciones adicionales */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: var(--transition-slow);
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: var(--transition-slow);
-        }
-
-        .slide-in-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: var(--transition-slow);
-        }
-
-        .slide-in-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    
-        /* Insignia circular del logo EMD (aplicada a todas las páginas) */
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-family: 'Marcellus', serif; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--ember); margin-bottom: 1rem;
+        }
+        .section-title { font-family: 'Marcellus', serif; font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 400; color: var(--basalt); line-height: 1.25; }
+        .section-rule { width: 40px; height: 2px; background: var(--bronze); margin: 1.1rem auto 0; }
+        .section-subtitle { max-width: 700px; margin: 1.3rem auto 0; font-size: 1.02rem; font-style: italic; color: var(--text-muted); line-height: 1.7; }
+
+        /* ── CORNERSTONES ── */
+        .cornerstone-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--stone-dk); margin: 4rem 0; }
+        .cornerstone { background: var(--stone-lt); padding: 2.2rem 1.8rem; text-align: center; }
+        .cornerstone-icon { width: 44px; height: 44px; border: 1px solid var(--bronze); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; color: var(--ember); margin: 0 auto 1.1rem; }
+        .cornerstone h3 { font-family: 'Marcellus', serif; font-size: 1.05rem; font-weight: 400; color: var(--basalt); margin-bottom: 0.6rem; }
+        .cornerstone p { font-size: 0.88rem; line-height: 1.65; color: var(--text-muted); }
+
+        /* ── OFFERING GRID (5 sacrificios) ── */
+        .offering-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+        .offering-card { background: var(--stone-lt); border: 1px solid var(--stone-dk); border-top: 3px solid var(--ember); padding: 2rem 1.8rem; }
+        .offering-head { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.3rem; }
+        .offering-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--ember-pale); color: var(--ember); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
+        .offering-title { font-family: 'Marcellus', serif; font-size: 1.14rem; font-weight: 400; color: var(--basalt); }
+        .offering-desc { font-size: 0.92rem; line-height: 1.72; color: var(--text-body); margin-bottom: 1rem; }
+        .offering-highlight { font-family: 'Crimson Pro', serif; font-style: italic; font-size: 1.02rem; line-height: 1.62; color: var(--oxblood); padding: 0.9rem 1.1rem; background: var(--oxblood-pale); border-left: 3px solid var(--oxblood); margin-bottom: 1rem; }
+        .offering-ref { font-family: 'Marcellus', serif; font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--bronze); }
+
+        /* ── VERSE SLAB ── */
+        .verse-slab { margin: 5rem auto; padding: 3.2rem 3rem; max-width: 820px; background: var(--basalt); text-align: center; position: relative; overflow: hidden; }
+        .verse-slab::before { content: '\201C'; position: absolute; top: -1rem; left: 50%; transform: translateX(-50%); font-family: 'Marcellus', serif; font-size: 9rem; color: rgba(182,147,79,0.08); line-height: 1; pointer-events: none; }
+        .verse-slab-text { position: relative; font-family: 'Crimson Pro', serif; font-size: 1.24rem; font-style: italic; line-height: 1.72; color: rgba(245,239,226,0.94); margin-bottom: 1.1rem; }
+        .verse-slab-ref { position: relative; font-family: 'Marcellus', serif; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bronze-light); }
+
+        /* ── SCHOLAR GRID (autores) ── */
+        .scholar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; margin-bottom: 3.2rem; }
+        .scholar-card { background: var(--stone-lt); border: 1px solid var(--stone-dk); padding: 1.8rem 1.4rem; text-align: center; }
+        .scholar-img { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; border: 2px solid var(--bronze); margin: 0 auto 1.1rem; display: block; }
+        .scholar-name { font-family: 'Marcellus', serif; font-size: 0.98rem; font-weight: 400; color: var(--basalt); margin-bottom: 0.6rem; }
+        .scholar-desc { font-size: 0.85rem; line-height: 1.62; color: var(--text-muted); }
+
+        .contributions-title { font-family: 'Marcellus', serif; font-size: 1.3rem; font-weight: 400; text-align: center; color: var(--basalt); margin-bottom: 2rem; }
+        .contribution-list { display: flex; flex-direction: column; max-width: 820px; margin: 0 auto; gap: 1px; background: var(--stone-dk); }
+        .contribution-item { background: var(--stone-lt); padding: 1.8rem 2.2rem; }
+        .contribution-author { font-family: 'Marcellus', serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ember); margin-bottom: 0.7rem; }
+        .contribution-item blockquote { font-family: 'Crimson Pro', serif; font-style: italic; font-size: 1.06rem; line-height: 1.72; color: var(--basalt); margin-bottom: 0.6rem; }
+        .contribution-item p.contribution-note { font-size: 0.88rem; line-height: 1.68; color: var(--text-muted); }
+
+        /* ── CHRONICLE TIMELINE (Ley y Gracia) ── */
+        .chronicle-timeline { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; }
+        .chronicle-row { display: grid; grid-template-columns: 60px 1fr; padding: 1.6rem 0; border-bottom: 1px solid var(--stone-dk); }
+        .chronicle-row:first-child { padding-top: 0; }
+        .chronicle-row:last-child { border-bottom: none; }
+        .chronicle-num { font-family: 'Marcellus', serif; font-size: 1.7rem; color: var(--bronze); }
+        .chronicle-row h3 { font-family: 'Marcellus', serif; font-size: 1.1rem; font-weight: 400; color: var(--basalt); margin-bottom: 0.55rem; }
+        .chronicle-row p { font-size: 0.93rem; line-height: 1.74; color: var(--text-body); }
+
+        /* ── HERMENEUTIC GRID ── */
+        .hermeneutic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-bottom: 2rem; }
+        .hermeneutic-card { background: var(--stone-lt); border: 1px solid var(--stone-dk); padding: 2rem 1.7rem; }
+        .hermeneutic-icon { width: 42px; height: 42px; border: 1px solid var(--bronze); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--bronze); margin-bottom: 1.1rem; }
+        .hermeneutic-card h3 { font-family: 'Marcellus', serif; font-size: 1.05rem; font-weight: 400; color: var(--basalt); margin-bottom: 0.9rem; }
+        .hermeneutic-card p { font-size: 0.88rem; line-height: 1.7; color: var(--text-body); margin-bottom: 0.8rem; }
+        .hermeneutic-card p:last-child { margin-bottom: 0; }
+
+        .principle-callout { max-width: 900px; margin: 0 auto; padding: 1.8rem 2.2rem; background: var(--stone-lt); border-left: 3px solid var(--bronze); display: flex; gap: 1.1rem; align-items: flex-start; }
+        .principle-callout .ic { font-size: 1.3rem; color: var(--bronze); flex-shrink: 0; margin-top: 0.2rem; }
+        .principle-callout p { font-size: 0.94rem; line-height: 1.76; color: var(--text-body); }
+
+        /* ── COMPARISON (Protestante vs Católica) ── */
+        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--stone-dk); max-width: 980px; margin: 0 auto 2rem; }
+        .comparison-card { background: var(--stone-lt); padding: 2.2rem 2.2rem; }
+        .comparison-card--catholic { background: #eae2d0; }
+        .comparison-head { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.3rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--stone-dk); }
+        .comparison-head .ic { font-size: 1.2rem; }
+        .comparison-card--protestant .comparison-head .ic { color: var(--ember); }
+        .comparison-card--catholic .comparison-head .ic { color: var(--bronze); }
+        .comparison-head h3 { font-family: 'Marcellus', serif; font-size: 1.08rem; font-weight: 400; color: var(--basalt); }
+        .comparison-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+        .comparison-card li { font-size: 0.9rem; line-height: 1.65; color: var(--text-body); padding-left: 1.1rem; position: relative; }
+        .comparison-card li::before { content: '\2022'; position: absolute; left: 0; color: var(--bronze); }
+
+        .rejection-statement { max-width: 900px; margin: 0 auto; padding: 2.2rem 2.4rem; background: var(--basalt); display: flex; gap: 1.2rem; align-items: flex-start; }
+        .rejection-statement .ic { font-size: 1.4rem; color: var(--bronze-light); flex-shrink: 0; margin-top: 0.2rem; }
+        .rejection-statement p { font-family: 'Crimson Pro', serif; font-size: 0.98rem; line-height: 1.78; color: rgba(245,239,226,0.86); }
+
+        /* ── SYNTHESIS (Cordero de Dios) ── */
+        .synthesis-intro { max-width: 860px; margin: 0 auto 3rem; text-align: center; }
+        .synthesis-icon { width: 54px; height: 54px; border: 1px solid var(--ember); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: var(--ember); margin: 0 auto 1.3rem; }
+        .synthesis-intro h3 { font-family: 'Marcellus', serif; font-size: 1.4rem; font-weight: 400; color: var(--basalt); margin-bottom: 1.1rem; }
+        .synthesis-intro p { font-size: 0.98rem; line-height: 1.8; color: var(--text-body); margin-bottom: 1rem; text-align: left; }
+
+        .explanation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+        .explanation-card { background: var(--stone-lt); border: 1px solid var(--stone-dk); padding: 1.8rem 1.6rem; }
+        .explanation-head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+        .explanation-head .ic { font-size: 1.1rem; color: var(--ember); }
+        .explanation-card h4 { font-family: 'Marcellus', serif; font-size: 0.98rem; font-weight: 400; color: var(--basalt); }
+        .explanation-card p { font-size: 0.86rem; line-height: 1.68; color: var(--text-body); margin-bottom: 0.9rem; }
+        .explanation-card blockquote { font-family: 'Crimson Pro', serif; font-style: italic; font-size: 0.86rem; line-height: 1.6; color: var(--oxblood); padding-top: 0.8rem; border-top: 1px dashed var(--stone-dk); }
+
+        /* ── BIBLIOGRAPHY ── */
+        .biblio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem 2.4rem; max-width: 980px; margin: 0 auto; }
+        .biblio-category h4 { display: flex; align-items: center; gap: 0.6rem; font-family: 'Marcellus', serif; font-size: 1rem; font-weight: 400; color: var(--basalt); margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--stone-dk); }
+        .biblio-category h4 .ic { color: var(--bronze); font-size: 1rem; }
+        .biblio-category ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+        .biblio-category li { font-size: 0.86rem; line-height: 1.6; color: var(--text-muted); padding-left: 1rem; position: relative; }
+        .biblio-category li::before { content: '\2013'; position: absolute; left: 0; color: var(--bronze); }
+
+        /* ── CONCLUSION ── */
+        .conclusion-block { background: var(--basalt); padding: 5rem 2.5rem; margin: 6rem 0 0; }
+        .conclusion-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+        .conclusion-inner .section-badge { color: var(--bronze-light); }
+        .conclusion-inner .section-title { color: #f5efe2; }
+        .conclusion-inner .section-rule { background: var(--bronze-light); }
+        .conclusion-text { max-width: 720px; margin: 1.6rem auto 3rem; font-size: 1.02rem; line-height: 1.82; color: rgba(245,239,226,0.78); }
+        .conclusion-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; }
+        .conclusion-point { text-align: center; }
+        .conclusion-icon { width: 46px; height: 46px; border: 1px solid rgba(182,147,79,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--bronze-light); margin: 0 auto 1.1rem; }
+        .conclusion-point h4 { font-family: 'Marcellus', serif; font-size: 0.96rem; font-weight: 400; color: #f5efe2; margin-bottom: 0.6rem; }
+        .conclusion-point p { font-size: 0.84rem; line-height: 1.62; color: rgba(245,239,226,0.62); }
+
+        /* ── FOOTER ── */
+        .site-footer { background: var(--basalt-deep); border-top: 1px solid rgba(182,147,79,0.14); padding: 3.5rem 2.5rem 2rem; }
+        .footer-grid { max-width: 1000px; margin: 0 auto 2.5rem; display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; }
+        .footer-brand { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.1rem; }
+        .footer-brand img { height: 44px; }
+        .footer-brand h4 { font-family: 'Marcellus', serif; font-size: 1.05rem; font-weight: 400; color: var(--bronze-light); }
+        .footer-brand span { display: block; font-style: italic; font-size: 0.8rem; color: rgba(230,221,201,0.5); }
+        .footer-desc { font-size: 0.88rem; line-height: 1.7; color: rgba(230,221,201,0.55); margin-bottom: 1.2rem; }
+        .footer-social { display: flex; gap: 0.8rem; }
+        .footer-social a { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(182,147,79,0.3); display: flex; align-items: center; justify-content: center; color: var(--bronze-light); text-decoration: none; font-size: 0.9rem; transition: border-color 0.25s, color 0.25s; }
+        .footer-social a:hover { border-color: var(--bronze-light); color: #f5efe2; }
+        .footer-contact h4 { font-family: 'Marcellus', serif; font-size: 0.95rem; font-weight: 400; color: var(--bronze-light); margin-bottom: 1.1rem; }
+        .footer-contact p { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.86rem; line-height: 1.6; color: rgba(230,221,201,0.6); margin-bottom: 0.7rem; }
+        .footer-contact .ic { color: var(--bronze); margin-top: 0.2rem; }
+        .footer-bottom { max-width: 1000px; margin: 0 auto; padding-top: 1.8rem; border-top: 1px solid rgba(182,147,79,0.12); text-align: center; }
+        .footer-bottom p { font-size: 0.78rem; color: rgba(230,221,201,0.35); }
+
+        /* ── REVEAL ── */
+        .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 980px) {
+            .cornerstone-grid { grid-template-columns: repeat(2, 1fr); }
+            .offering-grid { grid-template-columns: repeat(2, 1fr); }
+            .scholar-grid { grid-template-columns: repeat(2, 1fr); }
+            .hermeneutic-grid { grid-template-columns: 1fr; }
+            .comparison-grid { grid-template-columns: 1fr; }
+            .explanation-grid { grid-template-columns: repeat(2, 1fr); }
+            .biblio-grid { grid-template-columns: 1fr; }
+            .conclusion-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+        @media (max-width: 640px) {
+            .site-header { padding: 0 1.2rem; }
+            .header-logo-text { display: none; }
+            .page-hero { min-height: 62vh; }
+            .hero-inner { padding: 2.4rem 1.4rem 3rem; }
+            .page-main { padding: 0 1.2rem 4rem; }
+            section.block { margin: 4rem 0; }
+            .cornerstone-grid { grid-template-columns: 1fr; }
+            .offering-grid { grid-template-columns: 1fr; }
+            .scholar-grid { grid-template-columns: 1fr 1fr; }
+            .chronicle-row { grid-template-columns: 40px 1fr; }
+            .explanation-grid { grid-template-columns: 1fr; }
+            .conclusion-grid { grid-template-columns: 1fr 1fr; }
+            .conclusion-block { padding: 3.5rem 1.4rem; }
+            .verse-slab { padding: 2.2rem 1.4rem; }
+            .verse-slab-text { font-size: 1.08rem; }
+        }
+
+        /* Insignia circular del logo EMD */
         img[alt="Logo EMD"] {
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid rgba(201, 170, 106, 0.5);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(201, 170, 106, 0.08);
+            border: 2px solid rgba(182,147,79,0.5);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(182,147,79,0.08);
             transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         img[alt="Logo EMD"]:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 0 5px rgba(201, 170, 106, 0.15);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 0 5px rgba(182,147,79,0.15);
         }
     </style>
 </head>
 <body>
-    <!-- Header moderno -->
-    <header class="header" id="header">
-        <div class="nav-container">
-            <a href="./at-a-nt.html" class="logo">
-                <img src="../../../../images/EMD.png?v=2" alt="Logo EMD" class="logo-img">
-                <div class="logo-text">
-                    <div>Ministerio</div>
-                    <div>"La Gloria es del Señor"</div>
-                </div>
-            </a>
-            <nav class="nav-links">
-                <a href="#inicio">Inicio</a>
-                <a href="#sacrificios">Sacrificios</a>
-                <a href="#tipologia">Tipología</a>
-                <a href="#aplicacion">Aplicación</a>
-                <a href="#contacto">Contacto</a>
-            </nav>
+
+    <header class="site-header">
+        <a href="../../index.html" class="header-logo">
+            <img src="../../images/EMD.png?v=2" alt="Logo EMD">
+            <div class="header-logo-text">
+                Ministerio
+                <span>"La Gloria es del Señor"</span>
+            </div>
+        </a>
+        <div class="header-badge">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" /><path d="M15 5.764v15" /><path d="M9 3.236v15" /></svg>
+            Figuras Bíblicas
         </div>
     </header>
 
-    <!-- Hero section revolucionario -->
-    <section class="hero" id="inicio">
-        <div class="hero-shapes">
-            <div class="hero-shape"></div>
-            <div class="hero-shape"></div>
-            <div class="hero-shape"></div>
-            <div class="hero-shape"></div>
-        </div>
-        <div class="hero-content">
-            <div class="hero-badge">
-                <i class="fas fa-book-open"></i>
-                <span>Estudio Bíblico Avanzado</span>
-            </div>
-            <h1 class="hero-title">Tipología de los Sacrificios Bíblicos</h1>
-            <p class="hero-subtitle">Descubre cómo los sacrificios del Antiguo Testamento prefiguran y encuentran su cumplimiento perfecto en la obra redentora de Jesucristo</p>
-            <div class="hero-cta">
-                <a href="#sacrificios" class="btn btn-primary">
-                    <i class="fas fa-play"></i>
-                    Comenzar Estudio
-                </a>
-                <a href="#tipologia" class="btn btn-secondary">
-                    <i class="fas fa-book"></i>
-                    Ver Tipología
-                </a>
-            </div>
+    <section class="page-hero">
+        <div class="hero-inner">
+            <span class="hero-eyebrow">Estudio bíblico avanzado</span>
+            <h1 class="hero-title">Tipología de los <em>sacrificios</em> bíblicos</h1>
+            <div class="hero-rule"></div>
+            <p class="hero-subtitle">Cómo los cinco sacrificios levíticos del Antiguo Testamento prefiguran y encuentran su cumplimiento perfecto en la obra redentora de Jesucristo.</p>
         </div>
     </section>
 
-    <!-- Navegación de contenido -->
-    <section class="content-nav">
-        <div class="content-nav-container">
-            <div class="nav-grid">
-                <div class="nav-card fade-in">
-                    <div class="nav-card-icon">
-                        <i class="fas fa-fire"></i>
-                    </div>
-                    <h3>Fundamento Bíblico</h3>
-                    <p>Explora el sistema detallado de sacrificios instituido en el Pentateuco y su significado profético en el plan de salvación.</p>
-                </div>
-                <div class="nav-card fade-in">
-                    <div class="nav-card-icon">
-                        <i class="fas fa-cross"></i>
-                    </div>
-                    <h3>Cumplimiento en Cristo</h3>
-                    <p>Descubre cómo cada sacrificio encuentra su perfecta realización en la obra expiatoria de Jesucristo en la cruz.</p>
-                </div>
-                <div class="nav-card fade-in">
-                    <div class="nav-card-icon">
-                        <i class="fas fa-scroll"></i>
-                    </div>
-                    <h3>Hermenéutica Tipológica</h3>
-                    <p>Aprende los principios correctos de interpretación tipológica desde una perspectiva protestante evangélica.</p>
-                </div>
-                <div class="nav-card fade-in">
-                    <div class="nav-card-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Aplicación Pastoral</h3>
-                    <p>Comprende las implicaciones doctrinales y pastorales de esta enseñanza para la vida de la iglesia y el creyente.</p>
-                </div>
+    <main class="page-main">
+
+        <div class="cornerstone-grid reveal">
+            <div class="cornerstone">
+                <div class="cornerstone-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4" /></svg></div>
+                <h3>Fundamento bíblico</h3>
+                <p>El sistema detallado de sacrificios instituido en el Pentateuco y su significado profético en el plan de salvación.</p>
+            </div>
+            <div class="cornerstone">
+                <div class="cornerstone-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4a1 1 0 0 1 1 1v4a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-4a1 1 0 0 1 1-1h4a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-4a1 1 0 0 1-1-1V4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4a1 1 0 0 1-1 1z" /></svg></div>
+                <h3>Cumplimiento en Cristo</h3>
+                <p>Cómo cada sacrificio encuentra su realización perfecta en la obra expiatoria de Jesucristo en la cruz.</p>
+            </div>
+            <div class="cornerstone">
+                <div class="cornerstone-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16" /><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" /></svg></div>
+                <h3>Hermenéutica tipológica</h3>
+                <p>Los principios correctos de interpretación tipológica desde una perspectiva protestante evangélica.</p>
+            </div>
+            <div class="cornerstone">
+                <div class="cornerstone-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></svg></div>
+                <h3>Aplicación pastoral</h3>
+                <p>Las implicaciones doctrinales y pastorales de esta enseñanza para la vida de la iglesia y el creyente.</p>
             </div>
         </div>
-    </section>
 
-    <!-- Sección de sacrificios moderna -->
-    <section class="sacrifices-section" id="sacrificios">
-        <div class="section-container">
+        <!-- CAP 1: SISTEMA SACRIFICIAL -->
+        <section class="block reveal">
             <div class="section-header">
-                <div class="section-badge">
-                    <i class="fas fa-dove"></i>
-                    <span>Los Cinco Sacrificios Levíticos</span>
-                </div>
-                <h2 class="section-title">Sistema Sacrificial del Antiguo Testamento</h2>
-                <p class="section-subtitle">Cada sacrificio revelaba un aspecto específico de la obra redentora que Cristo cumpliría perfectamente en la cruz</p>
+                <span class="section-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4" /></svg> Los cinco sacrificios levíticos</span>
+                <h2 class="section-title">Sistema sacrificial del Antiguo Testamento</h2>
+                <div class="section-rule"></div>
+                <p class="section-subtitle">Cada sacrificio revelaba un aspecto específico de la obra redentora que Cristo cumpliría perfectamente en la cruz.</p>
             </div>
 
-            <div class="sacrifices-grid">
-                <div class="sacrifice-card fade-in">
-                    <div class="sacrifice-card-header">
-                        <div class="sacrifice-icon">
-                            <i class="fas fa-fire-flame-curved"></i>
-                        </div>
-                        <h3 class="sacrifice-title">El Holocausto</h3>
+            <div class="offering-grid">
+                <div class="offering-card reveal">
+                    <div class="offering-head">
+                        <div class="offering-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4" /></svg></div>
+                        <h3 class="offering-title">El holocausto</h3>
                     </div>
-                    <div class="sacrifice-body">
-                        <p class="sacrifice-description">
-                            El holocausto (Heb. <em>olah</em> – "lo que asciende") era una ofrenda totalmente consumida por el fuego, simbolizando la entrega total y la propiciación perfecta.
-                        </p>
-                        <div class="sacrifice-highlight">
-                            "Cristo nos amó y se entregó a sí mismo por nosotros, ofrenda y sacrificio a Dios en olor fragante."
-                        </div>
-                        <p class="sacrifice-description">
-                            Prefigura a Cristo en su entrega absoluta al Padre y su carácter de sacrificio propiciatorio aceptable. La completa consunción simbolizaba dedicación total a Dios.
-                        </p>
-                        <div class="sacrifice-reference">Levítico 1:3-4, 9 | Efesios 5:2</div>
-                    </div>
+                    <p class="offering-desc">El holocausto (heb. <em>olah</em>, "lo que asciende") era una ofrenda totalmente consumida por el fuego, simbolizando la entrega total y la propiciación perfecta.</p>
+                    <div class="offering-highlight">"Cristo nos amó y se entregó a sí mismo por nosotros, ofrenda y sacrificio a Dios en olor fragante."</div>
+                    <p class="offering-desc">Prefigura a Cristo en su entrega absoluta al Padre y su carácter de sacrificio propiciatorio aceptable. La completa consunción simbolizaba dedicación total a Dios.</p>
+                    <div class="offering-ref">Levítico 1:3-4, 9 · Efesios 5:2</div>
                 </div>
-
-                <div class="sacrifice-card fade-in">
-                    <div class="sacrifice-card-header">
-                        <div class="sacrifice-icon">
-                            <i class="fas fa-wheat-awn"></i>
-                        </div>
-                        <h3 class="sacrifice-title">La Ofrenda Vegetal</h3>
+                <div class="offering-card reveal">
+                    <div class="offering-head">
+                        <div class="offering-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3" /><path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4" /><path d="M5 21h14" /></svg></div>
+                        <h3 class="offering-title">La ofrenda vegetal</h3>
                     </div>
-                    <div class="sacrifice-body">
-                        <p class="sacrifice-description">
-                            Compuesta de harina fina, aceite e incienso, sin levadura ni miel. Representaba la vida perfecta sin corrupción, ofrecida como tributo de gratitud.
-                        </p>
-                        <div class="sacrifice-highlight">
-                            "Yo soy el pan de vida; el que a mí viene nunca tendrá hambre."
-                        </div>
-                        <p class="sacrifice-description">
-                            Prefigura a Cristo en Su humanidad perfecta y Su ofrecimiento como pan de vida. La ausencia de levadura apunta a la vida sin pecado de Cristo.
-                        </p>
-                        <div class="sacrifice-reference">Levítico 2:1-3 | Juan 6:35</div>
-                    </div>
+                    <p class="offering-desc">Compuesta de harina fina, aceite e incienso, sin levadura ni miel. Representaba la vida perfecta sin corrupción, ofrecida como tributo de gratitud.</p>
+                    <div class="offering-highlight">"Yo soy el pan de vida; el que a mí viene nunca tendrá hambre."</div>
+                    <p class="offering-desc">Prefigura a Cristo en su humanidad perfecta y su ofrecimiento como pan de vida. La ausencia de levadura apunta a la vida sin pecado de Cristo.</p>
+                    <div class="offering-ref">Levítico 2:1-3 · Juan 6:35</div>
                 </div>
-
-                <div class="sacrifice-card fade-in">
-                    <div class="sacrifice-card-header">
-                        <div class="sacrifice-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h3 class="sacrifice-title">El Sacrificio de Paz</h3>
+                <div class="offering-card reveal">
+                    <div class="offering-head">
+                        <div class="offering-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762" /></svg></div>
+                        <h3 class="offering-title">El sacrificio de paz</h3>
                     </div>
-                    <div class="sacrifice-body">
-                        <p class="sacrifice-description">
-                            Una comida sagrada compartida entre Dios, el sacerdote y el oferente, simbolizando la paz y comunión restaurada.
-                        </p>
-                        <div class="sacrifice-highlight">
-                            "Justificados por la fe, tenemos paz para con Dios por medio de nuestro Señor Jesucristo."
-                        </div>
-                        <p class="sacrifice-description">
-                            Tipifica a Cristo como nuestro pacificador y mediador de comunión, quien nos reconcilió con el Padre mediante su sangre.
-                        </p>
-                        <div class="sacrifice-reference">Levítico 3:1-5 | Romanos 5:1</div>
-                    </div>
+                    <p class="offering-desc">Una comida sagrada compartida entre Dios, el sacerdote y el oferente, simbolizando la paz y comunión restaurada.</p>
+                    <div class="offering-highlight">"Justificados por la fe, tenemos paz para con Dios por medio de nuestro Señor Jesucristo."</div>
+                    <p class="offering-desc">Tipifica a Cristo como nuestro pacificador y mediador de comunión, quien nos reconcilió con el Padre mediante su sangre.</p>
+                    <div class="offering-ref">Levítico 3:1-5 · Romanos 5:1</div>
                 </div>
-
-                <div class="sacrifice-card fade-in">
-                    <div class="sacrifice-card-header">
-                        <div class="sacrifice-icon">
-                            <i class="fas fa-hand-holding-heart"></i>
-                        </div>
-                        <h3 class="sacrifice-title">Sacrificio por el Pecado</h3>
+                <div class="offering-card reveal">
+                    <div class="offering-head">
+                        <div class="offering-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></svg></div>
+                        <h3 class="offering-title">Sacrificio por el pecado</h3>
                     </div>
-                    <div class="sacrifice-body">
-                        <p class="sacrifice-description">
-                            Ofrenda expiatoria para pecados involuntarios, donde el inocente cargaba con la culpa de otros mediante la imposición de manos.
-                        </p>
-                        <div class="sacrifice-highlight">
-                            "Jehová cargó en él el pecado de todos nosotros."
-                        </div>
-                        <p class="sacrifice-description">
-                            El tipo más claro de la muerte expiatoria de Cristo como nuestro sustituto penal, llevando nuestros pecados en Su cuerpo.
-                        </p>
-                        <div class="sacrifice-reference">Levítico 4:3-7 | Isaías 53:6</div>
-                    </div>
+                    <p class="offering-desc">Ofrenda expiatoria para pecados involuntarios, donde el inocente cargaba con la culpa de otros mediante la imposición de manos.</p>
+                    <div class="offering-highlight">"Jehová cargó en él el pecado de todos nosotros."</div>
+                    <p class="offering-desc">El tipo más claro de la muerte expiatoria de Cristo como nuestro sustituto penal, llevando nuestros pecados en su cuerpo.</p>
+                    <div class="offering-ref">Levítico 4:3-7 · Isaías 53:6</div>
                 </div>
-
-                <div class="sacrifice-card fade-in">
-                    <div class="sacrifice-card-header">
-                        <div class="sacrifice-icon">
-                            <i class="fas fa-scales-balanced"></i>
-                        </div>
-                        <h3 class="sacrifice-title">Ofrenda por la Culpa</h3>
+                <div class="offering-card reveal">
+                    <div class="offering-head">
+                        <div class="offering-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg></div>
+                        <h3 class="offering-title">Ofrenda por la culpa</h3>
                     </div>
-                    <div class="sacrifice-body">
-                        <p class="sacrifice-description">
-                            Sacrificio de restitución que requería no solo la ofrenda, sino también la reparación del daño más un 20% adicional.
-                        </p>
-                        <div class="sacrifice-highlight">
-                            "Vino a dar su vida en rescate por muchos."
-                        </div>
-                        <p class="sacrifice-description">
-                            Prefigura a Cristo como quien satisface completamente las deudas del pecado y restaura lo que fue quebrantado.
-                        </p>
-                        <div class="sacrifice-reference">Levítico 5:14-6:7 | Marcos 10:45</div>
-                    </div>
+                    <p class="offering-desc">Sacrificio de restitución que requería no solo la ofrenda, sino también la reparación del daño más un 20% adicional.</p>
+                    <div class="offering-highlight">"Vino a dar su vida en rescate por muchos."</div>
+                    <p class="offering-desc">Prefigura a Cristo como quien satisface completamente las deudas del pecado y restaura lo que fue quebrantado.</p>
+                    <div class="offering-ref">Levítico 5:14-6:7 · Marcos 10:45</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Versículo central -->
-    <section class="section-container">
-        <div class="bible-verse fade-in">
-            <p class="verse-text">
-                "Es imposible que la sangre de toros y de machos cabríos quite los pecados. Por lo tanto, al entrar en el mundo dice: Sacrificio y ofrenda no quisiste; Mas me preparaste cuerpo."
-            </p>
-            <p class="verse-reference">Hebreos 10:4-5</p>
+        <div class="verse-slab reveal">
+            <p class="verse-slab-text">"Es imposible que la sangre de toros y de machos cabríos quite los pecados. Por lo tanto, al entrar en el mundo dice: Sacrificio y ofrenda no quisiste; mas me preparaste cuerpo."</p>
+            <p class="verse-slab-ref">Hebreos 10:4-5</p>
         </div>
-    </section>
 
-    <!-- Sección de Autores Protestantes -->
-    <section class="authors-section">
-        <div class="section-container">
+        <!-- CAP 2: AUTORES Y FUENTES -->
+        <section class="block reveal">
             <div class="section-header">
-                <div class="section-badge">
-                    <i class="fas fa-users"></i>
-                    <span>Teólogos y Reformadores</span>
-                </div>
-                <h2 class="section-title">Autores y Fuentes Protestantes</h2>
-                <p class="section-subtitle">Grandes teólogos que han estudiado y enseñado sobre la tipología sacrificial desde la Reforma</p>
+                <span class="section-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg> Teólogos y reformadores</span>
+                <h2 class="section-title">Autores y fuentes protestantes</h2>
+                <div class="section-rule"></div>
+                <p class="section-subtitle">Grandes teólogos que han estudiado y enseñado sobre la tipología sacrificial desde la Reforma.</p>
             </div>
 
-            <div class="authors-grid">
-                <div class="author-card fade-in">
-                    <img src="images/gino-iafrancesco.jpg" alt="Gino Iafrancesco" class="author-img">
-                    <h4>Gino Iafrancesco</h4>
-                    <p class="author-desc">Teólogo evangélico contemporáneo que enfatiza la revelación progresiva en la Escritura y la centralidad de Cristo en las tipologías bíblicas.</p>
+            <div class="scholar-grid">
+                <div class="scholar-card reveal">
+                    <img src="images/gino-iafrancesco.jpg" alt="Gino Iafrancesco" class="scholar-img">
+                    <h4 class="scholar-name">Gino Iafrancesco</h4>
+                    <p class="scholar-desc">Teólogo evangélico contemporáneo que enfatiza la revelación progresiva en la Escritura y la centralidad de Cristo en las tipologías bíblicas.</p>
                 </div>
-
-                <div class="author-card fade-in">
-                    <img src="images/john-owen.jpg" alt="John Owen" class="author-img">
-                    <h4>John Owen</h4>
-                    <p class="author-desc">Teólogo puritano (1616-1683) que profundizó en la epístola a los Hebreos y la doctrina de la expiación perfecta de Cristo.</p>
+                <div class="scholar-card reveal">
+                    <img src="images/john-owen.jpg" alt="John Owen" class="scholar-img">
+                    <h4 class="scholar-name">John Owen</h4>
+                    <p class="scholar-desc">Teólogo puritano (1616-1683) que profundizó en la epístola a los Hebreos y la doctrina de la expiación perfecta de Cristo.</p>
                 </div>
-
-                <div class="author-card fade-in">
-                    <img src="images/charles-spurgeon.jpg" alt="Charles Spurgeon" class="author-img">
-                    <h4>Charles Spurgeon</h4>
-                    <p class="author-desc">"El príncipe de los predicadores" (1834-1892) cuya predicación está llena de ilustraciones de la tipología bíblica con el fin de exaltar a Cristo.</p>
+                <div class="scholar-card reveal">
+                    <img src="images/charles-spurgeon.jpg" alt="Charles Spurgeon" class="scholar-img">
+                    <h4 class="scholar-name">Charles Spurgeon</h4>
+                    <p class="scholar-desc">"El príncipe de los predicadores" (1834-1892), cuya predicación está llena de ilustraciones de la tipología bíblica con el fin de exaltar a Cristo.</p>
                 </div>
-
-                <div class="author-card fade-in">
-                    <img src="images/martyn-lloyd-jones.jpg" alt="Martyn Lloyd-Jones" class="author-img">
-                    <h4>D. Martyn Lloyd-Jones</h4>
-                    <p class="author-desc">Predicador galés (1899-1981) que resaltó la obra completa de Cristo prefigurada en el Antiguo Testamento.</p>
+                <div class="scholar-card reveal">
+                    <img src="images/martyn-lloyd-jones.jpg" alt="Martyn Lloyd-Jones" class="scholar-img">
+                    <h4 class="scholar-name">D. Martyn Lloyd-Jones</h4>
+                    <p class="scholar-desc">Predicador galés (1899-1981) que resaltó la obra completa de Cristo prefigurada en el Antiguo Testamento.</p>
                 </div>
             </div>
 
-            <div class="authors-contributions">
-                <h3>Contribuciones Principales</h3>
-                
-                <div class="contribution-quote fade-in">
-                    <div class="quote-author">John Owen</div>
+            <h3 class="contributions-title">Contribuciones principales</h3>
+            <div class="contribution-list">
+                <div class="contribution-item reveal">
+                    <div class="contribution-author">John Owen</div>
                     <blockquote>"La repetición de los sacrificios anuales bajo la ley se debía principalmente a que no podían efectuar perfectamente aquello que significaban; pero el único sacrificio de Cristo, de una vez, logró perfectamente lo que ellos representaban."</blockquote>
-                    <p class="quote-reference">Respecto a Hebreos 9-10</p>
+                    <p class="contribution-note">Respecto a Hebreos 9-10</p>
                 </div>
-
-                <div class="contribution-quote fade-in">
-                    <div class="quote-author">Charles Spurgeon</div>
+                <div class="contribution-item reveal">
+                    <div class="contribution-author">Charles Spurgeon</div>
                     <blockquote>"Cristo se ofreció voluntariamente, sin mancha, a Dios por nuestros pecados."</blockquote>
-                    <p class="quote-description">Resumió el significado cristológico de cada ofrenda levítica. Del holocausto dijo lo anterior. De la ofrenda de cereal: "Cristo en Su humanidad perfecta, probada y acrisolada, se convierte en el pan de Su pueblo."</p>
+                    <p class="contribution-note">Resumió el significado cristológico de cada ofrenda levítica. Del holocausto dijo lo anterior. De la ofrenda de cereal: "Cristo en su humanidad perfecta, probada y acrisolada, se convierte en el pan de su pueblo."</p>
                 </div>
-
-                <div class="contribution-quote fade-in">
-                    <div class="quote-author">Martyn Lloyd-Jones</div>
+                <div class="contribution-item reveal">
+                    <div class="contribution-author">Martyn Lloyd-Jones</div>
                     <blockquote>"Dios prometió [la redención] en la antigua dispensación; nos dio tipos y sombras, todas las ceremonias del sacerdocio levítico. Pero Dios dijo: 'Voy a ofrecer un sacrificio perfecto, y cuando Él venga, el pecado será enteramente perdonado.'"</blockquote>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Timeline de la revelación -->
-    <section class="timeline-section" id="tipologia">
-        <div class="section-container">
+        <!-- CAP 3: LEY Y GRACIA -->
+        <section class="block reveal">
             <div class="section-header">
-                <div class="section-badge">
-                    <i class="fas fa-timeline"></i>
-                    <span>Marco Teológico Reformado</span>
-                </div>
-                <h2 class="section-title">Ley y Gracia, Sustitución Penal y Justificación</h2>
-                <p class="section-subtitle">Desde la Reforma protestante, reinterpretación de los sacrificios enfatizando la suficiencia de Cristo</p>
+                <span class="section-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 22h14" /><path d="M5 2h14" /><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22" /><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2" /></svg> Marco teológico reformado</span>
+                <h2 class="section-title">Ley y gracia, sustitución penal y justificación</h2>
+                <div class="section-rule"></div>
+                <p class="section-subtitle">Desde la Reforma protestante, una reinterpretación de los sacrificios que enfatiza la suficiencia de Cristo.</p>
             </div>
 
-            <div class="timeline">
-                <div class="timeline-item slide-in-left">
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Sacrificios como parte de la Ley Ceremonial</h3>
-                        <p>Los reformadores enseñaron que la Ley tenía distintas partes: la ley moral (diez mandamientos), la ley civil (para gobernar Israel) y la ley ceremonial (ritos religiosos). Esta última fue considerada sombra temporal cumplida en Cristo y abrogada en la era del Nuevo Pacto.</p>
+            <div class="chronicle-timeline">
+                <div class="chronicle-row reveal">
+                    <span class="chronicle-num">I</span>
+                    <div>
+                        <h3>Sacrificios como parte de la ley ceremonial</h3>
+                        <p>Los reformadores enseñaron que la ley tenía distintas partes: la ley moral (diez mandamientos), la ley civil (para gobernar Israel) y la ley ceremonial (ritos religiosos). Esta última fue considerada sombra temporal cumplida en Cristo y abrogada en la era del nuevo pacto.</p>
                     </div>
-                    <div class="timeline-dot"></div>
                 </div>
-
-                <div class="timeline-item slide-in-right">
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">La Sustitución Penal</h3>
-                        <p>Central en la teología reformada es que Cristo murió en lugar de pecadores, llevando la pena de su pecado. Los sacrificios del AT ilustraban la transferencia de culpa al sustituto inocente. Calvino destacó que Cristo tomó sobre sí el juicio que nos tocaba.</p>
+                <div class="chronicle-row reveal">
+                    <span class="chronicle-num">II</span>
+                    <div>
+                        <h3>La sustitución penal</h3>
+                        <p>Central en la teología reformada es que Cristo murió en lugar de pecadores, llevando la pena de su pecado. Los sacrificios del Antiguo Testamento ilustraban la transferencia de culpa al sustituto inocente. Calvino destacó que Cristo tomó sobre sí el juicio que nos tocaba.</p>
                     </div>
-                    <div class="timeline-dot"></div>
                 </div>
-
-                <div class="timeline-item slide-in-left">
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">La Justificación por la Fe</h3>
+                <div class="chronicle-row reveal">
+                    <span class="chronicle-num">III</span>
+                    <div>
+                        <h3>La justificación por la fe</h3>
                         <p>Puesto que Cristo pagó totalmente por el pecado y cumplió toda justicia, el pecador es justificado (declarado justo) únicamente al confiar en Cristo. Los reformadores usaron mucho Hebreos para apoyar <em>solus Christus</em> y <em>sola fide</em>.</p>
                     </div>
-                    <div class="timeline-dot"></div>
                 </div>
-
-                <div class="timeline-item slide-in-right">
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Ley y Gracia</h3>
-                        <p>Los reformadores vieron una unidad en la diversidad: la gracia de Cristo operó bajo la Ley pero velada. Los santos del AT tenían a Cristo "en figura", pero con la venida de Cristo se entra en la plenitud y libertad evangélica.</p>
+                <div class="chronicle-row reveal">
+                    <span class="chronicle-num">IV</span>
+                    <div>
+                        <h3>Ley y gracia</h3>
+                        <p>Los reformadores vieron una unidad en la diversidad: la gracia de Cristo operó bajo la ley pero velada. Los santos del Antiguo Testamento tenían a Cristo "en figura", pero con la venida de Cristo se entra en la plenitud y libertad evangélica.</p>
                     </div>
-                    <div class="timeline-dot"></div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Hermenéutica Tipológica -->
-    <section class="hermeneutics-section">
-        <div class="section-container">
+        <!-- CAP 4: HERMENEUTICA -->
+        <section class="block reveal">
             <div class="section-header">
-                <div class="section-badge">
-                    <i class="fas fa-search"></i>
-                    <span>Principios de Interpretación</span>
-                </div>
-                <h2 class="section-title">Hermenéutica Tipológica Protestante</h2>
-                <p class="section-subtitle">Criterios sólidos para una interpretación tipológica responsable, evitando arbitrariedades</p>
+                <span class="section-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16" /><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" /></svg> Principios de interpretación</span>
+                <h2 class="section-title">Hermenéutica tipológica protestante</h2>
+                <div class="section-rule"></div>
+                <p class="section-subtitle">Criterios sólidos para una interpretación tipológica responsable, evitando arbitrariedades.</p>
             </div>
 
-            <div class="hermeneutics-grid">
-                <div class="hermeneutic-card fade-in">
-                    <div class="hermeneutic-icon">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
-                    <h3>Tipo vs. Alegoría</h3>
-                    <p>Un tipo bíblico es una persona, institución, objeto o evento <strong>real</strong> en el AT, ordenado por la providencia divina para prefigurar una realidad futura mayor en Cristo o el Evangelio.</p>
+            <div class="hermeneutic-grid">
+                <div class="hermeneutic-card reveal">
+                    <div class="hermeneutic-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg></div>
+                    <h3>Tipo vs. alegoría</h3>
+                    <p>Un tipo bíblico es una persona, institución, objeto o evento <strong>real</strong> en el Antiguo Testamento, ordenado por la providencia divina para prefigurar una realidad futura mayor en Cristo o el evangelio.</p>
                     <p>En cambio, una alegoría es una interpretación donde los detalles históricos se transforman simbólicamente sin base explícita. La Reforma reaccionó contra la tendencia medieval de alegorizar cada pormenor sin control.</p>
                 </div>
-
-                <div class="hermeneutic-card fade-in">
-                    <div class="hermeneutic-icon">
-                        <i class="fas fa-cross"></i>
-                    </div>
+                <div class="hermeneutic-card reveal">
+                    <div class="hermeneutic-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4a1 1 0 0 1 1 1v4a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-4a1 1 0 0 1 1-1h4a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-4a1 1 0 0 1-1-1V4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4a1 1 0 0 1-1 1z" /></svg></div>
                     <h3>Cumplimiento en Cristo</h3>
-                    <p>Para que algo sea un tipo legítimo, su cumplimiento (antitipo) se halla en Cristo y la era del Nuevo Pacto. Los tipos no son meras correspondencias éticas, sino conexiones teológicas en la historia de la salvación.</p>
-                    <p>Un principio seguido es: <strong>"El NT es la guía para entender los tipos del AT."</strong> Siempre que el NT identifica un tipo, tenemos plena certeza de esa tipología.</p>
+                    <p>Para que algo sea un tipo legítimo, su cumplimiento (antitipo) se halla en Cristo y la era del nuevo pacto. Los tipos no son meras correspondencias éticas, sino conexiones teológicas en la historia de la salvación.</p>
+                    <p>Un principio seguido es: <strong>"El Nuevo Testamento es la guía para entender los tipos del Antiguo Testamento."</strong> Siempre que el Nuevo Testamento identifica un tipo, tenemos plena certeza de esa tipología.</p>
                 </div>
-
-                <div class="hermeneutic-card fade-in">
-                    <div class="hermeneutic-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Correspondencia y Escalamiento</h3>
+                <div class="hermeneutic-card reveal">
+                    <div class="hermeneutic-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16" /><path d="m19 9-5 5-4-4-3 3" /></svg></div>
+                    <h3>Correspondencia y escalamiento</h3>
                     <p>Un tipo y su antitipo tienen analogías pero también diferencias. Generalmente, el antitipo es mayor que el tipo. Así el sacrificio de Cristo es infinitamente superior a los de toros y machos cabríos.</p>
-                    <p>El intérprete tipológico busca la idea principal que conecta ambas realidades (por ejemplo: expiación sustitutiva conecta el sacrificio por el pecado con Cristo).</p>
+                    <p>El intérprete tipológico busca la idea principal que conecta ambas realidades: por ejemplo, la expiación sustitutiva conecta el sacrificio por el pecado con Cristo.</p>
                 </div>
             </div>
 
-            <div class="hermeneutic-principle">
-                <div class="principle-icon">
-                    <i class="fas fa-book"></i>
-                </div>
-                <p>La hermenéutica tipológica protestante trata la Escritura como una unidad centrada en Cristo. No rehúye ver a Cristo en el AT, pero lo hace con reverencia al sentido bíblico, evitando fantasías privadas. Un pasaje importante es <strong>Lucas 24:27</strong>, donde Jesús interpretó "en todas las Escrituras lo que de Él decían" – esto establece el modelo a seguir.</p>
+            <div class="principle-callout reveal">
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16" /><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" /></svg>
+                <p>La hermenéutica tipológica protestante trata la Escritura como una unidad centrada en Cristo. No rehúye ver a Cristo en el Antiguo Testamento, pero lo hace con reverencia al sentido bíblico, evitando fantasías privadas. Un pasaje importante es <strong>Lucas 24:27</strong>, donde Jesús interpretó "en todas las Escrituras lo que de él decían": esto establece el modelo a seguir.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Rechazo perspectiva católica -->
-    <section class="catholic-rejection">
-        <div class="section-container">
+        <!-- CAP 5: RECHAZO PERSPECTIVA CATOLICA -->
+        <section class="block reveal">
             <div class="section-header">
-                <div class="section-badge">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <span>Diferencias Doctrinales</span>
-                </div>
-                <h2 class="section-title">Rechazo de la Perspectiva Católica Romana</h2>
-                <p class="section-subtitle">Sacrificio Único vs. Repetición Sacramental</p>
+                <span class="section-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /><path d="M12 9v4" /><path d="M12 17h.01" /></svg> Diferencias doctrinales</span>
+                <h2 class="section-title">Rechazo de la perspectiva católica romana</h2>
+                <div class="section-rule"></div>
+                <p class="section-subtitle">Sacrificio único frente a repetición sacramental.</p>
             </div>
 
-            <div class="comparison-container">
-                <div class="comparison-card protestant fade-in">
-                    <div class="comparison-header">
-                        <i class="fas fa-cross"></i>
-                        <h3>Perspectiva Protestante</h3>
+            <div class="comparison-grid">
+                <div class="comparison-card comparison-card--protestant reveal">
+                    <div class="comparison-head">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4a1 1 0 0 1 1 1v4a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-4a1 1 0 0 1 1-1h4a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-4a1 1 0 0 1-1-1V4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4a1 1 0 0 1-1 1z" /></svg>
+                        <h3>Perspectiva protestante</h3>
                     </div>
-                    <div class="comparison-content">
-                        <ul>
-                            <li><strong>"Una vez para siempre"</strong> - el sacrificio único e irrepetible de Cristo</li>
-                            <li>La <strong>Cena del Señor</strong> es memorial, no acto sacrificial propiciatorio</li>
-                            <li>Énfasis en el <strong>sacerdocio de todos los creyentes</strong></li>
-                            <li>La <strong>suficiencia completa</strong> de la expiación de Cristo</li>
-                            <li>Hebreos 10:18: <em>"Donde hay remisión de pecados, no hay más ofrenda por el pecado"</em></li>
-                        </ul>
-                    </div>
+                    <ul>
+                        <li><strong>"Una vez para siempre"</strong>: el sacrificio único e irrepetible de Cristo</li>
+                        <li>La <strong>Cena del Señor</strong> es memorial, no acto sacrificial propiciatorio</li>
+                        <li>Énfasis en el <strong>sacerdocio de todos los creyentes</strong></li>
+                        <li>La <strong>suficiencia completa</strong> de la expiación de Cristo</li>
+                        <li>Hebreos 10:18: <em>"Donde hay remisión de pecados, no hay más ofrenda por el pecado"</em></li>
+                    </ul>
                 </div>
-
-                <div class="comparison-card catholic fade-in">
-                    <div class="comparison-header">
-                        <i class="fas fa-church"></i>
-                        <h3>Perspectiva Católica Romana</h3>
+                <div class="comparison-card comparison-card--catholic reveal">
+                    <div class="comparison-head">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 9h4" /><path d="M12 7v5" /><path d="M14 21v-3a2 2 0 0 0-4 0v3" /><path d="m18 9 3.52 2.147a1 1 0 0 1 .48.854V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6.999a1 1 0 0 1 .48-.854L6 9" /><path d="M6 21V7a1 1 0 0 1 .376-.782l5-3.999a1 1 0 0 1 1.249.001l5 4A1 1 0 0 1 18 7v14" /></svg>
+                        <h3>Perspectiva católica romana</h3>
                     </div>
-                    <div class="comparison-content">
-                        <ul>
-                            <li>La misa como un <strong>"verdadero y propio sacrificio"</strong> con valor propiciatorio</li>
-                            <li>Repetición o aplicación continua del sacrificio</li>
-                            <li>Sacerdocio sacrificial específico</li>
-                            <li>Doctrinas del purgatorio y méritos</li>
-                            <li>Aplicación gradual de los beneficios de Cristo</li>
-                        </ul>
-                    </div>
+                    <ul>
+                        <li>La misa como un <strong>"verdadero y propio sacrificio"</strong> con valor propiciatorio</li>
+                        <li>Repetición o aplicación continua del sacrificio</li>
+                        <li>Sacerdocio sacrificial específico</li>
+                        <li>Doctrinas del purgatorio y méritos</li>
+                        <li>Aplicación gradual de los beneficios de Cristo</li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="rejection-statement">
-                <div class="statement-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
+            <div class="rejection-statement reveal">
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16" /><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" /></svg>
                 <p>La Confesión de Westminster (1647) rechaza "el llamado sacrificio de la misa" como "contrario a la Escritura", afirmando que el único sacrificio de Cristo ya completó perfectamente la obra de expiación y reconciliación. Juan Wesley, aunque metodista arminiano, concordaba: "Cuya única oblación tiene virtud para siempre".</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Tipología Cristocéntrica Detallada -->
-    <section class="detailed-typology">
-        <div class="section-container">
+        <!-- CAP 6: SINTESIS TIPOLOGICA -->
+        <section class="block reveal">
             <div class="section-header">
-                <div class="section-badge">
-                    <i class="fas fa-star"></i>
-                    <span>Tipología Cristocéntrica</span>
-                </div>
-                <h2 class="section-title">El Cordero de Dios: Síntesis Tipológica</h2>
-                <p class="section-subtitle">Por encima de cada categoría específica, la Biblia presenta una figura global: el Cordero de Dios</p>
+                <span class="section-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg> Tipología cristocéntrica</span>
+                <h2 class="section-title">El Cordero de Dios: síntesis tipológica</h2>
+                <div class="section-rule"></div>
+                <p class="section-subtitle">Por encima de cada categoría específica, la Biblia presenta una figura global: el Cordero de Dios.</p>
             </div>
 
-            <div class="typology-content">
-                <div class="lamb-section fade-in">
-                    <div class="lamb-icon">
-                        <i class="fas fa-dove"></i>
-                    </div>
-                    <h3>El Cordero Pascual</h3>
-                    <p>El cordero pascual (Éxodo 12) es una figura directa de Cristo, <strong>"nuestra Pascua, que ya fue sacrificada por nosotros"</strong> (1 Co 5:7). Al igual que su sangre protegió de la muerte y aseguró la liberación de la esclavitud, la sangre de Cristo nos libra de la muerte eterna y de la esclavitud del pecado.</p>
-                    <p>Cristo fue crucificado en el tiempo de la Pascua, cumpliendo el tipo con precisión divina. Juan el Bautista, al ver a Jesús, exclamó: <strong>"¡He aquí el Cordero de Dios, que quita el pecado del mundo!"</strong> (Jn 1:29).</p>
+            <div class="synthesis-intro reveal">
+                <div class="synthesis-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg></div>
+                <h3>El Cordero Pascual</h3>
+                <p>El cordero pascual (Éxodo 12) es una figura directa de Cristo, <strong>"nuestra Pascua, que ya fue sacrificada por nosotros"</strong> (1 Corintios 5:7). Al igual que su sangre protegió de la muerte y aseguró la liberación de la esclavitud, la sangre de Cristo nos libra de la muerte eterna y de la esclavitud del pecado.</p>
+                <p>Cristo fue crucificado en el tiempo de la Pascua, cumpliendo el tipo con precisión divina. Juan el Bautista, al ver a Jesús, exclamó: <strong>"¡He aquí el Cordero de Dios, que quita el pecado del mundo!"</strong> (Juan 1:29).</p>
+            </div>
+
+            <div class="explanation-grid">
+                <div class="explanation-card reveal">
+                    <div class="explanation-head"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4" /></svg><h4>El holocausto: entrega total</h4></div>
+                    <p>Jesús se entregó completamente en obediencia hasta la muerte (Filipenses 2:8). Su perfecta obediencia y disposición a hacer la voluntad del Padre, incluso al costo total de sí mismo, reflejan la esencia del holocausto.</p>
+                    <blockquote>"Yo pongo mi vida, para volverla a tomar. Nadie me la quita, sino que yo de mí mismo la pongo." Juan 10:17-18</blockquote>
                 </div>
-
-                <div class="detailed-explanations">
-                    <div class="explanation-card fade-in">
-                        <h4>El Holocausto: Entrega Total</h4>
-                        <p>Jesús se entregó completamente en obediencia hasta la muerte (Fil 2:8). Su perfecta obediencia y disposición a hacer la voluntad del Padre, incluso al costo total de sí mismo, reflejan la esencia del holocausto.</p>
-                        <blockquote>"Yo pongo mi vida, para volverla a tomar. Nadie me la quita, sino que yo de mí mismo la pongo" - Juan 10:17-18</blockquote>
-                    </div>
-
-                    <div class="explanation-card fade-in">
-                        <h4>Ofrenda de Cereal: Vida Sin Pecado</h4>
-                        <p>La ausencia de sangre en esta ofrenda indica que en sí misma no expiaba pecados; de igual modo, la vida perfecta de Cristo por sí sola no nos salva sin la cruz, pero era necesaria para que Él fuera un sacrificio sin mancha.</p>
-                        <blockquote>"Cristo es como ese pan sin levadura, sincero y verdadero" - 1 Corintios 5:7-8</blockquote>
-                    </div>
-
-                    <div class="explanation-card fade-in">
-                        <h4>Sacrificio de Paz: Comunión Restaurada</h4>
-                        <p>En la Última Cena, Jesús instituyó una comida basada en Su sacrificio, reflejando el lenguaje de un sacrificio de paz: la iglesia come de los beneficios de la muerte de Cristo en comunión con Dios y entre los hermanos.</p>
-                        <blockquote>"Por su sangre, Cristo hizo la paz mediante la sangre de su cruz" - Colosenses 1:20</blockquote>
-                    </div>
-
-                    <div class="explanation-card fade-in">
-                        <h4>Sacrificio por el Pecado: Sustitución</h4>
-                        <p>Cristo fue crucificado "fuera de la puerta" de Jerusalén (Heb 13:12), cargando con la maldición (Gá 3:13) y experimentando la separación de la comunión para llevar nuestro pecado fuera de la presencia de Dios.</p>
-                        <blockquote>"Llevó él mismo nuestros pecados en su cuerpo sobre el madero" - 1 Pedro 2:24</blockquote>
-                    </div>
-
-                    <div class="explanation-card fade-in">
-                        <h4>Ofrenda por la Culpa: Satisfacción Total</h4>
-                        <p>Cristo, al morir, no solo trató nuestro pecado en términos de culpabilidad ante Dios, sino también pagó totalmente nuestra deuda moral. Colosenses 2:14 declara que Dios "anuló el acta de los decretos que había contra nosotros".</p>
-                        <blockquote>"Vino para dar su vida en rescate por muchos" - Marcos 10:45</blockquote>
-                    </div>
+                <div class="explanation-card reveal">
+                    <div class="explanation-head"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3" /><path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4" /><path d="M5 21h14" /></svg><h4>Ofrenda de cereal: vida sin pecado</h4></div>
+                    <p>La ausencia de sangre en esta ofrenda indica que en sí misma no expiaba pecados; de igual modo, la vida perfecta de Cristo por sí sola no nos salva sin la cruz, pero era necesaria para que él fuera un sacrificio sin mancha.</p>
+                    <blockquote>"Cristo es como ese pan sin levadura, sincero y verdadero." 1 Corintios 5:7-8</blockquote>
+                </div>
+                <div class="explanation-card reveal">
+                    <div class="explanation-head"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762" /></svg><h4>Sacrificio de paz: comunión restaurada</h4></div>
+                    <p>En la Última Cena, Jesús instituyó una comida basada en su sacrificio, reflejando el lenguaje de un sacrificio de paz: la iglesia come de los beneficios de la muerte de Cristo en comunión con Dios y entre los hermanos.</p>
+                    <blockquote>"Por su sangre, Cristo hizo la paz mediante la sangre de su cruz." Colosenses 1:20</blockquote>
+                </div>
+                <div class="explanation-card reveal">
+                    <div class="explanation-head"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></svg><h4>Sacrificio por el pecado: sustitución</h4></div>
+                    <p>Cristo fue crucificado "fuera de la puerta" de Jerusalén (Hebreos 13:12), cargando con la maldición (Gálatas 3:13) y experimentando la separación de la comunión para llevar nuestro pecado fuera de la presencia de Dios.</p>
+                    <blockquote>"Llevó él mismo nuestros pecados en su cuerpo sobre el madero." 1 Pedro 2:24</blockquote>
+                </div>
+                <div class="explanation-card reveal">
+                    <div class="explanation-head"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg><h4>Ofrenda por la culpa: satisfacción total</h4></div>
+                    <p>Cristo, al morir, no solo trató nuestro pecado en términos de culpabilidad ante Dios, sino también pagó totalmente nuestra deuda moral. Colosenses 2:14 declara que Dios "anuló el acta de los decretos que había contra nosotros".</p>
+                    <blockquote>"Vino para dar su vida en rescate por muchos." Marcos 10:45</blockquote>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Versículo de Gálatas -->
-    <section class="section-container">
-        <div class="bible-verse fade-in">
-            <p class="verse-text">
-                "De manera que la ley ha sido nuestro ayo, para llevarnos a Cristo, a fin de que fuésemos justificados por la fe. Pero venida la fe, ya no estamos bajo ayo."
-            </p>
-            <p class="verse-reference">Gálatas 3:24-25</p>
+        <div class="verse-slab reveal">
+            <p class="verse-slab-text">"De manera que la ley ha sido nuestro ayo, para llevarnos a Cristo, a fin de que fuésemos justificados por la fe. Pero venida la fe, ya no estamos bajo ayo."</p>
+            <p class="verse-slab-ref">Gálatas 3:24-25</p>
         </div>
-    </section>
 
-    <!-- Referencias Bibliográficas -->
-    <section class="references-section">
-        <div class="section-container">
+        <!-- CAP 7: REFERENCIAS -->
+        <section class="block reveal">
             <div class="section-header">
-                <div class="section-badge">
-                    <i class="fas fa-book"></i>
-                    <span>Fuentes Académicas</span>
-                </div>
-                <h2 class="section-title">Referencias Bibliográficas</h2>
-                <p class="section-subtitle">Fuentes teológicas y académicas que sustentan este estudio</p>
+                <span class="section-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" /></svg> Fuentes académicas</span>
+                <h2 class="section-title">Referencias bibliográficas</h2>
+                <div class="section-rule"></div>
+                <p class="section-subtitle">Fuentes teológicas y académicas que sustentan este estudio.</p>
             </div>
 
-            <div class="references-grid">
-                <div class="reference-category fade-in">
-                    <h4>Diccionarios y Enciclopedias</h4>
+            <div class="biblio-grid">
+                <div class="biblio-category reveal">
+                    <h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" /></svg> Diccionarios y enciclopedias</h4>
                     <ul>
                         <li>Baker's Evangelical Dictionary of Biblical Theology: "Offerings and Sacrifices" (1996)</li>
-                        <li>Escuelabíblica.com – Estudio Levítico 1–7: Explicación de las ofrendas y su relación con Efesios 5</li>
+                        <li>Escuelabíblica.com, estudio Levítico 1-7: explicación de las ofrendas y su relación con Efesios 5</li>
                     </ul>
                 </div>
-
-                <div class="reference-category fade-in">
-                    <h4>Teólogos Reformados Clásicos</h4>
+                <div class="biblio-category reveal">
+                    <h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg> Teólogos reformados clásicos</h4>
                     <ul>
-                        <li>Owen, John. Exposición de Hebreos Vol. VI: sobre la suficiencia del sacrificio de Cristo</li>
-                        <li>Calvino, Juan. Comentario a Hebreos e Institución de la Religión Cristiana II.7: Cristo "fin de la Ley"</li>
-                        <li>Lutero, Martín. Artículos de Esmalcada (1537): denuncia de la misa como contraria al único sacrificio</li>
+                        <li>Owen, John. <em>Exposición de Hebreos</em>, vol. VI: sobre la suficiencia del sacrificio de Cristo</li>
+                        <li>Calvino, Juan. <em>Comentario a Hebreos</em> e <em>Institución de la Religión Cristiana</em> II.7: Cristo "fin de la ley"</li>
+                        <li>Lutero, Martín. <em>Artículos de Esmalcalda</em> (1537): denuncia de la misa como contraria al único sacrificio</li>
                     </ul>
                 </div>
-
-                <div class="reference-category fade-in">
-                    <h4>Predicadores y Pastores</h4>
+                <div class="biblio-category reveal">
+                    <h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" /><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" /><path d="M8 6v8" /></svg> Predicadores y pastores</h4>
                     <ul>
-                        <li>Spurgeon, C.H. Lectures to my Students / Comentario devocional en Levítico: resumen tipológico</li>
-                        <li>Lloyd-Jones, D.M. Vida en Cristo (Estudios en 1 Juan): sobre los tipos levíticos como promesas</li>
+                        <li>Spurgeon, C. H. <em>Lectures to my Students</em> / comentario devocional en Levítico: resumen tipológico</li>
+                        <li>Lloyd-Jones, D. M. <em>Vida en Cristo</em> (estudios en 1 Juan): sobre los tipos levíticos como promesas</li>
                         <li>Wesley, John. Notas explicativas (Hebreos 10): énfasis en "la virtud de cuyo único sacrificio"</li>
                     </ul>
                 </div>
-
-                <div class="reference-category fade-in">
-                    <h4>Teología Sistemática Moderna</h4>
+                <div class="biblio-category reveal">
+                    <h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" /><path d="M22 10v6" /><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /></svg> Teología sistemática moderna</h4>
                     <ul>
-                        <li>Berkhof, Louis. Systematic Theology (1938): capítulos sobre la obra de Cristo y tipología bíblica</li>
-                        <li>Sproul, R.C. The Truth of the Cross (2007): enseñanza sobre la expiación "una vez y para siempre"</li>
+                        <li>Berkhof, Louis. <em>Systematic Theology</em> (1938): capítulos sobre la obra de Cristo y tipología bíblica</li>
+                        <li>Sproul, R. C. <em>The Truth of the Cross</em> (2007): enseñanza sobre la expiación "una vez y para siempre"</li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="conclusion" id="aplicacion">
-        <div class="section-container">
-            <div class="conclusion-content">
-                <h2 class="conclusion-title">El Cordero de Dios: Cumplimiento Perfecto</h2>
-                <p class="conclusion-text">
-                    Desde Génesis hasta Apocalipsis, el cordero sacrificial aparece como el símbolo unificador de la redención. Cristo es el Cordero perfecto que quita el pecado del mundo, cumpliendo todos los tipos y sombras del Antiguo Testamento.
-                </p>
+        </section>
 
-                <div class="conclusion-points">
-                    <div class="conclusion-point fade-in">
-                        <div class="conclusion-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h4>Apreciación de Cristo</h4>
-                        <p>Cada sacrificio revela un aspecto de la cruz, aumentando nuestra admiración y gratitud hacia Jesús.</p>
-                    </div>
+    </main>
 
-                    <div class="conclusion-point fade-in">
-                        <div class="conclusion-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h4>Seguridad de Salvación</h4>
-                        <p>El sacrificio de Cristo resolvió plenamente el problema del pecado, dándonos paz y seguridad.</p>
-                    </div>
+    <!-- CONCLUSION -->
+    <div class="conclusion-block reveal">
+        <div class="conclusion-inner">
+            <span class="section-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg> Conclusión</span>
+            <h2 class="section-title">El Cordero de Dios: cumplimiento perfecto</h2>
+            <div class="section-rule"></div>
+            <p class="conclusion-text">Desde Génesis hasta Apocalipsis, el cordero sacrificial aparece como el símbolo unificador de la redención. Cristo es el Cordero perfecto que quita el pecado del mundo, cumpliendo todos los tipos y sombras del Antiguo Testamento.</p>
 
-                    <div class="conclusion-point fade-in">
-                        <div class="conclusion-icon">
-                            <i class="fas fa-praying-hands"></i>
-                        </div>
-                        <h4>Humildad y Confesión</h4>
-                        <p>El costo del sacrificio nos muestra la seriedad del pecado y nos lleva al arrepentimiento genuino.</p>
-                    </div>
-
-                    <div class="conclusion-point fade-in">
-                        <div class="conclusion-icon">
-                            <i class="fas fa-hands"></i>
-                        </div>
-                        <h4>Santificación y Entrega</h4>
-                        <p>Respondemos a la obra completa de Cristo ofreciendo nuestras vidas como sacrificios vivos.</p>
-                    </div>
+            <div class="conclusion-grid">
+                <div class="conclusion-point">
+                    <div class="conclusion-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></svg></div>
+                    <h4>Apreciación de Cristo</h4>
+                    <p>Cada sacrificio revela un aspecto de la cruz, aumentando nuestra admiración y gratitud hacia Jesús.</p>
+                </div>
+                <div class="conclusion-point">
+                    <div class="conclusion-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg></div>
+                    <h4>Seguridad de salvación</h4>
+                    <p>El sacrificio de Cristo resolvió plenamente el problema del pecado, dándonos paz y seguridad.</p>
+                </div>
+                <div class="conclusion-point">
+                    <div class="conclusion-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2" /><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2" /><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8" /><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" /></svg></div>
+                    <h4>Humildad y confesión</h4>
+                    <p>El costo del sacrificio nos muestra la seriedad del pecado y nos lleva al arrepentimiento genuino.</p>
+                </div>
+                <div class="conclusion-point">
+                    <div class="conclusion-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762" /></svg></div>
+                    <h4>Santificación y entrega</h4>
+                    <p>Respondemos a la obra completa de Cristo ofreciendo nuestras vidas como sacrificios vivos.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Versículo final -->
-    <section class="section-container">
-        <div class="bible-verse fade-in">
-            <p class="verse-text">
-                "Y cantaban un nuevo cántico, diciendo: Digno eres de tomar el libro y de abrir sus sellos; porque tú fuiste inmolado, y con tu sangre nos has redimido para Dios, de todo linaje y lengua y pueblo y nación."
-            </p>
-            <p class="verse-reference">Apocalipsis 5:9</p>
+    <section class="page-main" style="padding-top: 5rem;">
+        <div class="verse-slab reveal" style="margin-top: 0;">
+            <p class="verse-slab-text">"Y cantaban un nuevo cántico, diciendo: Digno eres de tomar el libro y de abrir sus sellos; porque tú fuiste inmolado, y con tu sangre nos has redimido para Dios, de todo linaje y lengua y pueblo y nación."</p>
+            <p class="verse-slab-ref">Apocalipsis 5:9</p>
         </div>
     </section>
 
-    <!-- Footer moderno -->
-    <footer class="footer" id="contacto">
-        <div class="section-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="../../../../images/EMD.png?v=2" alt="Logo EMD" class="footer-logo-img">
-                        <div>
-                            <h4>Ministerio EMD</h4>
-                            <p>"La Gloria es del Señor"</p>
-                        </div>
-                    </div>
-                    <p>Ministerio dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
-                    <div class="social-links">
-                         <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                         <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><i class="fab fa-youtube"></i></a>
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">
+                    <img src="../../images/EMD.png?v=2" alt="Logo EMD">
+                    <div>
+                        <h4>Ministerio EMD</h4>
+                        <span>"La Gloria es del Señor"</span>
                     </div>
                 </div>
-
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <p><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +1 787-345-6940</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio, San Juan, Puerto Rico</p>
+                <p class="footer-desc">Ministerio dedicado a la enseñanza de la Palabra de Dios para edificación de la iglesia.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4z"/></svg></a>
+                    <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.582 7.186a2.5 2.5 0 0 0-1.768-1.768C18.254 5 12 5 12 5s-6.254 0-7.814.418a2.5 2.5 0 0 0-1.768 1.768C2 8.746 2 12 2 12s0 3.254.418 4.814a2.5 2.5 0 0 0 1.768 1.768C5.746 19 12 19 12 19s6.254 0 7.814-.418a2.5 2.5 0 0 0 1.768-1.768C22 15.254 22 12 22 12s0-3.254-.418-4.814ZM10 15V9l5.196 3z"/></svg></a>
                 </div>
             </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect x="2" y="4" width="20" height="16" rx="2" /></svg> ministeriolagloriaesdelsenor7@gmail.com</p>
+                <p><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg> +1 787-345-6940</p>
+                <p><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /></svg> Ministerio en San Juan, Puerto Rico</p>
             </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Botón scroll to top -->
-    <button class="scroll-top" id="scrollTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            const scrollTop = document.getElementById('scrollTop');
-            
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-                scrollTop.classList.add('visible');
-            } else {
-                header.classList.remove('scrolled');
-                scrollTop.classList.remove('visible');
-            }
-        });
-
-        // Scroll to top functionality
-        document.getElementById('scrollTop').addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const headerHeight = document.querySelector('.header').offsetHeight;
-                    const targetPosition = target.offsetTop - headerHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, observerOptions);
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-        // Observe all animation elements
-        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Card hover effects
-        document.querySelectorAll('.nav-card, .sacrifice-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-8px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Parallax effect for hero shapes
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            const shapes = document.querySelectorAll('.hero-shape');
-            
-            shapes.forEach((shape, index) => {
-                const speed = (index + 1) * 0.1;
-                shape.style.transform = `translateY(${rate * speed}px) rotate(${scrolled * 0.1}deg)`;
-            });
-        });
-
-        // Add loading animation
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s ease-in-out';
-            
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-        });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
