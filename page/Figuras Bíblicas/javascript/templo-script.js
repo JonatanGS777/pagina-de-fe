@@ -387,6 +387,7 @@ Temple3D.prototype.init = function() {
         this.setupScene();
         this.setupCamera();
         this.setupRenderer();
+        this.setupEnvironment();
         this.setupLights();
         this.setupControls();
         this.createTempleModel();
@@ -428,7 +429,21 @@ Temple3D.prototype.setupRenderer = function() {
     this.renderer.setSize(container.clientWidth, container.clientHeight);
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     container.appendChild(this.renderer.domElement);
+};
+
+// Mapa de entorno procedural (sala con paredes de luz) para que el oro y
+// el bronce reflejen algo en vez de verse planos. No requiere ningún
+// archivo HDRI externo: THREE.RoomEnvironment genera la escena de origen.
+Temple3D.prototype.setupEnvironment = function() {
+    if (!this.renderer || typeof THREE.RoomEnvironment === 'undefined') return;
+
+    var pmremGenerator = new THREE.PMREMGenerator(this.renderer);
+    pmremGenerator.compileEquirectangularShader();
+    var roomEnvironment = new THREE.RoomEnvironment();
+    this.scene.environment = pmremGenerator.fromScene(roomEnvironment, 0.04).texture;
+    pmremGenerator.dispose();
 };
 
 Temple3D.prototype.setupLights = function() {
@@ -473,17 +488,24 @@ Temple3D.prototype.createTempleModel = function() {
         marble: new THREE.MeshStandardMaterial({
             color: 0xf5f5f5,
             metalness: 0.1,
-            roughness: 0.7
+            roughness: 0.7,
+            envMapIntensity: 0.6
         }),
-        gold: new THREE.MeshStandardMaterial({
+        gold: new THREE.MeshPhysicalMaterial({
             color: 0xd4af37,
             metalness: 0.9,
-            roughness: 0.1
+            roughness: 0.22,
+            clearcoat: 0.4,
+            clearcoatRoughness: 0.15,
+            envMapIntensity: 0.5
         }),
-        bronze: new THREE.MeshStandardMaterial({
+        bronze: new THREE.MeshPhysicalMaterial({
             color: 0x8c7853,
             metalness: 0.8,
-            roughness: 0.3
+            roughness: 0.35,
+            clearcoat: 0.2,
+            clearcoatRoughness: 0.25,
+            envMapIntensity: 0.4
         }),
         wood: new THREE.MeshStandardMaterial({
             color: 0x5d4037,
