@@ -343,13 +343,14 @@ export function buildWorld(scene) {
     courtPillar(-25, z, columnsG);
     pillarX.push(25); pillarX.push(-25); pillarZ.push(z); pillarZ.push(z);
   }
-  for (let i = 0; i < 10; i++) {
-    const x = -11.875 + i * 1.25;
+  for (let i = 0; i < 40; i++) {
+    const x = -24.375 + i * 1.25;
     courtPillar(x, -12.5, columnsG);
     pillarX.push(x); pillarZ.push(-12.5);
   }
   courtPillar(-25, 12.5, columnsG); courtPillar(25, 12.5, columnsG);
-  pillarX.push(-25, 25); pillarZ.push(12.5, 12.5);
+  courtPillar(-25, -12.5, columnsG); courtPillar(25, -12.5, columnsG);
+  pillarX.push(-25, 25, -25, 25); pillarZ.push(12.5, 12.5, -12.5, -12.5);
 
   /* --- Cortinas de lino del atrio (entre columnas) --- */
   const atrioG = new THREE.Group();
@@ -364,7 +365,7 @@ export function buildWorld(scene) {
   const runs = [
     { wall: 25, from: -11.875, to: 11.875, axis: "z" },
     { wall: -25, from: -11.875, to: 11.875, axis: "z" },
-    { wall: -12.5, from: -11.875, to: 11.875, axis: "x" },
+    { wall: -12.5, from: -25, to: 25, axis: "x" },
     { wall: 12.5, from: -25, to: -5, axis: "x" },
     { wall: 12.5, from: 5, to: 25, axis: "x" },
   ];
