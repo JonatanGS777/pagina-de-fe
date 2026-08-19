@@ -310,6 +310,15 @@ Tras agregarse `tabernaculo-3d.html`, una revisión a fondo (a pedido del usuari
 - Rediseñada con un concepto de "Rebaño Disperso" ligado al propio texto de Ezequiel 34 (pastores/ovejas/juicio), distinto del estilo "Tribunal de la Verdad" ya usado en `masoneria.html`. Tipografía Gelasio + Mulish, ninguna usada antes en el sitio. Paleta pastura/verde `#2f4a35` + rojo de juicio `#7a1f24` + oro de cayado `#b8935a`.
 - **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para las demás páginas de `analisisescatologico/`. Si se revisita esta página en el futuro, releer esta entrada antes de asumir que el contenido es "conspirativo genérico" como en otras páginas del sitio.
 
+### 2026-08-19: quinta de las 6 páginas de `analisisescatologico/` — persecusion.html "Mapa de Mártires"
+
+- **`page/Tiempo del Fin/analisisescatologico/persecusion.html`:** a diferencia de las últimas páginas de la categoría, esta es legítima y bien fundamentada — un dashboard de datos reales sobre persecución cristiana global, con 4 gráficas (Chart.js: dona, barras, radar, línea) citando fuentes verificables (Open Doors, USCIRF, Pew Research Center, Human Rights Watch). No se encontró contenido conspirativo ni fabricado.
+- Página huérfana (sin header del sitio) — se agregó el header estándar. **Bug de idioma corregido:** el logo decía "PERSECUTION WATCH", el `<h1>` decía literalmente "PERSECUTION CRISIS" en inglés, y el menú tenía "Overview/Regions/Data/Response" — todo traducido al español, coherente con el resto del sitio. También se quitó la mayúscula sostenida tecleada a mano en los 5 títulos de sección ("ANÁLISIS GLOBAL" → "Análisis global", etc.) y se corrigió un `<p>` anidado dentro de otro `<p>` en el footer (HTML inválido).
+- Rediseñada con un concepto de "Mapa de Mártires" (mártir = testigo en griego), elegido entre 3 direcciones propuestas (Mapa de Mártires, Sala de Vigilia, Registro del Testigo) para tratar el tema con la seriedad de un registro/atlas conmemorativo en vez del dashboard neón tipo SaaS genérico del original. Tipografía Faustina (títulos) + Nunito Sans (cuerpo), ninguna usada antes en el sitio. Paleta carbón `#16141a` + ámbar de vela `#d99a4e`, con las 4 gráficas de Chart.js recoloreadas al mismo esquema (antes usaban cian/púrpura/naranja neón).
+- Se conservó Chart.js (CDN) — a diferencia de Font Awesome, aporta funcionalidad real (gráficas interactivas), no es un ícono estático reemplazable por SVG inline.
+- Contenido íntegro (estadísticas, 4 regiones críticas, 4 tipos de persecución, causas estructurales, 10 países de USCIRF, crecimiento de la iglesia, respuesta internacional, 2 versículos) sin alterar cifras ni afirmaciones.
+- **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para la última página de `analisisescatologico/`.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -601,6 +610,7 @@ Página de Fe/
 | `page/Tiempo del Fin/analisisescatologico/conversiones.html` | Completado: estilo propio "Lluvia Tardía" (tierra seca que reverdece). Antes huérfana, sin header del sitio; ver historial 2026-08-19 |
 | `page/Tiempo del Fin/analisisescatologico/economiaglobal.html` | Completado: estilo propio "Babilonia Digital" (obsidiana/oro ardiente). Antes huérfana, sin header del sitio; ver historial 2026-08-19 |
 | `page/Tiempo del Fin/analisisescatologico/eze34.html` | Completado: estilo propio "Rebaño Disperso". **Contenido antisemita específico, mantenido a decisión informada del usuario — ver nota completa en historial 2026-08-19 antes de tocar esta página de nuevo.** |
+| `page/Tiempo del Fin/analisisescatologico/persecusion.html` | Completado: estilo propio "Mapa de Mártires" (dashboard de datos reales, sin problemas de contenido). Antes huérfana y con textos en inglés sin traducir; ver historial 2026-08-19 |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
@@ -625,7 +635,6 @@ Página de Fe/
 
 #### `page/Tiempo del Fin/`
 
-- [ ] `analisisescatologico/persecusion.html`
 - [ ] `analisisescatologico/tecnologia.html`
 - [ ] `analisisescatologico/tercertemplo.html`
 
