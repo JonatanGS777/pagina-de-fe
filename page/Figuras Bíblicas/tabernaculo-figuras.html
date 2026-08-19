@@ -11,26 +11,26 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Templo de Salomón | Ministerio "La Gloria es del Señor"</title>
-    <meta name="description" content="Historia, arquitectura y lectura canónica del templo de Salomón, con referencias bíblicas y un modelo 3D interactivo.">
+    <title>El tabernáculo de Moisés | Ministerio "La Gloria es del Señor"</title>
+    <meta name="description" content="Recorrido bíblico por el tabernáculo de Moisés, sus elementos, su lectura canónica y un modelo 3D interactivo.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --blueprint:    #0d3b5e;
-            --blueprint-dk: #082943;
-            --blueprint-ln: #cfe3f0;
-            --blueprint-dim: rgba(207,227,240,0.4);
-            --grid-line:    rgba(207,227,240,0.07);
-            --paper:        #f4f1e6;
-            --paper-dk:     #e6ddc4;
-            --gold:         #c9a227;
-            --gold-light:   #e0c469;
-            --ink:          #1e1810;
-            --text-muted:   #6b6152;
-            --header-bg:    rgba(8,41,67,0.97);
-            --cedar:        #7c4d2b;
+            --blueprint:    #173f3a;
+            --blueprint-dk: #0b2927;
+            --blueprint-ln: #dfece6;
+            --blueprint-dim: rgba(223,236,230,0.42);
+            --grid-line:    rgba(223,236,230,0.07);
+            --paper:        #f6f0e3;
+            --paper-dk:     #e6d9c2;
+            --gold:         #c79b3b;
+            --gold-light:   #e2c16c;
+            --ink:          #211a12;
+            --text-muted:   #6f6252;
+            --header-bg:    rgba(11,41,39,0.97);
+            --cedar:        #8d4d33;
             --font-display: 'Cormorant Garamond', Georgia, serif;
             --font-body:    'Alegreya Sans', sans-serif;
             --font-mono:    'IBM Plex Mono', monospace;
@@ -89,11 +89,11 @@
         }
         .hero-photo {
             position: absolute; inset: 0;
-            background: url('images/temple-hero-bg.jpg') center 55%/cover no-repeat;
-            filter: grayscale(1) sepia(0.5) hue-rotate(175deg) saturate(3.2) brightness(0.55) contrast(1.05);
-            opacity: 0.55;
+            background: url('images/tabernacle-hero-bg.jpg') center 52%/cover no-repeat;
+            filter: sepia(0.18) saturate(0.82) brightness(0.58) contrast(1.08);
+            opacity: 0.8;
         }
-        .hero-fade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,59,94,0.35) 0%, rgba(13,59,94,0.55) 55%, var(--blueprint) 100%); }
+        .hero-fade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,41,39,0.16) 0%, rgba(11,41,39,0.48) 58%, var(--blueprint) 100%); }
         .hero-inner { position: relative; z-index: 2; max-width: 820px; margin: 0 auto; padding: 3rem 2.5rem; text-align: center; }
         .hero-eyebrow {
             display: inline-flex; align-items: center; gap: 0.6rem;
@@ -116,8 +116,8 @@
         .btn-secondary:hover { border-color: var(--gold-light); color: var(--gold-light); }
 
         /* Dimension strip */
-        .dim-strip { position: relative; z-index: 2; display: flex; justify-content: center; gap: 0; margin-top: 3rem; flex-wrap: wrap; }
-        .dim-item { padding: 0 2rem; text-align: center; border-left: 1px dashed rgba(207,227,240,0.3); }
+        .dim-strip { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 3rem auto 0; }
+        .dim-item { padding: 0 1rem; text-align: center; border-left: 1px dashed rgba(207,227,240,0.3); }
         .dim-item:first-child { border-left: none; }
         .dim-value { font-family: var(--font-display); font-size: 1.75rem; font-weight: 600; color: var(--gold-light); }
         .dim-label { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.04em; color: var(--blueprint-dim); margin-top: 0.3rem; }
@@ -167,6 +167,7 @@
             color: var(--blueprint); text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 0.2rem; transition: color 0.2s ease;
         }
         .component-3d-link:hover { color: var(--gold-dark, #a8801e); }
+        .component-links { display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
 
         /* ── SYMBOLISM (dark) ── */
         .symbolism-block { background: var(--blueprint); padding: 5.5rem 2.5rem; }
@@ -199,8 +200,9 @@
             .overview-grid { grid-template-columns: 1fr; }
             .component { grid-template-columns: 1fr; }
             .component:nth-child(even) .component-media { order: 0; }
-            .dim-strip { gap: 1rem; }
+            .dim-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem 0; }
             .dim-item { padding: 0 1.2rem; }
+            .dim-item:nth-child(3) { border-left: none; }
             .typology-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 640px) {
@@ -210,7 +212,7 @@
             .hero-inner { padding: 2.2rem 1.2rem; }
             .page-main { padding: 0 1.2rem 4rem; }
             section.block { margin: 4rem 0; }
-            .dim-strip { flex-direction: column; gap: 1.4rem; }
+            .dim-strip { grid-template-columns: 1fr; gap: 1.4rem; }
             .dim-item { border-left: none; border-top: 1px dashed rgba(207,227,240,0.3); padding: 1rem 0 0; }
             .dim-item:first-child { border-top: none; padding-top: 0; }
             .symbolism-block { padding: 3.5rem 1.4rem; }
@@ -236,7 +238,7 @@
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 0 5px rgba(201,162,39,0.15);
         }
 
-        /* Related Block (precedente del templo) */
+        /* Related Block */
         .related-block {
             background: linear-gradient(135deg, rgba(13, 59, 94, 0.06), rgba(201, 162, 39, 0.08));
             border-top: 1px solid rgba(201, 162, 39, 0.25);
@@ -298,21 +300,21 @@
         <div class="hero-photo"></div>
         <div class="hero-fade"></div>
         <div class="hero-inner">
-            <span class="hero-eyebrow">Historia, arquitectura y lectura canónica</span>
-            <h1 class="hero-title">El templo de <em>Salomón</em></h1>
-            <p class="hero-subtitle">Un recorrido por el primer templo de Jerusalén a partir de los relatos de Reyes y Crónicas, distinguiendo el texto bíblico de la reconstrucción visual.</p>
+            <span class="hero-eyebrow">Éxodo, arquitectura portátil y lectura canónica</span>
+            <h1 class="hero-title">El tabernáculo de <em>Moisés</em></h1>
+            <p class="hero-subtitle">Un recorrido por la morada portátil de Israel a partir de Éxodo, distinguiendo la descripción bíblica de las decisiones propias de toda reconstrucción visual.</p>
             <div class="hero-cta">
-                <a href="temple-3d.html" class="btn btn-primary">
+                <a href="tabernaculo-3d.html" class="btn btn-primary">
                     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" /></svg>
                     Explorar en 3D
                 </a>
                 <a href="#overview" class="btn btn-secondary">Conocer más</a>
             </div>
             <div class="dim-strip">
-                <div class="dim-item"><div class="dim-value">60</div><div class="dim-label">codos de largo</div></div>
-                <div class="dim-item"><div class="dim-value">20</div><div class="dim-label">codos de ancho</div></div>
-                <div class="dim-item"><div class="dim-value">30</div><div class="dim-label">codos de alto</div></div>
-                <div class="dim-item"><div class="dim-value">7</div><div class="dim-label">años de construcción</div></div>
+                <div class="dim-item"><div class="dim-value">100</div><div class="dim-label">codos de largo del atrio</div></div>
+                <div class="dim-item"><div class="dim-value">50</div><div class="dim-label">codos de ancho del atrio</div></div>
+                <div class="dim-item"><div class="dim-value">30</div><div class="dim-label">codos de largo de la tienda</div></div>
+                <div class="dim-item"><div class="dim-value">1</div><div class="dim-label">entrada al oriente</div></div>
             </div>
         </div>
     </section>
@@ -321,21 +323,21 @@
 
         <section id="overview" class="block reveal">
             <div class="section-header">
-                <span class="section-index">Plano general</span>
-                <h2 class="section-title">Una casa para el nombre del Señor</h2>
+                <span class="section-index">Vista general</span>
+                <h2 class="section-title">Una morada en medio del pueblo</h2>
                 <div class="section-rule"></div>
             </div>
             <div class="overview-grid">
                 <div class="overview-text">
-                    <p>Salomón comenzó la construcción en el cuarto año de su reinado y la concluyó siete años después. El edificio principal medía 60 codos de largo, 20 de ancho y 30 de alto; estas medidas no incluyen todos los atrios, cámaras laterales y dependencias del complejo.</p>
-                    <p>La piedra preparada, la madera de cedro, las tallas vegetales y el revestimiento de oro comunicaban solemnidad y belleza. Sin embargo, la oración de dedicación reconoce que ningún edificio puede contener al Dios de los cielos.</p>
-                    <p>El templo fue el centro del culto de Israel y la casa asociada al nombre del Señor. El Nuevo Testamento retoma ese lenguaje para hablar de Cristo, de la Iglesia y de la presencia de Dios con su pueblo.</p>
-                    <p class="historical-note"><strong>Nota de reconstrucción:</strong> el texto bíblico ofrece medidas y materiales fundamentales, pero no define todos los detalles del conjunto. Las imágenes y el modelo 3D representan una aproximación visual, no un plano arqueológico definitivo.</p>
-                    <a href="temple-3d.html" class="btn btn-secondary" style="color: var(--blueprint); border-color: var(--blueprint);">Ver modelo 3D</a>
+                    <p>El Señor pidió a Israel un santuario para habitar en medio de su pueblo y mostró a Moisés un modelo para su construcción. Éxodo 25–31 presenta las instrucciones; Éxodo 35–40 narra su ejecución y culmina con la gloria de Dios llenando la tienda.</p>
+                    <p>El atrio rectangular medía 100 por 50 codos. Dentro se levantaba una tienda de 30 por 10 codos, dividida en lugar santo y lugar santísimo. Su diseño portátil acompañó las jornadas de Israel bajo la nube y el fuego.</p>
+                    <p>El tabernáculo organizaba el acercamiento a Dios mediante sacrificio, purificación, sacerdocio y presencia. Hebreos lo describe como figura y sombra de realidades celestiales cumplidas en el ministerio de Cristo.</p>
+                    <p class="historical-note"><strong>Nota de reconstrucción:</strong> Éxodo especifica medidas, materiales y funciones, pero no resuelve toda textura, forma o técnica. Las imágenes y el modelo 3D son ayudas educativas; no pretenden ser reproducciones arqueológicas definitivas.</p>
+                    <a href="tabernaculo-3d.html" class="btn btn-secondary" style="color: var(--blueprint); border-color: var(--blueprint);">Ver modelo 3D</a>
                 </div>
                 <div class="plate">
-                    <img src="images/temple-overview-plate.jpg" alt="Templo de Salomón">
-                    <div class="plate-cap"><span>Vista general</span><span>Reconstrucción aproximada</span></div>
+                    <img src="images/tabernacle-hero-bg.jpg" alt="Reconstrucción del tabernáculo en el desierto">
+                    <div class="plate-cap"><span>Vista general</span><span>Reconstrucción educativa</span></div>
                 </div>
             </div>
         </section>
@@ -345,223 +347,250 @@
                 <span class="section-index">Ficha técnica</span>
                 <h2 class="section-title">Estructura y componentes</h2>
                 <div class="section-rule"></div>
-                <p class="section-subtitle">Nueve elementos del conjunto, descritos primero desde el texto bíblico y después desde conexiones canónicas presentadas con prudencia.</p>
+                <p class="section-subtitle">Diez elementos principales, descritos primero desde el texto bíblico y después desde conexiones canónicas presentadas con prudencia.</p>
             </div>
 
             <div class="component-list">
                 <div class="component reveal">
                     <div class="component-media plate">
-                        <img src="images/atrio.jpg" alt="Reconstrucción visual de los atrios del templo">
-                        <div class="plate-cap"><span>Detalle 01</span><span>Los atrios</span></div>
+                        <img src="images/tabernacle-court-gate-plate.jpg" alt="Reconstrucción del atrio y la puerta oriental del tabernáculo" loading="lazy">
+                        <div class="plate-cap"><span>Detalle 01</span><span>Atrio y acceso</span></div>
                     </div>
                     <div class="component-body">
                         <div class="component-head">
                             <span class="component-num mono">01</span>
                             <div class="component-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg></div>
-                            <h3 class="component-title">El atrio</h3>
+                            <h3 class="component-title">El atrio y su puerta</h3>
                         </div>
-                        <p class="component-ref">1 Reyes 6:36; 7:12 · 2 Crónicas 4:9</p>
+                        <p class="component-ref">Éxodo 27:9–19; 38:9–20</p>
                         <div class="component-desc">
                             <h4>Descripción</h4>
-                            <p>Los relatos distinguen un atrio interior, construido con tres hileras de piedra labrada y una de vigas de cedro, y un atrio grande alrededor del conjunto. Allí se encontraban el altar, el Mar de bronce y las fuentes. Sus dimensiones completas no se especifican para el templo de Salomón.</p>
+                            <p>El recinto medía 100 codos de largo por 50 de ancho y estaba cercado con cortinas de lino de 5 codos de alto. Al oriente, una cortina de 20 codos tejida en azul, púrpura, carmesí y lino fino formaba la única entrada, sostenida por cuatro columnas.</p>
                         </div>
                         <div class="component-sym">
                             <h4>Lectura canónica</h4>
-                            <p>El atrio sitúa el culto dentro de la vida pública del pueblo: reunión, sacrificio y oración. No existe una equivalencia bíblica explícita entre cada zona del atrio y una etapa espiritual, por lo que esa aplicación debe presentarse como meditación y no como interpretación obligatoria.</p>
+                            <p>La entrada única ayuda a contemplar la afirmación de Jesús: «Yo soy la puerta» y «nadie viene al Padre sino por mí». La relación es cristológica y temática; Éxodo no asigna un significado independiente a cada color o columna.</p>
                         </div>
-                        <a href="temple-3d.html?part=court-inner" class="component-3d-link">Ver en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+                        <a href="tabernaculo-3d.html?part=puerta-atrio" class="component-3d-link">Ver la puerta en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
                     </div>
                 </div>
 
                 <div class="component reveal">
                     <div class="component-media plate">
-                        <img src="images/lugar-santo-plate.jpg" alt="Reconstrucción visual del lugar santo del templo">
-                        <div class="plate-cap"><span>Detalle 02</span><span>Interior</span></div>
+                        <img src="images/tabernacle-altar-plate.jpg" alt="Reconstrucción del altar de bronce del tabernáculo" loading="lazy">
+                        <div class="plate-cap"><span>Detalle 02</span><span>Atrio</span></div>
                     </div>
                     <div class="component-body">
                         <div class="component-head">
                             <span class="component-num mono">02</span>
                             <div class="component-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /><path d="M20 2v4" /><path d="M22 4h-4" /><circle cx="4" cy="20" r="2" /></svg></div>
-                            <h3 class="component-title">El lugar santo (Hekal)</h3>
+                            <h3 class="component-title">El altar del holocausto</h3>
                         </div>
-                        <p class="component-ref">1 Reyes 6:17–18; 7:48–49 · 2 Crónicas 4:7–8</p>
+                        <p class="component-ref">Éxodo 27:1–8 · Levítico 1 · Hebreos 10:1–14</p>
                         <div class="component-desc">
                             <h4>Descripción</h4>
-                            <p>La primera cámara interior tenía 40 codos de largo. Sus revestimientos de cedro estaban tallados con flores y frutos, y el interior fue cubierto de oro. Allí estaban el altar de oro, los candelabros y las mesas vinculadas al pan de la Presencia.</p>
+                            <p>Era una estructura cuadrada de madera de acacia revestida de bronce, de 5 × 5 × 3 codos. Tenía cuernos en sus cuatro esquinas, un enrejado de bronce, argollas y varas para transportarlo. Allí se presentaban los sacrificios prescritos.</p>
                         </div>
                         <div class="component-sym">
                             <h4>Lectura canónica</h4>
-                            <p>La luz, el pan y el incienso forman temas que el Nuevo Testamento relaciona con Cristo y con la oración del pueblo de Dios. La conexión es temática; el texto no asigna automáticamente un significado independiente a cada medida o adorno.</p>
+                            <p>Los sacrificios mostraban la gravedad del pecado y la necesidad de expiación. Hebreos contrasta esas ofrendas repetidas con la entrega única y suficiente de Cristo, que perfecciona para siempre a los santificados.</p>
                         </div>
-                        <a href="temple-3d.html?part=hekal" class="component-3d-link">Ver en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+                        <a href="tabernaculo-3d.html?part=altar" class="component-3d-link">Ver el altar en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
                     </div>
                 </div>
 
                 <div class="component reveal">
                     <div class="component-media plate">
-                        <img src="images/lugar-santisimo-plate.jpg" alt="Reconstrucción visual del lugar santísimo del templo">
-                        <div class="plate-cap"><span>Detalle 03</span><span>Interior</span></div>
+                        <img src="images/tabernacle-basin-plate.jpg" alt="Reconstrucción de la fuente de bronce del tabernáculo" loading="lazy">
+                        <div class="plate-cap"><span>Detalle 03</span><span>Atrio</span></div>
                     </div>
                     <div class="component-body">
                         <div class="component-head">
                             <span class="component-num mono">03</span>
                             <div class="component-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg></div>
-                            <h3 class="component-title">El lugar santísimo (Debir)</h3>
+                            <h3 class="component-title">La fuente de bronce</h3>
                         </div>
-                        <p class="component-ref">1 Reyes 6:16, 20–28 · 2 Crónicas 3:8–14</p>
+                        <p class="component-ref">Éxodo 30:17–21; 38:8</p>
                         <div class="component-desc">
                             <h4>Descripción</h4>
-                            <p>La cámara interior medía 20 codos por lado. Contenía el arca del pacto y dos grandes querubines de madera revestida de oro. Una división de cedro y un velo separaban este espacio del Hekal.</p>
+                            <p>La fuente y su base eran de bronce y estaban situadas entre el altar y la entrada de la tienda. Aarón y sus hijos debían lavar allí sus manos y pies antes de ministrar. Éxodo no ofrece dimensiones ni una forma decorativa precisa.</p>
                         </div>
                         <div class="component-sym">
                             <h4>Lectura canónica</h4>
-                            <p>El acceso restringido expresaba la santidad divina. La rasgadura del velo en la muerte de Jesús y Hebreos 10:19–22 anuncian entrada confiada a Dios por medio de Cristo, nuestro sumo sacerdote.</p>
+                            <p>Su función expresa la necesidad de limpieza para el servicio. El Nuevo Testamento habla del lavamiento de la regeneración y de la purificación por la Palabra; esas conexiones son temáticas y no convierten la fuente en una descripción directa del bautismo.</p>
                         </div>
-                        <a href="temple-3d.html?part=debir" class="component-3d-link">Ver en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+                        <a href="tabernaculo-3d.html?part=fuente" class="component-3d-link">Ver la fuente en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
                     </div>
                 </div>
 
                 <div class="component reveal">
                     <div class="component-media plate">
-                        <img src="images/columnas-plate.jpg" alt="Columnas Jaquín y Boaz">
-                        <div class="plate-cap"><span>Detalle 04</span><span>Exterior</span></div>
+                        <img src="images/tabernacle-coverings-plate.jpg" alt="Reconstrucción visual de la tienda y sus cubiertas" loading="lazy">
+                        <div class="plate-cap"><span>Detalle 04</span><span>Estructura portátil</span></div>
                     </div>
                     <div class="component-body">
                         <div class="component-head">
                             <span class="component-num mono">04</span>
                             <div class="component-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 18v-7" /><path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" /><path d="M14 18v-7" /><path d="M18 18v-7" /><path d="M3 22h18" /><path d="M6 18v-7" /></svg></div>
-                            <h3 class="component-title">Columnas Jaquín y Boaz</h3>
+                            <h3 class="component-title">La tienda y sus cubiertas</h3>
                         </div>
-                        <p class="component-ref">1 Reyes 7:15–22, 41–42 · 2 Crónicas 3:15–17</p>
+                        <p class="component-ref">Éxodo 26:1–30; 36:8–34</p>
                         <div class="component-desc">
                             <h4>Descripción</h4>
-                            <p>Dos columnas de bronce se alzaban delante del pórtico. Sus capiteles incluían redes, cadenas, granadas y formas de lirio. La columna del sur fue llamada Jaquín —tradicionalmente, «Él establece»— y la del norte, Boaz —«En él hay fuerza»—.</p>
+                            <p>La tienda combinaba cortinas interiores de lino con querubines, una cubierta de pelo de cabra, pieles de carnero teñidas de rojo y una cubierta exterior cuyo material exacto es discutido. Cuarenta y ocho tablas de acacia revestidas de oro descansaban sobre basas de plata.</p>
                         </div>
                         <div class="component-sym">
                             <h4>Lectura canónica</h4>
-                            <p>Sus nombres permiten contemplar la estabilidad y la fuerza que proceden de Dios. La Escritura no las presenta como un código de «dos pilares de la fe»; esa formulación es una aplicación homilética posterior.</p>
+                            <p>El tema central es la presencia de Dios en medio de su pueblo. Juan 1:14 afirma que el Verbo «habitó» entre nosotros usando el lenguaje de poner una tienda. No es necesario convertir cada cubierta o material en un símbolo separado de Cristo.</p>
                         </div>
-                        <a href="temple-3d.html?part=pillars" class="component-3d-link">Ver en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+                        <a href="tabernaculo-3d.html?part=tienda" class="component-3d-link">Ver la tienda en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
                     </div>
                 </div>
 
                 <div class="component reveal">
                     <div class="component-media plate">
-                        <img src="images/mar-bronce-plate.jpg" alt="Reconstrucción visual del Mar de bronce">
-                        <div class="plate-cap"><span>Detalle 05</span><span>Exterior</span></div>
+                        <img src="images/tabernacle-holy-place-plate.jpg" alt="Reconstrucción orientativa del lugar santo del tabernáculo" loading="lazy">
+                        <div class="plate-cap"><span>Detalle 05</span><span>Vista orientativa</span></div>
                     </div>
                     <div class="component-body">
                         <div class="component-head">
                             <span class="component-num mono">05</span>
                             <div class="component-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v5.632c0 .424-.272.795-.653.982A6 6 0 0 0 6 14c.006 4 3 7 5 8" /><path d="M10 5H8a2 2 0 0 0 0 4h.68" /><path d="M14 2v5.632c0 .424.272.795.652.982A6 6 0 0 1 18 14c0 4-3 7-5 8" /><path d="M14 5h2a2 2 0 0 1 0 4h-.68" /><path d="M18 22H6" /><path d="M9 2h6" /></svg></div>
-                            <h3 class="component-title">El Mar de bronce</h3>
+                            <h3 class="component-title">El lugar santo</h3>
                         </div>
-                        <p class="component-ref">1 Reyes 7:23–26 · 2 Crónicas 4:2–6</p>
+                        <p class="component-ref">Éxodo 26:33–35 · Hebreos 9:2, 6</p>
                         <div class="component-desc">
                             <h4>Descripción</h4>
-                            <p>La gran pila circular medía 10 codos de diámetro y 5 de alto. Descansaba sobre doce bueyes orientados hacia los cuatro puntos cardinales y servía para el lavamiento de los sacerdotes. Reyes y Crónicas conservan cifras distintas sobre su capacidad.</p>
+                            <p>La primera cámara de la tienda ocupaba 20 × 10 codos. Allí se situaban el candelero al sur, la mesa al norte y el altar del incienso delante del velo. Los sacerdotes entraban regularmente para cumplir su servicio.</p>
                         </div>
                         <div class="component-sym">
                             <h4>Lectura canónica</h4>
-                            <p>Su función subraya la necesidad de limpieza para el servicio sacerdotal. Puede relacionarse temáticamente con la purificación que Dios concede, pero el texto no identifica expresamente los doce bueyes con las doce tribus ni convierte el Mar en una figura directa del bautismo.</p>
+                            <p>Hebreos usa la disposición del santuario para explicar que el acceso pleno todavía no se había manifestado bajo el primer pacto. La luz, el pan y el incienso preparan temas que el Nuevo Testamento desarrolla en Cristo y en la adoración de su pueblo.</p>
                         </div>
-                        <a href="temple-3d.html?part=sea" class="component-3d-link">Ver en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+                        <a href="tabernaculo-3d.html?part=lugar-santo" class="component-3d-link">Ver el lugar santo en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
                     </div>
                 </div>
 
                 <div class="component reveal">
                     <div class="component-media plate">
-                        <img src="images/altar-holocaustos-plate.jpg" alt="Reconstrucción visual del altar de los holocaustos">
-                        <div class="plate-cap"><span>Detalle 06</span><span>Exterior</span></div>
+                        <img src="images/tabernacle-lampstand-plate.jpg" alt="Reconstrucción del candelero de oro de siete lámparas" loading="lazy">
+                        <div class="plate-cap"><span>Detalle 06</span><span>Lugar santo</span></div>
                     </div>
                     <div class="component-body">
                         <div class="component-head">
                             <span class="component-num mono">06</span>
                             <div class="component-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4" /></svg></div>
-                            <h3 class="component-title">Altar de los holocaustos</h3>
+                            <h3 class="component-title">El candelero de oro</h3>
                         </div>
-                        <p class="component-ref">2 Crónicas 4:1 · Hebreos 10:1–14</p>
+                        <p class="component-ref">Éxodo 25:31–40 · Levítico 24:1–4</p>
                         <div class="component-desc">
                             <h4>Descripción</h4>
-                            <p>El altar de bronce medía 20 × 20 codos y 10 codos de alto. Crónicas no describe en este pasaje cuernos, rampa ni orientación; esos detalles del modelo son reconstrucciones comparativas y deben reconocerse como tales.</p>
+                            <p>Fue labrado a martillo de un talento de oro puro. Una caña central y seis brazos sostenían siete lámparas, con copas semejantes a flores de almendro, cálices y flores integrados en una sola pieza.</p>
                         </div>
                         <div class="component-sym">
                             <h4>Lectura canónica</h4>
-                            <p>El sistema sacrificial mostraba la gravedad del pecado y la necesidad de expiación. Hebreos contrasta sus ofrendas repetidas con el sacrificio único y suficiente de Cristo, sin exigir un significado separado para cada detalle arquitectónico.</p>
+                            <p>Jesús se presenta como la luz del mundo y Apocalipsis emplea candelabros para representar iglesias. Estas conexiones sostienen una lectura sobre testimonio y presencia, pero no asignan un significado oculto a cada copa, cáliz o brazo.</p>
                         </div>
-                        <a href="temple-3d.html?part=altar" class="component-3d-link">Ver en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+                        <a href="tabernaculo-3d.html?part=candelero" class="component-3d-link">Ver el candelero en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
                     </div>
                 </div>
 
                 <div class="component reveal">
                     <div class="component-media plate">
-                        <img src="images/menora-plate.jpg" alt="Reconstrucción visual de los candelabros de oro">
-                        <div class="plate-cap"><span>Detalle 07</span><span>Interior</span></div>
+                        <img src="images/tabernacle-table-plate.jpg" alt="Reconstrucción de la mesa con doce panes de la Presencia" loading="lazy">
+                        <div class="plate-cap"><span>Detalle 07</span><span>Lugar santo</span></div>
                     </div>
                     <div class="component-body">
                         <div class="component-head">
                             <span class="component-num mono">07</span>
                             <div class="component-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></svg></div>
-                            <h3 class="component-title">Los diez candelabros de oro</h3>
+                            <h3 class="component-title">La mesa de los panes</h3>
                         </div>
-                        <p class="component-ref">1 Reyes 7:49 · 2 Crónicas 4:7, 20</p>
+                        <p class="component-ref">Éxodo 25:23–30 · Levítico 24:5–9</p>
                         <div class="component-desc">
                             <h4>Descripción</h4>
-                            <p>Salomón hizo diez candelabros de oro y los colocó en el Hekal, cinco al sur y cinco al norte. Los relatos del templo no repiten para estas piezas la forma detallada de la menorá del tabernáculo; representarlas con siete brazos es una reconstrucción basada en continuidad cultual.</p>
+                            <p>La mesa medía 2 × 1 × 1,5 codos y era de acacia revestida de oro. Tenía moldura, reborde, argollas y varas, además de utensilios de oro. Cada sábado se colocaban doce panes en dos grupos de seis delante del Señor.</p>
                         </div>
                         <div class="component-sym">
                             <h4>Lectura canónica</h4>
-                            <p>La luz del santuario conduce temáticamente a Cristo, quien se presenta como la luz del mundo. La asociación automática de sus brazos con días, iglesias o «manifestaciones del Espíritu» no procede de los relatos de Reyes y Crónicas.</p>
+                            <p>El pan expresa provisión, pacto y comunión delante de Dios. Jesús se presenta como el pan de vida que da vida al mundo. El número de panes corresponde a Israel; identificarlo directamente con los apóstoles sería una aplicación posterior.</p>
                         </div>
-                        <a href="temple-3d.html?part=menorot" class="component-3d-link">Ver en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+                        <a href="tabernaculo-3d.html?part=mesa" class="component-3d-link">Ver la mesa en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
                     </div>
                 </div>
 
                 <div class="component reveal">
                     <div class="component-media plate">
-                        <img src="images/mesa-pan-plate.jpg" alt="Reconstrucción visual de una mesa para el pan de la Presencia">
-                        <div class="plate-cap"><span>Detalle 08</span><span>Interior</span></div>
+                        <img src="images/tabernacle-incense-altar-plate.jpg" alt="Reconstrucción del altar de oro para el incienso" loading="lazy">
+                        <div class="plate-cap"><span>Detalle 08</span><span>Lugar santo</span></div>
                     </div>
                     <div class="component-body">
                         <div class="component-head">
                             <span class="component-num mono">08</span>
                             <div class="component-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3" /><path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4" /><path d="M5 21h14" /></svg></div>
-                            <h3 class="component-title">Mesas para el pan de la Presencia</h3>
+                            <h3 class="component-title">El altar del incienso</h3>
                         </div>
-                        <p class="component-ref">1 Reyes 7:48 · 2 Crónicas 4:8, 19</p>
+                        <p class="component-ref">Éxodo 30:1–10 · Salmo 141:2 · Apocalipsis 5:8; 8:3–4</p>
                         <div class="component-desc">
                             <h4>Descripción</h4>
-                            <p>Reyes menciona «la mesa» de oro sobre la cual estaba el pan de la Presencia, mientras Crónicas habla de diez mesas. Los relatos no atribuyen a las mesas del templo las dimensiones, argollas y varas especificadas para la mesa portátil del tabernáculo.</p>
+                            <p>Este altar de acacia revestida de oro medía 1 × 1 × 2 codos. Tenía cuernos, moldura, argollas y varas. Aarón quemaba incienso aromático cada mañana y cada tarde, y una vez al año hacía expiación sobre sus cuernos.</p>
                         </div>
                         <div class="component-sym">
                             <h4>Lectura canónica</h4>
-                            <p>El pan expresa la provisión y la comunión pactal de Dios con su pueblo. Juan 6 presenta a Cristo como el pan de vida; relacionar los panes con los apóstoles, en cambio, no es una conexión establecida por el texto.</p>
+                            <p>Los Salmos y Apocalipsis relacionan el incienso con las oraciones del pueblo de Dios. Hebreos presenta a Cristo intercediendo siempre por quienes se acercan a Dios por medio de él; oración e intercesión convergen sin confundirse.</p>
                         </div>
-                        <a href="temple-3d.html?part=table" class="component-3d-link">Ver en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+                        <a href="tabernaculo-3d.html?part=incensario" class="component-3d-link">Ver el altar en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
                     </div>
                 </div>
 
                 <div class="component reveal">
                     <div class="component-media plate">
-                        <img src="images/altar-incienso-plate.jpg" alt="Reconstrucción visual del altar del incienso">
-                        <div class="plate-cap"><span>Detalle 09</span><span>Interior</span></div>
+                        <img src="images/tabernacle-veil-plate.jpg" alt="Reconstrucción del velo interior sostenido por cuatro columnas" loading="lazy">
+                        <div class="plate-cap"><span>Detalle 09</span><span>Umbral interior</span></div>
                     </div>
                     <div class="component-body">
                         <div class="component-head">
                             <span class="component-num mono">09</span>
                             <div class="component-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.8 19.6A2 2 0 1 0 14 16H2" /><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2" /><path d="M9.8 4.4A2 2 0 1 1 11 8H2" /></svg></div>
-                            <h3 class="component-title">Altar del incienso</h3>
+                            <h3 class="component-title">El velo</h3>
                         </div>
-                        <p class="component-ref">1 Reyes 6:20–22; 7:48 · Apocalipsis 5:8; 8:3–4</p>
+                        <p class="component-ref">Éxodo 26:31–33 · Mateo 27:50–51 · Hebreos 10:19–22</p>
                         <div class="component-desc">
                             <h4>Descripción</h4>
-                            <p>El altar asociado al Debir estaba revestido de oro y formaba parte del mobiliario interior. Reyes no proporciona para este altar las dimensiones, argollas ni varas del altar portátil descrito en Éxodo.</p>
+                            <p>La cortina de azul, púrpura, carmesí y lino fino llevaba querubines bordados. Colgaba de ganchos de oro sobre cuatro columnas de acacia revestidas de oro, asentadas en basas de plata, y separaba los dos espacios de la tienda.</p>
                         </div>
                         <div class="component-sym">
                             <h4>Lectura canónica</h4>
-                            <p>Apocalipsis relaciona explícitamente el incienso con las oraciones de los santos. Hebreos presenta la intercesión permanente de Cristo; esa verdad debe distinguirse de afirmar que la oración, por sí sola, es el medio de acceso a Dios.</p>
+                            <p>El velo hacía visible la separación del lugar santísimo. Su rasgadura al morir Jesús y la enseñanza de Hebreos anuncian un camino nuevo y vivo a la presencia de Dios por medio de la obra de Cristo.</p>
                         </div>
-                        <a href="temple-3d.html?part=incense" class="component-3d-link">Ver en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+                        <a href="tabernaculo-3d.html?part=velo" class="component-3d-link">Ver el velo en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="component reveal">
+                    <div class="component-media plate">
+                        <img src="images/tabernacle-ark-plate.jpg" alt="Reconstrucción del arca del pacto y el propiciatorio" loading="lazy">
+                        <div class="plate-cap"><span>Detalle 10</span><span>Lugar santísimo</span></div>
+                    </div>
+                    <div class="component-body">
+                        <div class="component-head">
+                            <span class="component-num mono">10</span>
+                            <div class="component-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h18" /><path d="M5 9v10h14V9" /><path d="M8 5c1.2-2 2.6-2 4 0 1.4-2 2.8-2 4 0" /><path d="M2 19h20" /></svg></div>
+                            <h3 class="component-title">El arca y el propiciatorio</h3>
+                        </div>
+                        <p class="component-ref">Éxodo 25:10–22; 26:33–34 · Levítico 16 · Hebreos 9:3–5</p>
+                        <div class="component-desc">
+                            <h4>Descripción</h4>
+                            <p>El arca era un cofre de acacia revestido de oro, de 2,5 × 1,5 × 1,5 codos, con argollas y varas. El propiciatorio de oro puro llevaba dos querubines que extendían sus alas sobre la cubierta. Allí Dios prometió encontrarse con Moisés.</p>
+                        </div>
+                        <div class="component-sym">
+                            <h4>Lectura canónica</h4>
+                            <p>El sumo sacerdote entraba una vez al año con sangre para hacer expiación. Hebreos dirige esa escena al ministerio definitivo de Cristo, y Romanos 3:25 emplea lenguaje de expiación relacionado con el lugar de misericordia.</p>
+                        </div>
+                        <div class="component-links">
+                            <a href="tabernaculo-3d.html?part=arca" class="component-3d-link">Ver el arca en 3D <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+                            <a href="tabernaculo-3d.html?part=propiciatorio" class="component-3d-link">Ver el propiciatorio <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -572,49 +601,49 @@
     <section id="symbolism" class="symbolism-block grid-bg reveal">
         <div class="symbolism-inner">
             <span class="section-index">Lectura canónica</span>
-            <h2 class="section-title">Del edificio a la presencia de Dios</h2>
+            <h2 class="section-title">De la tienda terrenal a Cristo</h2>
             <div class="section-rule"></div>
-            <p class="symbolism-lead">El Nuevo Testamento desarrolla el tema del templo mediante conexiones explícitas. Estas relaciones ofrecen una lectura cristológica sólida sin convertir cada material, medida o adorno en un símbolo independiente.</p>
+            <p class="symbolism-lead">Hebreos interpreta el santuario y su servicio como figura y sombra de realidades cumplidas en Cristo. Esa guía permite una lectura cristológica sólida sin convertir cada material, medida o color en un código oculto.</p>
             <div class="typology-grid">
                 <article class="typology-card">
-                    <span>01 · Presencia</span>
-                    <h3>Dios habita con su pueblo</h3>
-                    <p>El templo estaba asociado al nombre del Señor, aunque Salomón confesó que los cielos no pueden contenerlo. La historia bíblica culmina con la morada de Dios entre los redimidos.</p>
-                    <p class="scripture-ref">1 Reyes 8:27–30 · Apocalipsis 21:3</p>
+                    <span>01 · Modelo</span>
+                    <h3>Figura y sombra</h3>
+                    <p>El santuario terrenal fue levantado según un modelo mostrado a Moisés. Hebreos lo presenta como copia y sombra que orienta hacia el santuario verdadero y el ministerio superior de Cristo.</p>
+                    <p class="scripture-ref">Éxodo 25:9, 40 · Hebreos 8:1–5; 9:23–24</p>
                 </article>
                 <article class="typology-card">
-                    <span>02 · Cristo</span>
-                    <h3>Jesús, el verdadero templo</h3>
-                    <p>Jesús identifica el templo con su propio cuerpo. En su muerte y resurrección, la presencia y el encuentro con Dios se concentran definitivamente en él.</p>
-                    <p class="scripture-ref">Juan 2:19–22</p>
+                    <span>02 · Presencia</span>
+                    <h3>Dios con nosotros</h3>
+                    <p>El propósito del tabernáculo era la presencia de Dios en medio de Israel. Juan anuncia que el Verbo se hizo carne y puso su morada entre nosotros.</p>
+                    <p class="scripture-ref">Éxodo 25:8 · Juan 1:14</p>
                 </article>
                 <article class="typology-card">
-                    <span>03 · Acceso</span>
-                    <h3>Un camino abierto</h3>
-                    <p>El velo marcaba separación. Su rasgadura y la enseñanza de Hebreos anuncian acceso confiado al Padre por la sangre y el sacerdocio de Cristo.</p>
-                    <p class="scripture-ref">Mateo 27:50–51 · Hebreos 10:19–22</p>
+                    <span>03 · Sacrificio</span>
+                    <h3>Una ofrenda suficiente</h3>
+                    <p>Los sacrificios repetidos no podían perfeccionar definitivamente la conciencia. Cristo entró una vez para siempre y obtuvo redención eterna mediante su propia sangre.</p>
+                    <p class="scripture-ref">Hebreos 9:11–14 · 10:10–14</p>
                 </article>
                 <article class="typology-card">
-                    <span>04 · Iglesia</span>
-                    <h3>Una casa espiritual</h3>
-                    <p>Los creyentes, unidos a Cristo, son edificados como morada de Dios por el Espíritu. La santidad y la unidad pertenecen a la identidad del pueblo entero.</p>
-                    <p class="scripture-ref">1 Corintios 3:16–17 · Efesios 2:19–22</p>
+                    <span>04 · Sacerdocio</span>
+                    <h3>Acceso confiado</h3>
+                    <p>Jesús es el gran sumo sacerdote que atravesó los cielos. Por su sangre, los creyentes reciben libertad para acercarse al trono de la gracia y entrar por el camino nuevo y vivo.</p>
+                    <p class="scripture-ref">Hebreos 4:14–16 · 10:19–22</p>
                 </article>
                 <article class="typology-card">
-                    <span>05 · Vida</span>
-                    <h3>El cuerpo como templo</h3>
-                    <p>La presencia del Espíritu alcanza la vida corporal del creyente. Por eso la fe cristiana llama a glorificar a Dios también con el cuerpo.</p>
-                    <p class="scripture-ref">1 Corintios 6:19–20</p>
+                    <span>05 · Servicio</span>
+                    <h3>Luz, pan y oración</h3>
+                    <p>El mobiliario del lugar santo reúne temas que el Nuevo Testamento desarrolla: Cristo como luz y pan de vida, y el incienso como imagen de las oraciones del pueblo de Dios.</p>
+                    <p class="scripture-ref">Juan 6:35; 8:12 · Apocalipsis 5:8</p>
                 </article>
                 <article class="typology-card">
                     <span>06 · Consumación</span>
-                    <h3>Una ciudad sin santuario</h3>
-                    <p>La nueva Jerusalén no necesita un edificio sagrado: el Señor Dios Todopoderoso y el Cordero son su templo, y su gloria lo llena todo.</p>
-                    <p class="scripture-ref">Apocalipsis 21:22–23</p>
+                    <h3>La morada definitiva</h3>
+                    <p>La historia culmina cuando la morada de Dios está con la humanidad redimida. Ya no hay santuario separado: el Señor y el Cordero son su templo.</p>
+                    <p class="scripture-ref">Apocalipsis 21:3, 22–23</p>
                 </article>
             </div>
-            <p class="method-note"><strong>Criterio de interpretación:</strong> se priorizan las relaciones que la propia Escritura establece. Otras aplicaciones pueden ser útiles para la enseñanza, pero deben identificarse como analogías devocionales y no como significados ocultos obligatorios.</p>
-            <a href="temple-3d.html" class="btn btn-primary">
+            <p class="method-note"><strong>Criterio de interpretación:</strong> se priorizan las relaciones que la propia Escritura establece, especialmente en Hebreos 8–10. Otras aplicaciones pueden servir para la enseñanza, pero deben reconocerse como analogías devocionales y no como significados secretos obligatorios.</p>
+            <a href="tabernaculo-3d.html" class="btn btn-primary">
                 <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" /></svg>
                 Explorar en 3D
             </a>
@@ -626,13 +655,13 @@
             <div class="related-inner">
                 <div class="related-icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 21 14 3" /><path d="M20.5 21 10 3" /><path d="M15.5 21 12 15l-3.5 6" /><path d="M2 21h20" /></svg></div>
                 <div class="related-text">
-                    <span class="section-index">Su precedente</span>
-                    <h3 class="related-title">El tabernáculo de Moisés</h3>
-                    <p>Antes del templo, la tienda de reunión acompañó a Israel en el desierto. Explora su atrio, sus cámaras y su mobiliario en un estudio 3D independiente.</p>
+                    <span class="section-index">Su continuidad histórica</span>
+                    <h3 class="related-title">El templo de Salomón</h3>
+                    <p>Siglos después, el templo retomó y amplió la organización del santuario portátil. Explora su arquitectura, su mobiliario y su lugar dentro de la historia bíblica.</p>
                 </div>
-                <a href="tabernaculo-figuras.html" class="btn btn-primary">
+                <a href="templo-figuras.html" class="btn btn-primary">
                     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" /></svg>
-                    Conocer el tabernáculo
+                    Conocer el templo
                 </a>
             </div>
         </div>
