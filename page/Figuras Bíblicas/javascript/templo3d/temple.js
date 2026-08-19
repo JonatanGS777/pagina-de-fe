@@ -204,8 +204,8 @@ export function buildWorld(scene) {
   box([25, 0.4, 74], m("stoneLight"), 0, 0.7, 5, podiumG);          // 0.5 → 0.9
   box([27, 0.5, 1.6], m("stoneLight"), 0, 0.25, 41.2, podiumG);     // escalón frontal (antes flotaba: centro 0.45 con alto 0.5 dejaba la base en y=0.2)
   box([25, 0.55, 1.6], m("stoneLight"), 0, 0.275, 39.6, podiumG);   // 2.º escalón
-  part("temple", "El Templo (Edificio)", "הֵיכָל", "1 Reyes 6:2",
-    "El edificio principal del santuario: 60 codos de largo, 20 de ancho y 30 de alto (≈ 30 × 10 × 15 m), orientado al este sobre el monte Moriah. Muros de piedra con revestimiento de cedro y oro.",
+  part("temple", "El templo (edificio)", "הֵיכָל", "1 Reyes 6:2–22",
+    "El edificio principal medía 60 codos de largo, 20 de ancho y 30 de alto. Sus muros de piedra recibieron revestimientos de cedro y oro; los detalles espaciales no descritos se representan aquí de manera aproximada.",
     [32, 26, 50], [0, 9, 6], podiumG, [0, 17.6, 5], true);
   sel(podiumG, "temple");
   ghost(podiumG);
@@ -224,8 +224,8 @@ export function buildWorld(scene) {
   box([1.4, 4, 0.5], m("cedar"), -8.6, 3.4, 39.9, ulamG);
   box([1.4, 0.8, 0.5], m("cedar"), 8.6, 6.3, 39.9, ulamG);
   box([1.4, 0.8, 0.5], m("cedar"), -8.6, 6.3, 39.9, ulamG);
-  part("ulam", "Ulam · Pórtico", "אוּלָם", "1 Reyes 6:3",
-    "El pórtico de entrada: 20 codos de ancho por 10 de profundidad, en el frente oriental del templo. Aquí se alzaban las columnas de bronce Jaquín y Boaz.",
+  part("ulam", "Ulam · pórtico", "אוּלָם", "1 Reyes 6:3 · 7:21",
+    "El pórtico medía 20 codos de ancho por 10 de profundidad. Delante de él se alzaban las columnas de bronce llamadas Jaquín y Boaz.",
     [13, 6.5, 46], [0, 8, 37], ulamG, [0, 17.2, 37], true);
   sel(ulamG, "ulam");
   ghost(ulamG);
@@ -251,8 +251,8 @@ export function buildWorld(scene) {
       box([0.14, 2.4, 1.4], m("dark"), -10.05, 11.2, z, hekalG);
     }
   }
-  part("hekal", "Hekal · Lugar Santo", "הֵיכָל", "1 Reyes 6:17",
-    "El Lugar Santo, de 40 × 20 codos, recubierto de oro. Contenía el altar del incienso, la mesa del pan de la proposición y diez candeleros de oro.",
+  part("hekal", "Hekal · lugar santo", "הֵיכָל", "1 Reyes 6:17–18; 7:48–49",
+    "La primera cámara medía 40 × 20 codos. Sus revestimientos estaban tallados y cubiertos de oro; contenía el altar de oro, los candelabros y las mesas vinculadas al pan de la Presencia.",
     [0, 5.5, 26], [0, 7, -6], hekalG, [0, 17.2, 8], true);
   sel(hekalG, "hekal");
   ghost(hekalG);
@@ -275,8 +275,8 @@ export function buildWorld(scene) {
     box([1.55, 7, 0.12], m("gold"), 0.975, 5.4, -9.75, debirG);  // puertas doradas
     box([1.55, 7, 0.12], m("gold"), -0.975, 5.4, -9.75, debirG);
   }
-  part("debir", "Debir · Santo de los Santos", "דְּבִיר", "1 Reyes 6:16-20",
-    "El lugar más sagrado: un cubo perfecto de 20 codos, enteramente revestido de oro. En su oscuridad reposaba el Arca del Pacto, bajo la protección de dos querubines.",
+  part("debir", "Debir · lugar santísimo", "דְּבִיר", "1 Reyes 6:16, 20–28",
+    "La cámara interior medía 20 codos por lado y estaba revestida de oro. Allí reposaba el arca del pacto bajo las alas de dos grandes querubines.",
     [0, 6, -4], [0, 9, -18], debirG, [0, 17.2, -20], true);
   sel(debirG, "debir");
   ghost(debirG);
@@ -285,8 +285,8 @@ export function buildWorld(scene) {
   const veilG = new THREE.Group();
   plane(10, 10, m("veil"), 0, 5.9, -9.55, veilG);
   plane(10, 10, m("veil"), 0, 5.9, -9.45, veilG);
-  part("veil", "Velo del Santuario", "פָּרֹכֶת", "2 Crónicas 3:14",
-    "El velo de azul, púrpura y carmesí, con querubines bordados, que separaba el Lugar Santo del Santo de los Santos.",
+  part("veil", "Velo del santuario", "פָּרֹכֶת", "2 Crónicas 3:14",
+    "Velo de azul, púrpura y carmesí, con querubines bordados, que marcaba la separación del lugar santísimo.",
     [6, 5.5, -4], [0, 7, -10], veilG, [0, 7.6, -9.9]);
   sel(veilG, "veil");
 
@@ -297,8 +297,8 @@ export function buildWorld(scene) {
   box([0.3, 0.35, 70.4], m("stoneDark"), -10.75, 16.35, 5, roofG);
   box([21.8, 0.35, 0.3], m("stoneDark"), 0, 16.35, -30.2, roofG);
   box([21.8, 0.35, 0.3], m("stoneDark"), 0, 16.35, 40.2, roofG);
-  part("temple-roof", "Cubierta y Parapetos", "גַּג", "1 Reyes 6:9",
-    "El techo de madera y cobre con parapetos que coronaba el edificio de 30 codos de alto.",
+  part("temple-roof", "Cubierta del templo", "גַּג", "1 Reyes 6:9–10",
+    "El edificio fue cubierto con vigas y tablas de cedro. La forma exterior y los remates visibles en el modelo son aproximaciones, pues el relato no ofrece un alzado completo.",
     [26, 20, 52], [0, 16.5, 6], roofG, [0, 17.8, 5]);
   sel(roofG, "temple-roof");
   ghost(roofG);
@@ -324,8 +324,8 @@ export function buildWorld(scene) {
       }
     }
   }
-  part("chambers", "Cámaras Laterales", "יָצִיעַ", "1 Reyes 6:5-6",
-    "Cámaras adosadas de tres pisos, de cinco codos de altura cada uno, alrededor del templo (menos el frente), para el tesoro y el servicio. Cada piso era un codo más angosto que el anterior.",
+  part("chambers", "Cámaras laterales", "יָצִיעַ", "1 Reyes 6:5–10",
+    "Tres niveles de cámaras rodeaban los lados y la parte posterior del edificio. Cada piso tenía cinco codos de alto y aumentaba un codo de anchura mediante retranqueos en el muro; su uso concreto no se detalla aquí.",
     [15, 9.5, 2], [0, 7, 2], chambersG, [13.8, 9.2, 0]);
   sel(chambersG, "chambers");
   ghost(chambersG);
@@ -351,7 +351,7 @@ export function buildWorld(scene) {
     makePillar(4.8, 36.5);  // Jaquín (sur, derecha)
     makePillar(-4.8, 36.5); // Boaz (norte, izquierda)
   }
-  part("pillars", "Jaquín y Boaz", "יָכִין · בֹּעַז", "1 Reyes 7:15-21",
+  part("pillars", "Jaquín y Boaz", "יָכִין · בֹּעַז", "1 Reyes 7:15–22",
     "Las columnas de bronce del pórtico: 18 codos de alto, con capiteles de lirios, redes y granadas. «Jaquín» (Él establecerá) y «Boaz» (en Él la fuerza).",
     [10, 6, 42], [0, 10, 36], pillarsG, [4.8, 12.9, 36.5]);
   sel(pillarsG, "pillars");
@@ -369,8 +369,8 @@ export function buildWorld(scene) {
     const ramp = box([3, 0.2, 6.5], b, 0, 1.75, 46.8, altarG);
     ramp.rotation.x = 0.4;
   }
-  part("altar", "Altar del Holocausto", "מִזְבֵּחַ", "2 Crónicas 4:1",
-    "Gran altar de bronce de 20 × 20 codos y 10 de alto, con cuatro cuernos en las esquinas y rampa por el este, donde se ofrecían los sacrificios.",
+  part("altar", "Altar de los holocaustos", "מִזְבֵּחַ", "2 Crónicas 4:1",
+    "Altar de bronce de 20 × 20 codos y 10 de alto. Los cuernos, la rampa y su orientación en esta reconstrucción no se describen en el pasaje y son decisiones visuales aproximadas.",
     [14, 5.5, 52], [0, 4, 45], altarG, [0, 4.2, 45], true);
   sel(altarG, "altar");
 
@@ -395,8 +395,8 @@ export function buildWorld(scene) {
     rim.castShadow = true;
     seaG.add(rim);
   }
-  part("sea", "Mar de Bronce", "יָם", "1 Reyes 7:23-26",
-    "Inmensa pila de bronce fundido: 10 codos de borde a borde y 5 de alto, con borde como cáliz de azucena. Descansaba sobre doce bueyes y contenía ≈ 40.000 litros de agua.",
+  part("sea", "Mar de bronce", "יָם", "1 Reyes 7:23–26 · 2 Crónicas 4:2–6",
+    "Gran pila de bronce de 10 codos de diámetro y 5 de alto, con borde como flor de lirio, sostenida por doce bueyes. Reyes y Crónicas conservan cifras diferentes sobre su capacidad.",
     [22, 6, 41], [15, 3, 36], seaG, [15, 5.8, 36], true);
   sel(seaG, "sea");
 
@@ -417,7 +417,7 @@ export function buildWorld(scene) {
       }
     }
   }
-  part("lavers", "Basas y Lavaderos", "כִּיֹּר", "1 Reyes 7:27-39",
+  part("lavers", "Basas y fuentes", "כִּיֹּר", "1 Reyes 7:27–39 · 2 Crónicas 4:6",
     "Diez basas de bronce con lavaderos, cinco a cada lado del templo, para purificar los animales del sacrificio.",
     [21, 4, 38], [15.5, 2.5, 33], laversG, [15.5, 3.4, 33]);
   sel(laversG, "lavers");
@@ -440,8 +440,8 @@ export function buildWorld(scene) {
   }
   incenseG.scale.setScalar(2);
   incenseG.position.set(0, Y0, -7);
-  part("incense", "Altar del Incienso", "מִזְבַּח הַקְּטֹרֶת", "1 Reyes 7:48",
-    "Altar de madera de cedro revestido de oro, de un codo, colocado ante el velo del Santuario; sobre él ardía el incienso cada mañana y cada tarde.",
+  part("incense", "Altar del incienso", "מִזְבַּח הַקְּטֹרֶת", "1 Reyes 6:20–22; 7:48",
+    "Altar revestido de oro situado en el santuario. Reyes no especifica para esta pieza las dimensiones, argollas ni varas del altar portátil descrito en Éxodo.",
     [6, 4.5, 12], [0, 5, -7], incenseG, [0, 2.7, -7]);
   sel(incenseG, "incense");
 
@@ -464,8 +464,8 @@ export function buildWorld(scene) {
   }
   tableG.scale.setScalar(2);
   tableG.position.set(-7, Y0, 12);
-  part("table", "Mesa del Pan de la Proposición", "שֻׁלְחָן", "1 Reyes 7:48",
-    "Mesa de oro, de 2 × 1 codos, al lado norte del Lugar Santo, con los doce panes de la proposición renovados cada sábado.",
+  part("table", "Mesa del pan de la Presencia", "שֻׁלְחָן", "1 Reyes 7:48 · 2 Crónicas 4:8, 19",
+    "Reyes menciona una mesa de oro y Crónicas habla de diez mesas. El modelo muestra una pieza representativa; sus dimensiones y ubicación exacta no se especifican en estos relatos.",
     [7, 4, 14], [-7, 3.5, 12], tableG, [-7, 2.7, 12]);
   sel(tableG, "table");
 
@@ -507,8 +507,8 @@ export function buildWorld(scene) {
       }
     }
   }
-  part("menorot", "Diez Candeleros de Oro", "מְנוֹרָה", "1 Reyes 7:49",
-    "Diez candeleros de oro de siete brazos, cinco a cada lado del Lugar Santo, encendidos para alumbrar el santuario día y noche.",
+  part("menorot", "Diez candelabros de oro", "מְנוֹרָה", "1 Reyes 7:49 · 2 Crónicas 4:7",
+    "Diez candelabros de oro, cinco al sur y cinco al norte del Hekal. Su representación con siete brazos se basa en continuidad con el tabernáculo, pues estos relatos no describen su forma detallada.",
     [8, 4, 26], [0, 4, 20], menorotG, [0, 3, 20]);
   sel(menorotG, "menorot");
 
@@ -549,8 +549,8 @@ export function buildWorld(scene) {
   }
   arkG.scale.setScalar(2);
   arkG.position.set(0, 1.9, -20);
-  part("ark", "Arca del Pacto", "אֲרוֹן הַבְּרִית", "Éxodo 25:10-22",
-    "Cofre de madera de acacia revestida de oro (2.5 × 1.5 codos) con el propiciatorio y dos querubines, depositado en el Santo de los Santos con las tablas de la Ley.",
+  part("ark", "Arca del pacto", "אֲרוֹן הַבְּרִית", "1 Reyes 8:6–9 · Éxodo 25:10–22",
+    "Cofre de acacia revestido de oro, de 2,5 × 1,5 × 1,5 codos, con propiciatorio y querubines. Al ser introducido en el templo contenía las dos tablas del pacto.",
     [0, 6, -7], [0, 7.5, -20], arkG, [0, 3.9, -20], true);
   sel(arkG, "ark");
 
@@ -630,7 +630,7 @@ export function buildWorld(scene) {
       halo(x, 6.35, -20.9, 5.2, 0.45, cherubimG);
     }
   }
-  part("cherubim", "Querubines del Santuario", "כְּרוּבִים", "1 Reyes 6:23-28",
+  part("cherubim", "Querubines del santuario", "כְּרוּבִים", "1 Reyes 6:23–28",
     "Dos querubines de madera de olivo revestidos de oro, de 10 codos de alto y alas de 10 codos con plumas talladas en capas; las alas interiores se tocaban en el centro y las exteriores rozaban las paredes del Debir.",
     [6.5, 5, -15], [0, 6.2, -20], cherubimG, [4.6, 9.8, -20]);
   sel(cherubimG, "cherubim");
@@ -664,8 +664,8 @@ export function buildWorld(scene) {
     box([16, 0.5, 2.4], m("stoneLight"), 0, 0.25, 51.2, innerCourtG); // escalones
     box([18, 0.5, 2.4], m("stoneLight"), 0, 0.25, 53.4, innerCourtG);
   }
-  part("court-inner", "Atrio de los Sacerdotes", "חֲצַר הַכֹּהֲנִים", "2 Crónicas 4:9",
-    "El atrio interior (100 × 100 codos), pavimentado con piedra, donde estaban el altar del holocausto, el Mar de bronce y los lavaderos. Solo los sacerdotes podían entrar.",
+  part("court-inner", "Atrio interior", "חֲצַר הַכֹּהֲנִים", "1 Reyes 6:36 · 2 Crónicas 4:9",
+    "Atrio interior relacionado con el servicio sacerdotal, donde se ubicaban el altar, el Mar de bronce y las fuentes. El texto no proporciona una medida de 100 × 100 codos; la escala del modelo es aproximada.",
     [38, 19, 58], [0, 7, 10], innerCourtG, [35, 2.2, 28], true);
   sel(innerCourtG, "court-inner");
 
@@ -747,8 +747,8 @@ export function buildWorld(scene) {
       makePalm(x, z, s);
     }
   }
-  part("court-great", "Atrio Grande", "הֶחָצֵר הַגְּדוֹלָה", "1 Reyes 7:9-12",
-    "El gran atrio que rodeaba el santuario, cerrado por muros almenados, puertas y cámaras. Aquí se reunía la asamblea de Israel.",
+  part("court-great", "Atrio grande", "הֶחָצֵר הַגְּדוֹלָה", "1 Reyes 7:9–12",
+    "Gran atrio alrededor del conjunto, delimitado por hileras de piedra labrada y vigas de cedro. Su extensión, accesos y edificios auxiliares no se describen con suficiente detalle para una reconstrucción definitiva.",
     [72, 24, 92], [0, 6, 10], greatCourtG, [72, 2.2, 60], true);
   sel(greatCourtG, "court-great");
 
@@ -769,8 +769,8 @@ export function buildWorld(scene) {
       box([15 - i * 2, 0.3, 1.6], m("stoneLight"), 0, -0.15 - i * 0.3, 82.2 + i * 1.5, gatesG);
     }
   }
-  part("gates", "Puertas y Escalinata", "שַׁעַר", "2 Crónicas 4:9",
-    "Las puertas de los atrios. La Puerta Oriental era la entrada ceremonial principal, flanqueada por torres y machones, con la gran escalinata que ascendía desde la plaza.",
+  part("gates", "Accesos y escalinata (reconstrucción)", "שַׁעַר", "2 Crónicas 4:9",
+    "Crónicas menciona puertas revestidas de bronce para los atrios. Las torres, la escalinata monumental y su disposición en el modelo son recursos de reconstrucción visual, no detalles expresos del pasaje.",
     [30, 10, 76], [0, 6, 55], gatesG, [0, 10.6, 86], true);
   sel(gatesG, "gates");
 

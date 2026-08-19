@@ -12,13 +12,14 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Templo de Salomón | Modelo 3D interactivo</title>
+    <meta name="description" content="Explora una reconstrucción 3D del templo de Salomón y sus diecinueve componentes con referencias bíblicas.">
+    <title>El templo de Salomón | Modelo 3D interactivo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/temple-styles.css?v=2">
     <link rel="stylesheet" href="css/temple-3d-styles.css?v=3">
-    <link rel="stylesheet" href="css/temple-3d-app.css?v=4">
+    <link rel="stylesheet" href="css/temple-3d-app.css?v=5">
     <style>
         .header-logo { display: flex; align-items: center; text-decoration: none; }
         .header-logo img {
@@ -29,7 +30,7 @@
         .temple-3d-nav .logo { display: flex; align-items: center; gap: 1.2rem; }
         .temple-3d-nav .logo a {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
+            font-size: 0.72rem; letter-spacing: 0.03em;
         }
     </style>
     <!-- Three.js moderno vía CDN (importmap de módulos ES) -->
@@ -50,39 +51,42 @@
                 <img src="../../images/EMD.png?v=2" alt="Logo EMD">
             </a>
             <div class="logo">
-                <a href="templo-figuras.html">Volver al templo</a>
+                <a href="templo-figuras.html" aria-label="Volver al estudio del templo">Estudio del templo</a>
             </div>
             <ul class="nav-links">
-                <li><a href="#" class="active">Modelo 3D</a></li>
+                <li><a href="#viewer" class="active">Modelo 3D</a></li>
                 <li><a href="#parts-info">Componentes</a></li>
+                <li><a href="#typology">Figuras</a></li>
                 <li><a href="#controls-help">Ayuda</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- 3D Viewer -->
-    <section class="temple-3d-viewer">
+    <section id="viewer" class="temple-3d-viewer" aria-labelledby="temple-title">
         <div id="app">
 
-            <div id="canvas-wrap"></div>
+            <div id="canvas-wrap" role="img" aria-label="Reconstrucción tridimensional interactiva del templo de Salomón">
+                <span class="sr-only">El modelo presenta el edificio, los atrios, el mobiliario y diecinueve componentes del templo.</span>
+            </div>
 
             <!-- Intro -->
             <div id="intro">
                 <div class="t3d-intro-card">
-                    <p class="t3d-intro-kicker">1 REYES 6 · 2 CRÓNICAS 3–4</p>
-                    <h1 class="t3d-intro-title">El Templo de Salomón</h1>
+                    <p class="t3d-intro-kicker">1 Reyes 5–8 · 2 Crónicas 2–7</p>
+                    <h1 class="t3d-intro-title" id="temple-title">El templo de Salomón</h1>
                     <p class="t3d-intro-sub">
-                        Reconstrucción 3D interactiva del Primer Templo de Jerusalén
-                        construida con <strong>Three.js</strong>: el Ulam, el Hekal, el Debir,
-                        los atrios y todo su mobiliario sagrado.
+                        Reconstrucción 3D interactiva del primer templo de Jerusalén:
+                        el Ulam, el Hekal, el Debir, los atrios y su mobiliario.
                     </p>
                     <div class="t3d-intro-hints">
                         <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="7" /><path d="M12 6v4" /></svg> Arrastra para orbitar</span>
-                        <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" x2="16.65" y1="21" y2="16.65" /><line x1="11" x2="11" y1="8" y2="14" /><line x1="8" x2="14" y1="11" y2="11" /></svg> Rueda para acercar</span>
-                        <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4.1 12 6" /><path d="m5.1 8-2.9-.8" /><path d="m6 12-1.9 2" /><path d="M7.2 2.2 8 5.1" /><path d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z" /></svg> Clic en cualquier parte</span>
-                        <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z" /><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z" /><path d="M16 17h4" /><path d="M4 13h4" /></svg> Modo caminata (WASD)</span>
+                        <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" x2="16.65" y1="21" y2="16.65" /><line x1="11" x2="11" y1="8" y2="14" /><line x1="8" x2="14" y1="11" y2="11" /></svg> Pellizca o usa la rueda</span>
+                        <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4.1 12 6" /><path d="m5.1 8-2.9-.8" /><path d="m6 12-1.9 2" /><path d="M7.2 2.2 8 5.1" /><path d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z" /></svg> Toca o haz clic para seleccionar</span>
+                        <span class="t3d-hint-keyboard"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z" /><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z" /><path d="M16 17h4" /><path d="M4 13h4" /></svg> Recorrido con teclado</span>
                     </div>
-                    <button id="btn-enter" class="btn-gold">Explorar el Templo</button>
+                    <button id="btn-enter" class="btn-gold" type="button">Explorar el templo</button>
+                    <p id="viewer-status" class="viewer-status" role="status">Preparando el modelo interactivo…</p>
                 </div>
             </div>
 
@@ -91,15 +95,15 @@
                 <div class="brand">
                     <span class="brand-mark"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:inline-block;"><path d="M10 18v-7" /><path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" /><path d="M14 18v-7" /><path d="M18 18v-7" /><path d="M3 22h18" /><path d="M6 18v-7" /></svg></span>
                     <div>
-                        <h1>Templo de Salomón</h1>
-                        <p>Jerusalén · Primer Templo</p>
+                        <h2>El templo de Salomón</h2>
+                        <p>Jerusalén · Primer templo</p>
                     </div>
                 </div>
                 <div class="hud-actions">
-                    <button id="btn-overview" title="Vista general">Vista general</button>
-                    <button id="btn-walk" title="Caminar dentro del templo (clic en pantalla para capturar el ratón)"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1.05em;height:1.05em;vertical-align:-0.18em;margin-right:0.35em;flex-shrink:0;display:inline-block;"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z" /><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z" /><path d="M16 17h4" /><path d="M4 13h4" /></svg>Caminar</button>
-                    <button id="btn-rotate" title="Rotación automática de cámara"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.3em;flex-shrink:0;display:inline-block;"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" /><path d="M21 3v5h-5" /></svg>Auto</button>
-                    <label class="tgl"><input type="checkbox" id="tgl-labels" checked /> Etiquetas</label>
+                    <button id="btn-overview" type="button" title="Vista general">Vista general</button>
+                    <button id="btn-walk" type="button" title="Caminar dentro del templo (clic en pantalla para capturar el ratón)"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1.05em;height:1.05em;vertical-align:-0.18em;margin-right:0.35em;flex-shrink:0;display:inline-block;"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z" /><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z" /><path d="M16 17h4" /><path d="M4 13h4" /></svg>Caminar</button>
+                    <button id="btn-rotate" type="button" title="Rotación automática de cámara"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.3em;flex-shrink:0;display:inline-block;"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" /><path d="M21 3v5h-5" /></svg>Auto</button>
+                    <label class="tgl"><input type="checkbox" id="tgl-labels" /> Mostrar etiquetas</label>
                     <label class="tgl"><input type="checkbox" id="tgl-ghost" /> Ver interior</label>
                     <label class="tgl"><input type="checkbox" id="tgl-fly" checked /> Volar al elegir</label>
                 </div>
@@ -108,16 +112,16 @@
             <!-- Panel de partes -->
             <aside id="panel">
                 <div class="panel-head">
-                    <h2>Partes del Templo</h2>
-                    <button id="btn-panel-close" title="Ocultar">✕</button>
+                    <h2>Partes del templo</h2>
+                    <button id="btn-panel-close" type="button" title="Ocultar" aria-label="Ocultar lista de partes" aria-controls="part-list" aria-expanded="true">✕</button>
                 </div>
                 <div id="part-list"></div>
                 <div class="panel-foot">Haz clic en una parte para viajar hasta ella.</div>
             </aside>
 
             <!-- Ficha -->
-            <div id="info-card" class="hidden">
-                <button id="btn-info-close" class="info-close">✕</button>
+            <div id="info-card" class="hidden" role="status" aria-live="polite" aria-labelledby="info-name">
+                <button id="btn-info-close" class="info-close" type="button" aria-label="Cerrar información de la parte seleccionada">✕</button>
                 <h2 id="info-name"></h2>
                 <p id="info-hebrew" class="info-hebrew"></p>
                 <p id="info-ref" class="info-ref"></p>
@@ -128,36 +132,45 @@
             <div id="tooltip" class="hidden"></div>
 
             <!-- Ayuda -->
-            <button id="btn-help" title="Ayuda">?</button>
-            <div id="help-overlay" class="hidden">
+            <button id="btn-help" type="button" title="Ayuda" aria-label="Abrir ayuda del modelo">?</button>
+            <div id="help-overlay" class="hidden" role="dialog" aria-modal="true" aria-labelledby="help-title">
                 <div class="t3d-help-card">
-                    <h2>Controles</h2>
+                    <h2 id="help-title">Controles</h2>
                     <ul>
                         <li><b>Arrastrar</b> — orbitar la cámara</li>
                         <li><b>Rueda</b> — acercar / alejar</li>
                         <li><b>Botón derecho</b> — mover la vista</li>
-                        <li><b>Clic</b> — seleccionar una parte del templo</li>
+                        <li><b>Tocar o hacer clic</b> — seleccionar una parte del templo</li>
                         <li><b>Caminar</b> — modo primera persona: <b>WASD</b> mover, ratón mirar, <b>ESC</b> salir</li>
                         <li><b>Ver interior</b> — muros transparentes para ver el mobiliario</li>
                         <li><b>Etiquetas</b> — nombres de cada parte sobre el modelo</li>
                     </ul>
-                    <button id="btn-help-close" class="btn-gold">Entendido</button>
+                    <button id="btn-help-close" class="btn-gold" type="button">Entendido</button>
                 </div>
             </div>
 
             <div id="walk-hint" class="hidden">WASD para caminar · ratón para mirar · ESC para salir</div>
+            <a class="viewer-next" href="#parts-info">Continuar al estudio <span aria-hidden="true">↓</span></a>
         </div>
     </section>
 
+    <nav class="section-jump-nav" aria-label="Secciones del estudio">
+        <a href="#parts-info">Componentes</a>
+        <a href="#typology">Lectura canónica</a>
+        <a href="#controls-help">Cómo usar el modelo</a>
+    </nav>
+
     <!-- Parts Information Section -->
-    <section id="parts-info" class="parts-info-section">
+    <section id="parts-info" class="parts-info-section" aria-labelledby="parts-title">
         <div class="container">
-            <h2 class="section-title">Componentes del Templo</h2>
+            <p class="section-kicker">Descripción bíblica</p>
+            <h2 class="section-title" id="parts-title">Componentes del templo</h2>
+            <p class="section-lead">Diecinueve elementos reconstruidos a partir de 1 Reyes 5–8 y 2 Crónicas 2–7. Los detalles no definidos por el texto se identifican como aproximaciones visuales.</p>
             <div class="parts-filter">
-                <button class="filter-btn active" data-filter="all">Todo</button>
-                <button class="filter-btn" data-filter="exterior">Exterior</button>
-                <button class="filter-btn" data-filter="interior">Interior</button>
-                <button class="filter-btn" data-filter="mobiliario">Mobiliario</button>
+                <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">Todo</button>
+                <button class="filter-btn" type="button" data-filter="exterior" aria-pressed="false">Exterior</button>
+                <button class="filter-btn" type="button" data-filter="interior" aria-pressed="false">Interior</button>
+                <button class="filter-btn" type="button" data-filter="mobiliario" aria-pressed="false">Mobiliario</button>
             </div>
             <div class="parts-grid" id="parts-grid">
                 <!-- Generado dinámicamente -->
@@ -165,35 +178,75 @@
         </div>
     </section>
 
-    <!-- Controls Help -->
-    <section id="controls-help" class="controls-help-section">
+    <section id="typology" class="temple-typology" aria-labelledby="typology-title">
         <div class="container">
-            <h2 class="section-title">Cómo usar el modelo 3D</h2>
+            <p class="section-kicker">Lectura canónica</p>
+            <h2 class="section-title" id="typology-title">La presencia que trasciende el edificio</h2>
+            <p class="section-lead">El Nuevo Testamento no ofrece un código secreto para cada medida del templo. En cambio, establece relaciones claras con Cristo, su pueblo y la nueva creación.</p>
+            <div class="typology-grid">
+                <article class="typology-card">
+                    <span class="typology-number">01</span>
+                    <h3>Jesús, el verdadero templo</h3>
+                    <p>La muerte y resurrección de Cristo concentran en su persona el encuentro definitivo entre Dios y la humanidad.</p>
+                    <p class="typology-ref">Juan 2:19–22</p>
+                </article>
+                <article class="typology-card">
+                    <span class="typology-number">02</span>
+                    <h3>Acceso abierto por Cristo</h3>
+                    <p>El velo rasgado y el sacerdocio de Jesús anuncian entrada confiada a la presencia de Dios.</p>
+                    <p class="typology-ref">Mateo 27:51 · Hebreos 10:19–22</p>
+                </article>
+                <article class="typology-card">
+                    <span class="typology-number">03</span>
+                    <h3>Una morada hecha de personas</h3>
+                    <p>La Iglesia, unida a Cristo, es edificada como templo santo y habitación de Dios por el Espíritu.</p>
+                    <p class="typology-ref">1 Corintios 3:16–17 · Efesios 2:19–22</p>
+                </article>
+                <article class="typology-card">
+                    <span class="typology-number">04</span>
+                    <h3>La ciudad sin santuario</h3>
+                    <p>En la nueva Jerusalén, Dios y el Cordero son el templo; su presencia ya no está localizada detrás de muros.</p>
+                    <p class="typology-ref">Apocalipsis 21:22–23</p>
+                </article>
+            </div>
+            <aside class="method-note" aria-labelledby="method-title">
+                <h3 id="method-title">Criterio de interpretación</h3>
+                <p>Se priorizan las conexiones establecidas por la propia Escritura. Las demás analogías deben presentarse como aplicaciones devocionales y no como significados ocultos obligatorios.</p>
+            </aside>
+            <a class="study-link" href="templo-figuras.html#symbolism">Leer el estudio completo <span aria-hidden="true">→</span></a>
+        </div>
+    </section>
+
+    <!-- Controls Help -->
+    <section id="controls-help" class="controls-help-section" aria-labelledby="controls-title">
+        <div class="container">
+            <p class="section-kicker">Guía interactiva</p>
+            <h2 class="section-title" id="controls-title">Cómo usar el modelo 3D</h2>
             <div class="help-grid">
                 <div class="help-item">
                     <div class="help-icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;color:var(--t3d-gold);"><path d="m15.194 13.707 3.814 1.86-1.86 3.814" /><path d="M16.47214 7.52786 A 5 10 0 1 0 13 21.79796" /><path d="M21.79796 11 A 10 5 0 1 0 19 15.57071" /></svg></div>
                     <h3>Rotar</h3>
-                    <p>Click izquierdo + arrastrar</p>
+                    <p>Clic izquierdo o gesto de arrastre</p>
                 </div>
                 <div class="help-item">
                     <div class="help-icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;color:var(--t3d-gold);"><circle cx="11" cy="11" r="8" /><line x1="21" x2="16.65" y1="21" y2="16.65" /><line x1="11" x2="11" y1="8" y2="14" /><line x1="8" x2="14" y1="11" y2="11" /></svg></div>
                     <h3>Zoom</h3>
-                    <p>Rueda del ratón</p>
+                    <p>Rueda del ratón o gesto de pellizco</p>
                 </div>
                 <div class="help-item">
                     <div class="help-icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;color:var(--t3d-gold);"><path d="M12 2v20" /><path d="m15 19-3 3-3-3" /><path d="m19 9 3 3-3 3" /><path d="M2 12h20" /><path d="m5 9-3 3 3 3" /><path d="m9 5 3-3 3 3" /></svg></div>
                     <h3>Mover</h3>
-                    <p>Click derecho + arrastrar</p>
+                    <p>Clic derecho y arrastre en computadora</p>
                 </div>
                 <div class="help-item">
                     <div class="help-icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;color:var(--t3d-gold);"><path d="M14 4.1 12 6" /><path d="m5.1 8-2.9-.8" /><path d="m6 12-1.9 2" /><path d="M7.2 2.2 8 5.1" /><path d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z" /></svg></div>
                     <h3>Seleccionar</h3>
-                    <p>Click sobre cualquier parte del templo</p>
+                    <p>Toca o haz clic sobre cualquier parte</p>
                 </div>
             </div>
 
             <div class="keyboard-shortcuts">
-                <h3>Atajos de Teclado</h3>
+                <h3>Atajos de teclado</h3>
                 <ul class="shortcut-list">
                     <li><span class="key">R</span> Vista general</li>
                     <li><span class="key">F</span> Pantalla completa</li>
@@ -205,7 +258,20 @@
         </div>
     </section>
 
+    <footer class="temple-viewer-footer">
+        <p>Ministerio «La Gloria es del Señor» · Recurso gratuito para la edificación de los creyentes</p>
+        <a href="templo-figuras.html">Volver al estudio del templo</a>
+    </footer>
+
     <!-- Scripts -->
-    <script type="module" src="javascript/templo3d/main.js?v=3"></script>
+    <script type="module" src="javascript/templo3d/main.js?v=4"></script>
+    <script>
+        window.setTimeout(() => {
+            if (document.documentElement.dataset.templeReady === 'true') return;
+            const status = document.getElementById('viewer-status');
+            if (status) status.textContent = 'No fue posible cargar el modelo 3D. El estudio y las referencias bíblicas siguen disponibles debajo.';
+            document.getElementById('btn-enter')?.setAttribute('disabled', '');
+        }, 8000);
+    </script>
 </body>
 </html>

@@ -2,10 +2,13 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CSS2DRenderer } from "three/addons/renderers/CSS2DRenderer.js";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
-import { buildWorld } from "./temple.js?v=3";
-import { buildUI } from "./ui.js";
+import { buildWorld } from "./temple.js?v=4";
+import { buildUI } from "./ui.js?v=2";
 
-/* ------------------------------------------------------------------ */
+document.documentElement.dataset.templeReady = "true";
+const viewerStatus = document.getElementById("viewer-status");
+if (viewerStatus) viewerStatus.textContent = "Modelo listo para explorar.";
+
 const wrap = document.getElementById("canvas-wrap");
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
@@ -20,7 +23,9 @@ const scene = new THREE.Scene();
 scene.fog = new THREE.Fog(0xdcc49a, 320, 900);
 
 const camera = new THREE.PerspectiveCamera(55, innerWidth / innerHeight, 0.1, 2200);
-camera.position.set(62, 46, 96);
+const OVERVIEW_POS = new THREE.Vector3(62, 46, 96);
+const OVERVIEW_TARGET = new THREE.Vector3(0, 8, 6);
+camera.position.copy(OVERVIEW_POS);
 
 const pmrem = new THREE.PMREMGenerator(renderer);
 scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
@@ -51,13 +56,14 @@ scene.add(interior3);
 
 /* ---------- Mundo ---------- */
 const world = buildWorld(scene);
+window.__world = world;
 const parts = world.parts;
 const byId = {};
 for (const p of parts) byId[p.id] = p;
 
 /* ---------- Controles ---------- */
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.target.set(0, 8, 6);
+controls.target.copy(OVERVIEW_TARGET);
 controls.enableDamping = true;
 controls.dampingFactor = 0.08;
 controls.minDistance = 2;
@@ -81,12 +87,17 @@ const tooltip = document.getElementById("tooltip");
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 let hovered = null;
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ---------- UI ---------- */
 const ui = buildUI(parts, {
   select: (id) => selectPart(id, true),
   deselect: deselect,
 });
+
+const INTERIOR_IDS = new Set([
+  "hekal", "debir", "veil", "incense", "table", "menorot", "ark", "cherubim",
+]);
 
 function selectPart(id, doFly) {
   if (walkMode) return;
@@ -97,6 +108,10 @@ function selectPart(id, doFly) {
   highlight(p.group, 0x3a2400, 0.55);
   ui.showInfo(id);
   ui.highlight(id);
+  if (INTERIOR_IDS.has(id) && !tglGhost.checked) {
+    tglGhost.checked = true;
+    tglGhost.dispatchEvent(new Event("change"));
+  }
   if (doFly && document.getElementById("tgl-fly").checked) {
     flyTo(p.cam, p.look, 1.35);
   }
@@ -125,6 +140,13 @@ function highlight(group, color, intensity) {
 
 /* ---------- Vuelo de cámara ---------- */
 function flyTo(pos, look, dur) {
+  if (reducedMotion) {
+    camera.position.copy(pos);
+    controls.target.copy(look);
+    controls.update();
+    fly = null;
+    return;
+  }
   fly = {
     p0: camera.position.clone(),
     t0: controls.target.clone(),
@@ -180,25 +202,46 @@ renderer.domElement.addEventListener("pointermove", (ev) => {
   }
 });
 
-/* ---------- Botones ---------- */
+const intro = document.getElementById("intro");
+function dismissIntro() {
+  if (intro.hidden) return;
+  intro.classList.add("fade");
+  intro.setAttribute("aria-hidden", "true");
+  window.setTimeout(() => { intro.hidden = true; }, reducedMotion ? 0 : 650);
+}
 document.getElementById("btn-enter").addEventListener("click", () => {
-  document.getElementById("intro").classList.add("fade");
-  flyTo(new THREE.Vector3(62, 46, 96), new THREE.Vector3(0, 8, 6), 2.2);
+  dismissIntro();
+  flyTo(OVERVIEW_POS, OVERVIEW_TARGET, 2.2);
 });
 document.getElementById("btn-overview").addEventListener("click", () => {
   if (walkMode) exitWalk();
-  flyTo(new THREE.Vector3(62, 46, 96), new THREE.Vector3(0, 8, 6), 1.6);
+  flyTo(OVERVIEW_POS, OVERVIEW_TARGET, 1.6);
 });
 const btnRotate = document.getElementById("btn-rotate");
 btnRotate.addEventListener("click", () => {
   controls.autoRotate = !controls.autoRotate;
   btnRotate.classList.toggle("active", controls.autoRotate);
+  btnRotate.setAttribute("aria-pressed", String(controls.autoRotate));
 });
-document.getElementById("btn-help").addEventListener("click", () => {
-  document.getElementById("help-overlay").classList.remove("hidden");
-});
-document.getElementById("btn-help-close").addEventListener("click", () => {
-  document.getElementById("help-overlay").classList.add("hidden");
+btnRotate.setAttribute("aria-pressed", "false");
+
+const helpButton = document.getElementById("btn-help");
+const helpOverlay = document.getElementById("help-overlay");
+const helpClose = document.getElementById("btn-help-close");
+let helpReturnFocus = null;
+function openHelp() {
+  helpReturnFocus = document.activeElement;
+  helpOverlay.classList.remove("hidden");
+  helpClose.focus();
+}
+function closeHelp() {
+  helpOverlay.classList.add("hidden");
+  helpReturnFocus?.focus();
+}
+helpButton.addEventListener("click", openHelp);
+helpClose.addEventListener("click", closeHelp);
+helpOverlay.addEventListener("click", (event) => {
+  if (event.target === helpOverlay) closeHelp();
 });
 
 /* etiquetas */
@@ -206,6 +249,7 @@ const tglLabels = document.getElementById("tgl-labels");
 tglLabels.addEventListener("change", () => {
   labelRenderer.domElement.style.display = tglLabels.checked ? "" : "none";
 });
+labelRenderer.domElement.style.display = tglLabels.checked ? "" : "none";
 /* ver interior */
 const tglGhost = document.getElementById("tgl-ghost");
 tglGhost.addEventListener("change", () => {
@@ -235,6 +279,7 @@ function enterWalk() {
   pitch = camera.rotation.x;
   walkY = Math.max(1.7, camera.position.y);
   btnWalk.classList.add("active");
+  btnWalk.setAttribute("aria-pressed", "true");
   walkHint.classList.remove("hidden");
   renderer.domElement.requestPointerLock();
 }
@@ -242,8 +287,10 @@ function exitWalk() {
   walkMode = false;
   controls.enabled = true;
   btnWalk.classList.remove("active");
+  btnWalk.setAttribute("aria-pressed", "false");
   walkHint.classList.add("hidden");
 }
+btnWalk.setAttribute("aria-pressed", "false");
 btnWalk.addEventListener("click", () => {
   if (walkMode) exitWalk();
   else enterWalk();
@@ -316,11 +363,17 @@ addEventListener("resize", () => {
 
 /* ---------- Teclas globales ---------- */
 document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !helpOverlay.classList.contains("hidden")) {
+    closeHelp();
+    return;
+  }
   if (e.code === "Escape" && walkMode) exitWalk();
+  const target = e.target;
+  if (target instanceof HTMLElement && target.closest("input, button, a, textarea, select")) return;
   if (e.key === "o" || e.key === "O") btnRotate.click();
   if (e.key === "r" || e.key === "R") {
     if (walkMode) exitWalk();
-    flyTo(new THREE.Vector3(62, 46, 96), new THREE.Vector3(0, 8, 6), 1.6);
+    flyTo(OVERVIEW_POS, OVERVIEW_TARGET, 1.6);
   }
   if (e.key === "f" || e.key === "F") {
     if (document.fullscreenElement) document.exitFullscreen();
@@ -343,23 +396,36 @@ if (document.getElementById("parts-grid")) {
       const cats = catsOf(p.id);
       if (filter !== "all" && !cats.includes(filter)) continue;
       const card = document.createElement("button");
+      card.type = "button";
       card.className = "part-card";
+      card.setAttribute("aria-label", `Ver ${p.name} en el modelo 3D. ${p.ref}`);
       card.innerHTML = `<span class="pc-name">${p.name}</span><span class="pc-ref">${p.ref}</span><p>${p.desc}</p>`;
       card.addEventListener("click", () => {
         selectPart(p.id, true);
-        document.getElementById("intro").classList.add("fade");
+        dismissIntro();
+        document.getElementById("viewer").scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
       });
       grid.appendChild(card);
     }
   }
   document.querySelectorAll(".filter-btn").forEach((b) => {
     b.addEventListener("click", () => {
-      document.querySelectorAll(".filter-btn").forEach((x) => x.classList.remove("active"));
+      document.querySelectorAll(".filter-btn").forEach((x) => {
+        x.classList.remove("active");
+        x.setAttribute("aria-pressed", "false");
+      });
       b.classList.add("active");
+      b.setAttribute("aria-pressed", "true");
       renderGrid(b.dataset.filter);
     });
   });
   renderGrid("all");
+}
+
+const requestedPart = new URLSearchParams(location.search).get("part");
+if (requestedPart && byId[requestedPart]) {
+  dismissIntro();
+  window.setTimeout(() => selectPart(requestedPart, true), reducedMotion ? 0 : 250);
 }
 
 /* ---------- Self-test (solo con ?selftest) ---------- */
