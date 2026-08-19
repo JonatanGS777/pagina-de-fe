@@ -11,30 +11,24 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ezequiel 34: Los Masones Impíos Gobernando Israel</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <title>Ezequiel 34: los masones impíos gobernando Israel | Ministerio "La Gloria es del Señor"</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,500;0,600;0,700;1,500&family=Mulish:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-        --color-primary: #0B3D3C;         /* Verde océano profundo */
-        --color-secondary: #5E503F;       /* Marrón oliva terroso */
-        --color-accent: #FF6B35;          /* Naranja cálido vibrante */
-        --color-accent-light: #FFECD1;    /* Arena suave */
-        --color-text: #2F2E41;            /* Gris pizarra */
-        --color-text-light: #7C7F99;      /* Lavanda grisáceo */
-
-        --color-background: #F3F1ED;      /* Beige claro – base cálida sin ser blanca */
-        --color-surface: #FAF4EF;         /* Marfil rosado – para secciones */
-        --color-border: #DAD5C3;          /* Borde arena claro */
-        --color-gold: #D4A373;            /* Oro terracota elegante */
-
-        --font-primary: 'IBM Plex Sans', sans-serif;
-        --font-serif: 'Playfair Display', serif;
-
+        --pasture: #2f4a35;
+        --pasture-deep: #1c2e20;
+        --judgment: #7a1f24;
+        --gold: #b8935a;
+        --gold-light: #d4b787;
+        --parchment: #f2ede0;
+        --panel: #faf6ec;
+        --ink: #241f18;
+        --ink-soft: #4a4030;
+        --rule: rgba(184, 147, 90, 0.32);
         --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
         --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.08);
         --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.1);
         --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.12);
-
         --radius-sm: 0.375rem;
         --radius-md: 0.5rem;
         --radius-lg: 0.75rem;
@@ -47,70 +41,105 @@
       box-sizing: border-box;
     }
 
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
     body {
-      font-family: var(--font-primary);
-      background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
-      color: var(--color-text);
-      line-height: 1.7;
+      font-family: 'Mulish', sans-serif;
+      background: var(--parchment);
+      color: var(--ink-soft);
+      line-height: 1.75;
       font-size: 16px;
-      scroll-behavior: smooth;
     }
 
-    /* Header moderno */
-    header {
-      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    h1, h2, h3, .display { font-family: 'Gelasio', serif; color: var(--ink); font-weight: 700; }
+
+    a { color: inherit; }
+    strong { color: var(--ink); }
+
+    /* ---- Site header ---- */
+    .site-header {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 1.2rem; flex-wrap: wrap;
+        padding: 0.75rem 2rem;
+        background: rgba(28, 46, 32, 0.94);
+        backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(184, 147, 90, 0.3);
+    }
+    .header-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+    img[alt="Logo EMD"] {
+        height: 44px; border-radius: 50%; object-fit: cover;
+        border: 2px solid rgba(184, 147, 90, 0.55);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+        transition: transform 0.3s ease;
+    }
+    img[alt="Logo EMD"]:hover { transform: scale(1.05); }
+    .header-logo-text { font-family: 'Gelasio', serif; font-size: 0.85rem; line-height: 1.3; color: var(--parchment); }
+    .header-logo-text span { display: block; color: rgba(242, 237, 224, 0.55); font-size: 0.7rem; font-family: 'Mulish', sans-serif; }
+
+    .nav-back {
+        display: inline-flex; align-items: center; text-decoration: none;
+        color: var(--parchment); font-family: 'Mulish', sans-serif; font-weight: 600; font-size: 0.85rem;
+        padding: 0.45rem 0.9rem; border: 1px solid rgba(184, 147, 90, 0.45); border-radius: 3px;
+        transition: background 0.25s ease, border-color 0.25s ease;
+    }
+    .nav-back:hover { background: rgba(184, 147, 90, 0.16); border-color: var(--gold); }
+    .nav-back svg { width: 0.9em; height: 0.9em; margin-right: 0.35em; }
+
+    /* Header hero */
+    header.hero {
+      background: linear-gradient(135deg, var(--pasture-deep) 0%, var(--pasture) 100%);
       color: white;
-      padding: 4rem 2rem;
+      padding: 10rem 2rem 4rem;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
 
-    header::before {
+    header.hero::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='60' cy='30' r='30'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
       opacity: 0.1;
     }
 
-    header .content {
+    header.hero .content {
       position: relative;
       z-index: 1;
       max-width: 800px;
       margin: 0 auto;
     }
 
-    header h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 700;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      background: linear-gradient(135deg, #ffffff, #e2e8f0);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .eyebrow {
+        display: inline-flex; align-items: center; gap: 0.5em;
+        font-family: 'Mulish', sans-serif; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.05em; color: var(--gold-light);
+        border-top: 1px solid rgba(184,147,90,0.5); border-bottom: 1px solid rgba(184,147,90,0.5);
+        padding: 0.5rem 0; margin-bottom: 1.6rem;
     }
 
-    header .subtitle {
-      font-size: 1.25rem;
-      font-weight: 300;
+    header.hero h1 {
+      font-size: clamp(2rem, 4.6vw, 3.2rem);
+      color: white;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    header.hero .subtitle {
+      font-size: 1.2rem;
+      font-weight: 400;
       opacity: 0.9;
-      font-family: var(--font-serif);
+      font-family: 'Gelasio', serif;
       font-style: italic;
     }
 
-    /* Navegación moderna */
-    nav {
-      background: rgba(255, 255, 255, 0.95);
+    /* Navegación de secciones */
+    nav.section-nav {
+      background: rgba(250, 246, 236, 0.96);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--rule);
       position: sticky;
-      top: 0;
+      top: 60px;
       z-index: 50;
       padding: 1rem 2rem;
     }
@@ -121,128 +150,86 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 0.5rem;
     }
 
-    nav a {
-      color: var(--color-text);
+    nav.section-nav a {
+      color: var(--ink-soft);
       text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.6rem 1.1rem;
       border-radius: var(--radius-lg);
       transition: all 0.3s ease;
       position: relative;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-size: 0.875rem;
     }
 
-    nav a:hover {
-      background: var(--color-accent-light);
-      color: var(--color-accent);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: var(--color-accent);
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
-    }
-
-    nav a:hover::after {
-      width: 80%;
+    nav.section-nav a:hover {
+      background: rgba(184, 147, 90, 0.14);
+      color: var(--judgment);
     }
 
     /* Contenedor principal */
     .contenedor {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 3rem auto;
       padding: 0 2rem;
     }
 
-    /* Artículo moderno */
     article {
-      background: var(--color-surface);
+      background: var(--panel);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow-xl);
       overflow: hidden;
-      border: 1px solid var(--color-border);
+      border: 1px solid var(--rule);
     }
 
     section {
       padding: 3rem 3rem 2rem;
-      border-bottom: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--rule);
     }
 
-    section:last-child {
-      border-bottom: none;
-    }
+    section:last-child { border-bottom: none; }
 
-    /* Tipografía mejorada */
     article h2 {
-      font-size: 2.25rem;
-      font-weight: 700;
-      margin-bottom: 2rem;
-      color: var(--color-primary);
+      font-size: 2rem;
+      margin-bottom: 1.8rem;
+      color: var(--pasture);
       position: relative;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
+      line-height: 1.25;
     }
 
     article h2::after {
       content: '';
       position: absolute;
-      bottom: -0.5rem;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background: linear-gradient(135deg, var(--color-accent), var(--color-gold));
+      bottom: -0.5rem; left: 0;
+      width: 60px; height: 3px;
+      background: linear-gradient(135deg, var(--judgment), var(--gold));
       border-radius: 2px;
     }
 
     article h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin: 2.5rem 0 1.5rem;
-      color: var(--color-secondary);
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin: 2.2rem 0 1.2rem;
+      color: var(--pasture-deep);
       line-height: 1.3;
     }
 
-    article p {
-      margin-bottom: 1.5rem;
-      line-height: 1.8;
-      color: var(--color-text);
-    }
+    article p { margin-bottom: 1.4rem; text-align: justify; hyphens: auto; }
+    article ul, article ol { margin: 1.4rem 0; padding-left: 1.8rem; }
+    article li { margin-bottom: 0.75rem; }
 
-    article ul, article ol {
-      margin: 1.5rem 0;
-      padding-left: 2rem;
-    }
-
-    article li {
-      margin-bottom: 0.75rem;
-      line-height: 1.7;
-    }
-
-    /* Citas bíblicas modernas */
     .cita-biblia {
-      background: linear-gradient(135deg, var(--color-accent-light), #FEF7F0);
-      border-left: 4px solid var(--color-accent);
-      padding: 2rem;
-      margin: 2rem 0;
+      background: linear-gradient(135deg, rgba(184, 147, 90, 0.12), rgba(184, 147, 90, 0.04));
+      border-left: 4px solid var(--gold);
+      padding: 1.8rem 2rem;
+      margin: 1.8rem 0;
       border-radius: var(--radius-lg);
-      font-family: var(--font-serif);
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--color-primary);
+      font-family: 'Gelasio', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--pasture-deep);
       position: relative;
       box-shadow: var(--shadow-sm);
     }
@@ -250,212 +237,129 @@
     .cita-biblia::before {
       content: '"';
       position: absolute;
-      top: 1rem;
-      left: 1.5rem;
-      font-size: 3rem;
-      color: var(--color-accent);
-      opacity: 0.3;
-      font-family: serif;
+      top: 0.6rem; left: 1.2rem;
+      font-size: 2.6rem;
+      color: var(--gold);
+      opacity: 0.4;
+      font-family: 'Gelasio', serif;
     }
 
-    blockquote {
-      background: linear-gradient(135deg, #F8FAFC, #F1F5F9);
-      border-left: 4px solid var(--color-gold);
-      padding: 2rem;
-      margin: 2rem 0;
-      border-radius: var(--radius-lg);
-      font-family: var(--font-serif);
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--color-primary);
-      box-shadow: var(--shadow-sm);
-    }
-
-    /* Galería de imágenes moderna */
     .image-gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-      gap: 3rem;
-      margin: 4rem 0;
-      padding: 4rem;
-      background: linear-gradient(135deg, #F8FAFC, #F1F5F9);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.6rem;
+      margin: 2.6rem 0;
+      padding: 2rem;
+      background: rgba(184, 147, 90, 0.06);
       border-radius: var(--radius-xl);
     }
 
     .image-gallery img {
-      width: 85%;
-      height: 400px;
+      width: 100%;
+      height: 260px;
       object-fit: cover;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       border: 3px solid transparent;
+      display: block;
     }
 
     .image-gallery img:hover {
-      transform: scale(1.05) translateY(-10px);
+      transform: scale(1.03) translateY(-6px);
       box-shadow: var(--shadow-xl);
-      border-color: var(--color-accent);
+      border-color: var(--gold);
     }
 
-    /* Imagen cinco más pequeña */
-    .image-gallery img:nth-child(5) {
-      height: 715px;
+    .destacado {
+      background: linear-gradient(135deg, var(--judgment), #9a3a3a);
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.92rem;
     }
 
-    /* Footer moderno */
-    footer {
-      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    .site-footer {
+      background: linear-gradient(135deg, var(--pasture-deep), var(--pasture));
       color: white;
       text-align: center;
       padding: 3rem 2rem;
-      margin-top: 4rem;
+      margin-top: 2rem;
     }
 
-    footer p {
-      margin-bottom: 1rem;
-      opacity: 0.9;
+    .site-footer p { margin-bottom: 1rem; opacity: 0.9; }
+    .site-footer a { color: var(--gold-light); text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+    .site-footer a:hover { color: white; text-decoration: underline; }
+
+    .back-to-top {
+        position: fixed; bottom: 1.4rem; right: 1.4rem;
+        width: 44px; height: 44px; border-radius: 50%;
+        background: var(--pasture-deep); color: var(--parchment);
+        display: flex; align-items: center; justify-content: center;
+        border: 1px solid var(--gold);
+        opacity: 0; pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease;
+        z-index: 900; cursor: pointer;
     }
+    .back-to-top.visible { opacity: 0.9; pointer-events: auto; }
+    .back-to-top:hover { opacity: 1; transform: translateY(-3px); }
+    .back-to-top svg { width: 1.2rem; height: 1.2rem; }
 
-    footer a {
-      color: var(--color-gold);
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    footer a:hover {
-      color: white;
-      text-decoration: underline;
-    }
-
-    /* Efectos y animaciones */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    section {
-      animation: fadeInUp 0.6s ease-out;
-    }
-
-    /* Texto destacado */
-    .destacado {
-      background: linear-gradient(135deg, var(--color-gold), #F59E0B);
-      color: white;
-      padding: 0.25rem 0.75rem;
-      border-radius: var(--radius-sm);
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    /* Responsive mejorado */
-    @media (max-width: 1024px) {
-      .image-gallery {
-        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-      }
-      
-      .image-gallery img {
-        height: 450px;
-      }
-
-      .image-gallery img:nth-child(5) {
-        height: 200px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      header {
-        padding: 3rem 1rem;
-      }
-
-      .nav-container {
-        flex-direction: column;
-        gap: 0;
-      }
-
-      nav a {
-        padding: 1rem;
-        border-radius: 0;
-        border-bottom: 1px solid var(--color-border);
-      }
-
-      .contenedor {
-        margin: 2rem auto;
-        padding: 0 1rem;
-      }
-
-      section {
-        padding: 2rem 1.5rem;
-      }
-
-      article h2 {
-        font-size: 1.875rem;
-      }
-
-      .image-gallery {
-        grid-template-columns: 1fr;
-        padding: 2rem;
-        gap: 2rem;
-      }
-
-      .image-gallery img {
-        height: 400px;
-      }
-
-      .image-gallery img:nth-child(5) {
-        height: 200px;
-      }
-    }
-
-    /* Scroll suave para anclas */
-    html {
-      scroll-padding-top: 100px;
-    }
-
-    /* Loading animation */
-    .loading {
-      opacity: 0;
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-
-    /* Mejoras de accesibilidad */
     :focus-visible {
-      outline: 2px solid var(--color-accent);
+      outline: 2px solid var(--judgment);
       outline-offset: 2px;
       border-radius: var(--radius-sm);
     }
 
-    /* Efectos de hover mejorados */
-    section:hover {
-      transform: translateY(-2px);
-      transition: transform 0.3s ease;
+    @media (max-width: 768px) {
+      .site-header { padding: 0.7rem 1.1rem; }
+      .header-logo-text { display: none; }
+      header.hero { padding: 7rem 1.2rem 3rem; }
+      nav.section-nav { top: 0; }
+      .nav-container { gap: 0.3rem; }
+      .contenedor { margin: 2rem auto; padding: 0 1rem; }
+      section { padding: 2rem 1.5rem; }
+      article h2 { font-size: 1.6rem; }
+      .image-gallery { padding: 1.2rem; gap: 1rem; }
+      .image-gallery img { height: 200px; }
     }
   </style>
 </head>
 <body>
 
-  <header>
+  <header class="site-header">
+    <a href="../../../index.html" class="header-logo">
+      <img src="../../../images/EMD.png?v=2" alt="Logo EMD">
+      <div class="header-logo-text">
+        Ministerio
+        <span>"La Gloria es del Señor"</span>
+      </div>
+    </a>
+    <a href="../introduccion.html" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+      Tiempo del Fin
+    </a>
+  </header>
+
+  <header class="hero">
     <div class="content">
-      <h1>Ezequiel 34: Los Masones Impíos Gobernando Israel</h1>
-      <p class="subtitle">Análisis Escatológico y Profético Contemporáneo</p>
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.5 8.5-.4.1-.8.1-1.1 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.79 17 5 19 5a1 1 0 0 1 1 1z" /></svg>
+        Análisis escatológico
+      </span>
+      <h1>Ezequiel 34: los masones impíos gobernando Israel</h1>
+      <p class="subtitle">Análisis escatológico y profético contemporáneo</p>
     </div>
   </header>
 
-  <nav>
+  <nav class="section-nav">
     <div class="nav-container">
       <a href="#introduccion">Introducción</a>
-      <a href="#contexto-biblico">Contexto Bíblico</a>
-      <a href="#analisis-masones">Análisis de los Masones</a>
-      <a href="#evidencias-documentales">Evidencias Documentales</a>
-      <a href="#implicaciones">Implicaciones y Conclusiones</a>
+      <a href="#contexto-biblico">Contexto bíblico</a>
+      <a href="#analisis-masones">Análisis de los masones</a>
+      <a href="#evidencias-documentales">Evidencias documentales</a>
+      <a href="#implicaciones">Implicaciones y conclusiones</a>
     </div>
   </nav>
 
@@ -463,7 +367,7 @@
     <article>
 
       <!-- SECCIÓN: Introducción -->
-      <section id="introduccion" class="loading">
+      <section id="introduccion">
         <h2>Introducción</h2>
         <p>
           El presente artículo ofrece un análisis escatológico basado en el capítulo 34 del libro del profeta Ezequiel, en el Antiguo Testamento, y lo aplica a una perspectiva contemporánea que alerta sobre la presencia de masones considerados <span class="destacado">"como el Señor me indicó, pastores impíos"</span> gobernando Israel.Ezequiel 34 nos da la revelacion profética, los pastores de Israel han descuidado y explotado al rebaño, vendiendo su cuidado por ganancias personales y desentendiéndose de la protección verdadera de las ovejas. En esta línea, diversos escritores y fuentes que estudian la geopolítica de manera profunda sostienen que ciertos grupos masónicos, en combinación con redes templarias y criptocráticas, han influido poderosamente en la dirección política y espiritual del Estado de Israel como en los tiempos bíblicos antiguos registrado en los libros de 1 y 2 Reyes, 1 y 2 Crónicas entre otros.
@@ -483,10 +387,10 @@
       </section>
 
       <!-- SECCIÓN: Contexto Bíblico -->
-      <section id="contexto-biblico" class="loading">
-        <h2>Contexto Bíblico de Ezequiel 34</h2>
+      <section id="contexto-biblico">
+        <h2>Contexto bíblico de Ezequiel 34</h2>
 
-        <h3>El Mensaje de Ezequiel 34</h3>
+        <h3>El mensaje de Ezequiel 34</h3>
         <p>
           Ezequiel 34 forma parte del ciclo de profecías que denuncian la corrupción de los líderes de Israel, identificados como "pastores" que no han cuidado adecuadamente del pueblo-ovino. El profeta anuncia el juicio de Dios contra estos líderes, advirtiendo que:
         </p>
@@ -497,49 +401,49 @@
           Este pasaje denuncia directamente a quienes se aprovechan del pueblo-sacerdo, absorbiendo recursos para beneficio propio, mientras dejan a los más vulnerables a merced de peligros. La metáfora del pastor descuidado se extiende en el texto para describir el desamparo y la dispersión de la comunidad:
         </p>
         <blockquote class="cita-biblia">
-          "Y buscaré la oveja perdida, y traeré de vuelta a la descarriada; vendaré a la herida, y fortaleceré a la enferma; pero a la gorda y fuerte destruiré, y apacentarlas bienias con justicia." (Ezequiel 34:16)
+          "Y buscaré la oveja perdida, y traeré de vuelta a la descarriada; vendaré a la herida, y fortaleceré a la enferma; pero a la gorda y fuerte destruiré, y apacentándolas con justicia." (Ezequiel 34:16)
         </blockquote>
         <p>
           Finalmente, el capítulo culmina con la promesa de un Pastor Verdadero (interpretado tradicionalmente como el Mesías) que reunirá a las ovejas y las guiará con justicia, inaugurando un reino de paz y prosperidad.
         </p>
 
-        <h3>Relevancia Escatológica</h3>
+        <h3>Relevancia escatológica</h3>
         <p>
           En la proyección escatológica judeocristiana, Ezequiel 34 se interpreta como un oráculo que encuentra cumplimiento en el "Pastor Supremo" que vendrá a establecer el reinado de Dios en plenitud. Sin embargo, también sirve como advertencia para las generaciones posteriores: siempre existirán liderazgos corruptos que traicionen la vocación de servicio. Por ello, muchos intérpretes ven en cada época histórica oportunidades de aplicación contemporánea, localizando "pastores impíos" en figuras políticas, religiosas o, en este caso, conexiones ocultas de la masonería en la gobernanza de Israel.
         </p>
       </section>
 
       <!-- SECCIÓN: Análisis de los Masones -->
-      <section id="analisis-masones" class="loading">
-        <h2>Análisis de los Masones como "Pastores Impíos"</h2>
+      <section id="analisis-masones">
+        <h2>Análisis de los masones como "pastores impíos"</h2>
 
-        <h3>Origen de la Interpretación Masónica</h3>
+        <h3>Origen de la interpretación masónica</h3>
         <p>
-          La masonería, surgida formalmente en la Inglaterra del siglo XVII, se ha vinculado históricamente con símbolos de construcción y perfección moral. No obstante, corrientes críticas y conspirativas la asocian con órdenes ocultistas más antiguas, indicando conexiones con los caballeros templarios y sociedades secretas europeas. Según estas fuentes, tales vínculos se remontan a la orden de Jacob Frank (siglo XVIII) y a la influencia jesuítica en ciertas logias laboristas sionistas, que presuntamente buscaban reinstaurar un "Reino Latino" de control político y religioso. 
+          La masonería, surgida formalmente en la Inglaterra del siglo XVII, se ha vinculado históricamente con símbolos de construcción y perfección moral. No obstante, corrientes críticas y conspirativas la asocian con órdenes ocultistas más antiguas, indicando conexiones con los caballeros templarios y sociedades secretas europeas. Según estas fuentes, tales vínculos se remontan a la orden de Jacob Frank (siglo XVIII) y a la influencia jesuítica en ciertas logias laboristas sionistas, que presuntamente buscaban reinstaurar un "Reino Latino" de control político y religioso.
         </p>
         <p>
           Una entrada enciclopédica en "Judaísmo Masónico" (Wiki) describe cómo figuras como Shimon Peres, Benjamin Netanyahu y Ehud Barak han sido acusadas de pertenecer a redes masónicas que, según posturas conspirativas, responden a intereses ajenos al bienestar genuino del pueblo judío (911: Judaísmo Masónico – Wiki) [esta información la puede hallar en el área o sección de sociedades secretas en The Babylon Matrix.
         </p>
 
-        <h3>Los Masones Sionistas Laboristas</h3>
+        <h3>Los masones sionistas laboristas</h3>
         <p>
-          Documentos de la "Criptocracia Ocultista Ária" elaboran que el sionismo laborista masónico fue impulsado por el papado jesuita para servir a intereses europeos, no a los judíos de Israel. Se menciona que Theodor Herzl, considerado padre del sionismo, habría operado bajo la guía secreta de órdenes templarias-modernas, con el fin de restablecer el control templario en Tierra Santa en beneficio de la Iglesia Católica (El desastre del sionismo talmudista israelí – Hoffman) .El desastre del sionismo talmudista israelí: la conspiración de la criptocracia ocultista para destruir al pueblo judío • Documento en Mente Alternativa en sociedades secretas. En esta lectura, líderes como David Ben-Gurión o sus sucesores son descritos como peones de un plan mayor para someter espiritualmente a Israel.
+          Documentos de la "Criptocracia Ocultista Ária" elaboran que el sionismo laborista masónico fue impulsado por el papado jesuita para servir a intereses europeos, no a los judíos de Israel. Se menciona que Theodor Herzl, considerado padre del sionismo, habría operado bajo la guía secreta de órdenes templarias-modernas, con el fin de restablecer el control templario en Tierra Santa en beneficio de la Iglesia Católica (El desastre del sionismo talmudista israelí – Hoffman). El desastre del sionismo talmudista israelí: la conspiración de la criptocracia ocultista para destruir al pueblo judío • Documento en Mente Alternativa en sociedades secretas. En esta lectura, líderes como David Ben-Gurión o sus sucesores son descritos como peones de un plan mayor para someter espiritualmente a Israel.
         </p>
         <p>
           Se acusa a estos masones laboristas de haber colaborado con agencias de inteligencia extranjeras (CIA y BND alemana, por ejemplo) para consolidar el Estado de Israel bajo un régimen criptocrático que favorece la "usura bancaria" y la "militarización del Talmud" como instrumentos de control social.
         </p>
 
-        <h3>Conexión con la Masonería Moderna</h3>
+        <h3>Conexión con la masonería moderna</h3>
         <p>
-          En el documento "Judíos Racistas y Pro-Hitler" se exponen testimonios de rabinos de Yeshivot que, supuestamente, abrazan el supremacismo y promueven ideologías antidemocráticas, alabando a Hitler y la esclavitud de árabes (Rabinos de la yeshiva acogen el racismo, alaban a Hitler e instan a la esclavización árabe). Rabinos de la yeshivá acogen el racismo, alaban a Hitler e instan a la esclavización árabe.Documento en Mente Alternativa sección sociedades secretas. Aunque dicho texto se enfoca principalmente en el extremismo religioso ultranacionalista, se tiende a trazar un puente con la masonería acusada de adoctrinar en estos vicios, asimilando el misticismo racista con símbolos masónicos.
+          En el documento "Judíos Racistas y Pro-Hitler" se exponen testimonios de rabinos de Yeshivot que, supuestamente, abrazan el supremacismo y promueven ideologías antidemocráticas, alabando a Hitler y la esclavitud de árabes (Rabinos de la yeshiva acogen el racismo, alaban a Hitler e instan a la esclavización árabe). Rabinos de la yeshivá acogen el racismo, alaban a Hitler e instan a la esclavización árabe. Documento en Mente Alternativa sección sociedades secretas. Aunque dicho texto se enfoca principalmente en el extremismo religioso ultranacionalista, se tiende a trazar un puente con la masonería acusada de adoctrinar en estos vicios, asimilando el misticismo racista con símbolos masónicos.
         </p>
         <p>
           La masonería es descrita como un vehículo para propagar "enseñanzas talmúdicas sionistas" que justifican políticas de "castigo colectivo" y "colonización" del pueblo palestino, alegando que los masones "pastores" han desviado el propósito original de Israel (El desastre del sionismo talmudista israelí – Hoffman).
         </p>
 
-        <h3>El Proyecto del Gran Israel y la Expansión Territorial</h3>
+        <h3>El proyecto del Gran Israel y la expansión territorial</h3>
         <p>
-          Recientemente, el artículo "Tel Aviv ha revelado sus cartas…" denuncia que el gobierno israelí, bajo la dirección de figuras masónicas, emprende la fase final del "Proyecto Gran Israel", con planes de limpieza étnica en Gaza y ocupación de territorios circundantes en Siria y Jordania (Tel Aviv ha revelado sus cartas – Panina) Tel Aviv ha revelado sus cartas, o el Proyecto Gran Israel está en marcha • Esto según el artículo en Mente Alternativa. En este contexto, los masones son presentados como estrategas que hacen realidad la profecía de Ezequiel 34: dispersan al rebaño palestino y alimentan sus propios intereses geopolíticos.
+          Recientemente, el artículo "Tel Aviv ha revelado sus cartas…" denuncia que el gobierno israelí, bajo la dirección de figuras masónicas, emprende la fase final del "Proyecto Gran Israel", con planes de limpieza étnica en Gaza y ocupación de territorios circundantes en Siria y Jordania (Tel Aviv ha revelado sus cartas – Panina). Tel Aviv ha revelado sus cartas, o el Proyecto Gran Israel está en marcha • Esto según el artículo en Mente Alternativa. En este contexto, los masones son presentados como estrategas que hacen realidad la profecía de Ezequiel 34: dispersan al rebaño palestino y alimentan sus propios intereses geopolíticos.
         </p>
         <div class="image-gallery">
           <img src="../images/LIDERES-MASONES.png" alt="Ilustración de un pastor impío gobernando ovejas oscuras">
@@ -554,8 +458,8 @@
       </section>
 
       <!-- SECCIÓN: Evidencias Documentales -->
-      <section id="evidencias-documentales" class="loading">
-        <h2>Evidencias Documentales y Testimonios</h2>
+      <section id="evidencias-documentales">
+        <h2>Evidencias documentales y testimonios</h2>
 
         <h3>Informe "911: Judaísmo Masónico"</h3>
         <p>
@@ -570,30 +474,30 @@
           Según esta visión, su influencia se extendió desde las finanzas hasta la estrategia militar, marcando la agenda oficial de Israel como una fachada para sus propios designios.
         </p>
 
-        <h3>El Artículo de Mente Alternativa: "El Desastre del Sionismo Talmudista"</h3>
+        <h3>El artículo de Mente Alternativa: "El desastre del sionismo talmudista"</h3>
         <p>
           Michael Hoffman, historiador en análisis geopolíticos, detalla en su obra cómo una "criptocracia ocultista aria" impulsó el sionismo militarizado como estrategia para destruir al pueblo judío desde adentro. Entre los puntos principales se destacan:
         </p>
         <ol>
-          <li><strong>Militarización del Talmud:</strong> La reinterpretación de textos rabínicos para justificar la violencia y el castigo colectivo contra poblaciones árabes.</li>
-          <li><strong>Supremacismo Religioso:</strong> Rabinos como Yitzchak Ginsburgh y Od Yosef Chai desarrollaron escuelas y pseudocolegios que enseñan la "superioridad de la vida judía" y autorizaron el asesinato de no judíos. Estas enseñanzas habrían alimentado la mentalidad expansionista de colonos en Cisjordania (El desastre del sionismo talmudista israelí – Hoffman) .El desastre del sionismo talmudista israelí: la conspiración de la criptocracia ocultista para destruir al pueblo judío, DOCUMENTO EN Mente Alternativa .</li>
-          <li><strong>Conspiración Internacional:</strong> Se alega colaboración entre agencias estadounidenses (CIA), alemanas (BND) y redes templarias para financiar y armar al aparato militar israelí, en detrimento del bienestar genuino de la población israelí y palestina.</li>
+          <li><strong>Militarización del Talmud:</strong> la reinterpretación de textos rabínicos para justificar la violencia y el castigo colectivo contra poblaciones árabes.</li>
+          <li><strong>Supremacismo religioso:</strong> rabinos como Yitzchak Ginsburgh y Od Yosef Chai desarrollaron escuelas y pseudocolegios que enseñan la "superioridad de la vida judía" y autorizaron el asesinato de no judíos. Estas enseñanzas habrían alimentado la mentalidad expansionista de colonos en Cisjordania (El desastre del sionismo talmudista israelí – Hoffman). El desastre del sionismo talmudista israelí: la conspiración de la criptocracia ocultista para destruir al pueblo judío, documento en Mente Alternativa.</li>
+          <li><strong>Conspiración internacional:</strong> se alega colaboración entre agencias estadounidenses (CIA), alemanas (BND) y redes templarias para financiar y armar al aparato militar israelí, en detrimento del bienestar genuino de la población israelí y palestina.</li>
         </ol>
         <p>
           Por esto el Señor me ha mostrado estos "pastores impíos" replican la conducta denunciada en Ezequiel 34: alimentarse a costa del rebaño, dispersarlo y traerle "heridas" que luego se niegan a sanar.
         </p>
 
-        <h3>Testimonios de Rabinos Extremistas</h3>
+        <h3>Testimonios de rabinos extremistas</h3>
         <p>
           El informe periodístico "Rabinos de la yeshiva acogen el racismo…" revela grabaciones de instructores pre-militares que:
         </p>
         <ul>
           <li>Exaltan a Hitler y promueven el racismo como "verdad divina".</li>
           <li>Defienden la idea de la "esclavización de los árabes", considerándolos inferiores genéticamente.</li>
-          <li>Justifican el asesinato de civiles en Gaza como "nefasta pero necesaria misión" para la supervivencia judía (Rabinos de la yeshiva acogen el racismo – Canal 13) [oai_citation:5‡Rabinos de la yeshivá acogen el racismo, alaban a Hitler e instan a la esclavización árabe.pdf](file-service://file-QeS7wYCZ8BasDZRm8dXxMZ).</li>
+          <li>Justifican el asesinato de civiles en Gaza como "nefasta pero necesaria misión" para la supervivencia judía (Rabinos de la yeshiva acogen el racismo – Canal 13).</li>
         </ul>
         <p>
-          Estos testimonios revelan un adoctrinamiento ideológico que, según críticos, estaría siendo promovido desde logias masónicas que operan en la clandestinidad, alineadas con la "Criptocracia Ocultista Ária". 
+          Estos testimonios revelan un adoctrinamiento ideológico que, según críticos, estaría siendo promovido desde logias masónicas que operan en la clandestinidad, alineadas con la "Criptocracia Ocultista Ária".
         </p>
 
         <h3>Documentos de Mente Alternativa: "Proyecto Gran Israel"</h3>
@@ -601,9 +505,9 @@
           Elena Panina denuncia que la política oficial israelí, avalada por redes masónicas, se basa en una "expansión territorial" para establecer un Estado que abarque Palestina, Jordania y partes de Siria. Tal proyecto implicaría:
         </p>
         <ol>
-          <li><strong>Limpieza Étnica en Gaza:</strong> Desplazamiento forzado de la población palestina sin posibilidad de retorno (Tel Aviv ha revelado sus cartas – Panina) [oai_citation:6‡Tel Aviv ha revelado sus cartas, o el Proyecto Gran Israel está en marcha • Mente Alternativa.pdf](file-service://file-Kty1s1XBe5pkcidMxQxU5D).</li>
-          <li><strong>Presencia Militar Prolongada:</strong> Con bases permanentes en territorios fronterizos sirios y jordanos, asegurando el control estratégico de la región.</li>
-          <li><strong>Respaldo Internacional Encubierto:</strong> Corea de poderes aliados (EE. UU., Reino Unido, Alemania) proporcionaría apoyo logístico y diplomático a cambio de concesiones económicas y de inteligencia.</li>
+          <li><strong>Limpieza étnica en Gaza:</strong> desplazamiento forzado de la población palestina sin posibilidad de retorno (Tel Aviv ha revelado sus cartas – Panina).</li>
+          <li><strong>Presencia militar prolongada:</strong> con bases permanentes en territorios fronterizos sirios y jordanos, asegurando el control estratégico de la región.</li>
+          <li><strong>Respaldo internacional encubierto:</strong> corea de poderes aliados (EE. UU., Reino Unido, Alemania) proporcionaría apoyo logístico y diplomático a cambio de concesiones económicas y de inteligencia.</li>
         </ol>
         <p>
           La correlación de estos planes con la denuncia bíblica de "pastores impíos" resulta el fundamento profético que conecta Ezequiel 34 con la interpretación contemporánea de estas redes masónicas.
@@ -611,10 +515,10 @@
       </section>
 
       <!-- SECCIÓN: Implicaciones y Conclusiones -->
-      <section id="implicaciones" class="loading">
-        <h2>Implicaciones Teológicas, Políticas y Sociales</h2>
+      <section id="implicaciones">
+        <h2>Implicaciones teológicas, políticas y sociales</h2>
 
-        <h3>Advertencia Profética y Escatología</h3>
+        <h3>Advertencia profética y escatología</h3>
         <p>
           Desde la perspectiva escatológica, Ezequiel 34 advierte que Dios intervendrá contra aquellos que han abusado de su autoridad. En la actualidad, los masones acusados de "gobernar impíamente" serían objeto de juicio divino:
         </p>
@@ -625,7 +529,7 @@
           La promesa del "Pastor Verdadero" implica que el reinado del Mesías purgará estas corruptelas, restaurando la justicia en Israel y reconociendo la dignidad de cada oveja, israelita o palestina.
         </p>
 
-        <h3>Repercusión Internacional</h3>
+        <h3>Repercusión internacional</h3>
         <p>
           Si se adoptan las premisas conspirativas descritas, significaría que gran parte de la política exterior israelí responde a intereses masónicos ocultos que socavan la convivencia regional. Esto implicaría:
         </p>
@@ -635,20 +539,20 @@
           <li>Potencial radicalización de movimientos religiosos y políticos que defiendan a ultranza la soberanía bíblica de Israel, confrontados con sectores laicos y progresistas.</li>
         </ul>
 
-        <h3>Impacto Social en la Diáspora Judía</h3>
+        <h3>Impacto social en la diáspora judía</h3>
         <p>
-          Las acusaciones contra masones prominentes han generado polarización en comunidades judías fuera de Israel. Algunos ven en esta denuncia un llamado profético a la conversión y al arrepentimiento, mientras que otros lo consideran antisemitismo disfrazado de profecía. 
+          Las acusaciones contra masones prominentes han generado polarización en comunidades judías fuera de Israel. Algunos ven en esta denuncia un llamado profético a la conversión y al arrepentimiento, mientras que otros lo consideran antisemitismo disfrazado de profecía.
         </p>
         <p>
           Organizaciones judías en Estados Unidos, Europa y América Latina han reaccionado de diversas maneras:
         </p>
         <ul>
-          <li><strong>Líderes Reformistas:</strong> Ofrecen programas de reconciliación interconfesional, rechazan tesis conspirativas pero reconocen la necesidad de cuestionar la corrupción política.</li>
-          <li><strong>Sectas Evangélicas y Carismáticas:</strong> Ven en Ezequiel 34 la confirmación de su visión escatológica, responsabilizando a líderes judíos sionistas de no atender el llamado mesiánico.</li>
-          <li><strong>Comunidades Judías Ortodoxas:</strong> Mayoritariamente rechazan las acusaciones, argumentando que la masonería es una entidad profana que no puede gobernar Israel y consideran estas lecturas una tergiversación histórica.</li>
+          <li><strong>Líderes reformistas:</strong> ofrecen programas de reconciliación interconfesional, rechazan tesis conspirativas pero reconocen la necesidad de cuestionar la corrupción política.</li>
+          <li><strong>Sectas evangélicas y carismáticas:</strong> ven en Ezequiel 34 la confirmación de su visión escatológica, responsabilizando a líderes judíos sionistas de no atender el llamado mesiánico.</li>
+          <li><strong>Comunidades judías ortodoxas:</strong> mayoritariamente rechazan las acusaciones, argumentando que la masonería es una entidad profana que no puede gobernar Israel y consideran estas lecturas una tergiversación histórica.</li>
         </ul>
 
-        <h3>Conclusión: ¿Aceptación o Rechazo?</h3>
+        <h3>Conclusión: ¿aceptación o rechazo?</h3>
         <p>
           Ezequiel 34 plantea una pregunta fundamental: "¿Quién cuidará verdaderamente de las ovejas?" El análisis extenso presentado en este artículo invita a cada lector a examinar:
         </p>
@@ -660,40 +564,26 @@
         <p>
           Al igual que en tiempos del profeta Ezequiel, hoy existen escuchas atentas que exigen rendición de cuentas a los líderes espirituales y políticos. Si realmente "los masones impíos gobiernan Israel", no cabe otra respuesta que la intercesión y el juicio divino prometido en Ezequiel. Sin embargo, cada lector deberá contrastar estas acusaciones con fuentes académicas, creencias personales y, sobre todo, con el mensaje central de la Escritura: el llamado al arrepentimiento y la búsqueda de justicia.
         </p>
-        <p style="text-align: center; margin-top: 40px; font-weight: bold; font-size: 1.2rem; color: var(--color-accent);">
-          — Fin del Reportaje —
+        <p style="text-align: center; margin-top: 40px; font-weight: bold; font-size: 1.2rem; color: var(--judgment);">
+          — Fin del reportaje —
         </p>
       </section>
 
     </article>
   </div>
 
-  <footer>
-    <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
-    <p>Diseñado con <svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" />
-</svg> para el análisis profético contemporáneo</p>
+  <footer class="site-footer">
+    <p>&copy; 2026 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+    <p>Diseñado con <svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></svg> para el análisis profético contemporáneo</p>
     <p><a href="mailto:contacto@redescatologica.org">Contacto</a> | <a href="#introduccion">Regresar al inicio</a></p>
   </footer>
 
-  <script>
-    // Animación suave para elementos al hacer scroll
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
+  <button class="back-to-top" id="scrollTop" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></svg>
+  </button>
 
+  <script>
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -703,33 +593,28 @@
       });
     }, observerOptions);
 
-    // Observar todas las secciones
     document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(20px)';
+      section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
       observer.observe(section);
     });
 
-    // Scroll suave para navegación
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
 
-    // Efecto parallax sutil en el header
+    const scrollBtn = document.getElementById('scrollTop');
     window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const header = document.querySelector('header');
-      if (header) {
-        header.style.transform = `translateY(${scrolled * 0.5}px)`;
-      }
+      scrollBtn.classList.toggle('visible', window.scrollY > 300);
     });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   </script>
 
 </body>

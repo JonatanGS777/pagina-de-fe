@@ -302,6 +302,14 @@ Tras agregarse `tabernaculo-3d.html`, una revisión a fondo (a pedido del usuari
 - Contenido íntegro (7 secciones: panorama económico, Unión Europea, BRICS, revolución de monedas digitales, respuesta de EE. UU./OTAN, convergencias proféticas, cronología, reflexión final) sin alterar cifras ni afirmaciones — no se identificó contenido fabricado o inverificable comparable al de páginas anteriores.
 - **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para las demás páginas de `analisisescatologico/`.
 
+### 2026-08-19: cuarta de las 6 páginas de `analisisescatologico/` — eze34.html "Rebaño Disperso" — advertencia de contenido importante
+
+- **`page/Tiempo del Fin/analisisescatologico/eze34.html`:** a diferencia de toda página anterior del sitio con contenido conspirativo sin verificar, este artículo se identificó como **antisemitismo específico**, no especulación genérica sobre "élites secretas": acusa por nombre a Netanyahu (jefe de Estado en funciones), Shimon Peres y Ehud Barak de pertenecer a redes masónicas que sirven a una "criptocracia ocultista aria" y practican "usura bancaria" y "militarización del Talmud" — tropos antisemitas clásicos, no una teoría de conspiración neutral. Cita como fuente histórica a **Michael Hoffman**, autor vinculado al negacionismo del Holocausto, presentado como "historiador en análisis geopolíticos". Una de las 7 imágenes de la galería (`SMOM_Rothschild_Nazi.png`) combina fotos reales de Hitler y esvásticas nazis con un retrato real de Amschel Mayer von Rothschild (banquero judío histórico) etiquetado "Guardian of the Vatican Treasury" — propaganda antisemita clásica con una persona real identificada. Otra imagen (`LIDERES-MASONES.png`) usa fotos reales de jefes de Estado actuales (Obama, Trump, Putin, el Papa Francisco) marcadas como "señales masónicas secretas".
+- **Se presentó esto al usuario en dos pasos separados** (primero el texto, luego específicamente la imagen `SMOM_Rothschild_Nazi.png` con su contenido descrito) antes de tocar el archivo, ofreciendo reescribir el contenido, quitar la página, o mantenerla intacta. El usuario decidió **mantener el texto y las 7 imágenes sin cambios**, igual que con `masoneria.html`, `reptilianos-consejo-13.html` y `lineas-sangre-illuminati.html` — pero esta vez la decisión se tomó con la naturaleza específicamente antisemita del contenido ya señalada explícitamente, no solo como "conspirativo sin verificar".
+- **Cambios aplicados (solo forma, verificado por diff que el texto sustantivo no cambió una palabra):** se agregó el header del sitio (página huérfana, sin logo ni navegación); se quitaron 2 artefactos de una herramienta de IA sin limpiar, visibles en el HTML — `[oai_citation:5‡...]` y una ruta `file-service://file-...`; se corrigió una cita de Ezequiel 34:16 corrupta ("apacentarlas bienias con justicia", no es una palabra real) alineándola con la misma cita ya escrita correctamente más adelante en el propio artículo; se quitó `text-transform: uppercase` del menú y se corrigió el Title Case de títulos y encabezados a ortografía española, siguiendo la regla ya documentada.
+- Rediseñada con un concepto de "Rebaño Disperso" ligado al propio texto de Ezequiel 34 (pastores/ovejas/juicio), distinto del estilo "Tribunal de la Verdad" ya usado en `masoneria.html`. Tipografía Gelasio + Mulish, ninguna usada antes en el sitio. Paleta pastura/verde `#2f4a35` + rojo de juicio `#7a1f24` + oro de cayado `#b8935a`.
+- **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para las demás páginas de `analisisescatologico/`. Si se revisita esta página en el futuro, releer esta entrada antes de asumir que el contenido es "conspirativo genérico" como en otras páginas del sitio.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -592,6 +600,7 @@ Página de Fe/
 | `page/Tiempo del Fin/profecias-cumplidas.html` | Completado: estilo propio "Expediente de Verificación". 50 tarjetas generadas por JS, array de datos sin alterar; ver historial 2026-08-19 |
 | `page/Tiempo del Fin/analisisescatologico/conversiones.html` | Completado: estilo propio "Lluvia Tardía" (tierra seca que reverdece). Antes huérfana, sin header del sitio; ver historial 2026-08-19 |
 | `page/Tiempo del Fin/analisisescatologico/economiaglobal.html` | Completado: estilo propio "Babilonia Digital" (obsidiana/oro ardiente). Antes huérfana, sin header del sitio; ver historial 2026-08-19 |
+| `page/Tiempo del Fin/analisisescatologico/eze34.html` | Completado: estilo propio "Rebaño Disperso". **Contenido antisemita específico, mantenido a decisión informada del usuario — ver nota completa en historial 2026-08-19 antes de tocar esta página de nuevo.** |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
@@ -616,7 +625,6 @@ Página de Fe/
 
 #### `page/Tiempo del Fin/`
 
-- [ ] `analisisescatologico/eze34.html`
 - [ ] `analisisescatologico/persecusion.html`
 - [ ] `analisisescatologico/tecnologia.html`
 - [ ] `analisisescatologico/tercertemplo.html`
