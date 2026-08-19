@@ -269,6 +269,29 @@ Tras agregarse `tabernaculo-3d.html`, una revisión a fondo (a pedido del usuari
 - Contenido íntegro (los 9 documentos completos, incluida la sección crítica de teorías conspirativas) sin alterar palabra.
 - **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para las demás páginas pendientes de `Tiempo del Fin/`.
 
+### 2026-08-19: séptima página de Tiempo del Fin — profecias-cumplidas.html "Expediente de Verificación"
+
+- **`page/Tiempo del Fin/profecias-cumplidas.html`:** a diferencia del resto de la categoría, las 50 tarjetas de esta página se generan por JavaScript desde un array de datos (`const prophecies = [...]`), no como HTML estático. Se conservó esa arquitectura íntegra — el array de datos quedó **idéntico byte a byte** al original (verificado programáticamente) — y solo se rediseñó el CSS y la plantilla de salida (`generateProphecyCards`). Estilo elegido entre 3 direcciones propuestas (Expediente de Verificación, Reloj Profético, Sello de Autenticidad) porque cada una de las 50 tarjetas ya tiene la estructura de un caso: fuente/profecía → cumplimiento → tiempo transcurrido. Tipografía Zilla Slab (títulos) + Noto Serif (cuerpo), ninguna usada antes en el sitio. Paleta de carpeta/expediente: tinta `#241f1a`, kraft `#cbb28a`, papel `#f2ecdc`, rojo de sello `#8a2c22` (distinta de la paleta azul marino/latón de `nuevo-orden-mundial.html`, para no repetir la sensación de "dossier" entre ambas).
+- **Bugs corregidos:** el logo y el enlace "Inicio" usaban `../../../../` (4 niveles) cuando el archivo está a solo 2 niveles de la raíz — 404 real; los 4 íconos sociales del footer eran `href="#"` — se dejaron solo Facebook/YouTube con URLs reales (mismo patrón que el resto del sitio); el menú móvil tenía el mismo bug de doble listener duplicado ya visto en `noticias-fin.html` (dos scripts separados, cada uno alternando `nav.classList` — se cancelaban entre sí), se unificaron en un solo script.
+- Cada tarjeta pasó a etiquetarse "Exp. NN" (en vez de solo el número) y sus dos campos de texto ganaron una etiqueta de campo ("Testimonio" / "Veredicto") para reforzar el concepto de expediente, sin tocar el contenido de las 50 profecías.
+- **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para las demás páginas pendientes de `Tiempo del Fin/`.
+
+### 2026-08-19: primera de las 6 páginas de `analisisescatologico/` — conversiones.html "Lluvia Tardía"
+
+- **`page/Tiempo del Fin/analisisescatologico/conversiones.html`:** página huérfana (sin header del sitio en absoluto — ni logo ni menú, solo alcanzable desde la tarjeta correspondiente en `noticias-fin.html`). Se le agregó el header estándar (logo + `nav-back` a `introduccion.html`).
+- Rediseñada con un concepto de "tierra seca que reverdece", refinando (no reemplazando) el efecto de lluvia animada que la página ya tenía — encajaba literalmente con el tema (Joel 2:28, "la lluvia tardía"). El fondo original era un degradado púrpura sobre oscuro cubriendo toda la página (`#0f0f23` → `#2d1b69` → `#4a3c95`), el cliché de "gradiente morado" que la guía de diseño del sitio marca como señal de IA genérica a evitar — se reemplazó por un degradado de tierra seca (marrón) a verde vivo a lo largo del scroll de la página. Tipografía Petrona (títulos) + Karla (cuerpo), ninguna usada antes en el sitio.
+- **Limpieza:** se quitaron 9 atributos `index="12-1"` (y similares) en etiquetas `<cite>` — restos de un índice de citas de una herramienta de investigación sin propósito en la página final.
+- **Nota de contenido, no resuelta:** varias estadísticas son difíciles de verificar de forma independiente (p.ej. "la red social islámica #SaveMaryam reporta perder dos millones de miembros anualmente", proyección de que Indonesia dejaría de ser mayoritariamente islámica para 2035). Se le señaló al usuario antes de proceder; decidió mantener las cifras intactas, igual que con el contenido sin verificar de otras páginas del sitio.
+- Contenido íntegro (introducción, estadísticas, cronología de 4 avivamientos regionales, mapa de 8 países, profecía de Joel, 4 causas, significado escatológico, paradoja persecución/crecimiento, puntos de oración) sin alterar palabra.
+- **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para las demás páginas de `analisisescatologico/`.
+
+### 2026-08-19: corrección de mayúsculas en las 8 páginas de Tiempo del Fin de esta sesión
+
+- El usuario señaló que las 8 páginas rediseñadas en esta sesión (`escatologia.html`, las 3 de `fundamentos/`, `noticias-fin.html`, `nuevo-orden-mundial.html`, `profecias-cumplidas.html`, `conversiones.html`) usaban mayúscula en cada palabra significativa de títulos y encabezados (Title Case al estilo inglés: "Historia, Fundamentos y Perspectivas"), en vez de la regla del español (solo mayúscula inicial y nombres propios: "historia, fundamentos y perspectivas").
+- Se corrigieron `<title>`, `<h1>`, `<h2>`, `<h3>` y `<h4>` en las 8 páginas, conservando en mayúscula los nombres propios y términos con capitalización reverencial/convencional ya establecida en el sitio (Dios, Cristo, Espíritu Santo, Iglesia, Reino, Templo, Segunda Venida, Antiguo/Nuevo Testamento, nombres de medios como "Puertas Abiertas" o "Christian Post"). Las etiquetas de categoría/filtro cortas (p.ej. "Antiguo Testamento", "Tiempos Finales" en `profecias-cumplidas.html`) se dejaron igual, siguiendo el criterio ya establecido de que esas etiquetas de menú/categoría no aplican la misma regla que títulos y contenido de página.
+- En `profecias-cumplidas.html` esto incluyó los 50 títulos del array de datos JavaScript (p.ej. "La Caída de Babilonia" → "La caída de Babilonia") — se verificó la sintaxis del array tras el cambio (50 entradas, sin errores).
+- **Nota:** este mismo criterio debe aplicarse de aquí en adelante a cualquier página nueva de `Tiempo del Fin/` y a los títulos que se agreguen a los menús de navegación.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -556,6 +579,8 @@ Página de Fe/
 | `page/Tiempo del Fin/fundamentos/plan-divino.html` | Completado: estilo propio "Hilo de Oro" (tapiz/línea de hilo dorado); ver historial 2026-08-19 |
 | `page/Tiempo del Fin/noticias-fin.html` | Completado: estilo propio "Sala de Redacción" (wire service/periódico). Conserva el menú dropdown completo; ver historial 2026-08-19 |
 | `page/Tiempo del Fin/nuevo-orden-mundial.html` | Completado: estilo propio "Mesa de Negociación" (dossier diplomático); ver historial 2026-08-19 |
+| `page/Tiempo del Fin/profecias-cumplidas.html` | Completado: estilo propio "Expediente de Verificación". 50 tarjetas generadas por JS, array de datos sin alterar; ver historial 2026-08-19 |
+| `page/Tiempo del Fin/analisisescatologico/conversiones.html` | Completado: estilo propio "Lluvia Tardía" (tierra seca que reverdece). Antes huérfana, sin header del sitio; ver historial 2026-08-19 |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
@@ -580,8 +605,6 @@ Página de Fe/
 
 #### `page/Tiempo del Fin/`
 
-- [ ] `profecias-cumplidas.html`
-- [ ] `analisisescatologico/conversiones.html`
 - [ ] `analisisescatologico/economiaglobal.html`
 - [ ] `analisisescatologico/eze34.html`
 - [ ] `analisisescatologico/persecusion.html`
