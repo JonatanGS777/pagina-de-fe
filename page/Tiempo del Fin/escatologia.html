@@ -11,763 +11,379 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escatología Protestante: Historia, Fundamentos y Perspectivas</title>
+    <title>Escatología Protestante: Historia, Fundamentos y Perspectivas | Ministerio "La Gloria es del Señor"</title>
+    <meta name="description" content="Genealogía doctrinal de la escatología protestante: de Agustín y la Reforma a las cinco corrientes contemporáneas (amilenialismo, postmilenialismo, premilenialismo y dispensacionalismo).">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Vollkorn+SC&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #1e3a8a;     /* Azul profético - base espiritual */
-            --secondary-color: #fbbf24;   /* Dorado celestial - luz y esperanza */
-            --accent-color: #c53030;      /* Rojo juicio - advertencia y contraste */
-            --background-color: #f8f9fa;  /* Marfil claro - fondo puro y neutral */
-            --text-color: #2d3748;        /* Gris pizarra - buena legibilidad */
-            --light-accent: #e2e8f0;      /* Gris claro suave - para secciones */
-            --gold-accent: #d6ae7b;       /* Oro suave - detalles teológicos */
-            --dark-color: #1a202c;        /* Azul noche - profundidad */
-            --gradient-bg: linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(251, 191, 36, 0.85) 100%);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.06);
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-           font-family: 'Merriweather', serif;
-            line-height: 1.7;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            padding: 0;
-            margin: 0;
-            overflow-x: hidden;
-        }
-        
-        /* Barra de progreso de lectura */
-        .reading-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
-            z-index: 1000;
-            transition: width 0.1s;
-        }
-        
-        /* Botón volver arriba */
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            z-index: 900;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .back-to-top.visible {
-            opacity: 0.7;
-            pointer-events: auto;
-        }
-        
-        .back-to-top:hover {
-            opacity: 1;
-        }
-        
-        .back-to-top::before {
-            content: "▲";
-            font-size: 18px;
-        }
-        
-        /* Estilos del Header del sitio principal */
-        header {
-            background: var(--gradient-bg), url('#') center center/cover no-repeat;
-            color: white;
-            padding: 1rem 0;
-            box-shadow: var(--box-shadow);
-            position: relative;
-            z-index: 1000;
-        }
-        
-        .header-container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .logo img {
-            height: 60px;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-        }
-        
-        .logo-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-        
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .nav-toggle:hover {
-            transform: scale(1.1);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-family: 'Montserrat', serif;
-            font-weight: 600;
-            transition: var(--transition);
-            display: block;
-            padding: 0.5rem;
-            position: relative;
-            border-bottom: none;
-        }
-        
-        nav a:hover {
-            color: var(--secondary-color);
-            border-bottom: none;
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--secondary-color);
-            transition: var(--transition);
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
-        /* Dropdown Styles */
-        .menu-item-has-children {
-            position: relative;
-        }
-        
-        .menu-item-has-children > a {
-            display: flex;
-            align-items: center;
-        }
-        
-        .sub-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 220px;
-            background-color: white;
-            box-shadow: var(--box-shadow);
-            border-radius: 8px;
-            padding: 0.8rem 0;
-            display: none;
-            z-index: 100;
-            transform: translateY(10px);
-            opacity: 0;
-            transition: var(--transition);
-        }
-        
-        .sub-menu li {
-            width: 100%;
-        }
-        
-        .sub-menu a {
-            padding: 0.7rem 1.2rem;
-            font-size: 0.9rem;
-            width: 100%;
-            color: var(--dark-color);
-        }
-        
-        .sub-menu a:hover {
-            background-color: rgba(123, 34, 64, 0.05);
-            color: var(--primary-color);
-        }
-        
-        .sub-menu a::after {
-            display: none;
-        }
-        
-        .menu-item-has-children:hover .sub-menu {
-            display: block;
-            transform: translateY(0);
-            opacity: 1;
-        }
-        
-        /* Estilos del contenido principal */
-        .page-title {
-            background-image: linear-gradient(rgba(60, 103, 112, 0.8), rgba(77, 59, 109, 0.8)), 
-                              url('./images/lasttime.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-            position: relative;
-            margin-bottom: 2rem;
-        }
-        
-        .page-title::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--gold-accent));
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-top: 2.5rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--secondary-color);
-            position: relative;
-        }
-        
-        h2::after {
-            content: "";
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 80px;
-            height: 2px;
-            background-color: var(--accent-color);
-        }
-        
-        h3 {
-            font-size: 1.4rem;
-            color: var(--primary-color);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        p {
-            margin-bottom: 1.2rem;
-            text-align: justify;
-        }
-        
-        .content-link {
-            color: var(--primary-color);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-bottom 0.3s;
-            font-weight: 600;
-        }
-        
-        .content-link:hover {
-            border-bottom: 1px solid var(--primary-color);
-        }
-        
-        /* Estilos para tarjetas */
-        .card {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease;
-            width: 100%;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .intro {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            border-left: 4px solid var(--accent-color);
-            padding-left: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .quote {
-            font-style: italic;
-            border-left: 4px solid var(--gold-accent);
-            padding: 1.5rem 1.5rem 1.5rem 2rem;
-            margin: 1.5rem 0;
-            background-color: rgba(195, 163, 67, 0.08);
-            border-radius: 0 5px 5px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            position: relative;
-        }
-        
-        .quote::before {
-            content: '"';
-            font-family: Georgia, serif;
-            font-size: 4rem;
-            position: absolute;
-            top: -1.5rem;
-            left: 0.5rem;
-            color: var(--gold-accent);
-            opacity: 0.3;
-        }
-        
-        .highlight {
-            background-color: rgba(214, 169, 41, 0.2);
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
-        }
-        
-        .note {
-            background-color: var(--light-accent);
-            padding: 1.5rem;
-            border-radius: 5px;
-            margin: 2rem 0;
-            position: relative;
-            border-left: 4px solid var(--accent-color);
-        }
-        
-        .toc {
-            background-color: var(--light-accent);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .toc h3 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--secondary-color);
-            font-size: 1.5rem;
-        }
-        
-        .toc ol {
-            list-style-type: decimal;
-            margin-left: 1.5rem;
-        }
-        
-        .toc li {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        
-        .toc a {
-            text-decoration: none;
-            color: var(--dark-color);
-            transition: all 0.3s;
-            display: block;
-            padding: 0.3rem 0;
-        }
-        
-        .toc a:hover {
-            color: var(--primary-color);
-            padding-left: 0.5rem;
-        }
-        
-        .section-divider {
-            display: flex;
-            align-items: center;
-            margin: 3rem 0;
-        }
-        
-        .section-divider::before,
-        .section-divider::after {
-            content: "";
-            flex: 1;
-            border-bottom: 1px solid var(--light-accent);
-        }
-        
-        .section-divider::before {
-            margin-right: 1rem;
-        }
-        
-        .section-divider::after {
-            margin-left: 1rem;
-        }
-        
-        .divider-icon {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-        }
-        
-        .back-button {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            margin: 2rem 0;
-            transition: var(--transition);
-            border: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .back-button:hover {
-            background-color: var(--secondary-color);
-            color: var(--dark-color);
-            border: none;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        .back-button i {
-            margin-right: 8px;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #eee;
-        }
-        
-        th, td {
-            padding: 0.8rem;
-            text-align: left;
-            border-bottom: 1px solid var(--light-accent);
-        }
-        
-        th {
-            background: linear-gradient(135deg, var(--primary-color), #5c4880);
-            color: white;
-        }
-        
-        tr:nth-child(even) {
-            background-color: rgba(77, 59, 109, 0.03);
-        }
-        
-        .first-letter::first-letter {
-            font-size: 3.5rem;
-            line-height: 1;
-            float: left;
-            padding-right: 0.5rem;
-            color: var(--secondary-color);
-            font-family: 'Playfair Display', serif;
-        }
-        
-        /* Estilos del Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 4rem 0 1rem;
-            margin-top: 4rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-        
-        .footer-col h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.8rem;
-            color: var(--secondary-color);
-        }
-        
-        .footer-col h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--secondary-color);
-        }
-        
-        .footer-col ul {
-            list-style: none;
-        }
-        
-        .footer-col li {
-            margin-bottom: 1rem;
-        }
-        
-        .footer-col a {
-            color: #aaa;
-            text-decoration: none;
-            transition: var(--transition);
-            display: inline-block;
-            border-bottom: none;
-        }
-        
-        .footer-col a:hover {
-            color: var(--secondary-color);
-            transform: translateX(5px);
-            border-bottom: none;
+            --paper: #ece2c8;
+            --paper-deep: #e0d1a8;
+            --panel: #f4ecd9;
+            --ink: #241d14;
+            --ink-soft: #4a4030;
+            --ink-faint: #79694a;
+            --line: #a2895a;
+            --line-soft: rgba(162, 137, 90, 0.35);
+            --accent: #5c2a2a;
+            --accent-soft: rgba(92, 42, 42, 0.08);
+            --seal: #6b5836;
+            --shadow: 0 10px 28px rgba(36, 29, 20, 0.14);
         }
 
-        footer p {
-        margin-bottom: 0;
-        text-align: center;
-        width: 100%;
-}
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Vollkorn', serif;
+            line-height: 1.75;
+            color: var(--ink-soft);
+            background-color: var(--paper);
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E"),
+                radial-gradient(ellipse at 50% 0%, rgba(36,29,20,0.06), transparent 60%);
+            overflow-x: hidden;
         }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: #333;
-            border-radius: 50%;
-            color: white;
-            transition: var(--transition);
-            border-bottom: none;
+
+        h1, h2, .display {
+            font-family: 'IM Fell English SC', serif;
+            color: var(--ink);
+            font-weight: 400;
+            letter-spacing: 0.01em;
         }
-        
-        .social-links a:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-5px);
-            border-bottom: none;
+
+        .eyebrow, .kicker, .badge-text, th, .footer-copy, .toc h3, .lineage-label, .rama-tag {
+            font-family: 'Vollkorn SC', serif;
         }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #333;
-            font-size: 0.9rem;
-            color: #aaa;
+
+        a { color: inherit; }
+
+        /* ---- Reading progress ---- */
+        .reading-progress {
+            position: fixed; top: 0; left: 0; width: 0; height: 3px;
+            background: linear-gradient(90deg, var(--line), var(--accent));
+            z-index: 1000; transition: width 0.1s;
         }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .page-title {
-                background-attachment: scroll;
-            }
-            
-            .nav-toggle {
-                display: block;
-            }
-            
-            nav {
-                position: fixed;
-                top: 0;
-                right: -300px;
-                width: 280px;
-                height: 100vh;
-                background-color: var(--dark-color);
-                z-index: 1000;
-                transition: right 0.3s ease;
-                padding: 2rem;
-                overflow-y: auto;
-            }
-            
-            nav.active {
-                right: 0;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 0;
-            }
-            
-            nav li {
-                width: 100%;
-            }
-            
-            nav a {
-                padding: 1rem 0;
-                width: 100%;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            
-            nav a::after {
-                display: none;
-            }
-            
-            .menu-item-has-children > a {
-                justify-content: space-between;
-            }
-            
-            /* Mobile indicator for dropdown instead of arrow */
-            .menu-item-has-children > a::after {
-                display: block;
-                content: '+';
-                transition: var(--transition);
-            }
-            
-            .menu-item-has-children.active > a::after {
-                transform: rotate(45deg);
-            }
-            
-            .sub-menu {
-                position: static;
-                width: 100%;
-                box-shadow: none;
-                background-color: rgba(0, 0, 0, 0.2);
-                border-radius: 0;
-                padding-left: 1rem;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease-out;
-                transform: none;
-                opacity: 1;
-            }
-            
-            .menu-item-has-children.active > .sub-menu {
-                max-height: 500px;
-            }
-            
-            .menu-item-has-children:hover .sub-menu {
-                display: none;
-                transform: none;
-            }
-            
-            .menu-item-has-children.active .sub-menu {
-                display: block;
-            }
-            
-            .sub-menu a {
-                color: #ddd;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            }
-            
-            .sub-menu a:hover {
-                background-color: rgba(255, 255, 255, 0.05);
-                color: var(--secondary-color);
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.5rem;
-            }
-            
-            h3 {
-                font-size: 1.2rem;
-            }
-            
-            .container {
-                padding: 1.5rem;
-            }
-            
-            table {
-                font-size: 0.8rem;
-            }
-            
-            th, td {
-                padding: 0.6rem;
-            }
+
+        /* ---- Back to top ---- */
+        .back-to-top {
+            position: fixed; bottom: 1.4rem; right: 1.4rem;
+            width: 44px; height: 44px; border-radius: 50%;
+            background: var(--ink); color: var(--paper);
+            display: flex; align-items: center; justify-content: center;
+            border: 1px solid var(--line);
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 900; cursor: pointer;
         }
-    
-        /* Insignia circular del logo EMD (aplicada a todas las páginas) */
+        .back-to-top.visible { opacity: 0.88; pointer-events: auto; }
+        .back-to-top:hover { opacity: 1; transform: translateY(-3px); }
+        .back-to-top svg { width: 1.2rem; height: 1.2rem; }
+
+        /* ---- Header ---- */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 1.2rem; flex-wrap: wrap;
+            padding: 0.75rem 2rem;
+            background: rgba(36, 29, 20, 0.94);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(162, 137, 90, 0.35);
+        }
+        .header-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
         img[alt="Logo EMD"] {
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid rgba(201, 170, 106, 0.5);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(201, 170, 106, 0.08);
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            height: 46px; border-radius: 50%; object-fit: cover;
+            border: 2px solid rgba(162, 137, 90, 0.55);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+            transition: transform 0.3s ease;
         }
-        img[alt="Logo EMD"]:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 0 5px rgba(201, 170, 106, 0.15);
+        img[alt="Logo EMD"]:hover { transform: scale(1.05); }
+        .header-logo-text { font-family: 'Vollkorn SC', serif; font-size: 0.82rem; line-height: 1.3; color: var(--paper); }
+        .header-logo-text span { display: block; color: rgba(236, 226, 200, 0.6); font-size: 0.72rem; }
+
+        .nav-links { list-style: none; display: flex; gap: 1.4rem; align-items: center; }
+        .nav-links a {
+            text-decoration: none; color: rgba(236, 226, 200, 0.78);
+            font-family: 'Vollkorn SC', serif; font-size: 0.82rem; letter-spacing: 0.03em;
+            transition: color 0.25s ease;
+        }
+        .nav-links a:hover { color: var(--paper); }
+        .nav-back {
+            display: inline-flex; align-items: center; text-decoration: none;
+            color: var(--paper); font-family: 'Vollkorn SC', serif; font-size: 0.8rem;
+            padding: 0.45rem 0.9rem; border: 1px solid rgba(162, 137, 90, 0.5); border-radius: 3px;
+            transition: background 0.25s ease, border-color 0.25s ease;
+        }
+        .nav-back:hover { background: rgba(162, 137, 90, 0.18); border-color: var(--line); }
+        .nav-back svg { width: 0.9em; height: 0.9em; margin-right: 0.35em; }
+
+        /* ---- Hero ---- */
+        .hero {
+            position: relative;
+            padding: 9.5rem 1.5rem 5rem;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-tree {
+            position: absolute; inset: 0; z-index: 0; opacity: 0.16; pointer-events: none;
+        }
+        .hero-inner { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 0.4em;
+            font-size: 0.82rem; letter-spacing: 0.08em; color: var(--accent);
+            border: 1px solid rgba(92, 42, 42, 0.35); border-radius: 30px;
+            padding: 0.4rem 1rem; margin-bottom: 1.6rem; background: var(--panel);
+        }
+        .eyebrow svg { width: 1em; height: 1em; }
+        h1 { font-size: clamp(2rem, 4.2vw, 2.9rem); line-height: 1.28; margin-bottom: 1.3rem; }
+        .hero-tagline {
+            font-style: italic; color: var(--ink-faint); font-size: 1.12rem;
+            max-width: 560px; margin: 0 auto;
+        }
+        .hero-rule {
+            width: 120px; height: 2px; margin: 2.2rem auto 0;
+            background: linear-gradient(90deg, transparent, var(--line), transparent);
+        }
+
+        /* ---- Layout ---- */
+        main { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 5rem; }
+
+        section { padding-top: 3.2rem; scroll-margin-top: 5.5rem; }
+
+        .folio {
+            display: flex; align-items: baseline; gap: 0.9rem; margin-bottom: 1.6rem;
+        }
+        .folio-num {
+            font-family: 'Vollkorn SC', serif; font-size: 0.8rem; color: var(--accent);
+            border: 1px solid rgba(92,42,42,0.3); border-radius: 3px; padding: 0.2rem 0.55rem;
+            white-space: nowrap;
+        }
+        h2 {
+            font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--line-soft);
+            flex: 1;
+        }
+        h3 {
+            font-family: 'Vollkorn', serif; font-weight: 700;
+            font-size: 1.28rem; color: var(--ink);
+            margin-top: 1.6rem; margin-bottom: 0.9rem;
+        }
+
+        p { margin-bottom: 1.15rem; text-align: justify; hyphens: auto; }
+
+        .card {
+            background-color: var(--panel);
+            border: 1px solid var(--line-soft);
+            border-radius: 4px;
+            box-shadow: var(--shadow);
+            padding: 1.6rem 1.8rem;
+            margin-bottom: 1.6rem;
+        }
+        .card p:last-child { margin-bottom: 0; }
+
+        .intro-lede {
+            font-size: 1.12rem; line-height: 1.85;
+        }
+        .intro-lede::first-letter {
+            font-family: 'IM Fell English SC', serif;
+            font-size: 3.6rem; line-height: 0.8; float: left;
+            padding: 0.1rem 0.45rem 0 0; color: var(--accent);
+        }
+
+        .quote {
+            font-style: italic; border-left: 3px solid var(--seal);
+            padding: 1.3rem 1.5rem 1.3rem 1.9rem; margin: 1.6rem 0;
+            background: rgba(107, 88, 54, 0.06); border-radius: 0 4px 4px 0;
+            position: relative;
+        }
+        .quote::before {
+            content: '"'; font-family: 'IM Fell English SC', serif; font-size: 3.6rem;
+            position: absolute; top: -1.1rem; left: 0.4rem; color: var(--seal); opacity: 0.35;
+        }
+        .quote p { margin-bottom: 0; }
+
+        .highlight {
+            background: var(--accent-soft); border: 1px solid rgba(92,42,42,0.18);
+            border-radius: 4px; padding: 1.3rem 1.6rem; margin: 1.6rem 0;
+        }
+        .highlight p:last-child { margin-bottom: 0; }
+
+        .note {
+            background: var(--paper-deep); border-left: 3px solid var(--accent);
+            border-radius: 0 4px 4px 0; padding: 1.3rem 1.6rem; margin: 1.6rem 0;
+        }
+        .note p:last-child { margin-bottom: 0; }
+
+        .mark { background: rgba(162,137,90,0.28); padding: 0.15rem 0.35rem; border-radius: 2px; }
+
+        ul.plain { margin: 0 0 1.2rem 1.6rem; }
+        ul.plain li { margin-bottom: 0.6rem; }
+
+        /* ---- Índice / registro ---- */
+        .toc {
+            background: var(--panel); border: 1px solid var(--line-soft); border-radius: 4px;
+            padding: 1.8rem 2rem; margin: 3rem 0 1rem; box-shadow: var(--shadow);
+        }
+        .toc h3 {
+            font-size: 1rem; letter-spacing: 0.06em; color: var(--accent);
+            display: flex; align-items: center; gap: 0.5em;
+            margin-top: 0; margin-bottom: 1.1rem; padding-bottom: 0.6rem;
+            border-bottom: 1px solid var(--line-soft);
+        }
+        .toc h3 svg { width: 1.05em; height: 1.05em; }
+        .toc ol { list-style: none; counter-reset: reg; display: grid; gap: 0.55rem; }
+        .toc li { counter-increment: reg; }
+        .toc li a {
+            text-decoration: none; color: var(--ink-soft); display: flex; gap: 0.7em;
+            transition: color 0.2s ease, padding-left 0.2s ease;
+        }
+        .toc li a::before {
+            content: counter(reg, upper-roman); font-family: 'Vollkorn SC', serif;
+            color: var(--line); min-width: 2.1em;
+        }
+        .toc li a:hover { color: var(--accent); padding-left: 0.3rem; }
+
+        /* ---- Línea de linaje (genealogía) ---- */
+        .lineage { position: relative; margin: 2.2rem 0 1rem; padding-left: 2.1rem; }
+        .lineage::before {
+            content: ''; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px;
+            background: linear-gradient(to bottom, var(--line), var(--line-soft) 90%, transparent);
+        }
+        .gen-node { position: relative; margin-bottom: 2.1rem; }
+        .gen-node:last-child { margin-bottom: 0; }
+        .gen-node::before {
+            content: ''; position: absolute; left: -2.1rem; top: 0.35rem;
+            width: 13px; height: 13px; background: var(--paper);
+            border: 2px solid var(--seal); transform: rotate(45deg);
+        }
+        .gen-node.gen-root::before { background: var(--accent); border-color: var(--accent); }
+        .lineage-label {
+            display: inline-block; font-size: 0.78rem; letter-spacing: 0.08em;
+            color: var(--accent); margin-bottom: 0.5rem;
+        }
+        .gen-node h3 { margin-top: 0; }
+
+        /* ---- Ramas (corrientes) ---- */
+        .rama {
+            position: relative; margin-top: 2.4rem; padding-top: 1.6rem;
+            border-top: 1px dashed var(--line-soft);
+        }
+        .rama:first-child { margin-top: 1.6rem; }
+        .rama-head { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.9rem; }
+        .rama-seal {
+            flex-shrink: 0; width: 40px; height: 40px; border: 2px solid var(--seal);
+            transform: rotate(45deg); display: flex; align-items: center; justify-content: center;
+        }
+        .rama-seal span {
+            transform: rotate(-45deg); font-family: 'Vollkorn SC', serif; font-size: 0.95rem; color: var(--seal);
+        }
+        .rama-tag { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--ink-faint); display: block; }
+        .rama h3 { margin: 0; font-size: 1.3rem; }
+
+        /* ---- Tabla comparativa (registro) ---- */
+        .table-wrap { overflow-x: auto; margin: 1.8rem 0; border-radius: 4px; box-shadow: var(--shadow); }
+        table {
+            width: 100%; border-collapse: collapse; background: var(--panel);
+            font-size: 0.88rem; min-width: 680px;
+        }
+        th {
+            background: var(--ink); color: var(--paper);
+            font-weight: 400; font-size: 0.82rem; letter-spacing: 0.05em;
+            padding: 0.9rem 1rem; text-align: left;
+        }
+        td { padding: 0.9rem 1rem; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+        tr:nth-child(even) td { background: rgba(162, 137, 90, 0.07); }
+        td.corriente { font-family: 'Vollkorn SC', serif; color: var(--accent); font-size: 0.85rem; white-space: nowrap; }
+
+        .section-divider { display: flex; align-items: center; justify-content: center; margin: 3rem 0; color: var(--line); }
+        .section-divider svg { width: 1.3rem; height: 1.3rem; }
+
+        .content-link { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(92,42,42,0.35); }
+        .content-link:hover { border-bottom-color: var(--accent); }
+
+        /* ---- Footer ---- */
+        .site-footer { text-align: center; padding: 2.6rem 1.5rem 3rem; border-top: 1px solid var(--line-soft); margin-top: 1rem; }
+        .footer-copy { font-size: 0.85rem; color: var(--ink-faint); }
+        .footer-copy span { color: var(--ink-soft); }
+
+        @media (max-width: 720px) {
+            .site-header { padding: 0.7rem 1.1rem; }
+            .header-logo-text { display: none; }
+            .nav-links { display: none; }
+            .hero { padding: 7rem 1.2rem 3.5rem; }
+            main { padding: 0 1.1rem 3.5rem; }
+            .card, .toc { padding: 1.3rem 1.3rem; }
+            .lineage { padding-left: 1.6rem; }
+            .gen-node::before { left: -1.6rem; }
+            .folio { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
         }
     </style>
 </head>
 <body>
     <div class="reading-progress"></div>
-    <button class="back-to-top" aria-label="Volver arriba"></button>
-    
-    <header>
-        <div class="header-container header-content">
-            <div class="logo">
-                <img src="../../images/EMD.png?v=2" alt="Logo EMD">
-                <div class="logo-text">
-                    <div>Ministerio</div>
-                    <div>"La Gloria es del Señor"</div>
-                </div>
+    <button class="back-to-top" aria-label="Volver arriba">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></svg>
+    </button>
+
+    <header class="site-header">
+        <a href="../../index.html" class="header-logo">
+            <img src="../../images/EMD.png?v=2" alt="Logo EMD">
+            <div class="header-logo-text">
+                Ministerio
+                <span>"La Gloria es del Señor"</span>
             </div>
-        </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#historia">Historia</a></li>
+            <li><a href="#corrientes-amilenialismo">Corrientes</a></li>
+            <li><a href="#comparacion">Comparación</a></li>
+        </ul>
+        <a href="introduccion.html" class="nav-back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+            Tiempo del Fin
+        </a>
     </header>
-    
-    <div class="page-title">
-        <div class="container">
+
+    <div class="hero">
+        <svg class="hero-tree" viewBox="0 0 800 260" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g fill="none" stroke="#241d14" stroke-width="1.4">
+                <path d="M400 260 V150" />
+                <path d="M400 150 C400 110 340 100 300 70" />
+                <path d="M400 150 C400 110 460 100 500 70" />
+                <path d="M300 70 C280 45 250 35 220 20" />
+                <path d="M300 70 C300 40 300 30 300 5" />
+                <path d="M500 70 C520 45 550 35 580 20" />
+                <path d="M500 70 C500 40 500 30 500 5" />
+            </g>
+            <g fill="#241d14">
+                <circle cx="400" cy="150" r="4"/>
+                <circle cx="300" cy="70" r="4"/>
+                <circle cx="500" cy="70" r="4"/>
+                <circle cx="220" cy="20" r="4"/>
+                <circle cx="300" cy="5" r="4"/>
+                <circle cx="580" cy="20" r="4"/>
+                <circle cx="500" cy="5" r="4"/>
+            </g>
+        </svg>
+        <div class="hero-inner">
+            <span class="eyebrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="6" y1="3" y2="15" /><circle cx="18" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><path d="M18 9a9 9 0 0 1-9 9" /></svg>
+                Genealogía doctrinal
+            </span>
             <h1>Escatología Protestante: Historia, Fundamentos y Perspectivas Contemporáneas</h1>
+            <p class="hero-tagline">Cinco ramas de una misma raíz agustiniana: cómo la iglesia protestante ha leído los últimos tiempos desde la Reforma hasta hoy.</p>
+            <div class="hero-rule"></div>
         </div>
     </div>
-    
-    <main class="container" style="background-color: #fdfcf8; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); padding: 3rem; margin-top: 2rem;">
-        
+
+    <main>
         <div class="toc">
-            <h3>Contenido</h3>
+            <h3>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" x2="21" y1="6" y2="6" /><line x1="8" x2="21" y1="12" y2="12" /><line x1="8" x2="21" y1="18" y2="18" /><line x1="3" x2="3.01" y1="6" y2="6" /><line x1="3" x2="3.01" y1="12" y2="12" /><line x1="3" x2="3.01" y1="18" y2="18" /></svg>
+                Registro del contenido
+            </h3>
             <ol>
                 <li><a href="#introduccion">Introducción</a></li>
                 <li><a href="#fundamentos">Fundamentos bíblicos de la Escatología</a></li>
@@ -783,31 +399,31 @@
                 <li><a href="#conclusion">Conclusión: desafíos contemporáneos y relevancia futura</a></li>
             </ol>
         </div>
-        
+
         <section id="introduccion">
-            <h2>Introducción</h2>
-            
+            <div class="folio"><span class="folio-num">Folio I</span><h2>Introducción</h2></div>
+
             <div class="card">
-                <p class="first-letter">La escatología —la doctrina de los "últimos tiempos"— ha sido históricamente crucial en la teología protestante reformada y evangélica, pues define la esperanza cristiana futura y orienta la ética actual. Esta exploración académica analiza detalladamente los pasajes bíblicos clave sobre el fin de los tiempos y cómo fueron interpretados desde la Reforma hasta hoy por corrientes protestantes (reformadas, evangélicas y metodistas).</p>
-                
+                <p class="intro-lede">La escatología —la doctrina de los "últimos tiempos"— ha sido históricamente crucial en la teología protestante reformada y evangélica, pues define la esperanza cristiana futura y orienta la ética actual. Esta exploración académica analiza detalladamente los pasajes bíblicos clave sobre el fin de los tiempos y cómo fueron interpretados desde la Reforma hasta hoy por corrientes protestantes (reformadas, evangélicas y metodistas).</p>
+
                 <p>Se atenderá la exégesis gramatical-histórica de profecías antiguotestamentarias (por ejemplo, Daniel, Zacarías, Isaías) y neotestamentarias (Jesús en Mateo 24–25, Pablo en 1 y 2 Tesalonicenses, Juan en Apocalipsis), enfatizando conceptos fundamentales como el Reino de Dios, la segunda venida de Cristo, el juicio final, la resurrección, el milenio y la nueva creación.</p>
-                
+
                 <p>También se rastreará el desarrollo histórico-protestante de estas ideas desde Lutero y Calvino hasta teólogos contemporáneos (Calvino, Edwards, Hodge, Ladd, Packer, Sproul, etc.), excluyendo deliberadamente fuentes católicas o eclesiásticas. Se describirán con detalle las corrientes escatológicas principales (amilenialismo reformado, postmilenialismo puritano, premilenialismo histórico, dispensacionalismo clásico y progresivo) y se compararán en tablas doctrinalmente.</p>
-                
+
                 <p>Finalmente, se considerará la influencia de visiones apocalípticas modernas (teología del Reino, profecía contemporánea, avivamientos) y eventos históricos (Holocausto, modernidad de Israel, globalización, amenazas nucleares) en la escatología actual de los evangélicos.</p>
             </div>
         </section>
-        
+
         <section id="fundamentos">
-            <h2>Fundamentos bíblicos de la Escatología</h2>
-            
+            <div class="folio"><span class="folio-num">Folio II</span><h2>Fundamentos bíblicos de la Escatología</h2></div>
+
             <div class="card">
                 <p>La base bíblica de la escatología abarca textos veterotestamentarios y neotestamentarios. En el Antiguo Testamento, Daniel (especialmente Dn 12:1-3) anticipa una resurrección de los muertos diferenciando salvación y condenación futura; Zacarías 12–14 profetiza la victoria definitiva de Dios sobre las naciones e incluso una conversión nacional de Israel; Isaías 2 y 11 ofrecen visiones mesiánicas de paz universal y un rey davídico restaurado; mientras que textos proféticos posteriores (Is 65–66, Dan 7) anuncian juicio, restauración y un nuevo cielo y nueva tierra.</p>
-                
+
                 <p>En el Nuevo Testamento, los evangelios sinópticos contienen el Discurso del Monte de los Olivos (Mt 24–25), donde Jesús distingue la destrucción del Templo (cumplida en el 70 d.C.) de señales cósmicas futuras, llamando a la vigilancia ante su Parusía. Pablo enseña que en 1 Tesalonicenses 4–5 la venida del Señor (la segunda venida o parusía) traerá la resurrección de los creyentes para encontrarse con Cristo en el aire. En 2 Tesalonicenses 2 advierte sobre el Anticristo ("hombre de pecado") que aparecerá antes del día del Señor. El Apocalipsis de Juan culmina con el juicio final (Ap 20–22), la derrota de Satanás, la resurrección de los muertos y la entrada a la nueva creación.</p>
-                
+
                 <p>Estos pasajes fundacionales establecen los conceptos clave escatológicos:</p>
-                <ul style="list-style-type: disc; margin-left: 2rem; margin-bottom: 1.5rem;">
+                <ul class="plain">
                     <li>El Reino de Dios (ya inaugurado por Cristo pero todavía por consumarse)</li>
                     <li>La segunda venida como momento decisivo de consumación histórica</li>
                     <li>El juicio final de toda la humanidad</li>
@@ -816,301 +432,298 @@
                     <li>La nueva creación donde Dios hace todas las cosas nuevas (Ap 21–22)</li>
                 </ul>
             </div>
-            
+
             <div class="highlight">
                 <p>La interpretación protestante clásica observa estos textos en su sentido literal-gramatical-histórico, evitando explicaciones alegóricas o excesivamente "espiritualizadas" para los símbolos apocalípticos. Por ejemplo, según George Ladd, esta interpretación conservadora considera ilegítimo desplazar el Reino de Dios fuera de su contexto histórico inmediato; Ladd advierte que los dispensacionalistas han tendido a separar el Reino del Ministerio presente del Mesías, mientras que los amilenialistas lo relegan únicamente al "ámbito del corazón humano, la iglesia o el estado supratemporal".</p>
             </div>
-            
+
             <div class="quote">
                 <p>En el marco agustiniano (interpretación corriente en la Reforma), el "Reino de los mil años" de Apocalipsis 20 se lee como el período presente de la iglesia. Agustín sostuvo que esos mil años no son un futuro literal especial sino "el período que comienza con la primera venida de Cristo", es decir, la era actual del reino de la Iglesia, con los santos reinando con Él de forma ya vigente aunque imperfecta.</p>
             </div>
-            
+
             <p>Asimismo, la "primera resurrección" mencionada por Juan la entendió espiritualmente: ocurre continuamente cuando "los muertos en espíritu" oyen la voz del Hijo y viven. Estas perspectivas han perdurado en la ortodoxia reformada: por ejemplo, Charles Hodge resume la enseñanza tradicional protestante afirmando que la conversión mundial y la restauración de Israel precederán la segunda venida de Cristo, evento que "será acompañado por la resurrección general de los muertos, el juicio final, el fin del mundo y la consumación de la Iglesia".</p>
-            
+
             <p>En su Systematic Theology, Hodge refuerza que en el Nuevo Testamento "la venida misma, no el milenio, es presentada como la 'bendita esperanza' de la iglesia" y añade que el mandato de velar ("porque no sabéis qué hora vendrá") es incompatible con la idea de un reino terrenal intermedio.</p>
-            
+
             <p>En resumen, los fundamentos bíblicos bajo la óptica protestante consideran el milenio como símbolo de la era presente de la iglesia y ponen énfasis en la futura parusía con resurrección y juicio, conforme a la interpretación histórica-gramatical aplicada a Daniel, Zacarías, Isaías, los discursos de Jesús (Mt 24–25), las epístolas paulinas (1–2 Tesalonicenses) y las visiones apocalípticas (Apocalipsis).</p>
         </section>
-        
+
         <section id="historia">
-            <h2>Historia del desarrollo escatológico protestante</h2>
-            
-            <div class="card">
-                <p>Desde la Reforma protestante (siglo XVI) hasta hoy, el pensamiento escatológico ha mostrado continuidad con Agustín pero también renovaciones. Los primeros reformadores adoptaron mayoritariamente la teología agustiniana no milenarista. Martín Lutero, por ejemplo, no se identificaba con el milenarismo literal sino que veía la Edad Presente como dominada por el reino espiritual (al atacar indirectamente al papado como "bestia" de Apocalipsis); Juan Calvino tampoco escribió comentario alguno sobre el Apocalipsis, pues veía poca utilidad práctica en especulaciones excesivas sobre la historia futura.</p>
-                
-                <p>En la Reforma, los credos (como la Confesión Belga o Westminster) no incluyen un milenio terrenal: la idea de un reino futuro milenario fue explícitamente descartada por varios reformadores. De hecho, como señala el historiador de la iglesia, "la doctrina de Agustín [amadurecido en Amil] permaneció sin controversia hasta el siglo XVII" y la mayoría de los reformadores de las tradiciones luterana, calvinista e anglicana continuaron firmes en la teología augustiniana tradicional.</p>
+            <div class="folio"><span class="folio-num">Folio III</span><h2>Historia del desarrollo escatológico protestante</h2></div>
+
+            <div class="lineage">
+                <div class="gen-node gen-root">
+                    <span class="lineage-label">Raíz · Agustín, s. V — heredada por la Reforma</span>
+                    <div class="card">
+                        <p>Desde la Reforma protestante (siglo XVI) hasta hoy, el pensamiento escatológico ha mostrado continuidad con Agustín pero también renovaciones. Los primeros reformadores adoptaron mayoritariamente la teología agustiniana no milenarista. Martín Lutero, por ejemplo, no se identificaba con el milenarismo literal sino que veía la Edad Presente como dominada por el reino espiritual (al atacar indirectamente al papado como "bestia" de Apocalipsis); Juan Calvino tampoco escribió comentario alguno sobre el Apocalipsis, pues veía poca utilidad práctica en especulaciones excesivas sobre la historia futura.</p>
+
+                        <p>En la Reforma, los credos (como la Confesión Belga o Westminster) no incluyen un milenio terrenal: la idea de un reino futuro milenario fue explícitamente descartada por varios reformadores. De hecho, como señala el historiador de la iglesia, "la doctrina de Agustín [amadurecido en Amil] permaneció sin controversia hasta el siglo XVII" y la mayoría de los reformadores de las tradiciones luterana, calvinista e anglicana continuaron firmes en la teología augustiniana tradicional.</p>
+                    </div>
+                </div>
+
+                <div class="gen-node">
+                    <span class="lineage-label">Primera ramificación · Siglo XVII</span>
+                    <h3>Surgimiento del postmilenialismo</h3>
+                    <div class="highlight">
+                        <p>En el siglo XVII se perfiló el postmilenialismo puritano: teólogos puritanos creían que la Reforma y un renovado fervor evangélico manifestarían gradualmente el reino de Dios en la tierra antes de la venida final. Un clásico británico afirma que Jonathan Edwards fue un pionero del postmilenialismo en Norteamérica. Edwards, siguiendo esta línea, describió con optimismo un futuro en que el "reino visible de Satanás" sería derrotado y "el reino de Cristo establecido sobre sus ruinas, en todo el globo". De modo similar, muchos puritanos y evangélicos del siglo XVIII y XIX (Westminster Teología Clásica) vieron señales de avance del evangelio y esperaban una era dorada antes del retorno de Cristo.</p>
+                    </div>
+
+                    <h3>Surgimiento del premilenialismo histórico</h3>
+                    <p>Simultáneamente surgió el premilenialismo histórico (o clásico): algunos pastores y teólogos (p.ej. J. Owen, Th. Ice, J. C. Ryle) afirmaban que Cristo volvería antes de establecer un reino milenario literal en la tierra. Este fue el credo del protestantismo evangélico más conservador hasta el siglo XX.</p>
+                </div>
+
+                <div class="gen-node">
+                    <span class="lineage-label">Segunda ramificación · Siglo XIX</span>
+                    <h3>Nuevas corrientes escatológicas</h3>
+                    <p>En el siglo XIX cobraron fuerza dos corrientes:</p>
+                    <ul class="plain">
+                        <li>El premilenialismo dispensacional clásico (iniciado por John Nelson Darby y difundido por la Biblia de Scofield), que enfatizaba un plan divino de siglos claramente segmentados y un periodo de tribulación global seguido de la restauración total de Israel y mil años de paz</li>
+                        <li>Su contrapartida tradicional calvinista o "covenantalista", que mantuvo el amilenialismo reformado</li>
+                    </ul>
+                    <p>Figuras como Charles Hodge (Princeton, siglo XIX) y Louis Berkhof defendieron vigorosamente la posición agustiniana. Por ejemplo, Hodge argumentó que el apóstol Pablo no da base bíblica al concepto de milenio terrestre intermedio y sostuvo que todas las profecías mesiánicas apuntan a un cumplimiento en Cristo universal, no en un reino temporal futuro.</p>
+                </div>
+
+                <div class="gen-node">
+                    <span class="lineage-label">Tercera ramificación · Siglo XX</span>
+                    <h3>Diversificación del panorama escatológico</h3>
+                    <p>En el siglo XX, el panorama escatológico protestante se diversificó aún más. Por un lado, teólogos dispensacionalistas como Hal Lindsey o John Walvoord popularizaron interpretaciones literales de profecías apocalípticas (tales como la reconstrucción del Templo y un Anticristo concreto), influyendo especialmente en iglesias evangélicas conservadoras. Por otro, renovadores reformados del Reino de Dios (G. Ladd, R. Gaffin) impulsaron el concepto de escatología inaugurada ("ya y aún no"), donde el Reino de Dios es real pero todavía incompleto.</p>
+
+                    <div class="quote">
+                        <p>Ladd, en particular, subrayó la tensión hermenéutica: él acusó a los dispensacionalistas de «separar el Reino de la obra presente del Mesías», pero también criticó a los amilenialistas por relegarlo a meras experiencias subjetivas.</p>
+                    </div>
+
+                    <p>Autores contemporáneos como J. I. Packer o R. C. Sproul (aunque cada uno con sus matices) han representado variantes reformadas del amilenialismo o premilenialismo histórico, reafirmando siempre la centralidad de la 'venida del Señor' como corazón de la esperanza cristiana.</p>
+                </div>
+
+                <div class="gen-node">
+                    <span class="lineage-label">Estado actual del linaje</span>
+                    <p>En resumen, la historia protestante muestra un arco desde la adhesión inicial a la visión agustiniana (mil años simbólicos coincidiendo con la era cristiana) hasta la coexistencia plural hoy de posiciones amil, post e premil, en diálogo o conflicto con corrientes dispensacionalistas (tanto clásicas como progresivas) en el seno del evangelicalismo.</p>
+                </div>
             </div>
-            
-            <h3>Siglo XVII: surgimiento del postmilenialismo</h3>
-            <div class="highlight">
-                <p>En el siglo XVII se perfiló el postmilenialismo puritano: teólogos puritanos creían que la Reforma y un renovado fervor evangélico manifestarían gradualmente el reino de Dios en la tierra antes de la venida final. Un clásico británico afirma que Jonathan Edwards fue un pionero del postmilenialismo en Norteamérica. Edwards, siguiendo esta línea, describió con optimismo un futuro en que el "reino visible de Satanás" sería derrotado y "el reino de Cristo establecido sobre sus ruinas, en todo el globo". De modo similar, muchos puritanos y evangélicos del siglo XVIII y XIX (Westminster Teología Clásica) vieron señales de avance del evangelio y esperaban una era dorada antes del retorno de Cristo.</p>
-            </div>
-            
-            <h3>Surgimiento del premilenialismo histórico</h3>
-            <p>Simultáneamente surgió el premilenialismo histórico (o clásico): algunos pastores y teólogos (p.ej. J. Owen, Th. Ice, J. C. Ryle) afirmaban que Cristo volvería antes de establecer un reino milenario literal en la tierra. Este fue el credo del protestantismo evangélico más conservador hasta el siglo XX.</p>
-            
-            <h3>Siglo XIX: Nuevas corrientes escatológicas</h3>
-            <p>En el siglo XIX cobraron fuerza dos corrientes:</p>
-            <ul style="list-style-type: disc; margin-left: 2rem; margin-bottom: 1.5rem;">
-                <li>El premilenialismo dispensacional clásico (iniciado por John Nelson Darby y difundido por la Biblia de Scofield), que enfatizaba un plan divino de siglos claramente segmentados y un periodo de tribulación global seguido de la restauración total de Israel y mil años de paz</li>
-                <li>Su contrapartida tradicional calvinista o "covenantalista", que mantuvo el amilenialismo reformado</li>
-            </ul>
-            
-            <p>Figuras como Charles Hodge (Princeton, siglo XIX) y Louis Berkhof defendieron vigorosamente la posición agustiniana. Por ejemplo, Hodge argumentó que el apóstol Pablo no da base bíblica al concepto de milenio terrestre intermedio y sostuvo que todas las profecías mesiánicas apuntan a un cumplimiento en Cristo universal, no en un reino temporal futuro.</p>
-            
-            <h3>Siglo XX: Diversificación del panorama escatológico</h3>
-            <p>En el siglo XX, el panorama escatológico protestante se diversificó aún más. Por un lado, teólogos dispensacionalistas como Hal Lindsey o John Walvoord popularizaron interpretaciones literales de profecías apocalípticas (tales como la reconstrucción del Templo y un Anticristo concreto), influyendo especialmente en iglesias evangélicas conservadoras. Por otro, renovadores reformados del Reino de Dios (G. Ladd, R. Gaffin) impulsaron el concepto de escatología inaugurada ("ya y aún no"), donde el Reino de Dios es real pero todavía incompleto.</p>
-            
-            <div class="quote">
-                <p>Ladd, en particular, subrayó la tensión hermenéutica: él acusó a los dispensacionalistas de «separar el Reino de la obra presente del Mesías», pero también criticó a los amilenialistas por relegarlo a meras experiencias subjetivas.</p>
-            </div>
-            
-            <p>Autores contemporáneos como J. I. Packer o R. C. Sproul (aunque cada uno con sus matices) han representado variantes reformadas del amilenialismo o premilenialismo histórico, reafirmando siempre la centralidad de la 'venida del Señor' como corazón de la esperanza cristiana.</p>
-            
-            <p>En resumen, la historia protestante muestra un arco desde la adhesión inicial a la visión agustiniana (mil años simbólicos coincidiendo con la era cristiana) hasta la coexistencia plural hoy de posiciones amil, post e premil, en diálogo o conflicto con corrientes dispensacionalistas (tanto clásicas como progresivas) en el seno del evangelicalismo.</p>
         </section>
-        
+
         <section id="corrientes-amilenialismo">
-            <h2>Corrientes principales en la escatología protestante</h2>
-            
-            <p>Las posiciones escatológicas cristianas suelen agruparse en cuatro corrientes básicas:</p>
-            
-            <h3>Amilenialismo (reformado)</h3>
-            <div class="card">
-                <p>Sostiene que no habrá un reino milenario literal de mil años. El milenio es simbólico de la era presente de la Iglesia. Cristo reina actualmente desde el cielo, y su reino se manifiesta en la prédica del Evangelio y la vida de la iglesia. El diablo está «encadenado» en el sentido de que su poder está limitado hasta la consumación final. Los santos ya participan ("resucitan") en vida espiritual, y el juicio final y la gloria venidera son reales pero no se sitúan en un reino terrenal intermedio.</p>
-                
-                <p>El amilenialismo fue la interpretación dominante entre los Reformadores y más tarde en la teología calvinista clásica. Intenta leer pasajes como Ap 20 de manera no literalista: por ejemplo, John Walvoord nota que los apologistas ortodoxos consideran «el atar a Satanás» (Ap 20:3) como la situación ya presente de Satanás tras la encarnación de Cristo, y el «milenio» como símbolo de un freno limitado a su actividad.</p>
+            <div class="folio"><span class="folio-num">Folio IV</span><h2>Corrientes principales en la escatología protestante</h2></div>
+
+            <p>Las posiciones escatológicas cristianas suelen agruparse en cinco ramas del mismo linaje agustiniano:</p>
+
+            <div class="rama">
+                <div class="rama-head">
+                    <div class="rama-seal"><span>I</span></div>
+                    <div>
+                        <span class="rama-tag">Rama I</span>
+                        <h3>Amilenialismo (reformado)</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <p>Sostiene que no habrá un reino milenario literal de mil años. El milenio es simbólico de la era presente de la Iglesia. Cristo reina actualmente desde el cielo, y su reino se manifiesta en la prédica del Evangelio y la vida de la iglesia. El diablo está «encadenado» en el sentido de que su poder está limitado hasta la consumación final. Los santos ya participan ("resucitan") en vida espiritual, y el juicio final y la gloria venidera son reales pero no se sitúan en un reino terrenal intermedio.</p>
+
+                    <p>El amilenialismo fue la interpretación dominante entre los Reformadores y más tarde en la teología calvinista clásica. Intenta leer pasajes como Ap 20 de manera no literalista: por ejemplo, John Walvoord nota que los apologistas ortodoxos consideran «el atar a Satanás» (Ap 20:3) como la situación ya presente de Satanás tras la encarnación de Cristo, y el «milenio» como símbolo de un freno limitado a su actividad.</p>
+                </div>
+            </div>
+
+            <div class="rama" id="corrientes-postmilenialismo">
+                <div class="rama-head">
+                    <div class="rama-seal"><span>II</span></div>
+                    <div>
+                        <span class="rama-tag">Rama II</span>
+                        <h3>Postmilenialismo (puritano)</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <p>Postula que Cristo retornará después de un "milenio" en el que el evangelio triunfa sobre el mundo. Es una visión optimista del progreso histórico: mediante la predicación y la influencia cristiana, la mayor parte de la humanidad se convierte al cristianismo antes de la Segunda Venida. Es decir, el "milenio" se entiende como una era dorada futura en la tierra (no necesariamente limitada a 1000 años literales).</p>
+
+                    <p>Este fue el enfoque de muchos puritanos ingleses y de teólogos como Jonathan Edwards, quien visualizaba un colapso del poder de Satanás por medio de un avivamiento global y la llegada de un período de justicia terrenal. El postmilenialismo enfatiza que la "aparición gloriosa" de Cristo seguirá a una época de bienestar espiritual y social.</p>
+                </div>
+            </div>
+
+            <div class="rama" id="corrientes-premilenialismo">
+                <div class="rama-head">
+                    <div class="rama-seal"><span>III</span></div>
+                    <div>
+                        <span class="rama-tag">Rama III</span>
+                        <h3>Premilenialismo histórico</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <p>Afirma que Cristo volverá antes del milenio. Cree en un reino literal de mil años con Cristo gobernando físicamente en la tierra después de su retorno. Sin embargo, a diferencia del dispensacionalismo, no distingue necesariamente un Israel separado o un período específico de tribulación global.</p>
+
+                    <p>Los premilenialistas históricos (por ejemplo, algunos calvinistas del siglo XIX) mantienen que la implantación del reino de Dios (como gobierno davídico) ocurrirá cuando Jesús regrese, restableciendo un cumplimiento literal de promesas bíblicas sobre Israel. A diferencia de los dispensacionalistas, suelen interpretar las profecías en gran medida de manera contínua con la teología del pacto (p.ej., Israel como Iglesia).</p>
+                </div>
+            </div>
+
+            <div class="rama" id="corrientes-dispensacionalismo">
+                <div class="rama-head">
+                    <div class="rama-seal"><span>IV</span></div>
+                    <div>
+                        <span class="rama-tag">Rama IV</span>
+                        <h3>Dispensacionalismo clásico</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <p>Movimiento surgido en el siglo XIX, liderado por Darby y Scofield, que divide la historia en edades sucesivas. Subraya la distinción entre Israel y la Iglesia: las promesas de Dios a Israel son literales y se cumplirán con la restauración nacional judía (p.ej., regreso a Palestina), mientras que la Iglesia es un grupo separado.</p>
+
+                    <p>El fin es un Rapto pretribulacional, seguido de una Gran Tribulación y la Segunda Venida, tras la cual se celebra un milenio físico en Jerusalén con Cristo en el trono de David. Este enfoque toma las profecías apocalípticas de forma muy literal (por ejemplo, interpretando símbolos numéricos de Apocalipsis con sentido exacto).</p>
+                </div>
+            </div>
+
+            <div class="rama" id="corrientes-dispensacionalismo-progresivo">
+                <div class="rama-head">
+                    <div class="rama-seal"><span>V</span></div>
+                    <div>
+                        <span class="rama-tag">Rama V</span>
+                        <h3>Dispensacionalismo progresivo</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <p>Variante moderna que surgió en la segunda mitad del siglo XX (Craig Blaising, Darrell Bock). Conserva muchos elementos literales del dispensacionalismo, pero flexibiliza otros: por ejemplo, introduce el concepto de "alianzas progresivas" entre dispensaciones y admite cumplimientos "ya y todavía no" de promesas davídicas.</p>
+
+                    <p>Según Stephen Nichols, este nuevo dispensacionalismo ha «abandonado uno de los distintivos históricos del dispensacionalismo normativo, el de la oferta, el rechazo y el cumplimiento exclusivamente futuro del reino davídico», al no enfatizar la separación absoluta entre Israel y la Iglesia. En la práctica, el dispensacionalismo progresivo acerca la teología del reino a una especie de premilenialismo histórico renovado, reduciendo ciertas distinciones clásicas.</p>
+                </div>
             </div>
         </section>
-        
-        <section id="corrientes-postmilenialismo">
-            <h3>Postmilenialismo (puritano)</h3>
-            <div class="card">
-                <p>Postula que Cristo retornará después de un "milenio" en el que el evangelio triunfa sobre el mundo. Es una visión optimista del progreso histórico: mediante la predicación y la influencia cristiana, la mayor parte de la humanidad se convierte al cristianismo antes de la Segunda Venida. Es decir, el "milenio" se entiende como una era dorada futura en la tierra (no necesariamente limitada a 1000 años literales).</p>
-                
-                <p>Este fue el enfoque de muchos puritanos ingleses y de teólogos como Jonathan Edwards, quien visualizaba un colapso del poder de Satanás por medio de un avivamiento global y la llegada de un período de justicia terrenal. El postmilenialismo enfatiza que la "aparición gloriosa" de Cristo seguirá a una época de bienestar espiritual y social.</p>
-            </div>
-        </section>
-        
-        <section id="corrientes-premilenialismo">
-            <h3>Premilenialismo histórico</h3>
-            <div class="card">
-                <p>Afirma que Cristo volverá antes del milenio. Cree en un reino literal de mil años con Cristo gobernando físicamente en la tierra después de su retorno. Sin embargo, a diferencia del dispensacionalismo, no distingue necesariamente un Israel separado o un período específico de tribulación global.</p>
-                
-                <p>Los premilenialistas históricos (por ejemplo, algunos calvinistas del siglo XIX) mantienen que la implantación del reino de Dios (como gobierno davídico) ocurrirá cuando Jesús regrese, restableciendo un cumplimiento literal de promesas bíblicas sobre Israel. A diferencia de los dispensacionalistas, suelen interpretar las profecías en gran medida de manera contínua con la teología del pacto (p.ej., Israel como Iglesia).</p>
-            </div>
-        </section>
-        
-        <section id="corrientes-dispensacionalismo">
-            <h3>Dispensacionalismo clásico</h3>
-            <div class="card">
-                <p>Movimiento surgido en el siglo XIX, liderado por Darby y Scofield, que divide la historia en edades sucesivas. Subraya la distinción entre Israel y la Iglesia: las promesas de Dios a Israel son literales y se cumplirán con la restauración nacional judía (p.ej., regreso a Palestina), mientras que la Iglesia es un grupo separado.</p>
-                
-                <p>El fin es un Rapto pretribulacional, seguido de una Gran Tribulación y la Segunda Venida, tras la cual se celebra un milenio físico en Jerusalén con Cristo en el trono de David. Este enfoque toma las profecías apocalípticas de forma muy literal (por ejemplo, interpretando símbolos numéricos de Apocalipsis con sentido exacto).</p>
-            </div>
-        </section>
-        
-        <section id="corrientes-dispensacionalismo-progresivo">
-            <h3>Dispensacionalismo progresivo</h3>
-            <div class="card">
-                <p>Variante moderna que surgió en la segunda mitad del siglo XX (Craig Blaising, Darrell Bock). Conserva muchos elementos literales del dispensacionalismo, pero flexibiliza otros: por ejemplo, introduce el concepto de "alianzas progresivas" entre dispensaciones y admite cumplimientos "ya y todavía no" de promesas davídicas.</p>
-                
-                <p>Según Stephen Nichols, este nuevo dispensacionalismo ha «abandonado uno de los distintivos históricos del dispensacionalismo normativo, el de la oferta, el rechazo y el cumplimiento exclusivamente futuro del reino davídico», al no enfatizar la separación absoluta entre Israel y la Iglesia. En la práctica, el dispensacionalismo progresivo acerca la teología del reino a una especie de premilenialismo histórico renovado, reduciendo ciertas distinciones clásicas.</p>
-            </div>
-        </section>
-        
+
         <section id="comparacion">
-            <h3>Cuadro comparativo de corrientes escatológicas</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Corriente</th>
-                        <th>Naturaleza del reino</th>
-                        <th>Milenio</th>
-                        <th>Papel de Israel</th>
-                        <th>Ejemplos históricos y promotores</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="font-weight: 600; color: var(--primary-color);">Amilenialismo reformado</td>
-                        <td>Reino "ya" presente (espiritualizado) y "no aún" consumado; no reino terrenal literal.</td>
-                        <td>Simbólico (1000 años = era actual)</td>
-                        <td>Israel entendido en términos espirituales (la Iglesia).</td>
-                        <td>Agustín; Reformadores (Calvino, Lutero); teólogos Reformados clásicos como Hodge.</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 600; color: var(--primary-color);">Postmilenialismo puritano</td>
-                        <td>Reino terrenal de justicia expandiéndose por la predicación (cristianización mundial).</td>
-                        <td>Futuro literal o figurado en que la mayoría se convierte, previo al fin.</td>
-                        <td>Israel (nación) típicamente visto como integrado a la Iglesia del pacto.</td>
-                        <td>Puritanos ingleses; Jonathan Edwards; Charles H. Spurgeon (en parte); teólogos liberales-premilenialistas de comienzos del siglo XX.</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 600; color: var(--primary-color);">Premilenialismo histórico</td>
-                        <td>Retorno de Cristo para instaurar reino davídico literal en Jerusalén.</td>
-                        <td>Literal 1000 años tras la Segunda Venida.</td>
-                        <td>Israel restaurado como nación (algunos también lo interpretan como un cumplimiento espiritual).</td>
-                        <td>Claude B. Boyd; elementos calvinistas conservadores; grupos evangélicos moderados.</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 600; color: var(--primary-color);">Dispensacionalismo clásico</td>
-                        <td>Pretribulación (o pre-para el 2° Venida) Arrebatamiento; luego Tribulación; 2ª Venida con gloria</td>
-                        <td>Literal 1000 años físicos con Cristo en David en Jerusalén.</td>
-                        <td>Israel y la Iglesia distintas; promesas davídicas se cumplen específicamente en Israel restaurado.</td>
-                        <td>John Nelson Darby; C. I. Scofield; Charles Ryrie; C. J. Ryrie; Hal Lindsey; William Peterson; Richard Mayhue.</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 600; color: var(--primary-color);">Dispensacionalismo progresivo</td>
-                        <td>Inauguración "ya" de alianzas davídicas, pero cumplimiento "todavía no" completo</td>
-                        <td>Literal 1000 años, pero algunas bendiciones davídicas "ya presentes".</td>
-                        <td>Israel y la Iglesia en continuidad en ciertas promesas; reubicación parcial de mesianismo israelita en la era de la Iglesia.</td>
-                        <td>Craig Blaising, Darrell Bock, John Sailhamer; cada vez más seminaristas actuales.</td>
-                    </tr>
-                </tbody>
-            </table>
-            
+            <div class="folio"><span class="folio-num">Folio V</span><h2>Cuadro comparativo de corrientes escatológicas</h2></div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Corriente</th>
+                            <th>Naturaleza del reino</th>
+                            <th>Milenio</th>
+                            <th>Papel de Israel</th>
+                            <th>Ejemplos históricos y promotores</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="corriente">I · Amilenialismo reformado</td>
+                            <td>Reino "ya" presente (espiritualizado) y "no aún" consumado; no reino terrenal literal.</td>
+                            <td>Simbólico (1000 años = era actual)</td>
+                            <td>Israel entendido en términos espirituales (la Iglesia).</td>
+                            <td>Agustín; Reformadores (Calvino, Lutero); teólogos Reformados clásicos como Hodge.</td>
+                        </tr>
+                        <tr>
+                            <td class="corriente">II · Postmilenialismo puritano</td>
+                            <td>Reino terrenal de justicia expandiéndose por la predicación (cristianización mundial).</td>
+                            <td>Futuro literal o figurado en que la mayoría se convierte, previo al fin.</td>
+                            <td>Israel (nación) típicamente visto como integrado a la Iglesia del pacto.</td>
+                            <td>Puritanos ingleses; Jonathan Edwards; Charles H. Spurgeon (en parte); teólogos liberales-premilenialistas de comienzos del siglo XX.</td>
+                        </tr>
+                        <tr>
+                            <td class="corriente">III · Premilenialismo histórico</td>
+                            <td>Retorno de Cristo para instaurar reino davídico literal en Jerusalén.</td>
+                            <td>Literal 1000 años tras la Segunda Venida.</td>
+                            <td>Israel restaurado como nación (algunos también lo interpretan como un cumplimiento espiritual).</td>
+                            <td>Claude B. Boyd; elementos calvinistas conservadores; grupos evangélicos moderados.</td>
+                        </tr>
+                        <tr>
+                            <td class="corriente">IV · Dispensacionalismo clásico</td>
+                            <td>Pretribulación (o pre-para el 2° Venida) Arrebatamiento; luego Tribulación; 2ª Venida con gloria</td>
+                            <td>Literal 1000 años físicos con Cristo en David en Jerusalén.</td>
+                            <td>Israel y la Iglesia distintas; promesas davídicas se cumplen específicamente en Israel restaurado.</td>
+                            <td>John Nelson Darby; C. I. Scofield; Charles Ryrie; C. J. Ryrie; Hal Lindsey; William Peterson; Richard Mayhue.</td>
+                        </tr>
+                        <tr>
+                            <td class="corriente">V · Dispensacionalismo progresivo</td>
+                            <td>Inauguración "ya" de alianzas davídicas, pero cumplimiento "todavía no" completo</td>
+                            <td>Literal 1000 años, pero algunas bendiciones davídicas "ya presentes".</td>
+                            <td>Israel y la Iglesia en continuidad en ciertas promesas; reubicación parcial de mesianismo israelita en la era de la Iglesia.</td>
+                            <td>Craig Blaising, Darrell Bock, John Sailhamer; cada vez más seminaristas actuales.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
             <div class="highlight">
                 <p>Cada una de estas corrientes apoya sus afirmaciones con argumentos exegéticos: por ejemplo, los amilenialistas resaltan el simbolismo literario y la ausencia de indicios de un reino mesiánico terrenal separado en el NT, mientras los dispensacionalistas subrayan el cumplimiento literal de profecías del AT sobre Israel.</p>
-                
+
                 <p>La disputa entre los enfoques es antigua: como observó Ladd, tanto dispensacionalistas como amilenialistas han sido criticados mutuamente por distorsionar la historia del Reino (atribuyéndole un carácter externo o interno, respectivamente). En la práctica evangélica actual conviven libremente pastores y creyentes que adoptan cada una de estas perspectivas, lo cual explica la pluralidad escatológica presente en las iglesias protestantes contemporáneas.</p>
             </div>
         </section>
-        
+
         <section id="apocaliptica">
-            <h2>Perspectiva apocalíptica moderna y contemporánea</h2>
-            
+            <div class="folio"><span class="folio-num">Folio VI</span><h2>Perspectiva apocalíptica moderna y contemporánea</h2></div>
+
             <div class="card">
                 <p>En el ámbito evangélico moderno, la escatología ha influido en movimientos religiosos y visiones del futuro más allá de las exposiciones doctrinales formales. Desde principios del siglo XX, obras literarias y predicas apocalípticas (a menudo influenciadas por dispensacionalismo popular) han alimentado expectativas sobre "fechas del fin" y señales actuales: por ejemplo, algunas interpretaciones consideraron los acontecimientos de la Segunda Guerra Mundial y el Holocausto como preludios espirituales al juico divino o factores que destacan la relevancia de Israel en los planes de Dios.</p>
-                
+
                 <p>La creación del Estado de Israel en 1948 se convirtió en paradigma del "cumplimiento" de profecías de restauración nacional. En efecto, mientras historiadores profanos registran que los cristianos evangélicos fueron algunos de los más decididos defensores políticos de la nueva Israel moderna, teológicamente muchos dispensacionalistas señalaron este suceso como el inicio del regreso profetizado de los judíos a su tierra prometida (Ezequiel 37; Zac 12–14).</p>
             </div>
-            
+
             <div class="note">
                 <p>El surgimiento de movimientos mundiales también ha activado reflexiones apocalípticas. La globalización –desde la creación de la ONU hasta la expansión de las redes digitales– ha encajado en la narrativa de algunos escatologías populares como preludio a un "gobierno mundial" final (incluso películas y teólogos han aludido a la Bestia de Apocalipsis 13 como una potencia global futura).</p>
             </div>
-            
+
             <h3>Influencia de acontecimientos históricos modernos</h3>
             <p>La amenaza de guerra nuclear en la Guerra Fría, así como los desastres naturales o pandemias, han intensificado la sensación colectiva de "vientos de fin del mundo". Diversos autores señalaban que los cristianos fundamentalistas llegaron a interpretar el bombardeo atómico de Hiroshima como un posible instrumento profético del juicio de Dios, o el colapso comunista de los años 90 como señal de los tiempos.</p>
-            
+
             <h3>Teologías contemporáneas del Reino</h3>
             <p>Al mismo tiempo, teologías más "seculares" dentro del protestantismo (como la llamada teología del Reino) han reinterpretado la esperanza escatológica en términos sociales o políticos: la idea del "Reino de Dios" vigente inspira a algunos evangélicos a buscar justicia y paz en el presente, viendo la venida final como un impulso ético más que cronológico.</p>
-            
+
             <p>No obstante, en el protestantismo formal (reformado o metodista) esa tendencia se matiza con el énfasis tradicional en la soberanía divina y la progresiva consumación futura. En todo caso, la conciencia histórica contemporánea (Holocausto, avivamientos globales, crisis ambientales) ha llevado a que muchos predicadores y teólogos reformados, evangélicos y metodistas adviertan que los creyentes deben aprender a estar "en el mundo pero no del mundo", recordando la victoria final de Cristo y alimentando la esperanza ante los desafíos éticos actuales.</p>
         </section>
-        
+
         <section id="implicaciones">
-            <h2>Implicaciones teológicas y éticas</h2>
-            
+            <div class="folio"><span class="folio-num">Folio VII</span><h2>Implicaciones teológicas y éticas</h2></div>
+
             <div class="card">
                 <p>La escatología influye profundamente en la teología sistemática y la praxis cristiana. Doctrinalmente, determina la interpretación del pacto de Dios (p.ej., si las promesas davídicas son cumplidas en la Iglesia o quedan apuntando literalmente a Israel). Éticamente, la convicción sobre el futuro afecta el compromiso social: un postmilenial optimista podría impulsar activismo político para preparar el reino, mientras un amilenial reservado enfatiza el testimonio espiritual entre "ya y aún no".</p>
-                
+
                 <p>Sin importar la posición, las iglesias reformadas y metodistas suelen fomentar una cristología activa y un vivir con esperanza, recordando que toda la teología apunta a Cristo. Por ejemplo, William Hendriksen observó que la seguridad en la segunda venida ("nuestra bendita esperanza" del matrimonio del Cordero) debe fortalecer tanto la evangelización como la santidad en la vida diaria.</p>
             </div>
-            
+
             <h3>Impacto en la ética social</h3>
             <p>Asimismo, reformas éticas como la lucha por la justicia global o el cuidado ambiental pueden motivarse en la doctrina del Reino futuro de Dios, interpretando pasajes como Romanos 8:19-22 en vista de la redención final de la creación.</p>
-            
+
             <h3>Implicaciones pastorales</h3>
             <p>En la práctica pastoral y misionológica (si bien esto excede el enfoque puramente académico), la escatología ofrece consuelo y llamado. En las iglesias reformadas se predica habitualmente que Cristo volverá "tal como se fue" (Hechos 1:11), lo cual alienta la fidelidad ante la oposición temporal. En contextos metodistas, la confianza en la gracia de Dios hacia el futuro sostiene la predicación de la santidad y el movimiento evangelístico.</p>
-            
+
             <div class="highlight">
                 <p>El teólogo reformado Cornelius van Til enseñaba que una correcta visión del futuro permite evitar el pesimismo existencial o la utopía política: la historia se orienta al triunfo de Dios, pero aún así vivimos en un "tensión" entre lo ya recibido en Cristo (perdonados, adoptados) y las promesas aún no visibles (nuevos cielos y tierra).</p>
             </div>
-            
-            <p>En todos los casos, el énfasis ético es el mismo: <span class="highlight" style="background-color: rgba(195, 163, 67, 0.15); border-bottom: 1px solid var(--secondary-color); padding: 0.2rem 0.4rem; border-radius: 3px;">"vivir como si Cristo fuera a venir hoy"</span> significa perseverar, amar y testificar bajo el reinado ya presente de Cristo, mientras aguardamos "el glorioso cumplimiento" de todas las promesas divinas.</p>
+
+            <p>En todos los casos, el énfasis ético es el mismo: <span class="mark">"vivir como si Cristo fuera a venir hoy"</span> significa perseverar, amar y testificar bajo el reinado ya presente de Cristo, mientras aguardamos "el glorioso cumplimiento" de todas las promesas divinas.</p>
         </section>
 
         <section id="conclusion">
-            <h2>Conclusión: desafíos contemporáneos y relevancia futura</h2>
-            
+            <div class="folio"><span class="folio-num">Folio VIII</span><h2>Conclusión: desafíos contemporáneos y relevancia futura</h2></div>
+
             <div class="card">
                 <p>En conclusión, la escatología protestante reformada, evangélica y metodista se fundamenta en una lectura histórica de la Biblia que aprecia tanto el reino presente como la gran consumación escatológica. Aunque existen variadas interpretaciones (amilenialismo, postmilenialismo, premilenialismos histórico y dispensacionalismos) con debates sobre la relación Israel-Iglesia y la literalidad de las profecías, todas coinciden en el núcleo teológico: Jesucristo regresará, resucitará a los muertos y juzgará al mundo.</p>
-                
+
                 <p>Como ha señalado Ladd, este énfasis en la venida futura de Cristo configura "prácticamente todos los sistemas de doctrina" de la teología cristiana. Sin duda, los desafíos actuales –secularización, pluralismo religioso, crisis globales– exigen que la escatología siga siendo vivida con responsabilidad.</p>
             </div>
-            
+
             <div class="quote">
                 <p>Los fieles son llamados a esperar con firmeza las promesas de Dios mientras trabajan en el presente: una "vigilia activa" que conjuga la paciencia escatológica con la urgencia del Evangelio.</p>
             </div>
-            
+
             <p>En un mundo que sigue temiendo la guerra o la catástrofe global, la perspectiva bíblica de un "nuevo cielo y nueva tierra" refuerza la esperanza cristiana: como resumió Hodge, la historia de la redención culmina en «la restauración de todas las cosas» en Cristo, orientando así tanto la predicación como la vida ética del creyente a través de cada generación.</p>
-            
+
             <p>Fuentes: Obras académicas evangélicas de revistas como Journal of the Evangelical Theological Society, Westminster Theological Journal, Tyndale Bulletin, y editoriales especializadas (Eerdmans, IVP, Baker, etc.) han informado este análisis. Los pasajes bíblicos se interpretaron según el método histórico-gramatical tradicional protestante, citando comentarios y estudios de teólogos reformados y metodistas autorizados.</p>
         </section>
-        
+
         <div class="section-divider">
-            <span class="divider-icon"><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
-</svg></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="6" y1="3" y2="15" /><circle cx="18" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><path d="M18 9a9 9 0 0 1-9 9" /></svg>
         </div>
     </main>
-    
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <h4>Ministerio EMD</h4>
-                    <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Enlaces Rápidos</h4>
-                    <ul>
-                        <li><a href="../../page/Figuras Bíblicas/at-a-nt.html">Figuras Bíblicas</a></li>
-                        <li><a href="../../page/Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
-                        <li><a href="../../page/Estudios Exegéticos/temas-exegeticos.html">Estudios Exegéticos</a></li>
-                        <li><a href="../../page/Tiempo del Fin/introduccion.html">Tiempo del Fin</a></li>
-                        <li><a href="../../page/Época de Jesús/estudio-contemporaneo.html">Época de Jesús</a></li>
-                        <li><a href="../../page/Estudios Bíblicos/doctrina-basica.html">Estudios Bíblicos</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contacto</h4>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio, San Juan, Puerto Rico</li>
-                        <li><i class="fas fa-phone"></i> +1 787-345-6940</li>
-                        <li><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                      <h4>Nota Aclaratoria</h4>
-                    <ul>
-                        <li>Todos los recursos de esta página son gratuitos y para la edificación de los creyentes</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
-            </div>
-        </div>
+
+    <footer class="site-footer">
+        <p class="footer-copy">
+            &copy; 2026 <span>Ministerio "La Gloria es del Señor"</span> &nbsp;·&nbsp; Todos los recursos son gratuitos para la edificación de los creyentes
+        </p>
     </footer>
 
     <script>
-        // Barra de progreso de lectura
         window.addEventListener('scroll', function() {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
+            const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
             document.querySelector('.reading-progress').style.width = scrolled + '%';
-            
-            // Mostrar/ocultar botón de volver arriba
+
             const backToTop = document.querySelector('.back-to-top');
             if (winScroll > 300) {
                 backToTop.classList.add('visible');
@@ -1118,30 +731,20 @@
                 backToTop.classList.remove('visible');
             }
         });
-        
-        // Botón volver arriba
+
         document.querySelector('.back-to-top').addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-        
-        // Scroll suave para anclajes
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const headerOffset = 80;
+                    const headerOffset = 90;
                     const elementPosition = target.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                 }
             });
         });

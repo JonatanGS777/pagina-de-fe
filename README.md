@@ -201,6 +201,15 @@ Tras agregarse `tabernaculo-3d.html`, una revisión a fondo (a pedido del usuari
 - **Imagen del hero:** `findelostiempos.png` (2.5 MB sin optimizar) se había quitado en un primer pase a favor de un cielo estrellado 100% CSS; a pedido del usuario se restauró, comprimida a JPEG (`findelostiempos-hero.jpg`, 246 KB). La imagen (libro abierto, reloj marcando casi las doce, trompetas, meteoros, sol naciente) encajó directo con el concepto ya elegido, así que el cielo CSS y una constelación decorativa se retiraron a favor de la imagen real.
 - Contenido (versículos, preguntas frecuentes, señales de la línea de tiempo, recursos recomendados) se mantuvo íntegro en las tres páginas; solo cambió la presentación.
 
+### 2026-08-19: segunda página de Tiempo del Fin — escatologia.html "Genealogía Doctrinal"
+
+- **`page/Tiempo del Fin/escatologia.html`:** rediseñada con un concepto de árbol genealógico de ideas, elegido entre 3 direcciones propuestas (Genealogía Doctrinal, Cátedra Reformada, Cronómetro de la Reforma) porque el artículo es, en esencia, un ensayo comparativo de cinco corrientes escatológicas que descienden de una misma raíz agustiniana a través de ramificaciones históricas concretas (Reforma s. XVI → postmilenialismo/premilenialismo histórico s. XVII → dispensacionalismo clásico s. XIX → dispensacionalismo progresivo s. XX). Tipografía IM Fell English SC (títulos, versalitas tipo documento antiguo) + Vollkorn/Vollkorn SC (cuerpo y etiquetas), ninguna usada antes en el sitio. Paleta austera intencional (sin dorado ornamental): pergamino `#ece2c8`, tinta `#241d14`, línea de linaje `#a2895a`, burdeos apagado `#5c2a2a` para marcar puntos de divergencia doctrinal.
+- La sección "Historia del desarrollo escatológico protestante" se reconstruyó como una línea de linaje vertical (`.lineage`) con nodos generacionales (rombos) conectados por una línea continua, marcando la raíz agustiniana y cada ramificación por siglo. Las 5 corrientes de la sección "Corrientes principales" pasaron a "Rama I–V" con sello romano individual (cuadrado rotado 45°, sin dorado). El resto de secciones se numeraron como "Folio I–VIII" (índice de registro), coherente con el resto del artículo sin alterar su contenido.
+- **Imagen de hero descartada:** `images/lasttime.png` (ilustración de stock genérica de ángeles/trompetas/meteoros, 2.9 MB, nunca optimizada) no encajaba con el concepto austero de registro genealógico elegido; se reemplazó por un hero 100% tipográfico con un motivo SVG de líneas ramificadas muy sutil (opacidad 0.16) de fondo. El archivo de imagen queda sin usar en `images/`, no se borró del repo.
+- **Header/footer:** convertidos al patrón más reciente de la categoría (mismo que `introduccion.html`): header fijo con blur, sin mega-menú ni Font Awesome (solo Lucide inline); footer de una sola línea, sin el bloque de 4 columnas (redes/enlaces/contacto) que tenía la plantilla vieja.
+- Contenido teológico (los 12 apartados: introducción, fundamentos bíblicos, historia, 5 corrientes, tabla comparativa, perspectiva apocalíptica, implicaciones, conclusión) se mantuvo íntegro palabra por palabra; solo cambió la presentación y el agrupamiento visual.
+- **Nota:** este estilo es específico al contenido de esta página (única del sitio organizada como comparativa de linaje doctrinal) — no reciclar como plantilla para las demás páginas pendientes de `Tiempo del Fin/`.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -482,6 +491,7 @@ Página de Fe/
 | `page/Figuras Bíblicas/nombres-simbologia.html` | Refinado: se conservó el concepto "pergamino/rollo antiguo" existente, se agregó el header del sitio que faltaba; ver historial 2026-08-18 |
 | `page/Figuras Bíblicas/tipologia-cantares.html` | Completado: estilo propio "Jardín Sellado"; ver historial 2026-08-18 |
 | `page/Tiempo del Fin/introduccion.html` | Completado: estilo propio "Atalaya del Amanecer" (primera de 14 páginas de la categoría); ver historial 2026-08-18 |
+| `page/Tiempo del Fin/escatologia.html` | Completado: estilo propio "Genealogía Doctrinal" (árbol/línea de linaje doctrinal); ver historial 2026-08-19 |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
@@ -506,7 +516,6 @@ Página de Fe/
 
 #### `page/Tiempo del Fin/`
 
-- [ ] `escatologia.html`
 - [ ] `noticias-fin.html`
 - [ ] `nuevo-orden-mundial.html`
 - [ ] `profecias-cumplidas.html`
