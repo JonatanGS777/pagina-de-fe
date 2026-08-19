@@ -210,6 +210,44 @@ Tras agregarse `tabernaculo-3d.html`, una revisión a fondo (a pedido del usuari
 - Contenido teológico (los 12 apartados: introducción, fundamentos bíblicos, historia, 5 corrientes, tabla comparativa, perspectiva apocalíptica, implicaciones, conclusión) se mantuvo íntegro palabra por palabra; solo cambió la presentación y el agrupamiento visual.
 - **Nota:** este estilo es específico al contenido de esta página (única del sitio organizada como comparativa de linaje doctrinal) — no reciclar como plantilla para las demás páginas pendientes de `Tiempo del Fin/`.
 
+### 2026-08-19: primera de las 3 páginas de `fundamentos/` — base-profetica.html "Río Profético"
+
+- El usuario señaló que las 3 tarjetas "Fundamentos" enlazadas desde `introduccion.html` (`fundamentos/base-profetica.html`, `retorno-cristo.html`, `plan-divino.html`) no habían recibido ningún trabajo todavía, pese a ser el contenido más destacado de la página de entrada de la categoría. Se priorizaron sobre el resto de páginas pendientes de `Tiempo del Fin/`.
+- **Bug compartido en las 3 páginas (corregido en esta, pendiente en las otras 2):** el enlace "Inicio" del breadcrumb usaba `../../../../index.html` (4 niveles) en vez de `../../../index.html` (3 niveles) — apuntaba fuera del repositorio, 404 real en producción. Se resolvió de raíz al reemplazar el breadcrumb completo por el patrón header fijo + `nav-back` ya estándar en el resto del sitio.
+- **`page/Tiempo del Fin/fundamentos/base-profetica.html`:** rediseñada con un concepto de río/corriente que se ensancha, elegido entre 3 direcciones propuestas (Clave de Lectura, Cimiento de Piedra, Río Profético) porque el contenido describe literalmente una "revelación profética progresiva" que nace en Génesis 3:15 y se amplía revelación tras revelación hasta Apocalipsis. Tipografía Frank Ruhl Libre (títulos) + Literata (cuerpo), ninguna usada antes en el sitio. Paleta de agua: azul profundo `#16303f`, río `#2c6f8e`, arena `#f2ead9`, dorado "luz sobre el agua" `#c99a52` como acento escaso.
+- Los 7 apartados se envolvieron en una línea de río vertical continua (`.river`) que recorre todo el artículo (a diferencia de `escatologia.html`, donde la línea de linaje solo cubría una sección) — cada sección es un "Cauce I–VII" marcado con una gota en la corriente. Las cajas de versículo (`scripture-box`/`verse-card`) pasaron a "pozas" (`.pool`/`.pool-deep`) con degradado radial tipo reflejo de agua; las cajas de listas (`highlight-box`) pasaron a "orillas" (`.bank`).
+- **Imagen descartada:** `images/revelacionprogresiva.png` (2.8 MB, banner generado por IA para la sección de revelación progresiva) tenía errores de texto grabados en la propia imagen ("PROGRESSIVA" mal escrito, "Fden" en vez de "Edén", acentos rotos) — se quitó en vez de solo optimizarla, ya que el error tipográfico es permanente al estar quemado en el píxel. El artículo no pierde información: el párrafo que la acompañaba no dependía de "ver la imagen", solo introducía la lista que la sigue.
+- Contenido teológico (los 7 apartados completos: introducción, naturaleza de la profecía, revelación progresiva, libros proféticos clave, principios de interpretación, propósito, conclusión) se mantuvo íntegro palabra por palabra.
+- **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para `retorno-cristo.html` ni `plan-divino.html`, aún pendientes.
+
+### 2026-08-19: segunda de las 3 páginas de `fundamentos/` — retorno-cristo.html "Advenimiento Real"
+
+- **`page/Tiempo del Fin/fundamentos/retorno-cristo.html`:** rediseñada con un concepto heráldico/de coronación, elegido entre 3 direcciones propuestas (Advenimiento Real, Horizonte del Relámpago, Vigilia del Novio) por encajar con la imagen central del artículo (Cristo coronado sobre un caballo blanco, Apocalipsis 19:11-16) y el lenguaje repetido de "Rey de reyes", corona y trompetas. Tipografía Forum (títulos, mayúsculas romanas monumentales) + Cardo (cuerpo), ninguna usada antes en el sitio. Paleta heráldica sin morado (evitando el cliché de gradiente púrpura): tinta casi negra `#1e1310`, carmesí `#7a1f2b`, dorado `#b8863f`, pergamino `#f3e9d2`.
+- **Bugs reales corregidos (más allá del enlace "Inicio" compartido con las otras 2 páginas):**
+  - La tabla comparativa de 6 eventos usaba `<div class="comparison-table">` para abrir pero `</table>` para cerrar — etiquetas descabaladas, HTML inválido. Se reescribió como una tabla real.
+  - El índice del sidebar (8 enlaces) apuntaba íntegro a la misma ancla `#main-content` — no navegaba a ninguna sección específica. Se le dieron ids reales a cada sección y el índice ahora navega correctamente.
+  - Se quitó la pantalla de splash de 3 segundos con cita bíblica antes de cargar la página, y el hero con video de nubes + poster hotlinkeados a `assets.mixkit.co`/`images.unsplash.com` (dependencia externa, carga lenta, genérico) — reemplazado por un hero heráldico 100% CSS/tipográfico con un blasón SVG.
+  - `images/retorno.png` (Cristo Rey en caballo blanco, 3 MB) sí es una imagen bien lograda y fiel al pasaje que ilustra — a diferencia de la de `base-profetica.html`, esta se conservó, solo optimizada a JPEG (`retorno-cristo-rey.jpg`, 535 KB).
+- El layout de 2 columnas (contenido + sidebar fijo) se aplanó a una sola columna, siguiendo la convención ya establecida en `escatologia.html` y `base-profetica.html`. El contenido del sidebar (índice, versículo destacado, glosario de términos clave, nota importante) no se descartó: se repartió dentro del flujo de lectura en los puntos donde tiene más sentido (glosario junto a la promesa del retorno, nota importante antes del cierre) en vez de forzar una tarjeta lateral.
+- Los 7 apartados se marcaron como "Blasón I–VII" sobre una línea vertical dorada (`.proclamation`, mismo patrón de línea continua que `.river` en `base-profetica.html`); la cronología interna (Promesa Antigua → Enseñanzas de Jesús → Testimonio Apostólico) conserva su propio componente de línea de tiempo (`.royal-timeline`), distinto de la línea general del artículo. Las 3 tarjetas de posturas teológicas (pre/pos/mesotribulacionismo) pasaron a "estandartes" (`.banner`) con encabezado oscuro tipo bandera; los 4+3 recuadros de características/implicaciones pasaron a "escudos" (`.shield`).
+- Contenido teológico (los 7 bloques completos: promesa, características, perspectivas teológicas, eventos asociados, señales, implicaciones prácticas, FAQ) se mantuvo íntegro palabra por palabra; el acordeón de preguntas frecuentes conserva su funcionalidad original.
+- **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para `plan-divino.html`, aún pendiente.
+
+### 2026-08-19: tercera y última página de `fundamentos/` — plan-divino.html "Hilo de Oro" — categoría `fundamentos/` completa
+
+- **`page/Tiempo del Fin/fundamentos/plan-divino.html`:** rediseñada con una metáfora de tapiz/hilo tejido a través de la historia, elegida entre 3 direcciones propuestas (Hilo de Oro, Reloj de las Edades, Anillos del Árbol) porque el propio diseño original ya tenía un elemento `.golden-thread` conectando visualmente las 6 fases — se tomó esa idea ya presente y se llevó a su máxima expresión conceptual. Tipografía Piazzolla (títulos) + Domine (cuerpo), ninguna usada antes en el sitio. Paleta cálida propia (no reciclada de `retorno-cristo.html` ni `base-profetica.html`): verde bosque `#2a6041` (heredado de la paleta original), pergamino `#f4efe0`, hilo dorado `#c99a4e`/`#d4af5a`.
+- **Auditoría de las 7 imágenes de la página — hallazgo importante:** de las 6 imágenes usadas en las "Fases Divinas", 4 se descartaron por problemas de fondo, no solo de estilo:
+  - `consejo.png` y `pentecostes.png` — ilustraciones en estilo caricatura/Pixar infantil, tono muy desajustado para el contenido teológico serio del artículo.
+  - `moises.png` — mismo estilo caricatura, y las tablas de la Ley que sostiene muestran **texto hebreo inventado** (glifos sin sentido, no hebreo real) grabado en la imagen.
+  - `cruz.png` — la crucifixión representada en estilo caricatura infantil, tonalmente inapropiado para el momento más solemne de la fe cristiana.
+  - `pentecostes.png` además tiene un **error teológico de contenido**: muestra a Jesús presente y de pie en medio de la escena de Pentecostés, cuando el propio texto de la página narra que esto ocurrió después de la ascensión de Cristo (Hechos 1) — Jesús no estaba presente en Pentecostés.
+  - Se conservaron `Huerto de Eden.png` y `jerusalem.png` (Nueva Jerusalén) — buena calidad, fieles a los pasajes que ilustran — optimizadas a JPEG (`huerto-eden-plan.jpg` 768 KB, `nueva-jerusalen-plan.jpg` 597 KB, desde ~2.5-3.9 MB cada una sin comprimir).
+  - El hero (`plandivino.png`, sin errores pero genérico/tipo "postal") se descartó también, por consistencia con el tratamiento 100% tipográfico ya usado en `base-profetica.html` y `retorno-cristo.html`.
+- **Bug técnico corregido:** el hero tenía un `<video autoplay muted loop>` cuyo único `<source>` apuntaba a `plandivino.png` con `type="video/mp4"` — un PNG anunciado como video, nunca cargaba (fallaba silenciosamente vía el catch de la promesa de autoplay); el fondo real que se veía en producción lo ponía un `background-image` de CSS por separado en `.header`. Se eliminó el `<video>` muerto junto con el resto del hero viejo.
+- Las 6 fases (antes en zigzag de 2 columnas con imagen a un lado) se aplanaron a una columna con línea de hilo dorado continua (`.thread`, mismo patrón de línea que `.river` en `base-profetica.html` y `.proclamation` en `retorno-cristo.html`), consistente con el resto de la categoría. El gráfico de las 7 dispensaciones es la expresión más literal del concepto: una línea horizontal con 7 nudos dorados, ya no decorativa sino la pieza central de esa sección.
+- Contenido teológico íntegro (6 fases, propósito supremo con 4 atributos, 7 dispensaciones, 6 atributos divinos extendidos, 6 referencias bíblicas, conclusión) sin alterar una palabra.
+- **Con esta página, las 3 páginas de `fundamentos/` quedan completas:** `base-profetica.html` (Río Profético), `retorno-cristo.html` (Advenimiento Real) y `plan-divino.html` (Hilo de Oro) — cada una con su propia dirección estética, sin plantilla compartida, y las 3 con el bug del enlace "Inicio" corregido.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -492,6 +530,9 @@ Página de Fe/
 | `page/Figuras Bíblicas/tipologia-cantares.html` | Completado: estilo propio "Jardín Sellado"; ver historial 2026-08-18 |
 | `page/Tiempo del Fin/introduccion.html` | Completado: estilo propio "Atalaya del Amanecer" (primera de 14 páginas de la categoría); ver historial 2026-08-18 |
 | `page/Tiempo del Fin/escatologia.html` | Completado: estilo propio "Genealogía Doctrinal" (árbol/línea de linaje doctrinal); ver historial 2026-08-19 |
+| `page/Tiempo del Fin/fundamentos/base-profetica.html` | Completado: estilo propio "Río Profético" (corriente que se ensancha); ver historial 2026-08-19 |
+| `page/Tiempo del Fin/fundamentos/retorno-cristo.html` | Completado: estilo propio "Advenimiento Real" (heráldico/coronación); ver historial 2026-08-19 |
+| `page/Tiempo del Fin/fundamentos/plan-divino.html` | Completado: estilo propio "Hilo de Oro" (tapiz/línea de hilo dorado); ver historial 2026-08-19 |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
@@ -519,9 +560,6 @@ Página de Fe/
 - [ ] `noticias-fin.html`
 - [ ] `nuevo-orden-mundial.html`
 - [ ] `profecias-cumplidas.html`
-- [ ] `fundamentos/base-profetica.html`
-- [ ] `fundamentos/plan-divino.html`
-- [ ] `fundamentos/retorno-cristo.html`
 - [ ] `analisisescatologico/conversiones.html`
 - [ ] `analisisescatologico/economiaglobal.html`
 - [ ] `analisisescatologico/eze34.html`

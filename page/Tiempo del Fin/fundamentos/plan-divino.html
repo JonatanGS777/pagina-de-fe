@@ -12,1517 +12,617 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Plan Divino | Tiempo del Fin | Ministerio "La Gloria es del Señor"</title>
+    <meta name="description" content="El plan eterno de Dios a través de las edades: seis fases, siete dispensaciones y los atributos divinos que se manifiestan en el propósito redentor, desde la eternidad pasada hasta la consumación final.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Piazzolla:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2a6041; /* Verde bosque */
-            --secondary-color: #d8a456; /* Dorado */
-            --accent-color: #4a7c95; /* Azul calmado */
-            --dark-color: #1c2826; /* Verde profundo casi negro */
-            --light-color: #f6f3eb; /* Beige claro */
-            --text-color: #383838; /* Gris oscuro */
-            --transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --ink: #1c2418;
+            --forest: #2a6041;
+            --forest-deep: #17301f;
+            --gold: #c99a4e;
+            --gold-thread: #d4af5a;
+            --parchment: #f4efe0;
+            --panel: #fbf8ef;
+            --text: #33392f;
+            --text-soft: #55604c;
+            --line: rgba(201, 154, 78, 0.35);
+            --shadow: 0 10px 28px rgba(28, 36, 24, 0.12);
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Lato', sans-serif;
-            line-height: 1.7;
-            color: var(--text-color);
-            background-color: var(--light-color);
+            font-family: 'Domine', serif;
+            line-height: 1.75;
+            color: var(--text-soft);
+            background-color: var(--parchment);
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
-        
-        /* Scrollbar Styling */
-        ::-webkit-scrollbar {
-            width: 10px;
+
+        h1, h2, h3, .display { font-family: 'Piazzolla', serif; color: var(--ink); font-weight: 600; }
+
+        a { color: inherit; }
+        strong { color: var(--ink); }
+
+        /* ---- Back to top ---- */
+        .back-to-top {
+            position: fixed; bottom: 1.4rem; right: 1.4rem;
+            width: 44px; height: 44px; border-radius: 50%;
+            background: var(--ink); color: var(--parchment);
+            display: flex; align-items: center; justify-content: center;
+            border: 1px solid var(--gold);
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 900; cursor: pointer;
         }
-        
-        ::-webkit-scrollbar-track {
-            background: var(--light-color);
+        .back-to-top.visible { opacity: 0.9; pointer-events: auto; }
+        .back-to-top:hover { opacity: 1; transform: translateY(-3px); }
+        .back-to-top svg { width: 1.2rem; height: 1.2rem; }
+
+        /* ---- Header ---- */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 1.2rem; flex-wrap: wrap;
+            padding: 0.75rem 2rem;
+            background: rgba(23, 48, 31, 0.94);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(201, 154, 78, 0.3);
         }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-color);
-            border-radius: 5px;
+        .header-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+        img[alt="Logo EMD"] {
+            height: 46px; border-radius: 50%; object-fit: cover;
+            border: 2px solid rgba(201, 154, 78, 0.55);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+            transition: transform 0.3s ease;
         }
-        
-        .header {
-        /* Ruta a tu nueva imagen de fondo */
-        background-image: url('../images/plandivino.png');
-        background-size: cover;       /* Ajusta el tamaño para cubrir todo */
-        background-position: center;  /* Centra el foco de la imagen */
-        background-repeat: no-repeat; /* Evita que se repita */
-        height: 100vh;                /* Altura completa de la ventana */
-        position: relative;
-        overflow: hidden;
+        img[alt="Logo EMD"]:hover { transform: scale(1.05); }
+        .header-logo-text { font-family: 'Piazzolla', serif; font-size: 0.86rem; line-height: 1.3; color: var(--parchment); }
+        .header-logo-text span { display: block; color: rgba(244, 239, 224, 0.6); font-size: 0.72rem; font-family: 'Domine', serif; }
+
+        .nav-back {
+            display: inline-flex; align-items: center; text-decoration: none;
+            color: var(--parchment); font-family: 'Domine', serif; font-size: 0.85rem;
+            padding: 0.45rem 0.9rem; border: 1px solid rgba(201, 154, 78, 0.5); border-radius: 3px;
+            transition: background 0.25s ease, border-color 0.25s ease;
         }
-        
-        .header-content {
-            position: absolute;
-            top: 40%;
-            left: 10%;
-            transform: translateY(-50%);
-            max-width: 600px;
-            color: var(--light-color);
-            z-index: 2;
+        .nav-back:hover { background: rgba(201, 154, 78, 0.18); border-color: var(--gold-thread); }
+        .nav-back svg { width: 0.9em; height: 0.9em; margin-right: 0.35em; }
+
+        /* ---- Hero ---- */
+        .hero {
+            position: relative; padding: 10rem 1.5rem 5rem; text-align: center; overflow: hidden;
+            background: radial-gradient(ellipse at 50% -10%, #234a30 0%, var(--ink) 62%);
         }
-        
-        .header-subtitle {
-            font-family: 'Lato', sans-serif;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 1.5rem;
-            color: var(--secondary-color);
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
+        .hero-thread { position: absolute; inset: 0; z-index: 0; opacity: 0.4; }
+        .hero-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 0.5em;
+            font-family: 'Domine', serif; font-size: 0.85rem; letter-spacing: 0.04em; color: var(--gold-thread);
+            border-top: 1px solid rgba(201,154,78,0.5); border-bottom: 1px solid rgba(201,154,78,0.5);
+            padding: 0.5rem 0; margin-bottom: 1.6rem;
         }
-        
-        .header-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.3s;
+        h1 { font-size: clamp(2.2rem, 4.6vw, 3.3rem); line-height: 1.2; margin-bottom: 1.4rem; color: var(--parchment); }
+        .hero-tagline {
+            color: rgba(244, 239, 224, 0.78); font-size: 1.12rem;
+            max-width: 600px; margin: 0 auto; font-family: 'Domine', serif;
         }
-        
-        .header-description {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.6s;
+
+        /* ---- Layout ---- */
+        main { max-width: 900px; margin: 0 auto; padding: 3.5rem 1.5rem 0; }
+
+        .thread { position: relative; padding-left: 2.2rem; }
+        .thread::before {
+            content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px;
+            background: linear-gradient(to bottom, var(--gold-thread), var(--line) 92%, transparent);
         }
-        
-        .btn-divine {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            background-color: var(--secondary-color);
-            color: var(--dark-color);
-            padding: 1rem 2rem;
-            font-family: 'Lato', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.9s;
-            position: relative;
-            overflow: hidden;
+        .phase { position: relative; margin-bottom: 3.4rem; scroll-margin-top: 5.5rem; }
+        .phase:last-of-type { margin-bottom: 0; }
+        .phase::before {
+            content: ''; position: absolute; left: -2.28rem; top: 0.35rem; width: 16px; height: 16px;
+            border-radius: 50%; background: var(--panel); border: 3px solid var(--gold);
         }
-        
-        .btn-divine::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateX(-100%);
-            transition: transform 0.4s ease;
+        .phase-label {
+            display: block; font-family: 'Domine', serif; font-size: 0.78rem;
+            letter-spacing: 0.06em; color: var(--forest); margin-bottom: 0.4rem;
         }
-        
-        .btn-divine:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateY(-3px);
+        h2 { font-size: clamp(1.5rem, 2.6vw, 1.95rem); margin-bottom: 1.3rem; }
+        h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+
+        p { margin-bottom: 1.15rem; text-align: justify; hyphens: auto; }
+
+        .card {
+            background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+            box-shadow: var(--shadow); padding: 1.6rem 1.8rem; margin-bottom: 1.6rem;
         }
-        
-        .btn-divine:hover::after {
-            transform: translateX(0);
+        .card p:last-child { margin-bottom: 0; }
+
+        .pool {
+            font-family: 'Piazzolla', serif; font-style: italic;
+            background: linear-gradient(135deg, rgba(42,96,65,0.06), rgba(201,154,78,0.08));
+            border-left: 3px solid var(--gold); border-radius: 0 4px 4px 0;
+            padding: 1.4rem 1.7rem; margin: 1.6rem 0; font-size: 1.08rem; color: var(--ink);
         }
-        
-        .header-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.4;
+        .pool .ref {
+            display: block; text-align: right; font-style: normal; font-family: 'Domine', serif;
+            font-weight: 700; color: var(--forest); font-size: 0.85rem; margin-top: 0.6rem;
         }
-        
-        .header-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, rgba(28, 40, 38, 0.8) 0%, rgba(28, 40, 38, 0.4) 100%);
-            z-index: 1;
+
+        ul.plain { margin: 0 0 0 0.2rem; list-style: none; }
+        ul.plain li { position: relative; margin-bottom: 0.75rem; padding-left: 1.7rem; }
+        ul.plain li::before {
+            content: ''; position: absolute; left: 0; top: 0.3rem; width: 16px; height: 16px;
+            border: 1.5px solid var(--gold); border-radius: 50%;
         }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        ul.plain li::after {
+            content: ''; position: absolute; left: 5.5px; top: 8.5px; width: 7px; height: 4px;
+            border-left: 1.5px solid var(--gold); border-bottom: 1.5px solid var(--gold); transform: rotate(-45deg);
         }
-        
-        /* Navigation */
-        .navigation {
-            padding: 1.5rem 0;
-            background-color: var(--light-color);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        .breadcrumbs {
-            display: flex;
-            align-items: center;
-        }
-        
-        .breadcrumbs a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-        
-        .breadcrumbs a:hover {
-            color: var(--primary-color);
-        }
-        
-        .breadcrumbs span {
-            margin: 0 0.8rem;
-            color: #aaa;
-        }
-        
-        .breadcrumbs .current {
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-        
-        /* Main Content */
-        .main-content {
-            position: relative;
-            padding: 6rem 0;
-        }
-        
-        .golden-thread {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            height: 100%; /* Cambiado de bottom: 0 a height específica */
-            width: 2px;
-            background: linear-gradient(to bottom, var(--secondary-color), rgba(216, 164, 86, 0.2));
-            transform: translateX(-50%);
-            z-index: 1;
-            max-height: 2800px; /* Altura máxima para que no se extienda más allá de las fases */
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 5rem;
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .section-title p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            color: var(--text-color);
-        }
-        
-        .divine-phases {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .phase {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 6rem;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        .phase.fade-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .phase:nth-child(odd) {
-            flex-direction: row;
-        }
-        
-        .phase:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-        
-        .phase-content {
-            flex: 1;
-            padding: 2.5rem;
-            background-color: white;
-            box-shadow: var(--box-shadow);
-            position: relative;
-            max-width: 48%;
-        }
-        
-        .phase:nth-child(odd) .phase-content {
-            margin-right: 4%;
-            border-radius: 0 20px 20px 0;
-        }
-        
-        .phase:nth-child(even) .phase-content {
-            margin-left: 4%;
-            border-radius: 20px 0 0 20px;
-        }
-        
-        .phase-number {
-            width: 80px;
-            height: 80px;
-            background-color: var(--secondary-color);
-            color: var(--dark-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            position: absolute;
-        }
-        
-        .phase:nth-child(odd) .phase-number {
-            right: -40px;
-            top: 40px;
-        }
-        
-        .phase:nth-child(even) .phase-number {
-            left: -40px;
-            top: 40px;
-        }
-        
-        .phase-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .phase-description {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
-        }
-        
-        .phase-scripture {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 1.3rem;
-            padding: 1.5rem;
-            background-color: rgba(42, 96, 65, 0.05);
-            border-left: 3px solid var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-        
-        .scripture-reference {
-            display: block;
-            text-align: right;
-            font-family: 'Lato', sans-serif;
-            font-style: normal;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-top: 0.5rem;
-        }
-        
-        .phase-image {
-            flex: 1;
-            max-width: 48%;
-            position: relative;
-        }
-        
-        .phase-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: var(--box-shadow);
-        }
-        
-        .phase:nth-child(odd) .phase-image {
-            margin-left: 4%;
-        }
-        
-        .phase:nth-child(even) .phase-image {
-            margin-right: 4%;
-        }
-        
-        .phase-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(28, 40, 38, 0.8);
-            color: white;
-            padding: 1rem;
-            font-size: 0.9rem;
-            border-radius: 0 0 10px 10px;
-        }
-        
-        .key-points {
-            margin-top: 1.5rem;
-        }
-        
-        .key-point {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-        
-        .key-point-icon {
-            flex-shrink: 0;
-            width: 24px;
-            height: 24px;
-            background-color: var(--secondary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            color: var(--dark-color);
-            font-size: 0.8rem;
-        }
-        
-        .key-point-text {
-            flex: 1;
-        }
-        
-        /* Divine Purpose Section */
-        .divine-purpose {
-            padding: 6rem 0;
-            background-color: var(--dark-color);
-            color: white;
-            margin-top: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .divine-purpose::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="none" /><path d="M50 0 L100 50 L50 100 L0 50 Z" fill="%23ffffff" fill-opacity="0.03" /></svg>');
-            background-size: 50px 50px;
-            opacity: 0.3;
-        }
-        
-        .purpose-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .purpose-content h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
-            margin-bottom: 2rem;
-            color: var(--secondary-color);
-        }
-        
-        .purpose-content p {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-        }
-        
-        .purpose-icons {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            margin: 3rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .purpose-icon {
-            text-align: center;
-            max-width: 200px;
-        }
-        
+
+        .plate { margin: 1.6rem 0; border-radius: 4px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); }
+        .plate img { width: 100%; height: auto; display: block; }
+        .plate figcaption { background: var(--panel); padding: 1rem 1.3rem; font-style: italic; text-align: center; font-size: 0.9rem; color: var(--text-soft); }
+
+        /* ---- Divine purpose (dark) ---- */
+        .purpose { background: var(--ink); color: var(--parchment); padding: 5rem 1.5rem; text-align: center; margin-top: 4rem; }
+        .purpose-inner { max-width: 760px; margin: 0 auto; }
+        .purpose h2 { color: var(--parchment); }
+        .purpose > .purpose-inner > p { color: rgba(244,239,224,0.8); text-align: center; }
+        .purpose-icons { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; margin: 2.6rem 0; }
+        .purpose-icon-wrap { text-align: center; }
         .icon-circle {
-            width: 100px;
-            height: 100px;
-            background-color: rgba(216, 164, 86, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: var(--secondary-color);
-            font-size: 2.5rem;
-            transition: var(--transition);
+            width: 76px; height: 76px; border-radius: 50%; margin: 0 auto 1.1rem;
+            background: rgba(201, 154, 78, 0.14); border: 1px solid rgba(201,154,78,0.4);
+            display: flex; align-items: center; justify-content: center; color: var(--gold-thread);
         }
-        
-        .purpose-icon:hover .icon-circle {
-            transform: scale(1.1);
-            background-color: rgba(216, 164, 86, 0.3);
-        }
-        
-        .purpose-icon h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-        }
-        
-        .purpose-icon p {
-            font-size: 1rem;
-            margin-bottom: 0;
-        }
-        
-        /* Dispensations Section */
-        .dispensations {
-            padding: 6rem 0;
+        .icon-circle svg { width: 30px; height: 30px; }
+        .purpose-icon-wrap h3 { font-size: 1.2rem; color: var(--gold-thread); margin-bottom: 0.5rem; }
+        .purpose-icon-wrap p { font-size: 0.94rem; color: rgba(244,239,224,0.72); text-align: center; margin-bottom: 0; }
+        .purpose-close { font-family: 'Piazzolla', serif; font-style: italic; font-size: 1.15rem; color: var(--parchment); margin-top: 1rem; }
+
+        /* ---- Dispensations (the literal thread) ---- */
+        .dispensations { padding: 5rem 1.5rem; }
+        .section-head { text-align: center; margin-bottom: 3rem; max-width: 760px; margin-left: auto; margin-right: auto; }
+        .section-head p { text-align: center; }
+        .disp-thread { position: relative; max-width: 980px; margin: 0 auto; }
+        .disp-line { display: none; }
+        .disp-items {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1.6rem 1rem;
             position: relative;
         }
-        
-        .dispensation-chart {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            padding: 3rem 0;
+        .disp-item { text-align: center; position: relative; padding-top: 1.6rem; }
+        .disp-item::before {
+            content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 14px; height: 14px; border-radius: 50%; background: var(--gold-thread); border: 2px solid var(--panel); box-shadow: 0 0 0 1px var(--gold);
         }
-        
-        .dispensation-line {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            transform: translateY(-50%);
-            z-index: 1;
+        .disp-item::after {
+            content: ''; position: absolute; top: 6px; left: 0; right: 0; height: 2px; background: var(--line); z-index: -1;
         }
-        
-        .dispensation-items {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            justify-content: space-between;
+        .disp-item:first-child::after { left: 50%; }
+        .disp-item:last-child::after { right: 50%; }
+        .disp-name { font-family: 'Piazzolla', serif; font-weight: 600; color: var(--forest); font-size: 1.05rem; }
+        .disp-period { font-size: 0.82rem; color: var(--text-soft); }
+
+        /* ---- Attributes ---- */
+        .attributes { padding: 5rem 1.5rem; background: var(--panel); }
+        .attributes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.6rem; max-width: 980px; margin: 0 auto; }
+        .attribute {
+            background: var(--parchment); border-radius: 4px; padding: 1.7rem 1.8rem;
+            box-shadow: var(--shadow); border-left: 3px solid var(--forest);
         }
-        
-        .dispensation-item {
-            text-align: center;
-            width: 140px;
+        .attribute h3 { font-size: 1.3rem; margin-bottom: 0.7rem; }
+        .attribute p { font-size: 0.98rem; margin-bottom: 0.9rem; }
+        .attribute .verse { font-style: italic; font-size: 0.9rem; color: var(--text-soft); border-left: 2px solid var(--gold); padding-left: 0.9rem; margin-bottom: 0; }
+
+        /* ---- References ---- */
+        .references { padding: 5rem 1.5rem; }
+        .ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.6rem; max-width: 980px; margin: 0 auto; }
+        .ref-card { background: var(--panel); border-radius: 4px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); }
+        .ref-head { background: var(--forest); color: var(--parchment); padding: 1.2rem 1.5rem; }
+        .ref-head h3 { color: var(--parchment); font-size: 1.25rem; margin-bottom: 0.2rem; }
+        .ref-head span { font-size: 0.85rem; color: rgba(244,239,224,0.75); }
+        .ref-body { padding: 1.5rem; }
+        .ref-body p { font-family: 'Piazzolla', serif; font-style: italic; font-size: 1rem; margin-bottom: 1rem; }
+        .ref-book { display: block; text-align: right; font-weight: 700; color: var(--forest); font-size: 0.88rem; }
+
+        /* ---- Conclusion ---- */
+        .conclusion { padding: 5rem 1.5rem 5.5rem; text-align: center; }
+        .conclusion-inner { max-width: 700px; margin: 0 auto; }
+        .conclusion p { text-align: center; }
+        .cta-btn {
+            display: inline-flex; align-items: center; gap: 0.5em; text-decoration: none;
+            border: 1px solid var(--forest); color: var(--forest); padding: 0.9rem 2rem;
+            font-family: 'Piazzolla', serif; font-weight: 600; letter-spacing: 0.02em; border-radius: 2px;
+            transition: background 0.25s ease, color 0.25s ease; margin-top: 0.6rem;
         }
-        
-        .dispensation-dot {
-            width: 24px;
-            height: 24px;
-            background-color: var(--secondary-color);
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            position: relative;
-        }
-        
-        .dispensation-dot::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 12px;
-            height: 12px;
-            background-color: var(--primary-color);
-            border-radius: 50%;
-        }
-        
-        .dispensation-info {
-            position: relative;
-        }
-        
-        .dispensation-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-        
-        .dispensation-period {
-            font-size: 0.85rem;
-            color: var(--text-color);
-        }
-        
-        .dispensation-item:nth-child(odd) .dispensation-info {
-            margin-top: 2.5rem;
-        }
-        
-        .dispensation-item:nth-child(even) .dispensation-info {
-            margin-bottom: 2.5rem;
-            transform: translateY(-100%);
-        }
-        
-        /* Biblical References Section */
-        .biblical-references {
-            padding: 6rem 0;
-            background-color: rgba(42, 96, 65, 0.05);
-        }
-        
-        .references-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-        
-        .reference-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-        }
-        
-        .reference-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .reference-header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1.5rem;
-        }
-        
-        .reference-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .reference-subtitle {
-            font-size: 1rem;
-            opacity: 0.8;
-        }
-        
-        .reference-content {
-            padding: 2rem;
-        }
-        
-        .reference-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-        
-        .reference-book {
-            font-family: 'Lato', sans-serif;
-            font-weight: 700;
-            color: var(--primary-color);
-            display: block;
-            text-align: right;
-        }
-        
-        /* Conclusion Section */
-        .conclusion {
-            padding: 6rem 0;
-            text-align: center;
-        }
-        
-        .conclusion-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .conclusion-content h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
-            color: var(--primary-color);
-            margin-bottom: 2rem;
-        }
-        
-        .conclusion-content p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        /* Divine Attributes Card */
-        .divine-attributes {
-            padding: 5rem 0;
-            background-color: white;
-        }
-        
-        .attributes-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 4rem;
-            margin-top: 3rem;
-        }
-        
-        .attributes-col {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-        }
-        
-        .attribute-card {
-            background-color: #f9f9f9;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .attribute-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background-color: var(--primary-color);
-        }
-        
-        .attribute-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .attribute-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-        
-        .attribute-description {
-            font-size: 1.05rem;
-            color: var(--text-color);
-            margin-bottom: 1rem;
-        }
-        
-        .attribute-scripture {
-            font-style: italic;
-            color: var(--text-color);
-            font-size: 0.95rem;
-            padding-left: 1rem;
-            border-left: 2px solid var(--secondary-color);
-        }
-        
-        /* Footer */
-        .footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        
-        .footer p {
-            margin: 0;
-            font-size: 0.95rem;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .phase-title {
-                font-size: 2rem;
-            }
-            
-            .phase-description {
-                font-size: 1rem;
-            }
-            
-            .phase-scripture {
-                font-size: 1.2rem;
-            }
-            
-            .dispensation-items {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 2rem;
-            }
-            
-            .dispensation-line {
-                display: none;
-            }
-            
-            .dispensation-item:nth-child(even) .dispensation-info {
-                transform: none;
-                margin-bottom: 0;
-                margin-top: 2.5rem;
-            }
-        }
-        
-        @media (max-width: 992px) {
-            .header-title {
-                font-size: 3.5rem;
-            }
-            
-            .section-title h2,
-            .purpose-content h2,
-            .conclusion-content h2 {
-                font-size: 2.8rem;
-            }
-            
-            .phase {
-                flex-direction: column !important;
-                margin-bottom: 4rem;
-            }
-            
-            .phase-content {
-                max-width: 100%;
-                margin: 0 !important;
-                border-radius: 10px !important;
-                padding: 2rem;
-            }
-            
-            .phase-number {
-                width: 60px;
-                height: 60px;
-                font-size: 2rem;
-                top: -30px !important;
-                left: auto !important;
-                right: 30px !important;
-            }
-            
-            .phase-image {
-                max-width: 100%;
-                margin: 1rem 0 0 !important;
-                order: 2;
-            }
-            
-            .attributes-container {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .header-content {
-                left: 5%;
-                max-width: 90%;
-            }
-            
-            .header-title {
-                font-size: 3rem;
-            }
-            
-            .header-description {
-                font-size: 1.1rem;
-            }
-            
-            .section-title h2,
-            .purpose-content h2,
-            .conclusion-content h2 {
-                font-size: 2.5rem;
-            }
-            
-            .purpose-icons {
-                gap: 2rem;
-            }
-            
-            .icon-circle {
-                width: 80px;
-                height: 80px;
-                font-size: 2rem;
-            }
-            
-            .references-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .header-title {
-                font-size: 2.5rem;
-            }
-            
-            .header-description {
-                font-size: 1rem;
-            }
-            
-            .btn-divine {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .section-title h2,
-            .purpose-content h2,
-            .conclusion-content h2 {
-                font-size: 2.2rem;
-            }
-            
-            .phase-title {
-                font-size: 1.8rem;
-            }
-            
-            .phase-scripture {
-                font-size: 1.1rem;
-                padding: 1rem;
-            }
-            
-            .purpose-content p,
-            .conclusion-content p {
-                font-size: 1.1rem;
-            }
-            
-            .purpose-icons {
-                flex-direction: column;
-                align-items: center;
-                gap: 3rem;
-            }
+        .cta-btn:hover { background: var(--forest); color: var(--parchment); }
+        .cta-btn svg { width: 1em; height: 1em; }
+
+        .section-divider { display: flex; align-items: center; justify-content: center; margin: 0; padding: 2.5rem 0; color: var(--gold); }
+        .section-divider svg { width: 1.4rem; height: 1.4rem; }
+
+        /* ---- TOC ---- */
+        .toc { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 1.8rem 2rem; margin-bottom: 2.2rem; box-shadow: var(--shadow); }
+        .toc h3 { font-size: 1rem; letter-spacing: 0.03em; color: var(--forest); display: flex; align-items: center; gap: 0.5em; margin: 0 0 1.1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--line); }
+        .toc h3 svg { width: 1.05em; height: 1.05em; }
+        .toc ol { list-style: none; counter-reset: fase; display: grid; gap: 0.55rem; }
+        .toc li { counter-increment: fase; }
+        .toc li a { text-decoration: none; color: var(--text-soft); display: flex; gap: 0.7em; transition: color 0.2s ease, padding-left 0.2s ease; }
+        .toc li a::before { content: counter(fase, upper-roman); font-family: 'Piazzolla', serif; color: var(--gold); min-width: 2.1em; }
+        .toc li a:hover { color: var(--forest); padding-left: 0.3rem; }
+
+        /* ---- Footer ---- */
+        .site-footer { text-align: center; padding: 2.6rem 1.5rem 3rem; }
+        .footer-copy { font-size: 0.85rem; color: var(--text-soft); }
+        .footer-copy span { color: var(--ink); }
+
+        @media (max-width: 720px) {
+            .site-header { padding: 0.7rem 1.1rem; }
+            .header-logo-text { display: none; }
+            .hero { padding: 7.5rem 1.2rem 3.5rem; }
+            main { padding: 2.5rem 1.1rem 0; }
+            .card, .toc { padding: 1.3rem; }
+            .thread { padding-left: 1.7rem; }
+            .phase::before { left: -1.7rem; }
+            .purpose, .dispensations, .attributes, .references, .conclusion { padding-left: 1.1rem; padding-right: 1.1rem; }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <video class="header-video" autoplay muted loop>
-            <source src="../images/plandivino.png" type="video/mp4">
-        </video>
-        <div class="header-overlay"></div>
-        <div class="header-content">
-            <p class="header-subtitle">Revelando la Soberanía Divina</p>
-            <h1 class="header-title">El Plan Divino a través de las Edades</h1>
-            <p class="header-description">Un recorrido por el eterno propósito de Dios, desde la creación hasta la consumación, revelando la perfecta sabiduría y el glorioso diseño en Su obra redentora.</p>
-            <a href="#main-content" class="btn-divine">Explorar el Plan <i class="fas fa-chevron-down"></i></a>
-        </div>
+    <button class="back-to-top" aria-label="Volver arriba">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></svg>
+    </button>
+
+    <header class="site-header">
+        <a href="../../../index.html" class="header-logo">
+            <img src="../../../images/EMD.png?v=2" alt="Logo EMD">
+            <div class="header-logo-text">
+                Ministerio
+                <span>"La Gloria es del Señor"</span>
+            </div>
+        </a>
+        <a href="../introduccion.html" class="nav-back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+            Tiempo del Fin
+        </a>
     </header>
 
-    <nav class="navigation">
-        <div class="container">
-            <div class="breadcrumbs">
-                <a href="../../../../index.html">Inicio</a>
-                <span>/</span>
-                <a href="../introduccion.html">Tiempo del Fin</a>
-                <span>/</span>
-                <span class="current">El Plan Divino</span>
-            </div>
+    <div class="hero">
+        <svg class="hero-thread" viewBox="0 0 800 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0,110 C100,60 150,160 250,110 C350,60 400,160 500,110 C600,60 650,160 750,110 C780,95 790,105 800,110" fill="none" stroke="#c99a4e" stroke-width="1.5"/>
+            <circle cx="100" cy="82" r="4" fill="#d4af5a"/>
+            <circle cx="250" cy="110" r="4" fill="#d4af5a"/>
+            <circle cx="400" cy="82" r="4" fill="#d4af5a"/>
+            <circle cx="550" cy="110" r="4" fill="#d4af5a"/>
+            <circle cx="700" cy="82" r="4" fill="#d4af5a"/>
+        </svg>
+        <div class="hero-inner">
+            <span class="eyebrow">Revelando la Soberanía Divina</span>
+            <h1>El Plan Divino a través de las Edades</h1>
+            <p class="hero-tagline">Un recorrido por el eterno propósito de Dios, desde la creación hasta la consumación, revelando la perfecta sabiduría y el glorioso diseño en Su obra redentora.</p>
         </div>
-    </nav>
+    </div>
 
-    <main class="main-content" id="main-content">
-        <div class="container">
-            <div class="section-title">
-                <h2>El Plan Eterno de Dios</h2>
-                <p>La historia humana no es una serie de eventos aleatorios, sino la progresiva revelación de un plan divino perfectamente concebido desde la eternidad. Exploremos las fases de este majestuoso diseño a través de las Escrituras.</p>
+    <main>
+        <div class="toc">
+            <h3>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" x2="21" y1="6" y2="6" /><line x1="8" x2="21" y1="12" y2="12" /><line x1="8" x2="21" y1="18" y2="18" /><line x1="3" x2="3.01" y1="6" y2="6" /><line x1="3" x2="3.01" y1="12" y2="12" /><line x1="3" x2="3.01" y1="18" y2="18" /></svg>
+                Fases del hilo
+            </h3>
+            <ol>
+                <li><a href="#fase-1">El Diseño Eterno</a></li>
+                <li><a href="#fase-2">La Creación y la Caída</a></li>
+                <li><a href="#fase-3">La Preparación Progresiva</a></li>
+                <li><a href="#fase-4">La Encarnación Redentora</a></li>
+                <li><a href="#fase-5">La Era de la Iglesia</a></li>
+                <li><a href="#fase-6">La Consumación del Reino</a></li>
+            </ol>
+        </div>
+
+        <div class="section-head" style="margin-bottom: 3rem;">
+            <h2>El Plan Eterno de Dios</h2>
+            <p>La historia humana no es una serie de eventos aleatorios, sino la progresiva revelación de un plan divino perfectamente concebido desde la eternidad. Exploremos las fases de este majestuoso diseño a través de las Escrituras.</p>
+        </div>
+
+        <div class="thread">
+            <div class="phase" id="fase-1">
+                <span class="phase-label">Fase I</span>
+                <h2>El Diseño Eterno</h2>
+                <div class="card">
+                    <p>Antes de la fundación del mundo, en la eternidad pasada, Dios ya había concebido Su plan redentor perfecto. Este plan no fue una respuesta reactiva a la caída del hombre, sino un propósito establecido antes de la creación del tiempo mismo.</p>
+                </div>
+                <div class="pool">
+                    "Según nos escogió en él antes de la fundación del mundo, para que fuésemos santos y sin mancha delante de él, en amor habiéndonos predestinado para ser adoptados hijos suyos por medio de Jesucristo, según el puro afecto de su voluntad."
+                    <span class="ref">Efesios 1:4-5</span>
+                </div>
+                <ul class="plain">
+                    <li>La cruz no fue un "Plan B" divino, sino el centro del plan eterno de Dios (Apocalipsis 13:8).</li>
+                    <li>La predestinación divina precede a la creación y abarca tanto la elección de las personas como los medios para su salvación.</li>
+                    <li>El propósito eterno incluye la manifestación de todos los atributos divinos, incluyendo justicia y misericordia (Romanos 9:22-23).</li>
+                </ul>
             </div>
-            
-            <div class="divine-phases">
-                <div class="phase">
-                    <div class="phase-content">
-                        <div class="phase-number">1</div>
-                        <h3 class="phase-title">El Diseño Eterno</h3>
-                        <p class="phase-description">Antes de la fundación del mundo, en la eternidad pasada, Dios ya había concebido Su plan redentor perfecto. Este plan no fue una respuesta reactiva a la caída del hombre, sino un propósito establecido antes de la creación del tiempo mismo.</p>
-                        <div class="phase-scripture">
-                            "Según nos escogió en él antes de la fundación del mundo, para que fuésemos santos y sin mancha delante de él, en amor habiéndonos predestinado para ser adoptados hijos suyos por medio de Jesucristo, según el puro afecto de su voluntad."
-                            <span class="scripture-reference">Efesios 1:4-5</span>
-                        </div>
-                        <div class="key-points">
-                            <div class="key-point">
-                                <div class="key-point-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="key-point-text">
-                                    <p>La cruz no fue un "Plan B" divino, sino el centro del plan eterno de Dios (Apocalipsis 13:8).</p>
-                                </div>
-                            </div>
-                            <div class="key-point">
-                                <div class="key-point-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="key-point-text">
-                                    <p>La predestinación divina precede a la creación y abarca tanto la elección de las personas como los medios para su salvación.</p>
-                                </div>
-                            </div>
-                            <div class="key-point">
-                                <div class="key-point-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="key-point-text">
-                                    <p>El propósito eterno incluye la manifestación de todos los atributos divinos, incluyendo justicia y misericordia (Romanos 9:22-23).</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="phase-image">
-                        <img src="../images/consejo.png" alt="Representación del diseño eterno de Dios">
-                        <div class="phase-caption">El consejo divino en la eternidad pasada, antes de la fundación del mundo.</div>
-                    </div>
+
+            <div class="phase" id="fase-2">
+                <span class="phase-label">Fase II</span>
+                <h2>La Creación y la Caída</h2>
+                <div class="card">
+                    <p>Dios creó un mundo perfecto como escenario para la revelación de Su plan. El hombre, creado a Su imagen y semejanza, recibió el libre albedrío y con él la posibilidad de rebelión. La caída no tomó a Dios por sorpresa, sino que se convirtió en el telón de fondo para la manifestación de Su gracia.</p>
                 </div>
-                
-                <div class="phase">
-                    <div class="phase-content">
-                        <div class="phase-number">2</div>
-                        <h3 class="phase-title">La Creación y la Caída</h3>
-                        <p class="phase-description">Dios creó un mundo perfecto como escenario para la revelación de Su plan. El hombre, creado a Su imagen y semejanza, recibió el libre albedrío y con él la posibilidad de rebelión. La caída no tomó a Dios por sorpresa, sino que se convirtió en el telón de fondo para la manifestación de Su gracia.</p>
-                        <div class="phase-scripture">
-                            "Y Jehová Dios plantó un huerto en Edén, al oriente; y puso allí al hombre que había formado. [...] Y mandó Jehová Dios al hombre, diciendo: De todo árbol del huerto podrás comer; mas del árbol de la ciencia del bien y del mal no comerás; porque el día que de él comieres, ciertamente morirás."
-                            <span class="scripture-reference">Génesis 2:8,16-17</span>
-                        </div>
-                        <div class="key-points">
-                            <div class="key-point">
-                                <div class="key-point-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="key-point-text">
-                                    <p>La creación exhibe el poder, sabiduría y bondad de Dios (Romanos 1:20).</p>
-                                </div>
-                            </div>
-                            <div class="key-point">
-                                <div class="key-point-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="key-point-text">
-                                    <p>La caída introdujo el pecado y la muerte en el mundo, afectando a toda la creación (Romanos 5:12).</p>
-                                </div>
-                            </div>
-                            <div class="key-point">
-                                <div class="key-point-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="key-point-text">
-                                    <p>La primera promesa de redención (Protoevangelio) se da inmediatamente después de la caída (Génesis 3:15).</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="phase-image">
-                        <img src="../images/Huerto de Eden.png" alt="Representación de Adán y Eva en el Jardín del Edén">
-                        <div class="phase-caption">El Jardín del Edén, escenario de la creación perfecta y la subsecuente caída del hombre.</div>
-                    </div>
+                <div class="pool">
+                    "Y Jehová Dios plantó un huerto en Edén, al oriente; y puso allí al hombre que había formado. [...] Y mandó Jehová Dios al hombre, diciendo: De todo árbol del huerto podrás comer; mas del árbol de la ciencia del bien y del mal no comerás; porque el día que de él comieres, ciertamente morirás."
+                    <span class="ref">Génesis 2:8,16-17</span>
                 </div>
-                
-                <div class="phase">
-                    <div class="phase-content">
-                        <div class="phase-number">3</div>
-                        <h3 class="phase-title">La Preparación Progresiva</h3>
-                        <p class="phase-description">A través de la historia del Antiguo Testamento, Dios preparó meticulosamente el escenario para la venida del Redentor. El llamado de Abraham, la formación de Israel, la entrega de la Ley, el establecimiento del sistema sacrificial y las profecías mesiánicas fueron todos elementos cruciales en esta fase preparatoria.</p>
-                        <div class="phase-scripture">
-                            "La ley ha sido nuestro ayo, para llevarnos a Cristo, a fin de que fuésemos justificados por la fe."
-                            <span class="scripture-reference">Gálatas 3:24</span>
-                        </div>
-                        <div class="key-points">
-                            <div class="key-point">
-                                <div class="key-point-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="key-point-text">
-                                    <p>El pacto abrahámico sentó las bases para la nación a través de la cual vendría el Mesías (Génesis 12:1-3).</p>
-                                </div>
-                            </div>
-                            <div class="key-point">
-                                <div class="key-point-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="key-point-text">
-                                    <p>La Ley reveló la santidad de Dios y la pecaminosidad del hombre, demostrando la necesidad de un Salvador (Romanos 3:20).</p>
-                                </div>
-                            </div>
-                            <div class="key-point">
-                                <div class="key-point-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="key-point-text">
-                                    <p>Los profetas proporcionaron detalles cada vez más específicos sobre la venida del Mesías, su persona y su obra (Isaías 53).</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="phase-image">
-                        <img src="../images/moises.png" alt="Representación de Moisés recibiendo la Ley">
-                        <div class="phase-caption">La entrega de la Ley en el Monte Sinaí, parte fundamental de la preparación para la venida del Mesías.</div>
-                    </div>
+                <ul class="plain">
+                    <li>La creación exhibe el poder, sabiduría y bondad de Dios (Romanos 1:20).</li>
+                    <li>La caída introdujo el pecado y la muerte en el mundo, afectando a toda la creación (Romanos 5:12).</li>
+                    <li>La primera promesa de redención (Protoevangelio) se da inmediatamente después de la caída (Génesis 3:15).</li>
+                </ul>
+                <figure class="plate">
+                    <img src="../images/huerto-eden-plan.jpg" alt="El Jardín del Edén con Adán y Eva">
+                    <figcaption>El Jardín del Edén, escenario de la creación perfecta y la subsecuente caída del hombre.</figcaption>
+                </figure>
+            </div>
+
+            <div class="phase" id="fase-3">
+                <span class="phase-label">Fase III</span>
+                <h2>La Preparación Progresiva</h2>
+                <div class="card">
+                    <p>A través de la historia del Antiguo Testamento, Dios preparó meticulosamente el escenario para la venida del Redentor. El llamado de Abraham, la formación de Israel, la entrega de la Ley, el establecimiento del sistema sacrificial y las profecías mesiánicas fueron todos elementos cruciales en esta fase preparatoria.</p>
                 </div>
-                
-                <div class="phase">
-                    <div class="phase-content">
-                        <div class="phase-number">4</div>
-                        <h3 class="phase-title">La Encarnación Redentora</h3>
-                        <p class="phase-description">En el "cumplimiento del tiempo", Dios envió a su Hijo, nacido de mujer y bajo la ley. La encarnación de Cristo representa el punto central de la historia humana. A través de su vida perfecta, muerte expiatoria y resurrección victoriosa, Jesús cumplió el plan redentor previsto desde la eternidad.</p>
-                        <div class="phase-scripture">
-                            "Pero cuando vino el cumplimiento del tiempo, Dios envió a su Hijo, nacido de mujer y nacido bajo la ley, para que redimiese a los que estaban bajo la ley, a fin de que recibiésemos la adopción de hijos."
-                            <span class="scripture-reference">Gálatas 4:4-5</span>
-                        </div>
-                        <div class="key-points">
-                            <div class="key-point">
-                                <div class="key-point-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="key-point-text">
-                                    <p>La encarnación unió la deidad y la humanidad perfectas en la persona de Cristo (Juan 1:14).</p>
-                                </div>
-                            </div>
-                            <div class="key-point">
-                                <div class="key-point-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="key-point-text">
-                                    <p>La cruz satisfizo simultáneamente la justicia y la misericordia divinas (Romanos 3:26).</p>
-                                </div>
-                            </div>
-                            <div class="key-point">
-                                <div class="key-point-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="key-point-text">
-                                    <p>La resurrección validó la eficacia del sacrificio de Cristo y selló la victoria sobre el pecado y la muerte (1 Corintios 15:17).</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="phase-image">
-                        <img src="../images/cruz.png" alt="Representación de la crucifixión de Cristo">
-                        <div class="phase-caption">La cruz de Cristo, centro y cumbre del plan redentor divino.</div>
-                    </div>
+                <div class="pool">
+                    "La ley ha sido nuestro ayo, para llevarnos a Cristo, a fin de que fuésemos justificados por la fe."
+                    <span class="ref">Gálatas 3:24</span>
                 </div>
-                
-                <div class="phase">
-                    <div class="phase-content">
-                        <div class="phase-number">5</div>
-                        <h3 class="phase-title">La Era de la Iglesia</h3>
-                        <p class="phase-description">Tras la ascensión de Cristo y el descenso del Espíritu Santo en Pentecostés, comenzó la era de la Iglesia. Durante este período, Dios está reuniendo un pueblo para su nombre de entre todas las naciones, edificando el cuerpo de Cristo y preparándolo como novia para el regreso del Esposo celestial.</p>
-                        <div class="phase-scripture">
-                            "Edificaré mi iglesia; y las puertas del Hades no prevalecerán contra ella."
-                            <span class="scripture-reference">Mateo 16:18</span>
-                        </div>
-                        <div class="key-points">
-                            <div class="key-point">
-                                <div class="key-point-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="key-point-text">
-                                    <p>La Iglesia es el misterio escondido en los siglos pasados pero revelado ahora (Efesios 3:4-6).</p>
-                                </div>
-                            </div>
-                            <div class="key-point">
-                                <div class="key-point-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="key-point-text">
-                                    <p>La misión principal de la Iglesia es la proclamación del evangelio a todas las naciones (Mateo 28:19-20).</p>
-                                </div>
-                            </div>
-                            <div class="key-point">
-                                <div class="key-point-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="key-point-text">
-                                    <p>El Espíritu Santo capacita a la Iglesia para su misión y la prepara para la venida del Señor (Hechos 1:8).</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="phase-image">
-                        <img src="../images/pentecostes.png" alt="Representación de Pentecostés">
-                        <div class="phase-caption">El día de Pentecostés y el nacimiento de la Iglesia con el derramamiento del Espíritu Santo.</div>
-                    </div>
+                <ul class="plain">
+                    <li>El pacto abrahámico sentó las bases para la nación a través de la cual vendría el Mesías (Génesis 12:1-3).</li>
+                    <li>La Ley reveló la santidad de Dios y la pecaminosidad del hombre, demostrando la necesidad de un Salvador (Romanos 3:20).</li>
+                    <li>Los profetas proporcionaron detalles cada vez más específicos sobre la venida del Mesías, su persona y su obra (Isaías 53).</li>
+                </ul>
+            </div>
+
+            <div class="phase" id="fase-4">
+                <span class="phase-label">Fase IV</span>
+                <h2>La Encarnación Redentora</h2>
+                <div class="card">
+                    <p>En el "cumplimiento del tiempo", Dios envió a su Hijo, nacido de mujer y bajo la ley. La encarnación de Cristo representa el punto central de la historia humana. A través de su vida perfecta, muerte expiatoria y resurrección victoriosa, Jesús cumplió el plan redentor previsto desde la eternidad.</p>
                 </div>
-                
-                <div class="phase">
-                    <div class="phase-content">
-                        <div class="phase-number">6</div>
-                        <h3 class="phase-title">La Consumación del Reino</h3>
-                        <p class="phase-description">El plan divino culminará con el regreso glorioso de Cristo, la resurrección final, el juicio y el establecimiento definitivo del Reino eterno. Todos los propósitos de Dios convergen en esta gloriosa consumación, cuando la creación será liberada de la esclavitud de corrupción y Dios será todo en todos.</p>
-                        <div class="phase-scripture">
-                            "Luego el fin, cuando entregue el reino al Dios y Padre, cuando haya suprimido todo dominio, toda autoridad y potencia. [...] Y cuando todas las cosas le estén sujetas, entonces también el Hijo mismo se sujetará al que le sujetó a él todas las cosas, para que Dios sea todo en todos."
-                            <span class="scripture-reference">1 Corintios 15:24,28</span>
-                        </div>
-                        <div class="key-points">
-                            <div class="key-point">
-                                <div class="key-point-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="key-point-text">
-                                    <p>El regreso de Cristo vindicará Su señorío sobre toda la creación (Filipenses 2:10-11).</p>
-                                </div>
-                            </div>
-                            <div class="key-point">
-                                <div class="key-point-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="key-point-text">
-                                    <p>La creación restaurada reflejará perfectamente la gloria de Dios (Romanos 8:19-22).</p>
-                                </div>
-                            </div>
-                            <div class="key-point">
-                                <div class="key-point-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="key-point-text">
-                                    <p>La comunión eterna entre Dios y Su pueblo redimido será plena y sin obstáculos (Apocalipsis 21:3).</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="phase-image">
-                        <img src="../images/jerusalem.png" alt="Representación de la Nueva Jerusalén">
-                        <div class="phase-caption">La Nueva Jerusalén descendiendo del cielo, símbolo de la consumación final del plan divino.</div>
-                    </div>
+                <div class="pool">
+                    "Pero cuando vino el cumplimiento del tiempo, Dios envió a su Hijo, nacido de mujer y nacido bajo la ley, para que redimiese a los que estaban bajo la ley, a fin de que recibiésemos la adopción de hijos."
+                    <span class="ref">Gálatas 4:4-5</span>
                 </div>
+                <ul class="plain">
+                    <li>La encarnación unió la deidad y la humanidad perfectas en la persona de Cristo (Juan 1:14).</li>
+                    <li>La cruz satisfizo simultáneamente la justicia y la misericordia divinas (Romanos 3:26).</li>
+                    <li>La resurrección validó la eficacia del sacrificio de Cristo y selló la victoria sobre el pecado y la muerte (1 Corintios 15:17).</li>
+                </ul>
+            </div>
+
+            <div class="phase" id="fase-5">
+                <span class="phase-label">Fase V</span>
+                <h2>La Era de la Iglesia</h2>
+                <div class="card">
+                    <p>Tras la ascensión de Cristo y el descenso del Espíritu Santo en Pentecostés, comenzó la era de la Iglesia. Durante este período, Dios está reuniendo un pueblo para su nombre de entre todas las naciones, edificando el cuerpo de Cristo y preparándolo como novia para el regreso del Esposo celestial.</p>
+                </div>
+                <div class="pool">
+                    "Edificaré mi iglesia; y las puertas del Hades no prevalecerán contra ella."
+                    <span class="ref">Mateo 16:18</span>
+                </div>
+                <ul class="plain">
+                    <li>La Iglesia es el misterio escondido en los siglos pasados pero revelado ahora (Efesios 3:4-6).</li>
+                    <li>La misión principal de la Iglesia es la proclamación del evangelio a todas las naciones (Mateo 28:19-20).</li>
+                    <li>El Espíritu Santo capacita a la Iglesia para su misión y la prepara para la venida del Señor (Hechos 1:8).</li>
+                </ul>
+            </div>
+
+            <div class="phase" id="fase-6">
+                <span class="phase-label">Fase VI</span>
+                <h2>La Consumación del Reino</h2>
+                <div class="card">
+                    <p>El plan divino culminará con el regreso glorioso de Cristo, la resurrección final, el juicio y el establecimiento definitivo del Reino eterno. Todos los propósitos de Dios convergen en esta gloriosa consumación, cuando la creación será liberada de la esclavitud de corrupción y Dios será todo en todos.</p>
+                </div>
+                <div class="pool">
+                    "Luego el fin, cuando entregue el reino al Dios y Padre, cuando haya suprimido todo dominio, toda autoridad y potencia. [...] Y cuando todas las cosas le estén sujetas, entonces también el Hijo mismo se sujetará al que le sujetó a él todas las cosas, para que Dios sea todo en todos."
+                    <span class="ref">1 Corintios 15:24,28</span>
+                </div>
+                <ul class="plain">
+                    <li>El regreso de Cristo vindicará Su señorío sobre toda la creación (Filipenses 2:10-11).</li>
+                    <li>La creación restaurada reflejará perfectamente la gloria de Dios (Romanos 8:19-22).</li>
+                    <li>La comunión eterna entre Dios y Su pueblo redimido será plena y sin obstáculos (Apocalipsis 21:3).</li>
+                </ul>
+                <figure class="plate">
+                    <img src="../images/nueva-jerusalen-plan.jpg" alt="La Nueva Jerusalén descendiendo del cielo">
+                    <figcaption>La Nueva Jerusalén descendiendo del cielo, símbolo de la consumación final del plan divino.</figcaption>
+                </figure>
             </div>
         </div>
-        
-        <section class="divine-purpose">
-            <div class="container">
-                <div class="purpose-content">
-                    <h2>El Propósito Supremo</h2>
-                    <p>Detrás del plan divino para la historia humana se encuentra un propósito supremo: la manifestación de la gloria de Dios. Cada fase revela diferentes facetas de Su carácter y atributos, culminando en la perfecta revelación de Su gloria en la eternidad.</p>
-                    
-                    <div class="purpose-icons">
-                        <div class="purpose-icon">
-                            <div class="icon-circle">
-                                <i class="fas fa-crown"></i>
-                            </div>
-                            <h3>Su Soberanía</h3>
-                            <p>Dios gobierna sobre todos los eventos de la historia, dirigiéndolos hacia Sus propósitos eternos.</p>
-                        </div>
-                        
-                        <div class="purpose-icon">
-                            <div class="icon-circle">
-                                <i class="fas fa-balance-scale"></i>
-                            </div>
-                            <h3>Su Justicia</h3>
-                            <p>El pecado es juzgado perfectamente, sin comprometer la santidad divina.</p>
-                        </div>
-                        
-                        <div class="purpose-icon">
-                            <div class="icon-circle">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                            <h3>Su Amor</h3>
-                            <p>El sacrificio de Cristo demuestra el amor incomprensible de Dios por la humanidad caída.</p>
-                        </div>
-                        
-                        <div class="purpose-icon">
-                            <div class="icon-circle">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
-                            <h3>Su Sabiduría</h3>
-                            <p>El plan redentor revela la multiforme sabiduría de Dios incluso a los seres celestiales.</p>
-                        </div>
-                    </div>
-                    
-                    <p>Todo el plan divino converge en este propósito supremo: "De él, y por él, y para él, son todas las cosas. A él sea la gloria por los siglos. Amén." (Romanos 11:36)</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="dispensations">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Las Dispensaciones Divinas</h2>
-                    <p>A lo largo de la historia, Dios ha revelado Su voluntad y ha interactuado con la humanidad a través de diferentes administraciones o dispensaciones, probando al hombre bajo distintas condiciones y revelando progresivamente Su plan redentor.</p>
-                </div>
-                
-                <div class="dispensation-chart">
-                    <div class="dispensation-line"></div>
-                    <div class="dispensation-items">
-                        <div class="dispensation-item">
-                            <div class="dispensation-dot"></div>
-                            <div class="dispensation-info">
-                                <div class="dispensation-name">Inocencia</div>
-                                <div class="dispensation-period">Edén</div>
-                            </div>
-                        </div>
-                        
-                        <div class="dispensation-item">
-                            <div class="dispensation-dot"></div>
-                            <div class="dispensation-info">
-                                <div class="dispensation-name">Conciencia</div>
-                                <div class="dispensation-period">Adán-Noé</div>
-                            </div>
-                        </div>
-                        
-                        <div class="dispensation-item">
-                            <div class="dispensation-dot"></div>
-                            <div class="dispensation-info">
-                                <div class="dispensation-name">Gobierno</div>
-                                <div class="dispensation-period">Noé-Abraham</div>
-                            </div>
-                        </div>
-                        
-                        <div class="dispensation-item">
-                            <div class="dispensation-dot"></div>
-                            <div class="dispensation-info">
-                                <div class="dispensation-name">Promesa</div>
-                                <div class="dispensation-period">Abraham-Moisés</div>
-                            </div>
-                        </div>
-                        
-                        <div class="dispensation-item">
-                            <div class="dispensation-dot"></div>
-                            <div class="dispensation-info">
-                                <div class="dispensation-name">Ley</div>
-                                <div class="dispensation-period">Moisés-Cristo</div>
-                            </div>
-                        </div>
-                        
-                        <div class="dispensation-item">
-                            <div class="dispensation-dot"></div>
-                            <div class="dispensation-info">
-                                <div class="dispensation-name">Gracia</div>
-                                <div class="dispensation-period">Cristo-Rapto</div>
-                            </div>
-                        </div>
-                        
-                        <div class="dispensation-item">
-                            <div class="dispensation-dot"></div>
-                            <div class="dispensation-info">
-                                <div class="dispensation-name">Reino</div>
-                                <div class="dispensation-period">Milenio</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="divine-attributes">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Atributos Divinos en el Plan Eterno</h2>
-                    <p>El plan eterno de Dios revela y magnifica Sus gloriosos atributos, demostrando cómo cada uno de ellos opera en perfecta armonía con los demás para lograr Sus propósitos.</p>
-                </div>
-                
-                <div class="attributes-container">
-                    <div class="attributes-col">
-                        <div class="attribute-card">
-                            <h3 class="attribute-title">Soberanía</h3>
-                            <p class="attribute-description">Dios gobierna absolutamente sobre toda la creación y ejecuta infaliblemente todos Sus designios. Nada ocurre fuera de Su control o permisivo decreto. El plan divino avanza inexorablemente según Su perfecta voluntad.</p>
-                            <p class="attribute-scripture">"Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados." (Romanos 8:28)</p>
-                        </div>
-                        
-                        <div class="attribute-card">
-                            <h3 class="attribute-title">Omnisciencia</h3>
-                            <p class="attribute-description">Dios conoce perfectamente todas las cosas, pasadas, presentes y futuras. Su plan no está sujeto a revisión por información insuficiente o contingencias imprevistas. Prevé y dispone todas las circunstancias para el cumplimiento de Sus propósitos.</p>
-                            <p class="attribute-scripture">"Porque mis pensamientos no son vuestros pensamientos, ni vuestros caminos mis caminos, dijo Jehová. Como son más altos los cielos que la tierra, así son mis caminos más altos que vuestros caminos, y mis pensamientos más que vuestros pensamientos." (Isaías 55:8-9)</p>
-                        </div>
-                        
-                        <div class="attribute-card">
-                            <h3 class="attribute-title">Inmutabilidad</h3>
-                            <p class="attribute-description">Dios no cambia en Su ser, atributos, propósitos o promesas. Su plan, establecido desde la eternidad, permanece inalterado. La progresiva revelación de ese plan no implica cambios en él, sino despliegues de lo ya determinado.</p>
-                            <p class="attribute-scripture">"Porque yo Jehová no cambio; por esto, hijos de Jacob, no habéis sido consumidos." (Malaquías 3:6)</p>
-                        </div>
-                    </div>
-                    
-                    <div class="attributes-col">
-                        <div class="attribute-card">
-                            <h3 class="attribute-title">Justicia y Santidad</h3>
-                            <p class="attribute-description">Dios es perfectamente santo y justo, y no puede tolerar el pecado. Su plan redentor satisface plenamente las demandas de Su santidad mientras provee salvación para los pecadores, a través del sacrificio expiatorio de Cristo.</p>
-                            <p class="attribute-scripture">"Al que no conoció pecado, por nosotros lo hizo pecado, para que nosotros fuésemos hechos justicia de Dios en él." (2 Corintios 5:21)</p>
-                        </div>
-                        
-                        <div class="attribute-card">
-                            <h3 class="attribute-title">Amor y Gracia</h3>
-                            <p class="attribute-description">El amor de Dios es la motivación fundamental de Su plan redentor. A pesar de la rebelión humana, Dios proveyó, a un costo infinito para Sí mismo, el camino para la reconciliación con Sus criaturas caídas.</p>
-                            <p class="attribute-scripture">"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna." (Juan 3:16)</p>
-                        </div>
-                        
-                        <div class="attribute-card">
-                            <h3 class="attribute-title">Sabiduría</h3>
-                            <p class="attribute-description">La sabiduría de Dios se manifiesta en la forma en que Su plan reconcilia atributos aparentemente contradictorios como la justicia y la misericordia. La cruz es la expresión suprema de esta sabiduría divina.</p>
-                            <p class="attribute-scripture">"¡Oh profundidad de las riquezas de la sabiduría y de la ciencia de Dios! ¡Cuán insondables son sus juicios, e inescrutables sus caminos!" (Romanos 11:33)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="biblical-references">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Fundamentos Bíblicos</h2>
-                    <p>El plan divino está firmemente arraigado en las Escrituras. Estos pasajes clave iluminan diferentes aspectos del propósito eterno de Dios.</p>
-                </div>
-                
-                <div class="references-grid">
-                    <div class="reference-card">
-                        <div class="reference-header">
-                            <h3 class="reference-title">El Propósito Eterno</h3>
-                            <div class="reference-subtitle">Predestinación y Elección</div>
-                        </div>
-                        <div class="reference-content">
-                            <p class="reference-text">"Bendito sea el Dios y Padre de nuestro Señor Jesucristo, que nos bendijo con toda bendición espiritual en los lugares celestiales en Cristo, según nos escogió en él antes de la fundación del mundo, para que fuésemos santos y sin mancha delante de él, en amor habiéndonos predestinado para ser adoptados hijos suyos por medio de Jesucristo, según el puro afecto de su voluntad."</p>
-                            <span class="reference-book">Efesios 1:3-5</span>
-                        </div>
-                    </div>
-                    
-                    <div class="reference-card">
-                        <div class="reference-header">
-                            <h3 class="reference-title">El Plan Redentor</h3>
-                            <div class="reference-subtitle">El Cordero Inmolado</div>
-                        </div>
-                        <div class="reference-content">
-                            <p class="reference-text">"Sabiendo que fuisteis rescatados de vuestra vana manera de vivir, la cual recibisteis de vuestros padres, no con cosas corruptibles, como oro o plata, sino con la sangre preciosa de Cristo, como de un cordero sin mancha y sin contaminación, ya destinado desde antes de la fundación del mundo, pero manifestado en los postreros tiempos por amor de vosotros."</p>
-                            <span class="reference-book">1 Pedro 1:18-20</span>
-                        </div>
-                    </div>
-                    
-                    <div class="reference-card">
-                        <div class="reference-header">
-                            <h3 class="reference-title">El Cumplimiento del Tiempo</h3>
-                            <div class="reference-subtitle">La Venida de Cristo</div>
-                        </div>
-                        <div class="reference-content">
-                            <p class="reference-text">"Pero cuando vino el cumplimiento del tiempo, Dios envió a su Hijo, nacido de mujer y nacido bajo la ley, para que redimiese a los que estaban bajo la ley, a fin de que recibiésemos la adopción de hijos."</p>
-                            <span class="reference-book">Gálatas 4:4-5</span>
-                        </div>
-                    </div>
-                    
-                    <div class="reference-card">
-                        <div class="reference-header">
-                            <h3 class="reference-title">La Administración Divina</h3>
-                            <div class="reference-subtitle">El Misterio de Su Voluntad</div>
-                        </div>
-                        <div class="reference-content">
-                            <p class="reference-text">"Dándonos a conocer el misterio de su voluntad, según su beneplácito, el cual se había propuesto en sí mismo, de reunir todas las cosas en Cristo, en la dispensación del cumplimiento de los tiempos, así las que están en los cielos, como las que están en la tierra."</p>
-                            <span class="reference-book">Efesios 1:9-10</span>
-                        </div>
-                    </div>
-                    
-                    <div class="reference-card">
-                        <div class="reference-header">
-                            <h3 class="reference-title">La Consumación del Plan</h3>
-                            <div class="reference-subtitle">Todas las Cosas Nuevas</div>
-                        </div>
-                        <div class="reference-content">
-                            <p class="reference-text">"Y vi un cielo nuevo y una tierra nueva; porque el primer cielo y la primera tierra pasaron, y el mar ya no existía más. Y yo Juan vi la santa ciudad, la nueva Jerusalén, descender del cielo, de Dios, dispuesta como una esposa ataviada para su marido. Y oí una gran voz del cielo que decía: He aquí el tabernáculo de Dios con los hombres, y él morará con ellos; y ellos serán su pueblo, y Dios mismo estará con ellos como su Dios."</p>
-                            <span class="reference-book">Apocalipsis 21:1-3</span>
-                        </div>
-                    </div>
-                    
-                    <div class="reference-card">
-                        <div class="reference-header">
-                            <h3 class="reference-title">La Manifestación de Su Gloria</h3>
-                            <div class="reference-subtitle">El Propósito Supremo</div>
-                        </div>
-                        <div class="reference-content">
-                            <p class="reference-text">"Porque de él, y por él, y para él, son todas las cosas. A él sea la gloria por los siglos. Amén."</p>
-                            <span class="reference-book">Romanos 11:36</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="conclusion">
-            <div class="container">
-                <div class="conclusion-content">
-                    <h2>Nuestra Respuesta al Plan Divino</h2>
-                    <p>Comprender el plan eterno de Dios no es un mero ejercicio académico; debe transformar nuestra perspectiva y vida diaria. Debemos responder con asombro ante la sabiduría divina, gratitud por nuestra inclusión en Su propósito, y fidelidad en cumplir nuestro papel en Su plan.</p>
-                    <p>Mientras la historia avanza inexorablemente hacia su culminación predeterminada, los creyentes encontramos consuelo y esperanza en saber que nada ocurre por casualidad. Todo evento, sea gozoso o doloroso, se integra perfectamente en el tejido del propósito eterno de Dios para la manifestación de Su gloria y el bien de Sus hijos.</p>
-                    <a href="../introduccion.html" class="btn-divine btn-outline">Regresar a Introducción <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+    <section class="purpose">
+        <div class="purpose-inner">
+            <h2>El Propósito Supremo</h2>
+            <p>Detrás del plan divino para la historia humana se encuentra un propósito supremo: la manifestación de la gloria de Dios. Cada fase revela diferentes facetas de Su carácter y atributos, culminando en la perfecta revelación de Su gloria en la eternidad.</p>
+
+            <div class="purpose-icons">
+                <div class="purpose-icon-wrap">
+                    <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7z" /><path d="M5 20h14" /></svg></div>
+                    <h3>Su Soberanía</h3>
+                    <p>Dios gobierna sobre todos los eventos de la historia, dirigiéndolos hacia Sus propósitos eternos.</p>
+                </div>
+                <div class="purpose-icon-wrap">
+                    <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 16h6" /><path d="M19 13v6" /><path d="M12 6v14" /><path d="M4 12H2a10 10 0 0 0 20 0h-2" /><path d="m3 7 3-3 3 3" /><path d="m15 7 3-3 3 3" /><path d="M6 4v3" /><path d="M18 4v3" /></svg></div>
+                    <h3>Su Justicia</h3>
+                    <p>El pecado es juzgado perfectamente, sin comprometer la santidad divina.</p>
+                </div>
+                <div class="purpose-icon-wrap">
+                    <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></svg></div>
+                    <h3>Su Amor</h3>
+                    <p>El sacrificio de Cristo demuestra el amor incomprensible de Dios por la humanidad caída.</p>
+                </div>
+                <div class="purpose-icon-wrap">
+                    <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></svg></div>
+                    <h3>Su Sabiduría</h3>
+                    <p>El plan redentor revela la multiforme sabiduría de Dios incluso a los seres celestiales.</p>
+                </div>
+            </div>
+
+            <p class="purpose-close">"De él, y por él, y para él, son todas las cosas. A él sea la gloria por los siglos. Amén." — Romanos 11:36</p>
         </div>
+    </section>
+
+    <section class="dispensations">
+        <div class="section-head">
+            <h2>Las Dispensaciones Divinas</h2>
+            <p>A lo largo de la historia, Dios ha revelado Su voluntad y ha interactuado con la humanidad a través de diferentes administraciones o dispensaciones, probando al hombre bajo distintas condiciones y revelando progresivamente Su plan redentor.</p>
+        </div>
+        <div class="disp-thread">
+            <div class="disp-items">
+                <div class="disp-item"><div class="disp-name">Inocencia</div><div class="disp-period">Edén</div></div>
+                <div class="disp-item"><div class="disp-name">Conciencia</div><div class="disp-period">Adán-Noé</div></div>
+                <div class="disp-item"><div class="disp-name">Gobierno</div><div class="disp-period">Noé-Abraham</div></div>
+                <div class="disp-item"><div class="disp-name">Promesa</div><div class="disp-period">Abraham-Moisés</div></div>
+                <div class="disp-item"><div class="disp-name">Ley</div><div class="disp-period">Moisés-Cristo</div></div>
+                <div class="disp-item"><div class="disp-name">Gracia</div><div class="disp-period">Cristo-Rapto</div></div>
+                <div class="disp-item"><div class="disp-name">Reino</div><div class="disp-period">Milenio</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="attributes">
+        <div class="section-head">
+            <h2>Atributos Divinos en el Plan Eterno</h2>
+            <p>El plan eterno de Dios revela y magnifica Sus gloriosos atributos, demostrando cómo cada uno de ellos opera en perfecta armonía con los demás para lograr Sus propósitos.</p>
+        </div>
+        <div class="attributes-grid">
+            <div class="attribute">
+                <h3>Soberanía</h3>
+                <p>Dios gobierna absolutamente sobre toda la creación y ejecuta infaliblemente todos Sus designios. Nada ocurre fuera de Su control o permisivo decreto. El plan divino avanza inexorablemente según Su perfecta voluntad.</p>
+                <p class="verse">"Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados." (Romanos 8:28)</p>
+            </div>
+            <div class="attribute">
+                <h3>Omnisciencia</h3>
+                <p>Dios conoce perfectamente todas las cosas, pasadas, presentes y futuras. Su plan no está sujeto a revisión por información insuficiente o contingencias imprevistas. Prevé y dispone todas las circunstancias para el cumplimiento de Sus propósitos.</p>
+                <p class="verse">"Porque mis pensamientos no son vuestros pensamientos, ni vuestros caminos mis caminos, dijo Jehová. Como son más altos los cielos que la tierra, así son mis caminos más altos que vuestros caminos, y mis pensamientos más que vuestros pensamientos." (Isaías 55:8-9)</p>
+            </div>
+            <div class="attribute">
+                <h3>Inmutabilidad</h3>
+                <p>Dios no cambia en Su ser, atributos, propósitos o promesas. Su plan, establecido desde la eternidad, permanece inalterado. La progresiva revelación de ese plan no implica cambios en él, sino despliegues de lo ya determinado.</p>
+                <p class="verse">"Porque yo Jehová no cambio; por esto, hijos de Jacob, no habéis sido consumidos." (Malaquías 3:6)</p>
+            </div>
+            <div class="attribute">
+                <h3>Justicia y Santidad</h3>
+                <p>Dios es perfectamente santo y justo, y no puede tolerar el pecado. Su plan redentor satisface plenamente las demandas de Su santidad mientras provee salvación para los pecadores, a través del sacrificio expiatorio de Cristo.</p>
+                <p class="verse">"Al que no conoció pecado, por nosotros lo hizo pecado, para que nosotros fuésemos hechos justicia de Dios en él." (2 Corintios 5:21)</p>
+            </div>
+            <div class="attribute">
+                <h3>Amor y Gracia</h3>
+                <p>El amor de Dios es la motivación fundamental de Su plan redentor. A pesar de la rebelión humana, Dios proveyó, a un costo infinito para Sí mismo, el camino para la reconciliación con Sus criaturas caídas.</p>
+                <p class="verse">"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna." (Juan 3:16)</p>
+            </div>
+            <div class="attribute">
+                <h3>Sabiduría</h3>
+                <p>La sabiduría de Dios se manifiesta en la forma en que Su plan reconcilia atributos aparentemente contradictorios como la justicia y la misericordia. La cruz es la expresión suprema de esta sabiduría divina.</p>
+                <p class="verse">"¡Oh profundidad de las riquezas de la sabiduría y de la ciencia de Dios! ¡Cuán insondables son sus juicios, e inescrutables sus caminos!" (Romanos 11:33)</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="references">
+        <div class="section-head">
+            <h2>Fundamentos Bíblicos</h2>
+            <p>El plan divino está firmemente arraigado en las Escrituras. Estos pasajes clave iluminan diferentes aspectos del propósito eterno de Dios.</p>
+        </div>
+        <div class="ref-grid">
+            <div class="ref-card">
+                <div class="ref-head"><h3>El Propósito Eterno</h3><span>Predestinación y Elección</span></div>
+                <div class="ref-body">
+                    <p>"Bendito sea el Dios y Padre de nuestro Señor Jesucristo, que nos bendijo con toda bendición espiritual en los lugares celestiales en Cristo, según nos escogió en él antes de la fundación del mundo, para que fuésemos santos y sin mancha delante de él, en amor habiéndonos predestinado para ser adoptados hijos suyos por medio de Jesucristo, según el puro afecto de su voluntad."</p>
+                    <span class="ref-book">Efesios 1:3-5</span>
+                </div>
+            </div>
+            <div class="ref-card">
+                <div class="ref-head"><h3>El Plan Redentor</h3><span>El Cordero Inmolado</span></div>
+                <div class="ref-body">
+                    <p>"Sabiendo que fuisteis rescatados de vuestra vana manera de vivir, la cual recibisteis de vuestros padres, no con cosas corruptibles, como oro o plata, sino con la sangre preciosa de Cristo, como de un cordero sin mancha y sin contaminación, ya destinado desde antes de la fundación del mundo, pero manifestado en los postreros tiempos por amor de vosotros."</p>
+                    <span class="ref-book">1 Pedro 1:18-20</span>
+                </div>
+            </div>
+            <div class="ref-card">
+                <div class="ref-head"><h3>El Cumplimiento del Tiempo</h3><span>La Venida de Cristo</span></div>
+                <div class="ref-body">
+                    <p>"Pero cuando vino el cumplimiento del tiempo, Dios envió a su Hijo, nacido de mujer y nacido bajo la ley, para que redimiese a los que estaban bajo la ley, a fin de que recibiésemos la adopción de hijos."</p>
+                    <span class="ref-book">Gálatas 4:4-5</span>
+                </div>
+            </div>
+            <div class="ref-card">
+                <div class="ref-head"><h3>La Administración Divina</h3><span>El Misterio de Su Voluntad</span></div>
+                <div class="ref-body">
+                    <p>"Dándonos a conocer el misterio de su voluntad, según su beneplácito, el cual se había propuesto en sí mismo, de reunir todas las cosas en Cristo, en la dispensación del cumplimiento de los tiempos, así las que están en los cielos, como las que están en la tierra."</p>
+                    <span class="ref-book">Efesios 1:9-10</span>
+                </div>
+            </div>
+            <div class="ref-card">
+                <div class="ref-head"><h3>La Consumación del Plan</h3><span>Todas las Cosas Nuevas</span></div>
+                <div class="ref-body">
+                    <p>"Y vi un cielo nuevo y una tierra nueva; porque el primer cielo y la primera tierra pasaron, y el mar ya no existía más. Y yo Juan vi la santa ciudad, la nueva Jerusalén, descender del cielo, de Dios, dispuesta como una esposa ataviada para su marido. Y oí una gran voz del cielo que decía: He aquí el tabernáculo de Dios con los hombres, y él morará con ellos; y ellos serán su pueblo, y Dios mismo estará con ellos como su Dios."</p>
+                    <span class="ref-book">Apocalipsis 21:1-3</span>
+                </div>
+            </div>
+            <div class="ref-card">
+                <div class="ref-head"><h3>La Manifestación de Su Gloria</h3><span>El Propósito Supremo</span></div>
+                <div class="ref-body">
+                    <p>"Porque de él, y por él, y para él, son todas las cosas. A él sea la gloria por los siglos. Amén."</p>
+                    <span class="ref-book">Romanos 11:36</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="conclusion">
+        <div class="conclusion-inner">
+            <h2>Nuestra Respuesta al Plan Divino</h2>
+            <p>Comprender el plan eterno de Dios no es un mero ejercicio académico; debe transformar nuestra perspectiva y vida diaria. Debemos responder con asombro ante la sabiduría divina, gratitud por nuestra inclusión en Su propósito, y fidelidad en cumplir nuestro papel en Su plan.</p>
+            <p>Mientras la historia avanza inexorablemente hacia su culminación predeterminada, los creyentes encontramos consuelo y esperanza en saber que nada ocurre por casualidad. Todo evento, sea gozoso o doloroso, se integra perfectamente en el tejido del propósito eterno de Dios para la manifestación de Su gloria y el bien de Sus hijos.</p>
+            <a href="../introduccion.html" class="cta-btn">
+                Regresar a Introducción
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+            </a>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p class="footer-copy">
+            &copy; 2026 <span>Ministerio "La Gloria es del Señor"</span> &nbsp;·&nbsp; Todos los recursos son gratuitos para la edificación de los creyentes
+        </p>
     </footer>
 
     <script>
-        // Intro Video Play Check
-        document.addEventListener('DOMContentLoaded', function() {
-            const video = document.querySelector('.header-video');
-            if (video) {
-                video.play().catch(function(error) {
-                    // Video autoplay was prevented, add a fallback background image
-                    video.style.display = 'none';
-                    //document.querySelector('.header').style.backgroundImage = 'url(https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?q=80&w=1920)';
-                    //document.querySelector('.header').style.backgroundSize = 'cover';
-                    //document.querySelector('.header').style.backgroundPosition = 'center';
-                });
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
             }
         });
-        
-        // Smooth Scroll
+
+        document.querySelector('.back-to-top').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 90;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                 }
             });
         });
-        
-        // Fade In Animation on Scroll
-        const phases = document.querySelectorAll('.phase');
-        
-        const fadeInOnScroll = function() {
-            phases.forEach(phase => {
-                const phasePosition = phase.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (phasePosition < screenPosition) {
-                    phase.classList.add('fade-in');
-                }
-            });
-        };
-        
-        // Call once on page load
-        fadeInOnScroll();
-        
-        // Call on scroll
-        window.addEventListener('scroll', fadeInOnScroll);
     </script>
 </body>
 </html>
