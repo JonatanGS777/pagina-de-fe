@@ -11,7 +11,11 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preparativos para el Tercer Templo y Profecías Bíblicas</title>
+    <title>Los planos del Tercer Templo: preparativos y profecías bíblicas | Ministerio "La Gloria es del Señor"</title>
+    <meta name="description" content="Vasijas recreadas, novillas rojas, sacerdotes en entrenamiento y planos arquitectónicos: los preparativos actuales para el Tercer Templo leídos junto a las profecías de Daniel, Ezequiel y Apocalipsis.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -19,14 +23,32 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            color: #ffffff;
-            overflow-x: hidden;
+        html { scroll-behavior: smooth; }
+
+        :root {
+            --navy-deep: #0a1f33;
+            --navy: #0f2c47;
+            --navy-line: #1c4468;
+            --vellum: #f1f4f2;
+            --ink: #16242f;
+            --ink-soft: #47606f;
+            --line: #eaf4fb;
+            --cyan: #7fc2e0;
+            --amber: #d98a3d;
+            --amber-bright: #eaa658;
         }
 
-        /* Partículas de fondo */
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: var(--navy-deep);
+            color: var(--line);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Oswald', sans-serif; }
+
+        /* Partículas de fondo (polvo de cianotipo) */
         .particles {
             position: fixed;
             top: 0;
@@ -39,10 +61,10 @@
 
         .particle {
             position: absolute;
-            background: radial-gradient(circle, #ffd700, transparent);
+            background: radial-gradient(circle, rgba(234, 244, 251, 0.6), transparent);
             border-radius: 50%;
             animation: float 15s infinite ease-in-out;
-            opacity: 0.3;
+            opacity: 0.25;
         }
 
         @keyframes float {
@@ -51,40 +73,101 @@
             66% { transform: translateY(10px) rotate(240deg); }
         }
 
-        /* Header */
+        /* ---- Site header ---- */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 1.2rem; flex-wrap: wrap;
+            padding: 0.7rem 2rem;
+            background: rgba(10, 31, 51, 0.92);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(234, 244, 251, 0.15);
+        }
+        .header-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+        img[alt="Logo EMD"] {
+            height: 40px; border-radius: 50%; object-fit: cover;
+            border: 2px solid rgba(217, 138, 61, 0.5);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+        .header-logo-text { font-family: 'Oswald', sans-serif; font-size: 0.85rem; line-height: 1.25; color: var(--line); letter-spacing: 0.01em; }
+        .header-logo-text span { display: block; color: rgba(234, 244, 251, 0.55); font-size: 0.65rem; font-family: 'Manrope', sans-serif; }
+
+        .nav-links { display: flex; gap: 1.4rem; list-style: none; }
+        .nav-links a { color: rgba(234, 244, 251, 0.8); text-decoration: none; font-weight: 500; font-size: 0.86rem; transition: color 0.25s ease; }
+        .nav-links a:hover { color: var(--amber-bright); }
+
+        .nav-back {
+            display: inline-flex; align-items: center; text-decoration: none;
+            color: var(--line); font-weight: 600; font-size: 0.82rem;
+            padding: 0.4rem 0.8rem; border: 1px solid rgba(234, 244, 251, 0.25); border-radius: 2px;
+            transition: background 0.25s ease, border-color 0.25s ease;
+        }
+        .nav-back:hover { background: rgba(217, 138, 61, 0.14); border-color: var(--amber); }
+        .nav-back svg { width: 0.9em; height: 0.9em; margin-right: 0.3em; }
+
+        /* ---- Hero (hoja de plano) ---- */
         .header {
             position: relative;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: 
-                radial-gradient(circle at 30% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 30%, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
+            overflow: hidden;
+            padding: 7rem 1.5rem 3rem;
+            background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(0deg, rgba(234, 244, 251, 0.05) 0 1px, transparent 1px 48px),
+                repeating-linear-gradient(90deg, rgba(234, 244, 251, 0.05) 0 1px, transparent 1px 48px);
+            pointer-events: none;
         }
 
         .header-content {
+            position: relative;
             z-index: 2;
+            max-width: 820px;
             animation: slideUp 1.5s ease-out;
         }
 
+        .title-block {
+            display: inline-flex; align-items: center; gap: 0.6em;
+            font-family: 'Space Mono', monospace; font-size: 0.78rem; letter-spacing: 0.08em;
+            text-transform: uppercase; color: var(--amber-bright);
+            border: 1px solid rgba(217, 138, 61, 0.5); border-radius: 2px;
+            padding: 0.5rem 1.1rem; margin-bottom: 1.8rem;
+        }
+
         .main-title {
-            font-size: 4rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ffd700, #ffffff, #8a2be2);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
-            animation: glow 3s ease-in-out infinite alternate;
+            font-size: clamp(2.4rem, 7vw, 4.6rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            color: var(--line);
+            margin-bottom: 1.1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .main-title::after {
+            content: '';
+            position: absolute;
+            left: 50%; bottom: -0.6rem; transform: translateX(-50%);
+            width: 140px; height: 5px;
+            background: repeating-linear-gradient(to right, var(--cyan) 0 2px, transparent 2px 9px);
         }
 
         .subtitle {
-            font-size: 1.5rem;
-            color: #cccccc;
-            margin-bottom: 2rem;
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: rgba(234, 244, 251, 0.78);
+            margin-top: 1.4rem;
+            margin-bottom: 0.4rem;
             animation: fadeIn 2s ease-out 0.5s both;
         }
 
@@ -96,63 +179,6 @@
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-
-        @keyframes glow {
-            to { text-shadow: 0 0 40px rgba(255, 215, 0, 0.8); }
-        }
-
-        /* Navegación */
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        .nav.scrolled {
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        .nav-list {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-item a {
-            color: #ffffff;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-item a:hover {
-            background: rgba(255, 215, 0, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .nav-item a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent);
-            transition: left 0.5s;
-        }
-
-        .nav-item a:hover::before {
-            left: 100%;
         }
 
         /* Contenido principal */
@@ -167,6 +193,7 @@
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease-out;
+            scroll-margin-top: 90px;
         }
 
         .section.visible {
@@ -175,8 +202,10 @@
         }
 
         .section-title {
-            font-size: 2.5rem;
-            color: #ffd700;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            color: var(--line);
             text-align: center;
             margin-bottom: 2rem;
             position: relative;
@@ -185,16 +214,15 @@
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -12px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #ffd700, transparent);
-            border-radius: 2px;
+            width: 130px;
+            height: 5px;
+            background: repeating-linear-gradient(to right, var(--amber) 0 2px, transparent 2px 9px);
         }
 
-        /* Tarjetas de contenido */
+        /* Tarjetas de contenido (ficha técnica) */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -203,12 +231,12 @@
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
+            background: var(--vellum);
+            border-radius: 2px;
             padding: 2rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            transition: all 0.4s ease;
+            border: 1px solid rgba(10, 31, 51, 0.12);
+            border-left: 4px solid var(--amber);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
         }
@@ -220,14 +248,14 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, #ffd700, #8a2be2, #ffd700);
+            background: linear-gradient(90deg, var(--amber), var(--cyan), var(--amber));
             transform: scaleX(0);
             transition: transform 0.4s ease;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 36px rgba(10, 31, 51, 0.35);
         }
 
         .card:hover::before {
@@ -235,8 +263,9 @@
         }
 
         .card-title {
-            font-size: 1.5rem;
-            color: #ffd700;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--navy-deep);
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
@@ -244,39 +273,49 @@
         }
 
         .card-icon {
-            font-size: 1.8rem;
-            color: #8a2be2;
+            font-size: 1.7rem;
+            color: var(--amber);
+            display: inline-flex;
         }
 
         .card-content {
-            color: #cccccc;
-            line-height: 1.6;
+            color: var(--ink-soft);
+            line-height: 1.65;
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.97rem;
         }
 
         /* Lista de preparativos */
         .prep-list {
             list-style: none;
             padding: 0;
+            margin-top: 0.8rem;
         }
 
         .prep-item {
-            background: rgba(255, 215, 0, 0.1);
-            margin: 1rem 0;
-            padding: 1rem;
-            border-radius: 10px;
-            border-left: 4px solid #ffd700;
-            transition: all 0.3s ease;
+            background: rgba(10, 31, 51, 0.05);
+            margin: 0.7rem 0;
+            padding: 0.8rem 1rem;
+            border-radius: 2px;
+            border-left: 3px solid var(--cyan);
+            color: var(--ink);
+            font-size: 0.92rem;
+            display: flex;
+            align-items: center;
+            transition: background 0.25s ease, transform 0.25s ease;
         }
+
+        .prep-item svg { color: var(--navy-line); }
 
         .prep-item:hover {
-            background: rgba(255, 215, 0, 0.2);
-            transform: translateX(10px);
+            background: rgba(10, 31, 51, 0.1);
+            transform: translateX(8px);
         }
 
-        /* Cronología profética */
+        /* Cronología profética (cinta de medir) */
         .timeline {
             position: relative;
-            padding: 2rem 0;
+            padding: 3rem 0;
         }
 
         .timeline::before {
@@ -286,7 +325,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(to bottom, #ffd700, #8a2be2, #ffd700);
+            background: repeating-linear-gradient(to bottom, var(--cyan) 0 6px, transparent 6px 14px);
             transform: translateX(-50%);
         }
 
@@ -307,17 +346,17 @@
         }
 
         .timeline-content {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 1.5rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            background: var(--vellum);
+            padding: 1.4rem 1.6rem;
+            border-radius: 2px;
+            border: 1px solid rgba(10, 31, 51, 0.12);
             position: relative;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .timeline-content:hover {
-            background: rgba(255, 255, 255, 0.12);
-            transform: scale(1.05);
+            transform: scale(1.03);
+            box-shadow: 0 10px 24px rgba(10, 31, 51, 0.3);
         }
 
         .timeline-content::before {
@@ -331,94 +370,114 @@
 
         .timeline-item:nth-child(odd) .timeline-content::before {
             right: -20px;
-            border-left-color: rgba(255, 215, 0, 0.3);
+            border-left-color: var(--vellum);
         }
 
         .timeline-item:nth-child(even) .timeline-content::before {
             left: -20px;
-            border-right-color: rgba(255, 215, 0, 0.3);
+            border-right-color: var(--vellum);
         }
 
         .timeline-date {
-            color: #ffd700;
-            font-weight: bold;
-            font-size: 1.1rem;
+            display: inline-block;
+            font-family: 'Space Mono', monospace;
+            color: var(--navy-deep);
+            background: rgba(217, 138, 61, 0.2);
+            font-weight: 700;
+            font-size: 0.92rem;
+            padding: 0.15rem 0.6rem;
+            border-radius: 2px;
             margin-bottom: 0.5rem;
         }
+
+        .timeline-content h4 { color: var(--navy-deep); font-size: 1.05rem; margin-bottom: 0.4rem; }
+        .timeline-content p { color: var(--ink-soft); font-size: 0.92rem; }
 
         .timeline-dot {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 16px;
-            height: 16px;
-            background: #ffd700;
+            width: 15px;
+            height: 15px;
+            background: var(--amber);
             border-radius: 50%;
-            border: 3px solid #1a1a2e;
+            border: 3px solid var(--navy-deep);
+            box-shadow: 0 0 0 2px var(--cyan);
             z-index: 10;
         }
 
-        /* Citas bíblicas */
+        /* Citas bíblicas (nota de plano) */
         .biblical-quote {
-            background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(255, 215, 0, 0.1));
-            border-left: 5px solid #8a2be2;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 10px;
+            background: rgba(10, 31, 51, 0.045);
+            border-left: 3px dashed var(--navy-line);
+            padding: 1.3rem 1.5rem 1.3rem 2.2rem;
+            margin: 1.6rem 0;
+            border-radius: 2px;
             font-style: italic;
+            color: var(--ink);
             position: relative;
         }
 
         .biblical-quote::before {
-            content: '"';
-            font-size: 4rem;
-            color: #8a2be2;
+            content: '';
             position: absolute;
-            top: 0;
-            left: 10px;
-            opacity: 0.3;
+            top: 1.3rem;
+            left: -7px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--vellum);
+            border: 2px solid var(--navy-line);
         }
 
         .quote-reference {
             text-align: right;
-            color: #ffd700;
-            font-weight: bold;
-            margin-top: 1rem;
+            font-family: 'Space Mono', monospace;
+            color: var(--amber);
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.02em;
+            margin-top: 0.9rem;
+            font-style: normal;
         }
 
-        /* Estadísticas */
+        /* Estadísticas (cotas) */
         .stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 1.6rem;
             margin: 3rem 0;
         }
 
         .stat-item {
             text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            transition: all 0.3s ease;
+            padding: 1.7rem 1rem;
+            background: rgba(234, 244, 251, 0.04);
+            border: 1px dashed rgba(234, 244, 251, 0.35);
+            border-radius: 2px;
+            transition: background 0.3s ease, transform 0.3s ease;
         }
 
         .stat-item:hover {
-            transform: scale(1.05);
-            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-4px);
+            background: rgba(217, 138, 61, 0.1);
         }
 
         .stat-number {
-            font-size: 3rem;
-            color: #ffd700;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 2.4rem;
+            color: var(--amber-bright);
+            font-weight: 700;
+            margin-bottom: 0.4rem;
             animation: countUp 2s ease-out;
         }
 
         .stat-label {
-            color: #cccccc;
-            font-size: 1.1rem;
+            color: rgba(234, 244, 251, 0.7);
+            font-size: 0.8rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
         }
 
         @keyframes countUp {
@@ -428,24 +487,19 @@
 
         /* Footer */
         .footer {
-            background: rgba(0, 0, 0, 0.3);
+            background: var(--navy-deep);
             text-align: center;
-            padding: 2rem;
+            padding: 2.2rem 1.5rem;
             margin-top: 4rem;
-            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            border-top: 1px solid rgba(234, 244, 251, 0.15);
+            color: rgba(234, 244, 251, 0.6);
+            font-size: 0.85rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .main-title {
-                font-size: 2.5rem;
-            }
-
-            .nav-list {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
+            .site-header { padding: 0.6rem 1.1rem; }
+            .header-logo-text, .nav-links { display: none; }
 
             .timeline::before {
                 left: 20px;
@@ -459,7 +513,7 @@
 
             .timeline-item .timeline-content::before {
                 left: -20px !important;
-                border-right-color: rgba(255, 215, 0, 0.3) !important;
+                border-right-color: var(--vellum) !important;
                 border-left-color: transparent !important;
             }
 
@@ -489,48 +543,58 @@
     <!-- Partículas de fondo -->
     <div class="particles" id="particles"></div>
 
-    <!-- Navegación -->
-    <nav class="nav" id="navbar">
-        <ul class="nav-list">
-            <li class="nav-item"><a href="#inicio">Inicio</a></li>
-            <li class="nav-item"><a href="#preparativos">Preparativos</a></li>
-            <li class="nav-item"><a href="#profecias">Profecías</a></li>
-            <li class="nav-item"><a href="#gobierno">Influencia Política</a></li>
-            <li class="nav-item"><a href="#cronologia">Cronología</a></li>
+    <header class="site-header">
+        <a href="../../../index.html" class="header-logo">
+            <img src="../../../images/EMD.png?v=2" alt="Logo EMD">
+            <div class="header-logo-text">
+                Ministerio
+                <span>"La Gloria es del Señor"</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#preparativos">Preparativos</a></li>
+            <li><a href="#profecias">Profecías</a></li>
+            <li><a href="#gobierno">Influencia política</a></li>
+            <li><a href="#cronologia">Cronología</a></li>
         </ul>
-    </nav>
+        <a href="../introduccion.html" class="nav-back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+            Tiempo del Fin
+        </a>
+    </header>
 
-    <!-- Header -->
-    <header class="header" id="inicio">
+    <!-- Hero -->
+    <section class="header" id="inicio">
         <div class="header-content">
+            <span class="title-block">Plano N.º 3 — Escala 1:50 — Rev. 2026</span>
             <h1 class="main-title">El Tercer Templo</h1>
-            <p class="subtitle">Preparativos Actuales y Profecías Bíblicas</p>
+            <p class="subtitle">Preparativos actuales y profecías bíblicas</p>
             <p class="subtitle">Una convergencia histórica en Jerusalén</p>
         </div>
-    </header>
+    </section>
 
     <!-- Contenido principal -->
     <main class="container">
         <!-- Sección de Preparativos -->
         <section class="section" id="preparativos">
-            <h2 class="section-title">Preparativos Actuales en Israel</h2>
-            
+            <h2 class="section-title">Preparativos actuales en Israel</h2>
+
             <div class="stats">
                 <div class="stat-item">
                     <div class="stat-number">60+</div>
-                    <div class="stat-label">Vasijas Sagradas Recreadas</div>
+                    <div class="stat-label">Vasijas sagradas recreadas</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">2024</div>
-                    <div class="stat-label">Aceleración de Preparativos</div>
+                    <div class="stat-label">Aceleración de preparativos</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">3000</div>
-                    <div class="stat-label">Años desde el Primer Templo</div>
+                    <div class="stat-label">Años desde el primer Templo</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">1954</div>
-                    <div class="stat-label">Años desde la Destrucción</div>
+                    <div class="stat-label">Años desde la destrucción</div>
                 </div>
             </div>
 
@@ -608,7 +672,7 @@
 >
   <path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z" />
   <path d="M5 21h14" />
-</svg> Pectoral del Sumo Sacerdote con 12 piedras</li>
+</svg> Pectoral del sumo sacerdote con 12 piedras</li>
                             <li class="prep-item"><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
   
   xmlns="http://www.w3.org/2000/svg"
@@ -660,7 +724,7 @@
   <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
   <rect width="20" height="14" x="2" y="6" rx="2" />
 </svg></span>
-                        Entrenamiento Sacerdotal
+                        Entrenamiento sacerdotal
                     </h3>
                     <div class="card-content">
                         <p>Los Kohanim (descendientes de Aarón) están siendo entrenados activamente para el servicio del Templo por primera vez en dos milenios. Visten túnicas de algodón blanco con fajas intrincadas y practican rituales sagrados.</p>
@@ -761,7 +825,7 @@
   <circle cx="20" cy="16" r="2" />
   <path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" />
 </svg></span>
-                        Novillas Rojas
+                        Novillas rojas
                     </h3>
                     <div class="card-content">
                         <p>Un desarrollo crucial: varias novillas rojas sin mancha han sido identificadas y llevadas a Israel. Sus cenizas son requeridas para los ritos de purificación necesarios para quienes servirán en el Templo reconstruido.</p>
@@ -792,7 +856,7 @@
   <path d="m8.5 6.5 2-2" />
   <path d="m17.5 15.5 2-2" />
 </svg></span>
-                        Planos Arquitectónicos
+                        Planos arquitectónicos
                     </h3>
                     <div class="card-content">
                         <p>Los planos detallados del Tercer Templo han sido completados tras décadas de investigación meticulosa de textos antiguos. Un modelo a escala 1:50 estará disponible en el Centro de Visitantes de Jerusalén en 2025.</p>
@@ -879,7 +943,7 @@
 
         <!-- Sección de Profecías -->
         <section class="section" id="profecias">
-            <h2 class="section-title">Profecías Bíblicas del Tercer Templo</h2>
+            <h2 class="section-title">Profecías bíblicas del Tercer Templo</h2>
 
             <div class="card-grid">
                 <div class="card">
@@ -988,7 +1052,7 @@
 >
   <path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" />
 </svg></span>
-                        Abominación Desoladora
+                        Abominación desoladora
                     </h3>
                     <div class="card-content">
                         <div class="biblical-quote">
@@ -1003,13 +1067,13 @@
 
         <!-- Sección de Influencia Política -->
         <section class="section" id="gobierno">
-            <h2 class="section-title">Influencia Política y Gubernamental</h2>
+            <h2 class="section-title">Influencia política y gubernamental</h2>
 
             <div class="card-grid">
                 <div class="card">
                     <h3 class="card-title">
                         <span class="card-icon">🇺🇸</span>
-                        Apoyo Estadounidense
+                        Apoyo estadounidense
                     </h3>
                     <div class="card-content">
                         <p><strong>Pete Hegseth</strong>, Secretario de Defensa de Estados Unidos, ha expresado públicamente su apoyo a la reconstrucción del Tercer Templo. En 2018, declaró en Jerusalén:</p>
@@ -1024,7 +1088,7 @@
                 <div class="card">
                     <h3 class="card-title">
                         <span class="card-icon">🇮🇱</span>
-                        Extrema Derecha Israelí
+                        Extrema derecha israelí
                     </h3>
                     <div class="card-content">
                         <p><strong>Itamar Ben-Gvir</strong> y otros líderes de la extrema derecha israelí han sido identificados como teniendo un plan ordenado de tres etapas para tomar control del sitio y construir el Templo:</p>
@@ -1109,7 +1173,7 @@
   <path d="m5 8 3 8a5 5 0 0 1-6 0zV7" />
   <path d="M7 21h10" />
 </svg></span>
-                        Desafíos Legales
+                        Desafíos legales
                     </h3>
                     <div class="card-content">
                         <p>El Monte del Templo presenta complejos desafíos legales y religiosos:</p>
@@ -1209,7 +1273,7 @@
   <path d="m14 6 7.7 7.7" />
   <path d="m8 6 8 8" />
 </svg></span>
-                        Organizaciones Activistas
+                        Organizaciones activistas
                     </h3>
                     <div class="card-content">
                         <p>Varias organizaciones trabajan activamente hacia la reconstrucción:</p>
@@ -1288,14 +1352,14 @@
 
         <!-- Cronología Profética -->
         <section class="section" id="cronologia">
-            <h2 class="section-title">Cronología de Eventos Proféticos</h2>
+            <h2 class="section-title">Cronología de eventos proféticos</h2>
 
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">586 AC</div>
-                        <h4>Destrucción del Primer Templo</h4>
+                        <h4>Destrucción del primer Templo</h4>
                         <p>Nabucodonosor destruye el Templo de Salomón. Daniel profetiza sobre la reconstrucción y eventos futuros desde Babilonia.</p>
                     </div>
                 </div>
@@ -1304,7 +1368,7 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">516 AC</div>
-                        <h4>Segundo Templo Construido</h4>
+                        <h4>Segundo Templo construido</h4>
                         <p>Zorobabel completa la reconstrucción. Más tarde, Herodes el Grande lo expande magníficamente.</p>
                     </div>
                 </div>
@@ -1313,7 +1377,7 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">70 DC</div>
-                        <h4>Destrucción del Segundo Templo</h4>
+                        <h4>Destrucción del segundo Templo</h4>
                         <p>Las legiones romanas bajo Tito destruyen el Templo, cumpliendo la profecía de Jesús sobre la desolación de Jerusalén.</p>
                     </div>
                 </div>
@@ -1340,7 +1404,7 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">1987</div>
-                        <h4>Inicio del Movimiento del Templo</h4>
+                        <h4>Inicio del movimiento del Templo</h4>
                         <p>Se establecen organizaciones dedicadas a la preparación activa para la reconstrucción del Tercer Templo.</p>
                     </div>
                 </div>
@@ -1349,7 +1413,7 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">2024-2025</div>
-                        <h4>Aceleración Actual</h4>
+                        <h4>Aceleración actual</h4>
                         <p>Preparativos intensificados: novillas rojas, entrenamiento sacerdotal, apoyo político de alto nivel, y planos arquitectónicos completos.</p>
                     </div>
                 </div>
@@ -1369,8 +1433,22 @@
         <section class="section">
             <div class="card">
                 <h3 class="card-title">
-                    <span class="card-icon"></span>
-                    Convergencia Profética
+                    <span class="card-icon"><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
+
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+</svg></span>
+                    Convergencia profética
                 </h3>
                 <div class="card-content">
                     <p>Por primera vez en casi dos milenios, todos los elementos necesarios para la reconstrucción del Templo están convergiendo simultáneamente:</p>
@@ -1390,7 +1468,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+        <p>&copy; 2026 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
         <p>"Velad, pues, porque no sabéis a qué hora ha de venir vuestro Señor" - Mateo 24:42</p>
     </footer>
 
@@ -1415,16 +1493,6 @@
                 particlesContainer.appendChild(particle);
             }
         }
-
-        // Animación de scroll para navbar
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
 
         // Observador de intersección para animaciones
         const observerOptions = {
