@@ -248,6 +248,27 @@ Tras agregarse `tabernaculo-3d.html`, una revisión a fondo (a pedido del usuari
 - Contenido teológico íntegro (6 fases, propósito supremo con 4 atributos, 7 dispensaciones, 6 atributos divinos extendidos, 6 referencias bíblicas, conclusión) sin alterar una palabra.
 - **Con esta página, las 3 páginas de `fundamentos/` quedan completas:** `base-profetica.html` (Río Profético), `retorno-cristo.html` (Advenimiento Real) y `plan-divino.html` (Hilo de Oro) — cada una con su propia dirección estética, sin plantilla compartida, y las 3 con el bug del enlace "Inicio" corregido.
 
+### 2026-08-19: quinta página de Tiempo del Fin — noticias-fin.html "Sala de Redacción"
+
+- **`page/Tiempo del Fin/noticias-fin.html`:** rediseñada con un concepto de sala de prensa/wire service, elegido entre 3 direcciones propuestas (Sala de Redacción, Señales en el Radar, Boletín del Vigía) por ser la estructura real de la página: un tickér de titulares, un directorio de 9 fuentes de noticias cristianas externas, y una sección de "redacción propia" con 6 artículos. Tipografía Libre Caslon Display + Libre Caslon Text (titulares/cuerpo, estilo diario impreso) + Barlow Condensed (bylines, tickér, metadatos), ninguna usada antes en el sitio. Paleta papel periódico/tinta: `#f2efe6` (papel), `#1a1a1a` (tinta), rojo de alarma `#b3251f` para etiquetas urgentes, dorado `#a9832f` para la línea de masthead.
+- **A diferencia de las páginas de `fundamentos/`, esta conserva el menú desplegable completo del sitio** (una de las páginas con dropdown real, igual que `pseudoprofetas.html` o `sectas-anticristianas.html`) — no se simplificó a logo + nav-back.
+- **Bugs reales corregidos:**
+  - El botón de menú móvil tenía **dos scripts duplicados** haciendo `nav.classList.toggle('active')` cada uno — al hacer clic ambos disparaban, cancelándose entre sí, así que el menú probablemente no abría en móvil. Se unificaron en un solo script.
+  - La sección "Palabra Profética" tenía un fondo `url('/api/placeholder/1200/800')` — una URL de placeholder nunca reemplazada, 404 muerto. Se quitó.
+  - El formulario de newsletter no tenía backend (submit roto); se reemplazó por enlaces reales a Facebook/YouTube del ministerio, mismo patrón ya usado en `introduccion.html`.
+- **Auditoría de las 7 imágenes:** 5 (hero, pastores, persecución, tecnología/marca, avivamiento) tenían buena calidad y sin errores — se optimizaron a JPEG. Las otras 2 (`tercertemplo.png`, `economiaglobal.png`) tenían **texto falso incrustado** — hebreo inventado junto al templo, y una cita mal etiquetada ("Apocalypsis 18:10-11", mal escrito en latín/inglés) con más hebreo inventado debajo, presentada como si fuera Escritura real. En vez de descartarlas enteras, se **recortaron** para quitar solo el bloque de texto falso, conservando la escena central (arquitectura del templo; hombre y multitud en ciudad distópica) que sí es fiel al tema.
+- **Nota de contenido:** el titular "Ezequiel 34: los pastores impíos, como los masones, gobiernan Israel" hace una afirmación fuerte sin fuente verificable — se le señaló al usuario, quien decidió mantenerlo intacto (mismo patrón que `masoneria.html` y `reptilianos-consejo-13.html`).
+- Contenido íntegro (tickér, 9 fuentes externas, 6 artículos propios, versículo de Daniel 12) sin alterar palabra.
+- **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para las demás páginas pendientes de `Tiempo del Fin/`.
+
+### 2026-08-19: sexta página de Tiempo del Fin — nuevo-orden-mundial.html "Mesa de Negociación"
+
+- **`page/Tiempo del Fin/nuevo-orden-mundial.html`:** a diferencia del resto de la categoría, este artículo es un ensayo académico serio sobre la historia diplomática del concepto "Nuevo Orden Mundial" (Westfalia → Congreso de Viena → Liga de Naciones → ONU → discurso de Bush 1991 → post-11S → COVID), con 4 corrientes interpretativas legítimas de relaciones internacionales y una sección dedicada a **desmentir explícitamente** las teorías conspirativas como "narrativas sin sustento empírico", citando RAND, Chatham House, Brookings y Britannica. Rediseñada con un concepto de dossier diplomático sobre un escritorio, elegido entre 3 direcciones propuestas (Mesa de Negociación, Balanza de Poder, Tablero Geopolítico) porque encaja directo con la imagen de portada ya existente (mapa mundial, bandera y emblema de la ONU, engranajes, sobre un escritorio). Tipografía Vesper Libre (títulos) + Public Sans (cuerpo, el mismo tipo de letra del sistema de diseño del gobierno de EE. UU. — encaja con el tono de "informe oficial"), ninguna usada antes en el sitio. Paleta azul marino diplomático `#16233a` + latón `#a8843f` sobre papel de documento oficial `#f0ede4`.
+- **Bugs corregidos:** el logo del header enlazaba a `../Falsas Doctrinas/sociedades-secretas.html` en vez de a Inicio (copiado por error de otra página); no existía forma de volver a "Tiempo del Fin" (se agregó `nav-back`); la sección de "Foros multilaterales de élites" tenía una foto de stock de Unsplash hotlinkeada — se quitó (no se encontró una imagen local apropiada para reemplazarla; la sección queda solo con texto).
+- Las 9 secciones se numeraron como "Doc. 01–09" (índice del expediente). Los 4 "actores globales" pasaron a fichas de perfil con ícono; los 3 "escenarios futuros" a tarjetas con borde lateral; la sección que desmiente teorías conspirativas y la de "perspectivas críticas/conspirativas" dentro de corrientes interpretativas comparten un estilo `.critical-note` con borde punteado, distinto de las cajas `.card`/`.highlight` normales, para señalar visualmente que es contenido que el propio texto refuta.
+- Contenido íntegro (los 9 documentos completos, incluida la sección crítica de teorías conspirativas) sin alterar palabra.
+- **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para las demás páginas pendientes de `Tiempo del Fin/`.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -533,6 +554,8 @@ Página de Fe/
 | `page/Tiempo del Fin/fundamentos/base-profetica.html` | Completado: estilo propio "Río Profético" (corriente que se ensancha); ver historial 2026-08-19 |
 | `page/Tiempo del Fin/fundamentos/retorno-cristo.html` | Completado: estilo propio "Advenimiento Real" (heráldico/coronación); ver historial 2026-08-19 |
 | `page/Tiempo del Fin/fundamentos/plan-divino.html` | Completado: estilo propio "Hilo de Oro" (tapiz/línea de hilo dorado); ver historial 2026-08-19 |
+| `page/Tiempo del Fin/noticias-fin.html` | Completado: estilo propio "Sala de Redacción" (wire service/periódico). Conserva el menú dropdown completo; ver historial 2026-08-19 |
+| `page/Tiempo del Fin/nuevo-orden-mundial.html` | Completado: estilo propio "Mesa de Negociación" (dossier diplomático); ver historial 2026-08-19 |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
@@ -557,8 +580,6 @@ Página de Fe/
 
 #### `page/Tiempo del Fin/`
 
-- [ ] `noticias-fin.html`
-- [ ] `nuevo-orden-mundial.html`
 - [ ] `profecias-cumplidas.html`
 - [ ] `analisisescatologico/conversiones.html`
 - [ ] `analisisescatologico/economiaglobal.html`
