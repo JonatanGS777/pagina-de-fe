@@ -5,6 +5,10 @@ import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 import { buildWorld, SCALE } from "./tabernaculo.js?v=3";
 import { buildUI } from "./ui.js";
 
+document.documentElement.dataset.tabernacleReady = "true";
+const viewerStatus = document.getElementById("viewer-status");
+if (viewerStatus) viewerStatus.textContent = "Modelo listo para explorar.";
+
 /* ------------------------------------------------------------------ */
 const wrap = document.getElementById("canvas-wrap");
 const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -84,6 +88,7 @@ const tooltip = document.getElementById("tooltip");
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 let hovered = null;
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ---------- UI ---------- */
 const ui = buildUI(parts, {
@@ -140,6 +145,13 @@ function highlight(group, color, intensity) {
 
 /* ---------- Vuelo de cámara ---------- */
 function flyTo(pos, look, dur) {
+  if (reducedMotion) {
+    camera.position.copy(pos);
+    controls.target.copy(look);
+    controls.update();
+    fly = null;
+    return;
+  }
   fly = {
     p0: camera.position.clone(),
     t0: controls.target.clone(),
@@ -196,8 +208,15 @@ renderer.domElement.addEventListener("pointermove", (ev) => {
 });
 
 /* ---------- Botones ---------- */
+const intro = document.getElementById("intro");
+function dismissIntro() {
+  if (intro.hidden) return;
+  intro.classList.add("fade");
+  intro.setAttribute("aria-hidden", "true");
+  window.setTimeout(() => { intro.hidden = true; }, reducedMotion ? 0 : 650);
+}
 document.getElementById("btn-enter").addEventListener("click", () => {
-  document.getElementById("intro").classList.add("fade");
+  dismissIntro();
   flyTo(OVERVIEW_POS, OVERVIEW_TARGET, 2.2);
 });
 document.getElementById("btn-overview").addEventListener("click", () => {
@@ -208,16 +227,32 @@ const btnRotate = document.getElementById("btn-rotate");
 btnRotate.addEventListener("click", () => {
   controls.autoRotate = !controls.autoRotate;
   btnRotate.classList.toggle("active", controls.autoRotate);
+  btnRotate.setAttribute("aria-pressed", String(controls.autoRotate));
 });
-document.getElementById("btn-help").addEventListener("click", () => {
-  document.getElementById("help-overlay").classList.remove("hidden");
-});
-document.getElementById("btn-help-close").addEventListener("click", () => {
-  document.getElementById("help-overlay").classList.add("hidden");
+btnRotate.setAttribute("aria-pressed", "false");
+
+const helpButton = document.getElementById("btn-help");
+const helpOverlay = document.getElementById("help-overlay");
+const helpClose = document.getElementById("btn-help-close");
+let helpReturnFocus = null;
+function openHelp() {
+  helpReturnFocus = document.activeElement;
+  helpOverlay.classList.remove("hidden");
+  helpClose.focus();
+}
+function closeHelp() {
+  helpOverlay.classList.add("hidden");
+  helpReturnFocus?.focus();
+}
+helpButton.addEventListener("click", openHelp);
+helpClose.addEventListener("click", closeHelp);
+helpOverlay.addEventListener("click", (event) => {
+  if (event.target === helpOverlay) closeHelp();
 });
 
 /* etiquetas */
 const tglLabels = document.getElementById("tgl-labels");
+labelRenderer.domElement.style.display = tglLabels.checked ? "" : "none";
 tglLabels.addEventListener("change", () => {
   labelRenderer.domElement.style.display = tglLabels.checked ? "" : "none";
 });
@@ -250,6 +285,7 @@ function enterWalk() {
   pitch = camera.rotation.x;
   walkY = Math.max(1.7 * SCALE, camera.position.y);
   btnWalk.classList.add("active");
+  btnWalk.setAttribute("aria-pressed", "true");
   walkHint.classList.remove("hidden");
   renderer.domElement.requestPointerLock();
   if (!tglGhost.checked) {
@@ -261,12 +297,14 @@ function exitWalk() {
   walkMode = false;
   controls.enabled = true;
   btnWalk.classList.remove("active");
+  btnWalk.setAttribute("aria-pressed", "false");
   walkHint.classList.add("hidden");
 }
 btnWalk.addEventListener("click", () => {
   if (walkMode) exitWalk();
   else enterWalk();
 });
+btnWalk.setAttribute("aria-pressed", "false");
 document.addEventListener("pointerlockchange", () => {
   if (!document.pointerLockElement && walkMode) exitWalk();
 });
@@ -361,7 +399,12 @@ addEventListener("resize", () => {
 
 /* ---------- Teclas globales ---------- */
 document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !helpOverlay.classList.contains("hidden")) {
+    closeHelp();
+    return;
+  }
   if (e.code === "Escape" && walkMode) exitWalk();
+  if (e.target.closest?.("a, button, input, select, textarea")) return;
   if (e.key === "o" || e.key === "O") btnRotate.click();
   if (e.key === "r" || e.key === "R") {
     if (walkMode) exitWalk();
@@ -388,23 +431,36 @@ if (document.getElementById("parts-grid")) {
       const cats = catsOf(p.id);
       if (filter !== "all" && !cats.includes(filter)) continue;
       const card = document.createElement("button");
+      card.type = "button";
       card.className = "part-card";
+      card.setAttribute("aria-label", `Ver ${p.name} en el modelo 3D. ${p.ref}`);
       card.innerHTML = `<span class="pc-name">${p.name}</span><span class="pc-ref">${p.ref}</span><p>${p.desc}</p>`;
       card.addEventListener("click", () => {
         selectPart(p.id, true);
-        document.getElementById("intro").classList.add("fade");
+        dismissIntro();
+        document.getElementById("viewer").scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
       });
       grid.appendChild(card);
     }
   }
   document.querySelectorAll(".filter-btn").forEach((b) => {
     b.addEventListener("click", () => {
-      document.querySelectorAll(".filter-btn").forEach((x) => x.classList.remove("active"));
+      document.querySelectorAll(".filter-btn").forEach((x) => {
+        x.classList.remove("active");
+        x.setAttribute("aria-pressed", "false");
+      });
       b.classList.add("active");
+      b.setAttribute("aria-pressed", "true");
       renderGrid(b.dataset.filter);
     });
   });
   renderGrid("all");
+}
+
+const requestedPart = new URLSearchParams(location.search).get("part");
+if (requestedPart && byId[requestedPart]) {
+  dismissIntro();
+  window.setTimeout(() => selectPart(requestedPart, true), reducedMotion ? 0 : 250);
 }
 
 /* ---------- Self-test (solo con ?selftest) ---------- */
