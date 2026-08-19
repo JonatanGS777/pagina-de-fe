@@ -398,6 +398,11 @@ export function buildWorld(scene) {
   /* =========================== LA TIENDA ============================= */
   const tentW = 5, tentD = 15, tentH = 5; // 10 × 30 × 10 codos
   const zWest = -9.5, zEast = 5.5;
+  const veilZ = -4.5;
+  /* Éxodo sitúa el arca detrás del velo, pero no fija su distancia de la
+     pared occidental. La posición central evita convertir una decisión
+     reconstructiva en una falsa precisión y mantiene todo el mueble dentro. */
+  const holyOfHoliesZ = (zWest + veilZ) / 2;
 
   /* --- Tablas de acacia revestidas de oro + basas de plata --- */
   const tablasG = new THREE.Group();
@@ -465,11 +470,29 @@ export function buildWorld(scene) {
   const sealMat = m("linen");
   sealMat.color.set(0x57534a);
   sealMat.map = makeFibrousTex("#57534a", "#2e2b26", 0.25);
-  box([tentW - 0.2, 0.05, 0.5], ramMat.clone(), 0, tentH + 0.22, zWest - 0.25, tiendaG);
-  box([tentW - 0.2, 0.05, 0.5], ramMat.clone(), 0, tentH + 0.22, zEast + 0.25, tiendaG);
-  box([0.55, 0.09, tentD + 0.85], sealMat.clone(), 0, tentH + 0.5, (zWest + zEast) / 2, tiendaG);
-  box([tentW - 0.2, 0.05, 0.42], ramMat.clone(), 0, tentH + 0.12, zWest + 0.2, tiendaG);
-  box([tentW - 0.2, 0.05, 0.42], ramMat.clone(), 0, tentH + 0.12, zEast - 0.2, tiendaG);
+  const tentCenterZ = (zWest + zEast) / 2;
+
+  /* Las cortinas no eran solo un techo. La capa de lino descendía por
+     dentro y la de pelo de cabra cubría los costados y la parte posterior
+     (Éxodo 26:12–13). Los pequeños desplazamientos evitan z-fighting. */
+  for (const side of [-1, 1]) {
+    plane(tentD - 0.1, tentH - 0.45, linenMat.clone(), side * (tentW / 2 + 0.015), tentH / 2 + 0.225, tentCenterZ, tiendaG, 0, Math.PI / 2, 0);
+
+    const goatSideMat = m("linen");
+    goatSideMat.color.set(0xa08a5e);
+    goatSideMat.map = goatTex;
+    plane(tentD + 0.55, tentH, goatSideMat, side * (tentW / 2 + 0.075), tentH / 2, tentCenterZ, tiendaG, 0, Math.PI / 2, 0);
+  }
+  plane(tentW - 0.1, tentH - 0.45, linenMat.clone(), 0, tentH / 2 + 0.225, zWest - 0.225, tiendaG);
+  const goatBackMat = m("linen");
+  goatBackMat.color.set(0xa08a5e);
+  goatBackMat.map = goatTex;
+  plane(tentW + 0.35, tentH, goatBackMat, 0, tentH / 2, zWest - 0.29, tiendaG);
+
+  /* Las dimensiones exactas de las dos cubiertas de pieles no se indican;
+     se muestran como capas superiores completas sin inventar una caída. */
+  box([tentW + 0.18, 0.05, tentD + 0.78], ramMat.clone(), 0, tentH + 0.46, tentCenterZ, tiendaG);
+  box([tentW + 0.34, 0.06, tentD + 0.94], sealMat.clone(), 0, tentH + 0.56, tentCenterZ, tiendaG);
 
   /* --- Pantalla de la puerta (5 columnas, este) --- */
   const pantallaG = new THREE.Group();
@@ -496,10 +519,10 @@ export function buildWorld(scene) {
     cylinder(0.09, 0.09, tentH - 0.3, 12, m("gold"), 0, (tentH - 0.3) / 2 + 0.15, 0, pg);
     cylinder(0.12, 0.12, 0.22, 12, m("gold"), 0, tentH - 0.04, 0, pg);
     cylinder(0.15, 0.18, 0.28, 12, m("silver"), 0, 0.14, 0, pg);
-    pg.position.set(px, 0, -4.5);
+    pg.position.set(px, 0, veilZ);
     veloG.add(pg);
   }
-  const veilPlane = plane(tentW + 0.02, tentH, veilMat, 0, tentH / 2, -4.45, veloG);
+  const veilPlane = plane(tentW + 0.02, tentH, veilMat, 0, tentH / 2, veilZ + 0.05, veloG);
   veilPlane.castShadow = true;
 
   /* --- Suelos interiores --- */
@@ -508,8 +531,8 @@ export function buildWorld(scene) {
   floorMat.map.wrapS = THREE.RepeatWrapping;
   floorMat.map.wrapT = THREE.RepeatWrapping;
   floorMat.map.repeat.set(4, 2);
-  const floorSanto = plane(tentW - 0.12, 10 - 0.12, floorMat.clone(), 0, 0.02, 0.5, group);
-  const floorSantisimo = plane(tentW - 0.12, 2.5 - 0.12, floorMat.clone(), 0, 0.02, -7, group);
+  const floorSanto = plane(tentW - 0.12, zEast - veilZ - 0.12, floorMat.clone(), 0, 0.02, (veilZ + zEast) / 2, group, -Math.PI / 2, 0, 0);
+  const floorSantisimo = plane(tentW - 0.12, veilZ - zWest - 0.12, floorMat.clone(), 0, 0.02, holyOfHoliesZ, group, -Math.PI / 2, 0, 0);
 
   /* =========================== MOBILIARIO ============================ */
 
@@ -612,7 +635,7 @@ export function buildWorld(scene) {
     const pole = cylinder(0.022, 0.022, 3.4, 10, goldM(), 0, 0.1, rz, arcaG);
     pole.rotation.z = Math.PI / 2;
   }
-  arcaG.position.set(0, 0, -9.75);
+  arcaG.position.set(0, 0, holyOfHoliesZ);
 
   /* --- Propiciatorio y querubines --- */
   const propG = new THREE.Group();
@@ -632,7 +655,7 @@ export function buildWorld(scene) {
   }
   cherub(1);
   cherub(-1);
-  propG.position.set(0, 0.75, -9.75);
+  propG.position.set(0, 0.75, holyOfHoliesZ);
   halo(0, 0.4, 0, 1.9, 0.28, propG);
 
   /* --- Altar del holocausto (bronce) --- */
@@ -709,9 +732,23 @@ export function buildWorld(scene) {
   part("mesa", "Mesa de los panes", "שֻׁלְחָן", "Éxodo 25:23–30", "Mesa de acacia revestida de oro, de 2 × 1 × 1,5 codos, destinada al pan de la presencia y situada al norte del lugar santo.", [-2.6, 2.0, -3.7], [-1.5, 0.95, -3.5], mesaG, [-1.6, 2.0, -3.6]);
   part("incensario", "Altar del incienso", "מִזְבַּח הַקְּטֹרֶת", "Éxodo 30:1–10", "Altar de oro de 1 × 1 × 2 codos, con cuernos y situado delante del velo, donde se quemaba incienso aromático cada mañana y cada tarde.", [2.0, 2.4, -3.65], [0, 1.05, -4.15], incensarioG, [0, 2.2, -3.95]);
   part("lugar-santisimo", "Lugar santísimo", "קֹדֶשׁ קֳדָשִׁים", "Éxodo 26:33–34 · Levítico 16", "Cámara cúbica de 10 × 10 × 10 codos detrás del velo. Allí estaba el arca, y el sumo sacerdote entraba una vez al año en el Día de la Expiación.", [0, 2.9, -5.2], [0, 1.6, -7.5], santisimoSG, [0, 4.2, -7]);
-  part("arca", "Arca del pacto", "אֲרוֹן", "Éxodo 25:10–16", "Cofre de acacia revestido de oro, de 2,5 × 1,5 × 1,5 codos, con moldura, cuatro argollas y varas; contenía las tablas del testimonio.", [0, 2.3, -8.6], [0, 1.0, -9.75], arcaG, [0, 1.9, -9.65]);
-  part("propiciatorio", "Propiciatorio y querubines", "כַּפֹּרֶת", "Éxodo 25:17–22", "Cubierta de oro puro con dos querubines labrados en una sola pieza, cuyas alas cubrían el propiciatorio; allí Dios prometió encontrarse con su pueblo.", [2.0, 2.2, -9.4], [0, 1.35, -9.75], propG, [0.8, 2.35, -9.65], true);
+  part("arca", "Arca del pacto", "אֲרוֹן", "Éxodo 25:10–16", "Cofre de acacia revestido de oro, de 2,5 × 1,5 × 1,5 codos, con moldura, cuatro argollas y varas; contenía las tablas del testimonio.", [0, 2.2, holyOfHoliesZ + 1.6], [0, 1.0, holyOfHoliesZ], arcaG, [0, 1.9, holyOfHoliesZ + 0.1]);
+  part("propiciatorio", "Propiciatorio y querubines", "כַּפֹּרֶת", "Éxodo 25:17–22", "Cubierta de oro puro con dos querubines labrados en una sola pieza, cuyas alas cubrían el propiciatorio; allí Dios prometió encontrarse con su pueblo.", [1.8, 2.2, holyOfHoliesZ + 1.2], [0, 1.35, holyOfHoliesZ], propG, [0.8, 2.35, holyOfHoliesZ + 0.1], true);
 
   group.scale.setScalar(SCALE);
-  return { parts, selectables, ghostShell, dust: { points: dust, base: dustBase }, scene: group };
+  return {
+    parts,
+    selectables,
+    ghostShell,
+    dust: { points: dust, base: dustBase },
+    scene: group,
+    layout: {
+      holyOfHolies: {
+        minX: (-tentW / 2 + 0.22) * SCALE,
+        maxX: (tentW / 2 - 0.22) * SCALE,
+        minZ: (zWest + 0.22) * SCALE,
+        maxZ: (veilZ - 0.1) * SCALE,
+      },
+    },
+  };
 }

@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CSS2DRenderer } from "three/addons/renderers/CSS2DRenderer.js";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
-import { buildWorld, SCALE } from "./tabernaculo.js?v=3";
+import { buildWorld, SCALE } from "./tabernaculo.js?v=4";
 import { buildUI } from "./ui.js";
 
 document.documentElement.dataset.tabernacleReady = "true";
@@ -49,7 +49,7 @@ const candeleroLight = new THREE.PointLight(0xffd9a0, 16, 12, 2);
 candeleroLight.position.set(1.5, 2.2, 5);
 scene.add(candeleroLight);
 const arcaLight = new THREE.PointLight(0xffe3b0, 14, 10, 2);
-arcaLight.position.set(0, 1.8, -1.25);
+arcaLight.position.set(0, 1.8, -7).multiplyScalar(SCALE);
 scene.add(arcaLight);
 const altarLight = new THREE.PointLight(0xff8a4a, 18, 14, 2);
 altarLight.position.set(0, 1.8, 7);
@@ -96,14 +96,6 @@ const ui = buildUI(parts, {
   deselect: deselect,
 });
 
-/* Paredes, velos y mobiliario interior: al elegir cualquiera de estas
-   partes se activa "Ver interior" automáticamente, para que las paredes
-   no bloqueen la vista al acercarse o al orbitar desde otro ángulo. */
-const INTERIOR_IDS = new Set([
-  "lugar-santo", "lugar-santisimo", "candelero", "mesa", "incensario",
-  "arca", "propiciatorio", "tablas", "barras", "pantalla", "velo",
-]);
-
 function selectPart(id, doFly) {
   if (walkMode) return;
   deselect(false);
@@ -113,10 +105,6 @@ function selectPart(id, doFly) {
   highlight(p.group, 0x3a2400, 0.55);
   ui.showInfo(id);
   ui.highlight(id);
-  if (INTERIOR_IDS.has(id) && !tglGhost.checked) {
-    tglGhost.checked = true;
-    tglGhost.dispatchEvent(new Event("change"));
-  }
   if (doFly && document.getElementById("tgl-fly").checked) {
     flyTo(p.cam, p.look, 1.35);
   }
@@ -260,6 +248,11 @@ tglLabels.addEventListener("change", () => {
 const tglGhost = document.getElementById("tgl-ghost");
 tglGhost.addEventListener("change", () => {
   const on = tglGhost.checked;
+  if (viewerStatus) {
+    viewerStatus.textContent = on
+      ? "Vista de rayos X activada: las cubiertas son transparentes."
+      : "Vista exterior restaurada: las cubiertas son opacas.";
+  }
   for (const o of world.ghostShell) {
     const mats = o.userData._ghostMats;
     const list = Array.isArray(mats) ? mats : [mats];
@@ -493,6 +486,18 @@ if (new URLSearchParams(location.search).has("selftest")) {
     }
     const missing = [];
     for (const p of parts) if (!p.group || p.group.children.length === 0) missing.push(p.id);
+    const room = world.layout.holyOfHolies;
+    const horizontalBounds = (id) => {
+      const bounds = new THREE.Box3().setFromObject(byId[id].group);
+      return {
+        minX: +bounds.min.x.toFixed(3), maxX: +bounds.max.x.toFixed(3),
+        minZ: +bounds.min.z.toFixed(3), maxZ: +bounds.max.z.toFixed(3),
+      };
+    };
+    const isInside = (bounds) => bounds.minX >= room.minX && bounds.maxX <= room.maxX
+      && bounds.minZ >= room.minZ && bounds.maxZ <= room.maxZ;
+    const arcaBounds = horizontalBounds("arca");
+    const propiciatorioBounds = horizontalBounds("propiciatorio");
     const info = {
       webgl: !!renderer.getContext(),
       meshes: world.selectables.length,
@@ -504,6 +509,13 @@ if (new URLSearchParams(location.search).has("selftest")) {
       camera: camera.position.toArray().map((v) => +v.toFixed(1)),
       target: controls.target.toArray().map((v) => +v.toFixed(1)),
       selected: selectedId,
+      geometry: {
+        arcaInsideHolyOfHolies: isInside(arcaBounds),
+        propiciatorioInsideHolyOfHolies: isInside(propiciatorioBounds),
+        arcaBounds,
+        propiciatorioBounds,
+        holyOfHoliesBounds: room,
+      },
       errors,
     };
     const el = document.createElement("pre");
