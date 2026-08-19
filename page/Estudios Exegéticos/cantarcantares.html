@@ -11,72 +11,138 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exégesis del Capítulo 3 de Cantar de los Cantares</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>La perfumería del Templo: exégesis de Cantar de los Cantares 3 | Ministerio "La Gloria es del Señor"</title>
+    <meta name="description" content="La búsqueda nocturna de la amada y la procesión nupcial de Salomón perfumada de mirra e incienso: análisis lingüístico, histórico y teológico de Cantar de los Cantares 3.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6a1b9a;
-            --secondary: #e84a5f;
-            --accent1: #d4af37;
-            --accent2: #2e8b57;
-            --accent3: #9c27b0;
-            --accent4: #b71c1c;
-            --light: #f9f5eb;
-            --dark: #433a3f;
-            --cream: #f8f3e6;
+            --cabinet: #241a12;
+            --cabinet-mid: #382718;
+            --amber: #c17817;
+            --amber-bright: #e2a13f;
+            --sage: #7c8f6a;
+            --sage-deep: #566b47;
+            --parchment: #f3ead9;
+            --parchment-dark: #e8dcc0;
+            --ink: #2e2013;
+            --ink-soft: #5c4a34;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Alegreya', serif;
             line-height: 1.7;
-            color: var(--dark);
-            background-color: var(--cream);
+            color: var(--ink);
+            background-color: var(--parchment);
             overflow-x: hidden;
         }
-        
+
+        h1, h2, h3, h4, .display-font { font-family: 'Italiana', serif; font-weight: 400; }
+
         header {
-            background: linear-gradient(135deg, var(--primary), var(--accent3));
-            color: white;
-            padding: 3rem 0;
+            background: linear-gradient(160deg, var(--cabinet) 0%, var(--cabinet-mid) 100%);
+            color: var(--parchment);
+            padding: 8rem 0 4rem;
             text-align: center;
             position: relative;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
         }
-        
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at 20% 30%, rgba(193, 120, 23, 0.12) 0%, transparent 45%), radial-gradient(circle at 80% 70%, rgba(124, 143, 106, 0.1) 0%, transparent 45%);
+            pointer-events: none;
+        }
+
+        .apothecary-stamp {
+            position: relative;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5em;
+            font-family: 'Alegreya', serif;
+            font-style: italic;
+            font-size: 0.9rem;
+            letter-spacing: 0.06em;
+            color: var(--amber-bright);
+            border: 1px solid rgba(226, 161, 63, 0.45);
+            border-radius: 2px;
+            padding: 0.5rem 1.1rem;
+            margin-bottom: 1.6rem;
+        }
+
         header h1 {
+            position: relative;
+            z-index: 2;
             font-size: 2.8rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            font-weight: 700;
+            margin-bottom: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.01em;
         }
-        
+
         header p {
+            position: relative;
+            z-index: 2;
+            font-family: 'Alegreya', serif;
+            font-style: italic;
             font-size: 1.2rem;
+            color: rgba(243, 234, 217, 0.8);
             max-width: 800px;
             margin: 0 auto;
             padding: 0 1rem;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
         }
-        
+
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 1.2rem; flex-wrap: wrap;
+            padding: 0.6rem 2rem;
+            background: rgba(36, 26, 18, 0.94);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 161, 63, 0.25);
+        }
+        .header-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+        img[alt="Logo EMD"] {
+            height: 38px; border-radius: 50%; object-fit: cover;
+            border: 2px solid rgba(193, 120, 23, 0.5);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+        .header-logo-text { font-family: 'Italiana', serif; font-size: 0.85rem; line-height: 1.25; color: var(--parchment); }
+        .header-logo-text span { display: block; font-family: 'Alegreya', serif; font-style: italic; color: rgba(243, 234, 217, 0.55); font-size: 0.68rem; }
+        .site-nav-back {
+            display: inline-flex; align-items: center; text-decoration: none;
+            color: var(--parchment); font-weight: 500; font-size: 0.82rem;
+            padding: 0.4rem 0.8rem; border: 1px solid rgba(243, 234, 217, 0.25); border-radius: 2px;
+            transition: background 0.25s ease, border-color 0.25s ease;
+        }
+        .site-nav-back:hover { background: rgba(193, 120, 23, 0.16); border-color: var(--amber); }
+        .site-nav-back svg { width: 0.9em; height: 0.9em; margin-right: 0.3em; }
+
         .nav-container {
-            background-color: white;
+            background-color: var(--parchment-dark);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(46, 32, 19, 0.15);
         }
-        
+
         .nav {
             max-width: 1200px;
             margin: 0 auto;
@@ -85,283 +151,202 @@
             justify-content: center;
             padding: 0.5rem;
         }
-        
+
         .nav-item {
-            padding: 0.8rem 1.5rem;
-            margin: 0.3rem;
-            border-radius: 30px;
-            color: var(--dark);
+            padding: 0.7rem 1.3rem;
+            margin: 0.25rem;
+            border-radius: 2px;
+            color: var(--ink-soft);
+            font-family: 'Alegreya', serif;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
             text-align: center;
+            border: 1px solid transparent;
         }
-        
+
         .nav-item:hover {
-            transform: translateY(-3px);
-        }
-        
-        .nav-item:nth-child(1) {
-            background-color: rgba(106, 27, 154, 0.1);
-        }
-        .nav-item:nth-child(1):hover {
-            background-color: var(--primary);
+            transform: translateY(-2px);
+            background-color: var(--amber);
+            border-color: var(--amber);
             color: white;
         }
-        
-        .nav-item:nth-child(2) {
-            background-color: rgba(232, 74, 95, 0.1);
-        }
-        .nav-item:nth-child(2):hover {
-            background-color: var(--secondary);
-            color: white;
-        }
-        
-        .nav-item:nth-child(3) {
-            background-color: rgba(212, 175, 55, 0.1);
-        }
-        .nav-item:nth-child(3):hover {
-            background-color: var(--accent1);
-            color: white;
-        }
-        
-        .nav-item:nth-child(4) {
-            background-color: rgba(46, 139, 87, 0.1);
-        }
-        .nav-item:nth-child(4):hover {
-            background-color: var(--accent2);
-            color: white;
-        }
-        
-        .nav-item:nth-child(5) {
-            background-color: rgba(156, 39, 176, 0.1);
-        }
-        .nav-item:nth-child(5):hover {
-            background-color: var(--accent3);
+
+        .nav-item.active {
+            background-color: var(--sage);
+            border-color: var(--sage);
             color: white;
         }
         
         section {
             margin: 3rem 0;
             background-color: white;
-            border-radius: 12px;
+            border-radius: 2px;
             padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(46, 32, 19, 0.06);
+            border: 1px solid rgba(46, 32, 19, 0.08);
             position: relative;
             overflow: hidden;
         }
-        
+
         section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--amber), var(--sage));
         }
-        
-        #resumen::before {
-            background-color: var(--primary);
-        }
-        
-        #analisis-linguistico::before {
-            background-color: var(--secondary);
-        }
-        
-        #analisis-historico::before {
-            background-color: var(--accent1);
-        }
-        
-        #analisis-teologico::before {
-            background-color: var(--accent2);
-        }
-        
-        #enfoques::before {
-            background-color: var(--accent3);
-        }
-        
-        #referencias::before {
-            background-color: var(--accent4);
-        }
-        
+
         h2 {
             font-size: 2.2rem;
             margin-bottom: 1.5rem;
-            color: var(--dark);
-            border-bottom: 2px dashed rgba(0, 0, 0, 0.1);
+            color: var(--ink);
+            border-bottom: 2px dashed rgba(46, 32, 19, 0.15);
             padding-bottom: 0.5rem;
         }
-        
+
         h3 {
             font-size: 1.6rem;
             margin: 1.8rem 0 1rem;
-            color: var(--primary);
+            color: var(--amber);
         }
-        
+
         h4 {
             font-size: 1.3rem;
             margin: 1.5rem 0 0.8rem;
-            color: var(--secondary);
+            color: var(--sage-deep);
         }
-        
+
         p {
             margin-bottom: 1rem;
             text-align: justify;
         }
-        
+
         .resaltado {
-            font-weight: bold;
-            color: var(--primary);
+            font-weight: 600;
+            font-style: italic;
+            color: var(--ink);
+            background: rgba(193, 120, 23, 0.08);
+            padding: 0.2em 0;
         }
-        
+
         .hebreo {
             font-size: 1.1em;
             font-weight: bold;
-            color: var(--accent3);
+            color: var(--sage-deep);
             direction: rtl;
             unicode-bidi: embed;
             margin: 0 5px;
         }
-        
+
         .transliteracion {
             font-style: italic;
-            color: var(--accent1);
+            color: var(--amber);
             font-weight: 500;
         }
-        
+
         .card {
-            background-color: white;
-            border-radius: 10px;
+            background-color: var(--parchment);
+            border-radius: 2px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(46, 32, 19, 0.12);
             margin: 2rem 0;
         }
-        
+
         .card-header {
-            padding: 1.5rem;
+            padding: 1.3rem 1.5rem;
             color: white;
-            font-weight: bold;
+            font-family: 'Italiana', serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.01em;
         }
-        
+
         .card-body {
             padding: 1.5rem;
         }
-        
-        .purple-header {
-            background-color: var(--primary);
+
+        .purple-header, .pink-header, .green-header {
+            background-color: var(--sage-deep);
         }
-        
-        .pink-header {
-            background-color: var(--secondary);
-        }
-        
+
         .gold-header {
-            background-color: var(--accent1);
-            color: var(--dark);
+            background-color: var(--amber);
         }
-        
-        .green-header {
-            background-color: var(--accent2);
-        }
-        
+
         .tema {
             margin: 2rem 0;
             padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-radius: 2px;
+            background-color: var(--parchment);
+            border: 1px solid rgba(46, 32, 19, 0.1);
             transition: transform 0.3s ease;
         }
-        
+
         .tema:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
         }
-        
+
         .tema h3 {
             font-size: 1.5rem;
             margin-top: 0;
             margin-bottom: 1rem;
             color: white;
+            font-family: 'Italiana', serif;
             padding: 0.5rem 1rem;
-            border-radius: 5px;
+            border-radius: 2px;
             display: inline-block;
+            background-color: var(--sage-deep);
         }
-        
-        .tema-1 {
-            background-color: rgba(106, 27, 154, 0.05);
-            border-left: 5px solid var(--primary);
+
+        .tema-1, .tema-2, .tema-3, .tema-4 {
+            background-color: var(--parchment);
+            border-left: 4px solid var(--amber);
         }
-        
-        .tema-1 h3 {
-            background-color: var(--primary);
-        }
-        
-        .tema-2 {
-            background-color: rgba(232, 74, 95, 0.05);
-            border-left: 5px solid var(--secondary);
-        }
-        
-        .tema-2 h3 {
-            background-color: var(--secondary);
-        }
-        
-        .tema-3 {
-            background-color: rgba(212, 175, 55, 0.05);
-            border-left: 5px solid var(--accent1);
-        }
-        
-        .tema-3 h3 {
-            background-color: var(--accent1);
-            color: var(--dark);
-        }
-        
-        .tema-4 {
-            background-color: rgba(46, 139, 87, 0.05);
-            border-left: 5px solid var(--accent2);
-        }
-        
-        .tema-4 h3 {
-            background-color: var(--accent2);
-        }
-        
+
         .cita {
-            padding: 1.2rem 1.8rem;
-            background-color: rgba(0, 0, 0, 0.03);
-            border-left: 3px solid var(--secondary);
+            padding: 1.2rem 1.8rem 1.2rem 2.2rem;
+            background-color: rgba(124, 143, 106, 0.06);
+            border-left: 3px dashed var(--sage);
             margin: 1.5rem 0;
             font-style: italic;
             position: relative;
         }
-        
+
         .cita::before {
-            content: '"';
-            font-size: 4rem;
-            color: rgba(0, 0, 0, 0.08);
+            content: '';
             position: absolute;
-            top: -15px;
-            left: 10px;
-            font-family: Georgia, serif;
+            top: 1.2rem;
+            left: -7px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--parchment);
+            border: 2px solid var(--sage);
         }
-        
+
         .btn-expand {
-            background-color: var(--primary);
+            background-color: var(--amber);
             color: white;
             border: none;
             padding: 0.6rem 1.2rem;
-            border-radius: 5px;
+            border-radius: 2px;
             cursor: pointer;
             margin: 1.3rem 0;
             display: inline-flex;
             align-items: center;
+            font-family: 'Alegreya', serif;
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .btn-expand:hover {
-            background-color: var(--accent3);
+            background-color: var(--sage-deep);
             transform: translateY(-2px);
         }
-        
-        .btn-expand i {
+
+        .btn-expand svg {
             margin-right: 0.5rem;
         }
         
@@ -393,33 +378,34 @@
         .image-container img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 2px;
+            border: 1px solid rgba(46, 32, 19, 0.15);
+            box-shadow: 0 4px 20px rgba(46, 32, 19, 0.15);
         }
-        
+
         .image-container figcaption {
             margin-top: 1rem;
             font-style: italic;
-            color: var(--dark);
-            opacity: 0.8;
+            color: var(--ink-soft);
+            opacity: 0.85;
             max-width: 80%;
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         .termino {
             margin: 1.5rem 0;
             padding: 1.5rem;
-            border-radius: 8px;
-            background-color: rgba(249, 245, 235, 0.7);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-            border-top: 3px solid var(--accent3);
+            border-radius: 2px;
+            background-color: rgba(193, 120, 23, 0.05);
+            border: 1px solid rgba(46, 32, 19, 0.08);
+            border-top: 3px solid var(--amber);
         }
-        
+
         .termino h4 {
-            color: var(--primary);
+            color: var(--amber);
             margin-bottom: 0.8rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(46, 32, 19, 0.1);
             padding-bottom: 0.5rem;
         }
         
@@ -451,154 +437,152 @@
         }
         
         .lado-judio {
-            background-color: rgba(212, 175, 55, 0.1);
-            border-left: 4px solid var(--accent1);
+            background-color: rgba(193, 120, 23, 0.07);
+            border-left: 4px solid var(--amber);
         }
-        
+
         .lado-cristiano {
-            background-color: rgba(106, 27, 154, 0.1);
-            border-left: 4px solid var(--primary);
+            background-color: rgba(124, 143, 106, 0.08);
+            border-left: 4px solid var(--sage-deep);
         }
-        
+
         .lado h4 {
             margin-top: 0;
             padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(46, 32, 19, 0.1);
         }
-        
+
         .lado ul {
             list-style-type: none;
             padding-left: 0;
         }
-        
+
         .lado li {
             margin-bottom: 0.8rem;
             position: relative;
-            padding-left: 1.5rem;
+            padding-left: 1.6rem;
         }
-        
+
         .lado-judio li::before {
-            content: '<svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
-</svg>';
+            content: '';
             position: absolute;
             left: 0;
-            color: var(--accent1);
+            top: 0.15em;
+            width: 1em;
+            height: 1em;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23c17817' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
         }
-        
+
         .lado-cristiano li::before {
             content: '✚';
             position: absolute;
             left: 0;
-            color: var(--primary);
+            color: var(--sage-deep);
         }
-        
+
         .referencias {
             margin-top: 2rem;
             padding: 1.5rem;
-            background-color: rgba(0, 0, 0, 0.02);
-            border-radius: 8px;
+            background-color: rgba(46, 32, 19, 0.03);
+            border-radius: 2px;
+            border: 1px solid rgba(46, 32, 19, 0.08);
         }
-        
+
         .referencias h3 {
             margin-top: 0;
-            color: var(--accent4);
+            color: var(--amber);
         }
-        
+
         .referencias ul {
             list-style-type: none;
             padding-left: 0;
         }
-        
+
         .referencias li {
             margin-bottom: 0.8rem;
             position: relative;
             padding-left: 1.5rem;
         }
-        
+
         .referencias li::before {
             content: '•';
             position: absolute;
             left: 0;
-            color: var(--accent4);
+            color: var(--amber);
             font-weight: bold;
         }
-        
+
         footer {
-            background-color: var(--dark);
-            color: white;
+            background-color: var(--cabinet);
+            color: var(--parchment);
             padding: 2rem 0;
             text-align: center;
             margin-top: 3rem;
         }
-        
+
         footer p {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
+            font-style: italic;
+            opacity: 0.85;
         }
-        
+
         .scroll-top {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: var(--primary);
+            background-color: var(--amber);
             color: white;
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 10px rgba(46, 32, 19, 0.3);
             transition: all 0.3s ease;
             z-index: 100;
         }
-        
+
         .scroll-top:hover {
             transform: translateY(-5px);
-            background-color: var(--accent3);
+            background-color: var(--sage-deep);
         }
-        
+
         /* Estilos para móviles */
         @media (max-width: 768px) {
+            .site-header { padding: 0.5rem 1.1rem; }
+            .header-logo-text { display: none; }
+
             header h1 {
                 font-size: 2rem;
             }
-            
+
             header p {
                 font-size: 1rem;
             }
-            
+
             .nav-item {
                 padding: 0.6rem 1rem;
                 font-size: 0.9rem;
             }
-            
+
             section {
                 padding: 1.5rem;
             }
-            
+
             h2 {
                 font-size: 1.8rem;
             }
-            
+
             h3 {
                 font-size: 1.4rem;
             }
-            
+
             .comparacion {
                 flex-direction: column;
             }
@@ -606,25 +590,40 @@
     </style>
 </head>
 <body>
+    <header class="site-header">
+        <a href="../../index.html" class="header-logo">
+            <img src="../../images/EMD.png?v=2" alt="Logo EMD">
+            <div class="header-logo-text">
+                Ministerio
+                <span>"La Gloria es del Señor"</span>
+            </div>
+        </a>
+        <a href="temas-exegeticos.html" class="site-nav-back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+            Temas exegéticos
+        </a>
+    </header>
+
     <header>
-        <h1>Exégesis del Capítulo 3 de Cantar de los Cantares</h1>
+        <span class="apothecary-stamp">La perfumería del Templo</span>
+        <h1>Exégesis del capítulo 3 de Cantar de los Cantares</h1>
         <p>Un análisis profundo del amor y la búsqueda entre los amados en esta joya poética bíblica</p>
     </header>
-    
+
     <div class="nav-container">
         <nav class="nav">
-            <a href="#resumen" class="nav-item"><i class="fas fa-book"></i> Resumen</a>
-            <a href="#analisis-linguistico" class="nav-item"><i class="fas fa-language"></i> Análisis Lingüístico</a>
-            <a href="#analisis-historico" class="nav-item"><i class="fas fa-history"></i> Análisis Histórico</a>
-            <a href="#analisis-teologico" class="nav-item"><i class="fas fa-pray"></i> Análisis Teológico</a>
-            <a href="#enfoques" class="nav-item"><i class="fas fa-balance-scale"></i> Enfoques Interpretativos</a>
-            <a href="#referencias" class="nav-item"><i class="fas fa-scroll"></i> Referencias</a>
+            <a href="#resumen" class="nav-item"><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Resumen</a>
+            <a href="#analisis-linguistico" class="nav-item"><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg> Análisis lingüístico</a>
+            <a href="#analisis-historico" class="nav-item"><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg> Análisis histórico</a>
+            <a href="#analisis-teologico" class="nav-item"><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg> Análisis teológico</a>
+            <a href="#enfoques" class="nav-item"><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg> Enfoques interpretativos</a>
+            <a href="#referencias" class="nav-item"><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg> Referencias</a>
         </nav>
     </div>
-    
+
     <div class="container">
         <section id="resumen">
-            <h2><i class="fas fa-book"></i> Resumen del Capítulo</h2>
+            <h2><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Resumen del capítulo</h2>
             
             <p>El capítulo 3 de Cantar de los Cantares se divide en dos escenas poéticas. En los versículos 1-5, la voz femenina describe cómo "por las noches" busca a su amado en su lecho y por la ciudad, hasta encontrarlo y llevarlo a la casa de su madre. En los versículos 6-11, se presenta una escena de cortejo real: una procesión nupcial con el rey Salomón, sesenta guerreros escoltando un palanquín (litera o carroza) adornado con perfumes, y una invitación a las "hijas de Sión" a contemplar al rey con la corona del día de su boda.</p>
             
@@ -635,7 +634,7 @@
             
             <div class="card">
                 <div class="card-header purple-header">
-                    Estructura del Capítulo 3
+                    Estructura del capítulo 3
                 </div>
                 <div class="card-body">
                     <ul>
@@ -662,7 +661,7 @@
         </section>
         
         <section id="analisis-linguistico">
-            <h2><i class="fas fa-language"></i> Análisis Lingüístico del Texto Hebreo</h2>
+            <h2><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg> Análisis lingüístico del texto hebreo</h2>
             
             <p>El lenguaje original hebreo de Cantar de los Cantares 3 está cargado de matices poéticos. Algunos términos clave y expresiones merecen atención especial:</p>
             
@@ -687,7 +686,7 @@
             </div>
             
             <button class="btn-expand" onclick="toggleContent('linguistico-content')">
-                <i class="fas fa-plus-circle"></i> Ver más análisis lingüístico
+                <svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Ver más análisis lingüístico
             </button>
             
             <div id="linguistico-content" class="hidden-content">
@@ -741,7 +740,7 @@
         </section>
         
         <section id="analisis-historico">
-            <h2><i class="fas fa-history"></i> Análisis Histórico y Contextual</h2>
+            <h2><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg> Análisis histórico y contextual</h2>
             
             <div class="card">
                 <div class="card-header gold-header">
@@ -787,7 +786,7 @@
             </div>
             
             <button class="btn-expand" onclick="toggleContent('historico-content')">
-                <i class="fas fa-plus-circle"></i> Ver más análisis histórico
+                <svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Ver más análisis histórico
             </button>
             
             <div id="historico-content" class="hidden-content">
@@ -820,7 +819,7 @@
         </section>
         
         <section id="analisis-teologico">
-            <h2><i class="fas fa-pray"></i> Análisis Teológico y Espiritual</h2>
+            <h2><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg> Análisis teológico y espiritual</h2>
             
             <p>Aunque a primera vista el Cantar es poesía amorosa humana, a lo largo de los siglos ha sido leído con profundos significados espirituales. El capítulo 3, en particular, ha inspirado interpretaciones teológicas que van desde lecturas alegóricas tradicionales hasta reflexiones místicas sobre la relación del alma con lo divino:</p>
             
@@ -849,7 +848,7 @@
                 </div>
                 
                 <button class="btn-expand" onclick="toggleContent('alegorico-content')">
-                    <i class="fas fa-plus-circle"></i> Ver más sobre interpretación alegórica
+                    <svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Ver más sobre interpretación alegórica
                 </button>
                 
                 <div id="alegorico-content" class="hidden-content">
@@ -899,7 +898,7 @@
         </section>
         
         <section id="enfoques">
-            <h2><i class="fas fa-balance-scale"></i> Enfoques Interpretativos: Tradición Judía vs. Tradición Cristiana</h2>
+            <h2><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg> Enfoques interpretativos: tradición judía vs. tradición cristiana</h2>
             
             <p>A lo largo de la historia, judíos y cristianos han ofrecido lecturas ricas y a veces divergentes de Cantar de los Cantares. El capítulo 3, con su combinación de intimidad y pompa, recibió interpretaciones particulares en ambas tradiciones. A continuación comparamos estos enfoques exegéticos:</p>
             
@@ -910,7 +909,7 @@
             
             <div class="comparacion">
                 <div class="lado lado-judio">
-                    <h4>Tradición Judía</h4>
+                    <h4>Tradición judía</h4>
                     
                     <p>La tradición judía, desde épocas tempranas, ha sostenido que el Cantar es una alegoría del amor entre Hashem (Dios) e Israel. Ningún otro libro bíblico recibió un tratamiento alegórico tan consistente en el judaísmo rabínico.</p>
                     
@@ -927,7 +926,7 @@
                     </div>
                     
                     <button class="btn-expand" onclick="toggleContent('judio-content')">
-                        <i class="fas fa-plus-circle"></i> Ver más tradición judía
+                        <svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Ver más tradición judía
                     </button>
                     
                     <div id="judio-content" class="hidden-content">
@@ -957,7 +956,7 @@
                 </div>
                 
                 <div class="lado lado-cristiano">
-                    <h4>Tradición Cristiana</h4>
+                    <h4>Tradición cristiana</h4>
                     
                     <p>La tradición cristiana temprana heredó en parte la visión alegórica judía y la reorientó hacia Cristo y la Iglesia. No obstante, también introdujo matices nuevos, incluyendo interpretaciones morales y místicas.</p>
                     
@@ -971,7 +970,7 @@
                     </div>
                     
                     <button class="btn-expand" onclick="toggleContent('cristiano-content')">
-                        <i class="fas fa-plus-circle"></i> Ver más tradición cristiana
+                        <svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Ver más tradición cristiana
                     </button>
                     
                     <div id="cristiano-content" class="hidden-content">
@@ -1015,7 +1014,7 @@
         </section>
         
         <section id="referencias">
-            <h2><i class="fas fa-scroll"></i> Referencias Académicas y Comentarios Especializados</h2>
+            <h2><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg> Referencias académicas y comentarios especializados</h2>
             
             <p>Para enriquecer el análisis anterior, se han integrado aportes de diversos estudios bíblicos y comentarios exegéticos de renombre:</p>
             
@@ -1042,11 +1041,11 @@
     </div>
     
     <footer>
-        <p>Exégesis del Capítulo 3 de Cantar de los Cantares | Un estudio sobre el amor humano y el amor divino en la poesía bíblica</p>
+        <p>Exégesis del capítulo 3 de Cantar de los Cantares | Un estudio sobre el amor humano y el amor divino en la poesía bíblica</p>
     </footer>
     
     <div class="scroll-top" onclick="scrollToTop()">
-        <i class="fas fa-arrow-up"></i>
+        <svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
     </div>
     
     <script>
@@ -1056,12 +1055,12 @@
                 content.classList.remove('hidden-content');
                 content.classList.add('show');
                 const button = content.previousElementSibling;
-                button.innerHTML = `<i class="fas fa-minus-circle"></i> Mostrar menos`;
+                button.innerHTML = `<svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg> Mostrar menos`;
             } else {
                 content.classList.remove('show');
                 content.classList.add('hidden-content');
                 const button = content.previousElementSibling;
-                button.innerHTML = `<i class="fas fa-plus-circle"></i> Ver más`;
+                button.innerHTML = `<svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Ver más`;
             }
         }
         

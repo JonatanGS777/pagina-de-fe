@@ -337,6 +337,18 @@ Tras agregarse `tabernaculo-3d.html`, una revisión a fondo (a pedido del usuari
 - Contenido íntegro (preparativos actuales, 4 profecías bíblicas, influencia política, cronología de 8 eventos, reflexión final) sin alterar ninguna afirmación, incluidas las dos señaladas al usuario.
 - **Con esta página, las 7 páginas de `analisisescatologico/` quedan completas:** `conversiones.html` (Lluvia Tardía), `economiaglobal.html` (Babilonia Digital), `eze34.html` (Rebaño Disperso), `persecusion.html` (Mapa de Mártires), `tecnologia.html` (Expediente Cyborg 2050) y `tercertemplo.html` (Planos del Tercer Templo) — cada una con su propia dirección estética, sin plantilla compartida entre ellas.
 
+### 2026-08-19: primera página de `Estudios Exegéticos/` — cantarcantares.html "La Perfumería del Templo"
+
+- **`page/Estudios Exegéticos/cantarcantares.html`:** contenido revisado antes de tocar el archivo — es exégesis académica legítima y bien fundamentada de Cantar de los Cantares 3, con fuentes reales verificables (Rashi, Orígenes, Ibn Ezra, Bernardo de Claraval, Roland E. Murphy, J. Paul Tanner, entre otros). Sin acusaciones a personas reales ni contenido conspirativo — no ameritó pausa de contenido.
+- Rediseñada con el concepto "La Perfumería del Templo" (botica antigua de resinas aromáticas), elegido por encajar con las "columnas de humo" de mirra e incienso que dominan la segunda escena del capítulo (3:6-11). Cabinet oscuro `#241a12` en el header/hero con vidrio ámbar `#c17817` y verde salvia `#7c8f6a` de acento, tarjetas en pergamino claro `#f3ead9` para el cuerpo del texto. Tipografía Italiana (títulos, serif fino tipo etiqueta de perfumería) + Alegreya (cuerpo, con cursivas para las citas), ninguna usada antes en el sitio.
+- **Se quitó Font Awesome** (CDN `cdnjs.cloudflare.com`, sin SRI): los 20 usos de `<i class="fas fa-*">` (nav de 6 secciones, títulos `<h2>`, botones "ver más/menos" y botón de scroll-top, incluidos 2 que se generaban dinámicamente vía `innerHTML` en JS) se reemplazaron por SVG de Lucide inline, siguiendo la convención ya establecida en el resto del sitio (historial 2026-08-12).
+- **Bug corregido:** `.lado-judio li::before` fijaba `content` a un string literal con markup `<svg>...</svg>` completo (multilínea, sin escapar) — el mismo patrón de bug ya documentado en `acertijos.html`, `etica-cristiana.html` y `tecnologia.html`. Nunca se renderizaba como ícono real. Se reemplazó por un `background-image` con el mismo SVG como data-URI, ahora sí visible junto a cada punto de la lista de tradición judía.
+- Se agregó el header estándar del sitio (logo + `nav-back` a `temas-exegeticos.html`, la página índice de la categoría que enlaza aquí) — antes solo tenía su propio `<header>` de artículo, sin logo ni navegación al resto del sitio. Se conservó el nav interno de 6 secciones con anclas (`#resumen`, `#analisis-linguistico`, etc.) ya existente, restilizado a la nueva paleta.
+- Mayúsculas de títulos, subtítulos de nav, encabezados de tarjeta y `<h4>` corregidas a ortografía española (conservando nombres propios: "Cantar de los Cantares", "Rashi", "Iglesia", "Padres de la Iglesia").
+- Colores por sección tipo arcoíris (morado/rosa/dorado/verde, uno distinto por `<section>`) unificados en una sola dirección estética coherente (ámbar + salvia), en vez de un acento de color distinto por cada sección sin relación temática entre sí.
+- Contenido íntegro (las 5 imágenes referenciadas en `images/` ya existían y cargan correctamente) sin alterar ninguna afirmación académica ni cita.
+- **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para las demás páginas pendientes de `Estudios Exegéticos/`.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -631,12 +643,12 @@ Página de Fe/
 | `page/Tiempo del Fin/analisisescatologico/persecusion.html` | Completado: estilo propio "Mapa de Mártires" (dashboard de datos reales, sin problemas de contenido). Antes huérfana y con textos en inglés sin traducir; ver historial 2026-08-19 |
 | `page/Tiempo del Fin/analisisescatologico/tecnologia.html` | Completado: estilo propio "Expediente Cyborg 2050" (documento militar desclasificado). Antes huérfana, sin header del sitio; ver historial 2026-08-19 |
 | `page/Tiempo del Fin/analisisescatologico/tercertemplo.html` | Completado: estilo propio "Planos del Tercer Templo" (cianotipo/plano arquitectónico). Antes huérfana, sin header del sitio. **Cita atribuida a Pete Hegseth y acusación sin verificar contra Itamar Ben-Gvir sobre demolición de Al-Aqsa, mantenidas a decisión informada del usuario — ver historial 2026-08-19.** Con esta página, las 7 páginas de `analisisescatologico/` quedan completas. |
+| `page/Estudios Exegéticos/cantarcantares.html` | Completado: estilo propio "La Perfumería del Templo" (botica antigua de resinas aromáticas). Sin problemas de contenido (exégesis académica bien fundamentada). Se quitó Font Awesome (CDN) y se reemplazaron 20 íconos por SVG Lucide inline; se corrigió un bug preexistente de `::before { content: '<svg>...' }` (markup SVG como string CSS, nunca se renderizaba); ver historial 2026-08-19 |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
 #### `page/Estudios Exegéticos/`
 
-- [ ] `cantarcantares.html`
 - [ ] `diccionarios-comentarios.html`
 - [ ] `enlaces-recursos.html`
 - [ ] `hebreos7.html`
@@ -652,10 +664,6 @@ Página de Fe/
 - [ ] `planes/plan-cronologico.html`
 - [ ] `planes/plan-devocional.html`
 - [ ] `planes/plan-tematico.html`
-
-#### `page/Tiempo del Fin/`
-
-- [ ] `analisisescatologico/tercertemplo.html` (última página de la categoría)
 
 ---
 
