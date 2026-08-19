@@ -349,6 +349,17 @@ Tras agregarse `tabernaculo-3d.html`, una revisión a fondo (a pedido del usuari
 - Contenido íntegro (las 5 imágenes referenciadas en `images/` ya existían y cargan correctamente) sin alterar ninguna afirmación académica ni cita.
 - **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para las demás páginas pendientes de `Estudios Exegéticos/`.
 
+### 2026-08-19: segunda página de `Estudios Exegéticos/` — diccionarios-comentarios.html "La Estantería del Erudito"
+
+- **`page/Estudios Exegéticos/diccionarios-comentarios.html`:** directorio de 30 recursos (diccionarios y comentarios bíblicos clásicos y contemporáneos: Vine, Strong, Kittel y Friedrich, Matthew Henry, MacArthur, Keener, Bullinger, entre otros) más 3 bloques de recursos por idioma original. A diferencia de las páginas de `Falsas Doctrinas/` y `Tiempo del Fin/`, esta ya tenía el menú global del sitio (dropdown de 7 categorías) correctamente enlazado — no estaba huérfana.
+- **Nota sobre los enlaces externos (no resuelta, no es nueva):** varios enlaces apuntan a copias de libros con derechos de autor alojadas en `scribd.com`, `archive.org` y blogs personales, en vez de fuentes oficiales de los editores. Esto ya existía antes de este rediseño y el pie de página del sitio incluye una nota ("Todos los recursos de esta página son gratuitos y para la edificación de los creyentes") — se dejó intacto, sin verificar ni curar cada enlace, ya que es una decisión editorial preexistente del ministerio, no algo introducido en este rediseño.
+- Rediseñada con el concepto "La Estantería del Erudito" (biblioteca personal de estudioso), elegido entre 3 direcciones (Catálogo de Fichas, Estantería del Erudito, Sala de Lectura) por ser el que mejor encaja con un directorio de obras de referencia clasificadas por tipo e idioma. Paleta cuero verde `#1f3d2e` + nogal `#4a3421` + latón envejecido `#b8935a`, sobre pergamino `#f4ede0`. Tipografía Libre Baskerville (títulos, clásica de edición de libros) + Jost (cuerpo, UI y navegación), ninguna usada antes en el sitio — reemplazan Poppins/Montserrat/Playfair Display/Cormorant Garamond, que ya no estaban cargadas como Google Fonts pero seguían referenciadas en el CSS (fallback a fuente del sistema).
+- **Se quitó Font Awesome** (CDN `cdnjs.cloudflare.com` 6.0.0, sin SRI): 35 íconos únicos (`<i class="fas fa-*">`/`fab fa-*`) — 30 de las tarjetas de recursos, 3 de los bloques de idioma, y los de navegación/footer/redes (incluidos Facebook y YouTube, con su propio trazo de marca) — se reemplazaron por SVG inline (Lucide para los genéricos, trazo de marca simplificado para los dos íconos sociales). La cruz ✝ se dejó como carácter Unicode, siguiendo la convención ya establecida en el sitio.
+- **Bugs de datos corregidos:** el título "COMENTARIO BIBLICO BEACON" / autor "TOMO DIEZ EN UNO" (mayúsculas sostenidas sin acentos) corregido a "Comentario Bíblico Beacon" / "Tomo diez en uno"; el título "Comentario-Biblico-de-William-McDonald-AT-NT" (con guiones de un nombre de archivo filtrados al HTML) corregido a "Comentario Bíblico de William McDonald: AT y NT", autor "WILLIAM MCDONALD" → "William McDonald"; el enlace de esa misma tarjeta tenía un espacio final en la URL (` .pdf "`) que se quitó, y se le agregó el `target="_blank"` que le faltaba (todas las demás tarjetas ya lo tenían).
+- Colores por lengua original (`.lang-hebrew`/`.lang-aramaic`/`.lang-greek`) y variables de acento reajustados a la nueva paleta; quedaban varios `rgba()` sueltos de un morado (`rgba(74, 38, 107, ...)`) que no correspondía a ninguna variable CSS activa, remanente de una paleta anterior — unificados al verde cuero de la paleta actual.
+- Mayúsculas de `<h1>`, `<h2>`, pestañas y encabezados de sección corregidas a ortografía española; copyright 2025 → 2026. Los 30 títulos de obras (nombres propios de libros) se dejaron con su capitalización original, igual que "Cantar de los Cantares" en la página anterior.
+- **Nota:** este estilo es específico al rol de esta página como directorio de referencia — no reciclar como plantilla para las demás páginas pendientes de `Estudios Exegéticos/`.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -644,12 +655,12 @@ Página de Fe/
 | `page/Tiempo del Fin/analisisescatologico/tecnologia.html` | Completado: estilo propio "Expediente Cyborg 2050" (documento militar desclasificado). Antes huérfana, sin header del sitio; ver historial 2026-08-19 |
 | `page/Tiempo del Fin/analisisescatologico/tercertemplo.html` | Completado: estilo propio "Planos del Tercer Templo" (cianotipo/plano arquitectónico). Antes huérfana, sin header del sitio. **Cita atribuida a Pete Hegseth y acusación sin verificar contra Itamar Ben-Gvir sobre demolición de Al-Aqsa, mantenidas a decisión informada del usuario — ver historial 2026-08-19.** Con esta página, las 7 páginas de `analisisescatologico/` quedan completas. |
 | `page/Estudios Exegéticos/cantarcantares.html` | Completado: estilo propio "La Perfumería del Templo" (botica antigua de resinas aromáticas). Sin problemas de contenido (exégesis académica bien fundamentada). Se quitó Font Awesome (CDN) y se reemplazaron 20 íconos por SVG Lucide inline; se corrigió un bug preexistente de `::before { content: '<svg>...' }` (markup SVG como string CSS, nunca se renderizaba); ver historial 2026-08-19 |
+| `page/Estudios Exegéticos/diccionarios-comentarios.html` | Completado: estilo propio "La Estantería del Erudito" (biblioteca personal: cuero verde, nogal, latón). Directorio de recursos legítimo (diccionarios y comentarios clásicos: Vine, Strong, Kittel, Matthew Henry, MacArthur, Keener, etc.), ya con el menú global del sitio correctamente enlazado. Se quitó Font Awesome (CDN) y se reemplazaron 35 íconos (incluidos 2 de marca, Facebook/YouTube) por SVG inline; se corrigieron 2 títulos con bugs de datos (mayúsculas sostenidas y guiones de nombre de archivo filtrados en el título) y una URL con espacio final; ver historial 2026-08-19 |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
 #### `page/Estudios Exegéticos/`
 
-- [ ] `diccionarios-comentarios.html`
 - [ ] `enlaces-recursos.html`
 - [ ] `hebreos7.html`
 - [ ] `idiomas-biblia.html`
