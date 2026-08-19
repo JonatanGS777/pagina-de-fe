@@ -360,6 +360,16 @@ Tras agregarse `tabernaculo-3d.html`, una revisión a fondo (a pedido del usuari
 - Mayúsculas de `<h1>`, `<h2>`, pestañas y encabezados de sección corregidas a ortografía española; copyright 2025 → 2026. Los 30 títulos de obras (nombres propios de libros) se dejaron con su capitalización original, igual que "Cantar de los Cantares" en la página anterior.
 - **Nota:** este estilo es específico al rol de esta página como directorio de referencia — no reciclar como plantilla para las demás páginas pendientes de `Estudios Exegéticos/`.
 
+### 2026-08-19: tercera página de `Estudios Exegéticos/` — temas-exegeticos.html "Cantera de la Palabra"
+
+- **`page/Estudios Exegéticos/temas-exegeticos.html`:** el usuario detectó que esta página, siendo el índice de toda la categoría (a la que ya apuntaban `cantarcantares.html` y `diccionarios-comentarios.html` como "volver"), nunca había recibido el rediseño — no estaba listada como completada ni pendiente, un vacío en el propio README. Rediseñada con un concepto de extracción de piedra, elegido por encajar literalmente con el verso ya destacado como scripture-box central de la página, 2 Timoteo 2:15 ("que usa bien la palabra de verdad" — el griego original dice literalmente "cortar rectamente"). Tipografía Yeseva One (títulos, trazo grueso tipo letra cincelada) + DM Serif Text (cuerpo), ninguna usada antes en el sitio. Paleta de cantera: basalto casi negro `#120f0c`/`#1e1a15`, piedra caliza `#e4dcc4`, veta de oro `#b8923f`/`#d9b566` — deliberadamente distinta de la paleta óxido/piedra caliza de "Cimientos" (`doctrina-basica.html`, único otro rediseño con metáfora de piedra en el sitio) para no solaparse pese a compartir familia temática.
+- **Se quitó Font Awesome** (CDN `cdnjs.cloudflare.com` 6.0.0): reloj, sobre, teléfono, ubicación, menú móvil y los 2 íconos de marca (Facebook/YouTube) se reemplazaron por SVG Lucide inline, reutilizando los mismos paths ya verificados en otras páginas del sitio (`diccionarios-comentarios.html`, `templo.html`, `noticias-fin.html`) en vez de reconstruirlos de memoria.
+- **Bug de menú móvil duplicado corregido:** el mismo patrón de doble listener ya documentado en `noticias-fin.html` y `profecias-cumplidas.html` — un primer script hacía `nav.classList.toggle('active')` en el clic del botón de menú, y un segundo script (IIFE, agregado en el historial 2026-08-12 para el `nav-backdrop`) volvía a alternar la misma clase — se unificaron en el único script IIFE ya usado como patrón estándar en las páginas corregidas previamente.
+- **Imágenes optimizadas:** las 5 fotos de las tarjetas y el fondo del hero (`fondo-exegesis.png`) pesaban 2.7–3.9 MB cada una sin comprimir; se generaron versiones `-web.jpg` (76–97 KB c/u) vía `sips`, manteniendo los archivos originales sin tocar. Las fotos de las tarjetas llevan además un filtro sepia sutil (`sepia(0.28)`) para unificar bajo un mismo tono de piedra fotografías de origen dispar, que se aclara al pasar el cursor.
+- Las tarjetas de estudio pasaron a bloques con esquina cortada (`clip-path`) simulando piedra tallada; los filtros de categoría se recolorearon como "vetas" seleccionables; el scripture-box se convirtió en una tablilla inscrita con un sello circular de cita tallado en el borde superior.
+- Contenido íntegro (introducción a la exégesis, 5 tarjetas de estudio con sus textos y tiempos de lectura, cita de 2 Timoteo 2:15, CTA final) sin alterar una palabra; copyright 2025 → 2026; título del `<head>` con separador `|` (antes `-`), siguiendo la convención ya establecida.
+- **Nota:** este estilo es específico al rol de esta página como índice de la categoría — no reciclar como plantilla para las demás páginas pendientes de `Estudios Exegéticos/`.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -656,6 +666,7 @@ Página de Fe/
 | `page/Tiempo del Fin/analisisescatologico/tercertemplo.html` | Completado: estilo propio "Planos del Tercer Templo" (cianotipo/plano arquitectónico). Antes huérfana, sin header del sitio. **Cita atribuida a Pete Hegseth y acusación sin verificar contra Itamar Ben-Gvir sobre demolición de Al-Aqsa, mantenidas a decisión informada del usuario — ver historial 2026-08-19.** Con esta página, las 7 páginas de `analisisescatologico/` quedan completas. |
 | `page/Estudios Exegéticos/cantarcantares.html` | Completado: estilo propio "La Perfumería del Templo" (botica antigua de resinas aromáticas). Sin problemas de contenido (exégesis académica bien fundamentada). Se quitó Font Awesome (CDN) y se reemplazaron 20 íconos por SVG Lucide inline; se corrigió un bug preexistente de `::before { content: '<svg>...' }` (markup SVG como string CSS, nunca se renderizaba); ver historial 2026-08-19 |
 | `page/Estudios Exegéticos/diccionarios-comentarios.html` | Completado: estilo propio "La Estantería del Erudito" (biblioteca personal: cuero verde, nogal, latón). Directorio de recursos legítimo (diccionarios y comentarios clásicos: Vine, Strong, Kittel, Matthew Henry, MacArthur, Keener, etc.), ya con el menú global del sitio correctamente enlazado. Se quitó Font Awesome (CDN) y se reemplazaron 35 íconos (incluidos 2 de marca, Facebook/YouTube) por SVG inline; se corrigieron 2 títulos con bugs de datos (mayúsculas sostenidas y guiones de nombre de archivo filtrados en el título) y una URL con espacio final; ver historial 2026-08-19 |
+| `page/Estudios Exegéticos/temas-exegeticos.html` | Completado: estilo propio "Cantera de la Palabra" (extracción de piedra, ligado a 2 Ti 2:15). Página índice de la categoría, detectada sin rediseñar pese a que sus dos páginas hijas ya la usaban como "volver"; ver historial 2026-08-19 |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
@@ -669,7 +680,6 @@ Página de Fe/
 - [ ] `meditacion-palabra.html`
 - [ ] `romanos11.html`
 - [ ] `software-biblico.html`
-- [ ] `temas-exegeticos.html`
 - [ ] `templo.html`
 - [ ] `planes/plan-acelerado.html`
 - [ ] `planes/plan-cronologico.html`
