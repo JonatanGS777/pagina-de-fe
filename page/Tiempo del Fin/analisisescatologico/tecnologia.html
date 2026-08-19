@@ -11,559 +11,221 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Marca de la Bestia: Realidad Tecnológica del 2050</title>
+    <title>La marca de la bestia: realidad tecnológica del 2050 | Ministerio "La Gloria es del Señor"</title>
+    <meta name="description" content="El informe real del Departamento de Defensa de EE. UU. 'Cyborg Soldier 2050' analizado junto a la profecía de Apocalipsis 13 sobre la marca de la bestia.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil:wght@400;600;700;900&family=Chivo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        :root {
+            --olive: #2e3320;
+            --olive-deep: #1c1f14;
+            --redact: #0d0d0d;
+            --amber: #c9932f;
+            --amber-bright: #e0ab48;
+            --paper: #e8e2d0;
+            --panel: #f2ede0;
+            --ink: #201f1a;
+            --ink-soft: #454034;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
+            font-family: 'Chivo', sans-serif;
+            background: var(--paper);
+            color: var(--ink-soft);
             overflow-x: hidden;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        /* Fondo animado */
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at 20% 50%, #1a0033 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, #330011 0%, transparent 50%),
-                        radial-gradient(circle at 40% 80%, #001133 0%, transparent 50%),
-                        linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #16213e 100%);
-            animation: backgroundShift 15s ease-in-out infinite;
-        }
+        h1, h2, h3, h4, .display { font-family: 'Big Shoulders Stencil', sans-serif; color: var(--ink); font-weight: 700; letter-spacing: 0.01em; }
 
-        @keyframes backgroundShift {
-            0%, 100% { filter: hue-rotate(0deg); }
-            50% { filter: hue-rotate(30deg); }
-        }
+        a { color: inherit; }
+        strong { color: var(--ink); }
 
-        /* Partículas flotantes */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+        /* ---- Site header ---- */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 1.2rem; flex-wrap: wrap;
+            padding: 0.7rem 2rem;
+            background: rgba(28, 31, 20, 0.94);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(201, 147, 47, 0.3);
         }
-
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #ffffff;
-            border-radius: 50%;
-            animation: float 20s linear infinite;
-            opacity: 0.3;
+        .header-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+        img[alt="Logo EMD"] {
+            height: 40px; border-radius: 50%; object-fit: cover;
+            border: 2px solid rgba(201, 147, 47, 0.5);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
+        .header-logo-text { font-family: 'Big Shoulders Stencil', sans-serif; font-size: 0.9rem; line-height: 1.25; color: var(--paper); }
+        .header-logo-text span { display: block; color: rgba(232, 226, 208, 0.55); font-size: 0.65rem; font-family: 'Chivo', sans-serif; }
 
-        @keyframes float {
-            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-            10% { opacity: 0.3; }
-            90% { opacity: 0.3; }
-            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        .nav-links { display: flex; gap: 1.4rem; list-style: none; }
+        .nav-links a { color: rgba(232, 226, 208, 0.8); text-decoration: none; font-weight: 600; font-size: 0.86rem; transition: color 0.25s ease; }
+        .nav-links a:hover { color: var(--amber-bright); }
+
+        .nav-back {
+            display: inline-flex; align-items: center; text-decoration: none;
+            color: var(--paper); font-weight: 600; font-size: 0.82rem;
+            padding: 0.4rem 0.8rem; border: 1px solid rgba(201, 147, 47, 0.4); border-radius: 3px;
+            transition: background 0.25s ease, border-color 0.25s ease;
         }
+        .nav-back:hover { background: rgba(201, 147, 47, 0.14); border-color: var(--amber); }
+        .nav-back svg { width: 0.9em; height: 0.9em; margin-right: 0.3em; }
 
-        /* Header épico */
+        /* ---- Hero ---- */
         .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            background: linear-gradient(45deg, rgba(0,0,0,0.8), rgba(26,0,51,0.6));
+            min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
+            position: relative; padding: 7rem 1.5rem 3rem;
+            background: linear-gradient(160deg, var(--olive-deep) 0%, var(--olive) 100%);
+        }
+        .hero-content { max-width: 820px; z-index: 2; }
+
+        .classified-stamp {
+            display: inline-flex; align-items: center; gap: 0.5em;
+            font-family: 'Big Shoulders Stencil', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; color: var(--amber-bright);
+            border: 2px solid rgba(201,147,47,0.6); border-radius: 3px; padding: 0.4rem 1rem; margin-bottom: 1.8rem;
+            transform: rotate(-2deg);
         }
 
-        .hero-content {
-            max-width: 1000px;
-            padding: 0 20px;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ff6b6b, #feca57, #ff9ff3, #54a0ff);
-            background-size: 400% 400%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 3s ease-in-out infinite;
-            text-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            margin-bottom: 30px;
-            color: #cccccc;
-            font-weight: 300;
-        }
+        .hero h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); color: var(--paper); margin-bottom: 1rem; line-height: 1.05; }
+        .hero-subtitle { font-size: 1.15rem; margin-bottom: 2rem; color: rgba(232, 226, 208, 0.78); font-weight: 400; }
 
         .biblical-quote {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 40px 0;
-            font-style: italic;
-            font-size: 1.1rem;
-            position: relative;
-            overflow: hidden;
+            background: rgba(232, 226, 208, 0.06);
+            border: 1px solid rgba(201, 147, 47, 0.25);
+            border-radius: 4px; padding: 1.8rem; margin: 2rem 0;
+            font-style: italic; font-size: 1.05rem; color: var(--paper); text-align: left;
         }
+        .quote-reference { color: var(--amber-bright); font-weight: 600; margin-top: 1rem; font-size: 0.88rem; font-style: normal; }
 
-        .biblical-quote::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
-            animation: shimmer 3s linear infinite;
-        }
+        /* ---- Layout ---- */
+        .container { max-width: 1150px; margin: 0 auto; padding: 0 1.5rem; }
+        .section { margin: 5rem 0; position: relative; scroll-margin-top: 90px; }
+        .section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); text-align: center; margin-bottom: 1rem; }
+        .section-lede { text-align: center; font-size: 1.05rem; color: var(--ink-soft); max-width: 700px; margin: 0 auto 2.8rem; }
 
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
-        .quote-reference {
-            color: #ffd700;
-            font-weight: 600;
-            margin-top: 15px;
-            font-size: 0.9rem;
-        }
-
-        /* Navegación elegante */
-        .navbar {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(15px);
-            border-radius: 50px;
-            padding: 10px 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 8px 16px;
-            border-radius: 25px;
-        }
-
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: #ffd700;
-        }
-
-        /* Contenido principal */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section {
-            margin: 100px 0;
-            position: relative;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 60px;
-            background: linear-gradient(135deg, #ffffff, #cccccc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Tarjetas de tecnología mejoradas */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
-        }
-
+        /* ---- Tech / expediente cards ---- */
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.6rem; margin: 2.6rem 0; }
         .tech-card {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
-            padding: 40px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            backdrop-filter: blur(10px);
+            background: var(--panel); border: 1px solid rgba(46, 51, 32, 0.16);
+            border-left: 4px solid var(--olive); border-radius: 4px;
+            padding: 1.8rem; cursor: pointer; transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
+        .tech-card:hover { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(46, 51, 32, 0.14); }
+        .tech-icon { width: 34px; height: 34px; color: var(--olive); margin-bottom: 1rem; }
+        .tech-icon svg { width: 100%; height: 100%; }
+        .tech-card h3 { font-size: 1.35rem; margin-bottom: 0.7rem; color: var(--ink); }
+        .tech-card > p { color: var(--ink-soft); margin-bottom: 0.6rem; font-size: 0.96rem; }
+        .tap-hint { font-size: 0.78rem; color: var(--amber); font-weight: 600; letter-spacing: 0.03em; }
 
-        .tech-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: rgba(255, 215, 0, 0.5);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 215, 0, 0.2);
-        }
+        .tech-detail { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; background: rgba(46, 51, 32, 0.05); border-radius: 4px; margin-top: 0; }
+        .tech-detail.active { max-height: 500px; margin-top: 1.2rem; padding: 1.3rem; }
+        .tech-detail h4 { font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 0.92rem; letter-spacing: 0.03em; color: var(--olive); margin-bottom: 0.8rem; text-transform: none; }
+        .tech-detail p { font-size: 0.92rem; margin-bottom: 0.6rem; }
+        .tech-detail p:last-child { margin-bottom: 0; }
 
-        .tech-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: all 0.5s;
-        }
-
-        .tech-card:hover::before {
-            left: 100%;
-        }
-
-        .tech-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .tech-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #ffd700;
-        }
-
-        .tech-card p {
-            color: #cccccc;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .tech-detail {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            padding: 0 20px;
-            margin-top: 20px;
-        }
-
-        .tech-detail.active {
-            max-height: 500px;
-            padding: 20px;
-        }
-
+        /* ---- Biblical connection (case file field block) ---- */
         .biblical-connection {
-            background: linear-gradient(135deg, rgba(139, 69, 19, 0.2), rgba(184, 134, 11, 0.2));
-            border-left: 5px solid #DAA520;
-            padding: 30px;
-            margin: 40px 0;
-            border-radius: 0 15px 15px 0;
-            position: relative;
+            background: var(--panel); border: 1px solid rgba(201, 147, 47, 0.3);
+            border-radius: 4px; padding: 2rem 2.2rem; margin: 2.4rem 0; position: relative;
         }
-
-        .biblical-connection::before {
-            content: '<svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 5v16" />
-  <path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" />
-</svg>';
-            font-size: 2rem;
-            position: absolute;
-            top: -10px;
-            left: -15px;
-            background: #0a0a0a;
-            padding: 5px;
-            border-radius: 50%;
+        .biblical-connection .badge {
+            position: absolute; top: -16px; left: 1.6rem; width: 34px; height: 34px;
+            background: var(--olive); color: var(--amber-bright); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.25);
         }
+        .biblical-connection .badge svg { width: 16px; height: 16px; }
+        .biblical-connection h4 { color: var(--olive); font-size: 1.15rem; margin-bottom: 1rem; margin-top: 0.4rem; }
+        .biblical-connection p { margin-bottom: 0.5rem; }
+        .biblical-connection p:last-child { margin-bottom: 0; }
+        .field-label { font-family: 'Chivo', sans-serif; font-weight: 700; color: var(--olive); }
 
-        .biblical-connection h4 {
-            color: #DAA520;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
+        /* ---- Prophecy cards ---- */
+        .prophecy-section { background: rgba(46, 51, 32, 0.04); border-radius: 20px; padding: 3rem 1.5rem; margin: 3rem 0; }
+        .prophecy-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.6rem; margin: 2rem 0; }
+        .prophecy-card { background: var(--panel); border: 1px solid rgba(201, 147, 47, 0.3); border-radius: 4px; padding: 1.8rem; text-align: center; }
+        .prophecy-card .verse { font-style: italic; color: var(--ink-soft); margin-bottom: 1rem; font-size: 1rem; }
+        .prophecy-card .reference { color: var(--amber); font-weight: 700; font-size: 0.85rem; }
 
-        /* Sección de profecías */
-        .prophecy-section {
-            background: radial-gradient(ellipse at center, rgba(139, 0, 0, 0.2) 0%, transparent 70%);
-            padding: 80px 0;
-            margin: 100px 0;
-            border-radius: 30px;
-            position: relative;
-        }
+        /* ---- Timeline ---- */
+        .timeline { position: relative; margin: 3rem 0 1rem; padding-left: 2rem; }
+        .timeline::before { content: ''; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(to bottom, var(--amber), var(--olive)); }
+        .timeline-item { position: relative; margin-bottom: 2rem; }
+        .timeline-item::before { content: ''; position: absolute; left: -2rem; top: 0.3rem; width: 14px; height: 14px; background: var(--amber); border: 3px solid var(--paper); border-radius: 50%; }
+        .timeline-year { display: inline-block; font-family: 'Big Shoulders Stencil', sans-serif; font-size: 0.95rem; color: var(--olive); background: rgba(201,147,47,0.14); padding: 0.2rem 0.7rem; border-radius: 3px; margin-bottom: 0.6rem; }
+        .timeline-content h3 { font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--ink); }
+        .timeline-content p { font-size: 0.94rem; }
 
-        .prophecy-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
-        }
-
-        .prophecy-card {
-            background: rgba(139, 0, 0, 0.1);
-            border: 2px solid rgba(220, 20, 60, 0.3);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .prophecy-card:hover {
-            border-color: rgba(220, 20, 60, 0.8);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(220, 20, 60, 0.2);
-        }
-
-        .prophecy-card .verse {
-            font-style: italic;
-            color: #ffcccc;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .prophecy-card .reference {
-            color: #ffd700;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        /* Timeline futurista */
-        .timeline {
-            position: relative;
-            margin: 80px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            height: 100%;
-            width: 2px;
-            background: linear-gradient(to bottom, #ffd700, #ff6b6b, #ffd700);
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 50px 0;
-            position: relative;
-        }
-
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .timeline-content {
-            width: 45%;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .timeline-year {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffd700;
-            color: #000;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        /* Llamada a la acción */
-        .cta-section {
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 159, 243, 0.1));
-            padding: 80px 40px;
-            text-align: center;
-            border-radius: 30px;
-            margin: 100px 0;
-            border: 1px solid rgba(255, 107, 107, 0.3);
-        }
-
-        .cta-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #ffd700;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            color: #cccccc;
-        }
-
+        /* ---- Warning box ---- */
         .warning-box {
-            background: linear-gradient(135deg, rgba(255, 69, 0, 0.2), rgba(255, 140, 0, 0.2));
-            border: 2px solid rgba(255, 69, 0, 0.5);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 40px 0;
-            position: relative;
-            overflow: hidden;
+            background: rgba(201, 147, 47, 0.1); border: 1px solid rgba(201, 147, 47, 0.4);
+            border-radius: 4px; padding: 1.8rem 2.2rem; margin: 2rem 0; position: relative;
         }
-
-        .warning-box::before {
-            content: '<svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" />
-  <path d="M12 9v4" />
-  <path d="M12 17h.01" />
-</svg>';
-            font-size: 2rem;
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background: rgba(255, 69, 0, 0.8);
-            padding: 10px;
-            border-radius: 50%;
+        .warning-box .badge {
+            position: absolute; top: -16px; right: 1.6rem; width: 34px; height: 34px;
+            background: var(--amber); color: var(--redact); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.25);
         }
+        .warning-box .badge svg { width: 17px; height: 17px; }
+        .warning-box h4 { color: var(--olive); font-size: 1.2rem; margin-bottom: 1rem; }
+        .warning-box p { margin-bottom: 0.7rem; }
+        .warning-box p:last-child { margin-bottom: 0; }
 
-        .warning-box h4 {
-            color: #ffd700;
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-        }
+        /* ---- CTA / advertencia ---- */
+        .cta-section { background: var(--olive-deep); color: var(--paper); padding: 4rem 2rem; border-radius: 20px; margin: 4rem 0; text-align: center; }
+        .cta-section h2 { color: var(--amber-bright); justify-content: center; }
+        .cta-section > p { font-size: 1.05rem; max-width: 760px; margin: 0 auto 2rem; color: rgba(232,226,208,0.85); }
+        .cta-section .biblical-quote { text-align: center; }
+        .cta-section .warning-box { background: rgba(232,226,208,0.06); border-color: rgba(201,147,47,0.35); text-align: left; }
+        .cta-section .warning-box h4 { color: var(--amber-bright); }
+        .cta-section .warning-box p { color: rgba(232,226,208,0.9); }
 
-        /* Footer */
-        .footer {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 50px 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
+        .site-footer { background: var(--olive-deep); padding: 2.2rem 1.5rem; text-align: center; }
+        .footer-copy { font-size: 0.85rem; color: rgba(232,226,208,0.6); }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .navbar {
-                padding: 8px 20px;
-            }
-            
-            .nav-links {
-                gap: 15px;
-            }
-            
-            .tech-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .timeline::before {
-                left: 20px;
-            }
-            
-            .timeline-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .timeline-content {
-                width: 100%;
-            }
-            
-            .timeline-year {
-                position: relative;
-                left: auto;
-                transform: none;
-                margin: 20px 0;
-            }
-        }
-
-        /* Efectos de scroll */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+            .site-header { padding: 0.6rem 1.1rem; }
+            .header-logo-text, .nav-links { display: none; }
+            .section { margin: 3.5rem 0; }
+            .biblical-connection, .warning-box { padding: 1.6rem; }
         }
     </style>
 </head>
 <body>
-    <div class="background"></div>
-    <div class="particles"></div>
-
-    <nav class="navbar">
+    <header class="site-header">
+        <a href="../../../index.html" class="header-logo">
+            <img src="../../../images/EMD.png?v=2" alt="Logo EMD">
+            <div class="header-logo-text">
+                Ministerio
+                <span>"La Gloria es del Señor"</span>
+            </div>
+        </a>
         <ul class="nav-links">
-            <li><a href="#inicio">Inicio</a></li>
             <li><a href="#profecias">Profecías</a></li>
             <li><a href="#tecnologias">Tecnologías</a></li>
             <li><a href="#timeline">Cronología</a></li>
             <li><a href="#advertencia">Advertencia</a></li>
         </ul>
-    </nav>
+        <a href="../introduccion.html" class="nav-back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+            Tiempo del Fin
+        </a>
+    </header>
 
     <section id="inicio" class="hero">
         <div class="hero-content">
-            <h1>La Marca de la Bestia</h1>
-            <p class="hero-subtitle">Cuando la Profecía Bíblica se Encuentra con la Realidad Tecnológica del 2050</p>
-            
+            <span class="classified-stamp">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 12h-5" /><path d="M15 8h-5" /><path d="M19 17V5a2 2 0 0 0-2-2H4" /><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" /></svg>
+                Expediente Cyborg 2050
+            </span>
+            <h1>La marca de la bestia</h1>
+            <p class="hero-subtitle">Cuando la profecía bíblica se encuentra con la realidad tecnológica del 2050</p>
+
             <div class="biblical-quote">
                 <p>"Y hacía que a todos, pequeños y grandes, ricos y pobres, libres y esclavos, se les pusiese una <strong>marca en la mano derecha, o en la frente</strong>; y que ninguno pudiese <strong>comprar ni vender</strong>, sino el que tuviese la marca o el nombre de la bestia, o el número de su nombre."</p>
                 <div class="quote-reference">— Apocalipsis 13:16-17</div>
@@ -573,348 +235,141 @@
 
     <div class="container">
         <section id="profecias" class="section prophecy-section">
-            <h2 class="section-title">Las Profecías se Cumplen</h2>
-            
+            <h2 class="section-title">Las profecías se cumplen</h2>
+
             <div class="prophecy-cards">
                 <div class="prophecy-card">
                     <div class="verse">"Aquí hay sabiduría. El que tiene entendimiento, cuente el número de la bestia, pues es número de hombre, y su número es seiscientos sesenta y seis."</div>
                     <div class="reference">Apocalipsis 13:18</div>
                 </div>
-                
                 <div class="prophecy-card">
                     <div class="verse">"Y adoraron al dragón que había dado autoridad a la bestia, y adoraron a la bestia, diciendo: ¿Quién como la bestia, y quién podrá luchar contra ella?"</div>
                     <div class="reference">Apocalipsis 13:4</div>
                 </div>
-                
                 <div class="prophecy-card">
                     <div class="verse">"También se le dio boca que hablaba grandes cosas y blasfemias; y se le dio autoridad para actuar cuarenta y dos meses."</div>
                     <div class="reference">Apocalipsis 13:5</div>
                 </div>
             </div>
-            
+
             <div class="biblical-connection">
-                <h4><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m21 21-4.34-4.34" />
-  <circle cx="11" cy="11" r="8" />
-</svg> Análisis Profético</h4>
-                <p>Por primera vez en la historia humana, tenemos la capacidad tecnológica real para implementar un sistema global de identificación y control económico como el descrito en Apocalipsis. El documento oficial del Departamento de Defensa de EE.UU. "Cyborg Soldier 2050" revela planes concretos para tecnologías que se alinean sorprendentemente con las descripciones bíblicas de la marca de la bestia.</p>
+                <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></svg></div>
+                <h4>Análisis profético</h4>
+                <p>Por primera vez en la historia humana, tenemos la capacidad tecnológica real para implementar un sistema global de identificación y control económico como el descrito en Apocalipsis. El documento oficial del Departamento de Defensa de EE. UU. "Cyborg Soldier 2050" revela planes concretos para tecnologías que se alinean sorprendentemente con las descripciones bíblicas de la marca de la bestia.</p>
             </div>
         </section>
 
         <section id="tecnologias" class="section">
-            <h2 class="section-title">Tecnologías del Soldado Cyborg 2050</h2>
-            <p style="text-align: center; font-size: 1.2rem; color: #cccccc; margin-bottom: 50px;">
-                Basado en el documento oficial del Departamento de Defensa de EE.UU. (CCDC CBC-TR-1599, Octubre 2019)
-            </p>
-            
+            <h2 class="section-title">Tecnologías del soldado cyborg 2050</h2>
+            <p class="section-lede">Basado en el documento oficial del Departamento de Defensa de EE. UU. (CCDC CBC-TR-1599, octubre 2019)</p>
+
             <div class="tech-grid">
                 <div class="tech-card" onclick="toggleTechDetail('neural-detail')">
-                    <span class="tech-icon"><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 18V5" />
-  <path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4" />
-  <path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5" />
-  <path d="M17.997 5.125a4 4 0 0 1 2.526 5.77" />
-  <path d="M18 18a4 4 0 0 0 2-7.464" />
-  <path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517" />
-  <path d="M6 18a4 4 0 0 1-2-7.464" />
-  <path d="M6.003 5.125a4 4 0 0 0-2.526 5.77" />
-</svg></span>
-                    <h3>Mejora Neural Directa del Cerebro</h3>
+                    <div class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 18V5" /><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4" /><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5" /><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77" /><path d="M18 18a4 4 0 0 0 2-7.464" /><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517" /><path d="M6 18a4 4 0 0 1-2-7.464" /><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77" /></svg></div>
+                    <h3>Mejora neural directa del cerebro</h3>
                     <p>Interfaces cerebro-computadora que permiten transferencia bidireccional de datos entre humanos y máquinas.</p>
+                    <span class="tap-hint">Toca para ver el expediente completo →</span>
                     <div id="neural-detail" class="tech-detail">
-                        <h4><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-</svg> Conexión Bíblica: "Marca en la Frente"</h4>
-                        <p><strong>Capacidades:</strong> Control mental de drones, comunicación telepática, acceso directo a bases de datos.</p>
-                        <p><strong>Riesgos:</strong> Control mental, vigilancia total, hackeo de pensamientos.</p>
-                        <p><strong>Profecía:</strong> La "marca en la frente" podría ser literalmente un implante neural que controle el pensamiento y la conducta.</p>
+                        <h4>Conexión bíblica: "marca en la frente"</h4>
+                        <p><span class="field-label">Capacidades:</span> control mental de drones, comunicación telepática, acceso directo a bases de datos.</p>
+                        <p><span class="field-label">Riesgos:</span> control mental, vigilancia total, hackeo de pensamientos.</p>
+                        <p><span class="field-label">Profecía:</span> la "marca en la frente" podría ser literalmente un implante neural que controle el pensamiento y la conducta.</p>
                     </div>
                 </div>
 
                 <div class="tech-card" onclick="toggleTechDetail('ocular-detail')">
-                    <span class="tech-icon"><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
-  <circle cx="12" cy="12" r="3" />
-</svg></span>
-                    <h3>Mejoras Oculares Avanzadas</h3>
+                    <div class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg></div>
+                    <h3>Mejoras oculares avanzadas</h3>
                     <p>Reemplazo completo del ojo con sistemas artificiales que ven más allá del espectro humano.</p>
+                    <span class="tap-hint">Toca para ver el expediente completo →</span>
                     <div id="ocular-detail" class="tech-detail">
-                        <h4><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-</svg> Identificación y Vigilancia Total</h4>
-                        <p><strong>Capacidades:</strong> Visión infrarroja, rayos X, reconocimiento facial instantáneo, grabación perpetua.</p>
-                        <p><strong>Aplicación:</strong> Identificación automática de individuos "marcados" vs "no marcados".</p>
-                        <p><strong>Control:</strong> Sistema perfecto para separar quién puede "comprar y vender".</p>
+                        <h4>Identificación y vigilancia total</h4>
+                        <p><span class="field-label">Capacidades:</span> visión infrarroja, rayos X, reconocimiento facial instantáneo, grabación perpetua.</p>
+                        <p><span class="field-label">Aplicación:</span> identificación automática de individuos "marcados" vs "no marcados".</p>
+                        <p><span class="field-label">Control:</span> sistema perfecto para separar quién puede "comprar y vender".</p>
                     </div>
                 </div>
 
                 <div class="tech-card" onclick="toggleTechDetail('muscular-detail')">
-                    <span class="tech-icon"><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" />
-</svg></span>
-                    <h3>Control Muscular Optogenético</h3>
+                    <div class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" /></svg></div>
+                    <h3>Control muscular optogenético</h3>
                     <p>Red de sensores subcutáneos que controlan el movimiento muscular mediante luz programada.</p>
+                    <span class="tap-hint">Toca para ver el expediente completo →</span>
                     <div id="muscular-detail" class="tech-detail">
-                        <h4><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-</svg> Conexión Bíblica: "Marca en la Mano"</h4>
-                        <p><strong>Tecnología:</strong> Hilos ópticos implantados bajo la piel que controlan músculos específicos.</p>
-                        <p><strong>Control Total:</strong> Movimientos corporales programables desde autoridades centrales.</p>
-                        <p><strong>Profecía:</strong> La "marca en la mano derecha" podría controlar las acciones físicas.</p>
+                        <h4>Conexión bíblica: "marca en la mano"</h4>
+                        <p><span class="field-label">Tecnología:</span> hilos ópticos implantados bajo la piel que controlan músculos específicos.</p>
+                        <p><span class="field-label">Control total:</span> movimientos corporales programables desde autoridades centrales.</p>
+                        <p><span class="field-label">Profecía:</span> la "marca en la mano derecha" podría controlar las acciones físicas.</p>
                     </div>
                 </div>
 
                 <div class="tech-card" onclick="toggleTechDetail('auditory-detail')">
-                    <span class="tech-icon"><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10a3.5 3.5 0 1 1-7 0" />
-  <path d="M15 8.5a2.5 2.5 0 0 0-5 0v1a2 2 0 1 1 0 4" />
-</svg></span>
-                    <h3>Mejoras Auditivas Implantadas</h3>
+                    <div class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10a3.5 3.5 0 1 1-7 0" /><path d="M15 8.5a2.5 2.5 0 0 0-5 0v1a2 2 0 1 1 0 4" /></svg></div>
+                    <h3>Mejoras auditivas implantadas</h3>
                     <p>Reemplazo del oído medio y cóclea para comunicación directa e indetectable.</p>
+                    <span class="tap-hint">Toca para ver el expediente completo →</span>
                     <div id="auditory-detail" class="tech-detail">
-                        <h4><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-</svg> Sistema de Comando y Control</h4>
-                        <p><strong>Comunicación Silenciosa:</strong> Recepción directa de órdenes gubernamentales.</p>
-                        <p><strong>Vigilancia:</strong> Grabación automática de todas las conversaciones.</p>
-                        <p><strong>Control Social:</strong> Imposición de narrativas oficiales directamente al cerebro.</p>
+                        <h4>Sistema de comando y control</h4>
+                        <p><span class="field-label">Comunicación silenciosa:</span> recepción directa de órdenes gubernamentales.</p>
+                        <p><span class="field-label">Vigilancia:</span> grabación automática de todas las conversaciones.</p>
+                        <p><span class="field-label">Control social:</span> imposición de narrativas oficiales directamente al cerebro.</p>
                     </div>
                 </div>
             </div>
 
             <div class="warning-box">
-                <h4>Advertencia Profética</h4>
+                <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /><path d="M12 9v4" /><path d="M12 17h.01" /></svg></div>
+                <h4>Advertencia profética</h4>
                 <p>El documento oficial del DOD confirma que estas tecnologías <strong>estarán disponibles antes del 2050</strong>. Por primera vez en la historia, tenemos la capacidad técnica exacta para implementar el sistema de control descrito en Apocalipsis 13. La convergencia no es coincidencia.</p>
             </div>
         </section>
 
         <section id="timeline" class="section">
-            <h2 class="section-title">Cronología Hacia el Control Total</h2>
-            
+            <h2 class="section-title">Cronología hacia el control total</h2>
+
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M12 7v4" />
-  <path d="M14 21v-3a2 2 0 0 0-4 0v3" />
-  <path d="M14 9h-4" />
-  <path d="M18 11h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2h2" />
-  <path d="M18 21V5a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16" />
-</svg> Fase Médica</h3>
+                        <div class="timeline-year">2025–2030</div>
+                        <h3>Fase médica</h3>
                         <p>Introducción como "tratamientos médicos" para veteranos heridos y pacientes con discapacidades. Aceptación social gradual.</p>
                     </div>
-                    <div class="timeline-year">2025-2030</div>
                 </div>
-
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <circle cx="12" cy="12" r="10" />
-  <circle cx="12" cy="12" r="6" />
-  <circle cx="12" cy="12" r="2" />
-</svg> Adopción Militar</h3>
+                        <div class="timeline-year">2030–2040</div>
+                        <h3>Adopción militar</h3>
                         <p>Implementación en Fuerzas Especiales. Creación de "supersoldados" con ventajas significativas sobre humanos no aumentados.</p>
                     </div>
-                    <div class="timeline-year">2030-2040</div>
                 </div>
-
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <circle cx="12" cy="12" r="10" />
-  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-  <path d="M2 12h20" />
-</svg> Expansión Civil</h3>
+                        <div class="timeline-year">2040–2045</div>
+                        <h3>Expansión civil</h3>
                         <p>Oferta comercial para ventajas laborales y sociales. Presión social para adoptar las tecnologías para "no quedarse atrás".</p>
                     </div>
-                    <div class="timeline-year">2040-2045</div>
                 </div>
-
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" />
-</svg> Sistema Obligatorio</h3>
-                        <p><strong>"Y que ninguno pudiese comprar ni vender, sino el que tuviese la marca"</strong> - Implementación del sistema económico basado en mejoras.</p>
+                        <div class="timeline-year">2045–2050</div>
+                        <h3>Sistema obligatorio</h3>
+                        <p><strong>"Y que ninguno pudiese comprar ni vender, sino el que tuviese la marca"</strong> — implementación del sistema económico basado en mejoras.</p>
                     </div>
-                    <div class="timeline-year">2045-2050</div>
                 </div>
             </div>
         </section>
 
         <section class="section">
-            <h2 class="section-title">La Gran Deception</h2>
-            
+            <h2 class="section-title">La gran decepción</h2>
+
             <div class="biblical-connection">
-                <h4><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M3 3v16a2 2 0 0 0 2 2h16" />
-  <path d="M18 17V9" />
-  <path d="M13 17V5" />
-  <path d="M8 17v-3" />
-</svg> Datos Oficiales del Departamento de Defensa</h4>
-                <p><strong>Documento:</strong> CCDC CBC-TR-1599 "Cyborg Soldier 2050"</p>
-                <p><strong>Fecha:</strong> Octubre 2019</p>
-                <p><strong>Autores:</strong> 6 científicos de instituciones gubernamentales de EE.UU.</p>
-                <p><strong>Clasificación:</strong> Aprobado para liberación pública</p>
-                <p><strong>Objetivo:</strong> "Determinar el potencial de máquinas físicamente integradas en el cuerpo humano para aumentar el rendimiento humano en los próximos 30 años."</p>
+                <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16" /><path d="M18 17V9" /><path d="M13 17V5" /><path d="M8 17v-3" /></svg></div>
+                <h4>Datos oficiales del Departamento de Defensa</h4>
+                <p><span class="field-label">Documento:</span> CCDC CBC-TR-1599 "Cyborg Soldier 2050"</p>
+                <p><span class="field-label">Fecha:</span> octubre 2019</p>
+                <p><span class="field-label">Autores:</span> 6 científicos de instituciones gubernamentales de EE. UU.</p>
+                <p><span class="field-label">Clasificación:</span> aprobado para liberación pública</p>
+                <p><span class="field-label">Objetivo:</span> "Determinar el potencial de máquinas físicamente integradas en el cuerpo humano para aumentar el rendimiento humano en los próximos 30 años."</p>
             </div>
 
             <div class="prophecy-cards">
@@ -922,12 +377,10 @@
                     <div class="verse">"Vendrán a ti con halagos y te dirán: 'Esto mejorará tu vida', pero es trampa para tu alma."</div>
                     <div class="reference">Paráfrasis de Daniel 11:32</div>
                 </div>
-                
                 <div class="prophecy-card">
                     <div class="verse">"Y engaña a los moradores de la tierra con las señales que se le ha permitido hacer"</div>
                     <div class="reference">Apocalipsis 13:14</div>
                 </div>
-                
                 <div class="prophecy-card">
                     <div class="verse">"Y se le permitió infundir aliento a la imagen de la bestia, para que la imagen hablase e hiciese matar a todo el que no la adorase."</div>
                     <div class="reference">Apocalipsis 13:15</div>
@@ -936,145 +389,44 @@
         </section>
 
         <section id="advertencia" class="cta-section">
-            <h2><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" />
-  <path d="M12 9v4" />
-  <path d="M12 17h.01" />
-</svg> Llamado Urgente al Despertar</h2>
-            <p>La tecnología que permitirá el sistema de la marca de la bestia no es futurista - <strong>está siendo desarrollada AHORA</strong> por el gobierno de Estados Unidos y será realidad antes del 2050.</p>
-            
+            <h2>Llamado urgente al despertar</h2>
+            <p>La tecnología que permitirá el sistema de la marca de la bestia no es futurista: <strong>está siendo desarrollada ahora</strong> por el gobierno de Estados Unidos y será realidad antes del 2050.</p>
+
             <div class="biblical-quote">
                 <p>"Por tanto, velad, porque no sabéis cuándo vendrá el señor de la casa; si al anochecer, o a la medianoche, o al canto del gallo, o a la mañana; para que cuando venga de repente, no os halle durmiendo."</p>
                 <div class="quote-reference">— Marcos 13:35-36</div>
             </div>
 
             <div class="warning-box">
-                <h4><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M7 18v-6a5 5 0 1 1 10 0v6" />
-  <path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z" />
-  <path d="M21 12h1" />
-  <path d="M18.5 4.5 18 5" />
-  <path d="M2 12h1" />
-  <path d="M12 2v1" />
-  <path d="m4.929 4.929.707.707" />
-  <path d="M12 12v6" />
-</svg> ¿Qué Puedes Hacer Ahora?</h4>
-                <p><strong>1. Fortalece tu fe:</strong> Estudia las profecías bíblicas sobre los tiempos finales</p>
-                <p><strong>2. Mantente informado:</strong> Observa el desarrollo de estas tecnologías</p>
-                <p><strong>3. Rechaza la marca:</strong> Prepárate espiritualmente para resistir el sistema mundial</p>
-                <p><strong>4. Comparte este conocimiento:</strong> Advierte a otros sobre lo que viene</p>
-                <p><strong>5. Busca a Dios:</strong> Solo en Cristo hay salvación y protección</p>
+                <h4>¿Qué puedes hacer ahora?</h4>
+                <p><span class="field-label">1. Fortalece tu fe:</span> estudia las profecías bíblicas sobre los tiempos finales</p>
+                <p><span class="field-label">2. Mantente informado:</span> observa el desarrollo de estas tecnologías</p>
+                <p><span class="field-label">3. Rechaza la marca:</span> prepárate espiritualmente para resistir el sistema mundial</p>
+                <p><span class="field-label">4. Comparte este conocimiento:</span> advierte a otros sobre lo que viene</p>
+                <p><span class="field-label">5. Busca a Dios:</span> solo en Cristo hay salvación y protección</p>
             </div>
         </section>
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
-        </div>
+    <footer class="site-footer">
+        <p class="footer-copy">&copy; 2026 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        // Crear partículas flotantes
-        function createParticles() {
-            const particles = document.querySelector('.particles');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                particle.style.animationDelay = Math.random() * 10 + 's';
-                particles.appendChild(particle);
-            }
-        }
-
-        // Toggle para detalles de tecnología
         function toggleTechDetail(detailId) {
             const detail = document.getElementById(detailId);
-            const allDetails = document.querySelectorAll('.tech-detail');
-            
-            // Cerrar otros detalles
-            allDetails.forEach(d => {
-                if (d.id !== detailId) {
-                    d.classList.remove('active');
-                }
+            document.querySelectorAll('.tech-detail').forEach(d => {
+                if (d.id !== detailId) d.classList.remove('active');
             });
-            
-            // Toggle el actual
             detail.classList.toggle('active');
         }
 
-        // Animaciones de scroll
-        function revealOnScroll() {
-            const reveals = document.querySelectorAll('.reveal');
-            
-            reveals.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('active');
-                }
-            });
-        }
-
-        // Smooth scrolling para navegación
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function(e) {
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
-        });
-
-        // Inicializar
-        document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-            
-            // Agregar clase reveal a elementos para animación
-            document.querySelectorAll('.section, .tech-card, .prophecy-card').forEach(el => {
-                el.classList.add('reveal');
-            });
-            
-            window.addEventListener('scroll', revealOnScroll);
-            revealOnScroll(); // Ejecutar una vez al cargar
-        });
-
-        // Efecto parallax suave en el hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            const rate = scrolled * -0.5;
-            hero.style.transform = `translateY(${rate}px)`;
         });
     </script>
 </body>

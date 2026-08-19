@@ -319,6 +319,15 @@ Tras agregarse `tabernaculo-3d.html`, una revisión a fondo (a pedido del usuari
 - Contenido íntegro (estadísticas, 4 regiones críticas, 4 tipos de persecución, causas estructurales, 10 países de USCIRF, crecimiento de la iglesia, respuesta internacional, 2 versículos) sin alterar cifras ni afirmaciones.
 - **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para la última página de `analisisescatologico/`.
 
+### 2026-08-19: sexta de las 7 páginas de `analisisescatologico/` — tecnologia.html "Expediente Cyborg 2050"
+
+- **`page/Tiempo del Fin/analisisescatologico/tecnologia.html`:** artículo legítimo y bien anclado en una fuente real — el informe oficial del Departamento de Defensa de EE. UU. "Cyborg Soldier 2050" (CCDC CBC-TR-1599, octubre 2019) sobre tecnologías de aumento humano militar, interpretado junto a Apocalipsis 13 (la marca de la bestia). No se encontraron problemas de contenido (sin acusaciones a personas reales, sin tropos de odio).
+- Página huérfana (sin header del sitio) — se agregó el header estándar (logo + `nav-back` a `introduccion.html`, profundidad de 3 niveles: `../../../`).
+- **Bugs corregidos:** tipografía 'Inter' (prohibida en el sitio) y 'Playfair Display' reemplazadas; título `<h1>` con degradado arcoíris animado (mismo cliché ya corregido en otras páginas) reemplazado por tipografía sólida; bug de `::before { content: '<svg>...</svg>' }` (markup SVG literal como string de CSS, nunca se renderiza como ícono real — mismo patrón de bug ya documentado en `acertijos.html` y `etica-cristiana.html`) corregido usando badges circulares con `<svg>` inline real; "La Gran Deception" (palabra en inglés a mitad de oración) corregido a "La gran decepción"; copyright 2025 → 2026; mayúsculas de título corregidas a ortografía española desde el inicio (sin necesitar segunda pasada).
+- Rediseñada con el concepto "Expediente Cyborg 2050" (elegido por el usuario entre 3 direcciones: Anatomía de la Marca, Expediente Cyborg 2050, Cuenta Regresiva 2050) — estética de documento militar desclasificado, con sello "Expediente Cyborg 2050", fichas técnicas con campos tipo formulario oficial (Documento/Fecha/Autores/Clasificación/Objetivo) y tarjetas de tecnología con "expedientes" desplegables. Tipografía Big Shoulders Stencil (títulos, estarcido militar) + Chivo (cuerpo), ninguna usada antes en el sitio. Paleta oliva militar `#2e3320`/`#1c1f14` + ámbar de clasificación `#c9932f`, sobre papel de documento `#e8e2d0`.
+- Se conservó el contenido íntegro (3 tarjetas de tecnología con datos del informe DOD organizadas por parte del cuerpo — neural/ocular/muscular/auditiva, coincidiendo con "mano o frente" de Apocalipsis 13:16 — cronología de 4 fases 2025-2050, y todas las citas bíblicas) sin alterar ninguna afirmación sustantiva.
+- **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para la última página pendiente de `analisisescatologico/` (`tercertemplo.html`).
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -611,6 +620,7 @@ Página de Fe/
 | `page/Tiempo del Fin/analisisescatologico/economiaglobal.html` | Completado: estilo propio "Babilonia Digital" (obsidiana/oro ardiente). Antes huérfana, sin header del sitio; ver historial 2026-08-19 |
 | `page/Tiempo del Fin/analisisescatologico/eze34.html` | Completado: estilo propio "Rebaño Disperso". **Contenido antisemita específico, mantenido a decisión informada del usuario — ver nota completa en historial 2026-08-19 antes de tocar esta página de nuevo.** |
 | `page/Tiempo del Fin/analisisescatologico/persecusion.html` | Completado: estilo propio "Mapa de Mártires" (dashboard de datos reales, sin problemas de contenido). Antes huérfana y con textos en inglés sin traducir; ver historial 2026-08-19 |
+| `page/Tiempo del Fin/analisisescatologico/tecnologia.html` | Completado: estilo propio "Expediente Cyborg 2050" (documento militar desclasificado). Antes huérfana, sin header del sitio; ver historial 2026-08-19 |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
@@ -635,8 +645,7 @@ Página de Fe/
 
 #### `page/Tiempo del Fin/`
 
-- [ ] `analisisescatologico/tecnologia.html`
-- [ ] `analisisescatologico/tercertemplo.html`
+- [ ] `analisisescatologico/tercertemplo.html` (última página de la categoría)
 
 ---
 
