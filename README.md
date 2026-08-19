@@ -292,6 +292,16 @@ Tras agregarse `tabernaculo-3d.html`, una revisión a fondo (a pedido del usuari
 - En `profecias-cumplidas.html` esto incluyó los 50 títulos del array de datos JavaScript (p.ej. "La Caída de Babilonia" → "La caída de Babilonia") — se verificó la sintaxis del array tras el cambio (50 entradas, sin errores).
 - **Nota:** este mismo criterio debe aplicarse de aquí en adelante a cualquier página nueva de `Tiempo del Fin/` y a los títulos que se agreguen a los menús de navegación.
 
+### 2026-08-19: tercera de las 6 páginas de `analisisescatologico/` — economiaglobal.html "Babilonia Digital"
+
+- **`page/Tiempo del Fin/analisisescatologico/economiaglobal.html`:** otra página huérfana (sin header del sitio) — se le agregó el header estándar (logo + `nav-back` a `introduccion.html`). Rediseñada con un concepto de "Babilonia digital", elegido entre 3 direcciones propuestas (Babilonia Digital, Sin Marca Sin Mercado, Mapa del Dólar) por ser la que mejor se ancla en el propio texto: el artículo cita dos veces la caída de "Babilonia la mercader" (Apocalipsis 18:10-11 y 18:23) además de Apocalipsis 13:16-17 sobre la marca de la bestia — más referencias a un mismo pasaje que cualquier otra página de la categoría. Tipografía Antic Didone (títulos, con el trazo grueso-fino de un grabado de billete antiguo) + Archivo (cuerpo), ninguna usada antes en el sitio. Paleta obsidiana casi negra `#0d0b09` + oro ardiente `#d4a544`/`#c9722f`, sin el verde neón ni el degradado arcoíris del original.
+- **Se descartó la estética "Matrix"** original (lluvia de números verdes estilo hacker + título con degradado arcoíris animado en el `<h1>`) — otro cliché de "IA genérica" en la misma familia que los gradientes morados ya corregidos en páginas anteriores. El efecto de partículas se conservó pero transformado: en vez de números cayendo estilo Matrix, ahora son símbolos de moneda ($, €, ¥, ₿, ₽, ₹) que **suben** como brasas, coherente con "Babilonia ardiendo" de Apocalipsis 18.
+- **Bug de idioma corregido:** la conclusión decía "están *reshaping* el orden económico mundial" — una palabra en inglés metida en medio de una oración en español. Se cambió a "están **redefiniendo** el orden económico mundial".
+- Se quitó el `.flag-icon` (una barra decorativa con degradado que no representaba ninguna bandera real, solo relleno visual confuso junto a encabezados que ya tenían su propio emoji de bandera).
+- Mayúsculas corregidas desde el inicio (título, h2, h3, h4 y las etiquetas en negrita tipo "Mercado Único:" → "Mercado único:") siguiendo la regla de ortografía española ya documentada, sin necesidad de una segunda pasada.
+- Contenido íntegro (7 secciones: panorama económico, Unión Europea, BRICS, revolución de monedas digitales, respuesta de EE. UU./OTAN, convergencias proféticas, cronología, reflexión final) sin alterar cifras ni afirmaciones — no se identificó contenido fabricado o inverificable comparable al de páginas anteriores.
+- **Nota:** este estilo es específico al contenido de esta página — no reciclar como plantilla para las demás páginas de `analisisescatologico/`.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -581,6 +591,7 @@ Página de Fe/
 | `page/Tiempo del Fin/nuevo-orden-mundial.html` | Completado: estilo propio "Mesa de Negociación" (dossier diplomático); ver historial 2026-08-19 |
 | `page/Tiempo del Fin/profecias-cumplidas.html` | Completado: estilo propio "Expediente de Verificación". 50 tarjetas generadas por JS, array de datos sin alterar; ver historial 2026-08-19 |
 | `page/Tiempo del Fin/analisisescatologico/conversiones.html` | Completado: estilo propio "Lluvia Tardía" (tierra seca que reverdece). Antes huérfana, sin header del sitio; ver historial 2026-08-19 |
+| `page/Tiempo del Fin/analisisescatologico/economiaglobal.html` | Completado: estilo propio "Babilonia Digital" (obsidiana/oro ardiente). Antes huérfana, sin header del sitio; ver historial 2026-08-19 |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
@@ -605,7 +616,6 @@ Página de Fe/
 
 #### `page/Tiempo del Fin/`
 
-- [ ] `analisisescatologico/economiaglobal.html`
 - [ ] `analisisescatologico/eze34.html`
 - [ ] `analisisescatologico/persecusion.html`
 - [ ] `analisisescatologico/tecnologia.html`
