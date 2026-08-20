@@ -11,1042 +11,290 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plan de Lectura Cronológico - Ministerio "La Gloria es del Señor"</title>
+    <title>Plan cronológico: el rollo del tiempo | Ministerio "La Gloria es del Señor"</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn+SC&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2E3B6B; /* Deep Indigo - sabiduría y profundidad */
-            --secondary-color: #6BAFD5; /* Sky Blue - claridad y calma */
-            --accent-color: #FF7F50; /* Coral - energía y calidez */
-            --neutral-light: #F2EFE4; /* Parchment - como páginas de Biblia */
-            --neutral-dark: #483C32; /* Rich Brown - como tinta antigua */
-            --gradient-bg: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.06);
+            --vellum:      #ece0c4;
+            --vellum-deep: #d9c79f;
+            --ink:         #3b2f1e;
+            --ink-soft:    #6b5a3e;
+            --wood:        #6b4423;
+            --wood-deep:   #4a2e18;
+            --wax:         #8a2e2e;
+            --gold-leaf:   #a8813a;
+            --box-shadow: 0 8px 22px rgba(59, 47, 30, 0.1);
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--neutral-dark);
-            background-color: var(--neutral-light);
-            overflow-x: hidden;
-        }
-        
-        header {
-            background: var(--gradient-bg);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: var(--box-shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .logo img {
-            height: 60px;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-        }
-        
-        .logo-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-        
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .nav-toggle:hover {
-            transform: scale(1.1);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            transition: var(--transition);
-            display: block;
-            padding: 0.5rem;
-            position: relative;
-        }
-        
-        nav a:hover {
-            color: var(--accent-color);
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--accent-color);
-            transition: var(--transition);
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
-        /* Dropdown Styles */
-        .menu-item-has-children {
-            position: relative;
-        }
-        
-        .menu-item-has-children > a {
-            display: flex;
-            align-items: center;
-        }
-        
-        .sub-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 220px;
-            background-color: white;
-            box-shadow: var(--box-shadow);
-            border-radius: 8px;
-            padding: 0.8rem 0;
-            display: none;
-            z-index: 100;
-            transform: translateY(10px);
-            opacity: 0;
-            transition: var(--transition);
-        }
-        
-        .sub-menu li {
-            width: 100%;
-        }
-        
-        .sub-menu a {
-            padding: 0.7rem 1.2rem;
-            font-size: 0.9rem;
-            width: 100%;
-            color: var(--neutral-dark);
-        }
-        
-        .sub-menu a:hover {
-            background-color: rgba(46, 59, 107, 0.05);
-            color: var(--primary-color);
-        }
-        
-        .sub-menu a::after {
-            display: none;
-        }
-        
-        .menu-item-has-children:hover .sub-menu {
-            display: block;
-            transform: translateY(0);
-            opacity: 1;
-        }
-        
-        /* Hero Section */
-        .page-header {
-            padding: 6rem 0;
-            background: linear-gradient(to right, rgba(46, 59, 107, 0.9), rgba(107, 175, 213, 0.8)), url('/api/placeholder/1200/500') center/cover no-repeat;
-            color: white;
-            text-align: center;
-        }
-        
-        .page-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
-        }
-        
-        .page-header p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-        
-        .breadcrumbs {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-            font-size: 0.9rem;
-        }
-        
-        .breadcrumbs a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: var(--transition);
-            margin: 0 0.5rem;
-        }
-        
-        .breadcrumbs a:hover {
-            color: white;
-        }
-        
-        .breadcrumbs span {
-            margin: 0 0.5rem;
-            color: var(--accent-color);
-        }
-        
-        /* Main Content */
-        .main-content {
-            padding: 5rem 0;
-        }
-        
-        .intro-box {
-            background-color: white;
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: var(--box-shadow);
-            margin-bottom: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .intro-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 5px;
-            background: var(--gradient-bg);
-        }
-        
-        .intro-box h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-        }
-        
-        .intro-box p {
-            margin-bottom: 1rem;
-        }
-        
-        .intro-box ul {
-            padding-left: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .intro-box li {
-            margin-bottom: 0.5rem;
+            --font-display: 'Vollkorn SC', serif;
+            --font-body: 'Cardo', serif;
         }
 
-        .plan-benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.75;
+            color: var(--ink);
+            background-color: var(--vellum);
+            overflow-x: hidden;
         }
-        
-        .benefit-card {
-            background-color: white;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
+
+        h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; letter-spacing: 0.01em; }
+
+        .container { width: 90%; max-width: 1080px; margin: 0 auto; padding: 0 15px; }
+        .ic { width: 1em; height: 1em; vertical-align: -0.15em; margin-right: 0.35em; flex-shrink: 0; }
+
+        /* ---------- Header fijo del sitio ---------- */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 1.2rem; flex-wrap: wrap;
+            padding: 0.6rem 2rem;
+            background: rgba(59, 47, 30, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(168, 129, 58, 0.35);
+        }
+        .header-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+        img[alt="Logo EMD"] {
+            height: 38px; border-radius: 50%; object-fit: cover;
+            border: 2px solid rgba(168, 129, 58, 0.5);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        .header-logo-text { font-family: var(--font-body); font-weight: 700; font-size: 0.85rem; line-height: 1.25; color: var(--vellum); }
+        .header-logo-text span { display: block; font-style: italic; font-weight: 400; color: rgba(236, 224, 196, 0.6); font-size: 0.68rem; }
+        .site-nav-back {
+            display: inline-flex; align-items: center; text-decoration: none;
+            color: var(--vellum); font-weight: 600; font-size: 0.82rem;
+            padding: 0.4rem 0.8rem; border: 1px solid rgba(236, 224, 196, 0.25); border-radius: 2px;
+            transition: background 0.25s ease, border-color 0.25s ease;
+        }
+        .site-nav-back:hover { background: rgba(168, 129, 58, 0.2); border-color: var(--gold-leaf); }
+        .site-nav-back svg { width: 0.9em; height: 0.9em; margin-right: 0.3em; }
+
+        /* ---------- Hero: rollo desenrollado ---------- */
+        .hero {
+            padding: 8.5rem 0 3.5rem;
+            background: linear-gradient(160deg, #241a10 0%, var(--wood-deep) 100%);
+            color: var(--vellum);
             text-align: center;
         }
-        
-        .benefit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        .scroll-svg { display: block; width: min(560px, 92%); margin: 0 auto 1.4rem; }
+        .hero-tag {
+            display: inline-flex; align-items: center; gap: 0.55em;
+            font-style: italic; font-size: 0.9rem; color: var(--gold-leaf);
+            border: 1px solid rgba(168, 129, 58, 0.45);
+            border-radius: 50px; padding: 0.45rem 1.2rem; margin-bottom: 1.3rem;
         }
-        
-        .benefit-card i {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 1.5rem;
+        .hero h1 { font-size: 2.4rem; margin-bottom: 1rem; }
+        .hero .lead { font-size: 1.05rem; max-width: 680px; margin: 0 auto; color: rgba(236, 224, 196, 0.85); }
+
+        /* ---------- Sub-nav de períodos ---------- */
+        .scroll-tabs-nav {
+            position: sticky; top: 58px; z-index: 900;
+            background: rgba(217, 199, 159, 0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--vellum-deep);
+            overflow-x: auto;
         }
-        
-        .benefit-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
+        .scroll-tabs-nav .container { display: flex; gap: 0.3rem; padding: 0.6rem 20px; white-space: nowrap; }
+        .scroll-tab {
+            text-decoration: none; color: var(--ink-soft); font-weight: 700;
+            font-size: 0.8rem; padding: 0.4rem 0.75rem; border-radius: 3px;
+            border: 1px solid transparent; transition: var(--transition);
         }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
+        .scroll-tab:hover { background: var(--vellum); border-color: var(--vellum-deep); color: var(--ink); }
+
+        .content-section { padding: 3.5rem 0; }
+        .section-title { text-align: center; margin-bottom: 2.6rem; }
+        .section-title h2 { font-size: 1.9rem; color: var(--ink); margin-bottom: 0.5rem; }
+        .section-title p { color: var(--ink-soft); max-width: 640px; margin: 0 auto; }
+
+        /* Intro */
+        .intro-box {
+            background: #fbf6e8; border: 1px solid var(--vellum-deep); border-radius: 8px;
+            padding: 2.2rem 2.4rem; box-shadow: var(--box-shadow); margin-bottom: 2.6rem;
         }
-        
-        .section-title h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--primary-color);
+        .intro-box h2 { font-size: 1.5rem; margin-bottom: 0.9rem; color: var(--wood-deep); }
+        .intro-box p { margin-bottom: 1rem; }
+        .intro-box ul { margin: 0 0 1rem 1.4rem; }
+        .intro-box li { margin-bottom: 0.4rem; }
+
+        .plan-benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.4rem; margin-bottom: 3rem; }
+        .benefit-card { background: #fbf6e8; border: 1px solid var(--vellum-deep); border-radius: 8px; padding: 1.5rem; text-align: center; }
+        .benefit-card svg { width: 2rem; height: 2rem; color: var(--wax); margin-bottom: 0.7rem; }
+        .benefit-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--ink); }
+        .benefit-card p { font-size: 0.9rem; color: var(--ink-soft); }
+
+        .plan-header { text-align: center; margin-bottom: 2.4rem; }
+        .plan-header h3 { font-size: 1.4rem; color: var(--wood-deep); margin-bottom: 0.5rem; }
+        .plan-header p { color: var(--ink-soft); max-width: 620px; margin: 0 auto; }
+
+        /* Períodos (el rollo) */
+        .periodo {
             position: relative;
-            display: inline-block;
-            margin-bottom: 1rem;
+            background: #fbf6e8; border: 1px solid var(--vellum-deep); border-left: 5px solid var(--gold-leaf);
+            border-radius: 6px; padding: 1.8rem 2rem 2rem; margin-bottom: 2rem;
+            box-shadow: var(--box-shadow); scroll-margin-top: 120px;
         }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background-color: var(--accent-color);
+        .periodo-badge {
+            display: inline-block; font-family: var(--font-display); font-size: 0.85rem; letter-spacing: 0.04em;
+            color: var(--wax); border: 1px solid var(--wax); border-radius: 30px; padding: 0.25rem 0.9rem; margin-bottom: 0.9rem;
         }
-        
-        .section-title p {
-            max-width: 700px;
-            margin: 0 auto;
-            color: #555;
-        }
-        
-        .chronological-plan {
-            background-color: white;
-            border-radius: 16px;
-            box-shadow: var(--box-shadow);
-            overflow: hidden;
-            margin-bottom: 4rem;
-        }
-        
-        .plan-header {
-            background: var(--gradient-bg);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-        
-        .plan-header h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.6rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .plan-header p {
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* Timeline Enhancement */
-        .timeline {
-            padding: 3rem 2rem;
-        }
-        
-        .timeline-period {
-            margin-bottom: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .timeline-period:last-child {
-            margin-bottom: 0;
-        }
-        
-        .timeline-period::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 20px;
-            height: 100%;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
-            border-radius: 2px;
-            box-shadow: 0 0 10px rgba(107, 175, 213, 0.4);
-        }
-        
-        .period-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .period-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--gradient-bg);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            margin-right: 1.5rem;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(46, 59, 107, 0.3);
-            transition: var(--transition);
-            border: 3px solid white;
-        }
-        
-        .timeline-period:hover .period-icon {
-            transform: scale(1.1) rotate(360deg);
-            transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        .period-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-        
-        .period-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--accent-color);
-        }
-        
-        .period-description {
-            margin-left: 4.25rem;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            color: #555;
-            max-width: 800px;
-        }
-        
-        .period-reading {
-            margin-left: 4.25rem;
-        }
-        
-        .reading-item {
-            background-color: #f9f9f9;
-            border-radius: 12px;
-            padding: 1.2rem;
-            margin-bottom: 1rem;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            border-left: 3px solid transparent;
-        }
-        
-        .reading-item:hover {
-            background-color: rgba(107, 175, 213, 0.1);
-            transform: translateX(10px);
-            border-left: 3px solid var(--accent-color);
-        }
-        
-        .reading-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--accent-color), transparent);
-            opacity: 0;
-            transition: var(--transition);
-        }
-        
-        .reading-item:hover::before {
-            opacity: 1;
-        }
-        
-        .reading-day {
-            font-weight: 600;
-            color: white;
-            margin-right: 1.5rem;
-            background-color: var(--accent-color);
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            min-width: 90px;
-            text-align: center;
-            box-shadow: 0 3px 6px rgba(255, 127, 80, 0.2);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .reading-passage {
-            flex-grow: 1;
-        }
-        
-        .reading-context {
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-            color: #666;
-            font-style: italic;
-        }
-        
-        /* Aesthetic Enhancements */
-        .chronological-plan {
-            background-color: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 4rem;
-            border: 1px solid rgba(107, 175, 213, 0.2);
-            position: relative;
-        }
-        
-        .chronological-plan::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 150px;
-            height: 150px;
-            background-color: rgba(46, 59, 107, 0.05);
-            border-radius: 0 0 0 150px;
-            z-index: 0;
-        }
-        
-        .plan-header {
-            background: var(--gradient-bg);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .plan-header::before {
-            content: '\f534';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            position: absolute;
-            top: 1rem;
-            right: 2rem;
-            font-size: 8rem;
-            opacity: 0.1;
-            transform: rotate(15deg);
-        }
-        
-        .plan-header h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-        
-        .plan-header p {
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-        
-        .period-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Key Events Highlight */
-        .key-event {
-            background-color: #fff4e6;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-left: 4px solid var(--accent-color);
-            position: relative;
-        }
-        
-        .key-event::before {
-            content: '\f5ae';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            position: absolute;
-            top: -15px;
-            left: 20px;
-            background-color: var(--accent-color);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .key-event h4 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary-color);
-            margin-bottom: 0.8rem;
-            font-size: 1.3rem;
-        }
-        
-        .key-event p {
-            color: #555;
-            margin-bottom: 0;
-        }
-        
-        /* Historical Context */
+        .periodo-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.7rem; }
+        .periodo-icon { color: var(--wood); flex-shrink: 0; }
+        .periodo-icon svg { width: 1.8rem; height: 1.8rem; }
+        .periodo-title { font-size: 1.5rem; color: var(--ink); }
+        .periodo-description { color: var(--ink-soft); margin-bottom: 1.2rem; }
+
         .historical-context {
-            background-color: rgba(46, 59, 107, 0.05);
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin: 1rem 4.25rem 2rem;
-            position: relative;
-            border: 1px dashed rgba(46, 59, 107, 0.2);
+            background: rgba(168, 129, 58, 0.1); border-left: 3px solid var(--gold-leaf);
+            border-radius: 3px; padding: 1rem 1.2rem; margin: 1.2rem 0;
         }
-        
-        .historical-context h4 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
+        .historical-context h4 { display: flex; align-items: center; font-size: 1rem; color: var(--wood-deep); margin-bottom: 0.4rem; }
+        .historical-context h4 svg { color: var(--gold-leaf); }
+        .historical-context p { font-size: 0.92rem; }
+
+        .key-event {
+            background: rgba(138, 46, 46, 0.06); border-left: 3px solid var(--wax);
+            border-radius: 3px; padding: 1rem 1.2rem; margin: 1.2rem 0;
         }
-        
-        .historical-context h4 i {
-            margin-right: 0.8rem;
-            color: var(--secondary-color);
+        .key-event h4 { font-size: 1rem; color: var(--wax); margin-bottom: 0.4rem; }
+        .key-event p { font-size: 0.92rem; }
+
+        .period-reading { margin: 1.2rem 0 1.2rem 1rem; border-left: 2px solid var(--vellum-deep); padding-left: 1.2rem; }
+        .reading-item { display: flex; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid var(--vellum-deep); }
+        .reading-item:last-child { border-bottom: none; }
+        .reading-day {
+            flex-shrink: 0; width: 100px; font-family: var(--font-display); font-size: 0.82rem;
+            color: var(--wood); padding-top: 0.1rem;
         }
-        
-        .historical-context p {
-            color: #555;
-            font-size: 0.95rem;
-        }
-        
-        /* Timeline Navigation */
-        .timeline-nav {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 2rem 0;
-            padding: 1rem 0;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .timeline-nav-item {
-            background-color: #f3f4f6;
-            border: none;
-            border-radius: 30px;
-            padding: 0.5rem 1rem;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .timeline-nav-item:hover {
-            background-color: var(--accent-color);
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        @media (max-width: 768px) {
-            .period-title {
-                font-size: 1.4rem;
-            }
-            
-            .period-description,
-            .period-reading {
-                margin-left: 2.5rem;
-            }
-            
-            .reading-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .reading-day {
-                margin-right: 0;
-                margin-bottom: 1rem;
-            }
-            
-            .historical-context {
-                margin: 1rem 0 2rem;
-            }
-            
-            .plan-header h3 {
-                font-size: 1.8rem;
-            }
-            
-            .timeline-period::before {
-                left: 15px;
-            }
-        }
-        
-        .notes-section {
-            background-color: #f9f9f9;
-            padding: 5rem 0;
-            margin-top: 3rem;
-        }
-        
-        .notes-container {
-            background-color: white;
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: var(--box-shadow);
-        }
-        
-        .notes-container h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            text-align: center;
-        }
-        
-        .note-item {
-            margin-bottom: 2rem;
-            border-left: 3px solid var(--accent-color);
-            padding-left: 1.5rem;
-        }
-        
-        .note-item h4 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-        
-        .cta-section {
-            text-align: center;
-            margin: 5rem 0;
-        }
-        
-        .cta-container {
-            background: linear-gradient(to right, rgba(46, 59, 107, 0.95), rgba(107, 175, 213, 0.9)), url('/api/placeholder/800/400') center/cover no-repeat;
-            border-radius: 16px;
-            padding: 4rem 2rem;
-            color: white;
-            box-shadow: var(--box-shadow);
-        }
-        
-        .cta-container h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .cta-container p {
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-        }
-        
+        .reading-passage > div:first-child { font-weight: 700; margin-bottom: 0.15rem; }
+        .reading-context { font-size: 0.86rem; color: var(--ink-soft); }
+
+        /* Notes */
+        .notes-section { background: #fbf6e8; }
+        .notes-container { max-width: 800px; margin: 0 auto; }
+        .notes-container h3 { text-align: center; font-size: 1.4rem; margin-bottom: 1.8rem; color: var(--wood-deep); }
+        .note-item { margin-bottom: 1.3rem; padding-left: 1rem; border-left: 3px solid var(--gold-leaf); }
+        .note-item h4 { font-size: 1rem; margin-bottom: 0.3rem; color: var(--ink); }
+        .note-item p { font-size: 0.92rem; color: var(--ink-soft); }
+
+        /* CTA */
+        .cta-section { background: linear-gradient(160deg, var(--wood-deep) 0%, #241a10 100%); color: var(--vellum); text-align: center; }
+        .cta-container h3 { font-size: 1.7rem; margin-bottom: 0.8rem; }
+        .cta-container p { max-width: 560px; margin: 0 auto 1.6rem; color: rgba(236, 224, 196, 0.85); }
+
         .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 0.9rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            margin-right: 1rem;
-            margin-bottom: 1rem;
-            border: 2px solid transparent;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-flex; align-items: center; gap: 0.5em;
+            background-color: var(--wax); color: var(--vellum);
+            padding: 0.75rem 1.6rem; border-radius: 4px; text-decoration: none;
+            font-weight: 700; font-size: 0.9rem; transition: var(--transition); border: 2px solid transparent;
         }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-            background-color: #ff6a3d;
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--accent-color);
-            color: white;
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--accent-color);
-            color: white;
-        }
-        
-        .back-to-plans {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--neutral-dark);
-            color: white;
-            padding: 4rem 0 1rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-        
-        .footer-col h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.8rem;
-            color: var(--accent-color);
-        }
-        
-        .footer-col h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--accent-color);
-        }
-        
-        .footer-col ul {
-            list-style: none;
-        }
-        
-        .footer-col li {
-            margin-bottom: 1rem;
-        }
-        
-        .footer-col a {
-            color: #aaa;
-            text-decoration: none;
-            transition: var(--transition);
-            display: inline-block;
-        }
-        
-        .footer-col a:hover {
-            color: var(--accent-color);
-            transform: translateX(5px);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: #333;
-            border-radius: 50%;
-            color: white;
-            transition: var(--transition);
-        }
-        
-        .social-links a:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-5px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #333;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        
-        /* Responsive Styles */
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 18px rgba(0, 0, 0, 0.22); }
+        .btn-outline { background: transparent; border: 2px solid rgba(236, 224, 196, 0.4); color: var(--vellum); }
+        .btn-outline:hover { background: rgba(236, 224, 196, 0.1); border-color: var(--vellum); }
+
+        .back-to-plans { text-align: center; padding: 0 0 3rem; }
+        .back-to-plans .btn { background: var(--wood); }
+
+        footer { background: var(--wood-deep); color: var(--vellum); padding: 3.5rem 0 1.5rem; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 2.2rem; margin-bottom: 2.2rem; }
+        .footer-col h4 { font-size: 1.05rem; margin-bottom: 1rem; color: var(--gold-leaf); }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.7rem; font-size: 0.9rem; color: rgba(236, 224, 196, 0.75); display: flex; align-items: center; gap: 0.5rem; }
+        .footer-col li svg { width: 0.9rem; height: 0.9rem; color: var(--gold-leaf); flex-shrink: 0; }
+        .footer-col p { font-size: 0.9rem; color: rgba(236, 224, 196, 0.75); margin-bottom: 1rem; }
+        .footer-col a { color: rgba(236, 224, 196, 0.75); text-decoration: none; }
+        .footer-col a:hover { color: var(--gold-leaf); }
+        .social-links { display: flex; gap: 0.8rem; margin-top: 1.2rem; }
+        .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(236, 224, 196, 0.08); border-radius: 50%; }
+        .social-links a svg { width: 1rem; height: 1rem; }
+        .social-links a:hover { background: var(--gold-leaf); color: var(--wood-deep); }
+        .copyright { text-align: center; padding-top: 1.6rem; border-top: 1px solid rgba(236, 224, 196, 0.12); font-size: 0.82rem; color: rgba(236, 224, 196, 0.5); }
+
         @media (max-width: 768px) {
-            .nav-toggle {
-                display: block;
-            }
-            
-            nav {
-                position: fixed;
-                top: 0;
-                right: -300px;
-                width: 280px;
-                height: 100vh;
-                background-color: var(--neutral-dark);
-                z-index: 1000;
-                transition: right 0.3s ease;
-                padding: 2rem;
-                overflow-y: auto;
-            }
-            
-            nav.active {
-                right: 0;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 0;
-            }
-            
-            nav li {
-                width: 100%;
-            }
-            
-            nav a {
-                padding: 1rem 0;
-                width: 100%;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            
-            nav a::after {
-                display: none;
-            }
-            
-            .menu-item-has-children > a {
-                justify-content: space-between;
-            }
-            
-            .menu-item-has-children > a::after {
-                display: block;
-                content: '+';
-                transition: var(--transition);
-            }
-            
-            .menu-item-has-children.active > a::after {
-                transform: rotate(45deg);
-            }
-            
-            .sub-menu {
-                position: static;
-                width: 100%;
-                box-shadow: none;
-                background-color: rgba(0, 0, 0, 0.2);
-                border-radius: 0;
-                padding-left: 1rem;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease-out;
-                transform: none;
-                opacity: 1;
-            }
-            
-            .menu-item-has-children.active > .sub-menu {
-                max-height: 500px;
-            }
-            
-            .menu-item-has-children:hover .sub-menu {
-                display: none;
-                transform: none;
-            }
-            
-            .menu-item-has-children.active .sub-menu {
-                display: block;
-            }
-            
-            .sub-menu a {
-                color: #ddd;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            }
-            
-            .sub-menu a:hover {
-                background-color: rgba(255, 255, 255, 0.05);
-                color: var(--accent-color);
-            }
-            
-            .page-header {
-                padding: 4rem 0;
-            }
-            
-            .page-header h1 {
-                font-size: 2.2rem;
-            }
-            
-            .period-reading {
-                margin-left: 2.5rem;
-            }
-            
-            .reading-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .reading-day {
-                margin-right: 0;
-                margin-bottom: 1rem;
-            }
+            .site-header { padding: 0.5rem 1.1rem; }
+            .hero h1 { font-size: 1.9rem; }
+            .reading-item { flex-direction: column; gap: 0.2rem; }
+            .reading-day { width: auto; }
         }
     </style>
 </head>
 <body>
-    <!-- Solo botón de volver al inicio -->
-    <div style="position: fixed; top: 20px; left: 20px; z-index: 1000;">
-        <a href="../lectura-anual.html" class="btn" style="border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; margin: 0; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-            <i class="fas fa-arrow-left"></i>
-        </a>
-    </div>
-
-    <section class="page-header">
-        <div class="container">
-            <h1>Plan de Lectura Cronológico</h1>
-            <p>Lee la Biblia en el orden en que ocurrieron realmente los eventos, brindándote una perspectiva histórica completa de la narrativa bíblica.</p>
-            <div class="breadcrumbs">
-                <a href="../../../../index.html">Inicio</a>
-                <i class="fas fa-chevron-right"></i>
-                <a href="../../lectura-anual.html">Lectura Anual</a>
-                <i class="fas fa-chevron-right"></i>
-                <span>Plan Cronológico</span>
+    <header class="site-header">
+        <a href="../../../index.html" class="header-logo">
+            <img src="../../../images/EMD.png?v=2" alt="Logo EMD">
+            <div class="header-logo-text">
+                Ministerio
+                <span>"La Gloria es del Señor"</span>
             </div>
+        </a>
+        <a href="../lectura-anual.html" class="site-nav-back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+            Planes de lectura
+        </a>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <svg class="scroll-svg" viewBox="0 0 560 200" aria-hidden="true">
+                <defs>
+                    <linearGradient id="vellumGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#fbf6e8"/>
+                        <stop offset="100%" stop-color="#ece0c4"/>
+                    </linearGradient>
+                </defs>
+                <rect x="60" y="30" width="440" height="140" fill="url(#vellumGrad)"/>
+                <rect x="20" y="20" width="40" height="160" rx="18" fill="#6b4423"/>
+                <rect x="500" y="20" width="40" height="160" rx="18" fill="#6b4423"/>
+                <circle cx="40" cy="20" r="10" fill="#4a2e18"/>
+                <circle cx="40" cy="180" r="10" fill="#4a2e18"/>
+                <circle cx="520" cy="20" r="10" fill="#4a2e18"/>
+                <circle cx="520" cy="180" r="10" fill="#4a2e18"/>
+                <line x1="80" y1="100" x2="480" y2="100" stroke="#8a2e2e" stroke-width="2"/>
+                <circle cx="100" cy="100" r="5" fill="#8a2e2e"/>
+                <circle cx="142" cy="100" r="5" fill="#8a2e2e"/>
+                <circle cx="184" cy="100" r="5" fill="#8a2e2e"/>
+                <circle cx="226" cy="100" r="5" fill="#8a2e2e"/>
+                <circle cx="268" cy="100" r="5" fill="#8a2e2e"/>
+                <circle cx="310" cy="100" r="5" fill="#8a2e2e"/>
+                <circle cx="352" cy="100" r="5" fill="#8a2e2e"/>
+                <circle cx="394" cy="100" r="5" fill="#8a2e2e"/>
+                <circle cx="436" cy="100" r="5" fill="#8a2e2e"/>
+                <circle cx="470" cy="100" r="5" fill="#a8813a"/>
+                <line x1="100" y1="70" x2="100" y2="130" stroke="#3b2f1e" stroke-width="1" opacity="0.25"/>
+                <line x1="184" y1="70" x2="184" y2="130" stroke="#3b2f1e" stroke-width="1" opacity="0.25"/>
+                <line x1="268" y1="70" x2="268" y2="130" stroke="#3b2f1e" stroke-width="1" opacity="0.25"/>
+                <line x1="352" y1="70" x2="352" y2="130" stroke="#3b2f1e" stroke-width="1" opacity="0.25"/>
+                <line x1="436" y1="70" x2="436" y2="130" stroke="#3b2f1e" stroke-width="1" opacity="0.25"/>
+            </svg>
+            <span class="hero-tag">Gálatas 4:4</span>
+            <h1>Plan cronológico: el rollo del tiempo</h1>
+            <p class="lead">Lee la Biblia en el orden en que ocurrieron realmente los eventos, brindándote una perspectiva histórica completa de la narrativa bíblica.</p>
         </div>
     </section>
 
-    <section class="main-content">
+    <nav class="scroll-tabs-nav">
+        <div class="container">
+                <a href="#creation-period" class="scroll-tab">Creación</a>
+                <a href="#exodus-period" class="scroll-tab">Éxodo</a>
+                <a href="#united-kingdom-period" class="scroll-tab">Reino unido</a>
+                <a href="#divided-kingdom-period" class="scroll-tab">Reino dividido</a>
+                <a href="#exile-period" class="scroll-tab">Exilio</a>
+                <a href="#intertestamental-period" class="scroll-tab">Intertestamental</a>
+                <a href="#christ-period" class="scroll-tab">Cristo</a>
+                <a href="#early-church-period" class="scroll-tab">Iglesia primitiva</a>
+                <a href="#epistles-period" class="scroll-tab">Epístolas</a>
+                <a href="#revelation-period" class="scroll-tab">Apocalipsis</a>
+        </div>
+    </nav>
+
+    <section class="content-section">
         <div class="container">
             <div class="intro-box">
-                <h2>¿Qué es un Plan de Lectura Cronológico?</h2>
+                <h2>¿Qué es un plan de lectura cronológico?</h2>
                 <p>Un plan de lectura cronológico de la Biblia organiza las Escrituras no en el orden tradicional en que aparecen en la Biblia, sino según la secuencia temporal en que ocurrieron los eventos. Este enfoque proporciona una comprensión más clara de la narrativa bíblica como historia continua.</p>
                 <p>Algunas características principales de nuestro plan cronológico:</p>
                 <ul>
@@ -1054,102 +302,84 @@
                     <li>Ordena los Salmos según los eventos históricos que los inspiraron</li>
                     <li>Combina las narraciones paralelas de los libros de Reyes y Crónicas</li>
                     <li>Entrelaza los cuatro Evangelios para obtener una sola narrativa cronológica de la vida de Jesús</li>
-                    <li>Ubica las epístolas en el contexto de Hechos, según cuando fueron escritas</li>
+                    <li>Ubica las epístolas en el contexto de Hechos, según cuándo fueron escritas</li>
                 </ul>
-                <p>Este método de lectura te permite comprender las conexiones entre profecías y eventos históricos, ver el desarrollo progresivo de la revelación divina, y experimentar el drama de la historia de la redención como una única y coherente narrativa.</p>
+                <p>Este método de lectura te permite comprender las conexiones entre profecías y acontecimientos históricos, ver el desarrollo progresivo de la revelación divina y experimentar el drama de la historia de la redención como una narrativa única y coherente.</p>
             </div>
 
             <div class="plan-benefits">
                 <div class="benefit-card">
-                    <i class="fas fa-puzzle-piece"></i>
-                    <h3>Contexto Histórico</h3>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.439 7.85c-.049.322.059.648.289.878l1.568 1.568c.47.47.706 1.087.706 1.704s-.235 1.233-.706 1.704l-1.611 1.611a.98.98 0 0 1-.837.276c-.47-.07-.802-.48-.968-.925a2.501 2.501 0 1 0-3.214 3.214c.446.166.855.497.925.968a.979.979 0 0 1-.276.837l-1.61 1.61a2.404 2.404 0 0 1-3.408 0l-1.568-1.568a1.026 1.026 0 0 0-.877-.29c-.493.074-.84.504-1.02.968a2.5 2.5 0 1 1-3.237-3.237c.464-.18.894-.527.967-1.02a1.026 1.026 0 0 0-.289-.877l-1.568-1.568a2.404 2.404 0 0 1 0-3.408l1.611-1.611c.24-.24.581-.353.917-.303.478.072.817.486.988.937a2.501 2.501 0 1 0 3.214-3.214c-.451-.171-.865-.51-.937-.988-.05-.336.063-.677.303-.917l1.61-1.61a2.404 2.404 0 0 1 3.408 0l1.568 1.568c.23.23.556.338.877.29.493-.074.84-.504 1.02-.968a2.5 2.5 0 1 1 3.237 3.237c-.464.18-.894.527-.967 1.02Z" /></svg>
+                    <h3>Contexto histórico</h3>
                     <p>Comprende cómo se relacionan entre sí los diferentes eventos y personajes bíblicos al leerlos en su orden histórico real.</p>
                 </div>
                 <div class="benefit-card">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>Profecías y Cumplimiento</h3>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></svg>
+                    <h3>Profecías y cumplimiento</h3>
                     <p>Ve cómo las profecías del Antiguo Testamento se relacionan directamente con su cumplimiento, a veces siglos después.</p>
                 </div>
                 <div class="benefit-card">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <h3>Coherencia Narrativa</h3>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4.5 8-11.8A8 8 0 0 0 4 10.2C4 17.5 12 22 12 22Z" /><circle cx="12" cy="10" r="3" /></svg>
+                    <h3>Coherencia narrativa</h3>
                     <p>Experimenta la historia bíblica como una única narrativa coherente, revelando el plan redentor de Dios a través del tiempo.</p>
                 </div>
             </div>
 
             <div class="section-title">
-                <h2>Plan de Lectura Cronológico</h2>
-                <p>Sigue este plan para leer la Biblia completa en un año, organizada en orden histórico</p>
+                <h2>Plan de lectura cronológico</h2>
+                <p>Sigue este plan para leer la Biblia completa en un año, organizada en orden histórico.</p>
             </div>
 
-            <div class="chronological-plan">
-                <div class="plan-header">
-                    <h3>La Historia de la Redención</h3>
-                    <p>Lee aproximadamente 15-20 minutos diarios para completar la Biblia en un año, siguiendo la línea histórica real de los eventos</p>
-                </div>
+            <div class="plan-header">
+                <h3>La historia de la redención</h3>
+                <p>Lee aproximadamente 15–20 minutos diarios para completar la Biblia en un año, siguiendo la línea histórica real de los acontecimientos.</p>
+            </div>
 
-                <div class="timeline">
-                    <div class="timeline-nav">
-                        <button class="timeline-nav-item" onclick="scrollToTimeline('creation-period')">Creación</button>
-                        <button class="timeline-nav-item" onclick="scrollToTimeline('exodus-period')">Éxodo</button>
-                        <button class="timeline-nav-item" onclick="scrollToTimeline('united-kingdom-period')">Reino Unido</button>
-                        <button class="timeline-nav-item" onclick="scrollToTimeline('divided-kingdom-period')">Reino Dividido</button>
-                        <button class="timeline-nav-item" onclick="scrollToTimeline('exile-period')">Exilio</button>
-                        <button class="timeline-nav-item" onclick="scrollToTimeline('intertestamental-period')">Intertestamental</button>
-                        <button class="timeline-nav-item" onclick="scrollToTimeline('christ-period')">Cristo</button>
-                        <button class="timeline-nav-item" onclick="scrollToTimeline('early-church-period')">Iglesia Primitiva</button>
-                        <button class="timeline-nav-item" onclick="scrollToTimeline('epistles-period')">Epístolas</button>
-                        <button class="timeline-nav-item" onclick="scrollToTimeline('revelation-period')">Apocalipsis</button>
-                    </div>
-                
-                    <div class="timeline-period" id="creation-period">
-                        <div class="period-badge">4000-1700 a.C.</div>
-                        <div class="period-header">
-                            <div class="period-icon">
-                                <i class="fas fa-earth-americas"></i>
-                            </div>
-                            <h3 class="period-title">Creación y Patriarcas</h3>
+                    <div class="periodo" id="creation-period">
+                        <div class="periodo-badge">4000–1700 a. C.</div>
+                        <div class="periodo-header">
+                            <div class="periodo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 3v2M12 19v2M4.2 4.2l1.5 1.5M18.3 18.3l1.5 1.5M3 12h2M19 12h2M4.2 19.8l1.5-1.5M18.3 5.7l1.5-1.5" /></svg></div>
+                            <h3 class="periodo-title">Creación y patriarcas</h3>
                         </div>
-                        <p class="period-description">El relato de los orígenes del mundo y la formación del pueblo de Dios a través de los patriarcas Abraham, Isaac y Jacob.</p>
-                        
-                        <div class="historical-context">
-                            <h4><i class="fas fa-landmark"></i> Contexto Histórico</h4>
+                        <p class="periodo-description">El relato de los orígenes del mundo y la formación del pueblo de Dios a través de los patriarcas Abraham, Isaac y Jacob.</p>
+<div class="historical-context">
+                            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ic"><polygon points="12 2 21 8 3 8" /><line x1="6" y1="10" x2="6" y2="18" /><line x1="10" y1="10" x2="10" y2="18" /><line x1="14" y1="10" x2="14" y2="18" /><line x1="18" y1="10" x2="18" y2="18" /><line x1="3" y1="21" x2="21" y2="21" /></svg> Contexto histórico</h4>
                             <p>Durante este período se desarrollaron las primeras civilizaciones en Mesopotamia y Egipto. La cultura sumeria dio paso a imperios como el acadio, mientras los patriarcas vivían como nómadas entre estas potencias.</p>
                         </div>
                         
                         <div class="period-reading">
                             <div class="reading-item">
-                                <div class="reading-day">Día 1-2</div>
+                                <div class="reading-day">Día 1–2</div>
                                 <div class="reading-passage">
-                                    <div>Génesis 1-3</div>
+                                    <div>Génesis 1–3</div>
                                     <div class="reading-context">La creación del mundo y la caída del hombre</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 3-4</div>
+                                <div class="reading-day">Día 3–4</div>
                                 <div class="reading-passage">
-                                    <div>Génesis 4-9</div>
+                                    <div>Génesis 4–9</div>
                                     <div class="reading-context">Caín y Abel, genealogías, Noé y el diluvio</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 5-6</div>
+                                <div class="reading-day">Día 5–6</div>
                                 <div class="reading-passage">
-                                    <div>Job 1-14</div>
+                                    <div>Job 1–14</div>
                                     <div class="reading-context">Las pruebas de Job y el comienzo del diálogo</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 7-8</div>
+                                <div class="reading-day">Día 7–8</div>
                                 <div class="reading-passage">
-                                    <div>Job 15-28</div>
+                                    <div>Job 15–28</div>
                                     <div class="reading-context">Continuación del diálogo de Job con sus amigos</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 9-10</div>
+                                <div class="reading-day">Día 9–10</div>
                                 <div class="reading-passage">
-                                    <div>Job 29-42</div>
+                                    <div>Job 29–42</div>
                                     <div class="reading-context">Discurso de Eliú y respuesta de Dios a Job</div>
                                 </div>
                             </div>
@@ -1157,923 +387,910 @@
                         
                         <div class="key-event">
                             <h4>El llamado de Abraham</h4>
-                            <p>Alrededor del 2000 a.C., Dios llama a Abraham a salir de Ur de los caldeos para ir a la tierra prometida, estableciendo un pacto con él que se convertiría en el fundamento de la historia de Israel.</p>
+                            <p>Alrededor del año 2000 a. C., Dios llama a Abraham a salir de Ur de los caldeos para ir a la tierra prometida y establece con él un pacto que se convertiría en el fundamento de la historia de Israel.</p>
                         </div>
                         
                         <div class="period-reading">
                             <div class="reading-item">
-                                <div class="reading-day">Día 11-12</div>
+                                <div class="reading-day">Día 11–12</div>
                                 <div class="reading-passage">
-                                    <div>Génesis 10-15</div>
+                                    <div>Génesis 10–15</div>
                                     <div class="reading-context">Torre de Babel, llamado de Abraham y pacto de Dios</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 13-14</div>
+                                <div class="reading-day">Día 13–14</div>
                                 <div class="reading-passage">
-                                    <div>Génesis 16-22</div>
+                                    <div>Génesis 16–22</div>
                                     <div class="reading-context">Nacimiento de Ismael e Isaac, destrucción de Sodoma</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 15-16</div>
+                                <div class="reading-day">Día 15–16</div>
                                 <div class="reading-passage">
-                                    <div>Génesis 23-31</div>
+                                    <div>Génesis 23–31</div>
                                     <div class="reading-context">Abraham e Isaac, Jacob y Esaú</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 17-18</div>
+                                <div class="reading-day">Día 17–18</div>
                                 <div class="reading-passage">
-                                    <div>Génesis 32-37</div>
+                                    <div>Génesis 32–37</div>
                                     <div class="reading-context">Jacob lucha con Dios, reconciliación con Esaú, José</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 19-20</div>
+                                <div class="reading-day">Día 19–20</div>
                                 <div class="reading-passage">
-                                    <div>Génesis 38-45</div>
+                                    <div>Génesis 38–45</div>
                                     <div class="reading-context">José en Egipto, sus hermanos viajan a Egipto</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 21-22</div>
+                                <div class="reading-day">Día 21–22</div>
                                 <div class="reading-passage">
-                                    <div>Génesis 46-50</div>
+                                    <div>Génesis 46–50</div>
                                     <div class="reading-context">Jacob y familia viajan a Egipto, bendiciones y muerte de Jacob</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="timeline-period" id="exodus-period">
-                        <div class="period-badge">1446-1406 a.C.</div>
-                        <div class="period-header">
-                            <div class="period-icon">
-                                <i class="fas fa-mountain"></i>
-                            </div>
-                            <h3 class="period-title">Éxodo y Conquista</h3>
+
+
+                    <div class="periodo" id="exodus-period">
+                        <div class="periodo-badge">1446–1406 a. C.</div>
+                        <div class="periodo-header">
+                            <div class="periodo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20 9.5 7l3.2 5.8L15 9l6 11H3z" /></svg></div>
+                            <h3 class="periodo-title">Éxodo y conquista</h3>
                         </div>
-                        <p class="period-description">La liberación de Israel de la esclavitud egipcia, la entrega de la Ley en el Sinaí, y la conquista de la Tierra Prometida bajo Josué.</p>
-                        
-                        <div class="historical-context">
-                            <h4><i class="fas fa-landmark"></i> Contexto Histórico</h4>
-                            <p>Durante el Nuevo Reino de Egipto (1550-1070 a.C.), especialmente durante la dinastía XVIII, Israel estuvo en cautiverio. El Éxodo ocurrió en un tiempo de debilidad egipcia, posiblemente durante el reinado de Amenhotep II o Tutmosis III.</p>
+                        <p class="periodo-description">La liberación de Israel de la esclavitud egipcia, la entrega de la Ley en el Sinaí, y la conquista de la Tierra Prometida bajo Josué.</p>
+<div class="historical-context">
+                            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ic"><polygon points="12 2 21 8 3 8" /><line x1="6" y1="10" x2="6" y2="18" /><line x1="10" y1="10" x2="10" y2="18" /><line x1="14" y1="10" x2="14" y2="18" /><line x1="18" y1="10" x2="18" y2="18" /><line x1="3" y1="21" x2="21" y2="21" /></svg> Contexto histórico</h4>
+                            <p>Durante el Nuevo Reino de Egipto (1550–1070 a. C.), especialmente durante la dinastía XVIII, Israel estuvo en cautiverio. El éxodo ocurrió en un tiempo de debilidad egipcia, posiblemente durante el reinado de Amenhotep II o Tutmosis III.</p>
                         </div>
                         
                         <div class="period-reading">
                             <div class="reading-item">
-                                <div class="reading-day">Día 23-24</div>
+                                <div class="reading-day">Día 23–24</div>
                                 <div class="reading-passage">
-                                    <div>Éxodo 1-8</div>
+                                    <div>Éxodo 1–8</div>
                                     <div class="reading-context">Esclavitud en Egipto, nacimiento de Moisés, plagas</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 25-26</div>
+                                <div class="reading-day">Día 25–26</div>
                                 <div class="reading-passage">
-                                    <div>Éxodo 9-15</div>
+                                    <div>Éxodo 9–15</div>
                                     <div class="reading-context">Plagas finales, Pascua, cruce del Mar Rojo</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 27-28</div>
+                                <div class="reading-day">Día 27–28</div>
                                 <div class="reading-passage">
-                                    <div>Éxodo 16-24</div>
+                                    <div>Éxodo 16–24</div>
                                     <div class="reading-context">Maná, agua de la roca, los Diez Mandamientos</div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="key-event">
-                            <h4>El Pacto Sinaítico</h4>
-                            <p>Aproximadamente en 1446 a.C., Dios establece su pacto con Israel en el Monte Sinaí, entregando los Diez Mandamientos y la Ley, estableciendo a Israel como nación sacerdotal.</p>
+                            <h4>El pacto sinaítico</h4>
+                            <p>Aproximadamente en el año 1446 a. C., Dios establece su pacto con Israel en el monte Sinaí, entrega los Diez Mandamientos y la Ley, y establece a Israel como nación sacerdotal.</p>
                         </div>
                         
                         <div class="period-reading">
                             <div class="reading-item">
-                                <div class="reading-day">Día 29-30</div>
+                                <div class="reading-day">Día 29–30</div>
                                 <div class="reading-passage">
-                                    <div>Éxodo 25-31</div>
+                                    <div>Éxodo 25–31</div>
                                     <div class="reading-context">Instrucciones para el Tabernáculo y el sacerdocio</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 31-32</div>
+                                <div class="reading-day">Día 31–32</div>
                                 <div class="reading-passage">
-                                    <div>Éxodo 32-40</div>
+                                    <div>Éxodo 32–40</div>
                                     <div class="reading-context">Becerro de oro, nuevas tablas, construcción del Tabernáculo</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 33-36</div>
+                                <div class="reading-day">Día 33–36</div>
                                 <div class="reading-passage">
-                                    <div>Levítico 1-16</div>
+                                    <div>Levítico 1–16</div>
                                     <div class="reading-context">Leyes de sacrificios, consagración de sacerdotes, leyes de pureza</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 37-40</div>
+                                <div class="reading-day">Día 37–40</div>
                                 <div class="reading-passage">
-                                    <div>Levítico 17-27</div>
+                                    <div>Levítico 17–27</div>
                                     <div class="reading-context">Código de santidad, fiestas, leyes adicionales</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 41-45</div>
+                                <div class="reading-day">Día 41–45</div>
                                 <div class="reading-passage">
-                                    <div>Números 1-16</div>
+                                    <div>Números 1–16</div>
                                     <div class="reading-context">Censo, ordenanzas, rebeliones en el desierto</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 46-50</div>
+                                <div class="reading-day">Día 46–50</div>
                                 <div class="reading-passage">
-                                    <div>Números 17-36</div>
+                                    <div>Números 17–36</div>
                                     <div class="reading-context">Vara de Aarón, agua de la roca, serpiente de bronce, Balaam</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 51-55</div>
+                                <div class="reading-day">Día 51–55</div>
                                 <div class="reading-passage">
-                                    <div>Deuteronomio 1-18</div>
+                                    <div>Deuteronomio 1–18</div>
                                     <div class="reading-context">Repaso de la historia, renovación del pacto</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 56-60</div>
+                                <div class="reading-day">Día 56–60</div>
                                 <div class="reading-passage">
-                                    <div>Deuteronomio 19-34</div>
+                                    <div>Deuteronomio 19–34</div>
                                     <div class="reading-context">Leyes adicionales, bendiciones y maldiciones, muerte de Moisés</div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="key-event">
-                            <h4>La Conquista de Canaán</h4>
-                            <p>Entre 1406-1375 a.C., Josué lideró la conquista militar de la Tierra Prometida, cumpliendo la promesa hecha a Abraham siglos antes.</p>
+                            <h4>La conquista de Canaán</h4>
+                            <p>Entre los años 1406 y 1375 a. C., Josué lideró la conquista militar de la Tierra Prometida y cumplió la promesa hecha a Abraham siglos antes.</p>
                         </div>
                         
                         <div class="period-reading">
                             <div class="reading-item">
-                                <div class="reading-day">Día 61-65</div>
+                                <div class="reading-day">Día 61–65</div>
                                 <div class="reading-passage">
-                                    <div>Josué 1-12</div>
+                                    <div>Josué 1–12</div>
                                     <div class="reading-context">Cruce del Jordán, caída de Jericó, conquistas militares</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 66-70</div>
+                                <div class="reading-day">Día 66–70</div>
                                 <div class="reading-passage">
-                                    <div>Josué 13-24</div>
+                                    <div>Josué 13–24</div>
                                     <div class="reading-context">División de la tierra, ciudades de refugio, pacto en Siquem</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 71-75</div>
+                                <div class="reading-day">Día 71–75</div>
                                 <div class="reading-passage">
-                                    <div>Jueces 1-12</div>
+                                    <div>Jueces 1–12</div>
                                     <div class="reading-context">Ciclos de apostasía e idolatría, Débora, Gedeón, Jefté</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 76-80</div>
+                                <div class="reading-day">Día 76–80</div>
                                 <div class="reading-passage">
-                                    <div>Jueces 13-21, Rut 1-4</div>
+                                    <div>Jueces 13–21, Rut 1–4</div>
                                     <div class="reading-context">Sansón, guerra civil, historia de Rut y Booz</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="timeline-period" id="united-kingdom-period">
-                        <div class="period-badge">1050-931 a.C.</div>
-                        <div class="period-header">
-                            <div class="period-icon">
-                                <i class="fas fa-crown"></i>
-                            </div>
-                            <h3 class="period-title">Reino Unido</h3>
+
+
+                    <div class="periodo" id="united-kingdom-period">
+                        <div class="periodo-badge">1050–931 a. C.</div>
+                        <div class="periodo-header">
+                            <div class="periodo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18h16l-1.2-9-3.8 3-3-6-3 6-3.8-3L4 18z" /></svg></div>
+                            <h3 class="periodo-title">Reino unido</h3>
                         </div>
-                        <p class="period-description">El establecimiento de la monarquía israelita bajo Saúl, David y Salomón, época de expansión territorial y prosperidad nacional.</p>
-                        
-                        <div class="historical-context">
-                            <h4><i class="fas fa-landmark"></i> Contexto Histórico</h4>
+                        <p class="periodo-description">El establecimiento de la monarquía israelita bajo Saúl, David y Salomón, época de expansión territorial y prosperidad nacional.</p>
+<div class="historical-context">
+                            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ic"><polygon points="12 2 21 8 3 8" /><line x1="6" y1="10" x2="6" y2="18" /><line x1="10" y1="10" x2="10" y2="18" /><line x1="14" y1="10" x2="14" y2="18" /><line x1="18" y1="10" x2="18" y2="18" /><line x1="3" y1="21" x2="21" y2="21" /></svg> Contexto histórico</h4>
                             <p>Durante este período, tanto Egipto como Asiria estaban experimentando un declive temporal en su poder, creando un vacío que permitió a Israel establecerse como reino regional y expandir sus fronteras bajo David y Salomón.</p>
                         </div>
                         
                         <div class="period-reading">
                             <div class="reading-item">
-                                <div class="reading-day">Día 81-85</div>
+                                <div class="reading-day">Día 81–85</div>
                                 <div class="reading-passage">
-                                    <div>1 Samuel 1-15</div>
+                                    <div>1 Samuel 1–15</div>
                                     <div class="reading-context">Samuel, arca del pacto, petición de un rey, Saúl</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 86-90</div>
+                                <div class="reading-day">Día 86–90</div>
                                 <div class="reading-passage">
-                                    <div>1 Samuel 16-31</div>
+                                    <div>1 Samuel 16–31</div>
                                     <div class="reading-context">Unción de David, David y Goliat, persecución, muerte de Saúl</div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="key-event">
-                            <h4>El Pacto Davídico</h4>
-                            <p>Alrededor del 1000 a.C., Dios establece un pacto con David, prometiendo que su dinastía se establecería para siempre, sentando las bases para la expectativa mesiánica.</p>
+                            <h4>El pacto davídico</h4>
+                            <p>Alrededor del año 1000 a. C., Dios establece un pacto con David y promete que su dinastía permanecería para siempre, con lo que sienta las bases para la expectativa mesiánica.</p>
                         </div>
                         
                         <div class="period-reading">
                             <div class="reading-item">
-                                <div class="reading-day">Día 91-95</div>
+                                <div class="reading-day">Día 91–95</div>
                                 <div class="reading-passage">
-                                    <div>2 Samuel 1-12, Salmo 51</div>
+                                    <div>2 Samuel 1–12, Salmo 51</div>
                                     <div class="reading-context">Reinado de David, Jerusalén como capital, pecado con Betsabé</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 96-100</div>
+                                <div class="reading-day">Día 96–100</div>
                                 <div class="reading-passage">
-                                    <div>2 Samuel 13-24, Salmos 1-10</div>
+                                    <div>2 Samuel 13–24, Salmos 1–10</div>
                                     <div class="reading-context">Problemas familiares de David, rebeliones, salmos</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 101-105</div>
+                                <div class="reading-day">Día 101–105</div>
                                 <div class="reading-passage">
-                                    <div>Salmos 11-41</div>
+                                    <div>Salmos 11–41</div>
                                     <div class="reading-context">Colección davídica de salmos</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 106-110</div>
+                                <div class="reading-day">Día 106–110</div>
                                 <div class="reading-passage">
-                                    <div>1 Reyes 1-8, 2 Crónicas 1-6</div>
-                                    <div class="reading-context">Ascensión de Salomón, construcción del Templo</div>
+                                    <div>1 Reyes 1–8, 2 Crónicas 1–6</div>
+                                    <div class="reading-context">Ascensión de Salomón, construcción del templo</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 111-115</div>
+                                <div class="reading-day">Día 111–115</div>
                                 <div class="reading-passage">
-                                    <div>Proverbios 1-15</div>
+                                    <div>Proverbios 1–15</div>
                                     <div class="reading-context">Sabiduría de Salomón, primera colección</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 116-120</div>
+                                <div class="reading-day">Día 116–120</div>
                                 <div class="reading-passage">
-                                    <div>Proverbios 16-31</div>
+                                    <div>Proverbios 16–31</div>
                                     <div class="reading-context">Segunda colección de proverbios salomónicos</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 121-123</div>
+                                <div class="reading-day">Día 121–123</div>
                                 <div class="reading-passage">
-                                    <div>Eclesiastés 1-12</div>
+                                    <div>Eclesiastés 1–12</div>
                                     <div class="reading-context">Reflexiones de Salomón sobre la vida</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 124-125</div>
+                                <div class="reading-day">Día 124–125</div>
                                 <div class="reading-passage">
-                                    <div>Cantares 1-8</div>
+                                    <div>Cantares 1–8</div>
                                     <div class="reading-context">Poema de amor atribuido a Salomón</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 126-130</div>
+                                <div class="reading-day">Día 126–130</div>
                                 <div class="reading-passage">
-                                    <div>1 Reyes 9-11, 2 Crónicas 7-9</div>
+                                    <div>1 Reyes 9–11, 2 Crónicas 7–9</div>
                                     <div class="reading-context">Riqueza de Salomón, declive y apostasía</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="timeline-period" id="divided-kingdom-period">
-                        <div class="period-badge">931-722 a.C.</div>
-                        <div class="period-header">
-                            <div class="period-icon">
-                                <i class="fas fa-chess-rook"></i>
-                            </div>
-                            <h3 class="period-title">Reino Dividido</h3>
+
+
+                    <div class="periodo" id="divided-kingdom-period">
+                        <div class="periodo-badge">931–722 a. C.</div>
+                        <div class="periodo-header">
+                            <div class="periodo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18h7l-.9-9-3.1 3-2.4-5-.6 2z" /><path d="M20 18h-7l.9-9 3.1 3 2.4-5 .6 2z" /><path d="M12 8v10" stroke-dasharray="1.5 2" /></svg></div>
+                            <h3 class="periodo-title">Reino dividido</h3>
                         </div>
-                        <p class="period-description">Tras la muerte de Salomón, Israel se divide en dos reinos: Israel (norte) y Judá (sur). Período marcado por idolatría, reformas religiosas y el ministerio de numerosos profetas.</p>
-                        
-                        <div class="historical-context">
-                            <h4><i class="fas fa-landmark"></i> Contexto Histórico</h4>
-                            <p>Durante este período, Asiria se convirtió en la potencia dominante en Oriente Medio, eventualmente conquistando el Reino del Norte (Israel) en 722 a.C. El reino egipcio estaba fragmentado y débil, mientras que Babilonia apenas comenzaba su ascenso.</p>
+                        <p class="periodo-description">Tras la muerte de Salomón, Israel se divide en dos reinos: Israel (norte) y Judá (sur). Período marcado por idolatría, reformas religiosas y el ministerio de numerosos profetas.</p>
+<div class="historical-context">
+                            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ic"><polygon points="12 2 21 8 3 8" /><line x1="6" y1="10" x2="6" y2="18" /><line x1="10" y1="10" x2="10" y2="18" /><line x1="14" y1="10" x2="14" y2="18" /><line x1="18" y1="10" x2="18" y2="18" /><line x1="3" y1="21" x2="21" y2="21" /></svg> Contexto histórico</h4>
+                            <p>Durante este período, Asiria se convirtió en la potencia dominante en Oriente Medio y finalmente conquistó el reino del norte (Israel) en el año 722 a. C. El reino egipcio estaba fragmentado y débil, mientras que Babilonia apenas comenzaba su ascenso.</p>
                         </div>
                         
                         <div class="period-reading">
                             <div class="reading-item">
-                                <div class="reading-day">Día 131-135</div>
+                                <div class="reading-day">Día 131–135</div>
                                 <div class="reading-passage">
-                                    <div>1 Reyes 12-16</div>
+                                    <div>1 Reyes 12–16</div>
                                     <div class="reading-context">División del reino, Jeroboam, Roboam, reyes de Judá e Israel</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 136-140</div>
+                                <div class="reading-day">Día 136–140</div>
                                 <div class="reading-passage">
-                                    <div>1 Reyes 17-22, 2 Reyes 1-2</div>
+                                    <div>1 Reyes 17–22, 2 Reyes 1–2</div>
                                     <div class="reading-context">Ministerio de Elías contra el baalismo</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 141-145</div>
+                                <div class="reading-day">Día 141–145</div>
                                 <div class="reading-passage">
-                                    <div>2 Reyes 3-11</div>
+                                    <div>2 Reyes 3–11</div>
                                     <div class="reading-context">Ministerio de Eliseo, reyes de Israel y Judá</div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="key-event">
-                            <h4>Ministerio de los Profetas</h4>
-                            <p>Entre 850-722 a.C., los profetas Elías, Eliseo, Amós, Oseas y otros llamaron a Israel al arrepentimiento, denunciando la injusticia social y la idolatría, advirtiendo sobre el juicio inminente.</p>
+                            <h4>Ministerio de los profetas</h4>
+                            <p>Entre los años 850 y 722 a. C., los profetas Elías, Eliseo, Amós, Oseas y otros llamaron a Israel al arrepentimiento, denunciaron la injusticia social y la idolatría, y advirtieron sobre el juicio inminente.</p>
                         </div>
                         
                         <div class="period-reading">
                             <div class="reading-item">
-                                <div class="reading-day">Día 146-148</div>
+                                <div class="reading-day">Día 146–148</div>
                                 <div class="reading-passage">
-                                    <div>Jonás 1-4</div>
+                                    <div>Jonás 1–4</div>
                                     <div class="reading-context">Misión de Jonás a Nínive (Asiria)</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 149-153</div>
+                                <div class="reading-day">Día 149–153</div>
                                 <div class="reading-passage">
-                                    <div>Amós 1-9</div>
+                                    <div>Amós 1–9</div>
                                     <div class="reading-context">Profecías contra Israel y sus vecinos</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 154-158</div>
+                                <div class="reading-day">Día 154–158</div>
                                 <div class="reading-passage">
-                                    <div>Oseas 1-14</div>
+                                    <div>Oseas 1–14</div>
                                     <div class="reading-context">El amor de Dios por Israel infiel</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 159-163</div>
+                                <div class="reading-day">Día 159–163</div>
                                 <div class="reading-passage">
-                                    <div>Miqueas 1-7</div>
+                                    <div>Miqueas 1–7</div>
                                     <div class="reading-context">Juicio contra Samaria y Jerusalén, promesas futuras</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 164-168</div>
+                                <div class="reading-day">Día 164–168</div>
                                 <div class="reading-passage">
-                                    <div>Isaías 1-12</div>
+                                    <div>Isaías 1–12</div>
                                     <div class="reading-context">Visión y llamado, juicio y esperanza para Judá</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 169-173</div>
+                                <div class="reading-day">Día 169–173</div>
                                 <div class="reading-passage">
-                                    <div>2 Reyes 12-17</div>
-                                    <div class="reading-context">Últimos reyes de Israel, caída de Samaria en 722 a.C.</div>
+                                    <div>2 Reyes 12–17</div>
+                                    <div class="reading-context">Últimos reyes de Israel y caída de Samaria en el año 722 a. C.</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="timeline-period" id="exile-period">
-                        <div class="period-badge">722-538 a.C.</div>
-                        <div class="period-header">
-                            <div class="period-icon">
-                                <i class="fas fa-archway"></i>
-                            </div>
-                            <h3 class="period-title">Exilio y Regreso</h3>
+
+
+                    <div class="periodo" id="exile-period">
+                        <div class="periodo-badge">722–538 a. C.</div>
+                        <div class="periodo-header">
+                            <div class="periodo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V10a7 7 0 0 1 14 0v11" /><path d="M3 21h18" /></svg></div>
+                            <h3 class="periodo-title">Exilio y regreso</h3>
                         </div>
-                        <p class="period-description">La caída de Israel ante Asiria (722 a.C.) y de Judá ante Babilonia (586 a.C.), seguido por el retorno de los exiliados bajo el Imperio Persa y la reconstrucción de Jerusalén.</p>
-                        
-                        <div class="historical-context">
-                            <h4><i class="fas fa-landmark"></i> Contexto Histórico</h4>
-                            <p>Este período vio el auge y caída de imperios: Asiria fue derrocada por Babilonia, que a su vez fue conquistada por Persia bajo Ciro el Grande, quien permitió a los judíos regresar a su tierra en 538 a.C.</p>
+                        <p class="periodo-description">La caída de Israel ante Asiria (722 a. C.) y la de Judá ante Babilonia (586 a. C.), seguidas por el retorno de los exiliados bajo el Imperio persa y la reconstrucción de Jerusalén.</p>
+<div class="historical-context">
+                            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ic"><polygon points="12 2 21 8 3 8" /><line x1="6" y1="10" x2="6" y2="18" /><line x1="10" y1="10" x2="10" y2="18" /><line x1="14" y1="10" x2="14" y2="18" /><line x1="18" y1="10" x2="18" y2="18" /><line x1="3" y1="21" x2="21" y2="21" /></svg> Contexto histórico</h4>
+                            <p>Este período fue testigo del auge y la caída de varios imperios: Asiria fue derrocada por Babilonia, que, a su vez, fue conquistada por Persia bajo Ciro el Grande, quien permitió a los judíos regresar a su tierra en el año 538 a. C.</p>
                         </div>
                         
                         <div class="key-event">
-                            <h4>La Caída de Jerusalén</h4>
-                            <p>En 586 a.C., Nabucodonosor destruyó Jerusalén y el Templo de Salomón, llevando al pueblo de Judá al exilio en Babilonia, cumpliendo las advertencias proféticas.</p>
+                            <h4>La caída de Jerusalén</h4>
+                            <p>En el año 586 a. C., Nabucodonosor destruyó Jerusalén y el templo de Salomón, llevó al pueblo de Judá al exilio en Babilonia y cumplió las advertencias proféticas.</p>
                         </div>
                         
                         <div class="period-reading">
                             <div class="reading-item">
-                                <div class="reading-day">Día 174-178</div>
+                                <div class="reading-day">Día 174–178</div>
                                 <div class="reading-passage">
-                                    <div>Isaías 13-27</div>
+                                    <div>Isaías 13–27</div>
                                     <div class="reading-context">Oráculos contra las naciones, apocalipsis de Isaías</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 179-183</div>
+                                <div class="reading-day">Día 179–183</div>
                                 <div class="reading-passage">
-                                    <div>Isaías 28-39</div>
+                                    <div>Isaías 28–39</div>
                                     <div class="reading-context">Advertencias a Jerusalén, amenaza asiria</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 184-188</div>
+                                <div class="reading-day">Día 184–188</div>
                                 <div class="reading-passage">
-                                    <div>2 Reyes 18-21</div>
+                                    <div>2 Reyes 18–21</div>
                                     <div class="reading-context">Ezequías, invasión asiria, Manasés</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 189-193</div>
+                                <div class="reading-day">Día 189–193</div>
                                 <div class="reading-passage">
-                                    <div>Nahúm 1-3, Sofonías 1-3</div>
+                                    <div>Nahúm 1–3, Sofonías 1–3</div>
                                     <div class="reading-context">Profecías contra Nínive, el Día del Señor</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 194-198</div>
+                                <div class="reading-day">Día 194–198</div>
                                 <div class="reading-passage">
-                                    <div>Jeremías 1-20</div>
+                                    <div>Jeremías 1–20</div>
                                     <div class="reading-context">Llamado de Jeremías, advertencias a Judá</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 199-203</div>
+                                <div class="reading-day">Día 199–203</div>
                                 <div class="reading-passage">
-                                    <div>2 Reyes 22-25</div>
+                                    <div>2 Reyes 22–25</div>
                                     <div class="reading-context">Reforma de Josías, caída de Jerusalén</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 204-208</div>
+                                <div class="reading-day">Día 204–208</div>
                                 <div class="reading-passage">
-                                    <div>Jeremías 21-39</div>
+                                    <div>Jeremías 21–39</div>
                                     <div class="reading-context">Profecías durante el asedio, caída de Jerusalén</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 209-213</div>
+                                <div class="reading-day">Día 209–213</div>
                                 <div class="reading-passage">
-                                    <div>Lamentaciones 1-5</div>
+                                    <div>Lamentaciones 1–5</div>
                                     <div class="reading-context">Lamento por la destrucción de Jerusalén</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 214-218</div>
+                                <div class="reading-day">Día 214–218</div>
                                 <div class="reading-passage">
-                                    <div>Habacuc 1-3, Abdías</div>
+                                    <div>Habacuc 1–3, Abdías</div>
                                     <div class="reading-context">El problema del mal, juicio sobre Edom</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 219-223</div>
+                                <div class="reading-day">Día 219–223</div>
                                 <div class="reading-passage">
-                                    <div>Ezequiel 1-24</div>
+                                    <div>Ezequiel 1–24</div>
                                     <div class="reading-context">Visiones y profecías en el exilio</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 224-228</div>
+                                <div class="reading-day">Día 224–228</div>
                                 <div class="reading-passage">
-                                    <div>Ezequiel 25-48</div>
+                                    <div>Ezequiel 25–48</div>
                                     <div class="reading-context">Profecías contra las naciones, visión del templo</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 229-233</div>
+                                <div class="reading-day">Día 229–233</div>
                                 <div class="reading-passage">
-                                    <div>Daniel 1-12</div>
+                                    <div>Daniel 1–12</div>
                                     <div class="reading-context">Daniel en Babilonia, visiones apocalípticas</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 234-238</div>
+                                <div class="reading-day">Día 234–238</div>
                                 <div class="reading-passage">
-                                    <div>Isaías 40-55</div>
+                                    <div>Isaías 40–55</div>
                                     <div class="reading-context">Consuelo para los exiliados, el Siervo sufriente</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 239-243</div>
+                                <div class="reading-day">Día 239–243</div>
                                 <div class="reading-passage">
-                                    <div>Isaías 56-66</div>
+                                    <div>Isaías 56–66</div>
                                     <div class="reading-context">Los nuevos cielos y nueva tierra, restauración</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 244-248</div>
+                                <div class="reading-day">Día 244–248</div>
                                 <div class="reading-passage">
-                                    <div>Jeremías 40-52</div>
+                                    <div>Jeremías 40–52</div>
                                     <div class="reading-context">Remanente en Judá y Egipto, profecías finales</div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="key-event">
-                            <h4>El Decreto de Ciro</h4>
-                            <p>En 538 a.C., Ciro el Grande de Persia emitió un decreto permitiendo a los judíos regresar a Jerusalén y reconstruir el Templo, cumpliendo las profecías de Isaías 44-45.</p>
+                            <h4>El decreto de Ciro</h4>
+                            <p>En el año 538 a. C., Ciro el Grande de Persia emitió un decreto que permitió a los judíos regresar a Jerusalén y reconstruir el templo, con lo que se cumplieron las profecías de Isaías 44–45.</p>
                         </div>
                         
                         <div class="period-reading">
                             <div class="reading-item">
-                                <div class="reading-day">Día 249-253</div>
+                                <div class="reading-day">Día 249–253</div>
                                 <div class="reading-passage">
-                                    <div>Esdras 1-6</div>
+                                    <div>Esdras 1–6</div>
                                     <div class="reading-context">Primer retorno, reconstrucción del templo</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 254-258</div>
+                                <div class="reading-day">Día 254–258</div>
                                 <div class="reading-passage">
-                                    <div>Hageo 1-2, Zacarías 1-14</div>
+                                    <div>Hageo 1–2, Zacarías 1–14</div>
                                     <div class="reading-context">Exhortaciones para reconstruir el templo, visiones</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 259-263</div>
+                                <div class="reading-day">Día 259–263</div>
                                 <div class="reading-passage">
-                                    <div>Ester 1-10</div>
+                                    <div>Ester 1–10</div>
                                     <div class="reading-context">Los judíos en el imperio persa</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 264-268</div>
+                                <div class="reading-day">Día 264–268</div>
                                 <div class="reading-passage">
-                                    <div>Esdras 7-10, Nehemías 1-7</div>
+                                    <div>Esdras 7–10, Nehemías 1–7</div>
                                     <div class="reading-context">Segundo retorno, reconstrucción de Jerusalén</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 269-273</div>
+                                <div class="reading-day">Día 269–273</div>
                                 <div class="reading-passage">
-                                    <div>Nehemías 8-13, Malaquías 1-4</div>
+                                    <div>Nehemías 8–13, Malaquías 1–4</div>
                                     <div class="reading-context">Renovación del pacto, abusos corregidos, últimas profecías</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="timeline-period" id="intertestamental-period">
-                        <div class="period-badge">400-5 a.C.</div>
-                        <div class="period-header">
-                            <div class="period-icon">
-                                <i class="fas fa-hourglass-half"></i>
-                            </div>
-                            <h3 class="period-title">Período Intertestamentario</h3>
+
+
+                    <div class="periodo" id="intertestamental-period">
+                        <div class="periodo-badge">400–5 a. C.</div>
+                        <div class="periodo-header">
+                            <div class="periodo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h12" /><path d="M6 22h12" /><path d="M6 2c0 5 5.5 6.3 5.5 10S6 17 6 22" /><path d="M18 2c0 5-5.5 6.3-5.5 10S18 17 18 22" /></svg></div>
+                            <h3 class="periodo-title">Período intertestamentario</h3>
                         </div>
-                        <p class="period-description">Los cuatrocientos años de "silencio profético" entre Malaquías y Juan el Bautista, período de dominación persa, griega y romana.</p>
-                        
-                        <div class="historical-context">
-                            <h4><i class="fas fa-landmark"></i> Contexto Histórico</h4>
-                            <p>Durante estos siglos, el control de Judea pasó de los persas a los griegos bajo Alejandro Magno, luego a los ptolomeos de Egipto y seléucidas de Siria. Tras la revuelta macabea, se estableció un breve período de independencia judía antes de la conquista romana en 63 a.C.</p>
+                        <p class="periodo-description">Los cuatrocientos años de "silencio profético" entre Malaquías y Juan el Bautista, período de dominación persa, griega y romana.</p>
+<div class="historical-context">
+                            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ic"><polygon points="12 2 21 8 3 8" /><line x1="6" y1="10" x2="6" y2="18" /><line x1="10" y1="10" x2="10" y2="18" /><line x1="14" y1="10" x2="14" y2="18" /><line x1="18" y1="10" x2="18" y2="18" /><line x1="3" y1="21" x2="21" y2="21" /></svg> Contexto histórico</h4>
+                            <p>Durante estos siglos, el control de Judea pasó de los persas a los griegos bajo Alejandro Magno, y luego a los ptolomeos de Egipto y a los seléucidas de Siria. Tras la revuelta macabea, se estableció un breve período de independencia judía antes de la conquista romana en el año 63 a. C.</p>
                         </div>
                         
                         <div class="key-event">
-                            <h4>La Revuelta Macabea</h4>
-                            <p>En 167-160 a.C., los judíos bajo Judas Macabeo se rebelaron contra la helenización forzada y la profanación del Templo por Antíoco IV Epífanes, recuperando la independencia judía por primera vez desde 586 a.C.</p>
+                            <h4>La revuelta macabea</h4>
+                            <p>Entre los años 167 y 160 a. C., los judíos bajo Judas Macabeo se rebelaron contra la helenización forzada y la profanación del templo por Antíoco IV Epífanes, y recuperaron la independencia judía por primera vez desde el año 586 a. C.</p>
                         </div>
                         
                         <div class="period-reading">
                             <div class="reading-item">
                                 <div class="reading-day">Día 274</div>
                                 <div class="reading-passage">
-                                    <div>Período de silencio profético - Sin lecturas bíblicas específicas</div>
-                                    <div class="reading-context">Recomendación: lectura de libros apócrifos/deuterocanónicos como 1-2 Macabeos para contexto histórico</div>
+                                    <div>Período de silencio profético: sin lecturas bíblicas específicas</div>
+                                    <div class="reading-context">Recomendación: lectura de libros apócrifos o deuterocanónicos, como 1–2 Macabeos, para conocer el contexto histórico</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="timeline-period" id="christ-period">
-                        <div class="period-badge">5 a.C. - 33 d.C.</div>
-                        <div class="period-header">
-                            <div class="period-icon">
-                                <i class="fas fa-cross"></i>
-                            </div>
-                            <h3 class="period-title">Vida de Cristo</h3>
+
+
+                    <div class="periodo" id="christ-period">
+                        <div class="periodo-badge">5 a. C.–33 d. C.</div>
+                        <div class="periodo-header">
+                            <div class="periodo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20" /><path d="M6 8h12" /></svg></div>
+                            <h3 class="periodo-title">Vida de Cristo</h3>
                         </div>
-                        <p class="period-description">El nacimiento, ministerio, muerte y resurrección de Jesús, el cumplimiento de las profecías mesiánicas y el establecimiento del Nuevo Pacto.</p>
-                        
-                        <div class="historical-context">
-                            <h4><i class="fas fa-landmark"></i> Contexto Histórico</h4>
+                        <p class="periodo-description">El nacimiento, ministerio, muerte y resurrección de Jesús, el cumplimiento de las profecías mesiánicas y el establecimiento del nuevo pacto.</p>
+<div class="historical-context">
+                            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ic"><polygon points="12 2 21 8 3 8" /><line x1="6" y1="10" x2="6" y2="18" /><line x1="10" y1="10" x2="10" y2="18" /><line x1="14" y1="10" x2="14" y2="18" /><line x1="18" y1="10" x2="18" y2="18" /><line x1="3" y1="21" x2="21" y2="21" /></svg> Contexto histórico</h4>
                             <p>Judea estaba bajo dominio romano, gobernada primero por Herodes el Grande y luego por sus hijos y procuradores romanos como Poncio Pilato. Era un tiempo de tensión política y expectativas mesiánicas entre los judíos.</p>
                         </div>
                         
                         <div class="period-reading">
                             <div class="reading-item">
-                                <div class="reading-day">Día 275-280</div>
+                                <div class="reading-day">Día 275–280</div>
                                 <div class="reading-passage">
-                                    <div>Mateo 1-9, Lucas 1-4</div>
+                                    <div>Mateo 1–9, Lucas 1–4</div>
                                     <div class="reading-context">Nacimiento de Jesús, infancia, bautismo, tentaciones</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 281-285</div>
+                                <div class="reading-day">Día 281–285</div>
                                 <div class="reading-passage">
-                                    <div>Juan 1-4, Mateo 10-12</div>
+                                    <div>Juan 1–4, Mateo 10–12</div>
                                     <div class="reading-context">El Verbo eterno, primeros milagros, llamado de discípulos</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 286-290</div>
+                                <div class="reading-day">Día 286–290</div>
                                 <div class="reading-passage">
-                                    <div>Mateo 5-7, 13-14</div>
-                                    <div class="reading-context">Sermón del Monte, parábolas del Reino</div>
+                                    <div>Mateo 5–7, 13–14</div>
+                                    <div class="reading-context">Sermón del monte, parábolas del reino</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 291-295</div>
+                                <div class="reading-day">Día 291–295</div>
                                 <div class="reading-passage">
-                                    <div>Marcos 1-6</div>
+                                    <div>Marcos 1–6</div>
                                     <div class="reading-context">Ministerio en Galilea, milagros, parábolas</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 296-300</div>
+                                <div class="reading-day">Día 296–300</div>
                                 <div class="reading-passage">
-                                    <div>Marcos 7-10, Lucas 10-13</div>
+                                    <div>Marcos 7–10, Lucas 10–13</div>
                                     <div class="reading-context">Ministerio itinerante, enseñanzas, viaje a Jerusalén</div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="key-event">
-                            <h4>La Crucifixión y Resurrección</h4>
-                            <p>En aproximadamente 30-33 d.C., Jesús fue crucificado bajo Poncio Pilato, resucitando al tercer día, el evento central del cristianismo que establece el Nuevo Pacto anunciado por los profetas.</p>
+                            <h4>La crucifixión y resurrección</h4>
+                            <p>Aproximadamente entre los años 30 y 33 d. C., Jesús fue crucificado bajo Poncio Pilato y resucitó al tercer día. Este acontecimiento central del cristianismo establece el nuevo pacto anunciado por los profetas.</p>
                         </div>
                         
                         <div class="period-reading">
                             <div class="reading-item">
-                                <div class="reading-day">Día 301-305</div>
+                                <div class="reading-day">Día 301–305</div>
                                 <div class="reading-passage">
-                                    <div>Juan 5-11</div>
+                                    <div>Juan 5–11</div>
                                     <div class="reading-context">Discursos en Jerusalén, controversias, Lázaro</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 306-310</div>
+                                <div class="reading-day">Día 306–310</div>
                                 <div class="reading-passage">
-                                    <div>Mateo 19-25</div>
+                                    <div>Mateo 19–25</div>
                                     <div class="reading-context">Enseñanzas finales, entrada triunfal, discurso escatológico</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 311-315</div>
+                                <div class="reading-day">Día 311–315</div>
                                 <div class="reading-passage">
-                                    <div>Mateo 26-28, Marcos 14-16</div>
+                                    <div>Mateo 26–28, Marcos 14–16</div>
                                     <div class="reading-context">Última cena, arresto, juicio, crucifixión, resurrección</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 316-320</div>
+                                <div class="reading-day">Día 316–320</div>
                                 <div class="reading-passage">
-                                    <div>Lucas 22-24, Juan 12-21</div>
+                                    <div>Lucas 22–24, Juan 12–21</div>
                                     <div class="reading-context">Crucifixión, resurrección desde otras perspectivas</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="timeline-period" id="early-church-period">
-                        <div class="period-badge">33-100 d.C.</div>
-                        <div class="period-header">
-                            <div class="period-icon">
-                                <i class="fas fa-church"></i>
-                            </div>
-                            <h3 class="period-title">Iglesia Primitiva</h3>
+
+
+                    <div class="periodo" id="early-church-period">
+                        <div class="periodo-badge">33–100 d. C.</div>
+                        <div class="periodo-header">
+                            <div class="periodo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v3" /><path d="M10.5 4.5h3" /><path d="M4 21V11l8-6 8 6v10" /><path d="M3 21h18" /><path d="M10 21v-6h4v6" /></svg></div>
+                            <h3 class="periodo-title">Iglesia primitiva</h3>
                         </div>
-                        <p class="period-description">El nacimiento de la iglesia en Pentecostés, su expansión desde Jerusalén hasta Roma, y los viajes misioneros del apóstol Pablo.</p>
-                        
-                        <div class="historical-context">
-                            <h4><i class="fas fa-landmark"></i> Contexto Histórico</h4>
-                            <p>Durante el primer siglo, el Imperio Romano bajo emperadores como Tiberio, Claudio y Nerón controlaba el mundo mediterráneo. La destrucción del Templo de Jerusalén en 70 d.C. por los romanos marcó un punto de inflexión tanto para el judaísmo como para el cristianismo naciente.</p>
+                        <p class="periodo-description">El nacimiento de la iglesia en Pentecostés, su expansión desde Jerusalén hasta Roma, y los viajes misioneros del apóstol Pablo.</p>
+<div class="historical-context">
+                            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ic"><polygon points="12 2 21 8 3 8" /><line x1="6" y1="10" x2="6" y2="18" /><line x1="10" y1="10" x2="10" y2="18" /><line x1="14" y1="10" x2="14" y2="18" /><line x1="18" y1="10" x2="18" y2="18" /><line x1="3" y1="21" x2="21" y2="21" /></svg> Contexto histórico</h4>
+                            <p>Durante el primer siglo, el Imperio romano, bajo emperadores como Tiberio, Claudio y Nerón, controlaba el mundo mediterráneo. La destrucción del templo de Jerusalén en el año 70 d. C. marcó un punto de inflexión tanto para el judaísmo como para el cristianismo naciente.</p>
                         </div>
                         
                         <div class="period-reading">
                             <div class="reading-item">
-                                <div class="reading-day">Día 321-325</div>
+                                <div class="reading-day">Día 321–325</div>
                                 <div class="reading-passage">
-                                    <div>Hechos 1-8</div>
+                                    <div>Hechos 1–8</div>
                                     <div class="reading-context">Pentecostés, iglesia primitiva, persecución, Felipe</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 326-330</div>
+                                <div class="reading-day">Día 326–330</div>
                                 <div class="reading-passage">
-                                    <div>Hechos 9-14</div>
+                                    <div>Hechos 9–14</div>
                                     <div class="reading-context">Conversión de Pablo, ministerio de Pedro, primer viaje misionero</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 331-335</div>
+                                <div class="reading-day">Día 331–335</div>
                                 <div class="reading-passage">
                                     <div>Santiago, Gálatas</div>
                                     <div class="reading-context">Fe y obras, libertad en Cristo</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 336-340</div>
+                                <div class="reading-day">Día 336–340</div>
                                 <div class="reading-passage">
-                                    <div>Hechos 15-19, 1-2 Tesalonicenses</div>
+                                    <div>Hechos 15–19, 1–2 Tesalonicenses</div>
                                     <div class="reading-context">Concilio de Jerusalén, segundo viaje misionero</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 341-345</div>
+                                <div class="reading-day">Día 341–345</div>
                                 <div class="reading-passage">
-                                    <div>1-2 Corintios</div>
+                                    <div>1–2 Corintios</div>
                                     <div class="reading-context">Problemas en la iglesia de Corinto</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 346-350</div>
+                                <div class="reading-day">Día 346–350</div>
                                 <div class="reading-passage">
                                     <div>Romanos</div>
                                     <div class="reading-context">Exposición sistemática del evangelio</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 351-355</div>
+                                <div class="reading-day">Día 351–355</div>
                                 <div class="reading-passage">
-                                    <div>Hechos 20-28</div>
+                                    <div>Hechos 20–28</div>
                                     <div class="reading-context">Tercer viaje misionero, arresto de Pablo, viaje a Roma</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="timeline-period" id="epistles-period">
-                        <div class="period-badge">49-90 d.C.</div>
-                        <div class="period-header">
-                            <div class="period-icon">
-                                <i class="fas fa-scroll"></i>
-                            </div>
-                            <h3 class="period-title">Epístolas Apostólicas</h3>
+
+
+                    <div class="periodo" id="epistles-period">
+                        <div class="periodo-badge">49–90 d. C.</div>
+                        <div class="periodo-header">
+                            <div class="periodo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8" /><path d="M5 4v16a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2H8" /></svg></div>
+                            <h3 class="periodo-title">Epístolas apostólicas</h3>
                         </div>
-                        <p class="period-description">Las cartas de Pablo, Pedro, Juan y otros apóstoles que establecen la teología y práctica cristianas para la iglesia temprana y para todas las generaciones.</p>
-                        
-                        <div class="historical-context">
-                            <h4><i class="fas fa-landmark"></i> Contexto Histórico</h4>
-                            <p>Las epístolas fueron escritas durante el período de expansión de la iglesia por todo el Imperio Romano, a menudo en respuesta a desafíos específicos: herejías emergentes, persecución externa, y cuestiones prácticas de vida cristiana en un contexto pagano.</p>
+                        <p class="periodo-description">Las cartas de Pablo, Pedro, Juan y otros apóstoles que establecen la teología y práctica cristianas para la iglesia temprana y para todas las generaciones.</p>
+<div class="historical-context">
+                            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ic"><polygon points="12 2 21 8 3 8" /><line x1="6" y1="10" x2="6" y2="18" /><line x1="10" y1="10" x2="10" y2="18" /><line x1="14" y1="10" x2="14" y2="18" /><line x1="18" y1="10" x2="18" y2="18" /><line x1="3" y1="21" x2="21" y2="21" /></svg> Contexto histórico</h4>
+                        <p>Las epístolas fueron escritas durante el período de expansión de la iglesia por todo el Imperio romano, a menudo en respuesta a desafíos específicos: herejías emergentes, persecución externa y cuestiones prácticas de la vida cristiana en un contexto pagano.</p>
                         </div>
                         
                         <div class="period-reading">
                             <div class="reading-item">
-                                <div class="reading-day">Día 356-357</div>
+                                <div class="reading-day">Día 356–357</div>
                                 <div class="reading-passage">
                                     <div>Efesios</div>
                                     <div class="reading-context">Unidad, gracia, la armadura de Dios</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 358-359</div>
+                                <div class="reading-day">Día 358–359</div>
                                 <div class="reading-passage">
                                     <div>Filipenses, Filemón</div>
                                     <div class="reading-context">Gozo en el sufrimiento, reconciliación</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 360-361</div>
+                                <div class="reading-day">Día 360–361</div>
                                 <div class="reading-passage">
                                     <div>Colosenses</div>
                                     <div class="reading-context">Supremacía de Cristo, herejía emergente</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 362-363</div>
+                                <div class="reading-day">Día 362–363</div>
                                 <div class="reading-passage">
                                     <div>1 Timoteo, Tito</div>
                                     <div class="reading-context">Instrucciones para líderes de iglesia</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 364-365</div>
+                                <div class="reading-day">Día 364–365</div>
                                 <div class="reading-passage">
                                     <div>2 Timoteo</div>
                                     <div class="reading-context">Última carta de Pablo, perseverancia</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 366-367</div>
+                                <div class="reading-day">Día 366–367</div>
                                 <div class="reading-passage">
-                                    <div>Hebreos 1-8</div>
+                                    <div>Hebreos 1–8</div>
                                     <div class="reading-context">Superioridad de Cristo, nuevo pacto</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 368-369</div>
+                                <div class="reading-day">Día 368–369</div>
                                 <div class="reading-passage">
-                                    <div>Hebreos 9-13</div>
+                                    <div>Hebreos 9–13</div>
                                     <div class="reading-context">Sacrificio perfecto, fe, perseverancia</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 370-371</div>
+                                <div class="reading-day">Día 370–371</div>
                                 <div class="reading-passage">
-                                    <div>1-2 Pedro</div>
+                                    <div>1–2 Pedro</div>
                                     <div class="reading-context">Sufrimiento cristiano, falsos maestros</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 372-374</div>
+                                <div class="reading-day">Día 372–374</div>
                                 <div class="reading-passage">
-                                    <div>1-3 Juan, Judas</div>
+                                    <div>1–3 Juan, Judas</div>
                                     <div class="reading-context">Amor, discernimiento, advertencias</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="timeline-period" id="revelation-period">
-                        <div class="period-badge">95 d.C.</div>
-                        <div class="period-header">
-                            <div class="period-icon">
-                                <i class="fas fa-crown"></i>
-                            </div>
-                            <h3 class="period-title">Apocalipsis y Final</h3>
+
+
+                    <div class="periodo" id="revelation-period">
+                        <div class="periodo-badge">95 d. C.</div>
+                        <div class="periodo-header">
+                            <div class="periodo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18h16l-1.2-9-3.8 3-3-6-3 6-3.8-3L4 18z" /><path d="M12 2.5v2M8.5 3.5l.8 1.6M15.5 3.5l-.8 1.6" /></svg></div>
+                            <h3 class="periodo-title">Apocalipsis y final</h3>
                         </div>
-                        <p class="period-description">Las visiones apocalípticas de Juan que revelan el triunfo final de Cristo, el juicio divino y la nueva creación.</p>
-                        
-                        <div class="historical-context">
-                            <h4><i class="fas fa-landmark"></i> Contexto Histórico</h4>
-                            <p>Escrito durante el reinado del emperador Domiciano (81-96 d.C.), un período de creciente persecución contra los cristianos que se negaban a participar en el culto imperial. Juan, exiliado en la isla de Patmos, recibe estas visiones como aliento para las iglesias que sufren.</p>
+                        <p class="periodo-description">Las visiones apocalípticas de Juan que revelan el triunfo final de Cristo, el juicio divino y la nueva creación.</p>
+<div class="historical-context">
+                            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ic"><polygon points="12 2 21 8 3 8" /><line x1="6" y1="10" x2="6" y2="18" /><line x1="10" y1="10" x2="10" y2="18" /><line x1="14" y1="10" x2="14" y2="18" /><line x1="18" y1="10" x2="18" y2="18" /><line x1="3" y1="21" x2="21" y2="21" /></svg> Contexto histórico</h4>
+                            <p>Escrito durante el reinado del emperador Domiciano (81–96 d. C.), un período de creciente persecución contra los cristianos que se negaban a participar en el culto imperial. Juan, exiliado en la isla de Patmos, recibe estas visiones como aliento para las iglesias que sufren.</p>
                         </div>
                         
                         <div class="key-event">
-                            <h4>La Nueva Jerusalén</h4>
+                            <h4>La nueva Jerusalén</h4>
                             <p>La culminación de la historia bíblica revela el propósito final de Dios: una nueva creación donde Dios habitará con su pueblo por la eternidad, cumpliendo todas las promesas del pacto desde Génesis hasta Apocalipsis.</p>
                         </div>
                         
                         <div class="period-reading">
                             <div class="reading-item">
-                                <div class="reading-day">Día 375-377</div>
+                                <div class="reading-day">Día 375–377</div>
                                 <div class="reading-passage">
-                                    <div>Apocalipsis 1-7</div>
+                                    <div>Apocalipsis 1–7</div>
                                     <div class="reading-context">Visión de Cristo glorificado, cartas a las siete iglesias, visión del trono</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 378-380</div>
+                                <div class="reading-day">Día 378–380</div>
                                 <div class="reading-passage">
-                                    <div>Apocalipsis 8-14</div>
+                                    <div>Apocalipsis 8–14</div>
                                     <div class="reading-context">Trompetas, los dos testigos, la mujer y el dragón</div>
                                 </div>
                             </div>
                             <div class="reading-item">
-                                <div class="reading-day">Día 381-383</div>
+                                <div class="reading-day">Día 381–383</div>
                                 <div class="reading-passage">
-                                    <div>Apocalipsis 15-22</div>
+                                    <div>Apocalipsis 15–22</div>
                                     <div class="reading-context">Copas, caída de Babilonia, bodas del Cordero, nueva Jerusalén</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="back-to-plans">
-                <a href="../../lectura-anual.html" class="btn"><i class="fas fa-arrow-left"></i> Volver a Planes de Lectura</a>
-            </div>
         </div>
     </section>
 
-    <section class="notes-section">
+    <section class="content-section notes-section">
         <div class="container">
             <div class="notes-container">
-                <h3>Notas para un Estudio Efectivo</h3>
-                
+                <h3>Notas para un estudio efectivo</h3>
                 <div class="note-item">
                     <h4>Contextualización histórica</h4>
                     <p>Mientras lees, considera los eventos mundiales que ocurrían al mismo tiempo. Nuestra línea de tiempo incluye referencias a eventos históricos principales para ayudarte a ubicar las narraciones bíblicas en el contexto de la historia mundial.</p>
                 </div>
-                
                 <div class="note-item">
                     <h4>Conexiones proféticas</h4>
-                    <p>Presta especial atención a las profecías y su cumplimiento cuando las lees en orden cronológico. Este plan te permite ver profecías y su cumplimiento casi lado a lado, revelando la fidelidad de Dios a Su palabra.</p>
+                    <p>Presta especial atención a las profecías y su cumplimiento cuando las lees en orden cronológico. Este plan te permite ver profecías y su cumplimiento casi lado a lado, revelando la fidelidad de Dios a su palabra.</p>
                 </div>
-                
                 <div class="note-item">
                     <h4>Narrativas paralelas</h4>
                     <p>En algunos casos (como en los Evangelios), este plan combina narrativas paralelas para mostrarte diferentes perspectivas del mismo evento. Observa las diferencias sutiles y los énfasis únicos de cada autor.</p>
                 </div>
-                
                 <div class="note-item">
                     <h4>Progresión de la revelación</h4>
-                    <p>A medida que avances en la lectura, nota cómo Dios revela progresivamente Su plan a través del tiempo. La cronología te ayuda a ver este desarrollo más claramente que la lectura tradicional.</p>
+                    <p>A medida que avances en la lectura, nota cómo Dios revela progresivamente su plan a través del tiempo. La cronología te ayuda a ver este desarrollo más claramente que la lectura tradicional.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-section">
+    <section class="content-section cta-section">
         <div class="container">
             <div class="cta-container">
                 <h3>¿Listo para comenzar tu viaje cronológico?</h3>
-                <p>Comprométete hoy a leer la Biblia en orden histórico y descubre una nueva perspectiva de la narrativa bíblica. Puedes comenzar en cualquier momento - lo importante es la consistencia diaria.</p>
-                <a href="plan-anual-completo.html" class="btn">Ver Plan Completo</a>
-                <a href="../../lectura-anual.html#planes" class="btn btn-outline">Explorar Otros Planes</a>
+                <p>Comprométete hoy a leer la Biblia en orden histórico y descubre una nueva perspectiva de la narrativa bíblica. Puedes comenzar en cualquier momento: lo importante es la constancia diaria.</p>
+                <a href="../lectura-anual.html#planes" class="btn btn-outline">Explorar otros planes</a>
             </div>
         </div>
     </section>
+
+    <div class="back-to-plans">
+        <a href="../lectura-anual.html" class="btn">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+            Volver a planes de lectura
+        </a>
+    </div>
 
     <footer>
         <div class="container">
@@ -2082,29 +1299,27 @@
                     <h4>Ministerio EMD</h4>
                     <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.5 9.87v-6.98H7.9V12h2.6V9.8c0-2.6 1.55-4 3.9-4 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v6.98A10 10 0 0 0 22 12Z"/></svg></a>
+                        <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.8 8.001a2.75 2.75 0 0 0-1.94-1.94C18.1 5.6 12 5.6 12 5.6s-6.1 0-7.86.46A2.75 2.75 0 0 0 2.2 8a28.6 28.6 0 0 0 0 8 2.75 2.75 0 0 0 1.94 1.94C5.9 18.4 12 18.4 12 18.4s6.1 0 7.86-.46A2.75 2.75 0 0 0 21.8 16a28.6 28.6 0 0 0 0-8ZM10 15.2V8.8l6 3.2Z"/></svg></a>
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4>Enlaces Rápidos</h4>
+                    <h4>Enlaces rápidos</h4>
                     <ul>
-                        <li><a href="../../../Figuras Bíblicas/at-a-nt.html">Figuras Bíblicas</a></li>
-                        <li><a href="../../../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
-                        <li><a href="../../temas-exegeticos.html">Estudios Exegéticos</a></li>
-                        <li><a href="../../../Tiempo del Fin/introduccion.html">Tiempo del Fin</a></li>
-                        <li><a href="../../../Época de Jesús/estudio-contemporaneo.html">Época de Jesús</a></li>
-                        <li><a href="../../../Estudios Bíblicos/doctrina-basica.html">Estudios Bíblicos</a></li>
+                        <li><a href="../../Figuras Bíblicas/at-a-nt.html">Figuras bíblicas</a></li>
+                        <li><a href="../../Falsas Doctrinas/falsasdoctrinas.html">Falsas doctrinas</a></li>
+                        <li><a href="../temas-exegeticos.html">Estudios exegéticos</a></li>
+                        <li><a href="../../Tiempo del Fin/introduccion.html">Tiempo del fin</a></li>
+                        <li><a href="../../Época de Jesús/estudio-contemporaneo.html">Época de Jesús</a></li>
+                        <li><a href="../../Estudios Bíblicos/doctrina-basica.html">Estudios bíblicos</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Contacto</h4>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio</li>
-                        <li><i class="fas fa-phone"></i> +787-345-6940</li>
-                        <li><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg> Dirección del ministerio</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg> +1 787–345–6940</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg> ministeriolagloriaesdelsenor7@gmail.com</li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -2115,18 +1330,21 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+                <p>&copy; 2026 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        function scrollToTimeline(periodId) {
-            const element = document.getElementById(periodId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
+        document.querySelectorAll('.scroll-tab').forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    window.scrollTo({ top: target.offsetTop - 110, behavior: 'smooth' });
+                }
+            });
+        });
     </script>
 </body>
 </html>
