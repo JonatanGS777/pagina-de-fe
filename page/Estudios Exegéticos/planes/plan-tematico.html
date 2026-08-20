@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <link rel="icon" href="/favicon.ico?v=1" sizes="any">
@@ -11,610 +11,248 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plan de lectura temático | Ministerio "La Gloria es del Señor"</title>
+    <title>Plan temático: el gabinete de curiosidades | Ministerio "La Gloria es del Señor"</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Alegreya:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2C5E1A; /* Verde bosque - arraigo espiritual */
-            --secondary-color: #7EB356; /* Verde pradera - crecimiento y renovación */
-            --accent-color: #E94B3C; /* Rojo terracota - pasión y énfasis */
-            --neutral-light: #F7F4E9; /* Beige claro - pergamino antiguo */
-            --neutral-dark: #3C2317; /* Marrón oscuro - tierra y tradición */
-            --gradient-bg: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.06);
+            --wood:        #3d2b1f;
+            --wood-light:  #6b4a30;
+            --wood-deep:   #241810;
+            --brass:       #a8823c;
+            --label:       #f0e6cc;
+            --label-deep:  #e0d2ac;
+            --ink:         #2b2216;
+            --ink-soft:    #5c4f3a;
+            --felt:        #4a5a4f;
+            --teal:        #2f6b73;
+            --plum:        #6b4a6b;
+            --terracotta:  #a24a2f;
+            --rust:        #8a4a2e;
+            --sage:        #5c7a52;
+            --dusty-blue:  #4a5f73;
+            --ochre:       #8a6a3f;
+            --box-shadow: 0 8px 22px rgba(43, 34, 22, 0.1);
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --font-display: 'Petrona', serif;
+            --font-body: 'Alegreya', serif;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--neutral-dark);
-            background-color: var(--neutral-light);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            color: var(--ink);
+            background-color: var(--label);
             overflow-x: hidden;
         }
-        
-        /* Page Header */
+
+        h1, h2, h3, h4, h5 { font-family: var(--font-display); font-weight: 600; }
+
+        .container { width: 90%; max-width: 1140px; margin: 0 auto; padding: 0 15px; }
+        .ic { width: 1em; height: 1em; vertical-align: -0.15em; margin-right: 0.35em; flex-shrink: 0; }
+
+        /* ---------- Header fijo del sitio ---------- */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 1.2rem; flex-wrap: wrap;
+            padding: 0.6rem 2rem;
+            background: rgba(36, 24, 16, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(168, 130, 60, 0.35);
+        }
+        .header-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+        img[alt="Logo EMD"] {
+            height: 38px; border-radius: 50%; object-fit: cover;
+            border: 2px solid rgba(168, 130, 60, 0.5);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        .header-logo-text { font-family: var(--font-body); font-weight: 700; font-size: 0.85rem; line-height: 1.25; color: var(--label); }
+        .header-logo-text span { display: block; font-style: italic; font-weight: 400; color: rgba(240, 230, 204, 0.6); font-size: 0.68rem; }
+        .site-nav-back {
+            display: inline-flex; align-items: center; text-decoration: none;
+            color: var(--label); font-weight: 600; font-size: 0.82rem;
+            padding: 0.4rem 0.8rem; border: 1px solid rgba(240, 230, 204, 0.25); border-radius: 2px;
+            transition: background 0.25s ease, border-color 0.25s ease;
+        }
+        .site-nav-back:hover { background: rgba(168, 130, 60, 0.2); border-color: var(--brass); }
+        .site-nav-back svg { width: 0.9em; height: 0.9em; margin-right: 0.3em; }
+
+        /* ---------- Hero: gabinete de curiosidades ---------- */
         .page-header {
-            padding: 8rem 0 6rem;
-            background: var(--gradient-bg);
-            color: white;
+            padding: 8.5rem 0 3.5rem;
+            background: linear-gradient(160deg, var(--wood-deep) 0%, var(--wood) 100%);
+            color: var(--label);
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
-        
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('/api/placeholder/1200/800') center/cover no-repeat;
-            opacity: 0.1;
-            z-index: 0;
+        .cabinet-svg { display: block; width: min(360px, 80%); margin: 0 auto 1.3rem; }
+        .hero-tag {
+            display: inline-flex; align-items: center; gap: 0.55em;
+            font-style: italic; font-size: 0.9rem; color: var(--brass);
+            border: 1px solid rgba(168, 130, 60, 0.45);
+            border-radius: 50px; padding: 0.45rem 1.2rem; margin-bottom: 1.3rem;
         }
-        
-        .page-header::after {
-            content: '\f02d';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            position: absolute;
-            bottom: -50px;
-            right: 10%;
-            font-size: 15rem;
-            color: rgba(255, 255, 255, 0.05);
-            z-index: 0;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .page-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.5px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .page-header p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-        
-        /* Main Content */
-        .main-content {
-            padding: 5rem 0;
-        }
-        
+        .page-header h1 { font-size: 2.4rem; margin-bottom: 1rem; }
+        .page-header p { font-size: 1.05rem; max-width: 640px; margin: 0 auto; color: rgba(240, 230, 204, 0.85); }
+
+        .main-content { padding: 4rem 0; }
+        .section-title { text-align: center; margin-bottom: 2.6rem; }
+
         .intro-box {
-            background-color: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: var(--box-shadow);
-            margin-bottom: 4rem;
-            position: relative;
-            overflow: hidden;
+            background: #fffdf8; border-radius: 8px; box-shadow: var(--box-shadow);
+            padding: 2.4rem 2.6rem; margin-bottom: 3rem; border-top: 4px solid var(--brass);
         }
-        
-        .intro-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 5px;
-            background: var(--gradient-bg);
-        }
-        
-        .intro-box h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-        }
-        
-        .intro-box p {
-            margin-bottom: 1rem;
-        }
-        
-        .intro-box ul {
-            padding-left: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .intro-box li {
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Theme Navigation */
-        .theme-nav {
-            margin-bottom: 3rem;
-        }
-        
+        .intro-box h2 { color: var(--wood); margin-bottom: 1rem; font-size: 1.6rem; }
+        .intro-box p { margin-bottom: 1rem; }
+        .intro-box ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+        .intro-box li { margin-bottom: 0.5rem; }
+
+        /* Nav de temas (etiquetas de cajón) */
+        .theme-nav { margin-bottom: 3rem; }
         .theme-nav-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            padding: 1rem;
-            background-color: white;
-            border-radius: 16px;
-            box-shadow: var(--box-shadow);
+            display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center;
+            padding: 1.2rem; background: var(--wood); border-radius: 8px; box-shadow: var(--box-shadow);
         }
-        
         .theme-nav-item {
-            background-color: #f5f5f5;
-            border: none;
-            border-radius: 30px;
-            padding: 0.7rem 1.2rem;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            display: inline-flex; align-items: center; gap: 0.5em;
+            background: var(--label); border: 1px solid var(--label-deep); border-radius: 3px;
+            padding: 0.55rem 1rem; font-family: var(--font-body); font-size: 0.88rem; font-weight: 600;
+            color: var(--wood); cursor: pointer; transition: var(--transition);
         }
-        
-        .theme-nav-item i {
-            color: var(--secondary-color);
-        }
-        
-        .theme-nav-item:hover {
-            background-color: var(--accent-color);
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        .theme-nav-item:hover i {
-            color: white;
-        }
-        
-        /* Topic Sections */
+        .theme-nav-item svg { width: 1rem; height: 1rem; color: var(--brass); }
+        .theme-nav-item:hover { background: var(--brass); color: var(--wood-deep); transform: translateY(-2px); }
+        .theme-nav-item:hover svg { color: var(--wood-deep); }
+
+        /* Cajones / temas */
         .theme-section {
-            margin-bottom: 5rem;
-            overflow: hidden;
+            margin-bottom: 3rem; background: #fffdf8; border-radius: 8px;
+            box-shadow: var(--box-shadow); overflow: hidden; scroll-margin-top: 90px;
         }
-        
         .theme-header {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 2.5rem;
-            border-radius: 20px 20px 0 0;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
+            background: var(--wood); color: var(--label); padding: 1.8rem 2rem;
+            display: flex; align-items: center; gap: 1.4rem; border-bottom: 4px solid var(--swatch, var(--brass));
         }
-        
-        .theme-header::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 150px;
-            height: 150px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 0 0 0 150px;
-        }
-        
         .theme-icon {
-            width: 80px;
-            height: 80px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--primary-color);
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 60px; height: 60px; flex-shrink: 0; border-radius: 50%;
+            background: var(--label); display: flex; align-items: center; justify-content: center;
+            color: var(--swatch, var(--brass));
         }
-        
-        .theme-title-container {
-            flex-grow: 1;
-        }
-        
-        .theme-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .theme-description {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-        }
-        
-        .theme-content {
-            background-color: white;
-            border-radius: 0 0 20px 20px;
-            padding: 2.5rem;
-            box-shadow: var(--box-shadow);
-        }
-        
-        /* Reading Plans */
-        .reading-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .reading-group {
-            background-color: #f9f9f9;
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: var(--transition);
-            border-top: 4px solid var(--secondary-color);
-        }
-        
-        .reading-group:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
+        .theme-icon svg { width: 1.7rem; height: 1.7rem; }
+        .theme-title { font-size: 1.6rem; margin-bottom: 0.3rem; }
+        .theme-description { font-size: 0.92rem; color: rgba(240, 230, 204, 0.82); }
+
+        .theme-content { padding: 1.8rem 2rem 2.2rem; }
+        .reading-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.6rem; margin-bottom: 1.6rem; }
+        .reading-group { }
         .group-title {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary-color);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
+            display: flex; align-items: center; font-size: 1rem; color: var(--swatch, var(--brass));
+            margin-bottom: 0.8rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--label-deep);
         }
-        
-        .group-title i {
-            color: var(--secondary-color);
-            font-size: 1.1rem;
-        }
-        
-        .reading-list {
-            list-style: none;
-        }
-        
-        .reading-item {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-        
-        .reading-item:last-child {
-            border-bottom: none;
-        }
-        
-        .reading-day {
-            background-color: var(--accent-color);
-            color: white;
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 0.4rem 0.6rem;
-            border-radius: 20px;
-            min-width: 70px;
-            text-align: center;
-        }
-        
-        .reading-content {
-            flex-grow: 1;
-        }
-        
-        .reading-reference {
-            font-weight: 600;
-            color: var(--neutral-dark);
-            margin-bottom: 0.2rem;
-        }
-        
-        .reading-note {
-            font-size: 0.85rem;
-            color: #666;
-            font-style: italic;
-        }
-        
-        /* Key Verses */
-        .key-verses {
-            margin-top: 2rem;
-            background-color: rgba(40, 175, 176, 0.05);
-            border-radius: 16px;
-            padding: 1.5rem;
-            position: relative;
-        }
-        
-        .key-verses::before {
-            content: '\f02e';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            position: absolute;
-            top: -15px;
-            left: 20px;
-            width: 30px;
-            height: 30px;
-            background-color: var(--accent-color);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-size: 0.8rem;
-        }
-        
-        .key-verses h4 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-        
-        .verse-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-        
-        .verse-item {
-            padding: 1rem;
-            border-radius: 10px;
-            background-color: white;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            font-style: italic;
-            line-height: 1.5;
-            position: relative;
-        }
-        
-        .verse-item::before {
-            content: '\201C';
-            font-family: Georgia, serif;
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            font-size: 2rem;
-            color: rgba(40, 175, 176, 0.2);
-            line-height: 1;
-        }
-        
-        .verse-ref {
-            display: block;
-            text-align: right;
-            margin-top: 0.5rem;
-            font-weight: 600;
-            font-style: normal;
-            font-size: 0.9rem;
-            color: var(--primary-color);
-        }
-        
-        /* Reflection Questions */
-        .reflection-questions {
-            margin-top: 2rem;
-            border-top: 1px dashed rgba(0, 0, 0, 0.1);
-            padding-top: 2rem;
-        }
-        
-        .reflection-questions h4 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        
-        .reflection-questions h4 i {
-            color: var(--secondary-color);
-        }
-        
-        .question-list {
-            list-style: none;
-        }
-        
-        .question-item {
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .question-item::before {
-            content: '\f075';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 2px;
-            color: var(--accent-color);
-            font-size: 0.9rem;
-        }
-        
-        /* Resources */
-        .theme-resources {
-            margin-top: 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .resource-card {
-            background-color: #f9f9f9;
-            border-radius: 12px;
-            padding: 1.2rem;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            border-left: 3px solid var(--secondary-color);
-        }
-        
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .resource-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--secondary-color);
-            color: white;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-        
-        .resource-info h5 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-        
-        .resource-info p {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            text-align: center;
-            margin: 5rem 0;
-        }
-        
-        .cta-container {
-            background: linear-gradient(to right, rgba(75, 93, 103, 0.95), rgba(40, 175, 176, 0.9)), url('/api/placeholder/800/400') center/cover no-repeat;
-            border-radius: 16px;
-            padding: 4rem 2rem;
-            color: white;
-            box-shadow: var(--box-shadow);
-        }
-        
-        .cta-container h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .cta-container p {
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-        }
-        
+        .group-title svg { width: 1.05rem; height: 1.05rem; }
+        .reading-list { list-style: none; }
+        .reading-item { display: flex; gap: 0.9rem; padding: 0.55rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .reading-item:last-child { border-bottom: none; }
+        .reading-day { flex-shrink: 0; width: 70px; font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; color: var(--wood); }
+        .reading-reference { font-weight: 700; font-size: 0.9rem; }
+        .reading-note { font-size: 0.85rem; color: var(--ink-soft); }
+
+        .key-verses { background: var(--label); border-radius: 6px; padding: 1.3rem 1.5rem; margin-bottom: 1.4rem; }
+        .key-verses h4 { font-size: 1rem; color: var(--wood); margin-bottom: 0.8rem; }
+        .verse-item { font-style: italic; font-size: 0.92rem; margin-bottom: 0.8rem; }
+        .verse-item:last-child { margin-bottom: 0; }
+        .verse-ref { display: block; font-style: normal; font-weight: 700; color: var(--swatch, var(--brass)); margin-top: 0.2rem; font-size: 0.85rem; }
+
+        .reflection-questions { margin-bottom: 1.4rem; }
+        .reflection-questions h4 { display: flex; align-items: center; font-size: 1rem; color: var(--wood); margin-bottom: 0.7rem; }
+        .reflection-questions h4 svg { color: var(--swatch, var(--brass)); }
+        .question-list { list-style: none; }
+        .question-item { font-size: 0.9rem; margin-bottom: 0.5rem; padding-left: 1.1rem; position: relative; }
+        .question-item::before { content: '?'; position: absolute; left: 0; color: var(--swatch, var(--brass)); font-weight: 700; }
+
+        .theme-resources { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+        .resource-card { display: flex; gap: 0.9rem; background: var(--label); border-radius: 6px; padding: 1rem 1.1rem; }
+        .resource-icon { color: var(--swatch, var(--brass)); flex-shrink: 0; }
+        .resource-icon svg { width: 1.4rem; height: 1.4rem; }
+        .resource-info h5 { font-size: 0.95rem; margin-bottom: 0.2rem; }
+        .resource-info p { font-size: 0.85rem; color: var(--ink-soft); }
+
         .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 0.9rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            margin-right: 1rem;
-            margin-bottom: 1rem;
-            border: 2px solid transparent;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-flex; align-items: center; gap: 0.5em;
+            background-color: var(--brass); color: var(--wood-deep);
+            padding: 0.75rem 1.6rem; border-radius: 30px; text-decoration: none;
+            font-weight: 700; font-size: 0.9rem; transition: var(--transition); border: 2px solid transparent;
         }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-            background-color: #f69d64;
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--accent-color);
-            color: white;
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--accent-color);
-            color: white;
-        }
-        
-        .back-to-plans {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        /* Responsive Styles */
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 18px rgba(0, 0, 0, 0.22); }
+        .btn-outline { background: transparent; border: 2px solid rgba(240, 230, 204, 0.4); color: var(--label); }
+        .btn-outline:hover { background: rgba(240, 230, 204, 0.1); border-color: var(--label); }
+
+        .back-to-plans { text-align: center; padding: 0 0 3rem; }
+        .back-to-plans .btn { background: var(--wood); color: var(--label); }
+
+        .cta-section { background: linear-gradient(160deg, var(--wood) 0%, var(--wood-deep) 100%); color: var(--label); text-align: center; padding: 4rem 0; }
+        .cta-container h3 { font-size: 1.7rem; margin-bottom: 0.8rem; }
+        .cta-container p { max-width: 560px; margin: 0 auto 1.6rem; color: rgba(240, 230, 204, 0.85); }
+        .cta-container .btn + .btn { margin-left: 0.8rem; }
+
+        footer { background: var(--wood-deep); color: var(--label); padding: 3.5rem 0 1.5rem; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 2.2rem; margin-bottom: 2.2rem; }
+        .footer-col h4 { font-size: 1.05rem; margin-bottom: 1rem; color: var(--brass); }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.7rem; font-size: 0.9rem; color: rgba(240, 230, 204, 0.78); display: flex; align-items: center; gap: 0.5rem; }
+        .footer-col li svg { width: 0.9rem; height: 0.9rem; color: var(--brass); flex-shrink: 0; }
+        .footer-col p { font-size: 0.9rem; color: rgba(240, 230, 204, 0.78); margin-bottom: 1rem; }
+        .footer-col a { color: rgba(240, 230, 204, 0.78); text-decoration: none; }
+        .footer-col a:hover { color: var(--brass); }
+        .social-links { display: flex; gap: 0.8rem; margin-top: 1.2rem; }
+        .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(240, 230, 204, 0.08); border-radius: 50%; }
+        .social-links a svg { width: 1rem; height: 1rem; }
+        .social-links a:hover { background: var(--brass); }
+        .copyright { text-align: center; padding-top: 1.6rem; border-top: 1px solid rgba(240, 230, 204, 0.12); font-size: 0.82rem; color: rgba(240, 230, 204, 0.5); }
+
         @media (max-width: 768px) {
-            .page-header {
-                padding: 5rem 0 4rem;
-            }
-            
-            .page-header h1 {
-                font-size: 2.5rem;
-            }
-            
-            .theme-header {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-                padding: 1.5rem;
-            }
-            
-            .theme-title {
-                font-size: 1.8rem;
-            }
-            
-            .reading-grid,
-            .theme-resources {
-                grid-template-columns: 1fr;
-            }
-            
-            .reading-item {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .reading-day {
-                align-self: flex-start;
-            }
+            .site-header { padding: 0.5rem 1.1rem; }
+            .page-header h1 { font-size: 1.9rem; }
+            .theme-header { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
-    <!-- Botón de volver al inicio -->
-    <div style="position: fixed; top: 20px; left: 20px; z-index: 1000;">
-        <a href="../lectura-anual.html" class="btn" style="border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; margin: 0; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-            <i class="fas fa-arrow-left"></i>
+    <header class="site-header">
+        <a href="../../../index.html" class="header-logo">
+            <img src="../../../images/EMD.png?v=2" alt="Logo EMD">
+            <div class="header-logo-text">
+                Ministerio
+                <span>"La Gloria es del Señor"</span>
+            </div>
         </a>
-    </div>
+        <a href="../lectura-anual.html" class="site-nav-back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+            Planes de lectura
+        </a>
+    </header>
 
     <section class="page-header">
         <div class="container">
-            <h1>Plan de lectura temático</h1>
+            <svg class="cabinet-svg" viewBox="0 0 260 260" aria-hidden="true">
+                <rect x="30" y="20" width="200" height="220" rx="4" fill="#4a2e18" stroke="#241810" stroke-width="2"/>
+                <rect x="30" y="20" width="200" height="220" rx="4" fill="none" stroke="#a8823c" stroke-width="1" opacity="0.4"/>
+                <rect x="42" y="34" width="176" height="42" rx="2" fill="#6b4a30" stroke="#241810" stroke-width="1.5"/>
+                <circle cx="130" cy="55" r="4" fill="#a8823c"/>
+                <rect x="42" y="84" width="176" height="42" rx="2" fill="#6b4a30" stroke="#241810" stroke-width="1.5"/>
+                <circle cx="130" cy="105" r="4" fill="#a8823c"/>
+                <rect x="42" y="134" width="176" height="42" rx="2" fill="#7c5838" stroke="#241810" stroke-width="1.5"/>
+                <rect x="42" y="134" width="176" height="10" fill="#241810" opacity="0.3"/>
+                <circle cx="130" cy="155" r="4" fill="#c9a227"/>
+                <circle cx="90" cy="152" r="3" fill="#f0e6cc" opacity="0.7"/>
+                <path d="M165 148 170 156 176 148" stroke="#f0e6cc" stroke-width="1.5" fill="none" opacity="0.7"/>
+                <rect x="42" y="184" width="176" height="42" rx="2" fill="#6b4a30" stroke="#241810" stroke-width="1.5"/>
+                <circle cx="130" cy="205" r="4" fill="#a8823c"/>
+            </svg>
+            <span class="hero-tag">Proverbios 25:2</span>
+            <h1>Plan temático: el gabinete de curiosidades</h1>
             <p>Explora la Palabra de Dios organizada por temas esenciales para tu crecimiento espiritual y aplicación práctica a la vida cotidiana.</p>
         </div>
     </section>
@@ -623,39 +261,32 @@
         <div class="container">
             <div class="intro-box">
                 <h2>¿Qué es un plan de lectura temático?</h2>
-                <p>El plan de lectura temático organiza las Escrituras según temas clave, en lugar de seguir el orden tradicional de los libros o la cronología histórica. Este enfoque permite profundizar en la comprensión de temas específicos a lo largo de toda la Biblia.</p>
-                <p>Algunas características principales de nuestro plan temático:</p>
+                <p>A diferencia de los planes que siguen el orden del canon o la cronología histórica, el plan temático te permite explorar la Escritura organizada por asuntos esenciales de la vida cristiana: quién es Dios, la salvación, la oración, las relaciones, las pruebas, la iglesia, la misión y el crecimiento espiritual.</p>
+                <p>Cada tema reúne pasajes de distintos libros de la Biblia que iluminan un mismo asunto desde ángulos complementarios, como abrir un cajón de un gabinete y encontrar piezas relacionadas reunidas para su estudio.</p>
                 <ul>
-                    <li>Agrupa pasajes relevantes de diferentes libros bíblicos para explorar temas completos</li>
-                    <li>Incluye reflexiones y preguntas de aplicación para cada tema</li>
-                    <li>Destaca versículos clave que resumen principios fundamentales</li>
-                    <li>Proporciona recursos adicionales para profundizar en cada tema</li>
-                    <li>Permite ver cómo un mismo tema se desarrolla a través del Antiguo y Nuevo Testamento</li>
+                    <li>Explora los temas en cualquier orden, según lo que necesites hoy</li>
+                    <li>Cada lectura incluye una nota breve sobre su relevancia para el tema</li>
+                    <li>Los temas más desarrollados incluyen versículos clave y preguntas de reflexión</li>
                 </ul>
-                <p>Este método es ideal para estudios devocionales, para quienes desean profundizar en temas específicos de interés personal, o para aquellos que ya están familiarizados con el orden bíblico tradicional y buscan una nueva perspectiva.</p>
             </div>
 
             <div class="theme-nav">
-                <h3 style="text-align: center; margin-bottom: 1.5rem; font-family: 'Playfair Display', serif; color: var(--primary-color);">Explora por tema</h3>
                 <div class="theme-nav-container">
-                    <button class="theme-nav-item" onclick="scrollToTheme('dios-theme')"><i class="fas fa-crown"></i> Dios</button>
-                    <button class="theme-nav-item" onclick="scrollToTheme('salvation-theme')"><i class="fas fa-dove"></i> Salvación</button>
-                    <button class="theme-nav-item" onclick="scrollToTheme('faith-theme')"><i class="fas fa-heart"></i> Fe</button>
-                    <button class="theme-nav-item" onclick="scrollToTheme('prayer-theme')"><i class="fas fa-praying-hands"></i> Oración</button>
-                    <button class="theme-nav-item" onclick="scrollToTheme('relationships-theme')"><i class="fas fa-users"></i> Relaciones</button>
-                    <button class="theme-nav-item" onclick="scrollToTheme('trials-theme')"><i class="fas fa-mountain"></i> Pruebas</button>
-                    <button class="theme-nav-item" onclick="scrollToTheme('church-theme')"><i class="fas fa-church"></i> Iglesia</button>
-                    <button class="theme-nav-item" onclick="scrollToTheme('mission-theme')"><i class="fas fa-globe-americas"></i> Misión</button>
-                    <button class="theme-nav-item" onclick="scrollToTheme('growth-theme')"><i class="fas fa-seedling"></i> Crecimiento</button>
-                    <button class="theme-nav-item" onclick="scrollToTheme('future-theme')"><i class="fas fa-city"></i> Promesas</button>
+                <button class="theme-nav-item" onclick="scrollToTheme('dios-theme')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18h16l-1.2-9-3.8 3-3-6-3 6-3.8-3L4 18z" /></svg> Dios</button>
+                <button class="theme-nav-item" onclick="scrollToTheme('salvation-theme')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15c4-6 8-2 8-2s-2 6-8 2Z" /><path d="M11 13c2-4 8-8 10-6-1 3-4 5-6 6" /><path d="M11 13 3 21" /></svg> Salvación</button>
+                <button class="theme-nav-item" onclick="scrollToTheme('prayer-theme')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" /><path d="M4 12a8 8 0 0 1 14-5" /><path d="M20 12a8 8 0 0 1-14 5" /></svg> Oración</button>
+                <button class="theme-nav-item" onclick="scrollToTheme('relationships-theme')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5" /><path d="M2 21c0-3.5 3-5.5 7-5.5s7 2 7 5.5" /><path d="M16 8.5A3.5 3.5 0 1 1 16 5" /><path d="M15 15.5c3 .3 5 2.2 5 5.5" /></svg> Relaciones</button>
+                <button class="theme-nav-item" onclick="scrollToTheme('trials-theme')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20 9.5 7l3.2 5.8L15 9l6 11H3z" /></svg> Pruebas</button>
+                <button class="theme-nav-item" onclick="scrollToTheme('church-theme')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v3" /><path d="M10.5 4.5h3" /><path d="M4 21V11l8-6 8 6v10" /><path d="M3 21h18" /><path d="M10 21v-6h4v6" /></svg> Iglesia</button>
+                <button class="theme-nav-item" onclick="scrollToTheme('mission-theme')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3a15 15 0 0 1 4 9 15 15 0 0 1-4 9 15 15 0 0 1-4-9 15 15 0 0 1 4-9Z" /></svg> Misión</button>
+                <button class="theme-nav-item" onclick="scrollToTheme('growth-theme')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10" /><path d="M12 20v-8" /><path d="M12 12a5 5 0 0 0 5-5V6h-1a5 5 0 0 0-5 5v1Z" /><path d="M12 12a5 5 0 0 1-5-5V6h1a5 5 0 0 1 5 5v1Z" /></svg> Crecimiento</button>
                 </div>
             </div>
 
-            <!-- TEMA 1: DIOS -->
-            <div class="theme-section" id="dios-theme">
+<div class="theme-section" id="dios-theme" style="--swatch: var(--brass)">
                 <div class="theme-header">
                     <div class="theme-icon">
-                        <i class="fas fa-crown"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18h16l-1.2-9-3.8 3-3-6-3 6-3.8-3L4 18z" /></svg>
                     </div>
                     <div class="theme-title-container">
                         <h2 class="theme-title">La naturaleza de Dios</h2>
@@ -666,7 +297,7 @@
                 <div class="theme-content">
                     <div class="reading-grid">
                         <div class="reading-group">
-                            <h3 class="group-title"><i class="fas fa-bolt"></i> La santidad de Dios</h3>
+                            <h3 class="group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" /></svg> La santidad de Dios</h3>
                             <ul class="reading-list">
                                 <li class="reading-item">
                                     <div class="reading-day">Día 1</div>
@@ -700,7 +331,7 @@
                         </div>
 
                         <div class="reading-group">
-                            <h3 class="group-title"><i class="fas fa-heart"></i> El amor de Dios</h3>
+                            <h3 class="group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 12 5a5.5 5.5 0 0 0-10 3.5c0 2.3 1.5 4 3 5.5l7 7Z" /></svg> El amor de Dios</h3>
                             <ul class="reading-list">
                                 <li class="reading-item">
                                     <div class="reading-day">Día 5</div>
@@ -734,7 +365,7 @@
                         </div>
 
                         <div class="reading-group">
-                            <h3 class="group-title"><i class="fas fa-star"></i> Los atributos de Dios</h3>
+                            <h3 class="group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2Z" /></svg> Los atributos de Dios</h3>
                             <ul class="reading-list">
                                 <li class="reading-item">
                                     <div class="reading-day">Día 9</div>
@@ -787,7 +418,7 @@
                     </div>
 
                     <div class="reflection-questions">
-                        <h4><i class="fas fa-lightbulb"></i> Preguntas para reflexionar</h4>
+                        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></svg> Preguntas para reflexionar</h4>
                         <ul class="question-list">
                             <li class="question-item">¿Cómo la santidad de Dios desafía mi concepto de pecado y pureza?</li>
                             <li class="question-item">¿De qué maneras concretas he experimentado el amor incondicional de Dios?</li>
@@ -799,7 +430,7 @@
                     <div class="theme-resources">
                         <div class="resource-card">
                             <div class="resource-icon">
-                                <i class="fas fa-book"></i>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg>
                             </div>
                             <div class="resource-info">
                                 <h5>La santidad de Dios</h5>
@@ -808,7 +439,7 @@
                         </div>
                         <div class="resource-card">
                             <div class="resource-icon">
-                                <i class="fas fa-video"></i>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="14" height="12" rx="2" /><path d="m22 8-6 4 6 4V8Z" /></svg>
                             </div>
                             <div class="resource-info">
                                 <h5>Conociendo a Dios</h5>
@@ -819,11 +450,10 @@
                 </div>
             </div>
 
-            <!-- TEMA 2: SALVACIÓN -->
-            <div class="theme-section" id="salvation-theme">
+<div class="theme-section" id="salvation-theme" style="--swatch: var(--teal)">
                 <div class="theme-header">
                     <div class="theme-icon">
-                        <i class="fas fa-dove"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15c4-6 8-2 8-2s-2 6-8 2Z" /><path d="M11 13c2-4 8-8 10-6-1 3-4 5-6 6" /><path d="M11 13 3 21" /></svg>
                     </div>
                     <div class="theme-title-container">
                         <h2 class="theme-title">Salvación y gracia</h2>
@@ -834,7 +464,7 @@
                 <div class="theme-content">
                     <div class="reading-grid">
                         <div class="reading-group">
-                            <h3 class="group-title"><i class="fas fa-seedling"></i> La necesidad de salvación</h3>
+                            <h3 class="group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10" /><path d="M12 20v-8" /><path d="M12 12a5 5 0 0 0 5-5V6h-1a5 5 0 0 0-5 5v1Z" /><path d="M12 12a5 5 0 0 1-5-5V6h1a5 5 0 0 1 5 5v1Z" /></svg> La necesidad de salvación</h3>
                             <ul class="reading-list">
                                 <li class="reading-item">
                                     <div class="reading-day">Día 13</div>
@@ -868,7 +498,7 @@
                         </div>
 
                         <div class="reading-group">
-                            <h3 class="group-title"><i class="fas fa-cross"></i> La obra de Cristo</h3>
+                            <h3 class="group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20" /><path d="M6 8h12" /></svg> La obra de Cristo</h3>
                             <ul class="reading-list">
                                 <li class="reading-item">
                                     <div class="reading-day">Día 17</div>
@@ -902,7 +532,7 @@
                         </div>
 
                         <div class="reading-group">
-                            <h3 class="group-title"><i class="fas fa-gift"></i> La gracia y la justificación</h3>
+                            <h3 class="group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" /><path d="M12 8v13" /><path d="M19 12v7a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-7" /><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5" /></svg> La gracia y la justificación</h3>
                             <ul class="reading-list">
                                 <li class="reading-item">
                                     <div class="reading-day">Día 21</div>
@@ -955,7 +585,7 @@
                     </div>
 
                     <div class="reflection-questions">
-                        <h4><i class="fas fa-lightbulb"></i> Preguntas para reflexionar</h4>
+                        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></svg> Preguntas para reflexionar</h4>
                         <ul class="question-list">
                             <li class="question-item">¿Cómo ha transformado mi vida la gracia de Dios?</li>
                             <li class="question-item">¿Qué significa para mí personalmente que Cristo murió en mi lugar?</li>
@@ -966,11 +596,10 @@
                 </div>
             </div>
 
-            <!-- TEMA 4: ORACIÓN -->
-            <div class="theme-section" id="prayer-theme">
+<div class="theme-section" id="prayer-theme" style="--swatch: var(--plum)">
                 <div class="theme-header">
                     <div class="theme-icon">
-                        <i class="fas fa-praying-hands"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" /><path d="M4 12a8 8 0 0 1 14-5" /><path d="M20 12a8 8 0 0 1-14 5" /></svg>
                     </div>
                     <div class="theme-title-container">
                         <h2 class="theme-title">Oración</h2>
@@ -981,7 +610,7 @@
                 <div class="theme-content">
                     <div class="reading-grid">
                         <div class="reading-group">
-                            <h3 class="group-title"><i class="fas fa-book-open"></i> Enseñanzas sobre la oración</h3>
+                            <h3 class="group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg> Enseñanzas sobre la oración</h3>
                             <ul class="reading-list">
                                 <li class="reading-item">
                                     <div class="reading-day">Día 33</div>
@@ -1015,7 +644,7 @@
                         </div>
 
                         <div class="reading-group">
-                            <h3 class="group-title"><i class="fas fa-user"></i> Ejemplos de oración</h3>
+                            <h3 class="group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4 4-6 8-6s8 2 8 6" /></svg> Ejemplos de oración</h3>
                             <ul class="reading-list">
                                 <li class="reading-item">
                                     <div class="reading-day">Día 37</div>
@@ -1069,11 +698,10 @@
                 </div>
             </div>
 
-            <!-- TEMA 5: RELACIONES -->
-            <div class="theme-section" id="relationships-theme">
+<div class="theme-section" id="relationships-theme" style="--swatch: var(--terracotta)">
                 <div class="theme-header">
                     <div class="theme-icon">
-                        <i class="fas fa-users"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5" /><path d="M2 21c0-3.5 3-5.5 7-5.5s7 2 7 5.5" /><path d="M16 8.5A3.5 3.5 0 1 1 16 5" /><path d="M15 15.5c3 .3 5 2.2 5 5.5" /></svg>
                     </div>
                     <div class="theme-title-container">
                         <h2 class="theme-title">Relaciones</h2>
@@ -1084,7 +712,7 @@
                 <div class="theme-content">
                     <div class="reading-grid">
                         <div class="reading-group">
-                            <h3 class="group-title"><i class="fas fa-heart"></i> Amor y matrimonio</h3>
+                            <h3 class="group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 12 5a5.5 5.5 0 0 0-10 3.5c0 2.3 1.5 4 3 5.5l7 7Z" /></svg> Amor y matrimonio</h3>
                             <ul class="reading-list">
                                 <li class="reading-item">
                                     <div class="reading-day">Día 41</div>
@@ -1106,11 +734,10 @@
                 </div>
             </div>
 
-            <!-- TEMA 6: PRUEBAS -->
-            <div class="theme-section" id="trials-theme">
+<div class="theme-section" id="trials-theme" style="--swatch: var(--rust)">
                 <div class="theme-header">
                     <div class="theme-icon">
-                        <i class="fas fa-mountain"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20 9.5 7l3.2 5.8L15 9l6 11H3z" /></svg>
                     </div>
                     <div class="theme-title-container">
                         <h2 class="theme-title">Pruebas y sufrimiento</h2>
@@ -1121,7 +748,7 @@
                 <div class="theme-content">
                     <div class="reading-grid">
                         <div class="reading-group">
-                            <h3 class="group-title"><i class="fas fa-fire"></i> Propósito de las pruebas</h3>
+                            <h3 class="group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" /></svg> Propósito de las pruebas</h3>
                             <ul class="reading-list">
                                 <li class="reading-item">
                                     <div class="reading-day">Día 43</div>
@@ -1143,11 +770,10 @@
                 </div>
             </div>
 
-            <!-- TEMA 7: IGLESIA -->
-            <div class="theme-section" id="church-theme">
+<div class="theme-section" id="church-theme" style="--swatch: var(--sage)">
                 <div class="theme-header">
                     <div class="theme-icon">
-                        <i class="fas fa-church"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v3" /><path d="M10.5 4.5h3" /><path d="M4 21V11l8-6 8 6v10" /><path d="M3 21h18" /><path d="M10 21v-6h4v6" /></svg>
                     </div>
                     <div class="theme-title-container">
                         <h2 class="theme-title">La iglesia</h2>
@@ -1158,7 +784,7 @@
                 <div class="theme-content">
                     <div class="reading-grid">
                         <div class="reading-group">
-                            <h3 class="group-title"><i class="fas fa-puzzle-piece"></i> Unidad y dones</h3>
+                            <h3 class="group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.439 7.85c-.049.322.059.648.289.878l1.568 1.568c.47.47.706 1.087.706 1.704s-.235 1.233-.706 1.704l-1.611 1.611a.98.98 0 0 1-.837.276c-.47-.07-.802-.48-.968-.925a2.501 2.501 0 1 0-3.214 3.214c.446.166.855.497.925.968a.979.979 0 0 1-.276.837l-1.61 1.61a2.404 2.404 0 0 1-3.408 0l-1.568-1.568a1.026 1.026 0 0 0-.877-.29c-.493.074-.84.504-1.02.968a2.5 2.5 0 1 1-3.237-3.237c.464-.18.894-.527.967-1.02a1.026 1.026 0 0 0-.289-.877l-1.568-1.568a2.404 2.404 0 0 1 0-3.408l1.611-1.611c.24-.24.581-.353.917-.303.478.072.817.486.988.937a2.501 2.501 0 1 0 3.214-3.214c-.451-.171-.865-.51-.937-.988-.05-.336.063-.677.303-.917l1.61-1.61a2.404 2.404 0 0 1 3.408 0l1.568 1.568c.23.23.556.338.877.29.493-.074.84-.504 1.02-.968a2.5 2.5 0 1 1 3.237 3.237c-.464.18-.894.527-.967 1.02Z" /></svg> Unidad y dones</h3>
                             <ul class="reading-list">
                                 <li class="reading-item">
                                     <div class="reading-day">Día 45</div>
@@ -1180,11 +806,10 @@
                 </div>
             </div>
 
-            <!-- TEMA 8: MISIÓN -->
-            <div class="theme-section" id="mission-theme">
+<div class="theme-section" id="mission-theme" style="--swatch: var(--dusty-blue)">
                 <div class="theme-header">
                     <div class="theme-icon">
-                        <i class="fas fa-globe-americas"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3a15 15 0 0 1 4 9 15 15 0 0 1-4 9 15 15 0 0 1-4-9 15 15 0 0 1 4-9Z" /></svg>
                     </div>
                     <div class="theme-title-container">
                         <h2 class="theme-title">Misión</h2>
@@ -1195,7 +820,7 @@
                 <div class="theme-content">
                     <div class="reading-grid">
                         <div class="reading-group">
-                            <h3 class="group-title"><i class="fas fa-bullhorn"></i> La gran comisión</h3>
+                            <h3 class="group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h2l3.5 5V5L6 10H4a1 1 0 0 0-1 1Z" /><path d="M14 8a5 5 0 0 1 0 8" /><path d="M17.5 5.5a10 10 0 0 1 0 13" /></svg> La gran comisión</h3>
                             <ul class="reading-list">
                                 <li class="reading-item">
                                     <div class="reading-day">Día 47</div>
@@ -1217,11 +842,10 @@
                 </div>
             </div>
 
-            <!-- TEMA 9: CRECIMIENTO ESPIRITUAL -->
-            <div class="theme-section" id="growth-theme">
+<div class="theme-section" id="growth-theme" style="--swatch: var(--ochre)">
                 <div class="theme-header">
                     <div class="theme-icon">
-                        <i class="fas fa-seedling"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10" /><path d="M12 20v-8" /><path d="M12 12a5 5 0 0 0 5-5V6h-1a5 5 0 0 0-5 5v1Z" /><path d="M12 12a5 5 0 0 1-5-5V6h1a5 5 0 0 1 5 5v1Z" /></svg>
                     </div>
                     <div class="theme-title-container">
                         <h2 class="theme-title">Crecimiento espiritual</h2>
@@ -1232,7 +856,7 @@
                 <div class="theme-content">
                     <div class="reading-grid">
                         <div class="reading-group">
-                            <h3 class="group-title"><i class="fas fa-book-reader"></i> Crecimiento y perseverancia</h3>
+                            <h3 class="group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg> Crecimiento y perseverancia</h3>
                             <ul class="reading-list">
                                 <li class="reading-item">
                                     <div class="reading-day">Día 51</div>
@@ -1255,7 +879,10 @@
             </div>
 
             <div class="back-to-plans">
-                <a href="../lectura-anual.html" class="btn"><i class="fas fa-arrow-left"></i> Volver a los planes de lectura</a>
+                <a href="../lectura-anual.html" class="btn">
+                    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+                    Volver a los planes de lectura
+                </a>
             </div>
         </div>
     </section>
@@ -1265,11 +892,54 @@
             <div class="cta-container">
                 <h3>¿Listo para profundizar por temas?</h3>
                 <p>Este plan te permite enfocarte en los temas que más te interesan o en los que necesitas crecer. Comienza hoy mismo y descubre nuevas perspectivas en pasajes que tal vez ya conocías.</p>
-                <a href="../lectura-anual.html#planes" class="btn">Explorar otros planes</a>
-                <a href="#dios-theme" class="btn btn-outline">Comenzar ahora</a>
+                <a href="../lectura-anual.html#planes" class="btn btn-outline">Explorar otros planes</a>
+                <a href="#dios-theme" class="btn">Comenzar ahora</a>
             </div>
         </div>
     </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Ministerio EMD</h4>
+                    <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.5 9.87v-6.98H7.9V12h2.6V9.8c0-2.6 1.55-4 3.9-4 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v6.98A10 10 0 0 0 22 12Z"/></svg></a>
+                        <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.8 8.001a2.75 2.75 0 0 0-1.94-1.94C18.1 5.6 12 5.6 12 5.6s-6.1 0-7.86.46A2.75 2.75 0 0 0 2.2 8a28.6 28.6 0 0 0 0 8 2.75 2.75 0 0 0 1.94 1.94C5.9 18.4 12 18.4 12 18.4s6.1 0 7.86-.46A2.75 2.75 0 0 0 21.8 16a28.6 28.6 0 0 0 0-8ZM10 15.2V8.8l6 3.2Z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="../../Figuras Bíblicas/at-a-nt.html">Figuras bíblicas</a></li>
+                        <li><a href="../../Falsas Doctrinas/falsasdoctrinas.html">Falsas doctrinas</a></li>
+                        <li><a href="../temas-exegeticos.html">Estudios exegéticos</a></li>
+                        <li><a href="../../Tiempo del Fin/introduccion.html">Tiempo del fin</a></li>
+                        <li><a href="../../Época de Jesús/estudio-contemporaneo.html">Época de Jesús</a></li>
+                        <li><a href="../../Estudios Bíblicos/doctrina-basica.html">Estudios bíblicos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg> Dirección del ministerio</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg> +1 787-345-6940</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg> ministeriolagloriaesdelsenor7@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Horarios</h4>
+                    <ul>
+                        <li>Todos los días son del Señor</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         function scrollToTheme(themeId) {
