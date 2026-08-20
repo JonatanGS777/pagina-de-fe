@@ -11,997 +11,147 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hebreo, Arameo y Griego en la Biblia - Ministerio "La Gloria es del Señor"</title>
+    <title>Hebreo, Arameo y Griego en la Biblia | Ministerio "La Gloria es del Señor"</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c3e50; /* Azul profundo */
-            --primary-dark: #1a2530; /* Versión más oscura del azul profundo */
-            --secondary-color: #8e44ad; /* Púrpura suave */
-            --secondary-dark: #6c3483; /* Versión más oscura del púrpura */
-            --accent-color: #1abc9c; /* Turquesa */
-            --accent-dark: #16a085; /* Turquesa oscuro */
-            --warning-color: #e74c3c; /* Rojo para advertencias */
-            --hebrew-color: #f39c12; /* Dorado para hebreo */
-            --aramaic-color: #27ae60; /* Verde para arameo */
-            --greek-color: #3498db; /* Azul claro para griego */
-            --light-color: #f8f9fa;
-            --dark-color: #2c3e50;
-            --gradient-bg: linear-gradient(135deg, rgba(44, 62, 80, 0.95) 0%, rgba(142, 68, 173, 0.85) 100%);
-            --gradient-dark: linear-gradient(135deg, rgba(26, 37, 48, 0.95) 0%, rgba(108, 52, 131, 0.95) 100%);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.06);
-            --font-biblical: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+            --vellum:        #f2e6c8;
+            --vellum-dark:   #e2d3a8;
+            --parchment:     #faf4e2;
+            --ink:           #2b2013;
+            --ink-deep:      #1a130b;
+            --ink-mid:       #4a3c28;
+            --text-muted:    #6b5c42;
+            --hebrew:        #a97a34;
+            --hebrew-light:  #d4a55e;
+            --aramaic:       #3f6e52;
+            --aramaic-light: #5c9776;
+            --greek:         #2f4f7a;
+            --greek-light:   #5679a8;
+            --rubric:        #8c2c22;
+            --rubric-light:  #a8483a;
+            --card-shadow:   0 14px 30px rgba(26, 19, 11, 0.16);
+            --transition:    all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --font-display:  'IM Fell DW Pica', serif;
+            --font-body:     'Old Standard TT', serif;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Spectral', serif;
-            line-height: 1.6;
-            color: var(--dark-color);
-            background-color: var(--light-color);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            color: var(--ink);
+            background-color: var(--parchment);
             overflow-x: hidden;
         }
-        
+
+        h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 400; }
+
         header {
-            background: var(--gradient-dark);
-            color: white;
+            background: linear-gradient(160deg, var(--ink-deep) 0%, var(--ink) 100%);
+            color: var(--vellum);
             padding: 1rem 0;
-            box-shadow: var(--box-shadow);
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+            border-bottom: 2px solid var(--hebrew);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .logo img {
-            height: 60px;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-        }
-        
+
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+
+        .logo { display: flex; align-items: center; gap: 1rem; }
+        .logo img { height: 60px; }
+
         .logo-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            line-height: 1.4;
+            color: var(--vellum);
         }
-        
+
         .nav-toggle {
             display: none;
             background: none;
             border: none;
-            color: white;
-            font-size: 1.5rem;
+            color: var(--vellum);
             cursor: pointer;
             transition: var(--transition);
         }
-        
-        .nav-toggle:hover {
-            transform: scale(1.1);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-        
+        .nav-toggle svg { width: 1.6rem; height: 1.6rem; }
+
+        nav ul { display: flex; list-style: none; gap: 1.5rem; }
+
         nav a {
-            color: white;
+            color: var(--vellum);
             text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            transition: var(--transition);
+            font-family: var(--font-body);
+            font-size: 0.98rem;
+            letter-spacing: 0.02em;
+            transition: color 0.3s, transform 0.3s;
             display: block;
             padding: 0.5rem;
-            position: relative;
         }
-        
-        nav a:hover {
-            color: var(--accent-color);
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--accent-color);
+        nav a:hover { color: var(--hebrew-light); transform: translateY(-2px); }
+
+        .menu-item-has-children { position: relative; }
+        .menu-item-has-children > a { display: flex; align-items: center; gap: 0.4rem; }
+        .menu-item-has-children > a::before {
+            content: '▾';
+            font-size: 0.6rem;
+            color: rgba(242, 230, 200, 0.4);
             transition: var(--transition);
         }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
-        /* Dropdown Styles */
-        .menu-item-has-children {
-            position: relative;
-        }
-        
-        .menu-item-has-children > a {
-            display: flex;
-            align-items: center;
-        }
-        
+        .menu-item-has-children > a::after { display: none !important; }
+        .menu-item-has-children:hover > a::before { color: var(--hebrew-light); transform: rotate(180deg); }
+
         .sub-menu {
             position: absolute;
             top: 100%;
             left: 0;
-            width: 220px;
-            background-color: white;
-            box-shadow: var(--box-shadow);
-            border-radius: 10px;
-            padding: 0.8rem 0;
-            display: none;
-            z-index: 100;
-            transform: translateY(10px);
-            opacity: 0;
-            transition: var(--transition);
-        }
-        
-        .sub-menu li {
-            width: 100%;
-        }
-        
-        .sub-menu a {
-            padding: 0.7rem 1.2rem;
-            font-size: 0.9rem;
-            width: 100%;
-            color: var(--dark-color);
-        }
-        
-        .sub-menu a:hover {
-            background-color: rgba(26, 188, 156, 0.05);
-            color: var(--accent-color);
-        }
-        
-        .sub-menu a::after {
-            display: none;
-        }
-        
-        .menu-item-has-children:hover .sub-menu {
-            display: block;
-            transform: translateY(0);
-            opacity: 1;
-        }
-        
-        .hero {
-            height: 70vh;
-            background-image: url('./images/papiros.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.9;
-        }
-        
-        .hero::after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-image: url('');
-            background-size: 30px 30px;
-            opacity: 0.2;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-        }
-        
-        h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            letter-spacing: -0.5px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            font-weight: 300;
-            line-height: 1.7;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-            color: white;
-            padding: 0.9rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            margin-right: 1rem;
-            margin-bottom: 1rem;
-            border: 2px solid transparent;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(142, 68, 173, 0.2);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--accent-color);
-            color: white;
-        }
-        
-        .btn-outline:hover {
-            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-            color: white;
-            border-color: transparent;
-        }
-        
-        .sections {
-            padding: 6rem 0;
-            background-color: #f9f9f9;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .sections::before {
-            content: "";
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(142, 68, 173, 0.05) 0%, rgba(142, 68, 173, 0) 70%);
-            top: -150px;
-            right: -150px;
-            border-radius: 50%;
-        }
-        
-        .sections::after {
-            content: "";
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(26, 188, 156, 0.05) 0%, rgba(26, 188, 156, 0) 70%);
-            bottom: -100px;
-            left: -100px;
-            border-radius: 50%;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .section-title h2 {
-            font-size: 2.4rem;
-            display: inline-block;
-            position: relative;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
-        }
-        
-        .section-title p {
-            color: #555;
-            max-width: 700px;
-            margin: 0 auto;
-            font-weight: 300;
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .card {
-            background-color: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            position: relative;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .card-img {
-            height: 220px;
-            overflow: hidden;
-        }
-        
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s;
-        }
-        
-        .card:hover .card-img img {
-            transform: scale(1.1);
-        }
-        
-        .card-content {
-            padding: 2rem;
-        }
-        
-        .card-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-        
-        .card-text {
-            margin-bottom: 1.8rem;
-            color: #555;
-            line-height: 1.7;
-        }
-        
-        .bible-verse {
-            background-color: rgba(44, 62, 80, 0.05);
-            padding: 3rem;
-            border-radius: 16px;
-            margin: 6rem 0;
-            position: relative;
-            box-shadow: var(--box-shadow);
-        }
-        
-        .bible-verse::before {
-            content: '\201C';
-            font-size: 6rem;
-            position: absolute;
-            top: -30px;
-            left: 30px;
-            color: var(--secondary-color);
-            opacity: 0.2;
-            font-family: Georgia, serif;
-        }
-        
-        .verse-text {
-            font-style: italic;
-            font-size: 1.4rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            font-weight: 300;
-            line-height: 1.8;
-            color: #444;
-        }
-        
-        .verse-ref {
-            text-align: right;
-            font-weight: 600;
-            color: var(--secondary-color);
-            font-size: 1.1rem;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-        
-        .feature {
-            text-align: center;
-            padding: 2.5rem 2rem;
-            background-color: white;
-            border-radius: 16px;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .feature::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
-            transition: var(--transition);
-        }
-        
-        .feature:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .feature:hover::before {
-            height: 100%;
-            opacity: 0.05;
-            z-index: -1;
-        }
-        
-        .feature i {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 1.5rem;
-            transition: var(--transition);
-        }
-        
-        .feature:hover i {
-            transform: scale(1.2);
-            color: var(--secondary-color);
-        }
-        
-        .feature h3 {
-            font-family: 'Montserrat', sans-serif;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-            font-size: 1.4rem;
-        }
-
-        /* Estilos específicos para idiomas */
-        .language-sample {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .language-sample:nth-child(1) {
-            border-left: 5px solid var(--hebrew-color);
-        }
-
-        .language-sample:nth-child(2) {
-            border-left: 5px solid var(--aramaic-color);
-        }
-
-        .language-sample:nth-child(3) {
-            border-left: 5px solid var(--greek-color);
-        }
-
-        .language-sample::before {
-            content: "";
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            opacity: 0.05;
-            z-index: 0;
-            transition: var(--transition);
-        }
-
-        .language-sample:nth-child(1)::before {
-            background: radial-gradient(circle, var(--hebrew-color) 0%, rgba(243, 156, 18, 0) 70%);
-            top: -100px;
-            right: -100px;
-        }
-
-        .language-sample:nth-child(2)::before {
-            background: radial-gradient(circle, var(--aramaic-color) 0%, rgba(39, 174, 96, 0) 70%);
-            bottom: -100px;
-            left: -100px;
-        }
-
-        .language-sample:nth-child(3)::before {
-            background: radial-gradient(circle, var(--greek-color) 0%, rgba(52, 152, 219, 0) 70%);
-            top: -100px;
-            left: -100px;
-        }
-
-        .language-sample:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .language-sample:hover::before {
-            transform: scale(1.5);
-        }
-
-        .sample-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .language-sample:nth-child(1) .sample-header {
-            border-bottom: 2px solid var(--hebrew-color);
-            padding-bottom: 0.8rem;
-        }
-
-        .language-sample:nth-child(2) .sample-header {
-            border-bottom: 2px solid var(--aramaic-color);
-            padding-bottom: 0.8rem;
-        }
-
-        .language-sample:nth-child(3) .sample-header {
-            border-bottom: 2px solid var(--greek-color);
-            padding-bottom: 0.8rem;
-        }
-
-        .sample-header h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            margin: 0;
-            position: relative;
-        }
-
-        .language-sample:nth-child(1) .sample-header h3 {
-            color: var(--hebrew-color);
-        }
-
-        .language-sample:nth-child(2) .sample-header h3 {
-            color: var(--aramaic-color);
-        }
-
-        .language-sample:nth-child(3) .sample-header h3 {
-            color: var(--greek-color);
-        }
-
-        .sample-text {
-            font-family: var(--font-biblical);
-            font-size: 1.6rem;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hebrew-text, .aramaic-text {
-            direction: rtl;
-            text-align: right;
-        }
-
-        .greek-text {
-            direction: ltr;
-            text-align: left;
-        }
-
-        .sample-translation {
-            font-style: italic;
-            color: #555;
-            margin-top: 0.8rem;
-            position: relative;
-            z-index: 1;
-            line-height: 1.6;
-        }
-
-        .sample-reference {
-            font-weight: 600;
-            text-align: right;
-            font-size: 1.1rem;
-            margin-top: 0.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .language-sample:nth-child(1) .sample-reference {
-            color: var(--hebrew-color);
-        }
-
-        .language-sample:nth-child(2) .sample-reference {
-            color: var(--aramaic-color);
-        }
-
-        .language-sample:nth-child(3) .sample-reference {
-            color: var(--greek-color);
-        }
-
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .resource-card {
-            background-color: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .resource-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .resource-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 1.2rem;
-            margin: 0;
-        }
-
-        .resource-content {
-            padding: 1.5rem;
-        }
-
-        .resource-list {
-            list-style: none;
-        }
-
-        .resource-list li {
-            border-bottom: 1px solid #eee;
-            padding: 0.8rem 0;
-            transition: var(--transition);
-        }
-
-        .resource-list li:last-child {
-            border-bottom: none;
-        }
-
-        .resource-list a {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: var(--dark-color);
-            transition: var(--transition);
-        }
-
-        .resource-list a i {
-            color: var(--accent-color);
-            margin-right: 0.8rem;
-            font-size: 1.2rem;
-        }
-
-        .resource-list a:hover {
-            color: var(--secondary-color);
-            transform: translateX(5px);
-        }
-
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 4rem 0 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        footer::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 5px;
-            top: 0;
-            left: 0;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--accent-color));
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .footer-col h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.8rem;
-            color: var(--accent-color);
-        }
-        
-        .footer-col h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
-        }
-        
-        .footer-col ul {
-            list-style: none;
-        }
-        
-        .footer-col li {
-            margin-bottom: 1rem;
-        }
-        
-        .footer-col a {
-            color: #aaa;
-            text-decoration: none;
-            transition: var(--transition);
-            display: inline-block;
-        }
-        
-        .footer-col a:hover {
-            color: var(--accent-color);
-            transform: translateX(5px);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            transition: var(--transition);
-        }
-        
-        .social-links a:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(26, 188, 156, 0.3);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        
-        @media (max-width: 768px) {
-            .nav-toggle {
-                display: block;
-            }
-            
-            nav {
-                position: fixed;
-                top: 0;
-                right: -300px;
-                width: 280px;
-                height: 100vh;
-                background-color: var(--dark-color);
-                z-index: 1000;
-                transition: right 0.3s ease;
-                padding: 2rem;
-                overflow-y: auto;
-            }
-            
-            nav.active {
-                right: 0;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 0;
-            }
-            
-            nav li {
-                width: 100%;
-            }
-            
-            nav a {
-                padding: 1rem 0;
-                width: 100%;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            
-            nav a::after {
-                display: none;
-            }
-            
-            .menu-item-has-children > a {
-                justify-content: space-between;
-            }
-            
-            .menu-item-has-children > a::after {
-                display: block;
-                content: '+';
-                transition: var(--transition);
-            }
-            
-            .menu-item-has-children.active > a::after {
-                transform: rotate(45deg);
-            }
-            
-            .sub-menu {
-                position: static;
-                width: 100%;
-                box-shadow: none;
-                background-color: rgba(0, 0, 0, 0.2);
-                border-radius: 0;
-                padding-left: 1rem;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease-out;
-                transform: none;
-                opacity: 1;
-            }
-            
-            .menu-item-has-children.active > .sub-menu {
-                max-height: 500px;
-            }
-            
-            .menu-item-has-children:hover .sub-menu {
-                display: none;
-                transform: none;
-            }
-            
-            .menu-item-has-children.active .sub-menu {
-                display: block;
-            }
-            
-            .sub-menu a {
-                color: #ddd;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            }
-            
-            .sub-menu a:hover {
-                background-color: rgba(255, 255, 255, 0.05);
-                color: var(--accent-color);
-            }
-            
-            .hero {
-                height: auto;
-                padding: 6rem 0;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .card-content {
-                padding: 1.5rem;
-            }
-            
-            .bible-verse {
-                padding: 2rem;
-            }
-            
-            .verse-text {
-                font-size: 1.2rem;
-            }
-        }
-    
-        /* Insignia circular del logo EMD (aplicada a todas las páginas) */
-        img[alt="Logo EMD"] {
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid rgba(201, 170, 106, 0.5);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(201, 170, 106, 0.08);
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        img[alt="Logo EMD"]:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 0 5px rgba(201, 170, 106, 0.15);
-        }
-    
-        /* ── Insignia de menú desplegable unificada (aplicada a todas las páginas) ── */
-        .menu-item-has-children > a {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-        .menu-item-has-children > a::before {
-            content: '▾';
-            font-size: 0.6rem;
-            color: rgba(255, 255, 255, 0.35);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        .menu-item-has-children > a::after {
-            display: none !important;
-        }
-        .menu-item-has-children:hover > a::before {
-            color: #c9aa6a;
-            transform: rotate(180deg);
-        }
-        .sub-menu {
-            background: rgba(14, 12, 10, 0.98) !important;
+            width: 230px;
+            background: rgba(20, 15, 9, 0.98);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(184, 154, 95, 0.22) !important;
-            border-top: 2px solid #c9aa6a !important;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45) !important;
-            border-radius: 2px !important;
-            padding: 0.3rem 0 !important;
+            border: 1px solid rgba(169, 122, 52, 0.25);
+            border-top: 2px solid var(--hebrew);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+            border-radius: 2px;
+            padding: 0.3rem 0;
+            display: none;
+            z-index: 1000;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
-        .sub-menu li + li {
-            border-top: 1px solid rgba(184, 154, 95, 0.1);
-        }
+        .menu-item-has-children:hover .sub-menu { display: block; transform: translateY(0); opacity: 1; }
+        .sub-menu li + li { border-top: 1px solid rgba(169, 122, 52, 0.1); }
         .sub-menu a {
-            font-family: 'Lato', sans-serif !important;
-            font-weight: 300;
-            letter-spacing: 0.01em;
-            color: rgba(247, 244, 237, 0.72) !important;
+            padding: 0.75rem 1.25rem;
+            font-size: 0.92rem;
+            width: 100%;
+            display: block;
+            color: rgba(242, 230, 200, 0.75);
             border-left: 2px solid transparent;
-            border-bottom: none !important;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+            transition: var(--transition);
         }
         .sub-menu a:hover {
-            background-color: rgba(201, 170, 106, 0.08) !important;
-            color: #b89a5f !important;
-            border-left-color: #c9aa6a;
-            padding-left: 1.7rem !important;
+            background-color: rgba(169, 122, 52, 0.08);
+            color: var(--hebrew-light);
+            border-left-color: var(--hebrew);
+            padding-left: 1.6rem;
+            transform: none;
         }
 
         .nav-backdrop {
             position: fixed;
             inset: 0;
-            background: rgba(8, 6, 5, 0.6);
+            background: rgba(8, 6, 4, 0.6);
             backdrop-filter: blur(3px);
             -webkit-backdrop-filter: blur(3px);
             z-index: 2400;
@@ -1009,54 +159,399 @@
             visibility: hidden;
             transition: opacity 0.35s ease, visibility 0.35s ease;
         }
-        .nav-backdrop.active {
-            opacity: 1;
-            visibility: visible;
+        .nav-backdrop.active { opacity: 1; visibility: visible; }
+
+        img[alt="Logo EMD"] {
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(169, 122, 52, 0.5);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(169, 122, 52, 0.08);
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
+        img[alt="Logo EMD"]:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 0 5px rgba(169, 122, 52, 0.15);
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            min-height: 62vh;
+            display: flex;
+            align-items: center;
+            color: var(--vellum);
+            overflow: hidden;
+            background:
+                linear-gradient(165deg, rgba(26,19,11,0.88) 0%, rgba(43,32,19,0.82) 55%, rgba(26,19,11,0.9) 100%),
+                url('./images/papiros-web.jpg') center / cover no-repeat;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(115deg, rgba(242,230,200,0.04) 0px, rgba(242,230,200,0.04) 1px, transparent 1px, transparent 46px);
+            pointer-events: none;
+        }
+
+        .hero-content { position: relative; z-index: 1; max-width: 720px; }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-style: italic;
+            font-size: 0.95rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--hebrew-light);
+            margin-bottom: 1rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid rgba(212, 165, 94, 0.35);
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.3rem;
+            line-height: 1.15;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.3rem;
+            line-height: 1.7;
+            color: rgba(242, 230, 200, 0.88);
+        }
+
+        .lang-swatches { display: flex; gap: 0.6rem; margin-bottom: 2rem; }
+        .lang-swatches span {
+            width: 10px; height: 10px; border-radius: 50%;
+            display: inline-block;
+        }
+        .lang-swatches .sw-hebrew { background: var(--hebrew-light); }
+        .lang-swatches .sw-aramaic { background: var(--aramaic-light); }
+        .lang-swatches .sw-greek { background: var(--greek-light); }
+
+        .btn {
+            display: inline-block;
+            background: var(--hebrew);
+            color: var(--ink-deep);
+            padding: 0.85rem 1.9rem;
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-size: 0.85rem;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+            margin-right: 0.8rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .btn:hover { background: var(--hebrew-light); transform: translateY(-3px); box-shadow: 0 10px 18px rgba(0,0,0,0.28); }
+
+        .btn-outline { background: transparent; border: 1px solid var(--hebrew-light); color: var(--vellum); }
+        .btn-outline:hover { background: var(--hebrew-light); color: var(--ink-deep); }
+
+        /* Sections */
+        .sections { padding: 5.5rem 0; background-color: var(--parchment); position: relative; }
+
+        .section-title { text-align: center; margin-bottom: 3.5rem; }
+        .section-title h2 { font-size: 2.3rem; color: var(--ink); margin-bottom: 0.9rem; }
+        .section-title p { color: var(--text-muted); max-width: 700px; margin: 0 auto; font-size: 1.05rem; }
+
+        .folio-tag {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: 0.95rem;
+            letter-spacing: 0.06em;
+            color: var(--rubric);
+            margin-bottom: 0.6rem;
+        }
+
+        .leaf {
+            background: var(--vellum);
+            padding: 2.2rem 2.4rem;
+            border: 1px solid rgba(43, 32, 19, 0.14);
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+        }
+
+        .leaf p { margin-bottom: 1.2rem; color: var(--ink-mid); font-size: 1.05rem; }
+        .leaf p:last-child { margin-bottom: 0; }
+
+        .leaf ul { padding-left: 1.6rem; color: var(--ink-mid); margin-bottom: 1.2rem; }
+        .leaf ul li { margin-bottom: 0.5rem; }
+
+        /* Bible verse — rubric box */
+        .bible-verse {
+            position: relative;
+            background: var(--vellum);
+            border: 1px solid rgba(140, 44, 34, 0.25);
+            padding: 3rem 2.6rem 2.4rem;
+            margin: 4rem 0;
+            box-shadow: var(--card-shadow);
+        }
+        .bible-verse::before {
+            content: '\201C';
+            font-family: Georgia, serif;
+            font-size: 5rem;
+            position: absolute;
+            top: -18px;
+            left: 28px;
+            color: var(--rubric);
+            opacity: 0.85;
+            line-height: 1;
+        }
+        .verse-text {
+            font-style: italic;
+            font-size: 1.35rem;
+            margin-bottom: 1.3rem;
+            text-align: center;
+            line-height: 1.8;
+            color: var(--ink);
+        }
+        .verse-ref { text-align: center; font-family: var(--font-display); color: var(--rubric); font-size: 1.1rem; letter-spacing: 0.02em; }
+
+        /* Three-folio overview grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.2rem; }
+
+        .card {
+            background: var(--vellum);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(43, 32, 19, 0.14);
+        }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 20px 36px rgba(26,19,11,0.22); }
+
+        .folio-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.6rem 1.2rem;
+            color: var(--vellum);
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+        }
+        .card:nth-child(1) .folio-bar { background: var(--hebrew); }
+        .card:nth-child(2) .folio-bar { background: var(--aramaic); }
+        .card:nth-child(3) .folio-bar { background: var(--greek); }
+
+        .card-img { height: 200px; overflow: hidden; }
+        .card-img img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: sepia(0.32) saturate(0.85) contrast(1.05);
+            transition: transform 0.6s ease, filter 0.4s ease;
+        }
+        .card:hover .card-img img { transform: scale(1.08); filter: sepia(0.12) saturate(1) contrast(1.05); }
+
+        .card-content { padding: 1.8rem; }
+        .card-title { font-size: 1.4rem; margin-bottom: 1rem; color: var(--ink); }
+        .card-text { margin-bottom: 1.1rem; color: var(--ink-mid); line-height: 1.7; font-size: 0.98rem; }
+        .card-content .btn { margin-top: 0.6rem; }
+
+        /* Language sample block */
+        .language-sample {
+            background: var(--vellum);
+            padding: 2.2rem 2.4rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            border-left: 5px solid var(--ink);
+        }
+        .language-sample.lang-hebrew { border-left-color: var(--hebrew); }
+        .language-sample.lang-aramaic { border-left-color: var(--aramaic); }
+        .language-sample.lang-greek { border-left-color: var(--greek); }
+
+        .sample-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--ink);
+        }
+        .lang-hebrew .sample-header { border-bottom-color: var(--hebrew); }
+        .lang-aramaic .sample-header { border-bottom-color: var(--aramaic); }
+        .lang-greek .sample-header { border-bottom-color: var(--greek); }
+
+        .sample-header h3 { font-size: 1.4rem; }
+        .lang-hebrew .sample-header h3 { color: var(--hebrew); }
+        .lang-aramaic .sample-header h3 { color: var(--aramaic); }
+        .lang-greek .sample-header h3 { color: var(--greek); }
+
+        .sample-seal { width: 14px; height: 14px; border-radius: 50%; }
+        .lang-hebrew .sample-seal { background: var(--hebrew); }
+        .lang-aramaic .sample-seal { background: var(--aramaic); }
+        .lang-greek .sample-seal { background: var(--greek); }
+
+        .sample-text {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+            font-size: 1.6rem;
+            line-height: 1.9;
+            margin-bottom: 1.1rem;
+        }
+        .hebrew-text, .aramaic-text { direction: rtl; text-align: right; }
+        .greek-text { direction: ltr; text-align: left; }
+
+        .sample-translation { font-style: italic; color: var(--text-muted); margin-top: 0.8rem; line-height: 1.7; }
+        .sample-reference { font-family: var(--font-display); font-weight: 400; text-align: right; font-size: 1.05rem; margin-top: 0.6rem; }
+        .lang-hebrew .sample-reference { color: var(--hebrew); }
+        .lang-aramaic .sample-reference { color: var(--aramaic); }
+        .lang-greek .sample-reference { color: var(--greek); }
+
+        /* Feature marginalia grid */
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.8rem; margin-top: 2rem; }
+
+        .feature {
+            text-align: left;
+            padding: 1.8rem 1.8rem 1.8rem 1.4rem;
+            background: var(--vellum);
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border-left: 3px solid var(--ink);
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .lang-hebrew ~ .features .feature, .features.f-hebrew .feature { border-left-color: var(--hebrew); }
+        .features.f-greek .feature { border-left-color: var(--greek); }
+        .feature:hover { transform: translateY(-6px); box-shadow: 0 16px 28px rgba(26,19,11,0.18); }
+
+        .feature-num {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            width: 2.2rem;
+            text-align: center;
+        }
+        .features.f-hebrew .feature-num { color: var(--hebrew); }
+        .features.f-greek .feature-num { color: var(--greek); }
+
+        .feature h3 { font-size: 1.15rem; margin-bottom: 0.6rem; color: var(--ink); }
+        .feature p { color: var(--ink-mid); font-size: 0.95rem; line-height: 1.6; }
+
+        /* Aramaic sayings grid — quote style */
+        .sayings { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.8rem; margin-top: 2rem; }
+        .saying {
+            text-align: center;
+            padding: 2.2rem 1.8rem;
+            background: var(--vellum);
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border-top: 3px solid var(--aramaic);
+        }
+        .saying:hover { transform: translateY(-6px); box-shadow: 0 16px 28px rgba(26,19,11,0.18); }
+        .saying svg { width: 1.6rem; height: 1.6rem; color: var(--aramaic); margin-bottom: 1rem; }
+        .saying h3 { font-size: 1.2rem; margin-bottom: 0.7rem; color: var(--ink); }
+        .saying p { color: var(--ink-mid); font-size: 0.95rem; }
+
+        /* Resource cards (replace fragile iframes) */
+        .resources-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .resource-card {
+            background: var(--vellum);
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(43, 32, 19, 0.14);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .resource-card:hover { transform: translateY(-8px); box-shadow: 0 20px 36px rgba(26,19,11,0.2); }
+        .resource-icon {
+            width: 3rem; height: 3rem;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--ink);
+            color: var(--hebrew-light);
+            margin-bottom: 1.3rem;
+        }
+        .resource-icon svg { width: 1.4rem; height: 1.4rem; }
+        .resource-card h3 { font-size: 1.3rem; margin-bottom: 0.9rem; color: var(--ink); }
+        .resource-card p { color: var(--ink-mid); font-size: 0.98rem; margin-bottom: 1.4rem; flex-grow: 1; }
+        .resource-card .btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .resource-card .btn svg { width: 0.9rem; height: 0.9rem; }
+
+        .videos-title { font-size: 1.6rem; color: var(--ink); margin-bottom: 2rem; text-align: center; }
+
+        footer {
+            background-color: var(--ink-deep);
+            color: var(--vellum);
+            padding: 4rem 0 1.5rem;
+            position: relative;
+        }
+        footer::before {
+            content: "";
+            position: absolute;
+            width: 100%; height: 3px; top: 0; left: 0;
+            background: linear-gradient(to right, transparent, var(--hebrew), transparent);
+        }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem; margin-bottom: 3rem; }
+        .footer-col h4 { font-size: 1.15rem; margin-bottom: 1.3rem; padding-bottom: 0.7rem; position: relative; color: var(--hebrew-light); }
+        .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 42px; height: 2px; background: var(--hebrew); }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.9rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; color: rgba(242,230,200,0.7); }
+        .footer-col li svg { width: 1rem; height: 1rem; color: var(--hebrew); flex-shrink: 0; }
+        .footer-col p { color: rgba(242,230,200,0.7); font-size: 0.95rem; margin-bottom: 1rem; }
+        .footer-col a { color: rgba(242,230,200,0.7); text-decoration: none; transition: var(--transition); display: inline-block; }
+        .footer-col a:hover { color: var(--hebrew-light); transform: translateX(4px); }
+
+        .social-links { display: flex; gap: 1rem; margin-top: 1.3rem; }
+        .social-links a {
+            display: flex; align-items: center; justify-content: center;
+            width: 38px; height: 38px;
+            background-color: rgba(242,230,200,0.08);
+            border-radius: 50%;
+            color: var(--vellum);
+            transition: var(--transition);
+        }
+        .social-links a svg { width: 1.05rem; height: 1.05rem; }
+        .social-links a:hover { background-color: var(--hebrew); color: var(--ink-deep); transform: translateY(-4px); }
+
+        .copyright { text-align: center; padding-top: 1.8rem; border-top: 1px solid rgba(242,230,200,0.1); font-size: 0.88rem; color: rgba(242,230,200,0.55); }
 
         @media (max-width: 768px) {
+            .nav-toggle { display: block; }
             nav {
-                background: linear-gradient(160deg, #0e0c0a 0%, #1f1a14 100%) !important;
+                position: fixed; top: 0; right: -300px; width: 280px; height: 100vh;
+                background: linear-gradient(160deg, var(--ink-deep) 0%, var(--ink) 100%);
+                z-index: 2500; transition: right 0.3s; padding: 2rem; overflow-y: auto;
             }
-            .menu-item-has-children > a::before {
-                display: none;
-            }
+            nav.active { right: 0; }
+            nav ul { flex-direction: column; gap: 0; }
+            nav li { width: 100%; }
+            nav a { padding: 0.8rem 0; width: 100%; border-bottom: 1px solid rgba(242,230,200,0.1); }
+
+            .menu-item-has-children > a::before { display: none; }
             .menu-item-has-children > a::after {
-                display: flex !important;
-                align-items: center;
-                justify-content: center;
-                content: '+' !important;
-                width: 22px;
-                height: 22px;
-                font-size: 0.9rem;
-                font-family: initial !important;
-                color: #c9aa6a !important;
-                border: 1px solid rgba(184, 154, 95, 0.35);
-                border-radius: 50%;
-                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+                display: flex !important; align-items: center; justify-content: center;
+                content: '+' !important; width: 22px; height: 22px; font-size: 0.9rem;
+                font-family: initial !important; color: var(--hebrew-light) !important;
+                border: 1px solid rgba(169,122,52,0.35); border-radius: 50%;
+                margin-left: auto; transition: var(--transition);
             }
-            .menu-item-has-children.active > a::after {
-                transform: rotate(135deg) !important;
-                background: rgba(201, 170, 106, 0.12);
-            }
+            .menu-item-has-children.active > a::after { transform: rotate(135deg) !important; background: rgba(169,122,52,0.12); }
             .sub-menu {
-                background: rgba(0, 0, 0, 0.18) !important;
-                border: none !important;
-                border-top: none !important;
-                box-shadow: none !important;
+                position: static; width: 100%; box-shadow: none;
+                background: rgba(0,0,0,0.18); border: none; border-top: none;
+                border-radius: 0; padding-left: 1rem; max-height: 0; overflow: hidden;
+                transition: max-height 0.3s ease-out;
             }
-            .sub-menu a {
-                color: rgba(247, 244, 237, 0.7) !important;
-                border-bottom: 1px solid rgba(184, 154, 95, 0.08) !important;
-            }
-            .sub-menu a:hover {
-                background-color: transparent !important;
-                padding-left: 0.5rem !important;
-                border-left: none;
-            }
+            .menu-item-has-children.active > .sub-menu { max-height: 500px; }
+            .menu-item-has-children:hover .sub-menu { display: none; }
+            .menu-item-has-children.active .sub-menu { display: block; }
+
+            .hero { min-height: 0; padding: 4rem 0; }
+            h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.05rem; }
+            .leaf, .bible-verse, .language-sample { padding: 1.7rem 1.5rem; }
+            .verse-text { font-size: 1.15rem; }
         }
     </style>
-
 </head>
 <body>
     <header>
@@ -1068,8 +563,8 @@
                     <div>"La Gloria es del Señor"</div>
                 </div>
             </div>
-            <button class="nav-toggle">
-                <i class="fas fa-bars"></i>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
             </button>
             <div class="nav-backdrop"></div>
 
@@ -1082,6 +577,7 @@
                             <li><a href="../Figuras Bíblicas/at-a-nt.html">AT a NT</a></li>
                             <li><a href="../Figuras Bíblicas/nombres-simbologia.html">Los nombres y su simbología</a></li>
                             <li><a href="../Figuras Bíblicas/templo-figuras.html">Templo y sus Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/tabernaculo-figuras.html">El tabernáculo y sus figuras</a></li>
                             <li><a href="../Figuras Bíblicas/sacrificios-figuras.html">Sacrificios y su Figuras</a></li>
                             <li><a href="../Figuras Bíblicas/tipologia-cantares.html">Tipología Cantares</a></li>
                             <li><a href="../Figuras Bíblicas/figuras-cristo.html">Figuras de Cristo</a></li>
@@ -1149,10 +645,14 @@
         </div>
     </header>
 
-    <section class="hero" style="background-image: url('./images/papiros.jpg');">
+    <section class="hero">
         <div class="container hero-content">
+            <span class="hero-eyebrow">Estudios Exegéticos · Políglota de Alejandría</span>
             <h1>Los Idiomas Originales de la Biblia</h1>
             <p>Explorando el Hebreo, Arameo y Griego para conocer la profundidad de la Palabra de Dios en sus textos originales.</p>
+            <div class="lang-swatches">
+                <span class="sw-hebrew"></span><span class="sw-aramaic"></span><span class="sw-greek"></span>
+            </div>
             <a href="#idiomas" class="btn">Descubrir los Idiomas</a>
         </div>
     </section>
@@ -1164,16 +664,17 @@
                 <p>El conocimiento de los idiomas originales nos permite apreciar las Escrituras con mayor profundidad y precisión.</p>
             </div>
 
-            <p>Los textos bíblicos fueron escritos originalmente en tres idiomas principales: Hebreo, Arameo y Griego. Comprender estos idiomas es fundamental para una interpretación más precisa y profunda de las Escrituras, ya que cada uno tiene características únicas que aportan matices que a menudo se pierden en la traducción.</p>
-            
-            <p>El estudio de los idiomas originales nos permite:</p>
-            <ul style="margin-bottom: 2rem; padding-left: 2rem;">
-                <li>Captar matices lingüísticos que se pierden en la traducción</li>
-                <li>Entender mejor el contexto histórico y cultural de los textos</li>
-                <li>Resolver ambigüedades y aclarar pasajes difíciles</li>
-                <li>Profundizar en el significado teológico de palabras clave</li>
-                <li>Apreciar la belleza literaria y la estructura de los textos originales</li>
-            </ul>
+            <div class="leaf">
+                <p>Los textos bíblicos fueron escritos originalmente en tres idiomas principales: Hebreo, Arameo y Griego. Comprender estos idiomas es fundamental para una interpretación más precisa y profunda de las Escrituras, ya que cada uno tiene características únicas que aportan matices que a menudo se pierden en la traducción.</p>
+                <p>El estudio de los idiomas originales nos permite:</p>
+                <ul>
+                    <li>Captar matices lingüísticos que se pierden en la traducción</li>
+                    <li>Entender mejor el contexto histórico y cultural de los textos</li>
+                    <li>Resolver ambigüedades y aclarar pasajes difíciles</li>
+                    <li>Profundizar en el significado teológico de palabras clave</li>
+                    <li>Apreciar la belleza literaria y la estructura de los textos originales</li>
+                </ul>
+            </div>
 
             <div class="bible-verse">
                 <p class="verse-text">"La hierba se seca, la flor se marchita, pero la palabra del Dios nuestro permanece para siempre."</p>
@@ -1187,9 +688,8 @@
 
             <div class="grid">
                 <div class="card">
-                    <div class="card-img">
-                        <img src="../../images/hebreo-biblico.jpg" alt="Hebreo Bíblico">
-                    </div>
+                    <div class="folio-bar">Folio I</div>
+                    <div class="card-img"><img src="../../images/hebreo-biblico-web.jpg" alt="Hebreo Bíblico"></div>
                     <div class="card-content">
                         <h3 class="card-title">Hebreo Bíblico</h3>
                         <p class="card-text">El idioma principal del Antiguo Testamento, caracterizado por su profundidad simbólica y su estructura verbal dinámica que refleja acción y relación.</p>
@@ -1199,9 +699,8 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-img">
-                        <img src="../../images/arameo-biblico.jpg" alt="Arameo Bíblico">
-                    </div>
+                    <div class="folio-bar">Folio II</div>
+                    <div class="card-img"><img src="../../images/arameo-biblico-web.jpg" alt="Arameo Bíblico"></div>
                     <div class="card-content">
                         <h3 class="card-title">Arameo Bíblico</h3>
                         <p class="card-text">Presente en partes del libro de Daniel y Esdras, el Arameo fue la lengua franca del Antiguo Oriente Próximo y el idioma cotidiano en tiempos de Jesús.</p>
@@ -1211,9 +710,8 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-img">
-                        <img src="../../images/griego-koine.jpg" alt="Griego Koiné">
-                    </div>
+                    <div class="folio-bar">Folio III</div>
+                    <div class="card-img"><img src="../../images/griego-koine-web.jpg" alt="Griego Koiné"></div>
                     <div class="card-content">
                         <h3 class="card-title">Griego Koiné</h3>
                         <p class="card-text">El idioma del Nuevo Testamento, conocido como Griego "común", fue el lenguaje internacional de comunicación en el mundo mediterráneo del siglo I.</p>
@@ -1224,135 +722,135 @@
             </div>
 
             <div class="section-title" id="hebreo" style="margin-top: 5rem;">
+                <span class="folio-tag">Folio I</span>
                 <h2>El Hebreo Bíblico</h2>
                 <p>La lengua del Antiguo Testamento y del pueblo de Israel</p>
             </div>
 
-            <div class="language-sample">
+            <div class="language-sample lang-hebrew">
                 <div class="sample-header">
                     <h3>Génesis 1:1</h3>
-                    <span><i class="fas fa-language" style="color: var(--hebrew-color); font-size: 1.8rem;"></i></span>
+                    <span class="sample-seal"></span>
                 </div>
                 <div class="sample-text hebrew-text">בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃</div>
                 <div class="sample-translation">En el principio creó Dios los cielos y la tierra.</div>
                 <div class="sample-reference">Bereshit (Génesis) 1:1</div>
             </div>
 
-            <p>El Hebreo Bíblico es una lengua semítica caracterizada por su sistema de escritura consonántico y su rica estructura verbal. Algunas características importantes incluyen:</p>
-            
-            <div class="features">
+            <div class="leaf">
+                <p>El Hebreo Bíblico es una lengua semítica caracterizada por su sistema de escritura consonántico y su rica estructura verbal. Algunas características importantes incluyen:</p>
+            </div>
+
+            <div class="features f-hebrew">
                 <div class="feature">
-                    <i class="fas fa-pen-fancy"></i>
-                    <h3>Sistema Consonántico</h3>
-                    <p>El Hebreo original se escribía solo con consonantes. Las vocales fueron añadidas posteriormente mediante un sistema de signos diacríticos para facilitar la lectura.</p>
+                    <span class="feature-num">I</span>
+                    <div><h3>Sistema Consonántico</h3><p>El Hebreo original se escribía solo con consonantes. Las vocales fueron añadidas posteriormente mediante un sistema de signos diacríticos para facilitar la lectura.</p></div>
                 </div>
                 <div class="feature">
-                    <i class="fas fa-book-open"></i>
-                    <h3>Raíces Triliterales</h3>
-                    <p>La mayoría de las palabras hebreas se derivan de raíces de tres consonantes, que llevan un significado básico modificado por patrones vocálicos y prefijos/sufijos.</p>
+                    <span class="feature-num">II</span>
+                    <div><h3>Raíces Triliterales</h3><p>La mayoría de las palabras hebreas se derivan de raíces de tres consonantes, que llevan un significado básico modificado por patrones vocálicos y prefijos/sufijos.</p></div>
                 </div>
                 <div class="feature">
-                    <i class="fas fa-sync-alt"></i>
-                    <h3>Verbos Dinámicos</h3>
-                    <p>El sistema verbal hebreo enfatiza la acción y el aspecto (completo/incompleto) más que el tiempo (pasado/presente/futuro) como en nuestras lenguas modernas.</p>
+                    <span class="feature-num">III</span>
+                    <div><h3>Verbos Dinámicos</h3><p>El sistema verbal hebreo enfatiza la acción y el aspecto (completo/incompleto) más que el tiempo (pasado/presente/futuro) como en nuestras lenguas modernas.</p></div>
                 </div>
                 <div class="feature">
-                    <i class="fas fa-images"></i>
-                    <h3>Lenguaje Visual</h3>
-                    <p>El Hebreo es rico en imágenes concretas, metáforas y paralelismos, reflejando una visión del mundo tangible y relacional más que abstracta.</p>
+                    <span class="feature-num">IV</span>
+                    <div><h3>Lenguaje Visual</h3><p>El Hebreo es rico en imágenes concretas, metáforas y paralelismos, reflejando una visión del mundo tangible y relacional más que abstracta.</p></div>
                 </div>
             </div>
 
             <div class="section-title" id="arameo" style="margin-top: 5rem;">
+                <span class="folio-tag">Folio II</span>
                 <h2>El Arameo Bíblico</h2>
                 <p>El idioma de partes de Daniel y Esdras, y la lengua materna de Jesús</p>
             </div>
 
-            <div class="language-sample">
+            <div class="language-sample lang-aramaic">
                 <div class="sample-header">
                     <h3>Daniel 2:20</h3>
-                    <span><i class="fas fa-language" style="color: var(--aramaic-color); font-size: 1.8rem;"></i></span>
+                    <span class="sample-seal"></span>
                 </div>
                 <div class="sample-text aramaic-text">עָנֵה דָנִיֵּאל וְאָמַר לֶהֱוֵא שְׁמֵהּ דִּי־אֱלָהָא מְבָרַךְ מִן־עָלְמָא וְעַד־עָלְמָא דִּי חָכְמְתָא וּגְבוּרְתָא דִּי לֵהּ־הִיא</div>
                 <div class="sample-translation">Daniel habló y dijo: Sea bendito el nombre de Dios por los siglos de los siglos, porque suyos son la sabiduría y el poder.</div>
                 <div class="sample-reference">Daniel 2:20</div>
             </div>
 
-            <p>El Arameo es una lengua semítica estrechamente relacionada con el Hebreo, que se convirtió en la lingua franca del Antiguo Oriente Próximo. En la Biblia, encontramos pasajes en Arameo en:</p>
-            <ul style="margin-bottom: 2rem; padding-left: 2rem;">
-                <li>Daniel 2:4b-7:28</li>
-                <li>Esdras 4:8-6:18; 7:12-26</li>
-                <li>Jeremías 10:11</li>
-                <li>Palabras y frases dispersas en el Nuevo Testamento</li>
-            </ul>
+            <div class="leaf">
+                <p>El Arameo es una lengua semítica estrechamente relacionada con el Hebreo, que se convirtió en la lingua franca del Antiguo Oriente Próximo. En la Biblia, encontramos pasajes en Arameo en:</p>
+                <ul>
+                    <li>Daniel 2:4b-7:28</li>
+                    <li>Esdras 4:8-6:18; 7:12-26</li>
+                    <li>Jeremías 10:11</li>
+                    <li>Palabras y frases dispersas en el Nuevo Testamento</li>
+                </ul>
+                <p>Jesús habló Arameo como lengua materna, y algunas de sus palabras originales se preservan en los Evangelios:</p>
+            </div>
 
-            <p>Jesús habló Arameo como lengua materna, y algunas de sus palabras originales se preservan en los Evangelios:</p>
-
-            <div class="features">
-                <div class="feature">
-                    <i class="fas fa-quote-left"></i>
+            <div class="sayings">
+                <div class="saying">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
                     <h3>"Talita cumi"</h3>
                     <p>"Niña, a ti te digo, levántate" (Marcos 5:41)</p>
                 </div>
-                <div class="feature">
-                    <i class="fas fa-quote-left"></i>
+                <div class="saying">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
                     <h3>"Eloí, Eloí, ¿lama sabactani?"</h3>
                     <p>"Dios mío, Dios mío, ¿por qué me has desamparado?" (Marcos 15:34)</p>
                 </div>
-                <div class="feature">
-                    <i class="fas fa-quote-left"></i>
+                <div class="saying">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
                     <h3>"Effatá"</h3>
                     <p>"Sé abierto" (Marcos 7:34)</p>
                 </div>
-                <div class="feature">
-                    <i class="fas fa-quote-left"></i>
+                <div class="saying">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
                     <h3>"Maranatha"</h3>
                     <p>"El Señor viene" o "Ven, Señor nuestro" (1 Corintios 16:22)</p>
                 </div>
             </div>
 
             <div class="section-title" id="griego" style="margin-top: 5rem;">
+                <span class="folio-tag">Folio III</span>
                 <h2>El Griego Koiné</h2>
                 <p>La lengua del Nuevo Testamento y del mundo helenístico</p>
             </div>
 
-            <div class="language-sample">
+            <div class="language-sample lang-greek">
                 <div class="sample-header">
                     <h3>Juan 1:1</h3>
-                    <span><i class="fas fa-language" style="color: var(--greek-color); font-size: 1.8rem;"></i></span>
+                    <span class="sample-seal"></span>
                 </div>
                 <div class="sample-text greek-text">Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.</div>
                 <div class="sample-translation">En el principio era el Verbo, y el Verbo era con Dios, y el Verbo era Dios.</div>
                 <div class="sample-reference">Juan 1:1</div>
             </div>
 
-            <p>El Griego Koiné ("común") era el idioma internacional del mundo mediterráneo en el siglo I. Todo el Nuevo Testamento fue escrito en este idioma, que tiene características que lo hacen especialmente adecuado para expresar conceptos teológicos complejos:</p>
+            <div class="leaf">
+                <p>El Griego Koiné ("común") era el idioma internacional del mundo mediterráneo en el siglo I. Todo el Nuevo Testamento fue escrito en este idioma, que tiene características que lo hacen especialmente adecuado para expresar conceptos teológicos complejos:</p>
+            </div>
 
-            <div class="features">
+            <div class="features f-greek">
                 <div class="feature">
-                    <i class="fas fa-language"></i>
-                    <h3>Precisión Gramatical</h3>
-                    <p>El Griego tiene un sistema de tiempos verbales y casos nominales muy preciso que permite expresar matices teológicos con gran exactitud.</p>
+                    <span class="feature-num">I</span>
+                    <div><h3>Precisión Gramatical</h3><p>El Griego tiene un sistema de tiempos verbales y casos nominales muy preciso que permite expresar matices teológicos con gran exactitud.</p></div>
                 </div>
                 <div class="feature">
-                    <i class="fas fa-brain"></i>
-                    <h3>Vocabulario Amplio</h3>
-                    <p>Su rico vocabulario permitió a los escritores del Nuevo Testamento expresar conceptos teológicos complejos y abstractos con precisión.</p>
+                    <span class="feature-num">II</span>
+                    <div><h3>Vocabulario Amplio</h3><p>Su rico vocabulario permitió a los escritores del Nuevo Testamento expresar conceptos teológicos complejos y abstractos con precisión.</p></div>
                 </div>
                 <div class="feature">
-                    <i class="fas fa-globe-americas"></i>
-                    <h3>Alcance Universal</h3>
-                    <p>Como idioma internacional, el Griego Koiné permitió que el mensaje del Evangelio se difundiera rápidamente por todo el mundo mediterráneo.</p>
+                    <span class="feature-num">III</span>
+                    <div><h3>Alcance Universal</h3><p>Como idioma internacional, el Griego Koiné permitió que el mensaje del Evangelio se difundiera rápidamente por todo el mundo mediterráneo.</p></div>
                 </div>
                 <div class="feature">
-                    <i class="fas fa-file-alt"></i>
-                    <h3>Influencia Literaria</h3>
-                    <p>La estructura del Griego Koiné ha influido profundamente en el vocabulario teológico y filosófico occidental hasta nuestros días.</p>
+                    <span class="feature-num">IV</span>
+                    <div><h3>Influencia Literaria</h3><p>La estructura del Griego Koiné ha influido profundamente en el vocabulario teológico y filosófico occidental hasta nuestros días.</p></div>
                 </div>
             </div>
 
             <div class="bible-verse">
-                <p class="verse-text">“Nunca se apartará de tu boca este libro de la ley, sino que de día y de noche meditarás en él, para que guardes y hagas conforme a todo lo que en él está escrito; porque entonces harás prosperar tu camino, y todo te saldrá bien.”</p>
+                <p class="verse-text">"Nunca se apartará de tu boca este libro de la ley, sino que de día y de noche meditarás en él, para que guardes y hagas conforme a todo lo que en él está escrito; porque entonces harás prosperar tu camino, y todo te saldrá bien."</p>
                 <p class="verse-ref">Josué 1:8</p>
             </div>
 
@@ -1361,50 +859,32 @@
                 <p>Herramientas y referencias esenciales para el estudio de los idiomas bíblicos</p>
             </div>
 
-            <!-- Recursos en línea y videos -->
-            <div class="grid" style="margin-bottom: 3rem;">
-                <!-- Biblia Todo -->
-                <div class="card">
-                    <div class="card-img" style="position: relative; height: 200px; overflow: hidden;">
-                        <iframe src="https://www.bibliatodo.com/es" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 400px; transform: scale(1.0); transform-origin: top left;"></iframe>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Biblia Todo</h3>
-                        <p class="card-text">Portal completo con múltiples versiones bíblicas, herramientas de estudio, concordancias y recursos para profundizar en la Palabra de Dios.</p>
-                        <a href="https://www.bibliatodo.com/es" target="_blank" class="btn">Visitar Sitio</a>
-                    </div>
+            <div class="resources-grid" style="margin-bottom: 3rem;">
+                <div class="resource-card">
+                    <div class="resource-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></div>
+                    <h3>Biblia Todo</h3>
+                    <p>Portal completo con múltiples versiones bíblicas, herramientas de estudio, concordancias y recursos para profundizar en la Palabra de Dios.</p>
+                    <a href="https://www.bibliatodo.com/es" target="_blank" rel="noopener noreferrer" class="btn">Visitar Sitio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
                 </div>
 
-                <!-- Biblia Paralela -->
-                <div class="card">
-                    <div class="card-img" style="position: relative; height: 200px; overflow: hidden;">
-                        <iframe src="https://bibliaparalela.com/" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 400px; transform: scale(1.0); transform-origin: top left;"></iframe>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Biblia Paralela</h3>
-                        <p class="card-text">Compara versículos en diferentes versiones y lenguas originales lado a lado. Ideal para estudios comparativos y análisis de traducciones.</p>
-                        <a href="https://bibliaparalela.com/" target="_blank" class="btn">Comparar Versiones</a>
-                    </div>
+                <div class="resource-card">
+                    <div class="resource-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></div>
+                    <h3>Biblia Paralela</h3>
+                    <p>Compara versículos en diferentes versiones y lenguas originales lado a lado. Ideal para estudios comparativos y análisis de traducciones.</p>
+                    <a href="https://bibliaparalela.com/" target="_blank" rel="noopener noreferrer" class="btn">Comparar Versiones <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
                 </div>
 
-                <!-- Blue Letter Bible -->
-                <div class="card">
-                    <div class="card-img" style="position: relative; height: 200px; overflow: hidden;">
-                        <iframe src="https://www.blueletterbible.org/lexicon/h3068/kjv/wlc/0-1/" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 400px; transform: scale(1.0); transform-origin: top left;"></iframe>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Léxico Hebreo - YHWH</h3>
-                        <p class="card-text">Análisis detallado del Tetragrámaton (YHWH), el nombre de Dios en hebreo. Incluye definiciones, concordancia y referencias bíblicas.</p>
-                        <a href="https://www.blueletterbible.org/lexicon/h3068/kjv/wlc/0-1/" target="_blank" class="btn">Explorar Léxico</a>
-                    </div>
+                <div class="resource-card">
+                    <div class="resource-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></div>
+                    <h3>Léxico Hebreo - YHWH</h3>
+                    <p>Análisis detallado del Tetragrámaton (YHWH), el nombre de Dios en hebreo. Incluye definiciones, concordancia y referencias bíblicas.</p>
+                    <a href="https://www.blueletterbible.org/lexicon/h3068/kjv/wlc/0-1/" target="_blank" rel="noopener noreferrer" class="btn">Explorar Léxico <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
                 </div>
             </div>
 
-            <!-- Videos de YouTube -->
-            <h3 style="font-family: 'Montserrat', sans-serif; color: var(--primary-color); margin-bottom: 2rem; text-align: center;">Cursos y Videos Recomendados</h3>
-            
+            <h3 class="videos-title">Cursos y Videos Recomendados</h3>
+
             <div class="grid">
-                <!-- Curso 1 -->
                 <div class="card">
                     <div class="card-img" style="position: relative; height: 200px; overflow: hidden;">
                         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLsYYt-OkIdlhDwTTfJ2AYV15GInYEFgcb" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0;"></iframe>
@@ -1416,7 +896,6 @@
                     </div>
                 </div>
 
-                <!-- Curso 2 -->
                 <div class="card">
                     <div class="card-img" style="position: relative; height: 200px; overflow: hidden;">
                         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLUzpOSlctlm9ucA8EzJ5KP3xdc3FyuJRD" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0;"></iframe>
@@ -1428,7 +907,6 @@
                     </div>
                 </div>
 
-                <!-- Curso 3 -->
                 <div class="card">
                     <div class="card-img" style="position: relative; height: 200px; overflow: hidden;">
                         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLSz8Nd4UjIs3B0S_5W-hTIVO_xP1hyG4w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0;"></iframe>
@@ -1450,8 +928,8 @@
                     <h4>Ministerio EMD</h4>
                     <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
                     <div class="social-links">
-                         <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                         <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.5 9.87v-6.98H7.9V12h2.6V9.8c0-2.6 1.55-4 3.9-4 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v6.98A10 10 0 0 0 22 12Z"/></svg></a>
+                        <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.8 8.001a2.75 2.75 0 0 0-1.94-1.94C18.1 5.6 12 5.6 12 5.6s-6.1 0-7.86.46A2.75 2.75 0 0 0 2.2 8a28.6 28.6 0 0 0 0 8 2.75 2.75 0 0 0 1.94 1.94C5.9 18.4 12 18.4 12 18.4s6.1 0 7.86-.46A2.75 2.75 0 0 0 21.8 16a28.6 28.6 0 0 0 0-8ZM10 15.2V8.8l6 3.2Z"/></svg></a>
                     </div>
                 </div>
                 <div class="footer-col">
@@ -1468,9 +946,9 @@
                 <div class="footer-col">
                     <h4>Contacto</h4>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio</li>
-                        <li><i class="fas fa-phone"></i> +1 787-345-6940</li>
-                        <li><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg> Dirección del Ministerio</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg> +1 787-345-6940</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> ministeriolagloriaesdelsenor7@gmail.com</li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1481,82 +959,65 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+                <p>&copy; 2026 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        document.querySelector('.nav-toggle').addEventListener('click', function() {
-            document.querySelector('nav').classList.toggle('active');
-        });
-        
-        // Manejo de menús desplegables en móvil
-        document.querySelectorAll('.menu-item-has-children > a').forEach(item => {
-            item.addEventListener('click', function(e) {
-                // Solo en modo móvil
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    this.parentNode.classList.toggle('active');
-                }
-            });
-        });
-        
-        // Cierra el menú al hacer clic en un enlace de submenu
-        document.querySelectorAll('.sub-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('nav').classList.remove('active');
-            });
-        });
-        
-        // Cierra el menú al hacer clic fuera de él
-        document.addEventListener('click', function(event) {
-            const nav = document.querySelector('nav');
-            const navToggle = document.querySelector('.nav-toggle');
-            
-            if (!nav.contains(event.target) && event.target !== navToggle) {
-                nav.classList.remove('active');
-            }
-        });
-        
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (!target) return;
                 e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        (function() {
+            var nav = document.querySelector('nav');
+            var backdrop = document.querySelector('.nav-backdrop');
+            var navToggle = document.querySelector('.nav-toggle');
+            if (!nav || !backdrop) return;
+
+            function closeNav() {
+                nav.classList.remove('active');
+                backdrop.classList.remove('active');
+            }
+
+            if (navToggle) {
+                navToggle.addEventListener('click', function() {
+                    nav.classList.toggle('active');
+                    backdrop.classList.toggle('active');
+                });
+            }
+
+            backdrop.addEventListener('click', closeNav);
+
+            document.querySelectorAll('.menu-item-has-children > a').forEach(function(item) {
+                item.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        this.parentNode.classList.toggle('active');
+                    }
                 });
             });
-        });
-    </script>
 
-    <script>
-    (function() {
-        var nav = document.querySelector('nav');
-        var backdrop = document.querySelector('.nav-backdrop');
-        var navToggle = document.querySelector('.nav-toggle');
-        if (!nav || !backdrop) return;
-
-        function closeNav() {
-            nav.classList.remove('active');
-            backdrop.classList.remove('active');
-        }
-
-        if (navToggle) {
-            navToggle.addEventListener('click', function() {
-                nav.classList.toggle('active');
-                backdrop.classList.toggle('active');
+            document.querySelectorAll('.sub-menu a').forEach(function(link) {
+                link.addEventListener('click', closeNav);
             });
-        }
 
-        backdrop.addEventListener('click', closeNav);
+            document.addEventListener('click', function(event) {
+                if (!nav.contains(event.target) && event.target !== navToggle && !navToggle.contains(event.target)) {
+                    closeNav();
+                }
+            });
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && nav.classList.contains('active')) closeNav();
-        });
-    })();
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && nav.classList.contains('active')) closeNav();
+            });
+        })();
     </script>
-
 </body>
 </html>

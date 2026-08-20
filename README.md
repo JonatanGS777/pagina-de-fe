@@ -378,6 +378,16 @@ Tras agregarse `tabernaculo-3d.html`, una revisión a fondo (a pedido del usuari
   - **`page/Figuras Bíblicas/tabernaculo-3d.html`:** las 2 menciones de "Ver interior" (toggle y texto de ayuda) renombradas a "Vista de rayos X" con su nueva descripción; cache-busting de `main.js` subido de `?v=7` a `?v=8` (y dentro de `main.js`, el import de `tabernaculo.js` de `?v=3` a `?v=4`), siguiendo la convención ya documentada del sitio para archivos servidos con caché inmutable.
 - Verificado con `node --check` en ambos archivos JS (sintaxis válida) y con `diff` contra el worktree de origen antes y después de copiar, confirmando que solo esos 3 archivos tenían cambios reales pendientes de integrar.
 
+### 2026-08-19: cuarta página de `Estudios Exegéticos/` — idiomas-biblia.html "Políglota de Alejandría"
+
+- **`page/Estudios Exegéticos/idiomas-biblia.html`:** rediseñada con un concepto de manuscrito políglota histórico (en la tradición de la Biblia Políglota Complutense de 1514 y la de Londres de 1657: columnas paralelas de idiomas originales), elegido entre 3 direcciones propuestas (Políglota de Alejandría, Fundición de las Tres Lenguas, Trivium del Verbo) por ser la página del sitio que literalmente muestra hebreo, arameo y griego bíblico lado a lado (Génesis 1:1, Daniel 2:20, Juan 1:1). Tipografía IM Fell DW Pica (títulos, tipo de imprenta antigua) + Old Standard TT (cuerpo, diseñada históricamente para tipografía académica del s. XIX), ninguna usada antes en el sitio. Paleta de manuscrito: vitela `#f2e6c8`, tinta ferrogálica `#2b2013`, oro hebreo `#a97a34`, verdigris arameo `#3f6e52`, lapislázuli griego `#2f4f7a` (pigmento histórico real de manuscritos iluminados), rojo de rubricador `#8c2c22` compartido como acento unificador entre los tres idiomas.
+- **Bug de fuente corregido:** el body usaba `font-family: 'Spectral'` pero el `<link>` de Google Fonts solo cargaba Poppins y Montserrat — Spectral nunca se cargó, cayendo silenciosamente a la fuente de reserva del sistema desde que se escribió la página.
+- **Se quitaron los 3 iframes de sitios externos** (Biblia Todo, Biblia Paralela, y el léxico de Blue Letter Bible) que intentaban embeber el sitio completo de terceros dentro de una miniatura de 200px de alto — patrón frágil (varios sitios bloquean ser embebidos vía `X-Frame-Options`/CSP) y de mala experiencia incluso cuando cargan. Se reemplazaron por tarjetas de enlace (ícono + descripción + botón "Visitar sitio"/"Comparar versiones"/"Explorar léxico") con el mismo texto y las mismas URLs, sin alterar el contenido. Los 3 reproductores de YouTube de la sección de cursos sí se conservaron como iframe, por aportar funcionalidad real (video reproducible), no una vista previa rota.
+- **Imágenes optimizadas, las más pesadas encontradas hasta ahora en el sitio:** `hebreo-biblico.jpg` (5000×3333, **16 MB**) y `griego-koine.jpg` (5000×3333, **22.6 MB**) — junto con `arameo-biblico.jpg` (2 MB) y el fondo del hero `papiros.jpg` (2.8 MB) — se redujeron a versiones `-web.jpg` de 45–126 KB vía `sips`, manteniendo los originales sin tocar.
+- Las 3 tarjetas de idiomas se etiquetaron "Folio I/II/III" (Hebreo/Arameo/Griego) con una barra superior del color de tinta de cada idioma; los bloques de texto original se marcaron con un sello circular del mismo color en vez del ícono `fa-language`; los 4+4 recuadros de características de Hebreo y Griego pasaron a numerales romanos I–IV en vez de íconos Font Awesome, evitando tener que introducir 8 íconos adicionales sin verificar contra el resto del sitio.
+- Contenido íntegro (texto hebreo/arameo/griego con sus traducciones y referencias exactas, las 4 frases arameas de Jesús, los 3 recursos externos y los 3 cursos de YouTube con sus mismas URLs) sin alterar una palabra; copyright 2025 → 2026; título del `<head>` con separador `|`.
+- **Nota:** este estilo es específico al rol de esta página como comparación de los tres idiomas originales — no reciclar como plantilla para las demás páginas pendientes de `Estudios Exegéticos/`.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -675,6 +685,7 @@ Página de Fe/
 | `page/Estudios Exegéticos/cantarcantares.html` | Completado: estilo propio "La Perfumería del Templo" (botica antigua de resinas aromáticas). Sin problemas de contenido (exégesis académica bien fundamentada). Se quitó Font Awesome (CDN) y se reemplazaron 20 íconos por SVG Lucide inline; se corrigió un bug preexistente de `::before { content: '<svg>...' }` (markup SVG como string CSS, nunca se renderizaba); ver historial 2026-08-19 |
 | `page/Estudios Exegéticos/diccionarios-comentarios.html` | Completado: estilo propio "La Estantería del Erudito" (biblioteca personal: cuero verde, nogal, latón). Directorio de recursos legítimo (diccionarios y comentarios clásicos: Vine, Strong, Kittel, Matthew Henry, MacArthur, Keener, etc.), ya con el menú global del sitio correctamente enlazado. Se quitó Font Awesome (CDN) y se reemplazaron 35 íconos (incluidos 2 de marca, Facebook/YouTube) por SVG inline; se corrigieron 2 títulos con bugs de datos (mayúsculas sostenidas y guiones de nombre de archivo filtrados en el título) y una URL con espacio final; ver historial 2026-08-19 |
 | `page/Estudios Exegéticos/temas-exegeticos.html` | Completado: estilo propio "Cantera de la Palabra" (extracción de piedra, ligado a 2 Ti 2:15). Página índice de la categoría, detectada sin rediseñar pese a que sus dos páginas hijas ya la usaban como "volver"; ver historial 2026-08-19 |
+| `page/Estudios Exegéticos/idiomas-biblia.html` | Completado: estilo propio "Políglota de Alejandría" (manuscrito políglota histórico, columnas paralelas). Se quitaron los 3 iframes frágiles de sitios externos (Biblia Todo, Biblia Paralela, Blue Letter Bible) por tarjetas de enlace; imágenes optimizadas de hasta 22.6 MB; ver historial 2026-08-19 |
 
 ### ⏳ Páginas pendientes de aplicar la skill
 
@@ -682,7 +693,6 @@ Página de Fe/
 
 - [ ] `enlaces-recursos.html`
 - [ ] `hebreos7.html`
-- [ ] `idiomas-biblia.html`
 - [ ] `lectura-anual.html`
 - [ ] `mateo24.html`
 - [ ] `meditacion-palabra.html`
