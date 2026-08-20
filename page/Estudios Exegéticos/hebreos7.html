@@ -11,441 +11,539 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exégesis Bíblica: Hebreos 7 - El Sacerdocio según el Orden de Melquisedec</title>
+    <title>Hebreos 7: el sacerdocio sin genealogía | Ministerio "La Gloria es del Señor"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vidaloka&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <style>
-       :root {
-    --primary: #3C5A99;     /* Azul suave – estabilidad y confianza para encabezados */
-    --secondary: #A3B18A;   /* Verde salvia claro – frescura para secciones y botones secundarios */
-    --accent: #E07A5F;      /* Coral desaturado – calidez sutil para destacar sin molestar */
-    --light: #FDFCF9;       /* Blanco crema – fondo relajante para lectura */
-    --dark: #2D3142;        /* Azul gris oscuro – perfecto para textos principales */
-    --warning: #F2C94C;     /* Amarillo pastel – advertencias suaves y elegantes */
-    --info: #76A6EF;        /* Azul claro moderno – para enlaces o citas informativas */
-}
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --paper:       #f1ead8;
+            --paper-deep:  #e6dcc2;
+            --card:        #f8f3e6;
+            --ink:         #241b12;
+            --ink-soft:    #55483a;
+            --ink-faint:   rgba(36, 27, 18, 0.5);
+            --rule:        #aebfb9;
+            --rule-soft:   rgba(174, 191, 185, 0.55);
+            --seal:        #8a231c;
+            --seal-soft:   rgba(138, 35, 28, 0.08);
+            --brass:       #8c7440;
+            --brass-light: #b39a5e;
+            --font-display: 'Vidaloka', serif;
+            --font-body:    'IBM Plex Serif', serif;
         }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Spectral', serif;
-            line-height: 1.9;
-            color: var(--dark);
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+            font-family: var(--font-body);
+            line-height: 1.85;
+            color: var(--ink);
+            background-color: var(--paper);
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+
+        h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 400; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* ---------- Header fijo del sitio ---------- */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 1.2rem; flex-wrap: wrap;
+            padding: 0.6rem 2rem;
+            background: rgba(28, 21, 13, 0.95);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(179, 154, 94, 0.3);
         }
-        
-        header {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            padding: 2.5rem 0;
+        .header-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+        img[alt="Logo EMD"] {
+            height: 38px; border-radius: 50%; object-fit: cover;
+            border: 2px solid rgba(179, 154, 94, 0.5);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        .header-logo-text { font-family: var(--font-display); font-size: 0.85rem; line-height: 1.25; color: var(--paper); }
+        .header-logo-text span { display: block; font-family: var(--font-body); font-style: italic; color: rgba(241, 234, 216, 0.55); font-size: 0.68rem; }
+        .site-nav-back {
+            display: inline-flex; align-items: center; text-decoration: none;
+            color: var(--paper); font-weight: 500; font-size: 0.82rem;
+            padding: 0.4rem 0.8rem; border: 1px solid rgba(241, 234, 216, 0.25); border-radius: 2px;
+            transition: background 0.25s ease, border-color 0.25s ease;
+        }
+        .site-nav-back:hover { background: rgba(179, 154, 94, 0.18); border-color: var(--brass-light); }
+        .site-nav-back svg { width: 0.9em; height: 0.9em; margin-right: 0.3em; }
+
+        /* ---------- Portada del expediente ---------- */
+        header.record-hero {
+            background:
+                repeating-linear-gradient(180deg, rgba(241, 234, 216, 0.05) 0px, rgba(241, 234, 216, 0.05) 1px, transparent 1px, transparent 34px),
+                linear-gradient(160deg, #1c150d 0%, #241b12 100%);
+            color: var(--paper);
+            padding: 8.5rem 0 4rem;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
         }
-        
-        header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+        .hero-stamp {
+            position: relative;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55em;
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--brass-light);
+            border: 1px solid rgba(179, 154, 94, 0.45);
+            border-radius: 2px;
+            padding: 0.55rem 1.1rem;
+            margin-bottom: 1.8rem;
         }
-        
-        header p {
-            font-size: 1.3rem;
-            max-width: 800px;
+        .hero-stamp svg { width: 1.05em; height: 1.05em; }
+
+        header.record-hero h1 {
+            position: relative; z-index: 2;
+            font-size: 2.9rem;
+            max-width: 900px;
+            margin: 0 auto 1rem;
+            line-height: 1.25;
+        }
+
+        header.record-hero p {
+            position: relative; z-index: 2;
+            font-size: 1.15rem;
+            font-style: italic;
+            max-width: 760px;
             margin: 0 auto;
-            opacity: 0.9;
+            color: rgba(241, 234, 216, 0.78);
         }
-        
-        nav {
-            background-color: var(--dark);
+
+        /* ---------- Navegación local ---------- */
+        .nav-container {
+            background-color: var(--paper-deep);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-bottom: 2px solid var(--brass);
+            box-shadow: 0 4px 10px rgba(36, 27, 18, 0.1);
             overflow-x: auto;
         }
-        
-        .nav-container {
+
+        .nav-inner {
             display: flex;
             justify-content: center;
             flex-wrap: nowrap;
             padding: 0 15px;
         }
-        
-        nav a {
-            color: white;
+
+        .nav-inner a {
+            color: var(--ink-soft);
             text-decoration: none;
-            padding: 1rem 1.2rem;
-            display: block;
+            padding: 1rem 1.1rem;
+            display: flex;
+            align-items: center;
             font-weight: 500;
-            transition: all 0.3s;
+            font-size: 0.92rem;
             white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: color 0.25s, border-color 0.25s;
         }
-        
-        nav a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateY(-3px);
+        .nav-inner a svg { width: 1em; height: 1em; margin-right: 0.4em; flex-shrink: 0; }
+
+        .nav-inner a:hover, .nav-inner a.active {
+            color: var(--seal);
+            border-bottom-color: var(--seal);
         }
-        
-        main {
-            padding: 2rem 0;
-        }
-        
+
+        main { padding: 3rem 0 1rem; counter-reset: asiento; }
+
+        /* ---------- Tarjetas / secciones = asientos del registro ---------- */
         .card {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            counter-increment: asiento;
+            background-color: var(--card);
+            border: 1px solid rgba(140, 116, 64, 0.25);
+            border-radius: 3px;
             margin-bottom: 2.5rem;
             overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 8px 20px rgba(36, 27, 18, 0.08);
         }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
+
         .card-header {
-            padding: 1.8rem;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
+            padding: 1.8rem 2rem 1.5rem;
+            background: linear-gradient(160deg, #1c150d 0%, #2c2115 100%);
+            color: var(--paper);
+            border-bottom: 3px double var(--brass);
         }
-        
-        .card-header h2 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
+
+        .card-header::before {
+            content: "Asiento " counter(asiento, upper-roman);
+            display: block;
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            font-size: 0.72rem;
+            color: var(--brass-light);
+            margin-bottom: 0.6rem;
         }
-        
-        .card-header p {
-            opacity: 0.9;
-        }
-        
-        .card-body {
-            padding: 1.8rem;
-        }
-        
-        .card-body p {
-            margin-bottom: 1.2rem;
-        }
-        
+
+        .card-header h2 { font-size: 1.7rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .card-header h2 svg { width: 0.85em; height: 0.85em; flex-shrink: 0; color: var(--brass-light); }
+        .card-header p { font-style: italic; color: rgba(241, 234, 216, 0.72); }
+
+        .card-body { padding: 2rem; }
+        .card-body p { margin-bottom: 1.2rem; }
+
         .card-body h3 {
-            color: var(--primary);
-            margin: 1.8rem 0 1rem 0;
-            border-bottom: 2px solid var(--light);
+            color: var(--ink);
+            margin: 2rem 0 1rem;
             padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--rule);
+            font-size: 1.3rem;
         }
-        
+
         .card-body h4 {
-            color: var(--accent);
-            margin: 1.5rem 0 0.8rem 0;
+            color: var(--seal);
+            margin: 1.6rem 0 0.8rem;
+            font-size: 1.05rem;
         }
-        
-        .card-body ul, .card-body ol {
-            margin: 1rem 0 1.2rem 2rem;
-        }
-        
-        .card-body li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .table-container {
-            overflow-x: auto;
-            margin: 1.5rem 0;
-        }
-        
-        table {
+
+        .card-body ul, .card-body ol { margin: 1rem 0 1.2rem 1.6rem; }
+        .card-body li { margin-bottom: 0.5rem; }
+
+        .table-container { overflow-x: auto; margin: 1.5rem 0; border: 1px solid rgba(140, 116, 64, 0.3); border-radius: 3px; }
+
+        table.comparison-table {
             width: 100%;
             border-collapse: collapse;
             text-align: left;
+            background: var(--card);
         }
-        
-        th, td {
-            padding: 12px 15px;
-            border-bottom: 1px solid var(--light);
+
+        .comparison-table th {
+            background-color: var(--ink);
+            color: var(--paper);
+            text-align: left;
+            padding: 0.9rem 1rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            border-bottom: 3px double var(--brass);
         }
-        
-        th {
-            background-color: var(--primary);
-            color: white;
+
+        .comparison-table td {
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid var(--rule-soft);
+            vertical-align: top;
         }
-        
-        tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-        
+
+        .comparison-table tr:nth-child(even) td { background-color: rgba(140, 116, 64, 0.06); }
+
         .highlight {
-            background-color: #fff3e0;
-            padding: 1.2rem;
-            border-radius: 8px;
-            margin: 1.2rem 0;
-            border-left: 4px solid var(--warning);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            background-color: var(--card);
+            border: 1px dashed var(--brass);
+            border-radius: 2px;
+            padding: 1.3rem 1.4rem 1.2rem;
+            margin: 1.4rem 0;
+            transform: rotate(-0.35deg);
+            position: relative;
         }
-        
+        .highlight::before {
+            content: "Nota marginal";
+            display: block;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--brass);
+            margin-bottom: 0.6rem;
+        }
+        .highlight h4 { margin-top: 0; }
+
         .scripture {
             font-style: italic;
-            color: var(--primary);
-            margin: 1.2rem 0;
-            padding: 1rem;
-            background-color: rgba(93, 79, 183, 0.08);
-            border-radius: 8px;
-            border-left: 3px solid var(--primary);
-            font-weight: 500;
+            color: var(--ink);
+            margin: 1.4rem 0;
+            padding: 1.2rem 1.3rem 1.2rem 2.6rem;
+            background-color: var(--paper);
+            border-left: 3px solid var(--brass);
+            border-radius: 2px;
+            position: relative;
         }
-        
+        .scripture::before {
+            content: "\201C";
+            position: absolute;
+            left: 0.5rem;
+            top: 0.15rem;
+            font-family: var(--font-display);
+            font-size: 2.4rem;
+            font-style: normal;
+            color: var(--brass-light);
+            line-height: 1;
+        }
+
         .definition {
-            background-color: rgba(52, 152, 219, 0.1);
-            padding: 1.2rem;
-            border-radius: 8px;
-            margin: 1.2rem 0;
-            border-left: 4px solid var(--info);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            background-color: var(--paper);
+            padding: 1.3rem 1.4rem;
+            border-radius: 2px;
+            margin: 1.4rem 0;
+            border: 1px solid var(--rule);
         }
-        
+        .definition::before {
+            content: "Entrada de glosario";
+            display: block;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--ink-soft);
+            margin-bottom: 0.6rem;
+        }
+        .definition h4 { margin-top: 0; }
+
         .application {
-            background-color: rgba(61, 153, 112, 0.1);
+            background-color: var(--seal-soft);
+            padding: 1.3rem 1.4rem;
+            border-radius: 2px;
+            margin: 1.4rem 0;
+            border-left: 4px solid var(--seal);
+        }
+        .application::before {
+            content: "Aplicación";
+            display: block;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--seal);
+            margin-bottom: 0.6rem;
+        }
+        .application h4 { margin-top: 0; color: var(--seal); }
+
+        .greek { font-style: italic; color: var(--brass); font-weight: 600; }
+        .hebrew { font-style: italic; color: var(--seal); font-weight: 600; }
+
+        .columns { display: flex; flex-wrap: wrap; gap: 24px; margin: 1.5rem 0; }
+        .column { flex: 1; min-width: 300px; }
+
+        /* ---------- Ficha de registro: Melquisedec ---------- */
+        .record-card {
+            background: var(--paper);
+            border: 1px solid var(--brass);
+            border-radius: 3px;
+            margin: 1.8rem 0 2rem;
+            overflow: hidden;
+        }
+        .record-card-head {
+            display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem;
+            padding: 0.9rem 1.2rem;
+            background: var(--paper-deep);
+            border-bottom: 1px solid rgba(140, 116, 64, 0.3);
+        }
+        .record-num {
+            display: flex; align-items: center; gap: 0.5em;
+            font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--ink-soft);
+        }
+        .record-num svg { width: 1.1em; height: 1.1em; color: var(--brass); }
+        .record-stamp {
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--seal);
+            border: 2px solid var(--seal);
+            border-radius: 2px;
+            padding: 0.3rem 0.6rem;
+            transform: rotate(-2deg);
+        }
+        .record-body { display: flex; flex-wrap: wrap; gap: 0; }
+        .record-photo {
+            flex: 0 0 200px;
             padding: 1.2rem;
-            border-radius: 8px;
-            margin: 1.2rem 0;
-            border-left: 4px solid var(--secondary);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-        
-        .greek {
-            font-style: italic;
-            color: #8e44ad;
-            font-weight: 500;
-        }
-        
-        .columns {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 1.5rem 0;
+            align-items: flex-start;
+            justify-content: center;
         }
-        
-        .column {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 2rem auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--primary);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-        
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            right: -12px;
-            background-color: white;
-            border: 4px solid var(--accent);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-        
-        .left {
-            left: 0;
-        }
-        
-        .right {
-            left: 50%;
-        }
-        
-        .right::after {
-            left: -12px;
-        }
-        
-        .timeline-content {
-            padding: 20px 30px;
-            background-color: white;
-            position: relative;
-            border-radius: 6px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .comparison-table {
+        .record-photo img {
             width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
+            max-width: 180px;
+            filter: sepia(0.4) contrast(1.02);
+            border: 6px solid var(--card);
+            box-shadow: 0 6px 16px rgba(36, 27, 18, 0.25);
         }
-        
-        .comparison-table th {
-            background-color: var(--primary);
-            color: white;
+        .record-photo-caption {
+            display: block;
             text-align: center;
-            padding: 15px;
-        }
-        
-        .comparison-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .comparison-table tr:nth-child(even) {
-            background-color: rgba(93, 79, 183, 0.05);
-        }
-        
-        .hebrew {
+            font-size: 0.7rem;
+            color: var(--ink-faint);
+            margin-top: 0.5rem;
             font-style: italic;
-            color: #d35400;
-            font-weight: 500;
         }
-        
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background-color: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-weight: 500;
-            margin-top: 1rem;
+        .record-fields {
+            flex: 1 1 320px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
         }
-        
-        .btn:hover {
-            background-color: #4a3d9a;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        .field {
+            padding: 0.75rem 1.2rem;
+            border-bottom: 1px dashed var(--rule);
+            border-left: 1px solid rgba(140, 116, 64, 0.15);
         }
-        
+        .field dt {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--brass);
+            margin-bottom: 0.25rem;
+        }
+        .field dd { font-size: 0.95rem; }
+        .field.blank { background: var(--seal-soft); }
+        .field.blank dd { color: var(--ink-faint); font-style: italic; }
+        .void-mark { display: inline-flex; align-items: center; gap: 0.35em; }
+        .void-mark svg { width: 0.95em; height: 0.95em; color: var(--seal); flex-shrink: 0; }
+        .record-footnote {
+            padding: 1rem 1.2rem 1.3rem;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--ink-soft);
+            border-top: 1px solid rgba(140, 116, 64, 0.2);
+        }
+
         footer {
-            background-color: var(--dark);
-            color: white;
+            background-color: #1c150d;
+            color: var(--paper);
             text-align: center;
-            padding: 2rem 0;
+            padding: 2.4rem 0;
             margin-top: 2rem;
         }
-        
+        footer p { max-width: 800px; margin: 0 auto; font-style: italic; opacity: 0.85; }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--brass);
+            color: var(--paper);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(36, 27, 18, 0.35);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        .scroll-top:hover { transform: translateY(-5px); background-color: var(--seal); }
+        .scroll-top svg { width: 1.3em; height: 1.3em; }
+
         @media screen and (max-width: 768px) {
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item::after {
-                left: 18px;
-            }
-            
-            .right {
-                left: 0;
-            }
-            
-            header h1 {
-                font-size: 2.2rem;
-            }
+            .site-header { padding: 0.5rem 1.1rem; }
+            .header-logo-text { display: none; }
+
+            header.record-hero { padding: 7rem 0 3rem; }
+            header.record-hero h1 { font-size: 2.1rem; }
+            header.record-hero p { font-size: 1rem; }
+
+            .card-header { padding: 1.4rem 1.3rem 1.2rem; }
+            .card-body { padding: 1.4rem; }
+
+            .record-fields { grid-template-columns: 1fr; }
+            .record-photo { flex: 0 0 auto; width: 100%; }
         }
     </style>
 </head>
 <body>
-    <header>
+    <header class="site-header">
+        <a href="../../index.html" class="header-logo">
+            <img src="../../images/EMD.png?v=2" alt="Logo EMD">
+            <div class="header-logo-text">
+                Ministerio
+                <span>"La Gloria es del Señor"</span>
+            </div>
+        </a>
+        <a href="temas-exegeticos.html" class="site-nav-back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+            Temas exegéticos
+        </a>
+    </header>
+
+    <header class="record-hero">
         <div class="container">
-            <h1>Exégesis de Hebreos 7: El Sacerdocio de Melquisedec</h1>
+            <span class="hero-stamp">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+                Libro de registros · sin genealogía
+            </span>
+            <h1>Exégesis de Hebreos 7: el sacerdocio de Melquisedec</h1>
             <p>Análisis profundo sobre Cristo como sumo sacerdote según el orden de Melquisedec</p>
         </div>
     </header>
-    
-    <nav>
-        <div class="container nav-container">
-            <a href="#contexto">Contexto</a>
-            <a href="#trasfondo">Trasfondo Histórico</a>
-            <a href="#melquisedec">Melquisedec</a>
-            <a href="#terminologia">Terminología Clave</a>
-            <a href="#conexion">Conexión con AT</a>
-            <a href="#comparacion">Comparación</a>
-            <a href="#diezmo">El Diezmo</a>
-            <a href="#comentarios">Comentarios Bíblicos</a>
-            <a href="#aplicacion">Aplicación</a>
-        </div>
-    </nav>
-    
+
+    <div class="nav-container">
+        <nav class="container nav-inner">
+            <a href="#contexto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Contexto</a>
+            <a href="#trasfondo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>Trasfondo histórico</a>
+            <a href="#melquisedec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7Z"/><path d="M5 20h14"/></svg>Melquisedec</a>
+            <a href="#terminologia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>Terminología clave</a>
+            <a href="#conexion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" x2="16" y1="12" y2="12"/></svg>Conexión con AT</a>
+            <a href="#comparacion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>Comparación</a>
+            <a href="#diezmo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg>El diezmo</a>
+            <a href="#comentarios"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg>Comentarios bíblicos</a>
+            <a href="#aplicacion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Aplicación</a>
+        </nav>
+    </div>
+
     <main class="container">
         <section id="contexto" class="card">
             <div class="card-header">
-                <h2>Contexto Literario en la Epístola a los Hebreos</h2>
+                <h2>Contexto literario en la epístola a los Hebreos</h2>
                 <p>Ubicación y significado del capítulo dentro de la carta a los Hebreos</p>
             </div>
             <div class="card-body">
                 <p>El capítulo 7 de Hebreos ocupa un lugar central en el argumento de la epístola, donde el autor desarrolla a plenitud el tema del sacerdocio supremo de Jesucristo. En capítulos anteriores, Hebreos presentó a Cristo como Hijo superior a los ángeles y a Moisés, y como sumo sacerdote compasivo (Heb 1–5).</p>
-                
+
                 <p>Al final del capítulo 6, el autor reintrodujo el tema con la declaración: <strong>"Jesús ha entrado por nosotros como precursor, hecho sumo sacerdote para siempre según el orden de Melquisedec"</strong> (Heb 6:20). De hecho, el capítulo 6 termina repitiendo la cita mesiánica del Salmo 110:4 – "Tú eres sacerdote para siempre, según el orden de Melquisedec" – que ya se había mencionado antes (Heb 5:6,10).</p>
-                
+
                 <div class="highlight">
                     <p>Como comenta Matthew Henry, "el capítulo anterior terminó con la repetición de lo dicho en el Salmo 110:4... Ahora, este capítulo 7 es como un sermón sobre ese texto".</p>
                 </div>
-                
+
                 <p>Hebreos 7 retoma esa promesa divina y la expone en detalle como "alimento sólido" para los creyentes (cf. Heb 5:14), esperando que sus lectores, tras la exhortación a madurez de Heb 5:11–6:20, estén ahora listos para comprender una enseñanza más profunda.</p>
-                
-                <h3>Estructura del Capítulo 7</h3>
-                
+
+                <h3>Estructura del capítulo 7</h3>
+
                 <p>Dentro de la estructura de Hebreos, el capítulo 7 marca el inicio de la sección doctrinal más extensa (Heb 7–10) sobre el sacerdocio de Cristo y el nuevo pacto. Se puede dividir en tres secciones principales:</p>
-                
+
                 <ol>
                     <li><strong>Melquisedec como tipo de Cristo</strong> (vv.1-10) - Presenta quién es Melquisedec y por qué su sacerdocio es tipo (figura) del de Cristo.</li>
                     <li><strong>La insuficiencia del sacerdocio levítico</strong> (vv.11-19) - Muestra por qué era necesario un nuevo sacerdocio.</li>
                     <li><strong>La superioridad del sacerdocio de Cristo</strong> (vv.20-28) - Explica cómo Jesús cumple ese nuevo sacerdocio "según Melquisedec" con juramento divino, permanencia eterna y santidad perfecta.</li>
                 </ol>
-                
+
                 <p>Este capítulo prepara el terreno para los capítulos siguientes, donde se tratará el nuevo pacto (cap. 8) y el sacrificio único de Cristo (caps. 9–10).</p>
-                
+
                 <div class="application">
-                    <h4>Relevancia Literaria</h4>
+                    <h4>Relevancia literaria</h4>
                     <p>Literariamente, Hebreos 7 es un punto de inflexión: del argumento general de la superioridad de Cristo se pasa específicamente a la superioridad de su sacerdocio. Es la base teológica para afirmar que el antiguo sistema de sacerdotes y sacrificios ha sido reemplazado por algo mejor en Jesucristo.</p>
                     <p>Como indica F.F. Bruce, el autor de Hebreos entrelaza hábilmente textos del AT (Salmo 110, Génesis 14) con su explicación, mostrando que las "ausencias" deliberadas en la narración bíblica sobre Melquisedec sirven para presentarlo como un tipo de Cristo.</p>
                 </div>
             </div>
         </section>
-        
+
         <section id="trasfondo" class="card">
             <div class="card-header">
-                <h2>Trasfondo Histórico y Cultural</h2>
+                <h2>Trasfondo histórico y cultural</h2>
                 <p>Sacerdocio levítico y la figura de Melquisedec</p>
             </div>
             <div class="card-body">
                 <div class="columns">
                     <div class="column">
-                        <h3>El Sacerdocio Levítico</h3>
+                        <h3>El sacerdocio levítico</h3>
                         <p>Para comprender Hebreos 7, es clave recordar el contexto judío del sacerdocio levítico:</p>
-                        
+
                         <ul>
                             <li><strong>Origen:</strong> Bajo la ley de Moisés, solo los descendientes de Leví –específicamente de la línea de Aarón– podían servir como sacerdotes (Éxodo 28:1).</li>
                             <li><strong>Función:</strong> Los sacerdotes levíticos oficiaban los sacrificios diarios y anuales en el tabernáculo/templo, actuando como mediadores entre Dios y el pueblo.</li>
@@ -453,30 +551,30 @@
                             <li><strong>Limitaciones:</strong> Este sacerdocio era hereditario y temporal; cuando un sumo sacerdote moría, era sucedido por otro de su familia.</li>
                             <li><strong>Debilidad:</strong> Los sacerdotes tenían sus propios pecados, por lo cual debían ofrecer sacrificios por sí mismos además de por el pueblo (Heb 5:2-3).</li>
                         </ul>
-                        
+
                         <p>Todo el sistema levítico era fundamental en la identidad religiosa judía, pero también tenía limitaciones: los sacrificios debían repetirse y no lograban perfeccionar la conciencia del adorador (Heb 10:1-4).</p>
                     </div>
-                    
+
                     <div class="column">
-                        <h3>Melquisedec en la Historia</h3>
+                        <h3>Melquisedec en la historia</h3>
                         <p>En contraste, Melquisedec aparece mucho antes de la instauración del sacerdocio levítico. La única referencia histórica está en Génesis 14:18-20:</p>
-                        
+
                         <div class="scripture">
                             "Entonces Melquisedec, rey de Salem, sacó pan y vino; y era sacerdote del Dios Altísimo. Y lo bendijo, diciendo: Bendito sea Abram del Dios Altísimo, creador de los cielos y de la tierra; y bendito sea el Dios Altísimo, que entregó tus enemigos en tu mano. Y le dio Abram los diezmos de todo." (Génesis 14:18-20)
                         </div>
-                        
+
                         <p>Este relato muestra que Melquisedec fue contemporáneo de Abraham (siglos antes de Moisés) y que ejercía un doble rol: "rey de Salem" y "sacerdote del Dios Altísimo". Salem muy probablemente corresponde a Jerusalén (Salem = "paz", cf. Sal 76:2), ciudad sobre la cual reinaba este Melquisedec.</p>
-                        
+
                         <p>Era un rey cananeo (no israelita, pues Israel aún no existía como nación) que adoraba al Dios verdadero. Culturalmente, en tiempos patriarcales no era extraño que reyes actuaran a la vez como sacerdotes.</p>
                     </div>
                 </div>
-                
-                <h3>La Figura de Melquisedec en la Tradición</h3>
-                
+
+                <h3>La figura de Melquisedec en la tradición</h3>
+
                 <p>Melquisedec quedó envuelto en misterio en la tradición judía debido a la brevedad de su aparición. No se menciona su linaje ni su muerte, a diferencia de la mayoría de personajes de Génesis que están inseridos en genealogías.</p>
-                
+
                 <div class="highlight">
-                    <h4>Interpretaciones Históricas</h4>
+                    <h4>Interpretaciones históricas</h4>
                     <ul>
                         <li>Algunos rabinos antiguos proponían que Melquisedec era en realidad Sem (hijo de Noé), que vivió muchas generaciones y pudo haber sido contemporáneo de Abraham.</li>
                         <li>Otros sugerían que fue un ángel o inclusive el Espíritu Santo en forma visible.</li>
@@ -484,13 +582,13 @@
                         <li>Sin embargo, la mayoría de comentaristas concuerdan en que Melquisedec fue un hombre real, un rey-sacerdote cananeo que "fue levantado por Dios como tipo de Cristo, y fue honrado por Abraham como tal".</li>
                     </ul>
                 </div>
-                
+
                 <p>En el Salmo 110:4, escrito siglos después por el rey David, aparece otra mención crucial: <em>"Juró Jehová y no se arrepentirá: Tú [el Mesías] eres sacerdote para siempre, según el orden de Melquisedec"</em>. Este salmo, de carácter claramente mesiánico, une la figura del rey davídico con la de un sacerdote eterno no-levítico (porque David era de Judá, no de Leví).</p>
-                
+
                 <p>Los judíos entendían este pasaje como una profecía del Mesías venidero, quien cumpliría un sacerdocio diferente al aarónico. Así, el AT proporciona dos piezas: Melquisedec en Génesis (un sacerdote-rey gentil del Dios Altísimo) y la promesa mesiánica en Salmos de un sacerdocio perpetuo "a la manera de Melquisedec".</p>
             </div>
         </section>
-        
+
         <section id="melquisedec" class="card">
             <div class="card-header">
                 <h2>Melquisedec en Hebreos 7</h2>
@@ -500,74 +598,127 @@
                 <div class="scripture">
                     "Porque este Melquisedec, rey de Salem, sacerdote del Dios Altísimo, que salió a recibir a Abraham que volvía de la derrota de los reyes, y le bendijo, a quien asimismo dio Abraham los diezmos de todo; cuyo nombre significa primeramente Rey de justicia, y también Rey de Salem, esto es, Rey de paz; sin padre, sin madre, sin genealogía; que ni tiene principio de días, ni fin de vida, sino hecho semejante al Hijo de Dios, permanece sacerdote para siempre." (Hebreos 7:1-3)
                 </div>
-                
+
+                <div class="record-card">
+                    <div class="record-card-head">
+                        <span class="record-num">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+                            Ficha de registro · Génesis 14:18-20
+                        </span>
+                        <span class="record-stamp">Registro incompleto</span>
+                    </div>
+                    <div class="record-body">
+                        <div class="record-photo">
+                            <div>
+                                <img src="../../images/hebreos-melquisedec-web.jpg" alt="Melquisedec, rey de Salem">
+                                <span class="record-photo-caption">Melquisedec, rey de Salem</span>
+                            </div>
+                        </div>
+                        <dl class="record-fields">
+                            <div class="field">
+                                <dt>Nombre</dt>
+                                <dd>Melquisedec, "rey de justicia"</dd>
+                            </div>
+                            <div class="field">
+                                <dt>Título</dt>
+                                <dd>Rey de Salem, sacerdote del Dios Altísimo</dd>
+                            </div>
+                            <div class="field blank">
+                                <dt>Padre</dt>
+                                <dd class="void-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg>Sin registro</dd>
+                            </div>
+                            <div class="field blank">
+                                <dt>Madre</dt>
+                                <dd class="void-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg>Sin registro</dd>
+                            </div>
+                            <div class="field blank">
+                                <dt>Genealogía</dt>
+                                <dd class="void-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg>Sin registro</dd>
+                            </div>
+                            <div class="field blank">
+                                <dt>Nacimiento</dt>
+                                <dd class="void-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg>Sin registro</dd>
+                            </div>
+                            <div class="field blank">
+                                <dt>Muerte</dt>
+                                <dd class="void-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg>Sin registro</dd>
+                            </div>
+                            <div class="field">
+                                <dt>Duración del cargo</dt>
+                                <dd>Permanece sacerdote para siempre (Heb 7:3)</dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <p class="record-footnote">Hebreos 7:3: "sin padre, sin madre, sin genealogía; que ni tiene principio de días, ni fin de vida, sino hecho semejante al Hijo de Dios, permanece sacerdote para siempre". Lo que el archivo bíblico calla no es un vacío accidental, sino la figura misma: un sacerdocio que no depende de un registro de sangre, sino de la eternidad.</p>
+                </div>
+
                 <h3>Análisis del nombre y títulos de Melquisedec</h3>
-                
+
                 <div class="definition">
                     <h4>"Melquisedec, rey de Salem"</h4>
                     <p>El nombre Melquisedec (<span class="greek">Μελχισέδεκ</span>) en sí es significativo. En hebreo, <span class="hebrew">malkī-ṣedek</span> se interpreta como "rey de justicia", y así lo explica Hebreos: "cuyo nombre significa primeramente Rey de justicia".</p>
                     <p>Además, se le identifica como "rey de Salem", y el texto añade: "esto es, Rey de paz". Salem probablemente es Jerusalem, y deriva de la raíz <span class="hebrew">shalom</span>, que significa paz.</p>
                 </div>
-                
+
                 <p>Así, Melquisedec une en sí justicia y paz – dos cualidades mesiánicas claras. Cristo, el antitipo, es Rey de justicia (Jer 23:5-6 lo llama "Jehová, justicia nuestra") y Príncipe de paz (Is 9:6).</p>
-                
+
                 <p>Matthew Henry comenta que Jesús es rey "justo en su título y justo en su gobierno... ama la justicia...; y por su justicia hizo la paz". El mismo orden es relevante: primero justicia, luego paz – indicando que la verdadera paz con Dios procede de la justicia provista por Cristo.</p>
-                
+
                 <h3>"Sacerdote del Dios Altísimo"</h3>
-                
+
                 <p>Melquisedec es único en Génesis por ser un sacerdote de El Elyon (Dios Altísimo) fuera de la familia de Abraham. Esto muestra que Dios tenía testigos aún entre las naciones.</p>
-                
+
                 <p>Que Abraham le reconozca y reciba bendición de él implica que Melquisedec representaba verdaderamente a Dios. En este sentido, Melquisedec sirve de tipo de Cristo:</p>
-                
+
                 <ul>
                     <li>Era a la vez rey y sacerdote, algo que la ley mosaica prohibía combinar en una sola persona (ningún rey de Israel podía usurpar funciones sacerdotales, cf. 2Cr 26:18).</li>
                     <li>Su función de rey-sacerdote Gentil muestra un sacerdocio universal, no limitado a Israel.</li>
                 </ul>
-                
+
                 <p>En Cristo convergen el reinado y el sacerdocio perfectamente, como en Melquisedec. El Mesías es anunciado en Zac 6:13 como quien "llevará la gloria, y se sentará y dominará en su trono; y habrá sacerdote a su lado, y consejo de paz habrá entre ambos" – una profecía de la unión de ambas dignidades en la persona de Jesús.</p>
-                
+
                 <h3>"Sin padre, sin madre, sin genealogía"</h3>
-                
+
                 <div class="highlight">
                     <p>En los registros bíblicos no se menciona el padre, madre ni línea genealógica de Melquisedec, ni su nacimiento ni muerte. Esto no significa que literalmente no los tuviera (era un hombre, por tanto tuvo padres biológicos y un fin de sus días), sino que la Escritura omite esos datos a propósito.</p>
-                    
+
                     <p>Los lectores judíos notarían lo inusual de esto, pues Génesis suele detallar las genealogías ("estos son los descendientes de…"). Según una tradición interpretativa rabínica, a veces "lo que el texto no dice es tan significativo como lo que dice".</p>
                 </div>
-                
+
                 <p>El autor de Hebreos deliberadamente se apega a lo que dice la Escritura, sin añadir conjeturas, para resaltar el paralelismo tipológico: <em>Melquisedec es hecho semejante al Hijo de Dios</em> en el registro bíblico, de modo que prefigura el sacerdocio eterno de Cristo.</p>
-                
+
                 <p>F. F. Bruce explica: <em>"En el único registro que la Escritura provee de Melquisedec, él aparece como un hombre vivo... y como tal desaparece. En todo esto — en los silencios tanto como en las afirmaciones — es un tipo adecuado de Cristo... Melquisedec permanece sacerdote continuamente durante el tiempo de su aparición en la narración bíblica"</em>.</p>
-                
+
                 <h3>"Hecho semejante al Hijo de Dios"</h3>
-                
+
                 <p>Notemos que Heb 7:3 no dice que Cristo sea hecho semejante a Melquisedec, sino al revés: Melquisedec fue hecho semejante al Hijo de Dios. Esto implica que la realidad suprema es Cristo, y Melquisedec fue moldeado providencialmente para apuntar a Él.</p>
-                
+
                 <p>Cristo es el original; Melquisedec, la copia (en términos de tipo/antitipo). Esta semejanza incluye los rasgos ya dichos: reino justo y pacífico, sacerdocio auténtico ante Dios, sin sucesión genealógica en la narración y duración indefinida. Melquisedec permanece "sacerdote para siempre" en sentido tipológico (figural), mientras que Cristo permanece realmente sacerdote para siempre en virtud de su resurrección y vida eterna (Heb 7:16,24).</p>
-                
+
                 <h3>Melquisedec bendice a Abraham y recibe sus diezmos</h3>
-                
+
                 <p>Hebreos 7:1 y 7:4-10 destacan dos acciones del relato de Génesis:</p>
                 <ol>
                     <li><strong>Melquisedec bendijo a Abraham</strong>, lo cual implica autoridad espiritual, pues "sin discusión alguna, el menor es bendecido por el mayor" (7:7).</li>
                     <li><strong>Abraham le dio el diezmo</strong> del botín, reconociéndolo como sacerdote legítimo de Dios.</li>
                 </ol>
-                
+
                 <p>Estos actos se analizan para inferir la grandeza superior de Melquisedec sobre Abraham (y por ende sobre Leví, su descendiente). El autor usa la idea de representación corporativa: cuando Abraham dio el diezmo, "por decirlo así, en Abraham pagó el diezmo también Leví" (v.9-10).</p>
-                
+
                 <div class="application">
                     <p>En conclusión, Melquisedec en Hebreos 7 es presentado como un prototipo divinamente dispuesto de Jesucristo. Su nombre y cargo apuntan a las cualidades mesiánicas de justicia y paz; su falta de genealogía registrada apunta a la eternidad e independencia del sacerdocio de Cristo; su función de rey-sacerdote anticipa la unión de estos roles en Cristo; y sus interacciones con Abraham demuestran su preeminencia, preparando el argumento de que el sacerdocio "según Melquisedec" es superior al levítico.</p>
                 </div>
             </div>
         </section>
-        
+
         <section id="terminologia" class="card">
             <div class="card-header">
-                <h2>Análisis de Términos Griegos Clave en Hebreos 7</h2>
+                <h2>Análisis de términos griegos clave en Hebreos 7</h2>
                 <p>Estudio de las palabras griegas fundamentales para entender el capítulo</p>
             </div>
             <div class="card-body">
                 <p>Para profundizar en el texto, veamos algunos términos griegos importantes del capítulo, especialmente los relacionados con Melquisedec, el sacerdocio y el diezmo, que encierran matices teológicos:</p>
-                
+
                 <div class="table-container">
                     <table class="comparison-table">
                         <tr>
@@ -607,110 +758,110 @@
                         </tr>
                     </table>
                 </div>
-                
+
                 <h3>Términos clave adicionales</h3>
-                
+
                 <div class="columns">
                     <div class="column">
                         <h4><span class="greek">μετάθεσις</span> (metáthesis) - "cambio"</h4>
                         <p>Heb 7:12 afirma: "Porque cambiado el sacerdocio, necesario es que haya también cambio de ley". Aquí "cambio" traduce <span class="greek">metáthesis</span>, que es literalmente transposición, remoción o cambio de lugar.</p>
-                        
+
                         <p>Se utiliza para indicar que al trasladarse el sacerdocio de un orden a otro, forzosamente hay una alteración en la legislación o pacto vigente.</p>
-                        
+
                         <p>Este término subraya la ruptura/discontinuidad: el sacerdocio de Cristo no es simplemente una sucesión, sino que trae un cambio radical de régimen (del Antiguo al Nuevo Pacto).</p>
                     </div>
-                    
+
                     <div class="column">
                         <h4><span class="greek">ὅρκος</span> (horkos) - "juramento"</h4>
                         <p>Un concepto importante en Heb 7 es el juramento de Dios que confirmó a Cristo como sacerdote (citado del Sal 110:4). La palabra griega para "juramento" es <span class="greek">horkos</span> (7:20) o el verbo <span class="greek">omnúō</span> (jurar).</p>
-                        
+
                         <p>Heb 7:20-22 resalta que los sacerdotes levitas fueron hechos sin juramento divino, pero Cristo fue constituido con el juramento de Dios. El autor señala que este juramento resalta la certeza e inmovilidad del propósito de Dios.</p>
-                        
+
                         <p>Por este juramento, Jesús es "fiador" (<span class="greek">enguos</span>) de un mejor pacto (7:22).</p>
                     </div>
                 </div>
-                
+
                 <div class="definition">
                     <h4>Términos finales de importancia teológica</h4>
                     <p><strong><span class="greek">ἀπαράβατον</span> (aparábaton)</strong> - En Heb 7:24 se afirma que Jesús tiene un sacerdocio "inmutable". <em>Aparábaton</em> en griego literalmente significa "que no pasa a otro", es decir, intransferible e imperecedero. Algunas versiones traducen "inmutable" o "que no se transmite". La idea es que, a diferencia del sacerdocio levítico que pasaba de padre a hijo, el sacerdocio de Cristo permanece en el mismo sacerdote para siempre.</p>
-                    
+
                     <p><strong>"Salvar hasta lo sumo"</strong> - En Heb 7:25 se dice que Cristo puede "salvar perpetuamente" (RVR1960) o "salvar por completo" a los que por Él se acercan a Dios. El adverbio griego es <span class="greek">παντελῶς</span> (pantelōs), que conlleva la idea de plenitud y continuidad, es decir, completamente y para siempre.</p>
                 </div>
-                
+
                 <div class="application">
                     <p>Estos términos griegos nos permiten apreciar mejor la riqueza doctrinal de Hebreos 7. El autor, con precisión de lenguaje, contrasta lo temporal vs. eterno, lo imperfecto vs. perfecto, lo transitorio vs. inmutable, usando palabras que resaltan la novedad e inmutabilidad del sacerdocio de Cristo en comparación con el antiguo.</p>
                 </div>
             </div>
         </section>
-        
+
         <section id="conexion" class="card">
             <div class="card-header">
-                <h2>Conexión Teológica con el Antiguo Testamento</h2>
+                <h2>Conexión teológica con el Antiguo Testamento</h2>
                 <p>Génesis 14 y Salmo 110 en Hebreos 7</p>
             </div>
             <div class="card-body">
                 <p>El capítulo 7 de Hebreos es un excelente ejemplo de interpretación bíblica intertextual, donde textos del Antiguo Testamento son citados y reinterpretados a la luz de Cristo. En particular, se basa en Génesis 14:17-20 y Salmo 110:4.</p>
-                
+
                 <div class="columns">
                     <div class="column">
                         <h3>Génesis 14:17-20</h3>
-                        
+
                         <div class="scripture">
                             "Cuando volvía [Abraham] de la derrota de Quedorlaomer y de los reyes que con él estaban, salió el rey de Sodoma a recibirlo... Entonces Melquisedec, rey de Salem, sacó pan y vino; y era sacerdote del Dios Altísimo. Y le bendijo, diciendo: Bendito sea Abram del Dios Altísimo, creador de los cielos y de la tierra; y bendito sea el Dios Altísimo, que entregó tus enemigos en tu mano. Y le dio Abram los diezmos de todo." (Gén. 14:17-20)
                         </div>
-                        
+
                         <p>Este pasaje histórico proporciona los hechos: Melquisedec, rey y sacerdote, se encuentra con Abraham tras su victoria sobre cuatro reyes, le da pan y vino, lo bendice en nombre de Dios Altísimo, y Abraham le da el diezmo de todo.</p>
-                        
+
                         <p>Hebreos 7:1-2 cita resumidamente ese encuentro, y luego en Heb 7:4-10 el autor medita en dos implicaciones:</p>
-                        
+
                         <ol>
                             <li><strong>Abraham dio diezmos a Melquisedec</strong>, lo cual implica que Melquisedec es mayor que Abraham, puesto que "considerad cuán grande era éste, a quien aun Abraham el patriarca dio diezmos del botín" (7:4).</li>
-                            
+
                             <li><strong>Melquisedec bendijo a Abraham</strong>, lo cual implica igualmente superioridad: "sin discusión alguna, el menor es bendecido por el mayor" (7:7).</li>
                         </ol>
                     </div>
-                    
+
                     <div class="column">
                         <h3>Salmo 110:4</h3>
-                        
+
                         <div class="scripture">
                             "Juró Jehová, y no se arrepentirá: Tú eres sacerdote para siempre según el orden de Melquisedec." (Salmo 110:4)
                         </div>
-                        
+
                         <p>Este texto profético es citado explícitamente en Heb 7:17 y 7:21. Ya había sido citado en Heb 5:6 y 6:20, pero en cap.7 se analiza su significado.</p>
-                        
+
                         <p>El Salmo 110, reconocido como mesiánico (Jesús mismo lo aplicó al Mesías en Mt 22:42-45), presenta al futuro descendiente de David no solo como señor y rey (Sal 110:1-3) sino también como sacerdote eterno.</p>
-                        
+
                         <p>En Hebreos, el autor establece varios puntos teológicos basados en esta profecía:</p>
-                        
+
                         <ol>
                             <li><strong>Un sacerdocio no-levítico para el Mesías:</strong> Dado que la tribu de David es Judá, por la ley de Moisés ningún judío de esta tribu podía ser sacerdote (Heb 7:13-14). Por tanto, el Mesías tendría un sacerdocio de otro orden.</li>
-                            
+
                             <li><strong>Un sacerdocio eterno y juramentado por Dios:</strong> El Salmo 110:4 está enmarcado en un juramento divino: "Juró YHWH y no se arrepentirá". Hebreos enfatiza que Dios no juró nada semejante para los sacerdotes levitas.</li>
                         </ol>
                     </div>
                 </div>
-                
+
                 <h3>La convergencia en Cristo</h3>
-                
+
                 <p>Hebreos 7 conecta a la perfección estas Escrituras del AT para su argumento:</p>
-                
+
                 <div class="highlight">
                     <ul>
                         <li>De Génesis toma la figura histórica de Melquisedec y la interacción con Abraham para establecer que su orden es superior a la de los levitas (descendientes de Abraham).</li>
                         <li>Del Salmo 110 toma la declaración profética de Dios para afirmar que Cristo cumple ese orden superior de manera eterna.</li>
                     </ul>
                 </div>
-                
+
                 <p>Es un brillante ejemplo de exégesis cristológica: aquello que estaba en semilla en el AT (un sacerdocio regio distinto) florece en el NT con Cristo. Notemos además que esta interpretación no fuerza los textos, sino que revela su intención última.</p>
-                
+
                 <div class="application">
                     <p>Génesis 14, aunque narrativo, deja un cabo suelto (¿quién es este sacerdote misterioso?), y Salmo 110 lo retoma como promesa para el Mesías. Hebreos 7 une los puntos: Jesús es el punto de convergencia de esa historia y esa profecía.</p>
                     <p>Por eso pudo decir a sus discípulos que Moisés, los Salmos y los Profetas hablaban de Él (Lc 24:27,44). En Hebreos, vemos ese principio en acción: Melquisedec era un tipo deliberado de Cristo, y Cristo es el cumplimiento perfecto de ese modelo.</p>
                 </div>
             </div>
         </section>
-        
+
         <section id="comparacion" class="card">
             <div class="card-header">
                 <h2>Comparación entre el sacerdocio levítico y el sacerdocio de Cristo</h2>
@@ -718,12 +869,12 @@
             </div>
             <div class="card-body">
                 <p>El corazón de Hebreos 7 es la comparación contrastante entre el antiguo sacerdocio levítico (de la ley de Moisés) y el nuevo sacerdocio de Jesucristo "según el orden de Melquisedec":</p>
-                
+
                 <div class="table-container">
                     <table class="comparison-table">
                         <tr>
                             <th>Aspecto</th>
-                            <th>Sacerdocio Levítico</th>
+                            <th>Sacerdocio levítico</th>
                             <th>Sacerdocio de Cristo</th>
                         </tr>
                         <tr>
@@ -758,23 +909,23 @@
                         </tr>
                     </table>
                 </div>
-                
+
                 <div class="highlight">
                     <h4>Consecuencias del cambio de sacerdocio</h4>
                     <p>Hebreos 7:12 establece un principio crucial: "cambiado el sacerdocio, necesario es que haya también cambio de ley". Esto significa que la llegada del sacerdocio de Cristo implica la caducidad del antiguo sistema mosaico.</p>
                     <p>En el contexto judío, esto era revolucionario: significaba que el sistema de culto centralizado en Jerusalén, los sacrificios de animales, y el sacerdocio levítico habían sido reemplazados por la obra de Cristo.</p>
                 </div>
-                
+
                 <h3>La suficiencia del sacerdocio de Cristo</h3>
-                
+
                 <p>Hebreos 7:25-28 resume la superioridad del sacerdocio de Cristo y su perfecta idoneidad:</p>
-                
+
                 <div class="scripture">
                     "Por lo cual puede también salvar perpetuamente a los que por él se acercan a Dios, viviendo siempre para interceder por ellos. Porque tal sumo sacerdote nos convenía: santo, inocente, sin mancha, apartado de los pecadores, y hecho más sublime que los cielos; que no tiene necesidad cada día, como aquellos sumos sacerdotes, de ofrecer primero sacrificios por sus propios pecados, y luego por los del pueblo; porque esto lo hizo una vez para siempre, ofreciéndose a sí mismo. Porque la ley constituye sumos sacerdotes a débiles hombres; pero la palabra del juramento, posterior a la ley, al Hijo, hecho perfecto para siempre." (Heb. 7:25-28)
                 </div>
-                
+
                 <div class="application">
-                    <h4>Aplicación Teológica</h4>
+                    <h4>Aplicación teológica</h4>
                     <p>Esta comparación es crucial para entender por qué los primeros cristianos, especialmente los de trasfondo judío, pudieron separarse del sistema templario de Jerusalén. Lo que tenían en Cristo era superior en todo sentido:</p>
                     <ul>
                         <li>Un sacerdote inmortal vs. sacerdotes mortales</li>
@@ -786,7 +937,7 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="diezmo" class="card">
             <div class="card-header">
                 <h2>El tema del diezmo en Hebreos 7</h2>
@@ -794,48 +945,48 @@
             </div>
             <div class="card-body">
                 <p>El diezmo aparece en Hebreos 7 como parte central del argumento sobre Melquisedec y Leví. Es pertinente profundizar en su significado en el contexto original del AT y cómo el autor de Hebreos lo emplea teológicamente.</p>
-                
+
                 <div class="columns">
                     <div class="column">
                         <h3>El diezmo en el Antiguo Testamento</h3>
-                        
+
                         <p>En el Antiguo Testamento, el diezmo era establecido en la Ley como la décima parte de las cosechas y ganados, consagrada a Dios para sostén del culto. Específicamente:</p>
-                        
+
                         <ul>
                             <li>Los levitas recibían los diezmos de todo Israel como herencia, pues no tenían porción de tierra (Números 18:21-24).</li>
                             <li>A su vez, los levitas daban un diezmo de los diezmos a los sacerdotes (Num 18:26).</li>
                             <li>Era un mandato "según la ley" (Heb 7:5) que indicaba un deber del pueblo hacia la tribu elegida para servir en el santuario.</li>
                         </ul>
-                        
+
                         <p>Sin embargo, antes de la ley de Moisés, encontramos en Génesis 14 el caso de Abraham dando voluntariamente el diezmo de los despojos de guerra a Melquisedec. No fue por mandato escrito (la Ley vendría siglos más tarde con Moisés), sino un acto espontáneo de honor y gratitud.</p>
                     </div>
-                    
+
                     <div class="column">
                         <h3>El uso teológico en Hebreos 7</h3>
-                        
+
                         <p>Hebreos 7 retoma este incidente para fundamentar que Melquisedec era mayor que Abraham (y Leví). Dice:</p>
-                        
+
                         <div class="scripture">
                             "Considerad, pues, cuán grande era éste, a quien aun Abraham el patriarca dio diezmos del botín." (Hebreos 7:4)
                         </div>
-                        
+
                         <p>El autor desarrolla que Leví, figurativamente, también pagó el diezmo en Abraham: "por decir así, en Abraham pagó el diezmo también Leví" (7:9).</p>
-                        
+
                         <p>¿Qué enseña esto? Principalmente, la superioridad del sacerdocio de Melquisedec: Abraham, antepasado de Leví, se pone en posición de dador de diezmo, y Melquisedec en posición de receptor autorizado de lo sagrado.</p>
-                        
+
                         <p>Como comenta John Gill, Melquisedec aceptó estos diezmos no porque los necesitara materialmente (era rey, con sus propios recursos), sino como "testimonio de la gratitud [de Abraham] por la victoria obtenida, y de su reverencia y sujeción al sacerdote de Dios".</p>
                     </div>
                 </div>
-                
+
                 <div class="highlight">
                     <h4>¿Implica esto un mandato del diezmo para los cristianos?</h4>
                     <p>La mención del diezmo en Hebreos 7 es principalmente ilustrativa, no normativa. Varios comentaristas señalan que no se debe usar Génesis 14 o Hebreos 7 como mandato directo de diezmo para la iglesia, pues las circunstancias son muy específicas.</p>
-                    
+
                     <p>John Gill, por ejemplo, enfatiza: <em>"esto [el diezmo de Abraham] no es prueba de obligación de los hombres a pagar diezmos ahora... fue un acto voluntario, no ordenado por ley alguna; se hizo solo una vez, no constantemente; fue de los despojos del enemigo, no de sus bienes personales o del fruto de la tierra; ni fue para el mantenimiento de Melquisedec (que era rey y estaba bien provisto), sino para testificar gratitud a Dios por la victoria y reverencia al sacerdote de Dios".</em></p>
                 </div>
-                
+
                 <p>En el Nuevo Testamento, fuera de Hebreos 7, el diezmo apenas se menciona (Jesús lo aludió al reprender a fariseos por descuidar lo más importante, Mt 23:23). La enseñanza apostólica para la iglesia se enfoca más en la generosidad voluntaria y proporcional según la prosperidad de cada uno, dando con alegría, no por obligación (2Co 9:7; 1Co 16:2).</p>
-                
+
                 <div class="application">
                     <h4>Aplicación contemporánea</h4>
                     <p>Hebreos 7 resignifica el diezmo de Abraham no como una ley a seguir, sino como un símbolo de algo mayor: Abraham, portador de la promesa, sometiéndose a un sacerdote superior.</p>
@@ -843,7 +994,7 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="comentarios" class="card">
             <div class="card-header">
                 <h2>Uso de comentarios bíblicos reconocidos</h2>
@@ -851,137 +1002,137 @@
             </div>
             <div class="card-body">
                 <p>Para enriquecer nuestra exégesis, es valioso considerar cómo diversos comentaristas a lo largo de la historia han interpretado este capítulo:</p>
-                
+
                 <h3>Matthew Henry (1662-1714)</h3>
                 <div class="highlight">
                     <p>Este comentarista puritano ofrece reflexiones devocionales y prácticas. Henry subraya la idea de Hebreos 7 como "sermón" sobre Salmo 110:4. Respecto a Melquisedec como tipo de Cristo, comenta que Jesús es rey "justo en su título y justo en su gobierno... ama la justicia...; y por su justicia hizo la paz".</p>
-                    
+
                     <p>También Henry enfatiza aplicaciones espirituales: así como Abraham honró a Melquisedec, nosotros debemos honrar a Cristo con nuestras ofrendas y sujeción. Celebra el consuelo de tener un sacerdote inmutable que vive para interceder: "no hay vacante en este sacerdocio; esto es nuestra seguridad, que este sumo sacerdote eterno puede salvarnos por completo".</p>
                 </div>
-                
+
                 <h3>John Gill (1697-1771)</h3>
                 <div class="highlight">
                     <p>Este erudito bautista ofrece un comentario detallado con aportes de la erudición judía. Gill profundiza en la identidad de Melquisedec, citando opiniones rabínicas (Sem, un ángel, etc.) para luego concordar en que fue un hombre tipo de Cristo.</p>
-                    
+
                     <p>Explica el significado exacto del diezmo de Abraham: enfatiza su carácter voluntario, único, de los despojos de guerra, no de sus bienes regulares, y no impuesto por ley. Esto aporta matices importantes para no legislar una doctrina del diezmo cristiano basado en Abraham.</p>
-                    
+
                     <p>Gill también proporciona datos históricos curiosos, e.g., la conexión de Salem con Jerusalén y que "Melquisedec" pudo haber sido un título recurrente de reyes jebuseos.</p>
                 </div>
-                
+
                 <h3>F. F. Bruce (1910-1990)</h3>
                 <div class="highlight">
                     <p>Como erudito contemporáneo, Bruce aporta un análisis del texto original y su contexto histórico. Aclara que el autor de Hebreos no ignora que históricamente Melquisedec tuvo padres y posiblemente una dinastía de sacerdotes, pero esos datos "eran ajenos a su propósito"; lo importante es el registro inspirado.</p>
-                    
+
                     <p>Bruce resalta la intención literaria de presentar a Melquisedec de cierta manera: "En el único registro que la Escritura provee de Melquisedec, él aparece como un hombre vivo... y como tal desaparece. En todo esto — en los silencios tanto como en las afirmaciones — es un tipo adecuado de Cristo... Melquisedec permanece sacerdote continuamente durante el tiempo de su aparición en la narrativa bíblica".</p>
                 </div>
-                
+
                 <h3>Otros comentaristas</h3>
                 <div class="columns">
                     <div class="column">
                         <p><strong>B.F. Westcott</strong> (1825-1901) nota matices lingüísticos: <span class="greek">εἰς τὸ διηνεκές</span> ("para siempre") en Heb 7:3 puede interpretarse en un sentido literario como "continuamente", sin restar valor a la eternidad real del sacerdocio de Cristo.</p>
-                        
+
                         <p><strong>William Lane</strong> (contemporáneo) resalta que Hebreos sigue métodos de interpretación judía de la época, pero guiados por la revelación de Cristo.</p>
                     </div>
-                    
+
                     <div class="column">
                         <p><strong>A.W. Pink</strong> (1886-1952) considera la omisión intencional de la genealogía de Melquisedec como obra del Espíritu Santo para presentarlo como "una representación perfecta del Señor Jesús".</p>
-                        
+
                         <p><strong>Philip E. Hughes</strong> (1915-1990) enfatiza que Melquisedec es deliberadamente presentado sin genealogía siguiendo un patrón interpretativo judío, transformado por la revelación cristiana.</p>
                     </div>
                 </div>
-                
+
                 <div class="application">
                     <p>El aprovechamiento de estos comentarios nos ha permitido asegurar que nuestra interpretación de Hebreos 7 esté en línea con la comprensión histórica de la iglesia y con un análisis serio del texto.</p>
-                    
+
                     <p>Además, aportan riqueza de detalles (lingüísticos, contextuales) que difícilmente se obtienen de una lectura superficial. Vemos así cómo exégetas de distintas épocas han honrado este pasaje: reconociendo su meticulosa construcción teológica y su profunda cristología tipológica.</p>
                 </div>
             </div>
         </section>
-        
+
         <section id="aplicacion" class="card">
             <div class="card-header">
-                <h2>Aplicación Teológica para Hoy</h2>
+                <h2>Aplicación teológica para hoy</h2>
                 <p>El significado y relevancia actual del sacerdocio de Cristo</p>
             </div>
             <div class="card-body">
                 <p>¿Qué significa todo esto para nosotros en la actualidad? ¿Cómo impacta nuestra fe el entender a Cristo como sumo sacerdote según el orden de Melquisedec y el reconocer la caducidad del antiguo sistema de sacrificios?</p>
-                
+
                 <div class="columns">
                     <div class="column">
                         <h3>1. Acceso directo a Dios</h3>
-                        
+
                         <div class="scripture">
                             "Por tanto, teniendo un gran sumo sacerdote... retengamos nuestra profesión. Porque no tenemos un sumo sacerdote que no pueda compadecerse de nuestras debilidades... Acerquémonos, pues, confiadamente al trono de la gracia..." (Hebreos 4:14-16)
                         </div>
-                        
+
                         <p>La obra sacerdotal de Cristo nos da plena confianza para acercarnos a Dios. Hebreos 7:19 habló de "una mejor esperanza por la cual nos acercamos a Dios". Gracias a Jesús como nuestro sumo sacerdote eterno, tenemos acceso directo al Padre.</p>
-                        
+
                         <p>Ya no dependemos de sacerdotes humanos que ofrezcan sacrificios por nosotros año tras año. Cristo abrió un camino nuevo y vivo hacia la presencia de Dios (Heb 10:19-22).</p>
-                        
+
                         <p>Esto significa que en la vida devocional y de oración, podemos acercarnos con confianza al trono de la gracia (Heb 4:16), sabiendo que Jesús intercede por nosotros constantemente. No hay pecado demasiado grande que su sacrificio no haya expiado.</p>
                     </div>
-                    
+
                     <div class="column">
                         <h3>2. Una nueva realidad espiritual</h3>
-                        
+
                         <div class="scripture">
                             "Queda abrogado el mandamiento anterior a causa de su debilidad e ineficacia (pues nada perfeccionó la ley), y de la introducción de una mejor esperanza, por la cual nos acercamos a Dios." (Hebreos 7:18-19)
                         </div>
-                        
+
                         <p>Ya no vivimos bajo las sombras del antiguo pacto, sino en la realidad del nuevo. El creyente ya no está bajo la ley ceremonial de Israel, con sus ritos y sacerdocio terrenal.</p>
-                        
+
                         <p>Todas esas cosas eran "sombra de lo venidero" (Heb 10:1), "figuras" de la obra de Cristo. Ahora que Cristo ha venido como sumo sacerdote del nuevo pacto, las sombras han cumplido su propósito.</p>
-                        
+
                         <p>Esto nos guarda de cualquier retroceso hacia sistemas religiosos legalistas que pretendan reenlazar la salvación a obras o rituales. No necesitamos añadir mediadores adicionales ni ritos expiatorios extras, porque su sangre ya logró la expiación eterna.</p>
                     </div>
                 </div>
-                
+
                 <h3>3. Un sacerdote perfectamente adecuado</h3>
-                
+
                 <div class="scripture">
                     "Porque tal sumo sacerdote nos convenía: santo, inocente, sin mancha, apartado de los pecadores, y hecho más sublime que los cielos" (Hebreos 7:26)
                 </div>
-                
+
                 <p>Jesucristo, nuestro sumo sacerdote, satisface completamente nuestra necesidad espiritual. En la práctica, esto significa que Jesús llena cada espacio de necesidad entre Dios y nosotros:</p>
-                
+
                 <ul>
                     <li><strong>¿Necesitamos alguien que nos represente ante el Padre?</strong> Cristo lo hace con compasión (Heb 4:15) y eficacia.</li>
                     <li><strong>¿Necesitamos purificación de conciencia?</strong> Su sangre la provee (Heb 9:14).</li>
                     <li><strong>¿Necesitamos guía y gobierno espiritual?</strong> Él es Rey justo que nos gobierna con equidad y paz.</li>
                 </ul>
-                
+
                 <p>No hay vacío en la provisión de Cristo. Esto debe infundir en el creyente una profunda tranquilidad y gozo: "¡El Señor es mi pastor; nada me faltará!" podría parafrasearse en contexto de Hebreos 7 como "El Señor es mi sumo sacerdote; nada falta para mi reconciliación con Dios".</p>
-                
+
                 <h3>4. Nuestra respuesta práctica</h3>
-                
+
                 <div class="application">
                     <p>Si Cristo es todo esto para nosotros, ¿cómo debemos responder?</p>
-                    
+
                     <ol>
                         <li><strong>Adoración plena:</strong> Así como Abraham honró a Melquisedec, honremos a Cristo reconociendo su señorío sobre todo lo nuestro. Esto incluye nuestra alabanza (Heb 13:15), nuestras buenas obras y generosidad (Heb 13:16), y nuestras vidas en santidad (Rom 12:1).</li>
-                        
+
                         <li><strong>Perseverancia confiada:</strong> Entender que Jesús intercede por nosotros nos anima a perseverar en la fe. Sabemos que no estamos solos en la lucha: "Él vive siempre para interceder" (7:25). Por tanto, cuando vengan pruebas o incluso cuando fallemos, recordemos que tenemos un Abogado ante el Padre.</li>
-                        
+
                         <li><strong>Nueva perspectiva del culto:</strong> La iglesia cristiana, al no tener ya un altar de sacrificios animales ni un sacerdocio humano sacrificial, traslada esos conceptos a realidades espirituales. Cristo se ofreció una vez, y ese es el centro de nuestro culto (lo recordamos en la Cena del Señor). Ahora nuestros "sacrificios" son espirituales - adoración, servicio y obediencia.</li>
                     </ol>
                 </div>
-                
+
                 <div class="highlight">
                     <h4>Conclusión</h4>
                     <p>Hebreos 7 nos dirige la mirada al glorioso oficio presente de Cristo en el cielo y a la realización plena de la salvación que Él logró. Nos enseña a apreciar que todo el andamiaje del AT apuntaba hacia Él y que ahora en Él tenemos lo real y definitivo.</p>
-                    
+
                     <p>Esto debe cultivar en nosotros una fe inconmovible en Cristo, una gratitud profunda porque "tenemos tal sumo sacerdote", y un amor que se traduce en adoración y consagración.</p>
-                    
+
                     <p>Ya no hay barrera de pecado ni velo que nos separe, Jesús nuestro Melquisedec ha salido a nuestro encuentro con pan y vino, con su cuerpo y su sangre, para bendecirnos; respondamos como Abraham: rindiéndonos en fe y reconocimiento, dando toda la gloria a Dios Altísimo que nos entregó a su Hijo.</p>
                 </div>
             </div>
         </section>
     </main>
-    
+
     <footer>
         <div class="container">
             <p><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
+
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -996,9 +1147,28 @@
   <path d="M15 8h-5" />
   <path d="M19 17V5a2 2 0 0 0-2-2H4" />
   <path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" />
-</svg> Exégesis Bíblica: Hebreos 7 - El Sacerdocio según el Orden de Melquisedec</p>
+</svg> Exégesis de Hebreos 7 · el sacerdocio sin genealogía según el orden de Melquisedec</p>
             <p>"Porque tal sumo sacerdote nos convenía: santo, inocente, sin mancha..." (Hebreos 7:26)</p>
         </div>
     </footer>
+
+    <div class="scroll-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('main section[id]');
+            const navLinks = document.querySelectorAll('.nav-inner a');
+            let current = '';
+            sections.forEach(function (section) {
+                const top = section.offsetTop - 140;
+                if (window.scrollY >= top) current = section.getAttribute('id');
+            });
+            navLinks.forEach(function (link) {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+            });
+        });
+    </script>
 </body>
 </html>
