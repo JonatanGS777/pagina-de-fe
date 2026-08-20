@@ -601,6 +601,22 @@ Tras agregarse `tabernaculo-3d.html`, una revisión a fondo (a pedido del usuari
 - **Otros bugs corregidos:** el footer tenía 3 enlaces de contacto (dirección, teléfono, correo) envueltos en `href="#"` muertos; se convirtieron en texto plano no clickeable, mismo patrón aplicado en el resto del sitio; el smooth-scroll del acordeón de preguntas no verificaba si el elemento destino existía antes de llamar `scrollIntoView`, se agregó la comprobación; 1 guion largo corregido; copyright actualizado de 2025 a 2026. El enlace externo al curso del C. S. Lewis Institute (CTA) y los 6 enlaces a PDFs de los libros recomendados se conservaron intactos.
 - **Con esta página, las 5 páginas de `Época de Jesús/` quedan completas.** Todas las páginas revisadas esta sesión (`nuestras-ensenanzas/index.html` + las 5 de `Época de Jesús/`) pasaron por el flujo completo: revisión de contenido, identificación de bugs, y 3 direcciones estéticas presentadas al usuario antes de implementar — sin excepciones, tras la corrección de proceso pedida por el usuario en `nuestras-ensenanzas/index.html`.
 
+### 2026-08-20: corrección de legibilidad en grupos-religiosos.html "Expediente del Sanedrín"
+
+- **Bug reportado por el usuario:** el nombre de cada grupo (`.group-name`, un `<h2>`) se veía negro/ilegible, mientras el texto vecino (descripción, idiomas originales) se leía bien. No era un problema de contraste de color (el cálculo de contraste de `.group-name` daba ~8:1, correcto) sino de la fuente: `Special Elite` (máquina de escribir desgastada/con tinta corrida) se vuelve un manchón ilegible en tamaños pequeños a medianos, aunque se lea perfectamente en los títulos grandes del hero.
+- **Corrección:** se movieron a `var(--font-body)` (Courier Prime, con `font-weight: 700` para jerarquía) todos los elementos de texto pequeño que usaban la fuente de máquina de escribir: `.group-name`, `.label-tiny`, `.tab-button`, `.file-tab`, `.characteristics-list h4`, `.comparison-table th`, `.citation-text`, `.book-title`, `.footer-col h4`. Special Elite quedó reservada solo para `.main-title`, `.comparison-title`, `.bibliography-title` y la marca de agua "CONFIDENCIAL" (intencionalmente tenue, no legible de cerca).
+- **Regla general adoptada para el resto del sitio:** las fuentes decorativas/desgastadas (grunge, máquina de escribir, tipo sello) deben reservarse para encabezados grandes y prominentes (≥1.4rem); cualquier texto pequeño, etiqueta, encabezado de tabla o bloque de texto denso debe usar la fuente de cuerpo limpia (con negrita para jerarquía si hace falta).
+
+### 2026-08-20: reskin de `index.html` (página principal) — "Amanecer en el Templo"
+
+- **Restricción especial de esta página, distinta a todas las demás rediseñadas esta sesión:** `index.html` tiene autenticación real con Firebase (`js/auth.js`, `js/main.js`) y un sistema de comunidad en vivo (widget de usuario flotante, barra lateral de comunidad), ambos con lógica JS que depende de IDs y selectores exactos del HTML (`#floating-user-widget`, `#user-fab`, `#floating-user-panel`, `#admin-access-main`, `#logout-btn`, `#home-community-toggle`, `#home-community-sidebar`, `#home-topics-count`, `#home-comments-count`, `.logo`, `.nav-toggle`, `.nav-backdrop`, entre otros). Por eso no se hizo una reescritura completa desde cero como en el resto de páginas de esta sesión: fue un reskin visual (paleta, iconografía, capa decorativa del hero) que preservó cada ID, clase y bloque de script sin cambios. Se verificó programáticamente, tras el reskin, que las 15 IDs y los 3 selectores que el script inline y `js/main.js` referencian siguen presentes en el HTML.
+- Se presentaron 3 direcciones estéticas (Amanecer en el Templo, Camino de Peregrinos, Catedral de Luz); el usuario eligió "Amanecer en el Templo".
+- **Paleta:** se recalibraron las variables de `:root` de la base "Refinado y Solemne" ya existente hacia tonos de amanecer, más cálidos y luminosos: tinta `#1a1410` → `#2b1c0f`, oro `#b89a5f` → `#d9a441`, sepia `#6b4f2a` → terracota `#a15c2c`, pergamino `#f7f4ed` → `#fdf6e8`. Se agregó una variable nueva `--dawn-glow` (resplandor radial ámbar) y se recalentó `--gradient-bg` con un tercer color intermedio. Cormorant Garamond + Lato (ya cargadas) se mantuvieron sin cambio — es la tipografía base de identidad de todo el sitio, no una de las combinaciones específicas por página.
+- **Pieza central del hero:** una capa `.hero-glow` (resplandor radial ámbar con `mix-blend-mode: screen`) y un SVG `.hero-rays` (rayos de luz + arco de horizonte) agregados entre la superposición oscura existente y la textura de grano, sin tocar la foto de fondo real (`hero-escrituras-antiguas.jpg`) ni el contenido del hero.
+- **Font Awesome (CDN) eliminado por completo:** los 22 íconos del archivo (widget de usuario, barra de comunidad, `nav-toggle`, sección "Por qué elegirnos", footer) se reemplazaron por SVG Lucide en línea, siguiendo la convención ya establecida en el resto del sitio; los 2 de Facebook/YouTube reutilizan los mismos paths de marca ya usados en `apologia-cristiana.html`. Cada regla CSS que apuntaba al selector de etiqueta `i` (`.user-menu-item i`, `.feature i`, `.community-toggle i`, etc.) se migró a `svg` con `width`/`height` explícitos equivalentes al `font-size` original, sin tocar ninguna otra propiedad.
+- **Otros bugs corregidos:** copyright de pie de página "© 2025" → "© 2026"; el `<link>` de Font Awesome (`cdnjs`) eliminado del `<head>`.
+- Verificado: balance de etiquetas (`div`/`section`/`header`/`footer`/`nav`/`ul`/`li`/`a`/`button`/`svg`), balance de llaves del `<style>`, sintaxis del `<script type="module">` inline con `node --check`, y auditoría automática de las 15 IDs + 3 selectores que el JS de autenticación/comunidad referencia.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -829,7 +845,7 @@ Página de Fe/
 
 | Archivo | Estado |
 |---------|--------|
-| `index.html` | Completado |
+| `index.html` | Completado — reskin "Amanecer en el Templo" (preserva auth/comunidad en vivo), ver historial 2026-08-20 |
 | `access.html` | Completado |
 | `auth/profile.html` | Completado |
 | `css/auth.css` | Completado |

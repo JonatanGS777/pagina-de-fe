@@ -34,20 +34,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,600&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-    --primary-color: #1a1410;        /* Tinta profunda – autoridad y solemnidad */
-    --secondary-color: #b89a5f;      /* Oro antiguo – digno y cálido */
-    --accent-color: #6b4f2a;         /* Sepia oscuro – calidez sin exceso */
-    --background-color: #f7f4ed;     /* Pergamino cálido – evoca manuscritos */
-    --text-color: #2d2010;           /* Sepia tinta – lectura refinada */
-    --light-accent: #ede5d8;         /* Pergamino claro – soporte visual */
-    --gold-accent: #c9aa6a;          /* Oro iluminado – íconos y detalles */
-    --dark-color: #0e0c0a;           /* Negro tinta – máxima profundidad */
-    --gradient-bg: linear-gradient(160deg, #0e0c0a 0%, #1f1a14 100%);
+    --primary-color: #2b1c0f;        /* Umbral cálido – autoridad al alba */
+    --secondary-color: #d9a441;      /* Oro de amanecer – digno y radiante */
+    --accent-color: #a15c2c;         /* Terracota – calidez de la primera luz */
+    --background-color: #fdf6e8;     /* Pergamino de aurora – luminoso y cálido */
+    --text-color: #3a2711;           /* Sepia tinta – lectura refinada */
+    --light-accent: #f6ead2;         /* Pergamino claro – soporte visual */
+    --gold-accent: #e8b64f;          /* Oro iluminado – íconos y detalles */
+    --dark-color: #170f08;           /* Negro tinta – máxima profundidad */
+    --dawn-glow: radial-gradient(circle at 30% 85%, rgba(232, 182, 79, 0.55) 0%, rgba(161, 92, 44, 0.28) 32%, rgba(23, 15, 8, 0) 68%);
+    --gradient-bg: linear-gradient(150deg, #1c1108 0%, #3d2510 55%, #7a4a1e 100%);
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    --box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(0, 0, 0, 0.04);
+    --box-shadow: 0 12px 24px rgba(58, 30, 8, 0.09), 0 6px 12px rgba(58, 30, 8, 0.05);
 }
         
         * {
@@ -93,8 +93,9 @@
             animation: pulse 2s infinite;
         }
 
-        .loading-logo i {
-            font-size: 2rem;
+        .loading-logo svg {
+            width: 2rem;
+            height: 2rem;
             color: white;
         }
 
@@ -433,10 +434,11 @@
             color: var(--primary-color);
         }
 
-        .user-menu-item i {
+        .user-menu-item svg {
             width: 20px;
+            height: 20px;
             color: var(--secondary-color);
-            font-size: 1.1rem;
+            flex-shrink: 0;
         }
 
         .user-menu-divider {
@@ -453,7 +455,7 @@
             background: rgba(220, 38, 38, 0.05) !important;
         }
 
-        .logout-item i {
+        .logout-item svg {
             color: #dc2626 !important;
         }
 
@@ -470,11 +472,11 @@
             transform: translateX(3px);
         }
 
-        .admin-access-item i {
+        .admin-access-item svg {
             color: var(--gold-accent) !important;
         }
 
-        .admin-access-item:hover i {
+        .admin-access-item:hover svg {
             color: #b8941f !important;
         }
 
@@ -527,8 +529,9 @@
             transform: translateY(-50%) translateX(-5px);
         }
 
-        .community-toggle i {
-            font-size: 1.5rem;
+        .community-toggle svg {
+            width: 1.5rem;
+            height: 1.5rem;
             margin-bottom: 5px;
             animation: bounce 2s infinite;
         }
@@ -567,9 +570,13 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.8rem;
             margin: 0 auto 15px;
             box-shadow: 0 8px 20px rgba(107, 79, 42, 0.3);
+        }
+
+        .community-icon-sidebar svg {
+            width: 1.8rem;
+            height: 1.8rem;
         }
 
         .community-header-sidebar h3 {
@@ -608,10 +615,11 @@
             transform: translateX(5px);
         }
 
-        .feature-item-sidebar i {
-            font-size: 1.1rem;
+        .feature-item-sidebar svg {
             color: var(--primary-color);
             width: 20px;
+            height: 20px;
+            flex-shrink: 0;
         }
 
         .feature-item-sidebar span {
@@ -650,6 +658,8 @@
 
         .loading-spinner-sidebar {
             color: var(--primary-color);
+            width: 1rem;
+            height: 1rem;
             animation: spin 1s linear infinite;
         }
 
@@ -674,8 +684,11 @@
             box-shadow: 0 10px 25px rgba(107, 79, 42, 0.3);
         }
 
-        .community-btn-sidebar i {
+        .community-btn-sidebar svg {
+            width: 1rem;
+            height: 1rem;
             margin-right: 8px;
+            vertical-align: -2px;
         }
 
         .nav-toggle {
@@ -687,7 +700,12 @@
             cursor: pointer;
             transition: var(--transition);
         }
-        
+
+        .nav-toggle svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
         .nav-toggle:hover {
             transform: scale(1.1);
         }
@@ -861,11 +879,33 @@
             inset: 0;
             background: linear-gradient(
                 160deg,
-                rgba(14, 12, 10, 0.82) 0%,
-                rgba(20, 16, 12, 0.70) 60%,
-                rgba(14, 12, 10, 0.78) 100%
+                rgba(20, 13, 6, 0.85) 0%,
+                rgba(30, 19, 9, 0.68) 55%,
+                rgba(58, 30, 8, 0.55) 100%
             );
             z-index: 1;
+        }
+
+        /* Resplandor de amanecer */
+        .hero-glow {
+            position: absolute;
+            inset: 0;
+            background: var(--dawn-glow);
+            z-index: 2;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        .hero-rays {
+            position: absolute;
+            left: -10%;
+            bottom: -20%;
+            width: 70%;
+            max-width: 620px;
+            height: auto;
+            opacity: 0.55;
+            z-index: 2;
+            pointer-events: none;
         }
 
         /* Textura de grano sutil */
@@ -875,13 +915,13 @@
             inset: 0;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
             opacity: 0.5;
-            z-index: 2;
+            z-index: 3;
             pointer-events: none;
         }
 
         .hero-content {
             position: relative;
-            z-index: 3;
+            z-index: 4;
             max-width: 720px;
             padding-left: 0.5rem;
         }
@@ -1130,14 +1170,15 @@
             z-index: -1;
         }
         
-        .feature i {
-            font-size: 3rem;
+        .feature svg {
+            width: 3rem;
+            height: 3rem;
             color: var(--secondary-color);
             margin-bottom: 1.5rem;
             transition: var(--transition);
         }
-        
-        .feature:hover i {
+
+        .feature:hover svg {
             transform: scale(1.2);
         }
         
@@ -1189,7 +1230,15 @@
         .footer-col li {
             margin-bottom: 1rem;
         }
-        
+
+        .footer-col li svg {
+            width: 0.9rem;
+            height: 0.9rem;
+            color: var(--secondary-color);
+            vertical-align: -2px;
+            margin-right: 4px;
+        }
+
         .footer-col a {
             color: #aaa;
             text-decoration: none;
@@ -1219,7 +1268,12 @@
             color: white;
             transition: var(--transition);
         }
-        
+
+        .social-links a svg {
+            width: 1.1rem;
+            height: 1.1rem;
+        }
+
         .social-links a:hover {
             background-color: var(--secondary-color);
             transform: translateY(-5px);
@@ -1270,8 +1324,9 @@
                 height: 100px;
             }
 
-            .community-toggle i {
-                font-size: 1.3rem;
+            .community-toggle svg {
+                width: 1.3rem;
+                height: 1.3rem;
             }
 
             .nav-toggle {
@@ -1460,7 +1515,7 @@
     <!-- 🔄 PANTALLA DE LOADING INICIAL -->
     <div id="initial-loading" class="initial-loading">
         <div class="loading-logo">
-            <i class="fas fa-bible"></i>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>
         </div>
         <div class="loading-text">Verificando acceso...</div>
         <div class="loading-spinner"></div>
@@ -1504,21 +1559,21 @@
                 
                 <div class="user-menu">
                     <a href="auth/profile.html" class="user-menu-item">
-                        <i class="fas fa-user"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
                         <span>Mi perfil</span>
                     </a>
                     <a href="./Comunidad/favorites.html" class="user-menu-item">
-                        <i class="fas fa-bookmark"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16Z"/></svg>
                         <span>Mis favoritos</span>
                     </a>
                     <div class="user-menu-divider"></div>
                     <button id="admin-access-main" class="user-menu-item admin-access-item">
-                        <i class="fas fa-shield-alt"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
                         <span>Panel de administración</span>
                     </button>
                     <div class="user-menu-divider"></div>
                     <button id="logout-btn" class="user-menu-item logout-item">
-                        <i class="fas fa-sign-out-alt"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
                         <span>Cerrar sesión</span>
                     </button>
                 </div>
@@ -1527,7 +1582,7 @@
 
         <!-- 🌟 BARRA DE COMUNIDAD - ESTILO ORIGINAL CON FUNCIONALIDAD INTEGRADA -->
         <div class="community-toggle" id="home-community-toggle">
-            <i class="fas fa-users"></i>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             <span class="toggle-text">Comunidad</span>
         </div>
 
@@ -1535,42 +1590,42 @@
             <div class="community-content">
                 <div class="community-header-sidebar">
                     <div class="community-icon-sidebar">
-                        <i class="fas fa-users"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <h3>Comunidad de fe</h3>
                     <p>Únete y crece junto a nosotros</p>
                 </div>
-                
+
                 <div class="community-features-sidebar">
                     <div class="feature-item-sidebar">
-                        <i class="fas fa-bible"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>
                         <span>Estudios bíblicos grupales</span>
                     </div>
                     <div class="feature-item-sidebar">
-                        <i class="fas fa-question-circle"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
                         <span>Preguntas y respuestas</span>
                     </div>
                     <div class="feature-item-sidebar">
-                        <i class="fas fa-heart"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                         <span>Testimonios de fe</span>
                     </div>
                     <div class="feature-item-sidebar">
-                        <i class="fas fa-praying-hands"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16"/><path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/><path d="m2 15 6 6"/><path d="M19.5 8.5c.7-.7 1.5-1.6 1.5-2.7A2.73 2.73 0 0 0 18.3 3c-.9 0-1.5.3-2.3 1-.8-.7-1.4-1-2.3-1a2.73 2.73 0 0 0-2.7 2.8c0 .5.1 1 .3 1.4"/></svg>
                         <span>Peticiones de oración</span>
                     </div>
                 </div>
-                
+
                 <div class="community-stats-sidebar">
                     <div class="stat-sidebar">
                         <span class="stat-number-sidebar" id="home-topics-count">
-                            <i class="loading-spinner-sidebar fas fa-spinner fa-spin" style="display: none; font-size: 1rem;"></i>
+                            <svg class="loading-spinner-sidebar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display: none;" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
                             <span class="stat-value">3</span>
                         </span>
                         <span class="stat-label-sidebar">Temas</span>
                     </div>
                     <div class="stat-sidebar">
                         <span class="stat-number-sidebar" id="home-comments-count">
-                            <i class="loading-spinner-sidebar fas fa-spinner fa-spin" style="display: none; font-size: 1rem;"></i>
+                            <svg class="loading-spinner-sidebar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display: none;" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
                             <span class="stat-value">12</span>
                         </span>
                         <span class="stat-label-sidebar">Comentarios</span>
@@ -1580,9 +1635,9 @@
                         <span class="stat-label-sidebar">En línea</span>
                     </div>
                 </div>
-                
+
                 <a href="./Comunidad/forum.html" class="community-btn-sidebar">
-                    <i class="fas fa-comments"></i>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
                     Explorar comunidad
                 </a>
             </div>
@@ -1600,7 +1655,7 @@
                 
                 <div class="header-actions">
                     <button class="nav-toggle">
-                        <i class="fas fa-bars"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
                     </button>
                 </div>
                 
@@ -1685,6 +1740,17 @@
         </header>
 
         <section class="hero">
+            <div class="hero-glow"></div>
+            <svg class="hero-rays" viewBox="0 0 400 400" aria-hidden="true">
+                <g stroke="#e8b64f" stroke-width="1.4" opacity="0.7">
+                    <line x1="40" y1="400" x2="10" y2="0"/>
+                    <line x1="90" y1="400" x2="90" y2="-10"/>
+                    <line x1="140" y1="400" x2="180" y2="0"/>
+                    <line x1="190" y1="400" x2="270" y2="10"/>
+                    <line x1="240" y1="400" x2="360" y2="30"/>
+                </g>
+                <circle cx="40" cy="400" r="220" fill="none" stroke="#e8b64f" stroke-width="1" opacity="0.25"/>
+            </svg>
             <div class="container hero-content">
                 <span class="hero-rule"></span>
                 <h1>Bienvenido al Ministerio<br>"La Gloria es del Señor"</h1>
@@ -1746,22 +1812,22 @@
                 </div>
                 <div class="features">
                     <div class="feature">
-                        <i class="fas fa-bible"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>
                         <h3>Enseñanza bíblica</h3>
                         <p>Nuestras enseñanzas están fundamentadas en la Palabra de Dios, sin añadir ni quitar.</p>
                     </div>
                     <div class="feature">
-                        <i class="fas fa-hands-praying"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16"/><path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/><path d="m2 15 6 6"/><path d="M19.5 8.5c.7-.7 1.5-1.6 1.5-2.7A2.73 2.73 0 0 0 18.3 3c-.9 0-1.5.3-2.3 1-.8-.7-1.4-1-2.3-1a2.73 2.73 0 0 0-2.7 2.8c0 .5.1 1 .3 1.4"/></svg>
                         <h3>Vida de oración</h3>
                         <p>Enfatizamos la importancia de una relación íntima con Dios a través de la oración.</p>
                     </div>
                     <div class="feature">
-                        <i class="fas fa-church"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 21 7 3 7"/></svg>
                         <h3>Comunidad de fe</h3>
                         <p>Somos una familia que crece junta en el conocimiento y la gracia de nuestro Señor.</p>
                     </div>
                     <div class="feature">
-                        <i class="fas fa-dove"></i>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/></svg>
                         <h3>Dirección del Espíritu</h3>
                         <p>Creemos en la guía continua del Espíritu Santo en nuestras vidas y ministerio.</p>
                     </div>
@@ -1776,8 +1842,8 @@
                         <h4>Ministerio EMD</h4>
                         <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
                         <div class="social-links">
-                            <a href="https://www.facebook.com/profile.php?id=61577956191110"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.5 9.87v-6.98H7.9V12h2.6V9.8c0-2.6 1.55-4 3.9-4 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v6.98A10 10 0 0 0 22 12Z"/></svg></a>
+                            <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.8 8.001a2.75 2.75 0 0 0-1.94-1.94C18.1 5.6 12 5.6 12 5.6s-6.1 0-7.86.46A2.75 2.75 0 0 0 2.2 8a28.6 28.6 0 0 0 0 8 2.75 2.75 0 0 0 1.94 1.94C5.9 18.4 12 18.4 12 18.4s6.1 0 7.86-.46A2.75 2.75 0 0 0 21.8 16a28.6 28.6 0 0 0 0-8ZM10 15.2V8.8l6 3.2Z"/></svg></a>
                         </div>
                     </div>
                     <div class="footer-col">
@@ -1794,9 +1860,9 @@
                     <div class="footer-col">
                         <h4>Contacto</h4>
                         <ul>
-                            <li><i class="fas fa-map-marker-alt"></i> Dirección del ministerio, San Juan, Puerto Rico</li>
-                            <li><i class="fas fa-phone"></i> +1 787-345-6940</li>
-                            <li><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Dirección del ministerio, San Juan, Puerto Rico</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg> +1 787-345-6940</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> ministeriolagloriaesdelsenor7@gmail.com</li>
                         </ul>
                     </div>
                     <div class="footer-col">
@@ -1814,7 +1880,7 @@
                     </div>
                 </div>
                 <div class="copyright">
-                    <p>© 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+                    <p>© 2026 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
                 </div>
             </div>
         </footer>
