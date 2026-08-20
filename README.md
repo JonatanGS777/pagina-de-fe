@@ -519,6 +519,13 @@ Tras agregarse `tabernaculo-3d.html`, una revisión a fondo (a pedido del usuari
 - **Otros bugs corregidos:** la página estaba huérfana (sin header del sitio, solo un botón flotante de "volver"); 2 fondos `/api/placeholder` muertos; un bullet de lista vía `content: "\f0da"` que dependía de la fuente de íconos de Font Awesome (dejaba de mostrarse al quitar el CDN); Font Awesome (CDN) reemplazado por SVG Lucide inline, incluidos 8 íconos únicos hechos a mano (uno por semana temática); 4 botones con `href="#"` muerto (3 tarjetas de "recursos" sin destino real —guía de meditación, diario imprimible, guía de oración— y un botón "Compartir con amigos" sin funcionalidad) quitados en vez de dejarlos rotos, ya que no tenían ninguna lógica JS ni destino real detrás; 1 guion largo (—) corregido a paréntesis.
 - Queda 1 página de `planes/` para completar `Estudios Exegéticos/`: `plan-tematico.html`.
 
+### 2026-08-20: pasada de redacción y ortografía de Codex en 5 categorías (74 archivos)
+
+- Trabajo en paralelo del agente Codex sobre archivos ya existentes del sitio: correcciones de sentence-case (títulos/eyebrows en Title Case → minúscula sostenida salvo nombres propios), tildes faltantes, puntos suspensivos normalizados (`...` → `…`), numerales (`#1` → `n.º 1`) y algunos ajustes menores de redacción. Sin cambios estructurales, de contenido ni de funcionalidad en ningún caso.
+- Cada pasada se revisó (`git diff --stat` + muestreo de diffs reales) antes de commitear, confirmando que solo había swaps de texto (inserciones = eliminaciones) y ningún cambio en JS, rutas o markup, según lo pedido explícitamente por el usuario en cada caso.
+- Commits, en orden: `page/Estudios Bíblicos/` (20 archivos), `page/Tiempo del Fin/` (14 archivos), `page/Falsas Doctrinas/` (9 archivos), `page/Figuras Bíblicas/` (10 archivos, incluidos los visores 3D `tabernaculo-3d.html`/`temple-3d.html`/`temple-3d-viejo.html`, verificado que no se tocó la lógica Three.js), `page/Estudios Exegéticos/` (14 archivos, incluidas páginas ya rediseñadas esta sesión como `templo.html`, `romanos11.html` y `software-biblico.html`, y `plan-acelerado.html`, que recibió esta pasada dos veces).
+- Cada commit se hizo por separado, solo tras confirmación explícita del usuario, y nunca se mezcló con el trabajo de rediseño propio en el mismo commit.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
