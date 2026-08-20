@@ -14,767 +14,388 @@
     <title>Meditación en la Palabra | Ministerio "La Gloria es del Señor"</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2d3e50; /* Deep indigo */
-            --secondary-color: #3cb4b7; /* Soft teal */
-            --accent-color: #e9b44c; /* Warm gold */
-            --bg-light: #f9f5e9; /* Creamy off-white */
-            --text-color: #333333; /* Rich charcoal */
-            --highlight-color: #e76f51; /* Soft coral */
-            
-            --gradient-light: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
-            --gradient-accent: linear-gradient(135deg, var(--accent-color) 0%, #f9d071 100%);
-            --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, #384e68 100%);
-            
+            --bg:          #f4f7f2;
+            --card:        #fdfbf6;
+            --sage:        #7a9a82;
+            --sage-deep:   #4f6b56;
+            --sage-soft:   rgba(122, 154, 130, 0.12);
+            --sky:         #7fa8b3;
+            --sky-deep:    #4d7883;
+            --ink:         #3a3f38;
+            --ink-soft:    #6b7268;
+            --gold:        #c9a961;
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), 0 6px 10px rgba(0, 0, 0, 0.03);
-            --box-shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.05);
-            --border-radius: 12px;
+            --box-shadow: 0 10px 26px rgba(58, 63, 56, 0.08);
+            --radius: 16px;
+            --font-display: 'Quicksand', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Nunito', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-light);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            color: var(--ink);
+            background-color: var(--bg);
             overflow-x: hidden;
         }
-        
+
+        h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; }
+
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+
         header {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: var(--box-shadow);
+            background: rgba(79, 107, 86, 0.96);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .logo img {
-            height: 60px;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-        }
-        
-        .logo-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            line-height: 1.2;
-        }
-        
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .nav-toggle:hover {
-            transform: scale(1.1);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            display: block;
-            padding: 0.5rem;
-            position: relative;
-        }
-        
-        nav a:hover {
-            color: var(--accent-color);
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--accent-color);
-            transition: var(--transition);
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 0.9rem; text-decoration: none; }
+        .logo img { height: 50px; }
+        .logo-text { font-family: var(--font-display); font-weight: 700; line-height: 1.25; color: #fdfbf6; font-size: 0.9rem; }
 
-        /* Hero Section */
+        .nav-toggle { display: none; background: none; border: none; color: #fdfbf6; cursor: pointer; }
+        .nav-toggle svg { width: 1.5rem; height: 1.5rem; }
+
+        nav ul { display: flex; list-style: none; gap: 1.3rem; }
+        nav a { color: rgba(253, 251, 246, 0.85); text-decoration: none; font-weight: 600; font-size: 0.94rem; transition: var(--transition); display: block; padding: 0.5rem; }
+        nav a:hover { color: var(--gold); }
+
+        .menu-item-has-children { position: relative; }
+        .menu-item-has-children > a { display: flex; align-items: center; gap: 0.4rem; }
+        .menu-item-has-children > a::before { content: '▾'; font-size: 0.6rem; color: rgba(253, 251, 246, 0.4); transition: var(--transition); }
+        .menu-item-has-children:hover > a::before { color: var(--gold); transform: rotate(180deg); }
+
+        .sub-menu {
+            position: absolute; top: 100%; left: 0; width: 250px;
+            background: rgba(38, 51, 42, 0.98);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(201, 169, 97, 0.22);
+            border-top: 2px solid var(--gold);
+            box-shadow: 0 24px 44px rgba(0, 0, 0, 0.4);
+            border-radius: 2px;
+            padding: 0.3rem 0;
+            display: none;
+            z-index: 100;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .sub-menu li { width: 100%; }
+        .sub-menu li + li { border-top: 1px solid rgba(201, 169, 97, 0.1); }
+        .sub-menu a { padding: 0.7rem 1.2rem; font-size: 0.88rem; font-weight: 400; width: 100%; color: rgba(253, 251, 246, 0.72); border-left: 2px solid transparent; }
+        .sub-menu a:hover { background: rgba(201, 169, 97, 0.08); color: var(--gold); border-left-color: var(--gold); padding-left: 1.5rem; }
+        .menu-item-has-children:hover .sub-menu { display: block; transform: translateY(0); opacity: 1; }
+
+        img[alt="Logo EMD"] {
+            border-radius: 50%; object-fit: cover;
+            border: 2px solid rgba(201, 169, 97, 0.5);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(201, 169, 97, 0.1);
+            transition: var(--transition);
+        }
+        img[alt="Logo EMD"]:hover { transform: scale(1.05); }
+
+        /* ---------- Hero: respiración ---------- */
         .meditation-hero {
             position: relative;
-            padding: 8rem 0;
-            background-image: url('./images/meditar.png');
-            background-size: cover;
-            background-position: center;
-            color: white;
+            padding: 6rem 0 4.5rem;
             text-align: center;
+            overflow: hidden;
+            background: radial-gradient(ellipse 70% 60% at 50% 20%, rgba(122, 154, 130, 0.14) 0%, transparent 70%), var(--bg);
         }
-        
-        .meditation-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(45, 62, 80, 0.85) 0%, rgba(60, 180, 183, 0.7) 100%);
-            z-index: 1;
+
+        .breath { position: relative; width: 180px; height: 180px; margin: 0 auto 1.6rem; }
+        .breath-ring {
+            position: absolute; inset: 0; border-radius: 50%;
+            border: 1.5px solid rgba(79, 107, 86, 0.35);
+            animation: breathe 6s ease-in-out infinite;
         }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
+        .breath-ring.r2 { inset: 26px; border-color: rgba(77, 120, 131, 0.45); animation-delay: -1.2s; }
+        .breath-ring.r3 { inset: 52px; border-color: rgba(122, 154, 130, 0.6); animation-delay: -2.4s; }
+        .breath-core { position: absolute; inset: 74px; border-radius: 50%; background: linear-gradient(160deg, var(--sage) 0%, var(--sky) 100%); animation: breathe 6s ease-in-out infinite; animation-delay: -3.6s; }
+        @keyframes breathe {
+            0%, 100% { transform: scale(0.86); opacity: 0.65; }
+            50% { transform: scale(1); opacity: 1; }
         }
-        
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: white;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
-        }
-        
+
+        .hero-content { position: relative; max-width: 760px; margin: 0 auto; }
+        .section-title { font-size: 2.7rem; margin-bottom: 1.1rem; color: var(--sage-deep); }
+        .hero-content p { font-size: 1.12rem; margin-bottom: 2rem; color: var(--ink-soft); max-width: 640px; margin-left: auto; margin-right: auto; }
+
         .btn {
             display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            padding: 0.9rem 2rem;
+            background-color: var(--sage-deep);
+            color: #fdfbf6;
+            padding: 0.85rem 1.9rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            letter-spacing: 1px;
             transition: var(--transition);
-            margin-right: 1rem;
-            margin-bottom: 1rem;
+            margin-right: 0.8rem;
+            margin-bottom: 0.8rem;
             border: 2px solid transparent;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
         }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--accent-color);
-            color: white;
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-        }
-        
-        /* Main Content */
-        .main-content {
-            padding: 5rem 0;
-        }
-        
-        .content-section {
-            margin-bottom: 5rem;
-        }
-        
-        h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-color);
-        }
-        
-        .meditation-intro {
-            max-width: 800px;
-            margin-bottom: 3rem;
-        }
-        
-        .meditation-intro p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-        
-        /* Scripture Card */
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(58, 63, 56, 0.18); background-color: var(--sky-deep); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+        .btn-outline { background-color: transparent; border: 2px solid var(--sage-deep); color: var(--sage-deep); }
+        .btn-outline:hover { background-color: var(--sage-deep); color: #fdfbf6; }
+
+        .main-content { padding: 5rem 0; }
+        .content-section { margin-bottom: 5rem; }
+
+        h2 { font-size: 2.1rem; color: var(--sage-deep); margin-bottom: 1.5rem; position: relative; display: inline-block; }
+        h2::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 54px; height: 3px; background-color: var(--gold); }
+
+        .meditation-intro { max-width: 800px; margin-bottom: 2.5rem; }
+        .meditation-intro p { font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.4rem; }
+
         .scripture-card {
-            background: white;
-            border-radius: var(--border-radius);
+            background: var(--card);
+            border-radius: var(--radius);
             padding: 2rem;
             margin-bottom: 2rem;
             box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
+            border-left: 4px solid var(--sage);
         }
-        
-        .scripture-card:hover {
-            box-shadow: var(--box-shadow-hover);
-            transform: translateY(-5px);
-        }
-        
-        .scripture-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: var(--gradient-accent);
-        }
-        
-        .scripture-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-            font-style: italic;
-            color: var(--primary-color);
-        }
-        
-        .scripture-reference {
-            text-align: right;
-            font-weight: 600;
-            color: var(--secondary-color);
-        }
-        
-        /* Steps Grid */
-        .meditation-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .step-card {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .step-card:hover {
-            box-shadow: var(--box-shadow-hover);
-            transform: translateY(-5px);
-        }
-        
+        .scripture-text { font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; line-height: 1.6; margin-bottom: 1rem; color: var(--sage-deep); }
+        .scripture-reference { text-align: right; font-weight: 600; color: var(--sky-deep); }
+
+        .meditation-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; margin-top: 2.5rem; }
+
+        .step-card { background: var(--card); border-radius: var(--radius); padding: 1.9rem; box-shadow: var(--box-shadow); transition: var(--transition); position: relative; overflow: hidden; }
+        .step-card:hover { transform: translateY(-5px); box-shadow: 0 18px 32px rgba(58, 63, 56, 0.14); }
         .step-number {
-            position: absolute;
-            top: -15px;
-            right: -15px;
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--gradient-accent);
-            color: var(--primary-color);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            border-radius: 50%;
-            opacity: 0.2;
-            z-index: 1;
+            position: absolute; top: -14px; right: -14px; width: 74px; height: 74px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(160deg, var(--sage) 0%, var(--sky) 100%);
+            color: #fdfbf6; font-family: var(--font-display); font-size: 2.2rem; font-weight: 700;
+            border-radius: 50%; opacity: 0.25; z-index: 1;
         }
-        
-        .step-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 2;
+        .step-card h3 { font-size: 1.4rem; color: var(--sage-deep); margin-bottom: 0.9rem; position: relative; z-index: 2; }
+        .step-card p { position: relative; z-index: 2; margin-bottom: 1rem; }
+        .step-card ul { list-style-position: inside; margin-bottom: 1rem; position: relative; z-index: 2; }
+        .step-card li { margin-bottom: 0.5rem; }
+
+        /* Herramienta */
+        .meditation-tool { background: var(--card); border-radius: var(--radius); padding: 2.6rem; box-shadow: var(--box-shadow); margin-top: 2.5rem; }
+        .tool-header { margin-bottom: 2rem; text-align: center; }
+        .tool-header h3 { font-size: 1.7rem; color: var(--sage-deep); }
+        .tool-header p { color: var(--ink-soft); margin-top: 0.5rem; }
+
+        .tool-content { display: grid; grid-template-columns: 1fr 1.1fr; gap: 2rem; }
+
+        .topic-picker { padding: 1rem; background-color: var(--sage-soft); border-radius: var(--radius); }
+        .topic-picker-label { font-weight: 600; color: var(--sage-deep); margin-bottom: 0.9rem; display: block; }
+        .topic-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.2rem; }
+        .topic-chip {
+            background: #fdfbf6; border: 1px solid rgba(79, 107, 86, 0.25);
+            color: var(--sage-deep); padding: 0.5rem 1rem; border-radius: 50px;
+            font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: var(--transition);
         }
-        
-        .step-card p {
-            position: relative;
-            z-index: 2;
-            margin-bottom: 1rem;
+        .topic-chip:hover, .topic-chip.active { background: var(--sage-deep); color: #fdfbf6; border-color: var(--sage-deep); }
+
+        .selector-group { margin-bottom: 1.1rem; }
+        .selector-group label { display: block; margin-bottom: 0.4rem; font-weight: 600; color: var(--sage-deep); font-size: 0.92rem; }
+        .selector-group select, .selector-group input[type="text"], .selector-group input[type="number"] {
+            width: 100%; padding: 0.7rem 0.9rem; border: 1px solid rgba(79, 107, 86, 0.25);
+            border-radius: 8px; font-family: var(--font-body); font-size: 0.95rem;
+            background: #fdfbf6; color: var(--ink); transition: var(--transition);
         }
-        
-        .step-card ul {
-            list-style-position: inside;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 2;
+        .selector-group select:focus, .selector-group input:focus {
+            outline: none; border-color: var(--sage-deep); box-shadow: 0 0 0 3px rgba(122, 154, 130, 0.2);
         }
-        
-        .step-card li {
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Meditation Tool */
-        .meditation-tool {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 3rem;
-            box-shadow: var(--box-shadow);
-            margin-top: 3rem;
-        }
-        
-        .tool-header {
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        
-        .tool-header h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            color: var(--primary-color);
-        }
-        
-        .tool-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-        
-        .scripture-selector {
-            padding: 1rem;
-            background-color: rgba(60, 180, 183, 0.05);
-            border-radius: var(--border-radius);
-        }
-        
-        .selector-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .selector-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-        
-        .selector-group select, 
-        .selector-group input[type="text"],
-        .selector-group input[type="number"] {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            font-family: 'Nunito', sans-serif;
-            transition: var(--transition);
-        }
-        
-        .selector-group select:focus, 
-        .selector-group input[type="text"]:focus,
-        .selector-group input[type="number"]:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 0 3px rgba(60, 180, 183, 0.2);
-        }
-        
-        .meditation-display {
-            padding: 1rem;
-            background-color: rgba(233, 180, 76, 0.05);
-            border-radius: var(--border-radius);
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .verse-display {
-            flex-grow: 1;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            min-height: 200px;
-        }
-        
-        .meditation-controls {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
-        
-        .timer-display {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            background-color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-        
-        .control-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .control-btn:hover {
-            background: var(--secondary-color);
-            transform: scale(1.1);
-        }
-        
-        .timer-btn {
-            background: var(--accent-color);
-            color: var(--primary-color);
-            font-weight: 600;
-            padding: 0.7rem 1.5rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .timer-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        }
-        
+        .search-mode { transition: var(--transition); }
+
         .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
-            border-radius: 50%;
-            border-top-color: var(--primary-color);
-            animation: spin 1s ease-in-out infinite;
-            vertical-align: middle;
+            display: inline-block; width: 16px; height: 16px;
+            border: 2px solid rgba(253, 251, 246, 0.4); border-radius: 50%;
+            border-top-color: #fdfbf6; animation: spin 0.8s linear infinite; vertical-align: middle;
         }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        .error-message {
-            background-color: #f8d7da;
-            color: #721c24;
-            padding: 1rem;
-            border-radius: 6px;
-            margin-bottom: 1rem;
-            border: 1px solid #f5c6cb;
-        }
-        
-        .success-message {
-            background-color: #d4edda;
-            color: #155724;
-            padding: 1rem;
-            border-radius: 6px;
-            margin-bottom: 1rem;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .version-info {
-            font-size: 0.9rem;
-            color: #666;
-            text-align: right;
-            margin-bottom: 1rem;
-        }
-        
-        .search-mode {
-            transition: var(--transition);
-        }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
+        .error-message, .success-message { padding: 0.8rem 1rem; border-radius: 8px; margin-top: 0.8rem; font-size: 0.9rem; }
+        .error-message { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .success-message { background-color: rgba(122, 154, 130, 0.15); color: var(--sage-deep); border: 1px solid rgba(122, 154, 130, 0.35); }
 
-        
+        .meditation-display { padding: 1rem; background-color: rgba(201, 169, 97, 0.08); border-radius: var(--radius); display: flex; flex-direction: column; }
+        .verse-display {
+            flex-grow: 1; padding: 1.6rem; margin-bottom: 1.4rem;
+            background-color: var(--card); border-radius: var(--radius);
+            box-shadow: 0 2px 8px rgba(58, 63, 56, 0.06);
+            font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; line-height: 1.75;
+            color: var(--sage-deep); display: flex; align-items: center; justify-content: center;
+            text-align: center; min-height: 190px;
+        }
+        .verse-display em { display: block; margin-top: 0.9rem; font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; color: var(--sky-deep); font-style: normal; }
+
+        .meditation-controls { display: flex; gap: 0.8rem; align-items: center; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+        .timer-display { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--sage-deep); background-color: var(--card); padding: 0.5rem 1.4rem; border-radius: 50px; box-shadow: 0 2px 8px rgba(58, 63, 56, 0.06); }
+        .control-btn { background: var(--sage-deep); color: #fdfbf6; border: none; width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition); }
+        .control-btn svg { width: 1.1rem; height: 1.1rem; }
+        .control-btn:hover { background: var(--sky-deep); transform: scale(1.08); }
+        .timer-btn { background: var(--gold); color: var(--ink); font-weight: 600; padding: 0.6rem 1.3rem; border: none; border-radius: 50px; cursor: pointer; transition: var(--transition); font-family: var(--font-body); font-size: 0.9rem; }
+        .timer-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(58, 63, 56, 0.16); }
+
         /* Footer */
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 4rem 0 1rem;
-            margin-top: 5rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-        
-        .footer-col h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.8rem;
-            color: var(--accent-color);
-        }
-        
-        .footer-col h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--accent-color);
-        }
-        
-        .footer-col ul {
-            list-style: none;
-        }
-        
-        .footer-col li {
-            margin-bottom: 1rem;
-        }
-        
-        .footer-col a {
-            color: #aaa;
-            text-decoration: none;
-            transition: var(--transition);
-            display: inline-block;
-        }
-        
-        .footer-col a:hover {
-            color: var(--accent-color);
-            transform: translateX(5px);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            transition: var(--transition);
-        }
-        
-        .social-links a:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-5px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-toggle {
-                display: block;
-            }
-            
-            nav {
-                position: fixed;
-                top: 0;
-                right: -300px;
-                width: 280px;
-                height: 100vh;
-                background-color: var(--primary-color);
-                z-index: 1000;
-                transition: right 0.3s ease;
-                padding: 2rem;
-                overflow-y: auto;
-            }
-            
-            nav.active {
-                right: 0;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 0;
-            }
-            
-            nav li {
-                width: 100%;
-            }
-            
-            nav a {
-                padding: 1rem 0;
-                width: 100%;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            
-            nav a::after {
-                display: none;
-            }
-            
-            .section-title {
-                font-size: 2.5rem;
-            }
-            
-            .meditation-hero {
-                padding: 5rem 0;
-            }
-            
-            .tool-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .scripture-selector {
-                order: 2;
-            }
-            
-            .meditation-display {
-                order: 1;
-                margin-bottom: 2rem;
-            }
-            
-            .meditation-controls {
-                flex-wrap: wrap;
-                gap: 0.5rem;
-            }
-            
-            .timer-display {
-                font-size: 1.4rem;
-                padding: 0.4rem 1rem;
-            }
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-        
+        footer { background-color: var(--sage-deep); color: #fdfbf6; padding: 4rem 0 1.5rem; margin-top: 3rem; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2.5rem; margin-bottom: 2.5rem; }
+        .footer-col h4 { font-size: 1.1rem; margin-bottom: 1.2rem; color: var(--gold); }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.93rem; color: rgba(253, 251, 246, 0.75); }
+        .footer-col li svg { width: 0.95rem; height: 0.95rem; color: var(--gold); flex-shrink: 0; }
+        .footer-col p { color: rgba(253, 251, 246, 0.75); font-size: 0.93rem; margin-bottom: 1rem; }
+        .footer-col a { color: rgba(253, 251, 246, 0.75); text-decoration: none; transition: var(--transition); display: inline-block; }
+        .footer-col a:hover { color: var(--gold); transform: translateX(4px); }
+
+        .social-links { display: flex; gap: 0.9rem; margin-top: 1.4rem; }
+        .social-links a { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; background: rgba(253, 251, 246, 0.1); border-radius: 50%; color: #fdfbf6; transition: var(--transition); }
+        .social-links a svg { width: 1.1rem; height: 1.1rem; }
+        .social-links a:hover { background: var(--gold); color: var(--sage-deep); transform: translateY(-3px); }
+
+        .copyright { text-align: center; padding-top: 1.8rem; border-top: 1px solid rgba(253, 251, 246, 0.15); font-size: 0.85rem; color: rgba(253, 251, 246, 0.55); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
         .delay-1 { animation-delay: 0.2s; }
         .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        .delay-4 { animation-delay: 0.8s; }
-    
-        /* Insignia circular del logo EMD (aplicada a todas las páginas) */
-        img[alt="Logo EMD"] {
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid rgba(201, 170, 106, 0.5);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(201, 170, 106, 0.08);
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        img[alt="Logo EMD"]:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 0 5px rgba(201, 170, 106, 0.15);
+
+        @media (max-width: 768px) {
+            .nav-toggle { display: block; }
+            nav {
+                position: fixed; top: 0; right: -300px; width: 280px; height: 100vh;
+                background-color: var(--sage-deep); z-index: 2500;
+                transition: right 0.3s ease; padding: 2rem; overflow-y: auto;
+            }
+            nav.active { right: 0; }
+            nav ul { flex-direction: column; gap: 0; }
+            nav li { width: 100%; }
+            nav a { padding: 1rem 0; width: 100%; border-bottom: 1px solid rgba(253, 251, 246, 0.1); }
+            .menu-item-has-children > a { justify-content: space-between; }
+            .menu-item-has-children > a::before { display: none; }
+            .menu-item-has-children > a::after {
+                display: flex; align-items: center; justify-content: center;
+                content: '+'; width: 22px; height: 22px; font-size: 0.9rem;
+                color: var(--gold); border: 1px solid rgba(201, 169, 97, 0.35); border-radius: 50%;
+                transition: var(--transition);
+            }
+            .menu-item-has-children.active > a::after { transform: rotate(45deg); }
+            .sub-menu {
+                position: static; width: 100%; box-shadow: none;
+                background: rgba(0, 0, 0, 0.15); border: none; border-radius: 0;
+                padding-left: 1rem; max-height: 0; overflow: hidden;
+                transition: max-height 0.3s ease-out; transform: none; opacity: 1;
+            }
+            .menu-item-has-children.active > .sub-menu { max-height: 600px; }
+            .menu-item-has-children:hover .sub-menu { display: none; transform: none; }
+            .menu-item-has-children.active .sub-menu { display: block; }
+            .sub-menu a:hover { background: transparent; padding-left: 0.5rem; border-left: none; }
+
+            .section-title { font-size: 2.1rem; }
+            .meditation-hero { padding: 4.5rem 0 3rem; }
+            .breath { width: 130px; height: 130px; }
+            .tool-content { grid-template-columns: 1fr; }
+            .meditation-display { order: 1; margin-bottom: 1.5rem; }
+            .topic-picker { order: 2; }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container header-content">
-            <div class="logo">
-                <img src="../../../images/EMD.png?v=2" alt="Logo EMD">
+            <a href="../../index.html" class="logo">
+                <img src="../../images/EMD.png?v=2" alt="Logo EMD">
                 <div class="logo-text">
                     <div>Ministerio</div>
                     <div>"La Gloria es del Señor"</div>
                 </div>
-            </div>
-            <button class="nav-toggle">
-                <i class="fas fa-bars"></i>
+            </a>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
             </button>
             <nav>
                 <ul>
-                    <li><a href="../../../index.html">Inicio</a></li>
-                    <li><a href="temas-exegeticos.html">Temas Exegéticos</a></li>
-                    <li><a href="cantarcantares.html">Cantar de los Cantares</a></li>
-                    <li><a href="hebreos7.html">Hebreos 7</a></li>
-                    <li><a href="idiomas-biblia.html">Idiomas Bíblicos</a></li>
-                    <li><a href="enlaces-recursos.html">Enlaces de Recursos</a></li>
-                    <li><a href="diccionarios-comentarios.html">Diccionarios</a></li>
-                    <li><a href="software-biblico.html">Software Bíblico</a></li>
-                    <li><a href="meditacion-palabra.html" class="active">Meditación</a></li>
-                    <li><a href="lectura-anual.html">Lectura Anual</a></li>
+                    <li><a href="../../index.html">Inicio</a></li>
+                    <li class="menu-item-has-children">
+                        <a>Figuras Bíblicas</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Figuras Bíblicas/at-a-nt.html">AT a NT</a></li>
+                            <li><a href="../Figuras Bíblicas/nombres-simbologia.html">Los nombres y su simbología</a></li>
+                            <li><a href="../Figuras Bíblicas/templo-figuras.html">Templo y sus Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/sacrificios-figuras.html">Sacrificios y su Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/tipologia-cantares.html">Tipología Cantares</a></li>
+                            <li><a href="../Figuras Bíblicas/figuras-cristo.html">Figuras de Cristo</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Falsas Doctrinas</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                            <li><a href="../Falsas Doctrinas/gnosticismos.html">Gnosticismos en la Biblia</a></li>
+                            <li><a href="../Falsas Doctrinas/filosofias-griegas.html">Filosofías Griegas</a></li>
+                            <li><a href="../Falsas Doctrinas/masoneria.html">Masonería</a></li>
+                            <li><a href="../Falsas Doctrinas/sociedades-secretas.html">Sociedades Secretas</a></li>
+                            <li><a href="../Falsas Doctrinas/sectas-anticristianas.html">Sectas Anticristianas</a></li>
+                            <li><a href="../Falsas Doctrinas/pseudoprofetas.html">Pseudoprofetas</a></li>
+                            <li><a href="../Falsas Doctrinas/reptilianos-consejo-13.html">Reptilianos y Consejo de los 13</a></li>
+                            <li><a href="../Falsas Doctrinas/lineas-sangre-illuminati.html">Líneas de Sangre Illuminati</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Estudios Exegéticos</a>
+                        <ul class="sub-menu">
+                            <li><a href="temas-exegeticos.html">Temas Exegéticos</a></li>
+                            <li><a href="cantarcantares.html">Cantar de los Cantares</a></li>
+                            <li><a href="hebreos7.html">Hebreos 7</a></li>
+                            <li><a href="mateo24.html">Mateo 24</a></li>
+                            <li><a href="idiomas-biblia.html">Hebreo, Arameo y Griego en la Biblia</a></li>
+                            <li><a href="enlaces-recursos.html">Enlaces de Recursos</a></li>
+                            <li><a href="diccionarios-comentarios.html">Diccionarios y Comentarios</a></li>
+                            <li><a href="software-biblico.html">Software Bíblicos</a></li>
+                            <li><a href="meditacion-palabra.html" class="active">Meditación en la Palabra</a></li>
+                            <li><a href="lectura-anual.html">Lectura Anual</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Tiempo del Fin</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Tiempo del Fin/introduccion.html">Introducción al tiempo del fin</a></li>
+                            <li><a href="../Tiempo del Fin/escatologia.html">Escatología</a></li>
+                            <li><a href="../Tiempo del Fin/profecias-cumplidas.html">Profecías Cumplidas</a></li>
+                            <li><a href="../Tiempo del Fin/nuevo-orden-mundial.html">Nuevo Orden Mundial</a></li>
+                            <li><a href="../Tiempo del Fin/noticias-fin.html">Noticias del Fin</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Época de Jesús</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Época de Jesús/estudio-contemporaneo.html">Estudio Contemporáneo</a></li>
+                            <li><a href="../Época de Jesús/contexto-historico.html">Contexto Histórico</a></li>
+                            <li><a href="../Época de Jesús/grupos-religiosos.html">Grupos religiosos</a></li>
+                            <li><a href="../Época de Jesús/recursos-academicos.html">Estudios de Contexto</a></li>
+                            <li><a href="../Época de Jesús/apologia-cristiana.html">Apología Cristiana</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>Estudios Bíblicos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Bíblicos/doctrina-basica.html">Doctrina Básica</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-intermedia.html">Doctrina intermedia</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-avanzada.html">Doctrina Avanzada</a></li>
+                            <li><a href="../Estudios Bíblicos/revelacion-espiritu.html">Revelación del Espíritu</a></li>
+                            <li><a href="../Estudios Bíblicos/devocionales.html">Devocionales</a></li>
+                            <li><a href="../Estudios Bíblicos/aguila-cinco-ministerios.html">El Águila y los Cinco Ministerios</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -782,17 +403,23 @@
 
     <section class="meditation-hero">
         <div class="container hero-content">
+            <div class="breath" aria-hidden="true">
+                <div class="breath-ring r1"></div>
+                <div class="breath-ring r2"></div>
+                <div class="breath-ring r3"></div>
+                <div class="breath-core"></div>
+            </div>
             <h1 class="section-title fade-in">Meditación en la Palabra</h1>
             <p class="fade-in delay-1">Descubre cómo profundizar en las Escrituras a través de la meditación bíblica, una práctica espiritual que transforma la mente y el corazón.</p>
             <a href="#que-es" class="btn fade-in delay-2">Comenzar</a>
-            <a href="#herramienta" class="btn btn-outline fade-in delay-2">Herramienta de Meditación</a>
+            <a href="#herramienta" class="btn btn-outline fade-in delay-2">Herramienta de meditación</a>
         </div>
     </section>
 
     <section class="main-content">
         <div class="container">
             <div class="content-section" id="que-es">
-                <h2>¿Qué es la Meditación Bíblica?</h2>
+                <h2>¿Qué es la meditación bíblica?</h2>
                 <div class="meditation-intro">
                     <p>La meditación bíblica es diferente a otras formas de meditación. No consiste en vaciar la mente, sino en llenarla con la Palabra de Dios. Es el arte de reflexionar profundamente sobre las Escrituras, permitiendo que penetren en nuestro corazón y transformen nuestra vida.</p>
                     <p>En el Salmo 1:2-3, leemos sobre el hombre bienaventurado: <em>"Sino que en la ley de Jehová está su delicia, y en su ley medita de día y de noche. Será como árbol plantado junto a corrientes de aguas, que da su fruto en su tiempo, y su hoja no cae; y todo lo que hace, prosperará."</em></p>
@@ -805,7 +432,7 @@
             </div>
 
             <div class="content-section" id="pasos">
-                <h2>El Proceso de Meditación Bíblica</h2>
+                <h2>El proceso de meditación bíblica</h2>
                 <p>La meditación bíblica es un proceso que involucra varios aspectos para ayudarte a sumergirte profundamente en la palabra de Dios. Aquí te presentamos un enfoque estructurado:</p>
 
                 <div class="meditation-steps">
@@ -884,45 +511,29 @@
             </div>
 
             <div class="content-section" id="herramienta">
-                <h2>Herramienta de Meditación con API Bíblica</h2>
-                <p>Usa esta herramienta interactiva para buscar versículos en tiempo real y guiar tu tiempo de meditación en la Palabra:</p>
+                <h2>Herramienta de meditación</h2>
+                <p>Busca cualquier versículo por referencia, pide uno al azar o por tema, y usa el temporizador para guiar tu tiempo de meditación en silencio:</p>
 
                 <div class="meditation-tool">
                     <div class="tool-header">
-                        <h3>Búsqueda y Meditación de Versículos</h3>
-                        <p>Búsqueda en tiempo real usando Biblia.com API (Faithlife/Logos)</p>
+                        <h3>Búsqueda de versículos</h3>
+                        <p>Texto en vivo de una Biblia Reina-Valera de dominio público (1909) — sin claves ni datos privados de por medio</p>
                     </div>
                     <div class="tool-content">
-                        <div class="scripture-selector">
+                        <div class="topic-picker">
                             <div class="selector-group">
                                 <label for="search-type">Tipo de búsqueda:</label>
                                 <select id="search-type">
                                     <option value="reference">Por referencia</option>
                                     <option value="random">Versículo aleatorio</option>
-                                    <option value="keyword">Por palabra clave</option>
+                                    <option value="keyword">Por tema</option>
                                 </select>
                             </div>
-                            
+
                             <div id="reference-search" class="search-mode">
                                 <div class="selector-group">
-                                    <label for="book-input">Libro (ej: Juan, Salmos, 1 Corintios):</label>
+                                    <label for="book-input">Libro:</label>
                                     <input type="text" id="book-input" placeholder="Juan, Salmos, Romanos...">
-                                    <small style="color: #666; font-size: 0.8rem;"><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
-  <path d="M9 18h6" />
-  <path d="M10 22h4" />
-</svg> Ejemplos: Juan, Salmos, 1 Corintios, Mateo, Génesis, Romanos</small>
                                 </div>
                                 <div class="selector-group">
                                     <label for="chapter-input">Capítulo:</label>
@@ -931,81 +542,55 @@
                                 <div class="selector-group">
                                     <label for="verse-input">Versículo (opcional):</label>
                                     <input type="text" id="verse-input" placeholder="16 o 16-18">
-                                    <small style="color: #666; font-size: 0.8rem;"><svg style="width:1em;height:1em;vertical-align:-0.15em;margin-right:0.32em;flex-shrink:0;display:inline-block;" aria-hidden="true"
-  
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
-  <path d="M9 18h6" />
-  <path d="M10 22h4" />
-</svg> Puedes usar: 16 (un versículo) o 16-18 (rango de versículos)</small>
                                 </div>
                             </div>
-                            
+
                             <div id="keyword-search" class="search-mode" style="display: none;">
                                 <div class="selector-group">
-                                    <label for="keyword-input">Palabra clave:</label>
-                                    <input type="text" id="keyword-input" placeholder="ej: amor, esperanza, fe">
+                                    <label for="keyword-select">Tema:</label>
+                                    <select id="keyword-select">
+                                        <option value="amor">Amor</option>
+                                        <option value="esperanza">Esperanza</option>
+                                        <option value="fe">Fe</option>
+                                        <option value="paz">Paz</option>
+                                        <option value="gozo">Gozo</option>
+                                        <option value="sabiduria">Sabiduría</option>
+                                        <option value="perdon">Perdón</option>
+                                        <option value="fortaleza">Fortaleza</option>
+                                        <option value="oracion">Oración</option>
+                                        <option value="salvacion">Salvación</option>
+                                    </select>
                                 </div>
                             </div>
-                            
-                            <div class="selector-group">
-                                <label for="version-select">Versión:</label>
-                                <select id="version-select">
-                                    <option value="LEB">Lexham English Bible</option>
-                                    <option value="KJV">King James Version</option>
-                                </select>
-                            </div>
-                            
-                            <div class="selector-group">
-                                <button id="search-verse" class="btn">
-                                    <span class="btn-text">Buscar Versículo</span>
-                                    <span class="loading" style="display: none;"></span>
-                                </button>
-                                <button id="test-api" class="btn btn-outline" style="margin-left: 0.5rem;">
-                                    Prueba: Juan 3:16
-                                </button>
-                            </div>
-                            
+
+                            <button id="search-verse" class="btn" style="width: 100%; margin: 0 0 0.8rem; text-align: center;">
+                                <span class="btn-text">Buscar versículo</span>
+                                <span class="loading" style="display: none;"></span>
+                            </button>
                             <div id="message-container"></div>
                         </div>
-                        
+
                         <div class="meditation-display">
                             <div class="verse-display" id="verse-content">
-                                <div style="text-align: center; color: #666;">
-                                    Selecciona un versículo para comenzar tu meditación
-                                </div>
+                                <div>Busca un versículo, pide uno al azar o elige un tema para comenzar tu meditación</div>
                             </div>
-                            <div class="version-info" id="version-info"></div>
                             <div class="meditation-controls">
                                 <button class="control-btn" id="prev-verse" title="Versículo anterior">
-                                    <i class="fas fa-step-backward"></i>
+                                    <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" x2="5" y1="19" y2="5" stroke="currentColor" stroke-width="2"/></svg>
                                 </button>
                                 <button class="control-btn" id="play-pause" title="Iniciar/Pausar meditación">
-                                    <i class="fas fa-play"></i>
+                                    <svg id="play-pause-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>
                                 </button>
                                 <button class="control-btn" id="next-verse" title="Siguiente versículo">
-                                    <i class="fas fa-step-forward"></i>
+                                    <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" x2="19" y1="5" y2="19" stroke="currentColor" stroke-width="2"/></svg>
                                 </button>
                                 <div class="timer-display" id="timer">05:00</div>
-                                <button class="btn" id="set-timer">Ajustar Tiempo</button>
+                                <button class="timer-btn" id="set-timer">Ajustar tiempo</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
-
         </div>
     </section>
 
@@ -1013,667 +598,403 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col">
-                    <h4>Ministerio "La Gloria es del Señor"</h4>
-                    <p>Ministerio dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
+                    <h4>Ministerio EMD</h4>
+                    <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
                     <div class="social-links">
-                         <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                         <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.5 9.87v-6.98H7.9V12h2.6V9.8c0-2.6 1.55-4 3.9-4 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v6.98A10 10 0 0 0 22 12Z"/></svg></a>
+                        <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.8 8.001a2.75 2.75 0 0 0-1.94-1.94C18.1 5.6 12 5.6 12 5.6s-6.1 0-7.86.46A2.75 2.75 0 0 0 2.2 8a28.6 28.6 0 0 0 0 8 2.75 2.75 0 0 0 1.94 1.94C5.9 18.4 12 18.4 12 18.4s6.1 0 7.86-.46A2.75 2.75 0 0 0 21.8 16a28.6 28.6 0 0 0 0-8ZM10 15.2V8.8l6 3.2Z"/></svg></a>
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4>Enlaces Rápidos</h4>
+                    <h4>Enlaces rápidos</h4>
                     <ul>
-                        <li><a href="../../../index.html">Inicio</a></li>
-                        <li><a href="temas-exegeticos.html">Temas Exegéticos</a></li>
-                        <li><a href="idiomas-biblia.html">Idiomas Bíblicos</a></li>
-                        <li><a href="enlaces-recursos.html">Enlaces de Recursos</a></li>
-                        <li><a href="diccionarios-comentarios.html">Diccionarios</a></li>
-                        <li><a href="software-biblico.html">Software Bíblico</a></li>
+                        <li><a href="../Figuras Bíblicas/at-a-nt.html">Figuras Bíblicas</a></li>
+                        <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                        <li><a href="temas-exegeticos.html">Estudios Exegéticos</a></li>
+                        <li><a href="../Tiempo del Fin/introduccion.html">Tiempo del Fin</a></li>
+                        <li><a href="../Época de Jesús/estudio-contemporaneo.html">Época de Jesús</a></li>
+                        <li><a href="../Estudios Bíblicos/doctrina-basica.html">Estudios Bíblicos</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Contacto</h4>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Dirección del Ministerio</li>
-                        <li><i class="fas fa-phone"></i> +1 787-345-6940</li>
-                        <li><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg> Dirección del Ministerio</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg> +1 787-345-6940</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> ministeriolagloriaesdelsenor7@gmail.com</li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                     <h4>Nota Aclaratoria</h4>
+                    <h4>Nota aclaratoria</h4>
                     <ul>
                         <li>Todos los recursos de esta página son gratuitos y para la edificación de los creyentes</li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+                <p>&copy; 2026 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Configuración de la aplicación
-        const CONFIG = {
-            API_BASE_URL: 'https://api.biblia.com/v1',
-            API_KEY: 'c2e999ef756c3c145bbe5d7399773fb9',
-            DEFAULT_BIBLE: 'LEB',
-            TIMER_DEFAULT: 300 // 5 minutos
+        // ---------- Biblia Reina-Valera 1909 (dominio público), servida como JSON estático ----------
+        // Fuente: https://github.com/wldeh/bible-api — sin API key, sin backend propio.
+        const CDN_BASE = 'https://cdn.jsdelivr.net/gh/wldeh/bible-api/bibles/es-rv09/books';
+
+        // Alias de nombres de libros en español -> slug real usado por la fuente (algunos requieren "san" y acentos exactos)
+        const BOOK_ALIASES = {
+            '1corintios': '1corintios', '1cor': '1corintios', '1co': '1corintios',
+            '2corintios': '2corintios', '2cor': '2corintios', '2co': '2corintios',
+            '1cronicas': '1crónicas', '1cr': '1crónicas', '1cro': '1crónicas',
+            '2cronicas': '2crónicas', '2cr': '2crónicas', '2cro': '2crónicas',
+            '1juan': '1juan', '1jn': '1juan',
+            '2juan': '2juan', '2jn': '2juan',
+            '3juan': '3juan', '3jn': '3juan',
+            '1pedro': '1pedro', '1pe': '1pedro', '1p': '1pedro',
+            '2pedro': '2pedro', '2pe': '2pedro', '2p': '2pedro',
+            '1reyes': '1reyes', '1re': '1reyes', '1r': '1reyes',
+            '2reyes': '2reyes', '2re': '2reyes', '2r': '2reyes',
+            '1samuel': '1samuel', '1sa': '1samuel', '1s': '1samuel',
+            '2samuel': '2samuel', '2sa': '2samuel', '2s': '2samuel',
+            '1tesalonicenses': '1tesalonicenses', '1tes': '1tesalonicenses', '1ts': '1tesalonicenses',
+            '2tesalonicenses': '2tesalonicenses', '2tes': '2tesalonicenses', '2ts': '2tesalonicenses',
+            '1timoteo': '1timoteo', '1tim': '1timoteo', '1ti': '1timoteo',
+            '2timoteo': '2timoteo', '2tim': '2timoteo', '2ti': '2timoteo',
+            'abdias': 'abdías',
+            'amos': 'amós',
+            'apocalipsis': 'apocalipsis', 'ap': 'apocalipsis',
+            'cantares': 'cantares', 'cantardeloscantares': 'cantares',
+            'colosenses': 'colosenses', 'col': 'colosenses',
+            'daniel': 'daniel', 'dn': 'daniel',
+            'deuteronomio': 'deuteronomio', 'dt': 'deuteronomio',
+            'eclesiastes': 'eclesiastés', 'ec': 'eclesiastés',
+            'efesios': 'efesios', 'ef': 'efesios',
+            'esdras': 'esdras', 'esd': 'esdras',
+            'ester': 'ester', 'est': 'ester',
+            'ezequiel': 'ezequiel', 'ez': 'ezequiel',
+            'filemon': 'filemón', 'flm': 'filemón',
+            'filipenses': 'filipenses', 'fil': 'filipenses',
+            'galatas': 'gálatas', 'ga': 'gálatas',
+            'genesis': 'génesis', 'gn': 'génesis', 'gen': 'génesis',
+            'habacuc': 'habacuc', 'hab': 'habacuc',
+            'hageo': 'hageo', 'hag': 'hageo',
+            'hebreos': 'hebreos', 'heb': 'hebreos', 'he': 'hebreos',
+            'hechos': 'hechos', 'hch': 'hechos',
+            'isaias': 'isaías', 'is': 'isaías',
+            'jeremias': 'jeremías', 'jer': 'jeremías',
+            'job': 'job',
+            'joel': 'joel', 'jl': 'joel',
+            'jonas': 'jonás', 'jon': 'jonás',
+            'josue': 'josué', 'jos': 'josué',
+            'judas': 'judas', 'jud': 'judas',
+            'jueces': 'jueces', 'jue': 'jueces',
+            'lamentaciones': 'lamentaciones', 'lam': 'lamentaciones',
+            'levitico': 'levítico', 'lv': 'levítico', 'lev': 'levítico',
+            'malaquias': 'malaquías', 'mal': 'malaquías',
+            'miqueas': 'miqueas', 'miq': 'miqueas',
+            'nahum': 'nahúm', 'nah': 'nahúm',
+            'nehemias': 'nehemías', 'neh': 'nehemías',
+            'numeros': 'números', 'nm': 'números', 'num': 'números',
+            'oseas': 'oseas', 'os': 'oseas',
+            'proverbios': 'proverbios', 'pr': 'proverbios', 'prov': 'proverbios',
+            'romanos': 'romanos', 'ro': 'romanos', 'rom': 'romanos',
+            'rut': 'rut',
+            'salmos': 'salmos', 'salmo': 'salmos', 'sal': 'salmos', 'ps': 'salmos',
+            'juan': 'sanjuan', 'jn': 'sanjuan',
+            'lucas': 'sanlucas', 'lc': 'sanlucas',
+            'marcos': 'sanmarcos', 'mr': 'sanmarcos', 'mc': 'sanmarcos',
+            'mateo': 'sanmateo', 'mt': 'sanmateo',
+            'santiago': 'santiago', 'stg': 'santiago',
+            'sofonias': 'sofonías', 'sof': 'sofonías',
+            'tito': 'tito', 'tit': 'tito',
+            'zacarias': 'zacarías', 'zac': 'zacarías',
+            'exodo': 'éxodo', 'ex': 'éxodo', 'exo': 'éxodo'
         };
 
-        // Mapeo de versiones (solo las que funcionan)
-        const BIBLE_MAPPING = {
-            'LEB': 'LEB',             // Lexham English Bible
-            'KJV': 'KJV'              // King James Version
+        // Nombre de despliegue (bonito, con mayúscula) para los slugs usados en las búsquedas por tema/aleatorias
+        const DISPLAY_NAMES = {
+            'sanjuan': 'Juan', 'sanmateo': 'Mateo', 'sanmarcos': 'Marcos', 'sanlucas': 'Lucas',
+            '1corintios': '1 Corintios', '2corintios': '2 Corintios',
+            '1tesalonicenses': '1 Tesalonicenses', '1timoteo': '1 Timoteo',
+            'salmos': 'Salmos', 'romanos': 'Romanos', 'filipenses': 'Filipenses',
+            'isaías': 'Isaías', 'jeremías': 'Jeremías', 'santiago': 'Santiago',
+            'efesios': 'Efesios', 'hebreos': 'Hebreos', 'apocalipsis': 'Apocalipsis',
+            'proverbios': 'Proverbios', 'gálatas': 'Gálatas', 'hechos': 'Hechos'
         };
 
-        // Estado de la aplicación
-        let appState = {
-            currentVerse: null,
-            timerSeconds: CONFIG.TIMER_DEFAULT,
-            timerInterval: null,
-            isPaused: true,
-            searchHistory: []
+        function displayBookName(slug) {
+            return DISPLAY_NAMES[slug] || slug.charAt(0).toUpperCase() + slug.slice(1);
+        }
+
+        function normalizeBook(input) {
+            return input.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[\s.]/g, '');
+        }
+
+        function resolveBookSlug(input) {
+            const key = normalizeBook(input);
+            return BOOK_ALIASES[key] || null;
+        }
+
+        // Notas de referencia cruzada pegadas al texto sin espacio (p.ej. "3.16 Ro. 5.8.amó") — se eliminan
+        // localizando el primer punto que queda directamente pegado a la siguiente palabra, sin espacio.
+        function cleanVerseText(raw) {
+            return raw
+                .replace(/\d+\.\d+\s[\s\S]*?\.(?=[a-záéíóúñA-ZÁÉÍÓÚÑ])/g, '')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        async function fetchVerseText(bookSlug, chapter, verse) {
+            const url = `${CDN_BASE}/${encodeURIComponent(bookSlug)}/chapters/${chapter}/verses/${verse}.json`;
+            const res = await fetch(url);
+            if (!res.ok) throw new Error('No se encontró ese versículo. Revisa el libro, capítulo y versículo.');
+            const data = await res.json();
+            if (!data.text) throw new Error('No se encontró ese versículo. Revisa el libro, capítulo y versículo.');
+            return cleanVerseText(data.text);
+        }
+
+        async function fetchChapterText(bookSlug, chapter) {
+            const url = `${CDN_BASE}/${encodeURIComponent(bookSlug)}/chapters/${chapter}.json`;
+            const res = await fetch(url);
+            if (!res.ok) throw new Error('No se encontró ese capítulo. Revisa el libro y el número de capítulo.');
+            const data = await res.json();
+            if (!data.data || !data.data.length) throw new Error('No se encontró ese capítulo. Revisa el libro y el número de capítulo.');
+            return data.data.map(v => cleanVerseText(v.text)).join(' ');
+        }
+
+        // Referencia -> {book, chapter, verseStart, verseEnd} para las búsquedas por tema y al azar
+        const KEYWORD_REFS = {
+            amor: ['1juan 4:8', '1corintios 13:4', 'sanjuan 3:16', 'romanos 5:8'],
+            esperanza: ['romanos 15:13', 'jeremías 29:11', 'salmos 42:5', 'hebreos 6:19'],
+            fe: ['hebreos 11:1', 'romanos 10:17', 'efesios 2:8', 'habacuc 2:4'],
+            paz: ['sanjuan 14:27', 'filipenses 4:7', 'isaías 26:3', 'romanos 14:17'],
+            gozo: ['nehemías 8:10', 'salmos 16:11', 'sanjuan 15:11', 'gálatas 5:22'],
+            sabiduria: ['proverbios 9:10', 'santiago 1:5', 'proverbios 3:5', '1corintios 1:30'],
+            perdon: ['efesios 4:32', 'colosenses 3:13', '1juan 1:9', 'sanmateo 6:14'],
+            fortaleza: ['isaías 40:31', 'filipenses 4:13', '2corintios 12:9', 'salmos 46:1'],
+            oracion: ['1tesalonicenses 5:17', 'filipenses 4:6', 'sanmateo 6:9', 'sanjuan 14:13'],
+            salvacion: ['romanos 10:9', 'efesios 2:8', 'sanjuan 3:16', 'hechos 4:12']
         };
 
-        // Elementos DOM
-        const elements = {
+        const RANDOM_REFS = [
+            'sanjuan 3:16', 'salmos 23:1', 'romanos 8:28', 'filipenses 4:13',
+            'proverbios 3:5', 'isaías 40:31', '1corintios 13:4', 'sanmateo 6:33',
+            'jeremías 29:11', 'efesios 2:8', 'salmos 46:1', 'sanjuan 14:6',
+            'romanos 12:2', 'gálatas 2:20', 'hebreos 11:1', 'santiago 1:5',
+            'apocalipsis 21:4', 'salmos 119:105', 'sanmateo 11:28', 'sanjuan 1:1'
+        ];
+
+        function parseRef(ref) {
+            const [book, chapterVerse] = ref.split(' ');
+            const [chapter, verse] = chapterVerse.split(':');
+            return { book, chapter: Number(chapter), verse: Number(verse) };
+        }
+
+        const state = { history: [], index: -1, timerSeconds: 300, timerInterval: null, isPaused: true };
+
+        const el = {
+            navToggle: document.querySelector('.nav-toggle'),
+            nav: document.querySelector('nav'),
             searchType: document.getElementById('search-type'),
+            referenceSearch: document.getElementById('reference-search'),
+            keywordSearch: document.getElementById('keyword-search'),
             bookInput: document.getElementById('book-input'),
             chapterInput: document.getElementById('chapter-input'),
             verseInput: document.getElementById('verse-input'),
-            keywordInput: document.getElementById('keyword-input'),
-            versionSelect: document.getElementById('version-select'),
+            keywordSelect: document.getElementById('keyword-select'),
             searchButton: document.getElementById('search-verse'),
-            testButton: document.getElementById('test-api'),
-            verseContent: document.getElementById('verse-content'),
-            versionInfo: document.getElementById('version-info'),
             messageContainer: document.getElementById('message-container'),
-            referenceSearch: document.getElementById('reference-search'),
-            keywordSearch: document.getElementById('keyword-search'),
-            playPause: document.getElementById('play-pause'),
-            timerDisplay: document.getElementById('timer'),
-            setTimerButton: document.getElementById('set-timer'),
+            verseContent: document.getElementById('verse-content'),
             prevVerse: document.getElementById('prev-verse'),
             nextVerse: document.getElementById('next-verse'),
-            // Navegación
-            navToggle: document.querySelector('.nav-toggle'),
-            nav: document.querySelector('nav')
+            playPause: document.getElementById('play-pause'),
+            playPauseIcon: document.getElementById('play-pause-icon'),
+            timerDisplay: document.getElementById('timer'),
+            setTimerButton: document.getElementById('set-timer')
         };
 
-        // Utilidades
-        const utils = {
-            formatTime(seconds) {
-                const mins = Math.floor(seconds / 60);
-                const secs = seconds % 60;
-                return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-            },
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
 
-            showMessage(message, type = 'info') {
-                if (!message) {
-                    elements.messageContainer.innerHTML = '';
-                    return;
-                }
-                elements.messageContainer.innerHTML = `
-                    <div class="${type === 'error' ? 'error-message' : 'success-message'}">
-                        ${message}
-                    </div>
-                `;
-                setTimeout(() => {
-                    elements.messageContainer.innerHTML = '';
-                }, 5000);
-            },
+        function showMessage(message, type) {
+            if (!message) { el.messageContainer.innerHTML = ''; return; }
+            el.messageContainer.innerHTML = `<div class="${type === 'error' ? 'error-message' : 'success-message'}">${message}</div>`;
+            setTimeout(() => { el.messageContainer.innerHTML = ''; }, 5000);
+        }
 
-            setLoading(isLoading) {
-                const btnText = elements.searchButton.querySelector('.btn-text');
-                const loading = elements.searchButton.querySelector('.loading');
-                
-                if (isLoading) {
-                    btnText.style.display = 'none';
-                    loading.style.display = 'inline-block';
-                    elements.searchButton.disabled = true;
+        function setLoading(isLoading) {
+            const btnText = el.searchButton.querySelector('.btn-text');
+            const loading = el.searchButton.querySelector('.loading');
+            btnText.style.display = isLoading ? 'none' : 'inline';
+            loading.style.display = isLoading ? 'inline-block' : 'none';
+            el.searchButton.disabled = isLoading;
+        }
+
+        function displayVerse(text, ref, pushHistory = true) {
+            el.verseContent.innerHTML = `<div>"${text}"<em>${ref}</em></div>`;
+            if (pushHistory) {
+                state.history = state.history.slice(0, state.index + 1);
+                state.history.push({ text, ref });
+                state.index = state.history.length - 1;
+            }
+        }
+
+        async function loadReference(bookSlug, chapter, verseStart, verseEnd, displayRef) {
+            let text;
+            if (!verseStart) {
+                text = await fetchChapterText(bookSlug, chapter);
+            } else if (verseEnd && verseEnd !== verseStart) {
+                const verses = [];
+                for (let v = verseStart; v <= verseEnd; v++) verses.push(v);
+                const parts = await Promise.all(verses.map(v => fetchVerseText(bookSlug, chapter, v)));
+                text = parts.join(' ');
+            } else {
+                text = await fetchVerseText(bookSlug, chapter, verseStart);
+            }
+            displayVerse(text, displayRef);
+            return text;
+        }
+
+        async function loadRandomVerse() {
+            const ref = RANDOM_REFS[Math.floor(Math.random() * RANDOM_REFS.length)];
+            const { book, chapter, verse } = parseRef(ref);
+            const text = await fetchVerseText(book, chapter, verse);
+            displayVerse(text, `${displayBookName(book)} ${chapter}:${verse}`);
+        }
+
+        async function loadKeywordVerse(topic) {
+            const refs = KEYWORD_REFS[topic];
+            const ref = refs[Math.floor(Math.random() * refs.length)];
+            const { book, chapter, verse } = parseRef(ref);
+            const text = await fetchVerseText(book, chapter, verse);
+            displayVerse(text, `${displayBookName(book)} ${chapter}:${verse}`);
+        }
+
+        async function performSearch() {
+            const searchType = el.searchType.value;
+            setLoading(true);
+            showMessage('');
+            try {
+                if (searchType === 'random') {
+                    await loadRandomVerse();
+                } else if (searchType === 'keyword') {
+                    await loadKeywordVerse(el.keywordSelect.value);
                 } else {
-                    btnText.style.display = 'inline';
-                    loading.style.display = 'none';
-                    elements.searchButton.disabled = false;
+                    const bookRaw = el.bookInput.value.trim();
+                    const chapter = el.chapterInput.value.trim();
+                    const verseRaw = el.verseInput.value.trim();
+
+                    if (!bookRaw) throw new Error('Por favor ingresa el nombre del libro');
+                    if (!chapter) throw new Error('Por favor ingresa el número del capítulo');
+
+                    const bookSlug = resolveBookSlug(bookRaw);
+                    if (!bookSlug) throw new Error(`No se reconoce el libro "${bookRaw}". Prueba con el nombre completo en español, ej: Juan, Génesis, 1 Corintios.`);
+
+                    let verseStart = null, verseEnd = null;
+                    if (verseRaw) {
+                        const rangeMatch = verseRaw.match(/^(\d+)(?:-(\d+))?$/);
+                        if (!rangeMatch) throw new Error('El versículo debe ser un número (16) o un rango (16-18)');
+                        verseStart = Number(rangeMatch[1]);
+                        verseEnd = rangeMatch[2] ? Number(rangeMatch[2]) : verseStart;
+                    }
+
+                    const displayRef = verseStart
+                        ? `${bookRaw.charAt(0).toUpperCase() + bookRaw.slice(1)} ${chapter}:${verseRaw}`
+                        : `${bookRaw.charAt(0).toUpperCase() + bookRaw.slice(1)} ${chapter}`;
+
+                    await loadReference(bookSlug, Number(chapter), verseStart, verseEnd, displayRef);
                 }
+                showMessage('¡Versículo cargado correctamente!', 'success');
+            } catch (error) {
+                showMessage(error.message, 'error');
+            } finally {
+                setLoading(false);
             }
-        };
+        }
 
-        // API de la Biblia (Biblia.com - Faithlife/Logos)
-        const bibleAPI = {
-            async searchVerse(reference, bibleVersion = CONFIG.DEFAULT_BIBLE) {
-                try {
-                    const mappedBible = BIBLE_MAPPING[bibleVersion] || bibleVersion;
-                    
-                    // Convertir referencia al formato de Biblia.com (ej: "Juan 3:16" -> "John3.16")
-                    const formattedReference = this.formatReference(reference);
-                    const url = `${CONFIG.API_BASE_URL}/bible/content/${mappedBible}.json?passage=${formattedReference}&key=${CONFIG.API_KEY}`;
-                    
-                    console.log('Buscando:', url); // Para debug
-                    
-                    const response = await fetch(url);
-                    
-                    if (!response.ok) {
-                        throw new Error(`Error en la búsqueda: ${response.status} - ${response.statusText}`);
-                    }
-                    
-                    const data = await response.json();
-                    
-                    // Verificar si hay error en la respuesta
-                    if (data.error || !data.text) {
-                        throw new Error(data.error || 'No se encontró el versículo');
-                    }
-                    
-                    return {
-                        success: true,
-                        data: {
-                            reference: reference,
-                            text: data.text,
-                            translation_name: this.getBibleName(bibleVersion),
-                            bible_version: mappedBible
-                        }
-                    };
-                } catch (error) {
-                    console.error('Error en API:', error); // Para debug
-                    return {
-                        success: false,
-                        error: error.message
-                    };
-                }
-            },
-
-            formatReference(reference) {
-                // Convertir referencias del español al inglés y formato de Biblia.com
-                const bookTranslations = {
-                    // Antiguo Testamento
-                    'génesis': 'Genesis',
-                    'genesis': 'Genesis',
-                    'éxodo': 'Exodus',
-                    'exodo': 'Exodus',
-                    'levítico': 'Leviticus',
-                    'levitico': 'Leviticus',
-                    'números': 'Numbers',
-                    'numeros': 'Numbers',
-                    'deuteronomio': 'Deuteronomy',
-                    'josué': 'Joshua',
-                    'josue': 'Joshua',
-                    'jueces': 'Judges',
-                    'rut': 'Ruth',
-                    '1 samuel': '1Samuel',
-                    '2 samuel': '2Samuel',
-                    '1 reyes': '1Kings',
-                    '2 reyes': '2Kings',
-                    '1 crónicas': '1Chronicles',
-                    '2 crónicas': '2Chronicles',
-                    '1 cronicas': '1Chronicles',
-                    '2 cronicas': '2Chronicles',
-                    'esdras': 'Ezra',
-                    'nehemías': 'Nehemiah',
-                    'nehemias': 'Nehemiah',
-                    'ester': 'Esther',
-                    'job': 'Job',
-                    'salmos': 'Psalms',
-                    'salmo': 'Psalms',
-                    'proverbios': 'Proverbs',
-                    'eclesiastés': 'Ecclesiastes',
-                    'eclesiástes': 'Ecclesiastes',
-                    'cantares': 'SongofSongs',
-                    'isaías': 'Isaiah',
-                    'isaias': 'Isaiah',
-                    'jeremías': 'Jeremiah',
-                    'jeremias': 'Jeremiah',
-                    'lamentaciones': 'Lamentations',
-                    'ezequiel': 'Ezekiel',
-                    'daniel': 'Daniel',
-                    'oseas': 'Hosea',
-                    'joel': 'Joel',
-                    'amós': 'Amos',
-                    'amos': 'Amos',
-                    'abdías': 'Obadiah',
-                    'abdias': 'Obadiah',
-                    'jonás': 'Jonah',
-                    'jonas': 'Jonah',
-                    'miqueas': 'Micah',
-                    'nahúm': 'Nahum',
-                    'nahum': 'Nahum',
-                    'habacuc': 'Habakkuk',
-                    'sofonías': 'Zephaniah',
-                    'sofonias': 'Zephaniah',
-                    'hageo': 'Haggai',
-                    'zacarías': 'Zechariah',
-                    'zacarias': 'Zechariah',
-                    'malaquías': 'Malachi',
-                    'malaquias': 'Malachi',
-                    
-                    // Nuevo Testamento
-                    'mateo': 'Matthew',
-                    'marcos': 'Mark',
-                    'lucas': 'Luke',
-                    'juan': 'John',
-                    'hechos': 'Acts',
-                    'romanos': 'Romans',
-                    '1 corintios': '1Corinthians',
-                    '2 corintios': '2Corinthians',
-                    'gálatas': 'Galatians',
-                    'galatas': 'Galatians',
-                    'efesios': 'Ephesians',
-                    'filipenses': 'Philippians',
-                    'colosenses': 'Colossians',
-                    '1 tesalonicenses': '1Thessalonians',
-                    '2 tesalonicenses': '2Thessalonians',
-                    '1 timoteo': '1Timothy',
-                    '2 timoteo': '2Timothy',
-                    'tito': 'Titus',
-                    'filemón': 'Philemon',
-                    'filemon': 'Philemon',
-                    'hebreos': 'Hebrews',
-                    'santiago': 'James',
-                    '1 pedro': '1Peter',
-                    '2 pedro': '2Peter',
-                    '1 juan': '1John',
-                    '2 juan': '2John',
-                    '3 juan': '3John',
-                    'judas': 'Jude',
-                    'apocalipsis': 'Revelation'
-                };
-
-                // Extraer libro, capítulo y versículo
-                const parts = reference.trim().toLowerCase().match(/^(.*?)\s+(\d+)(?::(\d+(?:-\d+)?))?$/);
-                
-                if (!parts) {
-                    return reference; // Devolver original si no se puede parsear
-                }
-
-                const [, bookName, chapter, verse] = parts;
-                const englishBook = bookTranslations[bookName.trim()] || bookName;
-                
-                // Formato de Biblia.com: "John3.16" o "John3" para capítulo completo
-                let formatted = `${englishBook}${chapter}`;
-                if (verse) {
-                    formatted += `.${verse}`;
-                }
-                
-                return formatted;
-            },
-
-            getBibleName(version) {
-                const names = {
-                    'LEB': 'Lexham English Bible',
-                    'KJV': 'King James Version'
-                };
-                return names[version] || version;
-            },
-
-            async getRandomVerse() {
-                const randomVerses = [
-                    'Juan 3:16', 'Salmos 23:1', 'Romanos 8:28', 'Filipenses 4:13',
-                    'Proverbios 3:5-6', 'Isaías 40:31', '1 Corintios 13:4',
-                    'Mateo 6:33', 'Jeremías 29:11', 'Efesios 2:8-9',
-                    'Salmos 46:1', 'Juan 14:6', 'Romanos 12:2', 'Gálatas 2:20',
-                    'Hebreos 11:1', 'Santiago 1:5', 'Apocalipsis 21:4',
-                    'Salmos 119:105', 'Mateo 11:28', 'Juan 1:1'
-                ];
-                
-                const randomRef = randomVerses[Math.floor(Math.random() * randomVerses.length)];
-                return await this.searchVerse(randomRef, elements.versionSelect.value);
-            }
-        };
-
-        // Manejador de búsqueda
-        const searchHandler = {
-            async performSearch() {
-                const searchType = elements.searchType.value;
-                let result;
-
-                utils.setLoading(true);
-                utils.showMessage('');
-
-                try {
-                    switch (searchType) {
-                        case 'reference':
-                            result = await this.searchByReference();
-                            break;
-                        case 'random':
-                            result = await bibleAPI.getRandomVerse();
-                            break;
-                        case 'keyword':
-                            result = await this.searchByKeyword();
-                            break;
-                        default:
-                            throw new Error('Tipo de búsqueda no válido');
-                    }
-
-                    if (result.success) {
-                        this.displayVerse(result.data);
-                        appState.currentVerse = result.data;
-                        appState.searchHistory.push(result.data);
-                        utils.showMessage('¡Versículo cargado correctamente!', 'success');
-                    } else {
-                        utils.showMessage(result.error, 'error');
-                    }
-                } catch (error) {
-                    utils.showMessage('Error inesperado: ' + error.message, 'error');
-                } finally {
-                    utils.setLoading(false);
-                }
-            },
-
-            async searchByReference() {
-                const book = elements.bookInput.value.trim();
-                const chapter = elements.chapterInput.value.trim();
-                const verse = elements.verseInput.value.trim();
-                
-                if (!book) {
-                    throw new Error('Por favor ingresa el nombre del libro');
-                }
-                
-                if (!chapter) {
-                    throw new Error('Por favor ingresa el número del capítulo');
-                }
-                
-                let reference = `${book} ${chapter}`;
-                if (verse) {
-                    reference += `:${verse}`;
-                }
-                
-                // Sugerencias para nombres de libros comunes
-                const bookSuggestions = {
-                    '1co': '1 Corintios',
-                    '2co': '2 Corintios',
-                    '1ti': '1 Timoteo',
-                    '2ti': '2 Timoteo',
-                    '1pe': '1 Pedro',
-                    '2pe': '2 Pedro',
-                    '1jn': '1 Juan',
-                    '2jn': '2 Juan',
-                    '3jn': '3 Juan'
-                };
-                
-                // Normalizar el nombre del libro
-                const normalizedBook = book.toLowerCase();
-                if (bookSuggestions[normalizedBook]) {
-                    reference = `${bookSuggestions[normalizedBook]} ${chapter}`;
-                    if (verse) {
-                        reference += `:${verse}`;
-                    }
-                }
-                
-                console.log('Buscando referencia:', reference);
-                return await bibleAPI.searchVerse(reference, elements.versionSelect.value);
-            },
-
-            async searchByKeyword() {
-                const keyword = elements.keywordInput.value.trim().toLowerCase();
-                
-                if (!keyword) {
-                    throw new Error('Por favor ingresa una palabra clave');
-                }
-                
-                const keywordVerses = {
-                    'amor': ['1 Juan 4:8', '1 Corintios 13:4-7', 'Juan 3:16', 'Romanos 5:8'],
-                    'esperanza': ['Romanos 15:13', 'Jeremías 29:11', 'Salmos 42:5', 'Hebreos 6:19'],
-                    'fe': ['Hebreos 11:1', 'Romanos 10:17', 'Efesios 2:8', 'Habacuc 2:4'],
-                    'paz': ['Juan 14:27', 'Filipenses 4:7', 'Isaías 26:3', 'Romanos 14:17'],
-                    'gozo': ['Nehemías 8:10', 'Salmos 16:11', 'Juan 15:11', 'Gálatas 5:22'],
-                    'sabiduría': ['Proverbios 9:10', 'Santiago 1:5', 'Proverbios 3:5-6', '1 Corintios 1:30'],
-                    'perdón': ['Efesios 4:32', 'Colosenses 3:13', '1 Juan 1:9', 'Mateo 6:14'],
-                    'fortaleza': ['Isaías 40:31', 'Filipenses 4:13', '2 Corintios 12:9', 'Salmos 46:1'],
-                    'oración': ['1 Tesalonicenses 5:17', 'Filipenses 4:6', 'Mateo 6:9', 'Juan 14:13'],
-                    'salvación': ['Romanos 10:9', 'Efesios 2:8-9', 'Juan 3:16', 'Hechos 4:12']
-                };
-                
-                const verses = keywordVerses[keyword];
-                if (!verses) {
-                    throw new Error(`No se encontraron versículos para la palabra "${keyword}". Intenta con: amor, esperanza, fe, paz, gozo, sabiduría, perdón, fortaleza, oración, salvación`);
-                }
-                
-                const randomVerse = verses[Math.floor(Math.random() * verses.length)];
-                return await bibleAPI.searchVerse(randomVerse, elements.versionSelect.value);
-            },
-
-            displayVerse(verseData) {
-                let displayText = '';
-                
-                // La API de Biblia.com devuelve el texto directamente
-                if (verseData.text) {
-                    displayText = verseData.text;
-                } else {
-                    displayText = 'Texto no disponible';
-                }
-                
-                // Limpiar y formatear el texto (remover HTML tags si los hay)
-                displayText = displayText
-                    .replace(/<[^>]*>/g, '') // Remover tags HTML
-                    .replace(/\n/g, '<br>')
-                    .replace(/[\u201c\u201d]/g, '"')
-                    .replace(/[\u2018\u2019]/g, "'")
-                    .trim();
-                
-                elements.verseContent.innerHTML = `
-                    <div>
-                        "${displayText}"
-                        <br><br>
-                        <em>${verseData.reference || 'Referencia no disponible'}</em>
-                    </div>
-                `;
-                
-                elements.versionInfo.textContent = verseData.translation_name || 'Versión de la Biblia';
-            }
-        };
-
-        // Manejador del temporizador
-        const timerHandler = {
-            start() {
-                if (appState.isPaused) {
-                    appState.isPaused = false;
-                    elements.playPause.innerHTML = '<i class="fas fa-pause"></i>';
-                    
-                    appState.timerInterval = setInterval(() => {
-                        appState.timerSeconds--;
-                        this.updateDisplay();
-                        
-                        if (appState.timerSeconds <= 0) {
-                            this.stop();
-                            utils.showMessage('¡Tiempo de meditación completado!', 'success');
-                        }
+        const timer = {
+            toggle() {
+                if (state.isPaused) {
+                    state.isPaused = false;
+                    el.playPauseIcon.innerHTML = '<rect width="4" height="16" x="6" y="4"/><rect width="4" height="16" x="14" y="4"/>';
+                    state.timerInterval = setInterval(() => {
+                        state.timerSeconds--;
+                        el.timerDisplay.textContent = formatTime(state.timerSeconds);
+                        if (state.timerSeconds <= 0) this.stop();
                     }, 1000);
                 } else {
                     this.pause();
                 }
             },
-
             pause() {
-                appState.isPaused = true;
-                clearInterval(appState.timerInterval);
-                elements.playPause.innerHTML = '<i class="fas fa-play"></i>';
+                state.isPaused = true;
+                clearInterval(state.timerInterval);
+                el.playPauseIcon.innerHTML = '<polygon points="6 3 20 12 6 21 6 3"/>';
             },
-
             stop() {
                 this.pause();
-                appState.timerSeconds = CONFIG.TIMER_DEFAULT;
-                this.updateDisplay();
+                state.timerSeconds = 300;
+                el.timerDisplay.textContent = formatTime(state.timerSeconds);
             },
-
-            updateDisplay() {
-                elements.timerDisplay.textContent = utils.formatTime(appState.timerSeconds);
-            },
-
             setTime() {
-                const newTime = prompt('Ingresa el tiempo en minutos:', Math.floor(appState.timerSeconds / 60));
-                
-                if (newTime !== null && !isNaN(newTime) && newTime > 0) {
-                    appState.timerSeconds = Math.floor(newTime * 60);
-                    this.updateDisplay();
+                const input = prompt('Ingresa el tiempo en minutos:', Math.floor(state.timerSeconds / 60));
+                const minutes = parseFloat(input);
+                if (input !== null && !isNaN(minutes) && minutes > 0) {
+                    state.timerSeconds = Math.floor(minutes * 60);
+                    el.timerDisplay.textContent = formatTime(state.timerSeconds);
                 }
             }
         };
 
+        el.timerDisplay.textContent = formatTime(state.timerSeconds);
 
+        if (el.navToggle && el.nav) {
+            el.navToggle.addEventListener('click', () => el.nav.classList.toggle('active'));
+        }
 
-        // Event Listeners
-        function initializeEventListeners() {
-            // Navegación móvil
-            if (elements.navToggle && elements.nav) {
-                elements.navToggle.addEventListener('click', function() {
-                    elements.nav.classList.toggle('active');
-                });
+        el.searchType.addEventListener('change', function () {
+            el.referenceSearch.style.display = this.value === 'reference' ? 'block' : 'none';
+            el.keywordSearch.style.display = this.value === 'keyword' ? 'block' : 'none';
+        });
+
+        el.searchButton.addEventListener('click', performSearch);
+
+        [el.bookInput, el.chapterInput, el.verseInput].forEach(input => {
+            input.addEventListener('keypress', e => { if (e.key === 'Enter') performSearch(); });
+        });
+
+        el.prevVerse.addEventListener('click', () => {
+            if (state.index > 0) {
+                state.index--;
+                displayVerse(state.history[state.index].text, state.history[state.index].ref, false);
             }
+        });
 
-            // Cambio de tipo de búsqueda
-            elements.searchType.addEventListener('change', function() {
-                const searchType = this.value;
-                
-                elements.referenceSearch.style.display = searchType === 'reference' ? 'block' : 'none';
-                elements.keywordSearch.style.display = searchType === 'keyword' ? 'block' : 'none';
-            });
-
-            // Búsqueda de versículos
-            elements.searchButton.addEventListener('click', () => {
-                searchHandler.performSearch();
-            });
-
-            // Botón de prueba rápida
-            if (elements.testButton) {
-                elements.testButton.addEventListener('click', async () => {
-                    utils.setLoading(true);
-                    utils.showMessage('Probando conexión con Biblia.com API...', 'info');
-                    
-                    try {
-                        const result = await bibleAPI.searchVerse('Juan 3:16', elements.versionSelect.value);
-                        if (result.success) {
-                            searchHandler.displayVerse(result.data);
-                            appState.currentVerse = result.data;
-                            utils.showMessage('¡API de Biblia.com funcionando correctamente!', 'success');
-                        } else {
-                            utils.showMessage('Error en la prueba: ' + result.error, 'error');
-                        }
-                    } catch (error) {
-                        utils.showMessage('Error de conexión: ' + error.message, 'error');
-                    } finally {
-                        utils.setLoading(false);
-                    }
-                });
+        el.nextVerse.addEventListener('click', async () => {
+            if (state.index < state.history.length - 1) {
+                state.index++;
+                displayVerse(state.history[state.index].text, state.history[state.index].ref, false);
+            } else {
+                try { await loadRandomVerse(); } catch (error) { showMessage(error.message, 'error'); }
             }
+        });
 
-            // Enter key para búsqueda
-            [elements.bookInput, elements.chapterInput, elements.verseInput, elements.keywordInput].forEach(input => {
-                if (input) {
-                    input.addEventListener('keypress', (e) => {
-                        if (e.key === 'Enter') {
-                            searchHandler.performSearch();
-                        }
-                    });
-                }
+        el.playPause.addEventListener('click', () => timer.toggle());
+        el.setTimerButton.addEventListener('click', () => timer.setTime());
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
+        });
 
-            // Controles del temporizador
-            elements.playPause.addEventListener('click', () => {
-                timerHandler.start();
-            });
-
-            elements.setTimerButton.addEventListener('click', () => {
-                timerHandler.setTime();
-            });
-
-            // Navegación de versículos
-            elements.prevVerse.addEventListener('click', () => {
-                if (appState.searchHistory.length > 1) {
-                    utils.showMessage('Funcionalidad de navegación en desarrollo', 'info');
-                }
-            });
-
-            elements.nextVerse.addEventListener('click', async () => {
-                try {
-                    const result = await bibleAPI.getRandomVerse();
-                    if (result.success) {
-                        searchHandler.displayVerse(result.data);
-                        appState.currentVerse = result.data;
-                        appState.searchHistory.push(result.data);
-                    } else {
-                        utils.showMessage('Error obteniendo versículo: ' + result.error, 'error');
-                    }
-                } catch (error) {
-                    utils.showMessage('Error de conexión: ' + error.message, 'error');
-                }
-            });
-
-
-
-            // Enlaces de navegación suave
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-        }
-
-        // Animaciones al hacer scroll
-        function initializeAnimations() {
-            function revealOnScroll() {
-                const reveals = document.querySelectorAll('.content-section, .step-card');
-                
-                reveals.forEach(item => {
-                    const windowHeight = window.innerHeight;
-                    const elementTop = item.getBoundingClientRect().top;
-                    const elementVisible = 150;
-                    
-                    if (elementTop < windowHeight - elementVisible) {
-                        item.classList.add('fade-in');
-                    }
-                });
-            }
-            
-            window.addEventListener('scroll', revealOnScroll);
-            revealOnScroll(); // Iniciar animaciones al cargar
-        }
-
-        // Inicialización
-        function initialize() {
-            console.log('Inicializando aplicación...');
-            
-            // Inicializar temporizador
-            timerHandler.updateDisplay();
-            
-            // Inicializar event listeners
-            initializeEventListeners();
-            
-            // Inicializar animaciones
-            initializeAnimations();
-            
-            // Cargar un versículo inicial después de un breve retraso
-            setTimeout(async () => {
-                try {
-                    const result = await bibleAPI.getRandomVerse();
-                    if (result.success) {
-                        searchHandler.displayVerse(result.data);
-                        appState.currentVerse = result.data;
-                        appState.searchHistory.push(result.data);
-                        console.log('Versículo inicial cargado correctamente');
-                    } else {
-                        console.log('No se pudo cargar el versículo inicial:', result.error);
-                    }
-                } catch (error) {
-                    console.log('Error cargando versículo inicial:', error);
-                }
-            }, 1000);
-            
-            console.log('Aplicación inicializada correctamente');
-        }
-
-        // Iniciar la aplicación cuando el DOM esté listo
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initialize);
-        } else {
-            initialize();
-        }
+        loadRandomVerse().catch(() => {});
     </script>
 </body>
 </html>
