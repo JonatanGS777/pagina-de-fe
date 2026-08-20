@@ -11,847 +11,281 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medidas y costumbres bíblicas | Época de Jesús</title>
+    <title>El mercado de Cafarnaúm: medidas y costumbres bíblicas | Época de Jesús | Ministerio "La Gloria es del Señor"</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
     :root {
-        --ink: #1a1410;
-        --slate: #3a5c7a;
-        --slate-light: rgba(58,92,122,0.1);
-        --parchment: #f7f4ed;
-        --dark: #0e0c0a;
-        --text: #2a2218;
-        --muted: #6b5f4e;
-        --border: rgba(58,92,122,0.25);
-        --shadow: 0 4px 24px rgba(14,12,10,0.1);
-        --shadow-lg: 0 12px 40px rgba(14,12,10,0.18);
+        --clay: #b0602f;
+        --clay-deep: #8a4522;
+        --awning: #7a8a4a;
+        --sand: #e6d4ab;
+        --sand-deep: #d4bd88;
+        --ink: #2b2015;
+        --muted: #6b5a42;
+        --coin: #9c7a3f;
+        --market-dark: #2e2317;
+        --shadow: 0 6px 22px rgba(43,32,21,0.14);
         --trans: all 0.3s ease;
-        --grad: linear-gradient(160deg, #0a0e12 0%, #141f2a 100%);
-        --accent-grad: linear-gradient(135deg, #1d3547 0%, #3a5c7a 100%);
+        --font-display: 'Yeseva One', serif;
+        --font-body: 'Lora', serif;
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-        font-family: 'Lato', sans-serif;
-        font-weight: 300;
-        line-height: 1.7;
-        color: var(--text);
-        background-color: var(--parchment);
-        overflow-x: hidden;
-        position: relative;
-    }
+    body { font-family: var(--font-body); line-height: 1.75; color: var(--ink); background: var(--sand); overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 400; }
 
-    body::before {
-        content: '';
-        position: fixed;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    body::after {
-        content: '';
-        position: fixed;
-        inset: 0;
-        background: radial-gradient(ellipse at center, transparent 40%, rgba(14,12,10,0.12) 100%);
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    .container {
-        width: 90%;
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 20px;
-        position: relative;
-        z-index: 1;
-    }
+    .container { width: 90%; max-width: 1300px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+    .ic { width: 1em; height: 1em; vertical-align: -0.15em; margin-right: 0.35em; flex-shrink: 0; }
 
     /* HEADER */
-    header {
-        background: rgba(14,12,10,0.97);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--border);
-        padding: 1.2rem 0;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
+    header { background: rgba(46,35,23,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(156,122,63,0.3); padding: 0.9rem 0; position: sticky; top: 0; z-index: 1000; }
+    .header-content { display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
+    .logo img { height: 46px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(156,122,63,0.5); box-shadow: 0 4px 12px rgba(0,0,0,0.35); }
+    .logo-text { font-family: var(--font-body); font-weight: 700; font-size: 0.85rem; line-height: 1.3; color: var(--sand); }
+    .logo-text span { display: block; font-style: italic; font-weight: 400; color: rgba(230,212,171,0.55); font-size: 0.68rem; }
 
-    .header-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+    .nav-toggle { display: none; background: none; border: 1px solid rgba(156,122,63,0.4); color: var(--sand); cursor: pointer; padding: 0.4rem 0.7rem; }
+    .nav-toggle:hover { border-color: var(--coin); }
 
-    .logo { display: flex; align-items: center; gap: 1rem; }
+    nav ul { display: flex; list-style: none; gap: 1.3rem; }
+    nav a { color: rgba(230,212,171,0.78); text-decoration: none; font-family: var(--font-body); font-weight: 400; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s ease; display: block; padding: 0.4rem 0; position: relative; }
+    nav a:hover { color: var(--coin); }
+    nav a::after { content: ''; position: absolute; width: 0; height: 1px; bottom: 0; left: 0; background: var(--coin); transition: width 0.25s ease; }
+    nav a:hover::after { width: 100%; }
 
-    .logo img { height: 50px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
+    .menu-item-has-children { position: relative; }
+    .menu-item-has-children > a { display: flex; align-items: center; gap: 0.35rem; }
+    .menu-item-has-children > a::before { content: '▾'; font-size: 0.6rem; color: rgba(230,212,171,0.35); transition: var(--trans); }
+    .menu-item-has-children > a::after { display: none !important; }
+    .menu-item-has-children:hover > a::before { color: var(--coin); transform: rotate(180deg); }
 
-    .logo-text {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 400;
-        line-height: 1.2;
-        color: var(--parchment);
-    }
+    .sub-menu { position: absolute; top: 100%; left: 0; width: 230px; background: rgba(46,35,23,0.98); border: 1px solid rgba(156,122,63,0.25); border-top: 2px solid var(--coin); padding: 0.5rem 0; display: none; z-index: 100; opacity: 0; transform: translateY(8px); transition: var(--trans); }
+    .sub-menu li { width: 100%; }
+    .sub-menu li + li { border-top: 1px solid rgba(156,122,63,0.1); }
+    .sub-menu a { padding: 0.65rem 1.1rem; font-size: 0.82rem; width: 100%; color: rgba(230,212,171,0.68); text-transform: none; border-left: 2px solid transparent; }
+    .sub-menu a::after { display: none; }
+    .sub-menu a:hover { background: rgba(156,122,63,0.08); color: var(--coin); border-left-color: var(--coin); padding-left: 1.4rem; }
+    .menu-item-has-children:hover .sub-menu { display: block; opacity: 1; transform: translateY(0); }
 
-    .logo-text div:first-child {
-        color: rgba(247,244,237,0.55);
-        font-size: 0.8rem;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-    }
-
-    .logo-text div:last-child {
-        font-size: 1.05rem;
-        font-style: italic;
-        color: var(--parchment);
-    }
-
-    .nav-indicator {
-        font-family: 'Lato', sans-serif;
-        font-size: 0.76rem;
-        font-weight: 400;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: rgba(122,173,204,0.9);
-        background: rgba(58,92,122,0.1);
-        border: 1px solid var(--border);
-        padding: 0.4rem 0.9rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
+    .nav-backdrop { position: fixed; inset: 0; background: rgba(20,15,9,0.6); backdrop-filter: blur(3px); z-index: 2400; opacity: 0; visibility: hidden; transition: opacity 0.35s ease, visibility 0.35s ease; }
+    .nav-backdrop.active { opacity: 1; visibility: visible; }
 
     /* BREADCRUMB */
-    .breadcrumb {
-        background: rgba(14,12,10,0.04);
-        border-bottom: 1px solid var(--border);
-        padding: 0.7rem 0;
-    }
-
-    .breadcrumb-nav {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.84rem;
-        color: var(--muted);
-    }
-
-    .breadcrumb-nav a { color: var(--slate); text-decoration: none; transition: var(--trans); }
+    .breadcrumb { background: var(--sand-deep); padding: 0.85rem 0; border-bottom: 1px solid rgba(156,122,63,0.25); }
+    .breadcrumb-nav { display: flex; align-items: center; gap: 0.6rem; font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+    .breadcrumb-nav a { color: var(--clay); text-decoration: none; }
     .breadcrumb-nav a:hover { color: var(--ink); }
-    .breadcrumb-nav i { color: var(--border); font-size: 0.6rem; }
+    .breadcrumb-nav svg { width: 0.7rem; height: 0.7rem; color: var(--muted); }
 
     /* HERO */
-    .hero {
-        background: var(--grad);
-        color: white;
-        padding: 5rem 0;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
+    .hero { text-align: center; padding: 5rem 2rem 3.5rem; position: relative; overflow: hidden; background: linear-gradient(160deg, #1c150c 0%, var(--market-dark) 100%); }
+    .stall-svg { display: block; width: min(360px, 82%); margin: 0 auto 1.2rem; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 0.55em; font-style: italic; font-size: 0.88rem; color: var(--coin); border: 1px solid rgba(156,122,63,0.45); border-radius: 50px; padding: 0.45rem 1.2rem; margin-bottom: 1.2rem; }
+    .hero-title { font-size: clamp(1.9rem, 4.5vw, 2.7rem); color: var(--sand); margin-bottom: 1rem; }
+    .hero-subtitle { font-size: 0.98rem; color: rgba(230,212,171,0.75); max-width: 620px; margin: 0 auto 2rem; }
 
-    .hero::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
-        pointer-events: none;
-    }
-
-    .hero::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at 30% 60%, rgba(58,92,122,0.22) 0%, transparent 55%),
-                    radial-gradient(circle at 70% 30%, rgba(29,53,71,0.3) 0%, transparent 50%);
-        pointer-events: none;
-    }
-
-    .hero-content {
-        position: relative;
-        z-index: 2;
-        max-width: 900px;
-        margin: 0 auto;
-    }
-
-    .hero-title {
-        font-family: 'Cormorant Garamond', serif;
-        font-style: italic;
-        font-weight: 300;
-        font-size: clamp(2.4rem, 6vw, 4rem);
-        margin-bottom: 1.2rem;
-        line-height: 1.2;
-        color: var(--parchment);
-        animation: fadeUp 0.9s ease-out 0.1s both;
-    }
-
-    .hero-subtitle {
-        font-weight: 300;
-        font-size: 1.05rem;
-        line-height: 1.82;
-        margin-bottom: 3rem;
-        opacity: 0.72;
-        max-width: 760px;
-        margin-left: auto;
-        margin-right: auto;
-        animation: fadeUp 0.9s ease-out 0.25s both;
-    }
-
-    .hero-stats {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-        gap: 1.5rem;
-        margin-top: 2.5rem;
-        padding-top: 2.5rem;
-        border-top: 1px solid rgba(58,92,122,0.25);
-        animation: fadeUp 0.9s ease-out 0.4s both;
-    }
-
+    .hero-stats { display: flex; justify-content: center; gap: 2.2rem; flex-wrap: wrap; }
     .hero-stat { text-align: center; }
+    .hero-stat-number { display: block; font-family: var(--font-display); font-size: 2rem; color: var(--coin); }
+    .hero-stat-label { font-size: 0.78rem; color: rgba(230,212,171,0.65); text-transform: uppercase; letter-spacing: 0.05em; }
 
-    .hero-stat-number {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 2.6rem;
-        font-weight: 300;
-        display: block;
-        margin-bottom: 0.3rem;
-        color: #7aadcc;
-    }
+    /* TABS */
+    .nav-tabs { background: var(--sand-deep); border-bottom: 1px solid rgba(156,122,63,0.25); position: sticky; top: 58px; z-index: 900; overflow-x: auto; }
+    .nav-tabs-container { display: flex; gap: 0.3rem; padding: 0.6rem 20px; white-space: nowrap; }
+    .nav-tab { display: inline-flex; align-items: center; gap: 0.4em; font-family: var(--font-body); font-weight: 700; font-size: 0.82rem; padding: 0.55rem 1rem; border-radius: 30px; border: none; background: transparent; color: var(--muted); cursor: pointer; transition: var(--trans); }
+    .nav-tab svg { width: 1rem; height: 1rem; }
+    .nav-tab:hover { background: rgba(176,96,47,0.1); color: var(--clay); }
+    .nav-tab.active { background: var(--clay); color: var(--sand); }
 
-    .hero-stat-label {
-        font-size: 0.72rem;
-        opacity: 0.55;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        font-weight: 400;
-    }
-
-    /* NAV TABS */
-    .nav-tabs {
-        background: rgba(10,14,18,0.98);
-        border-bottom: 1px solid rgba(58,92,122,0.2);
-        position: sticky;
-        top: 74px;
-        z-index: 999;
-    }
-
-    .nav-tabs-container {
-        display: flex;
-        overflow-x: auto;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-    }
-
-    .nav-tabs-container::-webkit-scrollbar { display: none; }
-
-    .nav-tab {
-        background: transparent;
-        border: none;
-        border-bottom: 2px solid transparent;
-        padding: 0.9rem 1.4rem;
-        font-family: 'Lato', sans-serif;
-        font-size: 0.72rem;
-        font-weight: 400;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: var(--trans);
-        white-space: nowrap;
-        color: rgba(247,244,237,0.45);
-        min-width: 130px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-    }
-
-    .nav-tab:hover {
-        color: rgba(247,244,237,0.8);
-        background: rgba(58,92,122,0.07);
-    }
-
-    .nav-tab.active {
-        color: #7aadcc;
-        border-bottom-color: var(--slate);
-        background: rgba(58,92,122,0.1);
-    }
-
-    .nav-tab i { font-size: 0.85rem; }
-
-    /* CONTENT SECTIONS */
-    .content-section {
-        display: none;
-        padding: 4rem 0;
-        min-height: 60vh;
-    }
-
-    .content-section.active {
-        display: block;
-        animation: fadeUp 0.5s ease both;
-    }
-
-    /* SECTION TITLE */
-    .section-title {
-        font-family: 'Cormorant Garamond', serif;
-        font-style: italic;
-        font-weight: 300;
-        font-size: clamp(1.8rem, 4vw, 2.6rem);
-        color: var(--ink);
-        text-align: center;
-        margin-bottom: 3rem;
-        position: relative;
-        padding-bottom: 1.25rem;
-    }
-
-    .section-title::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 48px;
-        height: 1px;
-        background: var(--slate);
-    }
+    main { padding: 3rem 0 1rem; }
+    .content-section { display: none; padding: 2rem 0 3rem; }
+    .content-section.active { display: block; }
+    .section-title { text-align: center; font-size: clamp(1.6rem, 3.5vw, 2.1rem); color: var(--ink); margin-bottom: 2.4rem; }
 
     /* MEASURE CARDS */
-    .measures-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.75rem;
-        margin-bottom: 3rem;
-    }
-
-    .measure-card {
-        background: white;
-        border: 1px solid rgba(58,92,122,0.12);
-        border-left: 3px solid var(--slate);
-        padding: 1.75rem;
-        transition: box-shadow 0.3s ease, border-left-color 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: slideInUp 0.6s ease forwards;
-    }
-
-    .measure-card:nth-child(1) { animation-delay: 0.1s; }
-    .measure-card:nth-child(2) { animation-delay: 0.2s; }
-    .measure-card:nth-child(3) { animation-delay: 0.3s; }
-    .measure-card:nth-child(4) { animation-delay: 0.4s; }
-    .measure-card:nth-child(5) { animation-delay: 0.5s; }
-    .measure-card:nth-child(6) { animation-delay: 0.6s; }
-
-    .measure-header {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 1.2rem;
-        position: relative;
-        z-index: 2;
-    }
-
-    .measure-icon {
-        width: 42px;
-        height: 42px;
-        background: var(--accent-grad);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 1rem;
-        flex-shrink: 0;
-    }
-
-    .measure-name {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: var(--ink);
-    }
-
-    .measure-hebrew {
-        font-size: 0.84rem;
-        color: var(--slate);
-        font-style: italic;
-        margin-bottom: 0.9rem;
-        font-family: 'Cormorant Garamond', serif;
-    }
-
-    .measure-description {
-        margin-bottom: 1.2rem;
-        line-height: 1.75;
-        font-weight: 300;
-        font-size: 0.94rem;
-        color: var(--text);
-    }
-
-    .measure-equivalence {
-        background: var(--slate-light);
-        padding: 0.85rem 1rem;
-        margin-bottom: 1rem;
-        border-left: 2px solid var(--slate);
-        font-size: 0.9rem;
-    }
-
-    .measure-equivalence strong {
-        color: var(--slate);
-        font-weight: 700;
-    }
-
-    .measure-scripture {
-        background: var(--parchment);
-        border: 1px solid rgba(58,92,122,0.12);
-        padding: 1rem;
-        font-style: italic;
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 0.98rem;
-        color: var(--muted);
-        line-height: 1.65;
-        margin-top: 1rem;
-    }
-
-    .scripture-ref {
-        text-align: right;
-        font-weight: 700;
-        color: var(--slate);
-        margin-top: 0.5rem;
-        font-size: 0.8rem;
-        font-style: normal;
-        font-family: 'Lato', sans-serif;
-        letter-spacing: 0.05em;
-        display: block;
-    }
+    .measures-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.4rem; margin-bottom: 2.5rem; }
+    .measure-card { background: #fffcf4; border: 1px solid var(--sand-deep); border-top: 4px solid var(--clay); border-radius: 4px; padding: 1.4rem 1.5rem; box-shadow: var(--shadow); }
+    .measure-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.7rem; }
+    .measure-icon { width: 42px; height: 42px; border-radius: 50%; background: rgba(176,96,47,0.1); display: flex; align-items: center; justify-content: center; color: var(--clay); flex-shrink: 0; }
+    .measure-icon svg { width: 1.2rem; height: 1.2rem; }
+    .measure-name { font-family: var(--font-display); font-size: 1.15rem; color: var(--ink); }
+    .measure-hebrew { font-size: 0.82rem; color: var(--awning); font-weight: 600; margin-bottom: 0.6rem; }
+    .measure-description { font-size: 0.9rem; margin-bottom: 0.8rem; }
+    .measure-equivalence { font-size: 0.86rem; background: var(--sand); padding: 0.5rem 0.8rem; border-radius: 3px; margin-bottom: 0.8rem; }
+    .measure-equivalence strong { display: none; }
+    .measure-equivalence::before { content: 'Equivalencia: '; font-weight: 700; color: var(--clay-deep); }
+    .measure-scripture { font-style: italic; font-size: 0.86rem; color: var(--muted); border-left: 2px solid var(--coin); padding-left: 0.8rem; }
+    .scripture-ref { font-style: normal; font-weight: 700; color: var(--clay); font-size: 0.78rem; margin-top: 0.3rem; }
 
     /* CONVERTER */
-    .converter-section {
-        background: white;
-        border: 1px solid var(--border);
-        border-top: 2px solid var(--slate);
-        padding: 2.25rem;
-        margin: 2.5rem 0;
-    }
+    .converter-section { background: #fffcf4; border: 1px dashed var(--clay); border-radius: 6px; padding: 1.8rem 2rem; margin-bottom: 2rem; }
+    .converter-title { text-align: center; font-size: 1.2rem; color: var(--clay-deep); margin-bottom: 1.4rem; }
+    .converter-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.2rem; }
+    .converter-card { text-align: center; }
+    .converter-label { display: flex; align-items: center; justify-content: center; gap: 0.4em; font-size: 0.85rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+    .converter-label svg { width: 1rem; height: 1rem; color: var(--clay); }
+    .converter-input { width: 100%; padding: 0.6rem 0.8rem; border: 1px solid var(--sand-deep); border-radius: 4px; font-family: var(--font-body); font-size: 0.9rem; margin-bottom: 0.5rem; background: var(--sand); }
+    .converter-result { font-weight: 700; color: var(--awning); font-size: 0.9rem; }
 
-    .converter-title {
-        font-family: 'Cormorant Garamond', serif;
-        font-style: italic;
-        font-weight: 300;
-        font-size: 1.75rem;
-        color: var(--ink);
-        text-align: center;
-        margin-bottom: 1.75rem;
-    }
+    /* TIMELINE (fiestas) */
+    .timeline-container { max-width: 760px; margin: 0 auto 2.5rem; position: relative; padding-left: 2.2rem; }
+    .timeline-line { position: absolute; left: 7px; top: 0.5rem; bottom: 0.5rem; width: 2px; background: repeating-linear-gradient(to bottom, var(--clay) 0 6px, transparent 6px 12px); }
+    .timeline-item { position: relative; margin-bottom: 1.6rem; }
+    .timeline-item::before { content: ''; position: absolute; left: -2.2rem; top: 0.4rem; width: 11px; height: 11px; border-radius: 50%; background: var(--clay); box-shadow: 0 0 0 4px rgba(176,96,47,0.15); }
+    .timeline-date { font-family: var(--font-display); font-size: 0.85rem; color: var(--clay-deep); margin-bottom: 0.4rem; }
+    .timeline-card { background: #fffcf4; border: 1px solid var(--sand-deep); border-radius: 4px; box-shadow: var(--shadow); padding: 1.3rem 1.5rem; }
+    .timeline-title { font-size: 1.15rem; color: var(--ink); margin-bottom: 0.5rem; }
+    .timeline-card p { margin-bottom: 0.7rem; font-size: 0.92rem; }
 
-    .converter-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 1.4rem;
-    }
+    /* CULTURAL CARDS */
+    .cultural-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.4rem; }
+    .cultural-card { background: #fffcf4; border: 1px solid var(--sand-deep); border-radius: 4px; box-shadow: var(--shadow); padding: 1.5rem 1.6rem; }
+    .cultural-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.9rem; }
+    .cultural-header svg { width: 1.5rem; height: 1.5rem; color: var(--awning); flex-shrink: 0; }
+    .cultural-title { font-family: var(--font-display); font-size: 1.1rem; color: var(--ink); }
+    .cultural-description { font-size: 0.9rem; margin-bottom: 0.9rem; }
+    .cultural-examples h4 { font-family: var(--font-body); font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--clay-deep); margin-bottom: 0.5rem; }
+    .cultural-examples ul { list-style: none; }
+    .cultural-examples li { font-size: 0.86rem; margin-bottom: 0.4rem; padding-left: 1.1rem; position: relative; }
+    .cultural-examples li::before { content: '•'; position: absolute; left: 0; color: var(--awning); font-weight: 700; }
 
-    .converter-card {
-        background: var(--parchment);
-        border: 1px solid var(--border);
-        padding: 1.25rem;
-    }
-
-    .converter-label {
-        font-weight: 700;
-        font-size: 0.78rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        margin-bottom: 0.85rem;
-        color: var(--slate);
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-    }
-
-    .converter-input {
-        width: 100%;
-        padding: 0.7rem 0.9rem;
-        border: 1px solid var(--border);
-        background: white;
-        font-family: 'Lato', sans-serif;
-        font-size: 0.95rem;
-        margin-bottom: 0.85rem;
-        transition: var(--trans);
-        outline: none;
-        border-radius: 0;
-        -webkit-appearance: none;
-    }
-
-    .converter-input:focus {
-        border-color: var(--slate);
-        box-shadow: 0 0 0 2px rgba(58,92,122,0.1);
-    }
-
-    .converter-result {
-        background: var(--slate);
-        color: white;
-        padding: 0.75rem;
-        text-align: center;
-        font-weight: 700;
-        font-size: 0.88rem;
-        letter-spacing: 0.05em;
-    }
-
-    /* TIMELINE */
-    .timeline-container {
-        position: relative;
-        margin: 2rem 0;
-        padding: 0 1rem;
-    }
-
-    .timeline-line {
-        position: absolute;
-        left: 50%;
-        top: 0;
-        bottom: 0;
-        width: 1px;
-        background: linear-gradient(to bottom, var(--slate), rgba(58,92,122,0.15));
-        transform: translateX(-50%);
-    }
-
-    .timeline-item {
-        display: flex;
-        margin-bottom: 2.5rem;
-        align-items: flex-start;
-        position: relative;
-    }
-
-    .timeline-item:nth-child(odd) { flex-direction: row-reverse; }
-
-    .timeline-date {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--slate);
-        color: white;
-        padding: 0.4rem 0.9rem;
-        font-family: 'Lato', sans-serif;
-        font-size: 0.76rem;
-        font-weight: 700;
-        letter-spacing: 0.02em;
-        box-shadow: var(--shadow);
-        z-index: 10;
-        white-space: nowrap;
-        top: 0.75rem;
-    }
-
-    .timeline-content {
-        flex: 1;
-        max-width: 400px;
-        margin: 0 2.5rem;
-    }
-
-    .timeline-card {
-        background: white;
-        border: 1px solid rgba(58,92,122,0.15);
-        border-left: 3px solid var(--slate);
-        padding: 1.4rem;
-        transition: box-shadow 0.3s ease;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: slideInUp 0.6s ease forwards;
-    }
-
-    .timeline-title {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 1.3rem;
-        font-weight: 600;
-        color: var(--ink);
-        margin-bottom: 0.65rem;
-    }
-
-    .timeline-card p {
-        font-weight: 300;
-        font-size: 0.92rem;
-        line-height: 1.7;
-        color: var(--text);
-        margin-bottom: 0.75rem;
-    }
-
-    /* CULTURAL GRID */
-    .cultural-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.75rem;
-    }
-
-    .cultural-card {
-        border: 1px solid var(--border);
-        overflow: hidden;
-        transition: box-shadow 0.3s ease;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: slideInUp 0.6s ease forwards;
-    }
-
-    .cultural-header {
-        background: var(--accent-grad);
-        color: white;
-        padding: 1.5rem;
-        text-align: center;
-    }
-
-    .cultural-icon {
-        font-size: 1.8rem;
-        margin-bottom: 0.65rem;
-        display: block;
-        opacity: 0.8;
-    }
-
-    .cultural-title {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 1.3rem;
-        font-weight: 400;
-        letter-spacing: 0.02em;
-    }
-
-    .cultural-content {
-        padding: 1.5rem;
-        background: white;
-    }
-
-    .cultural-description {
-        margin-bottom: 1.2rem;
-        line-height: 1.75;
-        font-weight: 300;
-        font-size: 0.93rem;
-    }
-
-    .cultural-examples {
-        background: var(--parchment);
-        border: 1px solid rgba(58,92,122,0.12);
-        padding: 1rem;
-    }
-
-    .cultural-examples h4 {
-        color: var(--slate);
-        margin-bottom: 0.65rem;
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 0.02em;
-        font-family: 'Lato', sans-serif;
-    }
-
-    .cultural-examples ul { margin-left: 1.25rem; }
-
-    .cultural-examples li {
-        margin-bottom: 0.35rem;
-        font-size: 0.9rem;
-        font-weight: 300;
-        line-height: 1.5;
-    }
-
-    /* BIBLICAL QUOTE */
-    .biblical-quote {
-        background: var(--grad);
-        color: white;
-        padding: 5rem 0;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .biblical-quote::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
-        pointer-events: none;
-    }
-
-    .biblical-quote::after {
-        content: '"';
-        position: absolute;
-        top: -2rem;
-        left: 50%;
-        transform: translateX(-50%);
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 9rem;
-        opacity: 0.06;
-        pointer-events: none;
-        line-height: 1;
-    }
-
-    .quote-text {
-        font-family: 'Cormorant Garamond', serif;
-        font-style: italic;
-        font-weight: 300;
-        font-size: clamp(1.2rem, 3vw, 1.65rem);
-        line-height: 1.8;
-        max-width: 760px;
-        margin: 0 auto 1.5rem;
-        position: relative;
-        z-index: 2;
-        opacity: 0.9;
-    }
-
-    .quote-reference {
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        font-size: 0.84rem;
-        letter-spacing: 0.03em;
-        color: #7aadcc;
-        position: relative;
-        z-index: 2;
-    }
+    /* QUOTE */
+    .biblical-quote { text-align: center; padding: 4rem 2rem; background: linear-gradient(160deg, var(--market-dark) 0%, #1c150c 100%); color: var(--sand); }
+    .quote-text { font-family: var(--font-display); font-size: 1.3rem; max-width: 640px; margin: 0 auto 1rem; }
+    .quote-reference { font-size: 0.85rem; color: var(--coin); }
 
     /* FOOTER */
-    footer {
-        background: var(--dark);
-        border-top: 1px solid rgba(58,92,122,0.18);
-        padding: 4rem 0 2rem;
-        color: rgba(247,244,237,0.65);
-    }
-
-    .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 3rem;
-        margin-bottom: 3rem;
-    }
-
-    .footer-column h3, .footer-column h4 {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 600;
-        font-size: 1.1rem;
-        color: #7aadcc;
-        margin-bottom: 1.2rem;
-        letter-spacing: 0.04em;
-    }
-
-    .footer-column p {
-        font-size: 0.9rem;
-        font-weight: 300;
-        line-height: 1.75;
-    }
-
-    .footer-links { list-style: none; }
-
-    .footer-links li { margin-bottom: 0.5rem; }
-
-    .footer-links a {
-        color: rgba(247,244,237,0.6);
-        text-decoration: none;
-        transition: var(--trans);
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.88rem;
-    }
-
-    .footer-links a:hover { color: #7aadcc; }
-    .footer-links a i { color: rgba(58,92,122,0.7); width: 16px; font-size: 0.82rem; }
-
-    /* Also cover .footer-col for consistency */
-    .footer-col h4 {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 600;
-        font-size: 1.1rem;
-        color: #7aadcc;
-        margin-bottom: 1.2rem;
-    }
-
+    footer { background: var(--market-dark); color: var(--sand); padding: 3.5rem 0 1.5rem; }
+    .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 2.2rem; margin-bottom: 2.2rem; }
+    .footer-col h4 { font-size: 1.05rem; margin-bottom: 1rem; color: var(--coin); }
     .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 0.5rem; font-size: 0.88rem; display: flex; align-items: center; gap: 0.5rem; }
-    .footer-col ul li a { color: rgba(247,244,237,0.6); text-decoration: none; transition: var(--trans); }
-    .footer-col ul li a:hover { color: #7aadcc; }
-    .footer-col ul li i { color: rgba(58,92,122,0.7); width: 16px; }
-
-    .social-links { display: flex; gap: 0.6rem; margin-top: 1rem; }
-    .social-links a {
-        display: flex; align-items: center; justify-content: center;
-        width: 34px; height: 34px;
-        border: 1px solid rgba(58,92,122,0.3);
-        color: rgba(247,244,237,0.65);
-        text-decoration: none;
-        transition: var(--trans);
-        font-size: 0.85rem;
-    }
-    .social-links a:hover { border-color: #7aadcc; color: #7aadcc; }
-
-    .copyright {
-        border-top: 1px solid rgba(58,92,122,0.1);
-        padding-top: 1.75rem;
-        text-align: center;
-        font-size: 0.82rem;
-        color: rgba(247,244,237,0.32);
-    }
-
-    /* ANIMATIONS */
-    @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(18px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideInUp {
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-        .nav-tab span { display: none; }
-        .nav-tab { min-width: 55px; }
-    }
+    .footer-col li { margin-bottom: 0.7rem; font-size: 0.9rem; color: rgba(230,212,171,0.78); display: flex; align-items: center; gap: 0.5rem; }
+    .footer-col li svg { width: 0.9rem; height: 0.9rem; color: var(--coin); flex-shrink: 0; }
+    .footer-col p { font-size: 0.9rem; color: rgba(230,212,171,0.78); margin-bottom: 1rem; }
+    .footer-col a { color: rgba(230,212,171,0.78); text-decoration: none; }
+    .footer-col a:hover { color: var(--coin); }
+    .social-links { display: flex; gap: 0.8rem; margin-top: 1.2rem; }
+    .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(230,212,171,0.08); border-radius: 50%; }
+    .social-links a svg { width: 1rem; height: 1rem; }
+    .social-links a:hover { background: var(--coin); }
+    .copyright { text-align: center; padding-top: 1.6rem; border-top: 1px solid rgba(230,212,171,0.12); font-size: 0.82rem; color: rgba(230,212,171,0.5); }
 
     @media (max-width: 768px) {
-        .hero { padding: 3.5rem 0; }
-        .hero-title { font-size: 1.9rem; }
-        .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-        .timeline-line { left: 16px; }
-        .timeline-item,
-        .timeline-item:nth-child(odd) { flex-direction: row; margin-left: 45px; }
-        .timeline-date { left: 16px; top: 0; transform: translateX(-50%); }
-        .timeline-content { margin: 0 0.5rem; max-width: 100%; }
-        .measures-grid { grid-template-columns: 1fr; }
-        .cultural-grid { grid-template-columns: 1fr; }
-        .converter-grid { grid-template-columns: 1fr; }
-        .footer-content { grid-template-columns: 1fr; }
+        .nav-toggle { display: block; }
+        nav { position: fixed; top: 0; right: -300px; width: 280px; height: 100vh; background: rgba(30,23,14,0.99); z-index: 2500; transition: right 0.3s ease; overflow-y: auto; padding: 2rem; }
+        nav.active { right: 0; }
+        nav ul { flex-direction: column; gap: 0; }
+        nav li { width: 100%; }
+        nav a { padding: 0.9rem 0; width: 100%; border-bottom: 1px solid rgba(156,122,63,0.08); }
+        nav a::after { display: none; }
+        .menu-item-has-children > a { justify-content: space-between; }
+        .menu-item-has-children > a::before { display: none; }
+        .menu-item-has-children > a::after { display: flex !important; align-items: center; justify-content: center; content: '+' !important; width: 22px; height: 22px; font-size: 0.9rem; font-family: initial !important; color: var(--coin) !important; border: 1px solid rgba(156,122,63,0.35); border-radius: 50%; transition: var(--trans); }
+        .menu-item-has-children.active > a::after { transform: rotate(135deg) !important; }
+        .sub-menu { position: static; width: 100%; box-shadow: none; border: none; background: rgba(255,255,255,0.04); padding-left: 1rem; max-height: 0; overflow: hidden; display: block; opacity: 1; transform: none; transition: max-height 0.3s ease; }
+        .menu-item-has-children.active > .sub-menu { max-height: 500px; }
+        .menu-item-has-children:hover .sub-menu { display: none; }
+        .menu-item-has-children.active .sub-menu { display: block; }
+        .sub-menu a:hover { background: transparent; padding-left: 0.5rem; border-left: none; }
+        .nav-tabs { top: 52px; }
     }
-
-    @media (max-width: 480px) {
-        .hero-stats { grid-template-columns: repeat(2, 1fr); }
-        .nav-tabs { top: 68px; }
-    }
-    
-        /* Insignia circular del logo EMD (aplicada a todas las páginas) */
-        img[alt="Logo EMD"] {
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid rgba(201, 170, 106, 0.5);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(201, 170, 106, 0.08);
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        img[alt="Logo EMD"]:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 0 5px rgba(201, 170, 106, 0.15);
-        }
     </style>
 </head>
 <body>
     <header>
         <div class="container header-content">
-            <div class="logo">
+            <a href="../../index.html" class="logo">
                 <img src="../../images/EMD.png?v=2" alt="Logo EMD">
                 <div class="logo-text">
-                    <div>Ministerio</div>
-                    <div>"La Gloria es del Señor"</div>
+                    Ministerio
+                    <span>"La Gloria es del Señor"</span>
                 </div>
-            </div>
-            <div class="nav-indicator">
-                <i class="fas fa-balance-scale"></i>
-                Medidas bíblicas
-            </div>
+            </a>
+            <button class="nav-toggle" aria-label="Menú">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:1.3rem;height:1.3rem;"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
+            </button>
+            <div class="nav-backdrop"></div>
+
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Inicio</a></li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Figuras Bíblicas</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Figuras Bíblicas/at-a-nt.html">AT a NT</a></li>
+                            <li><a href="../Figuras Bíblicas/nombres-simbologia.html">Los nombres y su simbología</a></li>
+                            <li><a href="../Figuras Bíblicas/templo-figuras.html">Templo y sus Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/tabernaculo-figuras.html">El tabernáculo y sus figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/sacrificios-figuras.html">Sacrificios y sus Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/tipologia-cantares.html">Tipología Cantares</a></li>
+                            <li><a href="../Figuras Bíblicas/figuras-cristo.html">Figuras de Cristo</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Falsas Doctrinas</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                            <li><a href="../Falsas Doctrinas/gnosticismos.html">Gnosticismos en la Biblia</a></li>
+                            <li><a href="../Falsas Doctrinas/filosofias-griegas.html">Filosofías Griegas</a></li>
+                            <li><a href="../Falsas Doctrinas/masoneria.html">Masonería</a></li>
+                            <li><a href="../Falsas Doctrinas/sociedades-secretas.html">Sociedades Secretas</a></li>
+                            <li><a href="../Falsas Doctrinas/sectas-anticristianas.html">Sectas Anticristianas</a></li>
+                            <li><a href="../Falsas Doctrinas/pseudoprofetas.html">Pseudoprofetas</a></li>
+                            <li><a href="../Falsas Doctrinas/reptilianos-consejo-13.html">Reptilianos y Consejo de los 13</a></li>
+                            <li><a href="../Falsas Doctrinas/lineas-sangre-illuminati.html">Líneas de Sangre Illuminati</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Estudios Exegéticos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Temas Exegéticos</a></li>
+                            <li><a href="../Estudios Exegéticos/cantarcantares.html">Cantar de los Cantares</a></li>
+                            <li><a href="../Estudios Exegéticos/romanos11.html">Romanos 11</a></li>
+                            <li><a href="../Estudios Exegéticos/idiomas-biblia.html">Hebreo, Arameo y Griego</a></li>
+                            <li><a href="../Estudios Exegéticos/enlaces-recursos.html">Enlaces de Recursos</a></li>
+                            <li><a href="../Estudios Exegéticos/diccionarios-comentarios.html">Diccionarios y Comentarios</a></li>
+                            <li><a href="../Estudios Exegéticos/software-biblico.html">Software Bíblico</a></li>
+                            <li><a href="../Estudios Exegéticos/meditacion-palabra.html">Meditación en la Palabra</a></li>
+                            <li><a href="../Estudios Exegéticos/lectura-anual.html">Lectura Anual</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Tiempo del Fin</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Tiempo del Fin/introduccion.html">Introducción</a></li>
+                            <li><a href="../Tiempo del Fin/escatologia.html">Escatología</a></li>
+                            <li><a href="../Tiempo del Fin/profecias-cumplidas.html">Profecías Cumplidas</a></li>
+                            <li><a href="../Tiempo del Fin/nuevo-orden-mundial.html">Nuevo Orden Mundial</a></li>
+                            <li><a href="../Tiempo del Fin/noticias-fin.html">Noticias del Fin</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Época de Jesús</a>
+                        <ul class="sub-menu">
+                            <li><a href="estudio-contemporaneo.html">Estudio Contemporáneo</a></li>
+                            <li><a href="contexto-historico.html">Contexto Histórico</a></li>
+                            <li><a href="grupos-religiosos.html">Grupos religiosos</a></li>
+                            <li><a href="recursos-academicos.html" class="active">Estudios de Contexto</a></li>
+                            <li><a href="apologia-cristiana.html">Apología Cristiana</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Estudios Bíblicos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Bíblicos/doctrina-basica.html">Doctrina Básica</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-intermedia.html">Doctrina intermedia</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-avanzada.html">Doctrina Avanzada</a></li>
+                            <li><a href="../Estudios Bíblicos/revelacion-espiritu.html">Revelación del Espíritu</a></li>
+                            <li><a href="../Estudios Bíblicos/devocionales.html">Devocionales</a></li>
+                            <li><a href="../Estudios Bíblicos/aguila-cinco-ministerios.html">El Águila y los Cinco Ministerios</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -859,9 +293,9 @@
         <div class="container">
             <nav class="breadcrumb-nav">
                 <a href="../../index.html">Inicio</a>
-                <i class="fas fa-chevron-right"></i>
-                <a href="./estudio-contemporaneo.html">Época de Jesús</a>
-                <i class="fas fa-chevron-right"></i>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+                <a href="estudio-contemporaneo.html">Época de Jesús</a>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
                 <span>Medidas y costumbres bíblicas</span>
             </nav>
         </div>
@@ -869,576 +303,366 @@
 
     <section class="hero">
         <div class="container hero-content">
-            <h1 class="hero-title">Medidas y costumbres bíblicas</h1>
+            <svg class="stall-svg" viewBox="0 0 300 180" aria-hidden="true">
+                <path d="M20,50 L280,50 L260,20 L40,20 Z" fill="#b0602f" stroke="#2b2015" stroke-width="1.5"/>
+                <path d="M40,20 L60,50 M80,20 L100,50 M120,20 L140,50 M160,20 L180,50 M200,20 L220,50 M240,20 L260,50" stroke="#e6d4ab" stroke-width="6" opacity="0.85"/>
+                <line x1="30" y1="50" x2="30" y2="150" stroke="#4a3b28" stroke-width="4"/>
+                <line x1="270" y1="50" x2="270" y2="150" stroke="#4a3b28" stroke-width="4"/>
+                <rect x="20" y="130" width="260" height="14" fill="#4a3b28"/>
+                <line x1="150" y1="55" x2="150" y2="80" stroke="#9c7a3f" stroke-width="2"/>
+                <line x1="120" y1="80" x2="180" y2="80" stroke="#9c7a3f" stroke-width="2"/>
+                <path d="M120,80 L110,100 L130,100 Z" fill="none" stroke="#9c7a3f" stroke-width="1.5"/>
+                <path d="M180,80 L170,100 L190,100 Z" fill="none" stroke="#9c7a3f" stroke-width="1.5"/>
+                <line x1="110" y1="100" x2="130" y2="100" stroke="#9c7a3f" stroke-width="1.5"/>
+                <line x1="170" y1="100" x2="190" y2="100" stroke="#9c7a3f" stroke-width="1.5"/>
+                <circle cx="70" cy="115" r="7" fill="#9c7a3f" stroke="#2b2015" stroke-width="1"/>
+                <circle cx="85" cy="120" r="7" fill="#9c7a3f" stroke="#2b2015" stroke-width="1"/>
+                <circle cx="60" cy="122" r="7" fill="#9c7a3f" stroke="#2b2015" stroke-width="1"/>
+                <rect x="215" y="105" width="40" height="22" fill="#e6d4ab" stroke="#2b2015" stroke-width="1"/>
+                <line x1="220" y1="112" x2="250" y2="112" stroke="#2b2015" stroke-width="1"/>
+                <line x1="220" y1="118" x2="245" y2="118" stroke="#2b2015" stroke-width="1"/>
+            </svg>
+            <span class="hero-tag">Levítico 19:36</span>
+            <h1 class="hero-title">El mercado de Cafarnaúm</h1>
             <p class="hero-subtitle">Comprende las unidades de medida, las monedas, el tiempo y las costumbres culturales mencionadas en los Evangelios para entender mejor el contexto histórico de Jesús</p>
-            
+
             <div class="hero-stats">
-                <div class="hero-stat">
-                    <span class="hero-stat-number">50+</span>
-                    <span class="hero-stat-label">Medidas diferentes</span>
-                </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-number">15</span>
-                    <span class="hero-stat-label">Tipos de monedas</span>
-                </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-number">7</span>
-                    <span class="hero-stat-label">Fiestas principales</span>
-                </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-number">4</span>
-                    <span class="hero-stat-label">Evangelios</span>
-                </div>
+                <div class="hero-stat"><span class="hero-stat-number">50+</span><span class="hero-stat-label">Medidas diferentes</span></div>
+                <div class="hero-stat"><span class="hero-stat-number">15</span><span class="hero-stat-label">Tipos de monedas</span></div>
+                <div class="hero-stat"><span class="hero-stat-number">7</span><span class="hero-stat-label">Fiestas principales</span></div>
+                <div class="hero-stat"><span class="hero-stat-number">4</span><span class="hero-stat-label">Evangelios</span></div>
             </div>
         </div>
     </section>
 
     <nav class="nav-tabs">
         <div class="container nav-tabs-container">
-            <button class="nav-tab active" data-tab="longitud">
-                <i class="fas fa-ruler"></i>
-                <span>Medidas de longitud</span>
-            </button>
-            <button class="nav-tab" data-tab="peso">
-                <i class="fas fa-weight-hanging"></i>
-                <span>Pesos y medidas</span>
-            </button>
-            <button class="nav-tab" data-tab="capacidad">
-                <i class="fas fa-flask"></i>
-                <span>Capacidad</span>
-            </button>
-            <button class="nav-tab" data-tab="monedas">
-                <i class="fas fa-coins"></i>
-                <span>Monedas</span>
-            </button>
-            <button class="nav-tab" data-tab="tiempo">
-                <i class="fas fa-calendar-alt"></i>
-                <span>Tiempo y fiestas</span>
-            </button>
-            <button class="nav-tab" data-tab="costumbres">
-                <i class="fas fa-users"></i>
-                <span>Costumbres</span>
-            </button>
+            <button class="nav-tab active" data-tab="longitud"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.3 8.7 8.7 21.3a1 1 0 0 1-1.4 0l-4.6-4.6a1 1 0 0 1 0-1.4L15.3 2.7a1 1 0 0 1 1.4 0l4.6 4.6a1 1 0 0 1 0 1.4Z" /></svg><span>Medidas de longitud</span></button>
+            <button class="nav-tab" data-tab="peso"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3" /><path d="m4 21 2.42-9.68a1 1 0 0 1 1-.76h9.16a1 1 0 0 1 1 .76L20 21" /><circle cx="12" cy="6" r="3" /></svg><span>Pesos y medidas</span></button>
+            <button class="nav-tab" data-tab="capacidad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6" /><path d="M10 3v6.5L4.5 19a1 1 0 0 0 .9 1.5h13.2a1 1 0 0 0 .9-1.5L14 9.5V3" /></svg><span>Capacidad</span></button>
+            <button class="nav-tab" data-tab="monedas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6" /><path d="M18.09 10.37A6 6 0 1 1 10.34 18" /><path d="M7 6h1v4" /><path d="m16.71 13.88.7.71-2.82 2.82" /></svg><span>Monedas</span></button>
+            <button class="nav-tab" data-tab="tiempo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M8 2v4M16 2v4M3 10h18" /></svg><span>Tiempo y fiestas</span></button>
+            <button class="nav-tab" data-tab="costumbres"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5" /><path d="M2 21c0-3.5 3-5.5 7-5.5s7 2 7 5.5" /><path d="M16 8.5A3.5 3.5 0 1 1 16 5" /><path d="M15 15.5c3 .3 5 2.2 5 5.5" /></svg><span>Costumbres</span></button>
         </div>
     </nav>
 
     <main>
-        <!-- Medidas de Longitud -->
-        <section class="content-section active" id="longitud">
-            <div class="container">
+        <div class="container">
+            <section class="content-section active" id="longitud">
                 <h2 class="section-title">Medidas de longitud</h2>
-                
                 <div class="measures-grid">
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-hand-paper"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2" /><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2" /><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8" /><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" /></svg></div>
                             <div class="measure-name">Codo</div>
                         </div>
                         <div class="measure-hebrew">Hebreo: אַמָּה (ammah)</div>
                         <p class="measure-description">La medida más común en los tiempos bíblicos, basada en la distancia desde el codo hasta la punta de los dedos.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 45–50 cm (18–20 pulgadas)
-                        </div>
-                        <div class="measure-scripture">
-                            "Y les decía: ¿Acaso se trae la antorcha para ponerla debajo del almud, o debajo de la cama? ¿No es para ponerla en el candelero?"
-                            <div class="scripture-ref">Marcos 4:21</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 45–50 cm (18–20 pulgadas)</div>
+                        <div class="measure-scripture">"Y les decía: ¿Acaso se trae la antorcha para ponerla debajo del almud, o debajo de la cama? ¿No es para ponerla en el candelero?"<div class="scripture-ref">Marcos 4:21</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-hand-point-right"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11h-4a1 1 0 0 1-1-1V4a2 2 0 1 0-4 0v6.5" /><path d="M2 13.5V12a2 2 0 0 1 2-2h1" /><path d="M14 10V4a2 2 0 1 0-4 0" /><path d="M6 20a2 2 0 0 0 2 2h8a4 4 0 0 0 4-4v-3a2 2 0 0 0-2-2h-6" /></svg></div>
                             <div class="measure-name">Palmo</div>
                         </div>
                         <div class="measure-hebrew">Hebreo: זֶרֶת (zeret)</div>
                         <p class="measure-description">Medida basada en la distancia entre la punta del pulgar y el meñique con la mano extendida.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 22–23 cm (9 pulgadas)
-                        </div>
-                        <div class="measure-scripture">
-                            "¿Y quién de vosotros podrá, por mucho que se afane, añadir a su estatura un codo?"
-                            <div class="scripture-ref">Mateo 6:27</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 22–23 cm (9 pulgadas)</div>
+                        <div class="measure-scripture">"¿Y quién de vosotros podrá, por mucho que se afane, añadir a su estatura un codo?"<div class="scripture-ref">Mateo 6:27</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-walking"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="4" r="2" /><path d="m6 22 3-9-4-3 3-5 4 2 3 4-2 4" /><path d="M8 22l3-6" /></svg></div>
                             <div class="measure-name">Estadio</div>
                         </div>
                         <div class="measure-hebrew">Griego: στάδιον (stadion)</div>
                         <p class="measure-description">Medida de distancia griega adoptada en tiempos del Nuevo Testamento, usada para medir distancias largas.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 185 metros (607 pies)
-                        </div>
-                        <div class="measure-scripture">
-                            "Y habían remado como veinticinco o treinta estadios, y vieron a Jesús que andaba sobre el mar"
-                            <div class="scripture-ref">Juan 6:19</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 185 metros (607 pies)</div>
+                        <div class="measure-scripture">"Y habían remado como veinticinco o treinta estadios, y vieron a Jesús que andaba sobre el mar"<div class="scripture-ref">Juan 6:19</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-route"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3" /><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" /><circle cx="18" cy="5" r="3" /></svg></div>
                             <div class="measure-name">Milla</div>
                         </div>
                         <div class="measure-hebrew">Latín: mille passus</div>
                         <p class="measure-description">Medida romana de distancia, equivalente a mil pasos de soldado romano.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 1480 metros (4850 pies)
-                        </div>
-                        <div class="measure-scripture">
-                            "Y a cualquiera que te obligue a llevar carga una milla, ve con él dos."
-                            <div class="scripture-ref">Mateo 5:41</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 1480 metros (4850 pies)</div>
+                        <div class="measure-scripture">"Y a cualquiera que te obligue a llevar carga una milla, ve con él dos."<div class="scripture-ref">Mateo 5:41</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-shoe-prints"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5C3 9 5 9 5 11.5S3 14 3 16.5 5 19 5 19" /><path d="M13 6.5C13 9 15 9 15 11.5s-2 2.5-2 5 2 2.5 2 2.5" /><path d="M9 4v3" /><path d="M19 4v3" /></svg></div>
                             <div class="measure-name">Camino de sábado</div>
                         </div>
                         <div class="measure-hebrew">Hebreo: דֶּרֶךְ שַׁבָּת (derekh shabbat)</div>
                         <p class="measure-description">Distancia máxima que se podía caminar en sábado según la tradición judía.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 1200 metros (2000 codos)
-                        </div>
-                        <div class="measure-scripture">
-                            "Entonces volvieron a Jerusalén desde el monte que se llama del Olivar, el cual está cerca de Jerusalén, camino de un día de reposo."
-                            <div class="scripture-ref">Hechos 1:12</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 1200 metros (2000 codos)</div>
+                        <div class="measure-scripture">"Entonces volvieron a Jerusalén desde el monte que se llama del Olivar, el cual está cerca de Jerusalén, camino de un día de reposo."<div class="scripture-ref">Hechos 1:12</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-hand-rock"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="9" width="12" height="11" rx="3" /><path d="M9 9V6a1 1 0 0 1 2 0v3" /><path d="M12 9V5a1 1 0 0 1 2 0v4" /><path d="M15 9V6a1 1 0 0 1 2 0v3" /></svg></div>
                             <div class="measure-name">Palmo menor</div>
                         </div>
                         <div class="measure-hebrew">Hebreo: טֶפַח (tefach)</div>
                         <p class="measure-description">Medida basada en el ancho de la palma de la mano, equivalente a cuatro dedos juntos.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 7,5 cm (3 pulgadas)
-                        </div>
-                        <div class="measure-scripture">
-                            "He aquí, diste a mis días término corto, y mi edad es como nada delante de ti"
-                            <div class="scripture-ref">Salmo 39:5</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 7,5 cm (3 pulgadas)</div>
+                        <div class="measure-scripture">"He aquí, diste a mis días término corto, y mi edad es como nada delante de ti"<div class="scripture-ref">Salmo 39:5</div></div>
                     </div>
                 </div>
-
                 <div class="converter-section">
                     <h3 class="converter-title">Convertidor de medidas de longitud</h3>
                     <div class="converter-grid">
                         <div class="converter-card">
-                            <label class="converter-label">
-                                <i class="fas fa-ruler"></i>
-                                Codos
-                            </label>
+                            <label class="converter-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.3 8.7 8.7 21.3a1 1 0 0 1-1.4 0l-4.6-4.6a1 1 0 0 1 0-1.4L15.3 2.7a1 1 0 0 1 1.4 0l4.6 4.6a1 1 0 0 1 0 1.4Z" /></svg>Codos</label>
                             <input type="number" class="converter-input" id="codosInput" placeholder="Ingrese codos">
                             <div class="converter-result" id="codosResult">= 0 metros</div>
                         </div>
                         <div class="converter-card">
-                            <label class="converter-label">
-                                <i class="fas fa-walking"></i>
-                                Estadios
-                            </label>
+                            <label class="converter-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="4" r="2" /><path d="m6 22 3-9-4-3 3-5 4 2 3 4-2 4" /><path d="M8 22l3-6" /></svg>Estadios</label>
                             <input type="number" class="converter-input" id="estadiosInput" placeholder="Ingrese estadios">
                             <div class="converter-result" id="estadiosResult">= 0 metros</div>
                         </div>
                         <div class="converter-card">
-                            <label class="converter-label">
-                                <i class="fas fa-route"></i>
-                                Millas romanas
-                            </label>
+                            <label class="converter-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3" /><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" /><circle cx="18" cy="5" r="3" /></svg>Millas romanas</label>
                             <input type="number" class="converter-input" id="millasInput" placeholder="Ingrese millas">
                             <div class="converter-result" id="millasResult">= 0 metros</div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Pesos y Medidas -->
-        <section class="content-section" id="peso">
-            <div class="container">
+            <section class="content-section" id="peso">
                 <h2 class="section-title">Pesos y medidas</h2>
-                
                 <div class="measures-grid">
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-weight"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="3" /><path d="M6.5 8a2 2 0 0 0-2 1.6l-1.4 7A2 2 0 0 0 5 19h14a2 2 0 0 0 2-2.4l-1.5-7a2 2 0 0 0-2-1.6Z" /></svg></div>
                             <div class="measure-name">Talento</div>
                         </div>
                         <div class="measure-hebrew">Hebreo: כִּכָּר (kikkar)</div>
                         <p class="measure-description">La unidad de peso más grande en los tiempos bíblicos, usada principalmente para metales preciosos.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 34 kg (75 libras)
-                        </div>
-                        <div class="measure-scripture">
-                            "Por lo cual el reino de los cielos es semejante a un rey que quiso hacer cuentas con sus siervos. Y comenzando a hacer cuentas, le fue presentado uno que le debía diez mil talentos."
-                            <div class="scripture-ref">Mateo 18:23-24</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 34 kg (75 libras)</div>
+                        <div class="measure-scripture">"Por lo cual el reino de los cielos es semejante a un rey que quiso hacer cuentas con sus siervos. Y comenzando a hacer cuentas, le fue presentado uno que le debía diez mil talentos."<div class="scripture-ref">Mateo 18:23-24</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-coins"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6" /><path d="M18.09 10.37A6 6 0 1 1 10.34 18" /><path d="M7 6h1v4" /><path d="m16.71 13.88.7.71-2.82 2.82" /></svg></div>
                             <div class="measure-name">Mina</div>
                         </div>
                         <div class="measure-hebrew">Hebreo: מָנֶה (maneh)</div>
                         <p class="measure-description">Unidad de peso intermedia, equivalente a 1/60 de talento, usada para comercio y transacciones.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 570 gramos (1,25 libras)
-                        </div>
-                        <div class="measure-scripture">
-                            "Aconteció que volvió, después de recibir el reino; y mandó llamar ante él a aquellos siervos a los cuales había dado el dinero, para saber lo que había negociado cada uno."
-                            <div class="scripture-ref">Lucas 19:15</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 570 gramos (1,25 libras)</div>
+                        <div class="measure-scripture">"Aconteció que volvió, después de recibir el reino; y mandó llamar ante él a aquellos siervos a los cuales había dado el dinero, para saber lo que había negociado cada uno."<div class="scripture-ref">Lucas 19:15</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-gem"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l4 6-10 12L2 9Z" /><path d="M2 9h20" /><path d="M9 3 8 9l4 12 4-12-1-6" /></svg></div>
                             <div class="measure-name">Siclo</div>
                         </div>
                         <div class="measure-hebrew">Hebreo: שֶׁקֶל (sheqel)</div>
                         <p class="measure-description">Unidad básica de peso para plata y oro, también usada como moneda en períodos posteriores.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 11,4 gramos (0,4 onzas)
-                        </div>
-                        <div class="measure-scripture">
-                            "Cuando llegaron a Capernaúm, vinieron a Pedro los que cobraban las dos dracmas, y le dijeron: ¿Vuestro Maestro no paga las dos dracmas?"
-                            <div class="scripture-ref">Mateo 17:24</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 11,4 gramos (0,4 onzas)</div>
+                        <div class="measure-scripture">"Cuando llegaron a Capernaúm, vinieron a Pedro los que cobraban las dos dracmas, y le dijeron: ¿Vuestro Maestro no paga las dos dracmas?"<div class="scripture-ref">Mateo 17:24</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-feather-alt"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" /><path d="M16 8 2 22" /><path d="M17.5 15H9" /></svg></div>
                             <div class="measure-name">Gera</div>
                         </div>
                         <div class="measure-hebrew">Hebreo: גֵּרָה (gerah)</div>
                         <p class="measure-description">La unidad de peso más pequeña en el sistema hebreo, equivalente a 1/20 de siclo.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 0,57 gramos
-                        </div>
-                        <div class="measure-scripture">
-                            "El siclo será de veinte geras. Veinte siclos, veinticinco siclos, y quince siclos, os servirán de mina."
-                            <div class="scripture-ref">Ezequiel 45:12</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 0,57 gramos</div>
+                        <div class="measure-scripture">"El siclo será de veinte geras. Veinte siclos, veinticinco siclos, y quince siclos, os servirán de mina."<div class="scripture-ref">Ezequiel 45:12</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-balance-scale-right"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18" /><path d="M15 8h4" /><path d="M15 8l3-4 3 4-3 4Z" /><path d="M8 21h8" /></svg></div>
                             <div class="measure-name">Libra romana</div>
                         </div>
                         <div class="measure-hebrew">Latín: libra</div>
                         <p class="measure-description">Unidad de peso romana adoptada en el período del Nuevo Testamento.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 327 gramos (11,5 onzas)
-                        </div>
-                        <div class="measure-scripture">
-                            "Entonces María tomó una libra de perfume de nardo puro, de mucho precio, y ungió los pies de Jesús"
-                            <div class="scripture-ref">Juan 12:3</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 327 gramos (11,5 onzas)</div>
+                        <div class="measure-scripture">"Entonces María tomó una libra de perfume de nardo puro, de mucho precio, y ungió los pies de Jesús"<div class="scripture-ref">Juan 12:3</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-scale-balanced"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18" /><path d="M5 8h4" /><path d="M15 8h4" /><path d="M3 8l3-4 3 4-3 4Z" /><path d="M15 8l3-4 3 4-3 4Z" /><path d="M8 21h8" /></svg></div>
                             <div class="measure-name">Pim</div>
                         </div>
                         <div class="measure-hebrew">Hebreo: פִּים (pim)</div>
                         <p class="measure-description">Unidad de peso usada principalmente para herramientas de hierro, equivalente a 2/3 de siclo.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 7,6 gramos
-                        </div>
-                        <div class="measure-scripture">
-                            "Y el precio era un pim por las rejas de arado y por los azadones, y la tercera parte de un siclo por avivar las hachas y por componer las aguijadas."
-                            <div class="scripture-ref">1 Samuel 13:21</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 7,6 gramos</div>
+                        <div class="measure-scripture">"Y el precio era un pim por las rejas de arado y por los azadones, y la tercera parte de un siclo por avivar las hachas y por componer las aguijadas."<div class="scripture-ref">1 Samuel 13:21</div></div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Medidas de Capacidad -->
-        <section class="content-section" id="capacidad">
-            <div class="container">
+            <section class="content-section" id="capacidad">
                 <h2 class="section-title">Medidas de capacidad</h2>
-                
                 <div class="measures-grid">
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-wine-bottle"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2h6v3l2 3v12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V8l2-3Z" /><path d="M7 12h10" /></svg></div>
                             <div class="measure-name">Bato</div>
                         </div>
                         <div class="measure-hebrew">Hebreo: בַּת (bat)</div>
                         <p class="measure-description">Unidad principal para medir líquidos como aceite y vino en el Antiguo Testamento.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 22–37 litros (6–10 galones)
-                        </div>
-                        <div class="measure-scripture">
-                            "Y tomó aceite en un vaso, y se lo derramó sobre la cabeza, y lo ungió y dijo: Así dice Jehová: Yo te he ungido por rey sobre Israel."
-                            <div class="scripture-ref">2 Reyes 9:3</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 22–37 litros (6–10 galones)</div>
+                        <div class="measure-scripture">"Y tomó aceite en un vaso, y se lo derramó sobre la cabeza, y lo ungió y dijo: Así dice Jehová: Yo te he ungido por rey sobre Israel."<div class="scripture-ref">2 Reyes 9:3</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-seedling"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10" /><path d="M12 20v-8" /><path d="M12 12a5 5 0 0 0 5-5V6h-1a5 5 0 0 0-5 5v1Z" /><path d="M12 12a5 5 0 0 1-5-5V6h1a5 5 0 0 1 5 5v1Z" /></svg></div>
                             <div class="measure-name">Efa</div>
                         </div>
                         <div class="measure-hebrew">Hebreo: אֵיפָה (eifah)</div>
                         <p class="measure-description">Unidad estándar para medir granos secos como trigo, cebada y otros cereales.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 22–37 litros (equivalente al bato)
-                        </div>
-                        <div class="measure-scripture">
-                            "No haréis injusticia en juicio, en medida de tierra, en peso ni en otra medida. Balanzas justas, pesas justas y efa justo, e hin justo tendréis."
-                            <div class="scripture-ref">Levítico 19:35-36</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 22–37 litros (equivalente al bato)</div>
+                        <div class="measure-scripture">"No haréis injusticia en juicio, en medida de tierra, en peso ni en otra medida. Balanzas justas, pesas justas y efa justo, e hin justo tendréis."<div class="scripture-ref">Levítico 19:35-36</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-wine-glass"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8l-1 8a3 3 0 0 1-6 0Z" /><path d="M12 14v7" /><path d="M9 21h6" /></svg></div>
                             <div class="measure-name">Hin</div>
                         </div>
                         <div class="measure-hebrew">Hebreo: הִין (hin)</div>
                         <p class="measure-description">Unidad para líquidos, equivalente a 1/6 de bato, usada para aceite y vino.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 3,7–6,2 litros (1–1,6 galones)
-                        </div>
-                        <div class="measure-scripture">
-                            "Y tomarás flor de harina, y cocerás de ella doce tortas; cada torta será de dos décimas de efa."
-                            <div class="scripture-ref">Levítico 24:5</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 3,7–6,2 litros (1–1,6 galones)</div>
+                        <div class="measure-scripture">"Y tomarás flor de harina, y cocerás de ella doce tortas; cada torta será de dos décimas de efa."<div class="scripture-ref">Levítico 24:5</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-cup"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l-1 12a4 4 0 0 1-4 4h-2a4 4 0 0 1-4-4Z" /><path d="M9 21h6" /></svg></div>
                             <div class="measure-name">Log</div>
                         </div>
                         <div class="measure-hebrew">Hebreo: לֹג (log)</div>
                         <p class="measure-description">La unidad más pequeña para líquidos, equivalente a 1/12 de hin.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 0,31 litros (10,5 onzas fluidas)
-                        </div>
-                        <div class="measure-scripture">
-                            "Y tomará el sacerdote del log de aceite, y echará sobre la palma de su mano izquierda."
-                            <div class="scripture-ref">Levítico 14:15</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 0,31 litros (10,5 onzas fluidas)</div>
+                        <div class="measure-scripture">"Y tomará el sacerdote del log de aceite, y echará sobre la palma de su mano izquierda."<div class="scripture-ref">Levítico 14:15</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-fill-drip"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="14" r="7" /><path d="M12 3c1 2-2 3-2 5" /></svg></div>
                             <div class="measure-name">Coro</div>
                         </div>
                         <div class="measure-hebrew">Hebreo: כֹּר (kor)</div>
                         <p class="measure-description">La unidad más grande para granos secos, equivalente a 10 efas.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 220–370 litros (58–98 galones)
-                        </div>
-                        <div class="measure-scripture">
-                            "Diez mujeres cocerán vuestro pan en un horno, y os devolverán vuestro pan por peso; y comeréis, y no os saciaréis."
-                            <div class="scripture-ref">Levítico 26:26</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 220–370 litros (58–98 galones)</div>
+                        <div class="measure-scripture">"Diez mujeres cocerán vuestro pan en un horno, y os devolverán vuestro pan por peso; y comeréis, y no os saciaréis."<div class="scripture-ref">Levítico 26:26</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-mortar-pestle"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a8 8 0 0 0 16 0" /><path d="m19 5-7 7-2-2 7-7 2 2Z" /><path d="M4 14h16" /></svg></div>
                             <div class="measure-name">Omer</div>
                         </div>
                         <div class="measure-hebrew">Hebreo: עֹמֶר (omer)</div>
                         <p class="measure-description">Unidad para granos secos, equivalente a 1/10 de efa, usada para la ración diaria de maná.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 2,2–3,7 litros (0,6–1 galón)
-                        </div>
-                        <div class="measure-scripture">
-                            "Y los hijos de Israel lo llamaron Maná; y era como semilla de culantro, blanco, y su sabor como de hojuelas con miel."
-                            <div class="scripture-ref">Éxodo 16:31</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 2,2–3,7 litros (0,6–1 galón)</div>
+                        <div class="measure-scripture">"Y los hijos de Israel lo llamaron Maná; y era como semilla de culantro, blanco, y su sabor como de hojuelas con miel."<div class="scripture-ref">Éxodo 16:31</div></div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Monedas -->
-        <section class="content-section" id="monedas">
-            <div class="container">
+            <section class="content-section" id="monedas">
                 <h2 class="section-title">Monedas y dinero</h2>
-                
                 <div class="measures-grid">
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-coins"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6" /><path d="M18.09 10.37A6 6 0 1 1 10.34 18" /><path d="M7 6h1v4" /><path d="m16.71 13.88.7.71-2.82 2.82" /></svg></div>
                             <div class="measure-name">Denario</div>
                         </div>
                         <div class="measure-hebrew">Latín: denarius</div>
                         <p class="measure-description">Moneda romana de plata que representaba el salario diario de un trabajador común.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> salario de un día de trabajo (aprox. 30–50 USD actuales)
-                        </div>
-                        <div class="measure-scripture">
-                            "¿No te concertaste conmigo en un denario? Toma lo que es tuyo, y vete; pero quiero dar a este postrero, como a ti."
-                            <div class="scripture-ref">Mateo 20:13-14</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> salario de un día de trabajo (aprox. 30–50 USD actuales)</div>
+                        <div class="measure-scripture">"¿No te concertaste conmigo en un denario? Toma lo que es tuyo, y vete; pero quiero dar a este postrero, como a ti."<div class="scripture-ref">Mateo 20:13-14</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-coin"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v10" /><path d="M9 9.5c0-1 1-1.5 3-1.5s3 .5 3 1.5-1 1.5-3 1.5-3 .5-3 1.5 1 1.5 3 1.5 3-.5 3-1.5" /></svg></div>
                             <div class="measure-name">Dracma</div>
                         </div>
                         <div class="measure-hebrew">Griego: δραχμή (drachme)</div>
                         <p class="measure-description">Moneda griega de plata, equivalente en valor al denario romano.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente igual a un denario
-                        </div>
-                        <div class="measure-scripture">
-                            "¿O qué mujer que tiene diez dracmas, si pierde una dracma, no enciende la lámpara, y barre la casa, y busca con diligencia hasta encontrarla?"
-                            <div class="scripture-ref">Lucas 15:8</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente igual a un denario</div>
+                        <div class="measure-scripture">"¿O qué mujer que tiene diez dracmas, si pierde una dracma, no enciende la lámpara, y barre la casa, y busca con diligencia hasta encontrarla?"<div class="scripture-ref">Lucas 15:8</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-hand-holding-usd"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" /><path d="M4 12a8 8 0 0 1 14-5" /><path d="M20 12a8 8 0 0 1-14 5" /></svg></div>
                             <div class="measure-name">Talento (moneda)</div>
                         </div>
                         <div class="measure-hebrew">Griego: τάλαντον (talanton)</div>
                         <p class="measure-description">La unidad monetaria más grande, equivalente a 6000 denarios.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 16 años de salario diario
-                        </div>
-                        <div class="measure-scripture">
-                            "Entonces aquel siervo, postrado, le suplicaba, diciendo: Señor, ten paciencia conmigo, y yo te lo pagaré todo."
-                            <div class="scripture-ref">Mateo 18:26</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 16 años de salario diario</div>
+                        <div class="measure-scripture">"Entonces aquel siervo, postrado, le suplicaba, diciendo: Señor, ten paciencia conmigo, y yo te lo pagaré todo."<div class="scripture-ref">Mateo 18:26</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-penny"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><text x="12" y="16" font-size="10" text-anchor="middle" fill="currentColor" stroke="none">1</text></svg></div>
                             <div class="measure-name">Cuadrante</div>
                         </div>
                         <div class="measure-hebrew">Latín: quadrans</div>
                         <p class="measure-description">Moneda romana pequeña de cobre, equivalente a 1/4 de as (asarion).</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 1/64 de denario
-                        </div>
-                        <div class="measure-scripture">
-                            "De cierto te digo que no saldrás de allí, hasta que pagues el último cuadrante."
-                            <div class="scripture-ref">Mateo 5:26</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 1/64 de denario</div>
+                        <div class="measure-scripture">"De cierto te digo que no saldrás de allí, hasta que pagues el último cuadrante."<div class="scripture-ref">Mateo 5:26</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-circle"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /></svg></div>
                             <div class="measure-name">Blanca</div>
                         </div>
                         <div class="measure-hebrew">Griego: λεπτόν (lepton)</div>
                         <p class="measure-description">La moneda de menor valor en el sistema judío, equivalente a 1/2 cuadrante.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> la moneda más pequeña en circulación
-                        </div>
-                        <div class="measure-scripture">
-                            "Y vino una viuda pobre, y echó dos blancas, que es un cuadrante."
-                            <div class="scripture-ref">Marcos 12:42</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> la moneda más pequeña en circulación</div>
+                        <div class="measure-scripture">"Y vino una viuda pobre, y echó dos blancas, que es un cuadrante."<div class="scripture-ref">Marcos 12:42</div></div>
                     </div>
 
                     <div class="measure-card">
                         <div class="measure-header">
-                            <div class="measure-icon">
-                                <i class="fas fa-money-bill"></i>
-                            </div>
+                            <div class="measure-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="12" x="2" y="6" rx="2" /><circle cx="12" cy="12" r="2" /><path d="M6 12h.01M18 12h.01" /></svg></div>
                             <div class="measure-name">Siclo de plata</div>
                         </div>
                         <div class="measure-hebrew">Hebreo: שֶׁקֶל כֶּסֶף (sheqel kesef)</div>
                         <p class="measure-description">Moneda judía de plata, equivalente a cuatro denarios.</p>
-                        <div class="measure-equivalence">
-                            <strong>Equivalencia:</strong> aproximadamente 4 denarios
-                        </div>
-                        <div class="measure-scripture">
-                            "Entonces Judas Iscariote, uno de los doce, fue a los principales sacerdotes para entregárselo. Ellos, al oírlo, se alegraron, y prometieron darle dinero."
-                            <div class="scripture-ref">Marcos 14:10-11</div>
-                        </div>
+                        <div class="measure-equivalence"><strong>Equivalencia:</strong> aproximadamente 4 denarios</div>
+                        <div class="measure-scripture">"Entonces Judas Iscariote, uno de los doce, fue a los principales sacerdotes para entregárselo. Ellos, al oírlo, se alegraron, y prometieron darle dinero."<div class="scripture-ref">Marcos 14:10-11</div></div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Tiempo y Fiestas -->
-        <section class="content-section" id="tiempo">
-            <div class="container">
+            <section class="content-section" id="tiempo">
                 <h2 class="section-title">Tiempo y fiestas judías</h2>
-                
                 <div class="timeline-container">
                     <div class="timeline-line"></div>
-                    
                     <div class="timeline-item">
                         <div class="timeline-date">Nisán (mar.–abr.)</div>
                         <div class="timeline-content">
                             <div class="timeline-card">
                                 <h3 class="timeline-title">Pascua (Pesaj)</h3>
                                 <p>Conmemora la liberación de Israel de Egipto. Jesús celebró la Última Cena durante esta festividad y fue crucificado durante la semana de Pascua.</p>
-                                <div class="measure-scripture">
-                                    "Y le dijeron: ¿Dónde quieres que preparemos para que comas la pascua?"
-                                    <div class="scripture-ref">Lucas 22:9</div>
-                                </div>
+                                <div class="measure-scripture">"Y le dijeron: ¿Dónde quieres que preparemos para que comas la pascua?"<div class="scripture-ref">Lucas 22:9</div></div>
                             </div>
                         </div>
                     </div>
@@ -1449,10 +673,7 @@
                             <div class="timeline-card">
                                 <h3 class="timeline-title">Segunda Pascua</h3>
                                 <p>Oportunidad para quienes no pudieron celebrar la Pascua en su tiempo debido a impureza ritual o viaje.</p>
-                                <div class="measure-scripture">
-                                    "Pero había algunos que estaban inmundos a causa de muerto, y no podían celebrar la pascua aquel día"
-                                    <div class="scripture-ref">Números 9:6</div>
-                                </div>
+                                <div class="measure-scripture">"Pero había algunos que estaban inmundos a causa de muerto, y no podían celebrar la pascua aquel día"<div class="scripture-ref">Números 9:6</div></div>
                             </div>
                         </div>
                     </div>
@@ -1463,10 +684,7 @@
                             <div class="timeline-card">
                                 <h3 class="timeline-title">Pentecostés (Shavuot)</h3>
                                 <p>La fiesta de las Semanas celebra la entrega de la Torá. Cincuenta días después de la Pascua, descendió el Espíritu Santo.</p>
-                                <div class="measure-scripture">
-                                    "Cuando llegó el día de Pentecostés, estaban todos unánimes juntos."
-                                    <div class="scripture-ref">Hechos 2:1</div>
-                                </div>
+                                <div class="measure-scripture">"Cuando llegó el día de Pentecostés, estaban todos unánimes juntos."<div class="scripture-ref">Hechos 2:1</div></div>
                             </div>
                         </div>
                     </div>
@@ -1477,10 +695,7 @@
                             <div class="timeline-card">
                                 <h3 class="timeline-title">Año Nuevo (Rosh Hashaná)</h3>
                                 <p>Comienzo del año civil judío, día de juicio y reflexión. Tiempo de arrepentimiento y preparación espiritual.</p>
-                                <div class="measure-scripture">
-                                    "En el mes séptimo, al primero del mes tendréis día de reposo, una conmemoración al son de trompetas"
-                                    <div class="scripture-ref">Levítico 23:24</div>
-                                </div>
+                                <div class="measure-scripture">"En el mes séptimo, al primero del mes tendréis día de reposo, una conmemoración al son de trompetas"<div class="scripture-ref">Levítico 23:24</div></div>
                             </div>
                         </div>
                     </div>
@@ -1491,10 +706,7 @@
                             <div class="timeline-card">
                                 <h3 class="timeline-title">Día de la Expiación (Yom Kippur)</h3>
                                 <p>El día más sagrado del calendario judío, dedicado al ayuno y al arrepentimiento. El sumo sacerdote entraba en el lugar santísimo.</p>
-                                <div class="measure-scripture">
-                                    "Porque en este día se hará expiación por vosotros, y seréis limpios de todos vuestros pecados delante de Jehová."
-                                    <div class="scripture-ref">Levítico 16:30</div>
-                                </div>
+                                <div class="measure-scripture">"Porque en este día se hará expiación por vosotros, y seréis limpios de todos vuestros pecados delante de Jehová."<div class="scripture-ref">Levítico 16:30</div></div>
                             </div>
                         </div>
                     </div>
@@ -1505,10 +717,7 @@
                             <div class="timeline-card">
                                 <h3 class="timeline-title">Tabernáculos (Sukkot)</h3>
                                 <p>La fiesta de las Cabañas recuerda el tiempo en el desierto. Jesús asistió a esta fiesta, según Juan 7.</p>
-                                <div class="measure-scripture">
-                                    "En el último y gran día de la fiesta, Jesús se puso en pie y alzó la voz, diciendo: Si alguno tiene sed, venga a mí y beba."
-                                    <div class="scripture-ref">Juan 7:37</div>
-                                </div>
+                                <div class="measure-scripture">"En el último y gran día de la fiesta, Jesús se puso en pie y alzó la voz, diciendo: Si alguno tiene sed, venga a mí y beba."<div class="scripture-ref">Juan 7:37</div></div>
                             </div>
                         </div>
                     </div>
@@ -1519,196 +728,115 @@
                             <div class="timeline-card">
                                 <h3 class="timeline-title">Dedicación (Hanukkah)</h3>
                                 <p>La fiesta de las Luces conmemora la rededicación del templo después de la profanación por Antíoco Epífanes.</p>
-                                <div class="measure-scripture">
-                                    "Celebrábase en Jerusalén la fiesta de la dedicación. Era invierno, y Jesús andaba en el templo por el pórtico de Salomón."
-                                    <div class="scripture-ref">Juan 10:22-23</div>
-                                </div>
+                                <div class="measure-scripture">"Celebrábase en Jerusalén la fiesta de la dedicación. Era invierno, y Jesús andaba en el templo por el pórtico de Salomón."<div class="scripture-ref">Juan 10:22-23</div></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="converter-section">
                     <h3 class="converter-title">Horas del día en tiempos bíblicos</h3>
                     <div class="cultural-grid">
                         <div class="cultural-card">
-                            <div class="cultural-header">
-                                <i class="fas fa-sun cultural-icon"></i>
-                                <div class="cultural-title">División del día</div>
-                            </div>
+                            <div class="cultural-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" /></svg><div class="cultural-title">División del día</div></div>
                             <div class="cultural-content">
                                 <p class="cultural-description">El día se dividía en 12 horas desde la salida hasta la puesta del sol, y la noche en 4 vigilias.</p>
                                 <div class="cultural-examples">
                                     <h4>Horas del día:</h4>
-                                    <ul>
-                                        <li><strong>Hora primera:</strong> 6:00 a. m. — amanecer</li>
-                                        <li><strong>Hora tercera:</strong> 9:00 a. m. — media mañana</li>
-                                        <li><strong>Hora sexta:</strong> 12:00 p. m. — mediodía</li>
-                                        <li><strong>Hora novena:</strong> 3:00 p. m. — media tarde</li>
-                                        <li><strong>Hora undécima:</strong> 5:00 p. m. — casi el atardecer</li>
-                                    </ul>
+                                    <ul><li><strong>Hora primera:</strong> 6:00 a. m., amanecer</li><li><strong>Hora tercera:</strong> 9:00 a. m., media mañana</li><li><strong>Hora sexta:</strong> 12:00 p. m., mediodía</li><li><strong>Hora novena:</strong> 3:00 p. m., media tarde</li><li><strong>Hora undécima:</strong> 5:00 p. m., casi el atardecer</li></ul>
                                 </div>
                             </div>
                         </div>
 
                         <div class="cultural-card">
-                            <div class="cultural-header">
-                                <i class="fas fa-moon cultural-icon"></i>
-                                <div class="cultural-title">Vigilias de la noche</div>
-                            </div>
+                            <div class="cultural-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></svg><div class="cultural-title">Vigilias de la noche</div></div>
                             <div class="cultural-content">
                                 <p class="cultural-description">La noche se dividía en cuatro vigilias para los guardias del templo y las ciudades.</p>
                                 <div class="cultural-examples">
                                     <h4>Las cuatro vigilias:</h4>
-                                    <ul>
-                                        <li><strong>Primera vigilia:</strong> 6:00 p. m.–9:00 p. m.</li>
-                                        <li><strong>Segunda vigilia:</strong> 9:00 p. m.–12:00 a. m.</li>
-                                        <li><strong>Tercera vigilia:</strong> 12:00 a. m.–3:00 a. m.</li>
-                                        <li><strong>Cuarta vigilia:</strong> 3:00 a. m.–6:00 a. m.</li>
-                                    </ul>
+                                    <ul><li><strong>Primera vigilia:</strong> 6:00 p. m.–9:00 p. m.</li><li><strong>Segunda vigilia:</strong> 9:00 p. m.–12:00 a. m.</li><li><strong>Tercera vigilia:</strong> 12:00 a. m.–3:00 a. m.</li><li><strong>Cuarta vigilia:</strong> 3:00 a. m.–6:00 a. m.</li></ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Costumbres -->
-        <section class="content-section" id="costumbres">
-            <div class="container">
+            <section class="content-section" id="costumbres">
                 <h2 class="section-title">Costumbres y tradiciones</h2>
-                
                 <div class="cultural-grid">
-                    <div class="cultural-card">
-                        <div class="cultural-header">
-                            <i class="fas fa-bread-slice cultural-icon"></i>
-                            <div class="cultural-title">Comidas y banquetes</div>
-                        </div>
-                        <div class="cultural-content">
-                            <p class="cultural-description">Las comidas tenían gran significado social y religioso. Los banquetes eran ocasiones para enseñar y establecer relaciones.</p>
-                            <div class="cultural-examples">
-                                <h4>Costumbres alimentarias:</h4>
-                                <ul>
-                                    <li>Pan como alimento básico diario</li>
-                                    <li>Pescado común en Galilea</li>
-                                    <li>Aceitunas y aceite de oliva</li>
-                                    <li>Vino diluido con agua</li>
-                                    <li>Miel como endulzante principal</li>
-                                </ul>
+                        <div class="cultural-card">
+                            <div class="cultural-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a8 8 0 0 1 16 0v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z" /><path d="M12 6c-2 0-3 1.5-3 1.5" /></svg><div class="cultural-title">Comidas y banquetes</div></div>
+                            <div class="cultural-content">
+                                <p class="cultural-description">Las comidas tenían gran significado social y religioso. Los banquetes eran ocasiones para enseñar y establecer relaciones.</p>
+                                <div class="cultural-examples">
+                                    <h4>Costumbres alimentarias:</h4>
+                                    <ul><li>Pan como alimento básico diario</li><li>Pescado común en Galilea</li><li>Aceitunas y aceite de oliva</li><li>Vino diluido con agua</li><li>Miel como endulzante principal</li></ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="cultural-card">
-                        <div class="cultural-header">
-                            <i class="fas fa-home cultural-icon"></i>
-                            <div class="cultural-title">Vida familiar</div>
-                        </div>
-                        <div class="cultural-content">
-                            <p class="cultural-description">La familia extendida era la unidad básica de la sociedad. Los roles estaban claramente definidos por tradición.</p>
-                            <div class="cultural-examples">
-                                <h4>Estructura familiar:</h4>
-                                <ul>
-                                    <li>Padre como cabeza del hogar</li>
-                                    <li>Matrimonios arreglados por familias</li>
-                                    <li>Hijos como bendición divina</li>
-                                    <li>Respeto a los ancianos</li>
-                                    <li>Hospitalidad sagrada</li>
-                                </ul>
+                        <div class="cultural-card">
+                            <div class="cultural-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg><div class="cultural-title">Vida familiar</div></div>
+                            <div class="cultural-content">
+                                <p class="cultural-description">La familia extendida era la unidad básica de la sociedad. Los roles estaban claramente definidos por tradición.</p>
+                                <div class="cultural-examples">
+                                    <h4>Estructura familiar:</h4>
+                                    <ul><li>Padre como cabeza del hogar</li><li>Matrimonios arreglados por familias</li><li>Hijos como bendición divina</li><li>Respeto a los ancianos</li><li>Hospitalidad sagrada</li></ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="cultural-card">
-                        <div class="cultural-header">
-                            <i class="fas fa-synagogue cultural-icon"></i>
-                            <div class="cultural-title">Vida religiosa</div>
-                        </div>
-                        <div class="cultural-content">
-                            <p class="cultural-description">La religión permeaba todos los aspectos de la vida diaria, desde las oraciones hasta las comidas.</p>
-                            <div class="cultural-examples">
-                                <h4>Prácticas religiosas:</h4>
-                                <ul>
-                                    <li>Oración tres veces al día</li>
-                                    <li>Guardar el sábado</li>
-                                    <li>Peregrinaciones al templo</li>
-                                    <li>Estudio de la Torá</li>
-                                    <li>Rituales de purificación</li>
-                                </ul>
+                        <div class="cultural-card">
+                            <div class="cultural-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 18v-7" /><path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" /><path d="M14 18v-7" /><path d="M18 18v-7" /><path d="M3 22h18" /><path d="M6 18v-7" /></svg><div class="cultural-title">Vida religiosa</div></div>
+                            <div class="cultural-content">
+                                <p class="cultural-description">La religión permeaba todos los aspectos de la vida diaria, desde las oraciones hasta las comidas.</p>
+                                <div class="cultural-examples">
+                                    <h4>Prácticas religiosas:</h4>
+                                    <ul><li>Oración tres veces al día</li><li>Guardar el sábado</li><li>Peregrinaciones al templo</li><li>Estudio de la Torá</li><li>Rituales de purificación</li></ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="cultural-card">
-                        <div class="cultural-header">
-                            <i class="fas fa-hand-holding-heart cultural-icon"></i>
-                            <div class="cultural-title">Hospitalidad</div>
-                        </div>
-                        <div class="cultural-content">
-                            <p class="cultural-description">La hospitalidad era un deber sagrado y una virtud fundamental en la cultura del Medio Oriente.</p>
-                            <div class="cultural-examples">
-                                <h4>Códigos de hospitalidad:</h4>
-                                <ul>
-                                    <li>Lavar los pies de los huéspedes</li>
-                                    <li>Ofrecer la mejor comida disponible</li>
-                                    <li>Proteger a los visitantes</li>
-                                    <li>Acompañar al partir</li>
-                                    <li>No preguntar el propósito del viaje</li>
-                                </ul>
+                        <div class="cultural-card">
+                            <div class="cultural-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" /><path d="M4 12a8 8 0 0 1 14-5" /><path d="M20 12a8 8 0 0 1-14 5" /></svg><div class="cultural-title">Hospitalidad</div></div>
+                            <div class="cultural-content">
+                                <p class="cultural-description">La hospitalidad era un deber sagrado y una virtud fundamental en la cultura del Medio Oriente.</p>
+                                <div class="cultural-examples">
+                                    <h4>Códigos de hospitalidad:</h4>
+                                    <ul><li>Lavar los pies de los huéspedes</li><li>Ofrecer la mejor comida disponible</li><li>Proteger a los visitantes</li><li>Acompañar al partir</li><li>No preguntar el propósito del viaje</li></ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="cultural-card">
-                        <div class="cultural-header">
-                            <i class="fas fa-graduation-cap cultural-icon"></i>
-                            <div class="cultural-title">Educación</div>
-                        </div>
-                        <div class="cultural-content">
-                            <p class="cultural-description">La educación se centraba en la Torá y las tradiciones. Los niños aprendían principalmente en el hogar y la sinagoga.</p>
-                            <div class="cultural-examples">
-                                <h4>Sistema educativo:</h4>
-                                <ul>
-                                    <li>Padres como primeros maestros</li>
-                                    <li>Memorización de las Escrituras</li>
-                                    <li>Aprendizaje de oficios familiares</li>
-                                    <li>Discipulado con rabinos</li>
-                                    <li>Educación limitada para mujeres</li>
-                                </ul>
+                        <div class="cultural-card">
+                            <div class="cultural-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5Z" /><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5" /></svg><div class="cultural-title">Educación</div></div>
+                            <div class="cultural-content">
+                                <p class="cultural-description">La educación se centraba en la Torá y las tradiciones. Los niños aprendían principalmente en el hogar y la sinagoga.</p>
+                                <div class="cultural-examples">
+                                    <h4>Sistema educativo:</h4>
+                                    <ul><li>Padres como primeros maestros</li><li>Memorización de las Escrituras</li><li>Aprendizaje de oficios familiares</li><li>Discipulado con rabinos</li><li>Educación limitada para mujeres</li></ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="cultural-card">
-                        <div class="cultural-header">
-                            <i class="fas fa-handshake cultural-icon"></i>
-                            <div class="cultural-title">Comercio y trabajo</div>
-                        </div>
-                        <div class="cultural-content">
-                            <p class="cultural-description">El comercio era vital para la economía. Los oficios se transmitían de padres a hijos.</p>
-                            <div class="cultural-examples">
-                                <h4>Actividades económicas:</h4>
-                                <ul>
-                                    <li>Agricultura como base económica</li>
-                                    <li>Pesca en el mar de Galilea</li>
-                                    <li>Carpintería y construcción</li>
-                                    <li>Comercio en los mercados</li>
-                                    <li>Pastoreo de ovejas y cabras</li>
-                                </ul>
+                        <div class="cultural-card">
+                            <div class="cultural-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3" /><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-2.82-2.82l2.4-2.4a5 5 0 0 1 7.07 0L21 9" /><path d="m21 3-2 2" /><path d="m3 3 2 2" /><path d="M3 3h4v4" /></svg><div class="cultural-title">Comercio y trabajo</div></div>
+                            <div class="cultural-content">
+                                <p class="cultural-description">El comercio era vital para la economía. Los oficios se transmitían de padres a hijos.</p>
+                                <div class="cultural-examples">
+                                    <h4>Actividades económicas:</h4>
+                                    <ul><li>Agricultura como base económica</li><li>Pesca en el mar de Galilea</li><li>Carpintería y construcción</li><li>Comercio en los mercados</li><li>Pastoreo de ovejas y cabras</li></ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
     <section class="biblical-quote">
         <div class="container">
-            <p class="quote-text">
-                "Mas buscad primeramente el reino de Dios y su justicia, y todas estas cosas os serán añadidas."
-            </p>
+            <p class="quote-text">"Mas buscad primeramente el reino de Dios y su justicia, y todas estas cosas os serán añadidas."</p>
             <p class="quote-reference">Mateo 6:33</p>
         </div>
     </section>
@@ -1716,57 +844,61 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Acerca de esta guía</h3>
-                    <p>Esta página presenta las medidas, pesos, monedas y costumbres mencionadas en los Evangelios, ayudando a comprender mejor el contexto cultural y histórico de los tiempos de Jesús.</p>
+                <div class="footer-col">
+                    <h4>Ministerio EMD</h4>
+                    <p>Esta página presenta las medidas, pesos, monedas y costumbres mencionadas en los Evangelios, ayudando a comprender mejor el contexto cultural e histórico de los tiempos de Jesús.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.5 9.87v-6.98H7.9V12h2.6V9.8c0-2.6 1.55-4 3.9-4 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v6.98A10 10 0 0 0 22 12Z"/></svg></a>
+                        <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.8 8.001a2.75 2.75 0 0 0-1.94-1.94C18.1 5.6 12 5.6 12 5.6s-6.1 0-7.86.46A2.75 2.75 0 0 0 2.2 8a28.6 28.6 0 0 0 0 8 2.75 2.75 0 0 0 1.94 1.94C5.9 18.4 12 18.4 12 18.4s6.1 0 7.86-.46A2.75 2.75 0 0 0 21.8 16a28.6 28.6 0 0 0 0-8ZM10 15.2V8.8l6 3.2Z"/></svg></a>
+                    </div>
                 </div>
-                <div class="footer-column">
-                    <h3>Enlaces relacionados</h3>
-                    <ul class="footer-links">
-                        <li><a href="../../index.html"><i class="fas fa-home"></i> Inicio</a></li>
-                        <li><a href="contexto-historico.html"><i class="fas fa-landmark"></i> Contexto histórico</a></li>
-                        <li><a href="grupos-religiosos.html"><i class="fas fa-users"></i> Grupos religiosos</a></li>
-                        <li><a href="apologia-cristiana.html"><i class="fas fa-book"></i> Apología cristiana</a></li>
+                <div class="footer-col">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="../Figuras Bíblicas/at-a-nt.html">Figuras bíblicas</a></li>
+                        <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas doctrinas</a></li>
+                        <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Estudios exegéticos</a></li>
+                        <li><a href="contexto-historico.html">Contexto histórico</a></li>
+                        <li><a href="grupos-religiosos.html">Grupos religiosos</a></li>
+                        <li><a href="apologia-cristiana.html">Apología cristiana</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3>Nota importante</h3>
-                    <p>Las equivalencias presentadas son aproximadas y basadas en investigaciones arqueológicas y históricas. Las medidas exactas podían variar entre regiones y períodos.</p>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg> Dirección del ministerio</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg> +1 787-345-6940</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg> ministeriolagloriaesdelsenor7@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Nota importante</h4>
+                    <ul>
+                        <li>Las equivalencias presentadas son aproximadas, basadas en investigaciones arqueológicas e históricas; podían variar entre regiones y períodos</li>
+                    </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+                <p>&copy; 2026 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Tab Navigation
         const navTabs = document.querySelectorAll('.nav-tab');
         const contentSections = document.querySelectorAll('.content-section');
 
         navTabs.forEach(tab => {
             tab.addEventListener('click', () => {
-                // Remove active class from all tabs
                 navTabs.forEach(t => t.classList.remove('active'));
                 contentSections.forEach(s => s.classList.remove('active'));
-                
-                // Add active class to clicked tab
                 tab.classList.add('active');
-                
-                // Show corresponding section
                 const targetSection = document.getElementById(tab.getAttribute('data-tab'));
                 targetSection.classList.add('active');
-                
-                // Scroll to top of section
-                window.scrollTo({
-                    top: targetSection.offsetTop - 150,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: targetSection.offsetTop - 150, behavior: 'smooth' });
             });
         });
 
-        // Converters
         const codosInput = document.getElementById('codosInput');
         const codosResult = document.getElementById('codosResult');
         const estadiosInput = document.getElementById('estadiosInput');
@@ -1777,11 +909,10 @@
         if (codosInput) {
             codosInput.addEventListener('input', () => {
                 const value = parseFloat(codosInput.value) || 0;
-                const meters = value * 0.475; // Promedio de 47.5 cm
+                const meters = value * 0.475;
                 codosResult.textContent = `= ${meters.toFixed(2)} metros`;
             });
         }
-
         if (estadiosInput) {
             estadiosInput.addEventListener('input', () => {
                 const value = parseFloat(estadiosInput.value) || 0;
@@ -1789,7 +920,6 @@
                 estadiosResult.textContent = `= ${meters.toFixed(0)} metros`;
             });
         }
-
         if (millasInput) {
             millasInput.addEventListener('input', () => {
                 const value = parseFloat(millasInput.value) || 0;
@@ -1798,26 +928,16 @@
             });
         }
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        document.querySelectorAll('.menu-item-has-children > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.parentNode.classList.toggle('active');
                 }
             });
         });
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1826,35 +946,46 @@
                 }
             });
         }, observerOptions);
-
-        // Observe cards for animation
         document.querySelectorAll('.measure-card, .cultural-card, .timeline-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             observer.observe(card);
         });
+    </script>
+    <script>
+    (function() {
+        var nav = document.querySelector('nav');
+        var backdrop = document.querySelector('.nav-backdrop');
+        var navToggle = document.querySelector('.nav-toggle');
+        if (!nav || !backdrop) return;
 
-        // Enhanced hover effects
-        document.querySelectorAll('.measure-card, .cultural-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
+        function closeNav() {
+            nav.classList.remove('active');
+            backdrop.classList.remove('active');
+        }
+
+        if (navToggle) {
+            navToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                backdrop.classList.toggle('active');
             });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
+        }
+
+        document.querySelectorAll('.sub-menu a').forEach(function(link) {
+            link.addEventListener('click', closeNav);
         });
 
-        // Timeline cards special effects
-        document.querySelectorAll('.timeline-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.05)';
-                this.style.zIndex = '10';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1)';
-                this.style.zIndex = '1';
-            });
+        backdrop.addEventListener('click', closeNav);
+
+        document.addEventListener('click', function(event) {
+            if (!nav.contains(event.target) && event.target !== navToggle) closeNav();
         });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && nav.classList.contains('active')) closeNav();
+        });
+    })();
     </script>
 </body>
 </html>
