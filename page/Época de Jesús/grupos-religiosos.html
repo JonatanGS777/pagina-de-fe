@@ -44,10 +44,10 @@
 
     .container { width: 90%; max-width: 1280px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
     .ic { width: 1em; height: 1em; vertical-align: -0.15em; margin-right: 0.35em; flex-shrink: 0; }
-    .label-tiny { display: block; font-family: var(--font-display); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stamp-red); margin-bottom: 0.3rem; }
+    .label-tiny { display: block; font-family: var(--font-body); font-weight: 700; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stamp-red); margin-bottom: 0.3rem; }
 
     /* HEADER */
-    header { background: rgba(28,24,18,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(156,122,63,0.3); padding: 0.9rem 0; position: sticky; top: 0; z-index: 1000; }
+    body > header { background: rgba(28,24,18,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(156,122,63,0.3); padding: 0.9rem 0; position: sticky; top: 0; z-index: 1000; }
     .header-content { display: flex; justify-content: space-between; align-items: center; }
     .logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
     .logo img { height: 46px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(156,122,63,0.5); box-shadow: 0 4px 12px rgba(0,0,0,0.35); }
@@ -99,7 +99,7 @@
 
     /* TABS */
     .manuscript-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-bottom: 3rem; }
-    .tab-button { font-family: var(--font-display); font-weight: 400; font-size: 0.8rem; letter-spacing: 0.04em; padding: 0.6rem 1.3rem; border-radius: 2px; border: 1px solid var(--paper-deep); background: var(--folder); color: var(--muted); cursor: pointer; transition: var(--trans); }
+    .tab-button { font-family: var(--font-body); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.02em; padding: 0.6rem 1.3rem; border-radius: 2px; border: 1px solid var(--paper-deep); background: var(--folder); color: var(--muted); cursor: pointer; transition: var(--trans); }
     .tab-button:hover { border-color: var(--stamp-red); color: var(--stamp-red); }
     .tab-button.active { background: var(--redact); color: var(--folder); border-color: var(--redact); }
 
@@ -119,19 +119,19 @@
     .group-codex.d-bronze { --tile: var(--d-bronze); }
     .group-codex.d-slate { --tile: var(--d-slate); }
 
-    .file-tab { display: flex; justify-content: space-between; align-items: center; background: var(--redact); color: var(--folder); padding: 0.5rem 1rem; font-family: var(--font-display); font-size: 0.68rem; letter-spacing: 0.06em; }
+    .file-tab { display: flex; justify-content: space-between; align-items: center; background: var(--redact); color: var(--folder); padding: 0.5rem 1rem; font-family: var(--font-body); font-weight: 700; font-size: 0.7rem; letter-spacing: 0.04em; }
     .file-class { color: var(--tile, var(--stamp-red)); font-weight: 700; }
 
     .codex-header { padding: 1.5rem 1.7rem 1.1rem; border-bottom: 1px dashed var(--folder-deep); position: relative; z-index: 1; }
     .group-icon { width: 44px; height: 44px; border-radius: 2px; background: rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: center; color: var(--tile, var(--stamp-red)); margin-bottom: 0.9rem; border: 1px solid var(--folder-deep); }
     .group-icon svg { width: 1.3rem; height: 1.3rem; }
-    .group-name { font-size: 1.25rem; color: var(--ink); margin-bottom: 0.5rem; }
+    .group-name { font-family: var(--font-body); font-size: 1.25rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; letter-spacing: 0.01em; }
     .group-subtitle { font-size: 0.85rem; color: var(--muted); }
     .orig-term { font-weight: 700; color: var(--tile, var(--stamp-red)); margin-right: 0.4em; font-family: var(--font-body); }
 
     .codex-content { padding: 1.3rem 1.7rem 1.6rem; position: relative; z-index: 1; }
     .group-description { margin-bottom: 1.1rem; font-size: 0.92rem; }
-    .characteristics-list h4 { font-family: var(--font-display); font-weight: 400; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tile, var(--stamp-red)); margin-bottom: 0.6rem; }
+    .characteristics-list h4 { font-family: var(--font-body); font-weight: 700; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--tile, var(--stamp-red)); margin-bottom: 0.6rem; }
     .characteristics-list ul { list-style: none; margin-bottom: 1.1rem; }
     .characteristics-list li { font-size: 0.86rem; margin-bottom: 0.4rem; padding-left: 1.2rem; position: relative; }
     .characteristics-list li::before { content: '▸'; position: absolute; left: 0; color: var(--tile, var(--stamp-red)); }
@@ -145,11 +145,11 @@
     .comparison-title { text-align: center; font-size: clamp(1.4rem, 3vw, 1.7rem); color: var(--ink); margin-bottom: 2rem; }
     .comparison-table { width: 100%; border-collapse: collapse; background: var(--folder); box-shadow: var(--shadow); border-radius: 2px; overflow: hidden; }
     .comparison-table th, .comparison-table td { padding: 0.8rem 1rem; text-align: left; border-bottom: 1px solid var(--folder-deep); font-size: 0.82rem; }
-    .comparison-table th { background: var(--redact); color: var(--folder); font-family: var(--font-display); font-weight: 400; font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase; }
+    .comparison-table th { background: var(--redact); color: var(--folder); font-family: var(--font-body); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.03em; text-transform: uppercase; }
     .comparison-table tr:nth-child(even) td { background: rgba(28,26,22,0.03); }
 
     .scholarly-citation { max-width: 720px; margin: 3rem auto; text-align: center; padding: 2.2rem 2.4rem; background: var(--folder); border: 1px dashed var(--stamp-red); border-radius: 2px; cursor: pointer; transition: var(--trans); }
-    .citation-text { font-family: var(--font-display); font-size: 0.95rem; color: var(--ink); margin-bottom: 0.8rem; line-height: 1.6; }
+    .citation-text { font-family: var(--font-body); font-style: italic; font-size: 0.98rem; color: var(--ink); margin-bottom: 0.8rem; line-height: 1.7; }
     .citation-author { font-size: 0.78rem; color: var(--muted); }
 
     /* BIBLIOGRAFÍA */
@@ -157,14 +157,14 @@
     .bibliography-title { text-align: center; font-size: clamp(1.4rem, 3vw, 1.7rem); color: var(--ink); margin-bottom: 2rem; }
     .bibliography-grid { display: grid; gap: 1rem; }
     .bibliography-entry { background: var(--folder); border: 1px solid var(--folder-deep); border-left: 3px solid var(--seal-bronze); border-radius: 2px; padding: 1.1rem 1.4rem; }
-    .book-title { font-family: var(--font-display); font-size: 0.92rem; color: var(--ink); }
+    .book-title { font-family: var(--font-body); font-weight: 700; font-size: 0.95rem; color: var(--ink); }
     .book-author { font-size: 0.82rem; color: var(--stamp-red); font-weight: 700; margin: 0.2rem 0; }
     .book-details { font-size: 0.82rem; color: var(--muted); }
 
     /* FOOTER */
     footer { background: var(--redact); color: var(--folder); padding: 3.5rem 0 1.5rem; margin-top: 4rem; }
     .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 2.2rem; margin-bottom: 2.2rem; }
-    .footer-col h4 { font-size: 1rem; margin-bottom: 1rem; color: var(--seal-bronze); font-family: var(--font-display); font-weight: 400; }
+    .footer-col h4 { font-size: 1rem; margin-bottom: 1rem; color: var(--seal-bronze); font-family: var(--font-body); font-weight: 700; }
     .footer-col ul { list-style: none; }
     .footer-col li { margin-bottom: 0.7rem; font-size: 0.88rem; color: rgba(217,201,163,0.75); display: flex; align-items: center; gap: 0.5rem; }
     .footer-col li svg { width: 0.9rem; height: 0.9rem; color: var(--seal-bronze); flex-shrink: 0; }
