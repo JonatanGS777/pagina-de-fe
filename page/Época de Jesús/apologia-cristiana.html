@@ -11,833 +11,279 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apología cristiana | Ministerio "La Gloria es del Señor"</title>
+    <title>Apología cristiana: el ágora | Época de Jesús | Ministerio "La Gloria es del Señor"</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,400;0,700;0,800;1,400&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
     :root {
-        --ink: #1a1410;
-        --gold: #b89a5f;
-        --gold-light: #d4b87a;
-        --gold-xlight: rgba(184,154,95,0.12);
-        --parchment: #f7f4ed;
-        --dark: #0e0c0a;
-        --text: #2a2218;
+        --marble: #ede8dc;
+        --marble-deep: #dcd3ba;
+        --ink: #2b2620;
         --muted: #6b5f4e;
-        --border: rgba(184,154,95,0.28);
-        --shadow: 0 4px 24px rgba(14,12,10,0.1);
-        --shadow-lg: 0 16px 48px rgba(14,12,10,0.18);
+        --aegean: #2e5a6b;
+        --aegean-deep: #1c3944;
+        --terracotta: #9c5030;
+        --olive: #5c6b3f;
+        --gold: #b3924a;
+        --shadow: 0 6px 22px rgba(43,38,32,0.12);
         --trans: all 0.3s ease;
-        --grad: linear-gradient(160deg, #0e0c0a 0%, #1f1a14 100%);
-        --accent-grad: linear-gradient(135deg, #2a1f06 0%, #b89a5f 100%);
-        /* legacy vars */
-        --gradient-blue: linear-gradient(160deg, #0e0c0a 0%, #1f1a14 100%);
-        --gradient-green: linear-gradient(135deg, #2a1f06 0%, #b89a5f 100%);
-        --shadow-soft: 0 4px 24px rgba(14,12,10,0.1);
-        --shadow-medium: 0 16px 48px rgba(14,12,10,0.18);
-        --transition-smooth: all 0.3s ease;
+        --font-display: 'Neuton', serif;
+        --font-body: 'Crimson Pro', serif;
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-        font-family: 'Lato', sans-serif;
-        font-weight: 300;
-        line-height: 1.7;
-        color: var(--text);
-        background-color: var(--parchment);
-        overflow-x: hidden;
-        position: relative;
-    }
+    body { font-family: var(--font-body); line-height: 1.8; color: var(--ink); background: var(--marble); overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; }
 
-    body::before {
-        content: '';
-        position: fixed;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    body::after {
-        content: '';
-        position: fixed;
-        inset: 0;
-        background: radial-gradient(ellipse at center, transparent 40%, rgba(14,12,10,0.1) 100%);
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    .container {
-        width: 90%;
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 0 20px;
-        position: relative;
-        z-index: 1;
-    }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+    .ic { width: 1em; height: 1em; vertical-align: -0.15em; margin-right: 0.35em; flex-shrink: 0; }
 
     /* HEADER */
-    header {
-        background: rgba(14,12,10,0.97);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--border);
-        padding: 1.2rem 0;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
+    header { background: rgba(28,57,68,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(179,146,74,0.28); padding: 0.9rem 0; position: sticky; top: 0; z-index: 1000; }
+    .header-content { display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
+    .logo img { height: 46px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(179,146,74,0.5); box-shadow: 0 4px 12px rgba(0,0,0,0.35); }
+    .logo-text { font-family: var(--font-body); font-weight: 700; font-size: 0.85rem; line-height: 1.3; color: var(--marble); }
+    .logo-text span { display: block; font-style: italic; font-weight: 400; color: rgba(237,232,220,0.55); font-size: 0.68rem; }
 
-    .header-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+    .nav-toggle { display: none; background: none; border: 1px solid rgba(179,146,74,0.4); color: var(--marble); cursor: pointer; padding: 0.4rem 0.7rem; }
+    .nav-toggle:hover { border-color: var(--gold); }
 
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        text-decoration: none;
-    }
+    nav ul { display: flex; list-style: none; gap: 1.3rem; }
+    nav a { color: rgba(237,232,220,0.78); text-decoration: none; font-family: var(--font-body); font-weight: 400; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s ease; display: block; padding: 0.4rem 0; position: relative; }
+    nav a:hover { color: var(--gold); }
+    nav a::after { content: ''; position: absolute; width: 0; height: 1px; bottom: 0; left: 0; background: var(--gold); transition: width 0.25s ease; }
+    nav a:hover::after { width: 100%; }
 
-    .logo img { height: 48px; }
+    .menu-item-has-children { position: relative; }
+    .menu-item-has-children > a { display: flex; align-items: center; gap: 0.35rem; }
+    .menu-item-has-children > a::before { content: '▾'; font-size: 0.6rem; color: rgba(237,232,220,0.35); transition: var(--trans); }
+    .menu-item-has-children > a::after { display: none !important; }
+    .menu-item-has-children:hover > a::before { color: var(--gold); transform: rotate(180deg); }
 
-    .logo-text {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 400;
-        font-size: 0.9rem;
-        line-height: 1.35;
-        color: #f0ebe0;
-        letter-spacing: 0.03em;
-    }
+    .sub-menu { position: absolute; top: 100%; left: 0; width: 230px; background: rgba(28,57,68,0.98); border: 1px solid rgba(179,146,74,0.25); border-top: 2px solid var(--gold); padding: 0.5rem 0; display: none; z-index: 100; opacity: 0; transform: translateY(8px); transition: var(--trans); }
+    .sub-menu li { width: 100%; }
+    .sub-menu li + li { border-top: 1px solid rgba(179,146,74,0.1); }
+    .sub-menu a { padding: 0.65rem 1.1rem; font-size: 0.82rem; width: 100%; color: rgba(237,232,220,0.68); text-transform: none; border-left: 2px solid transparent; }
+    .sub-menu a::after { display: none; }
+    .sub-menu a:hover { background: rgba(179,146,74,0.08); color: var(--gold); border-left-color: var(--gold); padding-left: 1.4rem; }
+    .menu-item-has-children:hover .sub-menu { display: block; opacity: 1; transform: translateY(0); }
+
+    .nav-backdrop { position: fixed; inset: 0; background: rgba(10,18,22,0.6); backdrop-filter: blur(3px); z-index: 2400; opacity: 0; visibility: hidden; transition: opacity 0.35s ease, visibility 0.35s ease; }
+    .nav-backdrop.active { opacity: 1; visibility: visible; }
 
     /* BREADCRUMB */
-    .breadcrumb {
-        background: #f0ede4;
-        padding: 0.85rem 0;
-        border-bottom: 1px solid var(--border);
-        position: relative;
-        z-index: 1;
-    }
-
-    .breadcrumb-nav {
-        display: flex;
-        align-items: center;
-        gap: 0.7rem;
-        font-family: 'Lato', sans-serif;
-        font-size: 0.78rem;
-        font-weight: 400;
-        letter-spacing: 0.07em;
-        text-transform: uppercase;
-        color: var(--muted);
-    }
-
-    .breadcrumb-nav a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb { background: var(--marble-deep); padding: 0.85rem 0; border-bottom: 1px solid rgba(179,146,74,0.25); }
+    .breadcrumb-nav { display: flex; align-items: center; gap: 0.6rem; font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+    .breadcrumb-nav a { color: var(--terracotta); text-decoration: none; }
     .breadcrumb-nav a:hover { color: var(--ink); }
-    .breadcrumb-nav i { font-size: 0.62rem; color: var(--muted); }
+    .breadcrumb-nav svg { width: 0.7rem; height: 0.7rem; color: var(--muted); }
 
     /* HERO */
-    .hero {
-        padding: 7rem 0;
-        background:
-            linear-gradient(rgba(14,12,10,0.78), rgba(14,12,10,0.78)),
-            url('./images/apolegetica.png') center / cover no-repeat;
-        position: relative;
-        overflow: hidden;
-    }
+    .hero { text-align: center; padding: 5rem 2rem 4rem; position: relative; overflow: hidden; background: linear-gradient(180deg, var(--aegean-deep) 0%, var(--aegean) 100%); }
+    .agora-svg { display: block; width: min(460px, 88%); margin: 0 auto 1.2rem; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 0.55em; font-style: italic; font-size: 0.88rem; color: var(--gold); border: 1px solid rgba(179,146,74,0.45); border-radius: 50px; padding: 0.45rem 1.2rem; margin-bottom: 1.2rem; }
+    .hero-title { font-size: clamp(2rem, 4.5vw, 2.9rem); color: var(--marble); margin-bottom: 1rem; }
+    .hero-subtitle { font-size: 1rem; color: rgba(237,232,220,0.78); max-width: 620px; margin: 0 auto 1.8rem; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 0.5em; padding: 0.8rem 1.9rem; border-radius: 2px; font-family: var(--font-body); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em; text-decoration: none; transition: var(--trans); border: 1px solid var(--gold); background: transparent; color: var(--gold); }
+    .hero-cta:hover { background: var(--gold); color: var(--aegean-deep); }
 
-    .hero::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
-        pointer-events: none;
-    }
-
-    .hero::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(ellipse at 50% 80%, rgba(184,154,95,0.16) 0%, transparent 65%);
-        pointer-events: none;
-    }
-
-    .hero-content {
-        position: relative;
-        z-index: 2;
-        max-width: 760px;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .hero-title {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 400;
-        font-style: italic;
-        font-size: clamp(2.4rem, 6vw, 4rem);
-        color: #f0ebe0;
-        margin-bottom: 1.2rem;
-        letter-spacing: 0.02em;
-        animation: fadeUp 0.9s ease both;
-    }
-
-    .hero-subtitle {
-        font-family: 'Lato', sans-serif;
-        font-weight: 300;
-        font-size: 1rem;
-        color: rgba(240,235,224,0.7);
-        margin-bottom: 2.5rem;
-        max-width: 620px;
-        margin-left: auto;
-        margin-right: auto;
-        line-height: 1.8;
-        animation: fadeUp 0.9s 0.15s ease both;
-    }
-
-    .hero-cta {
-        display: inline-block;
-        background: transparent;
-        color: var(--gold-light);
-        padding: 0.85rem 2.2rem;
-        border: 1px solid var(--gold);
-        text-decoration: none;
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        font-size: 0.78rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        transition: var(--trans);
-        animation: fadeUp 0.9s 0.3s ease both;
-        position: relative;
-        z-index: 1;
-    }
-
-    .hero-cta:hover {
-        background: var(--gold);
-        color: var(--ink);
-    }
-
-    /* MAIN CONTENT */
-    .main-content { padding: 5rem 0 0; }
+    .main-content { padding: 4rem 0; }
 
     /* INFO BLOCKS */
-    .info-blocks {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.8rem;
-        margin-bottom: 5rem;
-    }
+    .info-blocks { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.6rem; margin-bottom: 4rem; }
+    .info-block { background: #fffdf6; border: 1px solid var(--marble-deep); border-radius: 4px; padding: 1.8rem 1.9rem; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .info-block-accent { position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--gold); }
+    .info-icon { width: 46px; height: 46px; border-radius: 50%; background: rgba(46,90,107,0.1); display: flex; align-items: center; justify-content: center; color: var(--aegean); margin-bottom: 1rem; }
+    .info-icon svg { width: 1.3rem; height: 1.3rem; }
+    .info-block-title { font-size: 1.25rem; color: var(--ink); margin-bottom: 0.7rem; }
+    .info-block-text { font-size: 0.92rem; }
 
-    .info-block {
-        background: #fff;
-        padding: 2.2rem;
-        box-shadow: var(--shadow);
-        transition: box-shadow 0.3s ease;
-        position: relative;
-        border: 1px solid rgba(184,154,95,0.15);
-        border-top: 3px solid var(--gold);
-    }
+    .section-title { text-align: center; margin-bottom: 3rem; }
+    .section-title h2 { font-size: clamp(1.7rem, 3.5vw, 2.2rem); color: var(--ink); margin-bottom: 0.7rem; }
+    .section-title p { color: var(--muted); max-width: 620px; margin: 0 auto; }
 
-    .info-block:hover { box-shadow: var(--shadow-lg); }
+    /* QUESTION CARDS */
+    .question-container { max-width: 820px; margin: 0 auto 4rem; }
+    .question-card { background: #fffdf6; border: 1px solid var(--marble-deep); border-radius: 4px; box-shadow: var(--shadow); margin-bottom: 1rem; overflow: hidden; }
+    .question-header { display: flex; align-items: center; gap: 1rem; padding: 1.3rem 1.6rem; cursor: pointer; }
+    .question-num { font-family: var(--font-display); font-size: 1.3rem; color: var(--gold); flex-shrink: 0; width: 2.2rem; }
+    .question-title { flex: 1; font-size: 1.08rem; color: var(--ink); }
+    .question-icon { flex-shrink: 0; color: var(--aegean); }
+    .q-chev { width: 1.1rem; height: 1.1rem; transition: transform 0.3s ease; }
+    .question-card.active .q-chev { transform: rotate(180deg); }
+    .question-card.active .question-header { border-bottom: 1px solid var(--marble-deep); }
 
-    .info-block-accent { display: none; } /* replaced by border-top */
+    .question-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .question-body-inner { padding: 1.5rem 1.8rem 1.8rem 3.6rem; }
+    .question-body-inner p { margin-bottom: 1rem; font-size: 0.95rem; }
+    .question-body-inner strong { color: var(--terracotta); }
+    .scripture { background: var(--marble); border-left: 3px solid var(--gold); padding: 1rem 1.2rem; margin: 1.1rem 0; font-style: italic; border-radius: 0 3px 3px 0; }
+    .scripture-ref { display: block; font-style: normal; font-weight: 700; color: var(--aegean); margin-top: 0.4rem; font-size: 0.82rem; }
 
-    .info-icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 48px;
-        height: 48px;
-        background: var(--accent-grad);
-        color: #f0ebe0;
-        margin-bottom: 1.3rem;
-        font-size: 1.2rem;
-    }
-
-    .info-block:nth-child(2) .info-icon,
-    .info-block:nth-child(3) .info-icon { background: var(--accent-grad); color: #f0ebe0; }
-
-    .info-block-title {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 600;
-        font-size: 1.35rem;
-        margin-bottom: 0.8rem;
-        color: var(--ink);
-    }
-
-    .info-block-text {
-        font-size: 0.9rem;
-        font-weight: 300;
-        color: var(--text);
-        line-height: 1.75;
-    }
-
-    /* SECTION TITLE */
-    .section-title {
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-
-    .section-title::after {
-        content: '';
-        display: block;
-        width: 60px;
-        height: 1px;
-        background: var(--gold);
-        margin: 1rem auto 0;
-    }
-
-    .section-title h2 {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 400;
-        font-style: italic;
-        font-size: clamp(1.8rem, 4vw, 2.6rem);
-        color: var(--ink);
-        margin-bottom: 0.75rem;
-    }
-
-    .section-title p {
-        font-size: 0.9rem;
-        font-weight: 300;
-        max-width: 600px;
-        margin: 0 auto;
-        color: var(--muted);
-        line-height: 1.7;
-    }
-
-    /* QUESTION ACCORDION */
-    .question-section { margin-bottom: 0; }
-
-    .question-container {
-        max-width: 860px;
-        margin: 0 auto;
-    }
-
-    .question-card {
-        background: #fff;
-        margin-bottom: 1rem;
-        box-shadow: var(--shadow);
-        border: 1px solid rgba(184,154,95,0.15);
-        border-left: 3px solid transparent;
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .question-card.active {
-        border-left-color: var(--gold);
-        box-shadow: var(--shadow-lg);
-    }
-
-    .question-header {
-        padding: 1.4rem 1.6rem;
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: background 0.2s ease;
-        border-bottom: 1px solid transparent;
-    }
-
-    .question-header:hover { background: rgba(184,154,95,0.04); }
-
-    .question-card.active .question-header {
-        border-bottom: 1px solid rgba(184,154,95,0.2);
-    }
-
-    .question-title {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 600;
-        font-size: 1.15rem;
-        color: var(--ink);
-        padding-right: 1.5rem;
-        line-height: 1.45;
-    }
-
-    .question-icon {
-        color: var(--gold);
-        transition: transform 0.35s ease;
-        font-size: 0.9rem;
-        flex-shrink: 0;
-    }
-
-    .question-card.active .question-icon { transform: rotate(180deg); }
-
-    .question-body {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease;
-    }
-
-    .question-card.active .question-body { max-height: 2000px; }
-
-    .question-body-inner {
-        padding: 1.4rem 1.6rem 1.6rem;
-        color: var(--text);
-        line-height: 1.75;
-        font-size: 0.92rem;
-        font-weight: 300;
-    }
-
-    .question-body-inner p { margin-bottom: 0.9rem; }
-
-    .question-body-inner strong {
-        font-weight: 700;
-        color: var(--ink);
-    }
-
-    /* SCRIPTURE */
-    .scripture {
-        background: rgba(184,154,95,0.07);
-        padding: 1.2rem 1.4rem;
-        border-left: 3px solid var(--gold);
-        margin: 1.4rem 0;
-        font-family: 'Cormorant Garamond', serif;
-        font-style: italic;
-        font-size: 1.05rem;
-        line-height: 1.7;
-        color: var(--ink);
-    }
-
-    .scripture-ref {
-        font-style: normal;
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        font-size: 0.8rem;
-        letter-spacing: 0.02em;
-        color: var(--gold);
-        margin-top: 0.6rem;
-        display: block;
-        text-align: right;
-    }
-
-    /* BOOK SECTION */
-    .book-section {
-        background: var(--grad);
-        padding: 5rem 0;
-        position: relative;
-        margin-top: 5rem;
-    }
-
-    .book-section::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
-        pointer-events: none;
-    }
-
-    .book-section .section-title h2 { color: #f0ebe0; }
-    .book-section .section-title p { color: rgba(240,235,224,0.6); }
-    .book-section .section-title::after { background: var(--gold); }
-
-    .book-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 1.6rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .book-card {
-        background: rgba(240,235,224,0.05);
-        border: 1px solid rgba(184,154,95,0.25);
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        position: relative;
-        transition: box-shadow 0.3s ease, background 0.3s ease;
-    }
-
-    .book-card:hover {
-        background: rgba(240,235,224,0.08);
-        box-shadow: 0 20px 48px rgba(14,12,10,0.4);
-    }
-
-    .book-category {
-        position: absolute;
-        top: 0.8rem;
-        right: 0.8rem;
-        background: rgba(184,154,95,0.25);
-        color: var(--gold-light);
-        padding: 0.25rem 0.7rem;
-        font-family: 'Lato', sans-serif;
-        font-size: 0.68rem;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        border: 1px solid rgba(184,154,95,0.3);
-        z-index: 1;
-    }
-
-    .book-category.classic,
-    .book-category.contemporary { background: rgba(184,154,95,0.2); color: var(--gold-light); }
-
-    .book-image {
-        height: 160px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--accent-grad) !important;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .book-image::before { display: none; }
-
-    .book-icon {
-        font-size: 2.5rem;
-        color: rgba(240,235,224,0.25);
-        position: relative;
-        z-index: 1;
-    }
-
-    .book-content {
-        padding: 1.4rem;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .book-title {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 600;
-        font-style: italic;
-        font-size: 1.1rem;
-        margin-bottom: 0.3rem;
-        color: #f0ebe0;
-        line-height: 1.3;
-    }
-
-    .book-author {
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        font-size: 0.8rem;
-        letter-spacing: 0.02em;
-        color: var(--gold-light);
-        margin-bottom: 0.8rem;
-    }
-
-    .book-description {
-        font-size: 0.85rem;
-        font-weight: 300;
-        line-height: 1.65;
-        color: rgba(240,235,224,0.6);
-        flex-grow: 1;
-        margin-bottom: 1.2rem;
-    }
-
-    .book-link {
-        display: inline-block;
-        padding: 0.6rem 1.2rem;
-        background: transparent;
-        color: var(--gold-light);
-        text-decoration: none;
-        border: 1px solid var(--gold);
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        font-size: 0.72rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        transition: var(--trans);
-        text-align: center;
-        align-self: flex-start;
-    }
-
-    .book-link:hover {
-        background: var(--gold);
-        color: var(--ink);
-    }
+    /* BOOKS */
+    .book-section { margin-bottom: 4rem; }
+    .book-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.6rem; }
+    .book-card { background: #fffdf6; border: 1px solid var(--marble-deep); border-radius: 4px; box-shadow: var(--shadow); overflow: hidden; position: relative; }
+    .book-category { position: absolute; top: 0.9rem; right: 0.9rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 30px; z-index: 1; }
+    .book-category.classic { background: rgba(92,107,63,0.15); color: var(--olive); }
+    .book-category.contemporary { background: rgba(156,80,48,0.15); color: var(--terracotta); }
+    .book-image { height: 90px; background: var(--aegean-deep); display: flex; align-items: center; justify-content: center; color: var(--gold); }
+    .book-image svg { width: 2rem; height: 2rem; }
+    .book-content { padding: 1.4rem 1.6rem 1.6rem; }
+    .book-title { font-size: 1.15rem; color: var(--ink); margin-bottom: 0.3rem; }
+    .book-author { font-size: 0.85rem; color: var(--terracotta); font-weight: 700; margin-bottom: 0.7rem; font-family: var(--font-body); }
+    .book-description { font-size: 0.88rem; margin-bottom: 1rem; }
+    .book-link { font-size: 0.82rem; font-weight: 700; color: var(--aegean); text-decoration: none; }
+    .book-link:hover { text-decoration: underline; }
 
     /* TESTIMONIAL */
-    .testimonial-section { padding: 5rem 0; }
+    .testimonial-section { background: var(--aegean-deep); color: var(--marble); padding: 4rem 2rem; margin-bottom: 4rem; text-align: center; }
+    .testimonial-container { max-width: 700px; margin: 0 auto; }
+    .testimonial-icon { color: var(--gold); margin-bottom: 1rem; }
+    .testimonial-icon svg { width: 2rem; height: 2rem; }
+    .testimonial-text { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; margin-bottom: 1.2rem; }
+    .testimonial-author { font-weight: 700; color: var(--gold); }
+    .testimonial-position { font-size: 0.85rem; color: rgba(237,232,220,0.7); }
 
-    .testimonial-container {
-        max-width: 820px;
-        margin: 0 auto;
-        background: var(--grad);
-        padding: 3.5rem;
-        position: relative;
-        text-align: center;
-        overflow: hidden;
-    }
-
-    .testimonial-container::before {
-        content: 'C';
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 10rem;
-        color: var(--gold);
-        opacity: 0.15;
-        position: absolute;
-        top: -2rem;
-        left: 1.5rem;
-        line-height: 1;
-    }
-
-    .testimonial-icon {
-        color: var(--gold);
-        font-size: 1.6rem;
-        margin-bottom: 2rem;
-        opacity: 0.7;
-        position: relative;
-        z-index: 1;
-    }
-
-    .testimonial-text {
-        font-family: 'Cormorant Garamond', serif;
-        font-style: italic;
-        font-size: 1.35rem;
-        line-height: 1.85;
-        margin-bottom: 2rem;
-        color: rgba(240,235,224,0.88);
-        font-weight: 300;
-        position: relative;
-        z-index: 1;
-    }
-
-    .testimonial-author {
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        font-size: 0.86rem;
-        letter-spacing: 0.02em;
-        color: var(--gold-light);
-        position: relative;
-        z-index: 1;
-    }
-
-    .testimonial-position {
-        font-size: 0.78rem;
-        font-weight: 300;
-        color: rgba(240,235,224,0.5);
-        margin-top: 0.3rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    /* CTA SECTION */
-    .cta-section {
-        background: var(--accent-grad);
-        padding: 5rem 0;
-        color: #f0ebe0;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .cta-section::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
-        pointer-events: none;
-    }
-
-    .cta-content { position: relative; z-index: 2; }
-
-    .cta-title {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 400;
-        font-style: italic;
-        font-size: clamp(1.8rem, 4vw, 2.8rem);
-        margin-bottom: 1.2rem;
-        color: #f0ebe0;
-    }
-
-    .cta-text {
-        max-width: 620px;
-        margin: 0 auto 2.5rem;
-        font-size: 0.95rem;
-        font-weight: 300;
-        opacity: 0.8;
-        line-height: 1.7;
-    }
-
-    .cta-button {
-        display: inline-block;
-        background: transparent;
-        color: #f0ebe0;
-        padding: 0.9rem 2.4rem;
-        border: 1px solid rgba(240,235,224,0.6);
-        text-decoration: none;
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        font-size: 0.78rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        transition: var(--trans);
-    }
-
-    .cta-button:hover {
-        background: rgba(240,235,224,0.12);
-        border-color: #f0ebe0;
-    }
+    /* CTA */
+    .cta-section { text-align: center; padding: 0 2rem; }
+    .cta-content { max-width: 620px; margin: 0 auto; }
+    .cta-title { font-size: clamp(1.6rem, 3.2vw, 2.1rem); color: var(--ink); margin-bottom: 1rem; }
+    .cta-text { color: var(--muted); margin-bottom: 1.6rem; }
+    .cta-button { display: inline-flex; align-items: center; gap: 0.5em; padding: 0.85rem 2rem; border-radius: 2px; font-weight: 700; font-size: 0.88rem; text-decoration: none; background: var(--terracotta); color: var(--marble); transition: var(--trans); }
+    .cta-button:hover { background: var(--aegean-deep); }
 
     /* FOOTER */
-    footer {
-        background: var(--grad);
-        color: rgba(240,235,224,0.8);
-        padding: 4rem 0 1.5rem;
-        position: relative;
-        z-index: 1;
-        border-top: 1px solid var(--border);
-    }
+    footer { background: var(--aegean-deep); color: var(--marble); padding: 3.5rem 0 1.5rem; margin-top: 4rem; }
+    .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 2.2rem; margin-bottom: 2.2rem; }
+    .footer-column h4 { font-size: 1.05rem; margin-bottom: 1rem; color: var(--gold); }
+    .footer-column ul { list-style: none; }
+    .footer-column li { margin-bottom: 0.7rem; font-size: 0.9rem; color: rgba(237,232,220,0.78); display: flex; align-items: center; gap: 0.5rem; }
+    .footer-column li svg { width: 0.9rem; height: 0.9rem; color: var(--gold); flex-shrink: 0; }
+    .footer-column p { font-size: 0.9rem; color: rgba(237,232,220,0.78); margin-bottom: 1rem; }
+    .footer-column a { color: rgba(237,232,220,0.78); text-decoration: none; }
+    .footer-column a:hover { color: var(--gold); }
+    .footer-social { display: flex; gap: 0.8rem; margin-top: 1.2rem; }
+    .footer-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(237,232,220,0.08); border-radius: 50%; }
+    .footer-social a svg { width: 1rem; height: 1rem; }
+    .footer-social a:hover { background: var(--gold); }
+    .copyright { text-align: center; padding-top: 1.6rem; border-top: 1px solid rgba(237,232,220,0.12); font-size: 0.82rem; color: rgba(237,232,220,0.5); }
 
-    .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 2.5rem;
-        margin-bottom: 3rem;
-    }
-
-    .footer-column h4 {
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        font-size: 0.72rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--gold-light);
-        margin-bottom: 1.3rem;
-        padding-bottom: 0.7rem;
-        position: relative;
-    }
-
-    .footer-column h4::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 36px;
-        height: 1px;
-        background: var(--gold);
-    }
-
-    .footer-column p {
-        font-size: 0.88rem;
-        font-weight: 300;
-        line-height: 1.7;
-        opacity: 0.7;
-        margin-bottom: 1.2rem;
-    }
-
-    .footer-links { list-style: none; }
-
-    .footer-links li { margin-bottom: 0.7rem; }
-
-    .footer-links a {
-        color: rgba(240,235,224,0.65);
-        text-decoration: none;
-        font-size: 0.88rem;
-        font-weight: 300;
-        transition: color 0.2s ease;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .footer-links a i { color: var(--gold); font-size: 0.8rem; }
-
-    .footer-links a:hover { color: var(--gold-light); }
-
-    .footer-social {
-        display: flex;
-        gap: 0.8rem;
-        margin-top: 1.3rem;
-    }
-
-    .social-icon {
-        width: 36px;
-        height: 36px;
-        border: 1px solid rgba(184,154,95,0.35);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: var(--trans);
-        color: rgba(240,235,224,0.65);
-        text-decoration: none;
-        font-size: 0.85rem;
-    }
-
-    .social-icon:hover {
-        background: var(--gold);
-        border-color: var(--gold);
-        color: var(--ink);
-    }
-
-    .copyright {
-        text-align: center;
-        padding-top: 2rem;
-        border-top: 1px solid rgba(184,154,95,0.2);
-        font-size: 0.8rem;
-        font-weight: 300;
-        opacity: 0.5;
-    }
-
-    /* ANIMATIONS */
-    @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(22px); }
-        to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .fade-in-up { animation: fadeInUp 0.7s ease both; }
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
-
-    /* RESPONSIVE */
     @media (max-width: 768px) {
-        .hero { padding: 5rem 0; }
-        .info-blocks, .book-container { grid-template-columns: 1fr; }
-        .footer-content { grid-template-columns: 1fr; gap: 2rem; }
-        .testimonial-container { padding: 2.5rem 1.8rem; }
+        .nav-toggle { display: block; }
+        nav { position: fixed; top: 0; right: -300px; width: 280px; height: 100vh; background: rgba(20,40,48,0.99); z-index: 2500; transition: right 0.3s ease; overflow-y: auto; padding: 2rem; }
+        nav.active { right: 0; }
+        nav ul { flex-direction: column; gap: 0; }
+        nav li { width: 100%; }
+        nav a { padding: 0.9rem 0; width: 100%; border-bottom: 1px solid rgba(179,146,74,0.08); }
+        nav a::after { display: none; }
+        .menu-item-has-children > a { justify-content: space-between; }
+        .menu-item-has-children > a::before { display: none; }
+        .menu-item-has-children > a::after { display: flex !important; align-items: center; justify-content: center; content: '+' !important; width: 22px; height: 22px; font-size: 0.9rem; font-family: initial !important; color: var(--gold) !important; border: 1px solid rgba(179,146,74,0.35); border-radius: 50%; transition: var(--trans); }
+        .menu-item-has-children.active > a::after { transform: rotate(135deg) !important; }
+        .sub-menu { position: static; width: 100%; box-shadow: none; border: none; background: rgba(255,255,255,0.04); padding-left: 1rem; max-height: 0; overflow: hidden; display: block; opacity: 1; transform: none; transition: max-height 0.3s ease; }
+        .menu-item-has-children.active > .sub-menu { max-height: 500px; }
+        .menu-item-has-children:hover .sub-menu { display: none; }
+        .menu-item-has-children.active .sub-menu { display: block; }
+        .sub-menu a:hover { background: transparent; padding-left: 0.5rem; border-left: none; }
+        .question-body-inner { padding-left: 1.8rem; }
     }
-
-    @media (max-width: 480px) {
-        .question-header { padding: 1.1rem 1.2rem; }
-        .question-body-inner { padding: 1.1rem 1.2rem 1.4rem; }
-        .container { width: 95%; padding: 0 10px; }
-    }
-
-    /* SCROLLBAR */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #f0ede4; }
-    ::-webkit-scrollbar-thumb { background: rgba(184,154,95,0.4); border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
-    
-        /* Insignia circular del logo EMD (aplicada a todas las páginas) */
-        img[alt="Logo EMD"] {
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid rgba(201, 170, 106, 0.5);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(201, 170, 106, 0.08);
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        img[alt="Logo EMD"]:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 0 5px rgba(201, 170, 106, 0.15);
-        }
     </style>
-
 </head>
 <body>
     <header>
         <div class="container header-content">
-            <div class="logo">
+            <a href="../../index.html" class="logo">
                 <img src="../../images/EMD.png?v=2" alt="Logo EMD">
                 <div class="logo-text">
-                    <div>Ministerio</div>
-                    <div>"La Gloria es del Señor"</div>
+                    Ministerio
+                    <span>"La Gloria es del Señor"</span>
                 </div>
-            </div>
+            </a>
+            <button class="nav-toggle" aria-label="Menú">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:1.3rem;height:1.3rem;"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
+            </button>
+            <div class="nav-backdrop"></div>
+
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Inicio</a></li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Figuras Bíblicas</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Figuras Bíblicas/at-a-nt.html">AT a NT</a></li>
+                            <li><a href="../Figuras Bíblicas/nombres-simbologia.html">Los nombres y su simbología</a></li>
+                            <li><a href="../Figuras Bíblicas/templo-figuras.html">Templo y sus Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/tabernaculo-figuras.html">El tabernáculo y sus figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/sacrificios-figuras.html">Sacrificios y sus Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/tipologia-cantares.html">Tipología Cantares</a></li>
+                            <li><a href="../Figuras Bíblicas/figuras-cristo.html">Figuras de Cristo</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Falsas Doctrinas</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                            <li><a href="../Falsas Doctrinas/gnosticismos.html">Gnosticismos en la Biblia</a></li>
+                            <li><a href="../Falsas Doctrinas/filosofias-griegas.html">Filosofías Griegas</a></li>
+                            <li><a href="../Falsas Doctrinas/masoneria.html">Masonería</a></li>
+                            <li><a href="../Falsas Doctrinas/sociedades-secretas.html">Sociedades Secretas</a></li>
+                            <li><a href="../Falsas Doctrinas/sectas-anticristianas.html">Sectas Anticristianas</a></li>
+                            <li><a href="../Falsas Doctrinas/pseudoprofetas.html">Pseudoprofetas</a></li>
+                            <li><a href="../Falsas Doctrinas/reptilianos-consejo-13.html">Reptilianos y Consejo de los 13</a></li>
+                            <li><a href="../Falsas Doctrinas/lineas-sangre-illuminati.html">Líneas de Sangre Illuminati</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Estudios Exegéticos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Temas Exegéticos</a></li>
+                            <li><a href="../Estudios Exegéticos/cantarcantares.html">Cantar de los Cantares</a></li>
+                            <li><a href="../Estudios Exegéticos/romanos11.html">Romanos 11</a></li>
+                            <li><a href="../Estudios Exegéticos/idiomas-biblia.html">Hebreo, Arameo y Griego</a></li>
+                            <li><a href="../Estudios Exegéticos/enlaces-recursos.html">Enlaces de Recursos</a></li>
+                            <li><a href="../Estudios Exegéticos/diccionarios-comentarios.html">Diccionarios y Comentarios</a></li>
+                            <li><a href="../Estudios Exegéticos/software-biblico.html">Software Bíblico</a></li>
+                            <li><a href="../Estudios Exegéticos/meditacion-palabra.html">Meditación en la Palabra</a></li>
+                            <li><a href="../Estudios Exegéticos/lectura-anual.html">Lectura Anual</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Tiempo del Fin</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Tiempo del Fin/introduccion.html">Introducción</a></li>
+                            <li><a href="../Tiempo del Fin/escatologia.html">Escatología</a></li>
+                            <li><a href="../Tiempo del Fin/profecias-cumplidas.html">Profecías Cumplidas</a></li>
+                            <li><a href="../Tiempo del Fin/nuevo-orden-mundial.html">Nuevo Orden Mundial</a></li>
+                            <li><a href="../Tiempo del Fin/noticias-fin.html">Noticias del Fin</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Época de Jesús</a>
+                        <ul class="sub-menu">
+                            <li><a href="estudio-contemporaneo.html">Estudio Contemporáneo</a></li>
+                            <li><a href="contexto-historico.html">Contexto Histórico</a></li>
+                            <li><a href="grupos-religiosos.html">Grupos religiosos</a></li>
+                            <li><a href="recursos-academicos.html">Estudios de Contexto</a></li>
+                            <li><a href="apologia-cristiana.html" class="active">Apología Cristiana</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Estudios Bíblicos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Bíblicos/doctrina-basica.html">Doctrina Básica</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-intermedia.html">Doctrina intermedia</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-avanzada.html">Doctrina Avanzada</a></li>
+                            <li><a href="../Estudios Bíblicos/revelacion-espiritu.html">Revelación del Espíritu</a></li>
+                            <li><a href="../Estudios Bíblicos/devocionales.html">Devocionales</a></li>
+                            <li><a href="../Estudios Bíblicos/aguila-cinco-ministerios.html">El Águila y los Cinco Ministerios</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -845,9 +291,9 @@
         <div class="container">
             <nav class="breadcrumb-nav">
                 <a href="../../index.html">Inicio</a>
-                <i class="fas fa-chevron-right"></i>
-                <a href="../index.html">Época de Jesús</a>
-                <i class="fas fa-chevron-right"></i>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+                <a href="estudio-contemporaneo.html">Época de Jesús</a>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
                 <span>Apología cristiana</span>
             </nav>
         </div>
@@ -855,7 +301,25 @@
 
     <section class="hero">
         <div class="container hero-content">
-            <h1 class="hero-title">Apología cristiana</h1>
+            <svg class="agora-svg" viewBox="0 0 400 180" aria-hidden="true">
+                <path d="M40,60 L200,15 L360,60 Z" fill="#ede8dc" stroke="#1c3944" stroke-width="1.5"/>
+                <rect x="35" y="60" width="330" height="10" fill="#ede8dc" stroke="#1c3944" stroke-width="1"/>
+                <g stroke="#ede8dc" stroke-width="10" opacity="0.9">
+                    <line x1="55" y1="72" x2="55" y2="150"/>
+                    <line x1="95" y1="72" x2="95" y2="150"/>
+                    <line x1="135" y1="72" x2="135" y2="150"/>
+                    <line x1="175" y1="72" x2="175" y2="150"/>
+                    <line x1="225" y1="72" x2="225" y2="150"/>
+                    <line x1="265" y1="72" x2="265" y2="150"/>
+                    <line x1="305" y1="72" x2="305" y2="150"/>
+                    <line x1="345" y1="72" x2="345" y2="150"/>
+                </g>
+                <rect x="35" y="150" width="330" height="10" fill="#ede8dc" stroke="#1c3944" stroke-width="1"/>
+                <circle cx="200" cy="105" r="16" fill="none" stroke="#b3924a" stroke-width="1.5" opacity="0.8"/>
+                <path d="M193,110 q7,-10 14,0" stroke="#b3924a" stroke-width="1.5" fill="none" opacity="0.8"/>
+            </svg>
+            <span class="hero-tag">Hechos 17:22</span>
+            <h1 class="hero-title">Apología cristiana: el ágora</h1>
             <p class="hero-subtitle">Defendiendo la fe cristiana con fundamentos bíblicos, históricos y filosóficos, equipándote con respuestas a las preguntas más desafiantes</p>
             <a href="#preguntas" class="hero-cta">Explorar respuestas</a>
         </div>
@@ -866,27 +330,21 @@
             <div class="info-blocks">
                 <div class="info-block fade-in-up">
                     <div class="info-block-accent"></div>
-                    <div class="info-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
+                    <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></svg></div>
                     <h3 class="info-block-title">¿Qué es la apología?</h3>
                     <p class="info-block-text">La apología cristiana es la defensa racional y fundamentada de la fe. El término deriva del griego <em>apología</em> (ἀπολογία), que significa «dar una defensa». Se enfoca en responder preguntas, objeciones y críticas con argumentos lógicos y evidencias.</p>
                 </div>
-                
-                <div class="info-block fade-in-up delay-1">
+
+                <div class="info-block fade-in-up">
                     <div class="info-block-accent"></div>
-                    <div class="info-icon">
-                        <i class="fas fa-book-open"></i>
-                    </div>
+                    <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg></div>
                     <h3 class="info-block-title">Base bíblica</h3>
                     <p class="info-block-text">La apología tiene su fundamento en la Escritura. 1 Pedro 3:15 nos exhorta: "Santificad a Dios el Señor en vuestros corazones, y estad siempre preparados para presentar defensa con mansedumbre y reverencia ante todo el que os demande razón de la esperanza que hay en vosotros."</p>
                 </div>
-                
-                <div class="info-block fade-in-up delay-2">
+
+                <div class="info-block fade-in-up">
                     <div class="info-block-accent"></div>
-                    <div class="info-icon">
-                        <i class="fas fa-arrows-to-circle"></i>
-                    </div>
+                    <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" /></svg></div>
                     <h3 class="info-block-title">Propósito</h3>
                     <p class="info-block-text">La apología cristiana busca demostrar la racionalidad de la fe, eliminar obstáculos intelectuales para los que buscan a Dios, fortalecer la fe de los creyentes y presentar una defensa coherente de la cosmovisión cristiana en la plaza pública de ideas.</p>
                 </div>
@@ -896,21 +354,17 @@
                 <h2>Preguntas fundamentales</h2>
                 <p>Respuestas bíblicas y razonadas a las interrogantes más desafiantes para la fe cristiana</p>
             </div>
-        </div>
 
-        <section class="question-section" id="preguntas">
-            <div class="container question-container">
-                <!-- Question 1 -->
+            <div class="question-container" id="preguntas">
                 <div class="question-card fade-in-up">
                     <div class="question-header">
+                        <span class="question-num">01</span>
                         <h3 class="question-title">¿Cómo puede existir un Dios bueno cuando hay tanto sufrimiento en el mundo?</h3>
-                        <div class="question-icon">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
+                        <div class="question-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="q-chev"><path d="m6 9 6 6 6-6" /></svg></div>
                     </div>
                     <div class="question-body">
                         <div class="question-body-inner">
-                            <p>El problema del sufrimiento es quizás uno de los desafíos más profundos para la fe cristiana. C. S. Lewis, en su obra <em>El problema del dolor</em>, aborda esta cuestión reconociendo que «el dolor sería un problema insoluble si el cristianismo no fuera verdadero». La respuesta cristiana se desarrolla en varios niveles:</p>
+<p>El problema del sufrimiento es quizás uno de los desafíos más profundos para la fe cristiana. C. S. Lewis, en su obra <em>El problema del dolor</em>, aborda esta cuestión reconociendo que «el dolor sería un problema insoluble si el cristianismo no fuera verdadero». La respuesta cristiana se desarrolla en varios niveles:</p>
                             
                             <p><strong>1. El libre albedrío humano:</strong> Dios creó a los seres humanos con libertad genuina para elegir el bien o el mal. Gran parte del sufrimiento en el mundo proviene de las decisiones equivocadas de las personas. Sin libertad, no existiría el amor auténtico, pero la libertad implica la posibilidad del mal.</p>
                             
@@ -929,18 +383,16 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Question 2 -->
-                <div class="question-card fade-in-up delay-1">
+
+                <div class="question-card fade-in-up">
                     <div class="question-header">
+                        <span class="question-num">02</span>
                         <h3 class="question-title">¿Es razonable creer en los milagros en una era científica?</h3>
-                        <div class="question-icon">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
+                        <div class="question-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="q-chev"><path d="m6 9 6 6 6-6" /></svg></div>
                     </div>
                     <div class="question-body">
                         <div class="question-body-inner">
-                            <p>La tensión entre ciencia y milagros es más aparente que real. La ciencia estudia cómo funciona normalmente el mundo natural mediante procesos regulares y repetibles. Los milagros, por definición, son eventos extraordinarios que trascienden estas regularidades debido a la intervención divina.</p>
+<p>La tensión entre ciencia y milagros es más aparente que real. La ciencia estudia cómo funciona normalmente el mundo natural mediante procesos regulares y repetibles. Los milagros, por definición, son eventos extraordinarios que trascienden estas regularidades debido a la intervención divina.</p>
                             
                             <p><strong>1. Los milagros no contradicen la ciencia:</strong> Un milagro no es una violación de las leyes naturales, sino la intervención de un agente con poder superior. C. S. Lewis lo ilustra así: si pongo un billete de $100 en una caja cerrada y luego la abro para encontrar dos billetes de $100, no se han violado las leyes de la aritmética; más bien, alguien ha intervenido.</p>
                             
@@ -959,18 +411,16 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Question 3 -->
-                <div class="question-card fade-in-up delay-2">
+
+                <div class="question-card fade-in-up">
                     <div class="question-header">
+                        <span class="question-num">03</span>
                         <h3 class="question-title">¿Cómo sabemos que la Biblia es confiable y no simplemente un libro humano?</h3>
-                        <div class="question-icon">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
+                        <div class="question-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="q-chev"><path d="m6 9 6 6 6-6" /></svg></div>
                     </div>
                     <div class="question-body">
                         <div class="question-body-inner">
-                            <p>La confiabilidad de la Biblia se puede evaluar desde múltiples perspectivas:</p>
+<p>La confiabilidad de la Biblia se puede evaluar desde múltiples perspectivas:</p>
                             
                             <p><strong>1. Evidencia manuscrita:</strong> El Nuevo Testamento cuenta con más de 5800 manuscritos griegos, algunos de los cuales datan del siglo II. Esta abundancia de manuscritos permite a los eruditos reconstruir el texto original con extraordinaria precisión. Ningún otro documento de la Antigüedad se acerca a este nivel de atestación manuscrita.</p>
                             
@@ -993,18 +443,16 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Question 4 -->
-                <div class="question-card fade-in-up delay-3">
+
+                <div class="question-card fade-in-up">
                     <div class="question-header">
+                        <span class="question-num">04</span>
                         <h3 class="question-title">¿Jesús realmente existió o es un personaje mítico?</h3>
-                        <div class="question-icon">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
+                        <div class="question-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="q-chev"><path d="m6 9 6 6 6-6" /></svg></div>
                     </div>
                     <div class="question-body">
                         <div class="question-body-inner">
-                            <p>La existencia histórica de Jesús es aceptada por prácticamente todos los historiadores serios, independientemente de su afiliación religiosa. La evidencia incluye:</p>
+<p>La existencia histórica de Jesús es aceptada por prácticamente todos los historiadores serios, independientemente de su afiliación religiosa. La evidencia incluye:</p>
                             
                             <p><strong>1. Fuentes romanas:</strong> Historiadores romanos como Tácito (<em>Anales</em>, 15.44) y Suetonio (<em>Vida de Claudio</em>, 25.4) mencionan a Jesús y a los primeros cristianos. Tácito, quien escribió alrededor del 116 d. C., se refiere a «Christus», ejecutado por Poncio Pilato durante el reinado de Tiberio.</p>
                             
@@ -1027,18 +475,16 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Question 5 -->
-                <div class="question-card fade-in-up delay-4">
+
+                <div class="question-card fade-in-up">
                     <div class="question-header">
+                        <span class="question-num">05</span>
                         <h3 class="question-title">¿No son todas las religiones esencialmente lo mismo?</h3>
-                        <div class="question-icon">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
+                        <div class="question-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="q-chev"><path d="m6 9 6 6 6-6" /></svg></div>
                     </div>
                     <div class="question-body">
                         <div class="question-body-inner">
-                            <p>Aunque las tradiciones religiosas del mundo comparten algunos valores morales comunes, difieren fundamentalmente en sus afirmaciones centrales sobre la naturaleza de Dios, la humanidad y la salvación:</p>
+<p>Aunque las tradiciones religiosas del mundo comparten algunos valores morales comunes, difieren fundamentalmente en sus afirmaciones centrales sobre la naturaleza de Dios, la humanidad y la salvación:</p>
                             
                             <p><strong>1. Concepciones diferentes de Dios:</strong> El cristianismo afirma un Dios personal y trinitario; el islam enseña un monoteísmo estricto; el hinduismo abarca desde el monoteísmo hasta el politeísmo; el budismo tradicional es no teísta; el taoísmo ve lo divino como un principio impersonal.</p>
                             
@@ -1059,18 +505,16 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Question 6 -->
-                <div class="question-card fade-in-up delay-4">
+
+                <div class="question-card fade-in-up">
                     <div class="question-header">
+                        <span class="question-num">06</span>
                         <h3 class="question-title">¿Cómo reconciliar la ciencia y la fe cristiana?</h3>
-                        <div class="question-icon">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
+                        <div class="question-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="q-chev"><path d="m6 9 6 6 6-6" /></svg></div>
                     </div>
                     <div class="question-body">
                         <div class="question-body-inner">
-                            <p>Lejos de ser enemigos naturales, la ciencia y la fe cristiana pueden coexistir armoniosamente. A lo largo de la historia, muchos grandes científicos han sido cristianos devotos, viendo en el orden natural un reflejo de la racionalidad divina.</p>
+<p>Lejos de ser enemigos naturales, la ciencia y la fe cristiana pueden coexistir armoniosamente. A lo largo de la historia, muchos grandes científicos han sido cristianos devotos, viendo en el orden natural un reflejo de la racionalidad divina.</p>
                             
                             <p><strong>1. Dominios complementarios:</strong> La ciencia y la fe abordan diferentes tipos de preguntas. La ciencia se ocupa del «cómo» de los procesos naturales, mientras que la fe responde al «porqué» del propósito y del significado. Como señaló Stephen Jay Gould, representan «magisterios no superpuestos».</p>
                             
@@ -1091,18 +535,16 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Question 7 -->
-                <div class="question-card fade-in-up delay-4">
+
+                <div class="question-card fade-in-up">
                     <div class="question-header">
+                        <span class="question-num">07</span>
                         <h3 class="question-title">¿Por qué hay tantas denominaciones cristianas si la verdad es una?</h3>
-                        <div class="question-icon">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
+                        <div class="question-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="q-chev"><path d="m6 9 6 6 6-6" /></svg></div>
                     </div>
                     <div class="question-body">
                         <div class="question-body-inner">
-                            <p>La multiplicidad de denominaciones cristianas representa un desafío apologético frecuente. Sin embargo, un análisis más profundo revela varios factores que ayudan a contextualizar esta realidad:</p>
+<p>La multiplicidad de denominaciones cristianas representa un desafío apologético frecuente. Sin embargo, un análisis más profundo revela varios factores que ayudan a contextualizar esta realidad:</p>
                             
                             <p><strong>1. Unidad en lo esencial:</strong> A pesar de sus diferencias, las principales denominaciones cristianas históricas mantienen acuerdo en las doctrinas centrales expresadas en los credos ecuménicos: la Trinidad, la encarnación, la muerte y resurrección de Cristo, y la salvación por gracia mediante la fe.</p>
                             
@@ -1123,18 +565,16 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Question 8 -->
-                <div class="question-card fade-in-up delay-4">
+
+                <div class="question-card fade-in-up">
                     <div class="question-header">
+                        <span class="question-num">08</span>
                         <h3 class="question-title">Si Dios es omnisciente y conoce el futuro, ¿tenemos realmente libre albedrío?</h3>
-                        <div class="question-icon">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
+                        <div class="question-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="q-chev"><path d="m6 9 6 6 6-6" /></svg></div>
                     </div>
                     <div class="question-body">
                         <div class="question-body-inner">
-                            <p>La aparente tensión entre la omnisciencia divina y el libre albedrío humano representa uno de los desafíos filosóficos más profundos de la teología. Sin embargo, existen varios enfoques que sugieren que ambas realidades pueden coexistir:</p>
+<p>La aparente tensión entre la omnisciencia divina y el libre albedrío humano representa uno de los desafíos filosóficos más profundos de la teología. Sin embargo, existen varios enfoques que sugieren que ambas realidades pueden coexistir:</p>
                             
                             <p><strong>1. Conocimiento no implica causación:</strong> El conocimiento previo de Dios no necesariamente causa nuestras decisiones. Saber que algo sucederá no es lo mismo que hacer que suceda. Un observador en una colina que ve dos autos dirigiéndose hacia una intersección puede saber que chocarán, pero ese conocimiento no causa el accidente.</p>
                             
@@ -1155,18 +595,16 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Question 9 -->
-                <div class="question-card fade-in-up delay-4">
+
+                <div class="question-card fade-in-up">
                     <div class="question-header">
+                        <span class="question-num">09</span>
                         <h3 class="question-title">¿Por qué la Biblia contiene pasajes violentos, especialmente en el Antiguo Testamento?</h3>
-                        <div class="question-icon">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
+                        <div class="question-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="q-chev"><path d="m6 9 6 6 6-6" /></svg></div>
                     </div>
                     <div class="question-body">
                         <div class="question-body-inner">
-                            <p>Los pasajes violentos del Antiguo Testamento, particularmente los que describen el herem o "destrucción total" en las conquistas israelitas, representan un desafío significativo para muchos lectores. Sin embargo, varias consideraciones pueden ayudarnos a entender estos textos en su contexto apropiado:</p>
+<p>Los pasajes violentos del Antiguo Testamento, particularmente los que describen el herem o "destrucción total" en las conquistas israelitas, representan un desafío significativo para muchos lectores. Sin embargo, varias consideraciones pueden ayudarnos a entender estos textos en su contexto apropiado:</p>
                             
                             <p><strong>1. Contextualización histórica:</strong> El Antiguo Testamento refleja un período histórico brutal donde la supervivencia nacional frecuentemente dependía de la fuerza militar. Los mandatos divinos deben entenderse dentro del contexto de las brutales realidades geopolíticas del antiguo Cercano Oriente.</p>
                             
@@ -1187,18 +625,16 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Question 10 -->
-                <div class="question-card fade-in-up delay-4">
+
+                <div class="question-card fade-in-up">
                     <div class="question-header">
+                        <span class="question-num">10</span>
                         <h3 class="question-title">¿Cómo puede la resurrección de Jesús ser históricamente creíble?</h3>
-                        <div class="question-icon">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
+                        <div class="question-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="q-chev"><path d="m6 9 6 6 6-6" /></svg></div>
                     </div>
                     <div class="question-body">
                         <div class="question-body-inner">
-                            <p>La resurrección de Jesús es la afirmación central del cristianismo. Aunque involucra un evento sobrenatural, existe un caso histórico sólido que apoya su credibilidad, basado en varios hechos bien establecidos:</p>
+<p>La resurrección de Jesús es la afirmación central del cristianismo. Aunque involucra un evento sobrenatural, existe un caso histórico sólido que apoya su credibilidad, basado en varios hechos bien establecidos:</p>
                             
                             <p><strong>1. La tumba vacía:</strong> Incluso los críticos tempranos del cristianismo admitían que la tumba estaba vacía, ofreciendo explicaciones alternativas (como el robo del cuerpo) en lugar de negar el hecho básico. Si las autoridades hubieran tenido el cuerpo, podrían haber aplastado fácilmente el movimiento cristiano exhibiéndolo.</p>
                             
@@ -1220,22 +656,16 @@
                     </div>
                 </div>
             </div>
-        </section>
 
-        <div class="book-section">
-            <div class="container">
+            <div class="book-section">
                 <div class="section-title">
                     <h2>Recursos recomendados</h2>
                     <p>Obras fundamentales para profundizar en la apología cristiana</p>
                 </div>
-                
                 <div class="book-container">
-                    <!-- Book 1 -->
                     <div class="book-card fade-in-up">
                         <div class="book-category classic">Clásico</div>
-                        <div class="book-image">
-                            <i class="fas fa-book book-icon"></i>
-                        </div>
+                        <div class="book-image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg></div>
                         <div class="book-content">
                             <h3 class="book-title">Mero cristianismo</h3>
                             <p class="book-author">C. S. Lewis</p>
@@ -1243,72 +673,57 @@
                             <a href="https://ibitibi.org/wp-content/uploads/2017/03/MeroCristianismoC.S.Lewis_.pdf" class="book-link">Más información</a>
                         </div>
                     </div>
-                    
-                    <!-- Book 2 -->
-                    <div class="book-card fade-in-up delay-1">
+
+                    <div class="book-card fade-in-up">
                         <div class="book-category classic">Clásico</div>
-                        <div class="book-image">
-                            <i class="fas fa-book book-icon"></i>
-                        </div>
+                        <div class="book-image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg></div>
                         <div class="book-content">
                             <h3 class="book-title">El problema del dolor</h3>
-                            <h4 class="book-author">C. S. Lewis</h4>
+                            <p class="book-author">C. S. Lewis</p>
                             <p class="book-description">Lewis aborda uno de los mayores obstáculos para la fe: la existencia del sufrimiento. Explora cómo un Dios bueno y omnipotente puede permitir el dolor, ofreciendo una perspectiva cristiana profundamente reflexiva.</p>
                             <a href="https://peregrinodeloabsoluto.wordpress.com/wp-content/uploads/2020/06/el-problema-del-dolor-clive-staples-lewis.pdf" class="book-link">Más información</a>
                         </div>
                     </div>
-                    
-                    <!-- Book 3 -->
-                    <div class="book-card fade-in-up delay-2">
+
+                    <div class="book-card fade-in-up">
                         <div class="book-category classic">Clásico</div>
-                        <div class="book-image">
-                            <i class="fas fa-book book-icon"></i>
-                        </div>
+                        <div class="book-image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg></div>
                         <div class="book-content">
                             <h3 class="book-title">Guía Holman</h3>
-                            <h4 class="book-author">Doug Powell</h4>
-                            <p class="book-description">A través de la <em>Guía Holman de apologética cristiana</em>, el lector podrá conocer las diversas maneras que idearon los cristianos para comunicar a otras personas el valor de su fe y su esperanza, apoyándose en la razón y las evidencias. Este es un libro de apologética —disciplina que expone las pruebas y los fundamentos de la fe cristiana— con un enfoque diferente. Doug Powell recoge una larga tradición de enfoques apologéticos y los presenta para nuestros días.</p>
+                            <p class="book-author">Doug Powell</p>
+                            <p class="book-description">A través de la <em>Guía Holman de apologética cristiana</em>, el lector podrá conocer las diversas maneras que idearon los cristianos para comunicar a otras personas el valor de su fe y su esperanza, apoyándose en la razón y las evidencias. Este es un libro de apologética (disciplina que expone las pruebas y los fundamentos de la fe cristiana) con un enfoque diferente. Doug Powell recoge una larga tradición de enfoques apologéticos y los presenta para nuestros días.</p>
                             <a href="https://www.elolivo.net/LIBROS/Powell-GuiaHolmanDeApologeticaCristiana.pdf" class="book-link">Más información</a>
                         </div>
                     </div>
-                    
-                    <!-- Book 4 -->
-                    <div class="book-card fade-in-up delay-3">
+
+                    <div class="book-card fade-in-up">
                         <div class="book-category contemporary">Contemporáneo</div>
-                        <div class="book-image" style="background: var(--gradient-green);">
-                            <i class="fas fa-book book-icon"></i>
-                        </div>
+                        <div class="book-image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg></div>
                         <div class="book-content">
                             <h3 class="book-title">Evidencia que exige un veredicto</h3>
-                            <h4 class="book-author">Josh McDowell y Sean McDowell</h4>
+                            <p class="book-author">Josh McDowell y Sean McDowell</p>
                             <p class="book-description">Una obra exhaustiva que presenta evidencias históricas, textuales y arqueológicas para la fiabilidad de las Escrituras y las afirmaciones del cristianismo, equipando a los creyentes para defender su fe.</p>
                             <a href="https://ibvictoria.cl/wp-content/uploads/2013/07/josh-mcdowell-evidencia-que-exige-un-veredicto-libro-completo.pdf" class="book-link">Más información</a>
                         </div>
                     </div>
-                    
-                    <!-- Book 5 -->
-                    <div class="book-card fade-in-up delay-4">
+
+                    <div class="book-card fade-in-up">
                         <div class="book-category contemporary">Contemporáneo</div>
-                        <div class="book-image" style="background: var(--gradient-green);">
-                            <i class="fas fa-book book-icon"></i>
-                        </div>
+                        <div class="book-image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg></div>
                         <div class="book-content">
                             <h3 class="book-title">El caso de Cristo</h3>
-                            <h4 class="book-author">Lee Strobel</h4>
+                            <p class="book-author">Lee Strobel</p>
                             <p class="book-description">Un ex periodista legal y ateo narra su investigación sobre la evidencia histórica de Jesús, entrevistando a expertos en diversos campos para examinar la credibilidad de los evangelios y la resurrección.</p>
                             <a href="https://tesoroscristianos.co/wp-content/uploads/2020/07/Lee-Strobel-El-Caso-del-Jesus-Verdadero.pdf" class="book-link">Más información</a>
                         </div>
                     </div>
-                    
-                    <!-- Book 6 -->
-                    <div class="book-card fade-in-up delay-4">
+
+                    <div class="book-card fade-in-up">
                         <div class="book-category classic">Clásico</div>
-                        <div class="book-image">
-                            <i class="fas fa-book book-icon"></i>
-                        </div>
+                        <div class="book-image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg></div>
                         <div class="book-content">
                             <h3 class="book-title">Introducción a la apologética cristiana</h3>
-                            <h4 class="book-author">Antonio Cruz</h4>
+                            <p class="book-author">Antonio Cruz</p>
                             <p class="book-description">Antonio Cruz Suárez nació en Úbeda, Jaén, España. Es licenciado y doctor en Ciencias Biológicas por la Universidad de Barcelona. También posee un doctorado en Ministerio por la Theological University of America, en Cedar Rapids (Iowa). Ha sido catedrático de bachillerato en Ciencias Naturales y jefe del Seminario de Experimentales. Ha recibido reconocimientos de la Universidad Autónoma de Honduras, la Universidad Autónoma de Yucatán (México) y la Universidad Mariano Gálvez de Guatemala. Fue profesor del Centro de Estudios Teológicos en Barcelona. Asimismo, trabajó en la FLET (Facultad Latinoamericana de Estudios Teológicos), en el área de maestría. Ha impartido seminarios, conferencias y predicaciones en centenares de iglesias e instituciones religiosas en España, Canadá, Estados Unidos y toda Latinoamérica.</p>
                             <a href="https://www.academia.edu/119762785/Introducción_a_la_Apologética_Cristiana_Antonio_Cruz" class="book-link">Más información</a>
                         </div>
@@ -1320,18 +735,10 @@
         <section class="testimonial-section">
             <div class="container">
                 <div class="testimonial-container fade-in-up">
-                    <div class="testimonial-icon">
-                        <i class="fas fa-quote-left"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "Estoy convencido de que la verdad puede sostenerse por sí misma, y que el cristianismo no debe evitar el escrutinio riguroso. Al contrario, invita al examen lógico y a la investigación histórica, manteniendo su integridad intelectual mientras ofrece respuestas a las preguntas más profundas de la existencia humana."
-                    </p>
-                    <div class="testimonial-author">
-                        C. S. Lewis
-                    </div>
-                    <div class="testimonial-position">
-                        Autor de <em>Mero cristianismo</em>
-                    </div>
+                    <div class="testimonial-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" /><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" /></svg></div>
+                    <p class="testimonial-text">"Estoy convencido de que la verdad puede sostenerse por sí misma, y que el cristianismo no debe evitar el escrutinio riguroso. Al contrario, invita al examen lógico y a la investigación histórica, manteniendo su integridad intelectual mientras ofrece respuestas a las preguntas más profundas de la existencia humana."</p>
+                    <div class="testimonial-author">C. S. Lewis</div>
+                    <div class="testimonial-position">Autor de <em>Mero cristianismo</em></div>
                 </div>
             </div>
         </section>
@@ -1352,59 +759,53 @@
                     <h4>Acerca de nosotros</h4>
                     <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza bíblica y la formación espiritual sólida basada en las Escrituras.</p>
                     <div class="footer-social">
-                         <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                         <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.5 9.87v-6.98H7.9V12h2.6V9.8c0-2.6 1.55-4 3.9-4 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v6.98A10 10 0 0 0 22 12Z"/></svg></a>
+                        <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.8 8.001a2.75 2.75 0 0 0-1.94-1.94C18.1 5.6 12 5.6 12 5.6s-6.1 0-7.86.46A2.75 2.75 0 0 0 2.2 8a28.6 28.6 0 0 0 0 8 2.75 2.75 0 0 0 1.94 1.94C5.9 18.4 12 18.4 12 18.4s6.1 0 7.86-.46A2.75 2.75 0 0 0 21.8 16a28.6 28.6 0 0 0 0-8ZM10 15.2V8.8l6 3.2Z"/></svg></a>
                     </div>
                 </div>
-                
                 <div class="footer-column">
                     <h4>Enlaces rápidos</h4>
-                    <ul class="footer-links">
-                        <li><a href="../../index.html"><i class="fas fa-home"></i> Inicio</a></li>
-                        <li><a href="../index.html"><i class="fas fa-history"></i> Época de Jesús</a></li>
-                        <li><a href="contexto-historico.html"><i class="fas fa-landmark"></i> Contexto histórico</a></li>
-                        <li><a href="grupos-religiosos.html"><i class="fas fa-users"></i> Grupos religiosos</a></li>
-                        <li><a href="recursos-academicos.html"><i class="fas fa-graduation-cap"></i> Estudios de contexto</a></li>
+                    <ul>
+                        <li><a href="../../index.html">Inicio</a></li>
+                        <li><a href="estudio-contemporaneo.html">Época de Jesús</a></li>
+                        <li><a href="contexto-historico.html">Contexto histórico</a></li>
+                        <li><a href="grupos-religiosos.html">Grupos religiosos</a></li>
+                        <li><a href="recursos-academicos.html">Estudios de contexto</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-column">
                     <h4>Contacto</h4>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Dirección del ministerio</a></li>
-                        <li><a href="#"><i class="fas fa-phone"></i> +1 787-345-6940</a></li>
-                        <li><a href="#"><i class="fas fa-envelope"></i>ministeriolagloriaesdelsenor7@gmail.com</a></li>
+                    <ul>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg> Dirección del ministerio</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg> +1 787-345-6940</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg> ministeriolagloriaesdelsenor7@gmail.com</li>
                     </ul>
                 </div>
             </div>
-            
             <div class="copyright">
-                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+                <p>&copy; 2026 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Question Accordion
         const questionCards = document.querySelectorAll('.question-card');
-        
+
         questionCards.forEach(card => {
             const header = card.querySelector('.question-header');
             const body = card.querySelector('.question-body');
             const bodyContent = card.querySelector('.question-body-inner');
-            
+
             header.addEventListener('click', () => {
-                // Close all other cards
                 questionCards.forEach(otherCard => {
                     if (otherCard !== card && otherCard.classList.contains('active')) {
                         otherCard.classList.remove('active');
                         otherCard.querySelector('.question-body').style.maxHeight = '0';
                     }
                 });
-                
-                // Toggle current card
+
                 card.classList.toggle('active');
-                
+
                 if (card.classList.contains('active')) {
                     body.style.maxHeight = bodyContent.scrollHeight + 'px';
                 } else {
@@ -1413,23 +814,26 @@
             });
         });
 
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        document.querySelectorAll('.menu-item-has-children > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.parentNode.classList.toggle('active');
+                }
             });
         });
 
-        // Intersection Observer for Animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
 
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1438,24 +842,46 @@
                 }
             });
         }, observerOptions);
-
-        // Observe fade-in elements
         document.querySelectorAll('.fade-in-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
+    </script>
+    <script>
+    (function() {
+        var nav = document.querySelector('nav');
+        var backdrop = document.querySelector('.nav-backdrop');
+        var navToggle = document.querySelector('.nav-toggle');
+        if (!nav || !backdrop) return;
 
-        // Book Card Hover Effect
-        document.querySelectorAll('.book-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px)';
-                this.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
+        function closeNav() {
+            nav.classList.remove('active');
+            backdrop.classList.remove('active');
+        }
+
+        if (navToggle) {
+            navToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                backdrop.classList.toggle('active');
             });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = '';
-                this.style.boxShadow = '';
-            });
+        }
+
+        document.querySelectorAll('.sub-menu a').forEach(function(link) {
+            link.addEventListener('click', closeNav);
         });
+
+        backdrop.addEventListener('click', closeNav);
+
+        document.addEventListener('click', function(event) {
+            if (!nav.contains(event.target) && event.target !== navToggle) closeNav();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && nav.classList.contains('active')) closeNav();
+        });
+    })();
     </script>
 </body>
 </html>
