@@ -11,1140 +11,277 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El linaje de Cristo: estudio contemporáneo | Ministerio "La Gloria es del Señor"</title>
+    <title>El linaje de Cristo: constelación mesiánica | Ministerio "La Gloria es del Señor"</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
     :root {
-        --ink: #1a1410;
-        --wine: #7a2d3c;
-        --wine-light: #a85065;
-        --wine-xlight: rgba(122,45,60,0.1);
-        --parchment: #f7f4ed;
-        --dark: #0e0c0a;
-        --text: #2a2218;
-        --muted: #6b5f4e;
-        --border: rgba(122,45,60,0.28);
-        --shadow: 0 4px 24px rgba(14,12,10,0.1);
-        --shadow-lg: 0 16px 48px rgba(14,12,10,0.2);
-        --trans: all 0.3s ease;
-        --grad: linear-gradient(160deg, #0e0c0a 0%, #1a1014 100%);
-        --accent-grad: linear-gradient(135deg, #2a0a10 0%, #7a2d3c 100%);
-        /* legacy vars used by inline styles */
-        --primary-gold: #c4a06a;
-        --deep-purple: #1a0810;
-        --royal-blue: #3a1520;
-        --accent-red: #7a2d3c;
-        --dark-color: #0e0c0a;
-        --transition: all 0.3s ease;
-        --shadow-subtle: 0 2px 8px rgba(14,12,10,0.08);
-        --shadow-medium: 0 8px 24px rgba(14,12,10,0.14);
-        --shadow-strong: 0 20px 48px rgba(14,12,10,0.22);
+        --night:       #0d1321;
+        --night-deep:  #070a12;
+        --star:        #e8d9a8;
+        --star-bright: #f5ecc9;
+        --nebula:      #4a5a8a;
+        --line:        #6b7aa8;
+        --paper:       #f4f0e6;
+        --paper-deep:  #e6dfc9;
+        --ink:         #1c1a14;
+        --ink-soft:    #5c5442;
+        --shadow: 0 10px 28px rgba(13,19,33,0.1);
+        --trans: all 0.3s cubic-bezier(0.25,0.8,0.25,1);
+        --font-display: 'Italiana', serif;
+        --font-body: 'Source Serif 4', serif;
+        --c-nacimiento: #c9a94f;
+        --c-ministerio: #4a8a7a;
+        --c-sufrimiento: #8a3a3a;
+        --c-resurreccion: #c9a94f;
+        --c-caracter: #6a4a8a;
+        --c-reino: #3a5a8a;
     }
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-        font-family: 'Lato', sans-serif;
-        font-weight: 300;
-        line-height: 1.7;
-        color: var(--text);
-        background-color: var(--parchment);
+        font-family: var(--font-body);
+        line-height: 1.75;
+        color: var(--ink);
+        background: var(--paper);
         overflow-x: hidden;
-        position: relative;
     }
 
-    body::before {
-        content: '';
-        position: fixed;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-        pointer-events: none;
-        z-index: 0;
-    }
+    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 400; letter-spacing: 0.01em; }
 
-    body::after {
-        content: '';
-        position: fixed;
-        inset: 0;
-        background: radial-gradient(ellipse at center, transparent 40%, rgba(14,12,10,0.1) 100%);
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 15px;
-        position: relative;
-        z-index: 1;
-    }
+    .container { width: 90%; max-width: 1180px; margin: 0 auto; padding: 0 15px; position: relative; z-index: 1; }
+    .ic { width: 1em; height: 1em; vertical-align: -0.15em; margin-right: 0.35em; flex-shrink: 0; }
 
     /* HEADER */
     header {
-        background: rgba(14,12,10,0.97);
+        background: rgba(7,10,18,0.97);
         backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--border);
-        padding: 1rem 0;
-        position: sticky;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
+        border-bottom: 1px solid rgba(232,217,168,0.2);
+        padding: 0.9rem 0;
+        position: sticky; top: 0; width: 100%; z-index: 1000;
     }
-
-    .header-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    .header-content { display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
+    .logo img {
+        height: 48px; border-radius: 50%; object-fit: cover;
+        border: 2px solid rgba(232,217,168,0.4);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     }
+    .logo-text { font-family: var(--font-body); font-weight: 600; font-size: 0.85rem; line-height: 1.3; color: #f0ebe0; }
+    .logo-text span { display: block; font-style: italic; font-weight: 400; color: rgba(240,235,224,0.55); font-size: 0.7rem; }
 
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        text-decoration: none;
-    }
+    .nav-toggle { display: none; background: none; border: 1px solid rgba(232,217,168,0.3); color: #f0ebe0; cursor: pointer; padding: 0.4rem 0.7rem; transition: var(--trans); }
+    .nav-toggle:hover { border-color: var(--star); }
 
-    .logo img { height: 50px; }
-
-    .logo-text {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 400;
-        font-size: 0.88rem;
-        line-height: 1.35;
-        color: #f0ebe0;
-        letter-spacing: 0.03em;
-    }
-
-    /* NAV */
-    .nav-toggle {
-        display: none;
-        background: none;
-        border: 1px solid rgba(122,45,60,0.4);
-        color: #f0ebe0;
-        font-size: 1.1rem;
-        cursor: pointer;
-        padding: 0.4rem 0.7rem;
-        transition: var(--trans);
-    }
-
-    .nav-toggle:hover { border-color: var(--wine-light); }
-
-    nav ul {
-        display: flex;
-        list-style: none;
-        gap: 1.5rem;
-    }
-
+    nav ul { display: flex; list-style: none; gap: 1.4rem; }
     nav a {
-        color: rgba(240,235,224,0.75);
-        text-decoration: none;
-        font-family: 'Lato', sans-serif;
-        font-weight: 400;
-        font-size: 0.8rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        transition: color 0.2s ease;
-        display: block;
-        padding: 0.4rem 0;
-        position: relative;
+        color: rgba(240,235,224,0.78); text-decoration: none; font-family: var(--font-body);
+        font-weight: 400; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
+        transition: color 0.2s ease; display: block; padding: 0.4rem 0; position: relative;
     }
-
-    nav a:hover { color: var(--wine-light); }
-
-    nav a::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 1px;
-        bottom: 0;
-        left: 0;
-        background: var(--wine);
-        transition: width 0.25s ease;
-    }
-
+    nav a:hover { color: var(--star); }
+    nav a::after { content: ''; position: absolute; width: 0; height: 1px; bottom: 0; left: 0; background: var(--star); transition: width 0.25s ease; }
     nav a:hover::after { width: 100%; }
 
-    /* DROPDOWN */
     .menu-item-has-children { position: relative; }
-    .menu-item-has-children > a { display: flex; align-items: center; gap: 0.3rem; }
+    .menu-item-has-children > a { display: flex; align-items: center; gap: 0.35rem; }
+    .menu-item-has-children > a::before { content: '▾'; font-size: 0.6rem; color: rgba(240,235,224,0.35); transition: var(--trans); }
+    .menu-item-has-children > a::after { display: none !important; }
+    .menu-item-has-children:hover > a::before { color: var(--star); transform: rotate(180deg); }
 
     .sub-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 220px;
-        background: rgba(14,12,10,0.97);
-        border: 1px solid var(--border);
-        padding: 0.6rem 0;
-        display: none;
-        z-index: 100;
-        opacity: 0;
-        transform: translateY(8px);
-        transition: var(--trans);
+        position: absolute; top: 100%; left: 0; width: 230px;
+        background: rgba(7,10,18,0.98); border: 1px solid rgba(232,217,168,0.2); border-top: 2px solid var(--star);
+        padding: 0.5rem 0; display: none; z-index: 100; opacity: 0; transform: translateY(8px); transition: var(--trans);
     }
-
     .sub-menu li { width: 100%; }
-
-    .sub-menu a {
-        padding: 0.6rem 1.1rem;
-        font-size: 0.78rem;
-        width: 100%;
-        color: rgba(240,235,224,0.65);
-        text-transform: none;
-        letter-spacing: 0.02em;
-    }
-
-    .sub-menu a:hover { color: var(--wine-light); background: rgba(122,45,60,0.08); }
+    .sub-menu li + li { border-top: 1px solid rgba(232,217,168,0.08); }
+    .sub-menu a { padding: 0.65rem 1.1rem; font-size: 0.82rem; width: 100%; color: rgba(240,235,224,0.68); text-transform: none; letter-spacing: 0.01em; border-left: 2px solid transparent; }
     .sub-menu a::after { display: none; }
+    .sub-menu a:hover { background: rgba(232,217,168,0.07); color: var(--star); border-left-color: var(--star); padding-left: 1.4rem; }
+    .menu-item-has-children:hover .sub-menu { display: block; opacity: 1; transform: translateY(0); }
 
-    .menu-item-has-children:hover .sub-menu {
-        display: block;
-        transform: translateY(0);
-        opacity: 1;
+    .nav-backdrop {
+        position: fixed; inset: 0; background: rgba(5,4,3,0.6); backdrop-filter: blur(3px);
+        z-index: 2400; opacity: 0; visibility: hidden; transition: opacity 0.35s ease, visibility 0.35s ease;
     }
+    .nav-backdrop.active { opacity: 1; visibility: visible; }
 
-    /* HERO SECTION */
+    /* HERO: carta estelar */
     .hero-section {
-        height: 100vh;
-        background: var(--grad);
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
+        position: relative; min-height: 62vh; display: flex; align-items: center; justify-content: center;
+        text-align: center; overflow: hidden; background: linear-gradient(180deg, var(--night-deep) 0%, var(--night) 100%);
+        padding: 5rem 0 3.5rem;
     }
-
-    .hero-background {
-        position: absolute;
-        inset: 0;
-        background-image: url('./images/genealogia.png');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        opacity: 0.12;
+    .star-svg { display: block; width: min(480px, 88%); margin: 0 auto 1.2rem; }
+    .hero-content { position: relative; z-index: 2; padding: 0 24px; }
+    .hero-tag {
+        display: inline-flex; align-items: center; gap: 0.55em; font-style: italic; font-size: 0.9rem;
+        color: var(--star); border: 1px solid rgba(232,217,168,0.4); border-radius: 50px; padding: 0.45rem 1.2rem; margin-bottom: 1.2rem;
     }
+    .hero-title { font-size: clamp(2.2rem, 5vw, 3.4rem); color: var(--paper); margin-bottom: 1rem; }
+    .hero-subtitle { font-size: 1.05rem; color: rgba(244,240,230,0.75); max-width: 560px; margin: 0 auto; }
 
-    .hero-section::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
-        pointer-events: none;
-        z-index: 1;
-    }
-
-    .hero-section::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(ellipse at 50% 70%, rgba(122,45,60,0.22) 0%, transparent 65%);
-        pointer-events: none;
-        z-index: 1;
-    }
-
-    .hero-content {
-        text-align: center;
-        color: #f0ebe0;
-        z-index: 2;
-        max-width: 800px;
-        padding: 0 2rem;
-        position: relative;
-    }
-
-    .hero-title {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 400;
-        font-style: italic;
-        font-size: clamp(3rem, 8vw, 5.5rem);
-        margin-bottom: 1.5rem;
-        letter-spacing: 0.02em;
-        color: #f0ebe0;
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 1s ease-out 0.5s forwards;
-    }
-
-    .hero-subtitle {
-        font-family: 'Lato', sans-serif;
-        font-weight: 300;
-        font-size: clamp(0.95rem, 2.5vw, 1.2rem);
-        color: rgba(240,235,224,0.65);
-        margin-bottom: 3rem;
-        max-width: 580px;
-        margin-left: auto;
-        margin-right: auto;
-        line-height: 1.85;
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 1s ease-out 1s forwards;
-    }
-
-    .scroll-indicator {
-        position: absolute;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        color: rgba(240,235,224,0.4);
-        opacity: 0;
-        animation: fadeIn 1s ease-out 2s forwards, bounce 2s infinite 3s;
-        z-index: 2;
-    }
-
-    .scroll-indicator i { font-size: 1.6rem; }
-
-    @keyframes fadeInUp {
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-        to { opacity: 1; }
-    }
-
-    @keyframes bounce {
-        0%, 100% { transform: translateX(-50%) translateY(0); }
-        50%       { transform: translateX(-50%) translateY(-10px); }
-    }
+    .scroll-indicator { margin-top: 2rem; color: var(--star); opacity: 0.7; cursor: pointer; }
+    .scroll-indicator svg { width: 1.4rem; height: 1.4rem; }
 
     /* TIMELINE */
-    .timeline-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 6rem 2rem;
-        position: relative;
+    .timeline-container { padding: 5rem 0; max-width: 900px; margin: 0 auto; }
+    .timeline-intro { text-align: center; margin-bottom: 3.5rem; padding: 0 20px; }
+    .timeline-intro h2 { font-size: clamp(1.7rem, 3.5vw, 2.3rem); color: var(--night); margin-bottom: 1rem; }
+    .timeline-intro p { color: var(--ink-soft); max-width: 620px; margin: 0 auto; }
+
+    .timeline-line { display: none; }
+
+    .timeline-item { position: relative; padding: 0 20px 2.4rem 3.2rem; }
+    .timeline-item::before {
+        content: ''; position: absolute; left: 31px; top: 0.4rem; bottom: -1rem; width: 1px;
+        background: linear-gradient(to bottom, var(--star), var(--line));
+        opacity: 0.4;
     }
-
-    .timeline-intro {
-        text-align: center;
-        margin-bottom: 5rem;
-    }
-
-    .timeline-intro h2 {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 400;
-        font-style: italic;
-        font-size: clamp(2rem, 4vw, 3rem);
-        color: var(--ink);
-        margin-bottom: 0.8rem;
-    }
-
-    .timeline-intro p {
-        font-size: 0.92rem;
-        font-weight: 300;
-        color: var(--muted);
-        max-width: 560px;
-        margin: 0 auto;
-    }
-
-    .timeline-line {
-        position: absolute;
-        left: 50%;
-        top: 340px;
-        bottom: 170px;
-        width: 2px;
-        background: linear-gradient(to bottom, var(--wine), rgba(122,45,60,0.15));
-        transform: translateX(-50%);
-        z-index: 1;
-    }
-
-    .timeline-item {
-        position: relative;
-        margin-bottom: 7rem;
-        padding: 0 3rem;
-        opacity: 0;
-        transform: translateY(40px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .timeline-item.visible { opacity: 1; transform: translateY(0); }
-
-    .timeline-item:nth-child(odd) {
-        text-align: right;
-        padding-right: calc(50% + 4rem);
-    }
-
-    .timeline-item:nth-child(even) {
-        text-align: left;
-        padding-left: calc(50% + 4rem);
-    }
-
+    .timeline-item:last-child::before { display: none; }
     .timeline-marker {
-        position: absolute;
-        top: 50%;
-        width: 16px;
-        height: 16px;
-        background: var(--wine);
-        border: 3px solid var(--parchment);
-        border-radius: 50%;
-        box-shadow: 0 0 0 1px var(--wine);
-        z-index: 10;
-        transition: transform 0.3s ease, background 0.3s ease;
+        position: absolute; left: 20px; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%;
+        background: var(--star); box-shadow: 0 0 0 4px rgba(232,217,168,0.18), 0 0 10px rgba(232,217,168,0.5);
     }
 
-    .timeline-item:nth-child(odd) .timeline-marker { right: calc(50% - 8px); }
-    .timeline-item:nth-child(even) .timeline-marker { left: calc(50% - 8px); }
-    .timeline-item:hover .timeline-marker { transform: scale(1.4); }
+    .timeline-card { background: #fffdf6; border: 1px solid var(--paper-deep); border-radius: 6px; box-shadow: var(--shadow); overflow: hidden; }
+    .timeline-card-header { background: var(--night); color: var(--paper); padding: 1.2rem 1.6rem; }
+    .timeline-period { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--star); margin-bottom: 0.3rem; }
+    .timeline-title { font-size: 1.35rem; color: var(--paper); }
+    .timeline-card-content { padding: 1.5rem 1.6rem 1.7rem; }
+    .timeline-description { margin-bottom: 1.1rem; }
 
-    .timeline-card {
-        background: #fff;
-        box-shadow: var(--shadow);
-        overflow: hidden;
-        transition: box-shadow 0.3s ease;
-        border: 1px solid rgba(122,45,60,0.12);
-    }
-
-    .timeline-card:hover { box-shadow: var(--shadow-lg); }
-
-    .timeline-card-header {
-        background: var(--accent-grad);
-        color: #f0ebe0;
-        padding: 1.6rem 2rem;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .timeline-card-header::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
-        pointer-events: none;
-    }
-
-    .timeline-period {
-        font-family: 'Lato', sans-serif;
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.02em;
-        color: rgba(240,235,224,0.6);
-        margin-bottom: 0.4rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .timeline-title {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 400;
-        font-style: italic;
-        font-size: 1.7rem;
-        color: #f0ebe0;
-        position: relative;
-        z-index: 1;
-    }
-
-    .timeline-card-content { padding: 2rem 2.2rem; }
-
-    .timeline-description {
-        font-size: 0.92rem;
-        font-weight: 300;
-        line-height: 1.78;
-        margin-bottom: 1.6rem;
-        color: var(--text);
-    }
-
-    .timeline-verses {
-        background: rgba(122,45,60,0.05);
-        border-left: 3px solid var(--wine);
-        padding: 1.2rem 1.4rem;
-        margin-bottom: 1.6rem;
-    }
-
-    .timeline-verse {
-        font-family: 'Cormorant Garamond', serif;
-        font-style: italic;
-        font-size: 1.05rem;
-        color: var(--ink);
-        margin-bottom: 0.5rem;
-        line-height: 1.7;
-    }
-
-    .timeline-verse-ref {
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        font-size: 0.78rem;
-        letter-spacing: 0.02em;
-        color: var(--wine);
-    }
-
-    .timeline-connections {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-    }
-
-    .connection-tag {
-        background: rgba(122,45,60,0.08);
-        color: var(--wine);
-        padding: 0.3rem 0.8rem;
-        font-family: 'Lato', sans-serif;
-        font-size: 0.8rem;
-        font-weight: 700;
-        letter-spacing: 0.02em;
-        border: 1px solid rgba(122,45,60,0.2);
-        transition: var(--trans);
-    }
-
-    .connection-tag:hover {
-        background: var(--wine);
-        color: #f0ebe0;
-        border-color: var(--wine);
-    }
-
-    .timeline-details {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease;
-    }
-
-    .timeline-item.expanded .timeline-details {
-        max-height: 1000px;
-        padding-top: 1.2rem;
-    }
+    .timeline-verses { border-left: 3px solid var(--star); background: var(--paper); padding: 0.9rem 1.1rem; border-radius: 0 4px 4px 0; margin-bottom: 1.1rem; }
+    .timeline-verse { font-family: var(--font-display); font-style: italic; font-size: 1.02rem; color: var(--night); margin-bottom: 0.4rem; }
+    .timeline-verse-ref { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; color: var(--nebula); text-transform: uppercase; text-align: right; }
 
     .expand-btn {
-        background: transparent;
-        color: var(--wine);
-        border: 1px solid var(--wine);
-        padding: 0.6rem 1.6rem;
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        font-size: 0.72rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: var(--trans);
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
+        display: inline-flex; align-items: center; gap: 0.4em; background: none; border: 1px solid var(--nebula);
+        color: var(--nebula); font-family: var(--font-body); font-size: 0.82rem; font-weight: 600;
+        padding: 0.5rem 1.1rem; border-radius: 30px; cursor: pointer; transition: var(--trans);
     }
+    .expand-btn:hover { background: var(--nebula); color: var(--paper); }
+    .expand-btn .chev { transition: transform 0.3s ease; }
 
-    .expand-btn:hover {
-        background: var(--wine);
-        color: #f0ebe0;
-    }
+    .timeline-details { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .timeline-item.expanded .timeline-details { max-height: 600px; margin-top: 1.1rem; }
+    .timeline-details p { color: var(--ink-soft); margin-bottom: 1rem; }
+    .timeline-connections { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .connection-tag { font-size: 0.75rem; background: rgba(74,90,138,0.1); color: var(--nebula); padding: 0.3rem 0.8rem; border-radius: 30px; }
 
-    .expand-btn i { transition: transform 0.35s ease; }
-    .timeline-item.expanded .expand-btn i { transform: rotate(180deg); }
+    /* PROPHECIES */
+    .prophecies-section { background: #fffdf6; padding: 5rem 0; border-top: 1px solid var(--paper-deep); }
+    .prophecies-intro { text-align: center; margin-bottom: 2.6rem; }
+    .prophecies-intro h2 { font-size: clamp(1.7rem, 3.5vw, 2.3rem); color: var(--night); margin-bottom: 1rem; }
+    .prophecies-intro p { color: var(--ink-soft); max-width: 640px; margin: 0 auto; }
 
-    /* PROPHECIES SECTION */
-    .prophecies-section {
-        background: var(--grad);
-        padding: 6rem 0;
-        position: relative;
-    }
-
-    .prophecies-section::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
-        pointer-events: none;
-    }
-
-    .prophecies-intro {
-        text-align: center;
-        margin-bottom: 4rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .prophecies-intro h2 {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 400;
-        font-style: italic;
-        font-size: clamp(1.8rem, 4vw, 3rem);
-        color: #f0ebe0;
-        margin-bottom: 0.8rem;
-    }
-
-    .prophecies-intro p {
-        font-size: 0.92rem;
-        font-weight: 300;
-        color: rgba(240,235,224,0.55);
-        max-width: 700px;
-        margin: 0 auto;
-    }
-
-    /* TABS */
-    .category-tabs {
-        display: flex;
-        justify-content: center;
-        gap: 0.5rem;
-        margin-bottom: 3rem;
-        flex-wrap: wrap;
-        position: relative;
-        z-index: 1;
-    }
-
+    .category-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-bottom: 2.6rem; }
     .tab-btn {
-        background: transparent;
-        border: 1px solid rgba(122,45,60,0.5);
-        color: rgba(240,235,224,0.65);
-        padding: 0.6rem 1.3rem;
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        font-size: 0.72rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: var(--trans);
+        font-family: var(--font-body); font-weight: 600; font-size: 0.85rem; padding: 0.55rem 1.2rem;
+        border-radius: 30px; border: 1px solid var(--paper-deep); background: var(--paper); color: var(--ink-soft);
+        cursor: pointer; transition: var(--trans);
     }
+    .tab-btn:hover { border-color: var(--nebula); color: var(--nebula); }
+    .tab-btn.active { background: var(--night); color: var(--star); border-color: var(--night); }
 
-    .tab-btn.active {
-        background: var(--wine);
-        border-color: var(--wine);
-        color: #f0ebe0;
-    }
-
-    .tab-btn:hover { border-color: var(--wine-light); color: rgba(240,235,224,0.9); }
-
-    /* PROPHECY GRID */
-    .prophecy-grid {
-        display: none;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 1.4rem;
-        margin-bottom: 4rem;
-        position: relative;
-        z-index: 1;
-    }
-
+    .prophecy-grid { display: none; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.1rem; }
     .prophecy-grid.active { display: grid; }
 
     .prophecy-card {
-        background: rgba(240,235,224,0.04);
-        border: 1px solid rgba(122,45,60,0.25);
-        border-left: 3px solid var(--wine);
-        padding: 1.6rem;
-        transition: background 0.3s ease, box-shadow 0.3s ease;
-        position: relative;
+        background: var(--paper); border: 1px solid var(--paper-deep); border-left: 3px solid var(--tab-color, var(--star));
+        border-radius: 4px; padding: 1.2rem 1.3rem; position: relative;
     }
-
-    .prophecy-card:hover {
-        background: rgba(240,235,224,0.07);
-        box-shadow: 0 12px 32px rgba(14,12,10,0.35);
-    }
-
     .prophecy-number {
-        position: absolute;
-        top: -10px;
-        right: 16px;
-        background: var(--accent-grad);
-        color: rgba(240,235,224,0.9);
-        width: 34px;
-        height: 34px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        font-size: 0.78rem;
+        position: absolute; top: 0.8rem; right: 0.9rem; font-family: var(--font-display); font-size: 0.9rem;
+        color: var(--tab-color, var(--star)); opacity: 0.7;
     }
+    .prophecy-card h4 { font-size: 1.02rem; color: var(--ink); margin-bottom: 0.7rem; padding-right: 1.5rem; font-family: var(--font-body); font-weight: 700; }
+    .prophecy-reference { font-size: 0.8rem; color: var(--ink-soft); margin-bottom: 0.2rem; }
+    .prophecy-reference::before { content: 'Profecía: '; font-weight: 700; color: var(--tab-color, var(--nebula)); }
+    .prophecy-fulfillment { font-size: 0.8rem; color: var(--ink-soft); }
+    .prophecy-fulfillment::before { content: 'Cumplimiento: '; font-weight: 700; color: var(--tab-color, var(--nebula)); }
 
-    .prophecy-card h4 {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 600;
-        font-size: 1.1rem;
-        color: #f0ebe0;
-        margin-bottom: 0.9rem;
-        padding-right: 28px;
-        line-height: 1.35;
-    }
-
-    .prophecy-reference {
-        background: rgba(122,45,60,0.25);
-        padding: 0.3rem 0.8rem;
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        font-size: 0.78rem;
-        letter-spacing: 0.02em;
-        color: var(--wine-light);
-        margin-bottom: 0.4rem;
-        display: inline-block;
-        border: 1px solid rgba(122,45,60,0.3);
-    }
-
-    .prophecy-fulfillment {
-        background: rgba(240,235,224,0.08);
-        padding: 0.3rem 0.8rem;
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        font-size: 0.78rem;
-        letter-spacing: 0.02em;
-        color: rgba(240,235,224,0.65);
-        display: inline-block;
-        border: 1px solid rgba(240,235,224,0.12);
-    }
-
-    .prophecy-reference::before {
-        content: "Profecía: ";
-        font-size: 0.72rem;
-        letter-spacing: 0.02em;
-        opacity: 0.75;
-    }
-
-    .prophecy-fulfillment::before {
-        content: "Cumplimiento: ";
-        font-size: 0.72rem;
-        letter-spacing: 0.02em;
-        opacity: 0.75;
-    }
-
-    /* SUMMARY CARD */
-    .prophecy-summary {
-        margin-top: 3rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .summary-card {
-        background: rgba(240,235,224,0.04);
-        border: 1px solid var(--border);
-        border-top: 3px solid var(--wine);
-        padding: 3rem;
-        text-align: center;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .summary-card h3 {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 400;
-        font-style: italic;
-        font-size: 2rem;
-        margin-bottom: 1.4rem;
-        color: var(--wine-light);
-    }
-
-    .summary-card p {
-        font-size: 0.92rem;
-        font-weight: 300;
-        line-height: 1.8;
-        margin-bottom: 1.8rem;
-        color: rgba(240,235,224,0.7);
-    }
-
-    .summary-quote {
-        background: rgba(122,45,60,0.15);
-        padding: 1.5rem;
-        font-family: 'Cormorant Garamond', serif;
-        font-style: italic;
-        font-size: 1.1rem;
-        line-height: 1.7;
-        border-left: 3px solid var(--wine);
-        color: rgba(240,235,224,0.85);
-    }
-
-    /* FLOATING ELEMENTS */
-    .floating-elements {
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        z-index: -1;
-    }
-
-    .floating-element {
-        position: absolute;
-        opacity: 0.05;
-        animation: float 6s ease-in-out infinite;
-    }
-
-    .floating-element:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-    .floating-element:nth-child(2) { top: 60%; right: 10%; animation-delay: 2s; }
-    .floating-element:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 4s; }
-
-    @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50%       { transform: translateY(-20px); }
-    }
+    [data-category="nacimiento"] { --tab-color: var(--c-nacimiento); }
+    [data-category="ministerio"] { --tab-color: var(--c-ministerio); }
+    [data-category="sufrimiento"] { --tab-color: var(--c-sufrimiento); }
+    [data-category="resurreccion"] { --tab-color: var(--c-resurreccion); }
+    [data-category="caracter"] { --tab-color: var(--c-caracter); }
+    [data-category="reino"] { --tab-color: var(--c-reino); }
 
     /* CONCLUSION */
-    .conclusion-section {
-        background: var(--accent-grad);
-        color: #f0ebe0;
-        padding: 6rem 0;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .conclusion-section::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
-        pointer-events: none;
-    }
-
-    .conclusion-content {
-        max-width: 760px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .conclusion-title {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 400;
-        font-style: italic;
-        font-size: clamp(1.8rem, 4vw, 2.8rem);
-        margin-bottom: 1.8rem;
-        color: #f0ebe0;
-    }
-
-    .conclusion-text {
-        font-size: 0.95rem;
-        font-weight: 300;
-        line-height: 1.85;
-        margin-bottom: 3rem;
-        color: rgba(240,235,224,0.78);
-    }
-
+    .conclusion-section { background: linear-gradient(180deg, var(--night) 0%, var(--night-deep) 100%); color: var(--paper); text-align: center; padding: 5rem 0; }
+    .conclusion-content { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+    .conclusion-title { font-size: clamp(1.6rem, 3.2vw, 2.2rem); color: var(--paper); margin-bottom: 1.3rem; }
+    .conclusion-text { color: rgba(244,240,230,0.78); margin-bottom: 2rem; }
     .cta-button {
-        display: inline-block;
-        background: transparent;
-        color: #f0ebe0;
-        padding: 0.9rem 2.4rem;
-        border: 1px solid rgba(240,235,224,0.55);
-        text-decoration: none;
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        font-size: 0.78rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        transition: var(--trans);
+        display: inline-flex; align-items: center; gap: 0.5em; padding: 0.85rem 2rem; border-radius: 2px;
+        font-family: var(--font-body); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+        text-decoration: none; transition: var(--trans); border: 1px solid var(--star); background: transparent; color: var(--star);
     }
-
-    .cta-button:hover {
-        background: rgba(240,235,224,0.1);
-        border-color: #f0ebe0;
-    }
+    .cta-button:hover { background: var(--star); color: var(--night-deep); }
 
     /* FOOTER */
-    footer {
-        background: var(--grad);
-        color: rgba(240,235,224,0.75);
-        padding: 4rem 0 1.5rem;
-        position: relative;
-        z-index: 1;
-        border-top: 1px solid var(--border);
-    }
-
-    .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 2.5rem;
-        margin-bottom: 3rem;
-    }
-
-    .footer-col h4 {
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        font-size: 0.72rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--wine-light);
-        margin-bottom: 1.3rem;
-        padding-bottom: 0.7rem;
-        position: relative;
-    }
-
-    .footer-col h4::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 36px;
-        height: 1px;
-        background: var(--wine);
-    }
-
+    footer { background: var(--night-deep); color: var(--paper); padding: 3.5rem 0 1.5rem; }
+    .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 2.2rem; margin-bottom: 2.2rem; }
+    .footer-col h4 { font-size: 1.05rem; margin-bottom: 1rem; color: var(--star); font-family: var(--font-display); font-weight: 400; }
     .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.7rem; font-size: 0.9rem; color: rgba(244,240,230,0.7); display: flex; align-items: center; gap: 0.5rem; }
+    .footer-col li svg { width: 0.9rem; height: 0.9rem; color: var(--star); flex-shrink: 0; }
+    .footer-col p { font-size: 0.9rem; color: rgba(244,240,230,0.7); margin-bottom: 1rem; }
+    .footer-col a { color: rgba(244,240,230,0.7); text-decoration: none; }
+    .footer-col a:hover { color: var(--star); }
+    .social-links { display: flex; gap: 0.8rem; margin-top: 1.2rem; }
+    .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(244,240,230,0.08); border-radius: 50%; }
+    .social-links a svg { width: 1rem; height: 1rem; }
+    .social-links a:hover { background: var(--star); color: var(--night-deep); }
+    .copyright { text-align: center; padding-top: 1.6rem; border-top: 1px solid rgba(244,240,230,0.12); font-size: 0.82rem; color: rgba(244,240,230,0.45); }
 
-    .footer-col li { margin-bottom: 0.8rem; }
-
-    .footer-col a {
-        color: rgba(240,235,224,0.55);
-        text-decoration: none;
-        font-size: 0.88rem;
-        font-weight: 300;
-        transition: color 0.2s ease;
-        display: inline-block;
-    }
-
-    .footer-col a:hover { color: var(--wine-light); }
-
-    .social-links {
-        display: flex;
-        gap: 0.7rem;
-        margin-top: 1.2rem;
-    }
-
-    .social-links a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 34px;
-        height: 34px;
-        border: 1px solid rgba(122,45,60,0.35);
-        color: rgba(240,235,224,0.55);
-        text-decoration: none;
-        font-size: 0.85rem;
-        transition: var(--trans);
-    }
-
-    .social-links a:hover {
-        background: var(--wine);
-        border-color: var(--wine);
-        color: #f0ebe0;
-    }
-
-    .copyright {
-        text-align: center;
-        padding-top: 2rem;
-        border-top: 1px solid rgba(122,45,60,0.2);
-        font-size: 0.8rem;
-        font-weight: 300;
-        color: rgba(240,235,224,0.35);
-    }
-
-    /* RESPONSIVE */
     @media (max-width: 768px) {
         .nav-toggle { display: block; }
-
         nav {
-            position: fixed;
-            top: 0;
-            right: -280px;
-            width: 260px;
-            height: 100vh;
-            background: rgba(14,12,10,0.98);
-            z-index: 1000;
-            transition: right 0.3s ease;
-            padding: 2rem;
-            overflow-y: auto;
-            border-left: 1px solid var(--border);
+            position: fixed; top: 0; right: -300px; width: 280px; height: 100vh;
+            background: rgba(7,10,18,0.99); z-index: 2500; transition: right 0.3s ease; overflow-y: auto; padding: 2rem;
         }
-
         nav.active { right: 0; }
-
         nav ul { flex-direction: column; gap: 0; }
         nav li { width: 100%; }
-
-        nav a {
-            padding: 0.9rem 0;
-            width: 100%;
-            border-bottom: 1px solid rgba(122,45,60,0.15);
-        }
-
+        nav a { padding: 0.9rem 0; width: 100%; border-bottom: 1px solid rgba(232,217,168,0.08); }
         nav a::after { display: none; }
-
         .menu-item-has-children > a { justify-content: space-between; }
-
-        .sub-menu {
-            position: static;
-            width: 100%;
-            box-shadow: none;
-            background: rgba(122,45,60,0.08);
-            border: none;
-            padding-left: 1rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            transform: none;
-            opacity: 1;
+        .menu-item-has-children > a::before { display: none; }
+        .menu-item-has-children > a::after {
+            display: flex !important; align-items: center; justify-content: center; content: '+' !important;
+            width: 22px; height: 22px; font-size: 0.9rem; font-family: initial !important; color: var(--star) !important;
+            border: 1px solid rgba(232,217,168,0.35); border-radius: 50%; transition: var(--trans);
         }
-
-        .menu-item-has-children.active > .sub-menu { max-height: 500px; display: block; }
+        .menu-item-has-children.active > a::after { transform: rotate(135deg) !important; }
+        .sub-menu {
+            position: static; width: 100%; box-shadow: none; border: none; background: rgba(255,255,255,0.04);
+            padding-left: 1rem; max-height: 0; overflow: hidden; display: block; opacity: 1; transform: none; transition: max-height 0.3s ease;
+        }
+        .menu-item-has-children.active > .sub-menu { max-height: 500px; }
         .menu-item-has-children:hover .sub-menu { display: none; }
         .menu-item-has-children.active .sub-menu { display: block; }
-
-        .timeline-line { left: 24px; }
-
-        .timeline-item {
-            padding-left: 72px !important;
-            padding-right: 1.5rem !important;
-            text-align: left !important;
-        }
-
-        .timeline-marker {
-            left: 16px !important;
-            right: auto !important;
-        }
-
-        .prophecy-grid { grid-template-columns: 1fr; }
-
-        .category-tabs { gap: 0.4rem; }
-        .tab-btn { padding: 0.5rem 0.9rem; font-size: 0.66rem; }
-
-        .footer-content { grid-template-columns: 1fr; }
+        .sub-menu a:hover { background: transparent; padding-left: 0.5rem; border-left: none; }
+        .timeline-item { padding-left: 2.6rem; }
     }
-
-    @media (max-width: 480px) {
-        .hero-title { font-size: 2.5rem; }
-        .container { width: 95%; padding: 0 10px; }
-        .timeline-container { padding: 4rem 1rem; }
-    }
-
-    /* SCROLLBAR */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #f0ede4; }
-    ::-webkit-scrollbar-thumb { background: rgba(122,45,60,0.4); border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--wine); }
-    
-        /* Insignia circular del logo EMD (aplicada a todas las páginas) */
-        img[alt="Logo EMD"] {
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid rgba(201, 170, 106, 0.5);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(201, 170, 106, 0.08);
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        img[alt="Logo EMD"]:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 0 5px rgba(201, 170, 106, 0.15);
-        }
-    
-        /* ── Insignia de menú desplegable unificada (aplicada a todas las páginas) ── */
-        .menu-item-has-children > a {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-        .menu-item-has-children > a::before {
-            content: '▾';
-            font-size: 0.6rem;
-            color: rgba(255, 255, 255, 0.35);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        .menu-item-has-children > a::after {
-            display: none !important;
-        }
-        .menu-item-has-children:hover > a::before {
-            color: #c9aa6a;
-            transform: rotate(180deg);
-        }
-        .sub-menu {
-            background: rgba(14, 12, 10, 0.98) !important;
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(184, 154, 95, 0.22) !important;
-            border-top: 2px solid #c9aa6a !important;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45) !important;
-            border-radius: 2px !important;
-            padding: 0.3rem 0 !important;
-        }
-        .sub-menu li + li {
-            border-top: 1px solid rgba(184, 154, 95, 0.1);
-        }
-        .sub-menu a {
-            font-family: 'Lato', sans-serif !important;
-            font-weight: 300;
-            letter-spacing: 0.01em;
-            color: rgba(247, 244, 237, 0.72) !important;
-            border-left: 2px solid transparent;
-            border-bottom: none !important;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
-        }
-        .sub-menu a:hover {
-            background-color: rgba(201, 170, 106, 0.08) !important;
-            color: #b89a5f !important;
-            border-left-color: #c9aa6a;
-            padding-left: 1.7rem !important;
-        }
-
-        .nav-backdrop {
-            position: fixed;
-            inset: 0;
-            background: rgba(8, 6, 5, 0.6);
-            backdrop-filter: blur(3px);
-            -webkit-backdrop-filter: blur(3px);
-            z-index: 2400;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.35s ease, visibility 0.35s ease;
-        }
-        .nav-backdrop.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                background: linear-gradient(160deg, #0e0c0a 0%, #1f1a14 100%) !important;
-            }
-            .menu-item-has-children > a::before {
-                display: none;
-            }
-            .menu-item-has-children > a::after {
-                display: flex !important;
-                align-items: center;
-                justify-content: center;
-                content: '+' !important;
-                width: 22px;
-                height: 22px;
-                font-size: 0.9rem;
-                font-family: initial !important;
-                color: #c9aa6a !important;
-                border: 1px solid rgba(184, 154, 95, 0.35);
-                border-radius: 50%;
-                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            }
-            .menu-item-has-children.active > a::after {
-                transform: rotate(135deg) !important;
-                background: rgba(201, 170, 106, 0.12);
-            }
-            .sub-menu {
-                background: rgba(0, 0, 0, 0.18) !important;
-                border: none !important;
-                border-top: none !important;
-                box-shadow: none !important;
-            }
-            .sub-menu a {
-                color: rgba(247, 244, 237, 0.7) !important;
-                border-bottom: 1px solid rgba(184, 154, 95, 0.08) !important;
-            }
-            .sub-menu a:hover {
-                background-color: transparent !important;
-                padding-left: 0.5rem !important;
-                border-left: none;
-            }
-        }
     </style>
-
-
 </head>
 <body>
-    <!-- Floating Background Elements -->
-    <div class="floating-elements">
-        <div class="floating-element">
-            <i class="fas fa-scroll" style="font-size: 3rem; color: var(--primary-gold);"></i>
-        </div>
-        <div class="floating-element">
-            <i class="fas fa-crown" style="font-size: 2.5rem; color: var(--deep-purple);"></i>
-        </div>
-        <div class="floating-element">
-            <i class="fas fa-star" style="font-size: 2rem; color: var(--accent-red);"></i>
-        </div>
-    </div>
-
-    <!-- Navigation Header -->
     <header>
         <div class="container header-content">
-            <div class="logo">
+            <a href="../../index.html" class="logo">
                 <img src="../../images/EMD.png?v=2" alt="Logo EMD">
                 <div class="logo-text">
-                    <div>Ministerio</div>
-                    <div>"La Gloria es del Señor"</div>
+                    Ministerio
+                    <span>"La Gloria es del Señor"</span>
                 </div>
-            </div>
-            <button class="nav-toggle">
-                <i class="fas fa-bars"></i>
+            </a>
+            <button class="nav-toggle" aria-label="Menú">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:1.3rem;height:1.3rem;"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
             </button>
             <div class="nav-backdrop"></div>
 
@@ -1152,26 +289,107 @@
                 <ul>
                     <li><a href="../../index.html">Inicio</a></li>
                     <li class="menu-item-has-children">
-                        <a>Época de Jesús</a>
+                        <a href="#">Figuras Bíblicas</a>
                         <ul class="sub-menu">
-                            <li><a href="contexto-historico.html">Contexto histórico</a></li>
-                            <li><a href="grupos-religiosos.html">Grupos religiosos</a></li>
-                            <li><a href="recursos-academicos.html">Recursos académicos</a></li>
-                            <li><a href="apologia-cristiana.html">Apología cristiana</a></li>
+                            <li><a href="../Figuras Bíblicas/at-a-nt.html">AT a NT</a></li>
+                            <li><a href="../Figuras Bíblicas/nombres-simbologia.html">Los nombres y su simbología</a></li>
+                            <li><a href="../Figuras Bíblicas/templo-figuras.html">Templo y sus Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/tabernaculo-figuras.html">El tabernáculo y sus figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/sacrificios-figuras.html">Sacrificios y sus Figuras</a></li>
+                            <li><a href="../Figuras Bíblicas/tipologia-cantares.html">Tipología Cantares</a></li>
+                            <li><a href="../Figuras Bíblicas/figuras-cristo.html">Figuras de Cristo</a></li>
                         </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Falsas Doctrinas</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Falsas Doctrinas/falsasdoctrinas.html">Falsas Doctrinas</a></li>
+                            <li><a href="../Falsas Doctrinas/gnosticismos.html">Gnosticismos en la Biblia</a></li>
+                            <li><a href="../Falsas Doctrinas/filosofias-griegas.html">Filosofías Griegas</a></li>
+                            <li><a href="../Falsas Doctrinas/masoneria.html">Masonería</a></li>
+                            <li><a href="../Falsas Doctrinas/sociedades-secretas.html">Sociedades Secretas</a></li>
+                            <li><a href="../Falsas Doctrinas/sectas-anticristianas.html">Sectas Anticristianas</a></li>
+                            <li><a href="../Falsas Doctrinas/pseudoprofetas.html">Pseudoprofetas</a></li>
+                            <li><a href="../Falsas Doctrinas/reptilianos-consejo-13.html">Reptilianos y Consejo de los 13</a></li>
+                            <li><a href="../Falsas Doctrinas/lineas-sangre-illuminati.html">Líneas de Sangre Illuminati</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Estudios Exegéticos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Exegéticos/temas-exegeticos.html">Temas Exegéticos</a></li>
+                            <li><a href="../Estudios Exegéticos/cantarcantares.html">Cantar de los Cantares</a></li>
+                            <li><a href="../Estudios Exegéticos/romanos11.html">Romanos 11</a></li>
+                            <li><a href="../Estudios Exegéticos/idiomas-biblia.html">Hebreo, Arameo y Griego</a></li>
+                            <li><a href="../Estudios Exegéticos/enlaces-recursos.html">Enlaces de Recursos</a></li>
+                            <li><a href="../Estudios Exegéticos/diccionarios-comentarios.html">Diccionarios y Comentarios</a></li>
+                            <li><a href="../Estudios Exegéticos/software-biblico.html">Software Bíblico</a></li>
+                            <li><a href="../Estudios Exegéticos/meditacion-palabra.html">Meditación en la Palabra</a></li>
+                            <li><a href="../Estudios Exegéticos/lectura-anual.html">Lectura Anual</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Tiempo del Fin</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Tiempo del Fin/introduccion.html">Introducción</a></li>
+                            <li><a href="../Tiempo del Fin/escatologia.html">Escatología</a></li>
+                            <li><a href="../Tiempo del Fin/profecias-cumplidas.html">Profecías Cumplidas</a></li>
+                            <li><a href="../Tiempo del Fin/nuevo-orden-mundial.html">Nuevo Orden Mundial</a></li>
+                            <li><a href="../Tiempo del Fin/noticias-fin.html">Noticias del Fin</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Época de Jesús</a>
+                        <ul class="sub-menu">
+                            <li><a href="estudio-contemporaneo.html" class="active">Estudio Contemporáneo</a></li>
+                            <li><a href="contexto-historico.html">Contexto Histórico</a></li>
+                            <li><a href="grupos-religiosos.html">Grupos religiosos</a></li>
+                            <li><a href="recursos-academicos.html">Estudios de Contexto</a></li>
+                            <li><a href="apologia-cristiana.html">Apología Cristiana</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Estudios Bíblicos</a>
+                        <ul class="sub-menu">
+                            <li><a href="../Estudios Bíblicos/doctrina-basica.html">Doctrina Básica</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-intermedia.html">Doctrina intermedia</a></li>
+                            <li><a href="../Estudios Bíblicos/doctrina-avanzada.html">Doctrina Avanzada</a></li>
+                            <li><a href="../Estudios Bíblicos/revelacion-espiritu.html">Revelación del Espíritu</a></li>
+                            <li><a href="../Estudios Bíblicos/devocionales.html">Devocionales</a></li>
+                            <li><a href="../Estudios Bíblicos/aguila-cinco-ministerios.html">El Águila y los Cinco Ministerios</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="hero-background"></div>
         <div class="hero-content">
+            <svg class="star-svg" viewBox="0 0 400 200" aria-hidden="true">
+                <circle cx="60" cy="150" r="1.4" fill="#e8d9a8" opacity="0.7"/>
+                <circle cx="100" cy="60" r="1.6" fill="#e8d9a8" opacity="0.8"/>
+                <circle cx="150" cy="110" r="1.8" fill="#e8d9a8" opacity="0.85"/>
+                <circle cx="200" cy="40" r="2.2" fill="#f5ecc9" opacity="0.95"/>
+                <circle cx="250" cy="95" r="1.6" fill="#e8d9a8" opacity="0.8"/>
+                <circle cx="300" cy="55" r="1.4" fill="#e8d9a8" opacity="0.7"/>
+                <circle cx="340" cy="130" r="1.8" fill="#e8d9a8" opacity="0.85"/>
+                <path d="M60,150 L100,60 L150,110 L200,40 L250,95 L300,55 L340,130" fill="none" stroke="#6b7aa8" stroke-width="0.8" opacity="0.55"/>
+                <circle cx="200" cy="40" r="6" fill="none" stroke="#f5ecc9" stroke-width="1" opacity="0.6"/>
+                <circle cx="200" cy="40" r="10" fill="none" stroke="#f5ecc9" stroke-width="0.6" opacity="0.35"/>
+                <circle cx="30" cy="30" r="1" fill="#e8d9a8" opacity="0.4"/>
+                <circle cx="370" cy="20" r="1" fill="#e8d9a8" opacity="0.4"/>
+                <circle cx="20" cy="100" r="1" fill="#e8d9a8" opacity="0.5"/>
+                <circle cx="380" cy="170" r="1" fill="#e8d9a8" opacity="0.4"/>
+                <circle cx="130" cy="20" r="1" fill="#e8d9a8" opacity="0.4"/>
+            </svg>
+            <span class="hero-tag">Números 24:17</span>
             <h1 class="hero-title">El linaje de Cristo</h1>
-            <p class="hero-subtitle">Un estudio contemporáneo de las profecías y su cumplimiento</p>
+            <p class="hero-subtitle">Un estudio contemporáneo de las profecías y su cumplimiento: la constelación mesiánica que atraviesa las Escrituras</p>
         </div>
         <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
         </div>
     </section>
 
@@ -1182,9 +400,6 @@
             <p>Descubre cómo Dios orquestó a través de los siglos el cumplimiento de sus promesas mesiánicas, desde Adán hasta Cristo.</p>
         </div>
 
-        <div class="timeline-line"></div>
-
-        <!-- Timeline Item 1: La Promesa Original -->
         <div class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-card">
@@ -1193,31 +408,20 @@
                     <h3 class="timeline-title">La promesa original</h3>
                 </div>
                 <div class="timeline-card-content">
-                    <p class="timeline-description">
-                        Después de la caída, Dios pronuncia la primera promesa mesiánica, estableciendo el conflicto entre la simiente de la mujer y la simiente de la serpiente.
-                    </p>
+                    <p class="timeline-description">Después de la caída, Dios pronuncia la primera promesa mesiánica, estableciendo el conflicto entre la simiente de la mujer y la simiente de la serpiente.</p>
                     <div class="timeline-verses">
-                        <div class="timeline-verse">
-                            "Y pondré enemistad entre ti y la mujer, y entre tu simiente y la simiente suya; ésta te herirá en la cabeza, y tú le herirás en el calcañar."
-                        </div>
+                        <div class="timeline-verse">"Y pondré enemistad entre ti y la mujer, y entre tu simiente y la simiente suya; ésta te herirá en la cabeza, y tú le herirás en el calcañar."</div>
                         <div class="timeline-verse-ref">Génesis 3:15</div>
                     </div>
-                    <button class="expand-btn">
-                        Leer más <i class="fas fa-chevron-down"></i>
-                    </button>
+                    <button class="expand-btn">Leer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="chev"><path d="m6 9 6 6 6-6" /></svg></button>
                     <div class="timeline-details">
                         <p>Esta promesa, conocida como el «protoevangelio», establece el fundamento de toda la historia redentora. La «simiente de la mujer» se refiere proféticamente a Cristo, quien nacería de una virgen sin intervención humana masculina.</p>
-                        <div class="timeline-connections">
-                            <span class="connection-tag">Promesa primitiva</span>
-                            <span class="connection-tag">Conflicto cósmico</span>
-                            <span class="connection-tag">Nacimiento virginal</span>
-                        </div>
+                        <div class="timeline-connections"><span class="connection-tag">Promesa primitiva</span><span class="connection-tag">Conflicto cósmico</span><span class="connection-tag">Nacimiento virginal</span></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Timeline Item 2: La Promesa a Abraham -->
         <div class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-card">
@@ -1226,31 +430,20 @@
                     <h3 class="timeline-title">El pacto abrahámico</h3>
                 </div>
                 <div class="timeline-card-content">
-                    <p class="timeline-description">
-                        Dios establece su pacto con Abraham, prometiendo que en su simiente serían benditas todas las familias de la tierra.
-                    </p>
+                    <p class="timeline-description">Dios establece su pacto con Abraham, prometiendo que en su simiente serían benditas todas las familias de la tierra.</p>
                     <div class="timeline-verses">
-                        <div class="timeline-verse">
-                            "En tu simiente serán benditas todas las naciones de la tierra, por cuanto obedeciste a mi voz."
-                        </div>
+                        <div class="timeline-verse">"En tu simiente serán benditas todas las naciones de la tierra, por cuanto obedeciste a mi voz."</div>
                         <div class="timeline-verse-ref">Génesis 22:18</div>
                     </div>
-                    <button class="expand-btn">
-                        Leer más <i class="fas fa-chevron-down"></i>
-                    </button>
+                    <button class="expand-btn">Leer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="chev"><path d="m6 9 6 6 6-6" /></svg></button>
                     <div class="timeline-details">
                         <p>El pacto con Abraham especifica que el Mesías vendría de su linaje. Pablo aclara en Gálatas 3:16 que esta «simiente» se refiere específicamente a Cristo. El sacrificio de Isaac prefigura el sacrificio del Hijo unigénito de Dios.</p>
-                        <div class="timeline-connections">
-                            <span class="connection-tag">Pacto eterno</span>
-                            <span class="connection-tag">Bendición universal</span>
-                            <span class="connection-tag">Tipo de Cristo</span>
-                        </div>
+                        <div class="timeline-connections"><span class="connection-tag">Pacto eterno</span><span class="connection-tag">Bendición universal</span><span class="connection-tag">Tipo de Cristo</span></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Timeline Item 3: La Promesa a Judá -->
         <div class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-card">
@@ -1259,31 +452,20 @@
                     <h3 class="timeline-title">La profecía de Judá</h3>
                 </div>
                 <div class="timeline-card-content">
-                    <p class="timeline-description">
-                        Jacob bendice a sus hijos, especificando que el cetro no se apartaría de Judá hasta que viniera Siloh (el Mesías).
-                    </p>
+                    <p class="timeline-description">Jacob bendice a sus hijos, especificando que el cetro no se apartaría de Judá hasta que viniera Siloh (el Mesías).</p>
                     <div class="timeline-verses">
-                        <div class="timeline-verse">
-                            "No será quitado el cetro de Judá, ni el legislador de entre sus pies, hasta que venga Siloh; y a él se congregarán los pueblos."
-                        </div>
+                        <div class="timeline-verse">"No será quitado el cetro de Judá, ni el legislador de entre sus pies, hasta que venga Siloh; y a él se congregarán los pueblos."</div>
                         <div class="timeline-verse-ref">Génesis 49:10</div>
                     </div>
-                    <button class="expand-btn">
-                        Leer más <i class="fas fa-chevron-down"></i>
-                    </button>
+                    <button class="expand-btn">Leer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="chev"><path d="m6 9 6 6 6-6" /></svg></button>
                     <div class="timeline-details">
                         <p>Esta profecía establece que el Mesías vendría de la tribu de Judá y tendría autoridad real. «Siloh» significa «paz» o «aquel a quien pertenece», y se refiere al Príncipe de Paz que reinaría eternamente.</p>
-                        <div class="timeline-connections">
-                            <span class="connection-tag">Tribu real</span>
-                            <span class="connection-tag">Autoridad mesiánica</span>
-                            <span class="connection-tag">Paz eterna</span>
-                        </div>
+                        <div class="timeline-connections"><span class="connection-tag">Tribu real</span><span class="connection-tag">Autoridad mesiánica</span><span class="connection-tag">Paz eterna</span></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Timeline Item 4: El Pacto Davídico -->
         <div class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-card">
@@ -1292,31 +474,20 @@
                     <h3 class="timeline-title">El pacto con David</h3>
                 </div>
                 <div class="timeline-card-content">
-                    <p class="timeline-description">
-                        Dios promete a David que su trono sería establecido para siempre y que de su descendencia vendría el Rey eterno.
-                    </p>
+                    <p class="timeline-description">Dios promete a David que su trono sería establecido para siempre y que de su descendencia vendría el Rey eterno.</p>
                     <div class="timeline-verses">
-                        <div class="timeline-verse">
-                            "Y será afirmada tu casa y tu reino para siempre delante de tu rostro, y tu trono será estable eternamente."
-                        </div>
+                        <div class="timeline-verse">"Y será afirmada tu casa y tu reino para siempre delante de tu rostro, y tu trono será estable eternamente."</div>
                         <div class="timeline-verse-ref">2 Samuel 7:16</div>
                     </div>
-                    <button class="expand-btn">
-                        Leer más <i class="fas fa-chevron-down"></i>
-                    </button>
+                    <button class="expand-btn">Leer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="chev"><path d="m6 9 6 6 6-6" /></svg></button>
                     <div class="timeline-details">
                         <p>El pacto davídico establece específicamente la casa real de la cual vendría el Mesías. Jesús es llamado «Hijo de David» múltiples veces en el Nuevo Testamento, cumpliendo esta promesa.</p>
-                        <div class="timeline-connections">
-                            <span class="connection-tag">Reino eterno</span>
-                            <span class="connection-tag">Linaje real</span>
-                            <span class="connection-tag">Hijo de David</span>
-                        </div>
+                        <div class="timeline-connections"><span class="connection-tag">Reino eterno</span><span class="connection-tag">Linaje real</span><span class="connection-tag">Hijo de David</span></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Timeline Item 5: Las Profecías de Isaías -->
         <div class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-card">
@@ -1325,31 +496,20 @@
                     <h3 class="timeline-title">Emanuel y el siervo sufriente</h3>
                 </div>
                 <div class="timeline-card-content">
-                    <p class="timeline-description">
-                        Isaías profetiza sobre el nacimiento virginal de Emanuel y describe detalladamente al Siervo sufriente que cargaría nuestros pecados.
-                    </p>
+                    <p class="timeline-description">Isaías profetiza sobre el nacimiento virginal de Emanuel y describe detalladamente al Siervo sufriente que cargaría nuestros pecados.</p>
                     <div class="timeline-verses">
-                        <div class="timeline-verse">
-                            "Por tanto, el Señor mismo os dará señal: He aquí que la virgen concebirá, y dará a luz un hijo, y llamará su nombre Emanuel."
-                        </div>
+                        <div class="timeline-verse">"Por tanto, el Señor mismo os dará señal: He aquí que la virgen concebirá, y dará a luz un hijo, y llamará su nombre Emanuel."</div>
                         <div class="timeline-verse-ref">Isaías 7:14</div>
                     </div>
-                    <button class="expand-btn">
-                        Leer más <i class="fas fa-chevron-down"></i>
-                    </button>
+                    <button class="expand-btn">Leer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="chev"><path d="m6 9 6 6 6-6" /></svg></button>
                     <div class="timeline-details">
                         <p>Isaías proporciona las profecías más detalladas sobre el Mesías, incluidos su nacimiento virginal, su reino eterno y, especialmente, su obra redentora como el Siervo sufriente en el capítulo 53.</p>
-                        <div class="timeline-connections">
-                            <span class="connection-tag">Nacimiento virginal</span>
-                            <span class="connection-tag">Dios con nosotros</span>
-                            <span class="connection-tag">Sacrificio expiatorio</span>
-                        </div>
+                        <div class="timeline-connections"><span class="connection-tag">Nacimiento virginal</span><span class="connection-tag">Dios con nosotros</span><span class="connection-tag">Sacrificio expiatorio</span></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Timeline Item 6: La Profecía de Miqueas -->
         <div class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-card">
@@ -1358,31 +518,20 @@
                     <h3 class="timeline-title">El lugar del nacimiento</h3>
                 </div>
                 <div class="timeline-card-content">
-                    <p class="timeline-description">
-                        Miqueas profetiza específicamente que el Mesías nacería en Belén, la ciudad de David.
-                    </p>
+                    <p class="timeline-description">Miqueas profetiza específicamente que el Mesías nacería en Belén, la ciudad de David.</p>
                     <div class="timeline-verses">
-                        <div class="timeline-verse">
-                            "Pero tú, Belén Efrata, pequeña para estar entre las familias de Judá, de ti me saldrá el que será Señor en Israel; y sus salidas son desde el principio, desde los días de la eternidad."
-                        </div>
+                        <div class="timeline-verse">"Pero tú, Belén Efrata, pequeña para estar entre las familias de Judá, de ti me saldrá el que será Señor en Israel; y sus salidas son desde el principio, desde los días de la eternidad."</div>
                         <div class="timeline-verse-ref">Miqueas 5:2</div>
                     </div>
-                    <button class="expand-btn">
-                        Leer más <i class="fas fa-chevron-down"></i>
-                    </button>
+                    <button class="expand-btn">Leer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="chev"><path d="m6 9 6 6 6-6" /></svg></button>
                     <div class="timeline-details">
                         <p>Esta profecía es tan específica que los escribas la citaron a Herodes cuando los magos preguntaron dónde había nacido el rey de los judíos. Nótese la referencia a la eternidad del Mesías.</p>
-                        <div class="timeline-connections">
-                            <span class="connection-tag">Ubicación específica</span>
-                            <span class="connection-tag">Ciudad de David</span>
-                            <span class="connection-tag">Eternidad del Mesías</span>
-                        </div>
+                        <div class="timeline-connections"><span class="connection-tag">Ubicación específica</span><span class="connection-tag">Ciudad de David</span><span class="connection-tag">Eternidad del Mesías</span></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Timeline Item 7: Las Genealogías -->
         <div class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-card">
@@ -1391,31 +540,20 @@
                     <h3 class="timeline-title">Preservación del linaje</h3>
                 </div>
                 <div class="timeline-card-content">
-                    <p class="timeline-description">
-                        A través de períodos de cautiverio y restauración, Dios preservó meticulosamente los registros genealógicos del linaje mesiánico.
-                    </p>
+                    <p class="timeline-description">A través de períodos de cautiverio y restauración, Dios preservó meticulosamente los registros genealógicos del linaje mesiánico.</p>
                     <div class="timeline-verses">
-                        <div class="timeline-verse">
-                            "Libro de la genealogía de Jesucristo, hijo de David, hijo de Abraham."
-                        </div>
+                        <div class="timeline-verse">"Libro de la genealogía de Jesucristo, hijo de David, hijo de Abraham."</div>
                         <div class="timeline-verse-ref">Mateo 1:1</div>
                     </div>
-                    <button class="expand-btn">
-                        Leer más <i class="fas fa-chevron-down"></i>
-                    </button>
+                    <button class="expand-btn">Leer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="chev"><path d="m6 9 6 6 6-6" /></svg></button>
                     <div class="timeline-details">
                         <p>Las genealogías de Mateo y Lucas demuestran que Jesús tenía derecho legal y natural al trono de David. Mateo traza el linaje legal a través de José, mientras Lucas probablemente sigue el linaje de María.</p>
-                        <div class="timeline-connections">
-                            <span class="connection-tag">Preservación divina</span>
-                            <span class="connection-tag">Derecho legal</span>
-                            <span class="connection-tag">Cumplimiento exacto</span>
-                        </div>
+                        <div class="timeline-connections"><span class="connection-tag">Preservación divina</span><span class="connection-tag">Derecho legal</span><span class="connection-tag">Cumplimiento exacto</span></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Timeline Item 8: El Cumplimiento -->
         <div class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-card">
@@ -1424,25 +562,15 @@
                     <h3 class="timeline-title">El cumplimiento en Cristo</h3>
                 </div>
                 <div class="timeline-card-content">
-                    <p class="timeline-description">
-                        Todas las promesas y profecías encuentran su cumplimiento perfecto en Jesucristo, nacido de la virgen María en Belén de Judea.
-                    </p>
+                    <p class="timeline-description">Todas las promesas y profecías encuentran su cumplimiento perfecto en Jesucristo, nacido de la virgen María en Belén de Judea.</p>
                     <div class="timeline-verses">
-                        <div class="timeline-verse">
-                            "Todo esto aconteció para que se cumpliese lo dicho por el Señor por medio del profeta, cuando dijo: He aquí, una virgen concebirá y dará a luz un hijo, y llamarás su nombre Emanuel."
-                        </div>
+                        <div class="timeline-verse">"Todo esto aconteció para que se cumpliese lo dicho por el Señor por medio del profeta, cuando dijo: He aquí, una virgen concebirá y dará a luz un hijo, y llamarás su nombre Emanuel."</div>
                         <div class="timeline-verse-ref">Mateo 1:22-23</div>
                     </div>
-                    <button class="expand-btn">
-                        Leer más <i class="fas fa-chevron-down"></i>
-                    </button>
+                    <button class="expand-btn">Leer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="chev"><path d="m6 9 6 6 6-6" /></svg></button>
                     <div class="timeline-details">
-                        <p>El nacimiento de Jesús marca el cumplimiento de siglos de promesas proféticas. Cada detalle —desde su linaje hasta el lugar de su nacimiento— confirma que él es el Mesías prometido.</p>
-                        <div class="timeline-connections">
-                            <span class="connection-tag">Cumplimiento perfecto</span>
-                            <span class="connection-tag">Mesías prometido</span>
-                            <span class="connection-tag">Dios hecho hombre</span>
-                        </div>
+                        <p>El nacimiento de Jesús marca el cumplimiento de siglos de promesas proféticas. Cada detalle (desde su linaje hasta el lugar de su nacimiento) confirma que él es el Mesías prometido.</p>
+                        <div class="timeline-connections"><span class="connection-tag">Cumplimiento perfecto</span><span class="connection-tag">Mesías prometido</span><span class="connection-tag">Dios hecho hombre</span></div>
                     </div>
                 </div>
             </div>
@@ -1467,7 +595,6 @@
                     <button class="tab-btn" data-category="reino">Reino</button>
                 </div>
 
-                <!-- Nacimiento y Primeros Años -->
                 <div class="prophecy-grid active" data-category="nacimiento">
                     <div class="prophecy-card">
                         <div class="prophecy-number">1</div>
@@ -1575,7 +702,6 @@
                     </div>
                 </div>
 
-                <!-- Ministerio y Obras -->
                 <div class="prophecy-grid" data-category="ministerio">
                     <div class="prophecy-card">
                         <div class="prophecy-number">16</div>
@@ -1683,7 +809,6 @@
                     </div>
                 </div>
 
-                <!-- Sufrimiento y Muerte -->
                 <div class="prophecy-grid" data-category="sufrimiento">
                     <div class="prophecy-card">
                         <div class="prophecy-number">31</div>
@@ -1861,7 +986,6 @@
                     </div>
                 </div>
 
-                <!-- Resurrección y Ascensión -->
                 <div class="prophecy-grid" data-category="resurreccion">
                     <div class="prophecy-card">
                         <div class="prophecy-number">56</div>
@@ -1899,7 +1023,6 @@
                     </div>
                 </div>
 
-                <!-- Carácter Divino -->
                 <div class="prophecy-grid" data-category="caracter">
                     <div class="prophecy-card">
                         <div class="prophecy-number">61</div>
@@ -2007,7 +1130,6 @@
                     </div>
                 </div>
 
-                <!-- Reino Eterno -->
                 <div class="prophecy-grid" data-category="reino">
                     <div class="prophecy-card">
                         <div class="prophecy-number">76</div>
@@ -2184,27 +1306,15 @@
                         <div class="prophecy-fulfillment">Hebreos 1:10-12</div>
                     </div>
                 </div>
-
-                <div class="prophecy-summary">
-                    <div class="summary-card">
-                        <h3>Probabilidades matemáticas</h3>
-                        <p>La probabilidad de que una persona pudiera cumplir al azar tan solo 48 de estas profecías es de <strong>1 en 10^157</strong> (un número mayor que todos los átomos del universo conocido).</p>
-                        <div class="summary-quote">
-                            "El cumplimiento de estas profecías en Cristo es evidencia matemática y histórica de que Jesús es verdaderamente el Mesías prometido."
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Conclusion Section -->
+    <!-- Conclusion -->
     <section class="conclusion-section">
         <div class="conclusion-content">
             <h2 class="conclusion-title">La maravilla del plan divino</h2>
-            <p class="conclusion-text">
-                A través de más de 4000 años de historia, Dios orquestó meticulosamente cada detalle para el cumplimiento de sus promesas mesiánicas. El linaje de Cristo no es solo una línea genealógica, sino el hilo dorado que conecta toda la historia redentora, demostrando la fidelidad y soberanía absoluta de Dios.
-            </p>
+            <p class="conclusion-text">A través de más de 4000 años de historia, Dios orquestó meticulosamente cada detalle para el cumplimiento de sus promesas mesiánicas. El linaje de Cristo no es solo una línea genealógica, sino la constelación que conecta toda la historia redentora, demostrando la fidelidad y soberanía absoluta de Dios.</p>
             <a href="https://www.scribd.com/doc/182129634/8740435-Profecias-Cumplidas-Por-Jesus" class="cta-button">Continuar estudiando</a>
         </div>
     </section>
@@ -2216,8 +1326,8 @@
                     <h4>Ministerio EMD</h4>
                     <p>Ministerio "La Gloria es del Señor", dedicado a la enseñanza de la Palabra de Dios para edificación de la Iglesia.</p>
                     <div class="social-links">
-                         <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                         <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61577956191110" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.5 9.87v-6.98H7.9V12h2.6V9.8c0-2.6 1.55-4 3.9-4 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v6.98A10 10 0 0 0 22 12Z"/></svg></a>
+                        <a href="https://www.youtube.com/@escudrinandoelmisteriodedi6877" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.8 8.001a2.75 2.75 0 0 0-1.94-1.94C18.1 5.6 12 5.6 12 5.6s-6.1 0-7.86.46A2.75 2.75 0 0 0 2.2 8a28.6 28.6 0 0 0 0 8 2.75 2.75 0 0 0 1.94 1.94C5.9 18.4 12 18.4 12 18.4s6.1 0 7.86-.46A2.75 2.75 0 0 0 21.8 16a28.6 28.6 0 0 0 0-8ZM10 15.2V8.8l6 3.2Z"/></svg></a>
                     </div>
                 </div>
                 <div class="footer-col">
@@ -2234,30 +1344,25 @@
                 <div class="footer-col">
                     <h4>Contacto</h4>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Dirección del ministerio</li>
-                        <li><i class="fas fa-phone"></i> +1 787-345-6940</li>
-                        <li><i class="fas fa-envelope"></i> ministeriolagloriaesdelsenor7@gmail.com</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg> Dirección del ministerio</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg> +1 787-345-6940</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg> ministeriolagloriaesdelsenor7@gmail.com</li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                      <h4>Nota aclaratoria</h4>
+                    <h4>Nota aclaratoria</h4>
                     <ul>
                         <li>Todos los recursos de esta página son gratuitos y para la edificación de los creyentes</li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
+                <p>&copy; 2026 Ministerio "La Gloria es del Señor". Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        document.querySelector('.nav-toggle').addEventListener('click', function() {
-            document.querySelector('nav').classList.toggle('active');
-        });
-
         // Mobile dropdown functionality
         document.querySelectorAll('.menu-item-has-children > a').forEach(item => {
             item.addEventListener('click', function(e) {
@@ -2268,84 +1373,37 @@
             });
         });
 
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const nav = document.querySelector('nav');
-            const navToggle = document.querySelector('.nav-toggle');
-            
-            if (!nav.contains(event.target) && event.target !== navToggle) {
-                nav.classList.remove('active');
-            }
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(45, 27, 78, 0.98)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, var(--deep-purple), var(--royal-blue))';
-            }
-        });
-
         // Timeline items animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, observerOptions);
-
-        document.querySelectorAll('.timeline-item').forEach(item => {
-            observer.observe(item);
-        });
+        document.querySelectorAll('.timeline-item').forEach(item => observer.observe(item));
 
         // Expand/collapse functionality
         document.querySelectorAll('.expand-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const timelineItem = btn.closest('.timeline-item');
-                timelineItem.classList.toggle('expanded');
-                
-                if (timelineItem.classList.contains('expanded')) {
-                    btn.innerHTML = 'Leer menos <i class="fas fa-chevron-up"></i>';
-                } else {
-                    btn.innerHTML = 'Leer más <i class="fas fa-chevron-down"></i>';
-                }
+                const expanded = timelineItem.classList.toggle('expanded');
+                btn.innerHTML = expanded
+                    ? 'Leer menos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="chev"><path d="m18 15-6-6-6 6" /></svg>'
+                    : 'Leer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="chev"><path d="m6 9 6 6 6-6" /></svg>';
             });
         });
 
         // Smooth scrolling for scroll indicator
         document.querySelector('.scroll-indicator').addEventListener('click', () => {
-            document.querySelector('.timeline-container').scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-
-        // Parallax effect for hero background
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const background = document.querySelector('.hero-background');
-            if (background) {
-                background.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
+            document.querySelector('.timeline-container').scrollIntoView({ behavior: 'smooth' });
         });
 
         // Tab functionality for prophecies
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const category = btn.dataset.category;
-                
-                // Remove active class from all tabs and grids
                 document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
                 document.querySelectorAll('.prophecy-grid').forEach(g => g.classList.remove('active'));
-                
-                // Add active class to clicked tab and corresponding grid
                 btn.classList.add('active');
                 document.querySelector(`[data-category="${category}"].prophecy-grid`).classList.add('active');
             });
@@ -2358,53 +1416,23 @@
                     setTimeout(() => {
                         entry.target.style.opacity = '1';
                         entry.target.style.transform = 'translateY(0)';
-                    }, index * 100);
+                    }, index * 60);
                 }
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.prophecy-card').forEach(card => {
             card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
+            card.style.transform = 'translateY(24px)';
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             prophecyObserver.observe(card);
         });
 
-        // Close menu when clicking on submenu link
-        document.querySelectorAll('.sub-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('nav').classList.remove('active');
-            });
-        });
-
         // Dynamic counter for prophecies
-        const countProphecies = () => {
-            const categories = ['nacimiento', 'ministerio', 'sufrimiento', 'resurreccion', 'caracter', 'reino'];
-            let total = 0;
-            
-            categories.forEach(category => {
-                const cards = document.querySelectorAll(`[data-category="${category}"] .prophecy-card`);
-                total += cards.length;
-            });
-            
-            // Update the intro text with the exact count
+        document.addEventListener('DOMContentLoaded', () => {
+            const total = document.querySelectorAll('.prophecy-card').length;
             const introP = document.querySelector('.prophecies-intro p');
-            if (introP) {
-                introP.textContent = `Exactamente ${total} profecías específicas del Antiguo Testamento que encuentran su cumplimiento perfecto en Jesucristo.`;
-            }
-        };
-
-        // Call the counter function when page loads
-        document.addEventListener('DOMContentLoaded', countProphecies);
-
-        // Add loading animation
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '1';
-            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            if (introP) introP.textContent = `Exactamente ${total} profecías específicas del Antiguo Testamento que encuentran su cumplimiento perfecto en Jesucristo.`;
         });
-
-        // Set initial body opacity
-        document.body.style.opacity = '0';
     </script>
     <script>
     (function() {
@@ -2425,10 +1453,20 @@
             });
         }
 
+        document.querySelectorAll('.sub-menu a').forEach(function(link) {
+            link.addEventListener('click', closeNav);
+        });
+
         backdrop.addEventListener('click', closeNav);
+
+        document.addEventListener('click', function(event) {
+            if (!nav.contains(event.target) && event.target !== navToggle) closeNav();
+        });
 
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && nav.classList.contains('active')) closeNav();
         });
     })();
     </script>
+</body>
+</html>
