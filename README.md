@@ -591,6 +591,16 @@ Tras agregarse `tabernaculo-3d.html`, una revisión a fondo (a pedido del usuari
 - **Otros bugs corregidos:** 48 usos de Font Awesome (CDN, 39 íconos distintos) reemplazados por SVG Lucide inline; footer con 3 columnas y enlaces reales pero sin el patrón estándar del sitio, actualizado al footer de 4 columnas con redes sociales y contacto; 5 guiones largos corregidos (todos en la lista de "horas del día", cambiados a coma); copyright actualizado de 2025 a 2026.
 - Queda 1 página de `Época de Jesús/` para completar la categoría: `apologia-cristiana.html`.
 
+### 2026-08-20: quinta y última página de `Época de Jesús/` — apologia-cristiana.html "El Ágora" — categoría completa
+
+- **`page/Época de Jesús/apologia-cristiana.html`:** **10 preguntas apologéticas** en profundidad (el problema del sufrimiento, los milagros, la confiabilidad bíblica, la historicidad de Jesús, el pluralismo religioso, ciencia y fe, las denominaciones, el libre albedrío frente a la omnisciencia, la violencia del Antiguo Testamento, y la resurrección), cada una con argumentos estructurados en puntos numerados y citas bíblicas, referenciando fuentes reales (C. S. Lewis, Josh McDowell, Bart Ehrman, Tácito, Flavio Josefo, G. K. Chesterton, Francis Collins, Stephen Jay Gould); más 6 libros recomendados reales con enlaces, un testimonio y un CTA. Sin problemas de contenido.
+- Mismo bug de menú ausente que en las cuatro páginas anteriores de la categoría. Se construyó el mega-menú completo.
+- Rediseñada con el concepto "El Ágora", elegido entre 3 direcciones propuestas (El Ágora, El Estrado de la Defensa — descartada por el riesgo de sentirse cercana al "Tribunal de la Verdad" ya usado en `masoneria.html` —, y Piedras de Tropiezo). Anclado en Hechos 17:22 (Pablo debatiendo en el Areópago de Atenas), conectando directamente con la etimología griega de "apología" que el propio contenido ya explica (ἀπολογία, "dar una defensa" — la misma palabra de la *Apología de Sócrates* de Platón) y con la frase "la plaza pública de ideas" que ya usaba la página. Tipografía Neuton (títulos) + Crimson Pro (cuerpo), ninguna usada antes en el sitio (viva). Paleta de ágora: mármol `#ede8dc`, azul egeo `#2e5a6b`, terracota `#9c5030`, olivo `#5c6b3f`, oro `#b3924a` — deliberadamente distinta del Atlas Romano (`contexto-historico.html`) para no repetir la estética clásica dentro de la misma categoría.
+- **Pieza central:** stoa griega SVG en el hero (columnas dóricas bajo un frontón triangular, con un pequeño ícono de diálogo socrático al centro).
+- **Preservación de datos:** las 10 preguntas completas (título + cuerpo íntegro, incluidos los puntos numerados en negrita y las citas bíblicas) y los 6 libros recomendados (categoría, título, autor, descripción, enlace real) se extrajeron programáticamente y verbatim del archivo original antes de reescribirlo.
+- **Otros bugs corregidos:** el footer tenía 3 enlaces de contacto (dirección, teléfono, correo) envueltos en `href="#"` muertos; se convirtieron en texto plano no clickeable, mismo patrón aplicado en el resto del sitio; el smooth-scroll del acordeón de preguntas no verificaba si el elemento destino existía antes de llamar `scrollIntoView`, se agregó la comprobación; 1 guion largo corregido; copyright actualizado de 2025 a 2026. El enlace externo al curso del C. S. Lewis Institute (CTA) y los 6 enlaces a PDFs de los libros recomendados se conservaron intactos.
+- **Con esta página, las 5 páginas de `Época de Jesús/` quedan completas.** Todas las páginas revisadas esta sesión (`nuestras-ensenanzas/index.html` + las 5 de `Época de Jesús/`) pasaron por el flujo completo: revisión de contenido, identificación de bugs, y 3 direcciones estéticas presentadas al usuario antes de implementar — sin excepciones, tras la corrección de proceso pedida por el usuario en `nuestras-ensenanzas/index.html`.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -832,7 +842,7 @@ Página de Fe/
 | `page/Época de Jesús/recursos-academicos.html` | Completado — estilo propio "El Mercado de Cafarnaúm", ver historial 2026-08-20 |
 | `page/Época de Jesús/grupos-religiosos.html` | Completado — estilo propio "Expediente del Sanedrín", ver historial 2026-08-20 |
 | `page/Época de Jesús/contexto-historico.html` | Completado — estilo propio "Atlas Romano", ver historial 2026-08-20 |
-| `page/Época de Jesús/apologia-cristiana.html` | Completado — gold `#b89a5f` |
+| `page/Época de Jesús/apologia-cristiana.html` | Completado — estilo propio "El Ágora", ver historial 2026-08-20 |
 | `page/Época de Jesús/estudio-contemporaneo.html` | Completado — estilo propio "Constelación Mesiánica", ver historial 2026-08-20 |
 | `page/Estudios Bíblicos/revelacion-espiritu.html` | Completado: estilo propio "El Huerto de PaRDeS" (corte transversal de árbol; ver historial 2026-08-18) |
 | `page/Estudios Bíblicos/devocionales.html` | Completado: estilo propio "Bitácora Espiritual" (cuaderno personal; ver historial 2026-08-18) |
