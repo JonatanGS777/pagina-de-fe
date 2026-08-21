@@ -1,5 +1,6 @@
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import { AuthGate } from '@/components/AuthGate'
+import { SiteHeader } from '@/components/SiteHeader'
 import { TopicsPage } from '@/routes/TopicsPage'
 import { TopicPage } from '@/routes/TopicPage'
 import { FavoritesPage } from '@/routes/FavoritesPage'
@@ -13,6 +14,7 @@ function App() {
   return (
     <HashRouter>
       <AuthGate>
+        <SiteHeader />
         <Routes>
           <Route path="/" element={<TopicsPage />} />
           <Route path="/tema/:id" element={<TopicPage />} />
