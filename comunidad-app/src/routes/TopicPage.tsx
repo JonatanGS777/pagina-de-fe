@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import type { User } from 'firebase/auth'
-import { ArrowLeft, Bookmark, Heart } from 'lucide-react'
+import { ArrowLeft, Bookmark, Heart, Trash2 } from 'lucide-react'
 import { useAuth } from '@/hooks/useAuth'
 import { useTopic } from '@/hooks/useTopic'
 import { Badge } from '@/components/ui/badge'
@@ -14,6 +14,7 @@ import { cn } from '@/lib/utils'
 import {
   addComment,
   addReply,
+  deleteComment,
   toggleBookmark,
   toggleCommentLike,
   toggleTopicLike,
@@ -35,6 +36,7 @@ function CommentItem({ comment, topicId, user }: { comment: Comment; topicId: st
   const [replyText, setReplyText] = useState('')
   const [submitting, setSubmitting] = useState(false)
   const isLiked = comment.likedBy.includes(user.uid)
+  const isAuthor = comment.authorUid === user.uid
 
   async function handleReply(e: FormEvent) {
     e.preventDefault()
@@ -48,6 +50,11 @@ function CommentItem({ comment, topicId, user }: { comment: Comment; topicId: st
     } finally {
       setSubmitting(false)
     }
+  }
+
+  function handleDelete() {
+    if (!window.confirm('¿Borrar este comentario? Esta acción no se puede deshacer.')) return
+    deleteComment(topicId, comment.id)
   }
 
   return (
@@ -67,6 +74,15 @@ function CommentItem({ comment, topicId, user }: { comment: Comment; topicId: st
           <button type="button" onClick={() => setReplying((v) => !v)}>
             Responder
           </button>
+          {isAuthor && (
+            <button
+              type="button"
+              className="flex items-center gap-1 hover:text-destructive"
+              onClick={handleDelete}
+            >
+              <Trash2 className="size-3.5" /> Borrar
+            </button>
+          )}
         </div>
       </div>
 

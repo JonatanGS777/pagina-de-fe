@@ -4,6 +4,7 @@ import {
   arrayRemove,
   arrayUnion,
   collection,
+  deleteDoc,
   doc,
   increment,
   serverTimestamp,
@@ -90,6 +91,14 @@ export async function addReply(user: User, topicId: string, commentId: string, c
   await updateDoc(doc(db, 'forumTopics', topicId), {
     replies: increment(1),
     lastReply: serverTimestamp(),
+  })
+}
+
+/** Borra un comentario propio y decrementa el contador `replies` del tema. */
+export async function deleteComment(topicId: string, commentId: string) {
+  await deleteDoc(doc(db, 'forumTopics', topicId, 'comments', commentId))
+  await updateDoc(doc(db, 'forumTopics', topicId), {
+    replies: increment(-1),
   })
 }
 
