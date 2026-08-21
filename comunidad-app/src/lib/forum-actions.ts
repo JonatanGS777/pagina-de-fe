@@ -94,9 +94,23 @@ export async function addReply(user: User, topicId: string, commentId: string, c
   })
 }
 
-/** Borra un comentario propio y decrementa el contador `replies` del tema. */
-export async function deleteComment(topicId: string, commentId: string) {
-  await deleteDoc(doc(db, 'forumTopics', topicId, 'comments', commentId))
+/**
+ * Borra un comentario y decrementa el contador `replies` del tema.
+ * Ese contador suma comentarios + respuestas (ver addComment/addReply), así
+ * que borrar un comentario con N respuestas embebidas debe restar 1+N, no 1.
+ */
+export async function deleteComment(topicId: string, comment: Comment) {
+  await deleteDoc(doc(db, 'forumTopics', topicId, 'comments', comment.id))
+  await updateDoc(doc(db, 'forumTopics', topicId), {
+    replies: increment(-(1 + comment.replies.length)),
+  })
+}
+
+/** Borra una respuesta embebida de un comentario y decrementa el contador del tema en 1. */
+export async function deleteReply(topicId: string, comment: Comment, replyId: string) {
+  await updateDoc(doc(db, 'forumTopics', topicId, 'comments', comment.id), {
+    replies: comment.replies.filter((r) => r.id !== replyId),
+  })
   await updateDoc(doc(db, 'forumTopics', topicId), {
     replies: increment(-1),
   })

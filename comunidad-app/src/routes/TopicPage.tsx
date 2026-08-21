@@ -4,6 +4,7 @@ import type { User } from 'firebase/auth'
 import { ArrowLeft, Bookmark, Heart, Trash2 } from 'lucide-react'
 import { useAuth } from '@/hooks/useAuth'
 import { useTopic } from '@/hooks/useTopic'
+import { useUserRole, type UserRole } from '@/hooks/useUserRole'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
@@ -15,34 +16,94 @@ import {
   addComment,
   addReply,
   deleteComment,
+  deleteReply,
   toggleBookmark,
   toggleCommentLike,
   toggleTopicLike,
 } from '@/lib/forum-actions'
 import type { Comment, ReplyItem, Topic } from '@/types/firestore-schema'
 
-function ReplyBubble({ reply }: { reply: ReplyItem }) {
+function isModeratorOrAdmin(role: UserRole) {
+  return role === 'moderator' || role === 'admin'
+}
+
+// Comentarios/respuestas viejos del foro legado pueden no tener authorUid
+// seteado (bug ya corregido en el código, pero los documentos existentes en
+// Firestore quedaron como estaban) — se verifica también author.uid/email,
+// igual que la regla de seguridad de Firestore (que usa author.uid).
+function isOwnEntity(entity: { authorUid?: string; author?: { uid?: string; email?: string } }, user: User) {
+  return (
+    entity.authorUid === user.uid ||
+    entity.author?.uid === user.uid ||
+    (!!entity.author?.email && entity.author.email === user.email)
+  )
+}
+
+function ReplyBubble({
+  reply,
+  topicId,
+  comment,
+  user,
+  role,
+}: {
+  reply: ReplyItem
+  topicId: string
+  comment: Comment
+  user: User
+  role: UserRole
+}) {
+  const [error, setError] = useState<string | null>(null)
+  const canDelete = isOwnEntity(reply, user) || isModeratorOrAdmin(role)
+
+  async function handleDelete() {
+    if (!window.confirm('¿Borrar esta respuesta? Esta acción no se puede deshacer.')) return
+    setError(null)
+    try {
+      await deleteReply(topicId, comment, reply.id)
+    } catch (err) {
+      console.error('Error al borrar respuesta:', err)
+      setError('No se pudo borrar la respuesta. Verifica tus permisos e inténtalo de nuevo.')
+    }
+  }
+
   return (
     <div className="ml-8 border-l pl-4 text-sm">
       <p className="font-medium">{reply.author.name}</p>
       <p className="text-muted-foreground">{reply.content}</p>
-      <p className="text-xs text-muted-foreground">{formatRelative(reply.createdAt)}</p>
+      <div className="flex items-center gap-3 text-xs text-muted-foreground">
+        <span>{formatRelative(reply.createdAt)}</span>
+        {canDelete && (
+          <button
+            type="button"
+            className="flex items-center gap-1 hover:text-destructive"
+            onClick={handleDelete}
+          >
+            <Trash2 className="size-3.5" /> Borrar
+          </button>
+        )}
+      </div>
+      {error && <p className="text-xs text-destructive">{error}</p>}
     </div>
   )
 }
 
-function CommentItem({ comment, topicId, user }: { comment: Comment; topicId: string; user: User }) {
+function CommentItem({
+  comment,
+  topicId,
+  user,
+  role,
+}: {
+  comment: Comment
+  topicId: string
+  user: User
+  role: UserRole
+}) {
   const [replying, setReplying] = useState(false)
   const [replyText, setReplyText] = useState('')
   const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const isLiked = comment.likedBy.includes(user.uid)
-  // Comentarios viejos del foro legado pueden no tener authorUid seteado
-  // (bug ya corregido en el código, pero los documentos existentes en
-  // Firestore quedaron como estaban) — se verifica también author.uid/email.
-  const isAuthor =
-    comment.authorUid === user.uid ||
-    comment.author?.uid === user.uid ||
-    (!!comment.author?.email && comment.author.email === user.email)
+  const canDelete = isOwnEntity(comment, user) || isModeratorOrAdmin(role)
 
   async function handleReply(e: FormEvent) {
     e.preventDefault()
@@ -58,9 +119,15 @@ function CommentItem({ comment, topicId, user }: { comment: Comment; topicId: st
     }
   }
 
-  function handleDelete() {
+  async function handleDelete() {
     if (!window.confirm('¿Borrar este comentario? Esta acción no se puede deshacer.')) return
-    deleteComment(topicId, comment.id)
+    setError(null)
+    try {
+      await deleteComment(topicId, comment)
+    } catch (err) {
+      console.error('Error al borrar comentario:', err)
+      setError('No se pudo borrar el comentario. Verifica tus permisos e inténtalo de nuevo.')
+    }
   }
 
   return (
@@ -80,7 +147,7 @@ function CommentItem({ comment, topicId, user }: { comment: Comment; topicId: st
           <button type="button" onClick={() => setReplying((v) => !v)}>
             Responder
           </button>
-          {isAuthor && (
+          {canDelete && (
             <button
               type="button"
               className="flex items-center gap-1 hover:text-destructive"
@@ -90,6 +157,7 @@ function CommentItem({ comment, topicId, user }: { comment: Comment; topicId: st
             </button>
           )}
         </div>
+        {error && <p className="text-xs text-destructive">{error}</p>}
       </div>
 
       {replying && (
@@ -108,7 +176,7 @@ function CommentItem({ comment, topicId, user }: { comment: Comment; topicId: st
       )}
 
       {comment.replies.map((reply) => (
-        <ReplyBubble key={reply.id} reply={reply} />
+        <ReplyBubble key={reply.id} reply={reply} topicId={topicId} comment={comment} user={user} role={role} />
       ))}
     </div>
   )
@@ -196,6 +264,7 @@ function TopicHeader({ topic, user }: { topic: Topic; user: User }) {
 export function TopicPage() {
   const { id } = useParams<{ id: string }>()
   const { user } = useAuth()
+  const role = useUserRole(user)
   const { topic, comments, loading, error } = useTopic(id)
 
   if (loading) return <p className="p-6 text-muted-foreground">Cargando tema...</p>
@@ -216,7 +285,7 @@ export function TopicPage() {
       <div className="space-y-4">
         <h2 className="font-medium">Comentarios ({comments.length})</h2>
         {comments.map((comment) => (
-          <CommentItem key={comment.id} comment={comment} topicId={id} user={user} />
+          <CommentItem key={comment.id} comment={comment} topicId={id} user={user} role={role} />
         ))}
         <NewCommentForm topicId={id} user={user} />
       </div>
