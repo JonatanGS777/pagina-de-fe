@@ -36,7 +36,13 @@ function CommentItem({ comment, topicId, user }: { comment: Comment; topicId: st
   const [replyText, setReplyText] = useState('')
   const [submitting, setSubmitting] = useState(false)
   const isLiked = comment.likedBy.includes(user.uid)
-  const isAuthor = comment.authorUid === user.uid
+  // Comentarios viejos del foro legado pueden no tener authorUid seteado
+  // (bug ya corregido en el código, pero los documentos existentes en
+  // Firestore quedaron como estaban) — se verifica también author.uid/email.
+  const isAuthor =
+    comment.authorUid === user.uid ||
+    comment.author?.uid === user.uid ||
+    (!!comment.author?.email && comment.author.email === user.email)
 
   async function handleReply(e: FormEvent) {
     e.preventDefault()
