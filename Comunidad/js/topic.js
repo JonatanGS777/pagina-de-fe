@@ -1133,6 +1133,7 @@ async function handleNewComment(e) {
     }
     
     const newComment = {
+        topicId: currentTopicId,
         content: content,
         author: {
             name: currentUser.displayName || 'Usuario',
@@ -1140,6 +1141,7 @@ async function handleNewComment(e) {
             photo: currentUser.photoURL,
             uid: currentUser.uid // ✅ AÑADIR ESTA LÍNEA
         },
+        authorUid: currentUser.uid,
         likes: 0,
         likedBy: [],
         replies: []

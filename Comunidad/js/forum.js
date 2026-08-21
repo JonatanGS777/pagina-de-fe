@@ -405,7 +405,8 @@ async function addComment(topicId, commentText) {
             authorUid: currentUser.uid,
             createdAt: serverTimestamp(),
             likes: 0,
-            likedBy: []
+            likedBy: [],
+            replies: []
         };
         
         // <<== CORRECCIÓN: Usar la referencia a la subcolección.
