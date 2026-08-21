@@ -6,9 +6,11 @@ import {
   collection,
   deleteDoc,
   doc,
+  getDocs,
   increment,
   serverTimestamp,
   updateDoc,
+  writeBatch,
 } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import type { AuthorRef, Comment, ReplyItem, Topic, TopicCategory } from '@/types/firestore-schema'
@@ -114,6 +116,19 @@ export async function deleteReply(topicId: string, comment: Comment, replyId: st
   await updateDoc(doc(db, 'forumTopics', topicId), {
     replies: increment(-1),
   })
+}
+
+/**
+ * Borra un tema completo: primero su subcolección de comentarios (las respuestas
+ * van embebidas dentro de cada comentario, así que no hace falta un paso aparte)
+ * y luego el propio documento del tema, todo en un batch atómico.
+ */
+export async function deleteTopic(topic: Topic) {
+  const commentsSnap = await getDocs(collection(db, 'forumTopics', topic.id, 'comments'))
+  const batch = writeBatch(db)
+  commentsSnap.docs.forEach((commentDoc) => batch.delete(commentDoc.ref))
+  batch.delete(doc(db, 'forumTopics', topic.id))
+  await batch.commit()
 }
 
 export async function toggleTopicLike(user: User, topic: Topic) {

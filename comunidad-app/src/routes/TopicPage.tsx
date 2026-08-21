@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import type { User } from 'firebase/auth'
 import { ArrowLeft, Bookmark, Heart, Trash2 } from 'lucide-react'
 import { useAuth } from '@/hooks/useAuth'
@@ -17,6 +17,7 @@ import {
   addReply,
   deleteComment,
   deleteReply,
+  deleteTopic,
   toggleBookmark,
   toggleCommentLike,
   toggleTopicLike,
@@ -222,19 +223,51 @@ function NewCommentForm({ topicId, user }: { topicId: string; user: User }) {
   )
 }
 
-function TopicHeader({ topic, user }: { topic: Topic; user: User }) {
+function TopicHeader({ topic, user, role }: { topic: Topic; user: User; role: UserRole }) {
+  const navigate = useNavigate()
+  const [deleting, setDeleting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const isLiked = topic.likedBy.includes(user.uid)
   const isBookmarked = topic.bookmarkedBy.includes(user.uid)
+  const canDelete = isOwnEntity(topic, user) || isModeratorOrAdmin(role)
+
+  async function handleDelete() {
+    if (!window.confirm('¿Borrar este tema junto con todos sus comentarios? Esta acción no se puede deshacer.'))
+      return
+    setError(null)
+    setDeleting(true)
+    try {
+      await deleteTopic(topic)
+      navigate('/')
+    } catch (err) {
+      console.error('Error al borrar tema:', err)
+      setError('No se pudo borrar el tema. Verifica tus permisos e inténtalo de nuevo.')
+      setDeleting(false)
+    }
+  }
 
   return (
     <div className="space-y-2">
-      <Badge variant="secondary">{TOPIC_CATEGORY_LABELS[topic.category]}</Badge>
+      <div className="flex items-start justify-between gap-2">
+        <Badge variant="secondary">{TOPIC_CATEGORY_LABELS[topic.category]}</Badge>
+        {canDelete && (
+          <button
+            type="button"
+            className="flex shrink-0 items-center gap-1 text-xs text-muted-foreground hover:text-destructive disabled:opacity-50"
+            onClick={handleDelete}
+            disabled={deleting}
+          >
+            <Trash2 className="size-3.5" /> {deleting ? 'Borrando...' : 'Borrar tema'}
+          </button>
+        )}
+      </div>
       <h1 className="text-xl font-semibold">{topic.title}</h1>
       <p className="text-sm text-muted-foreground">
         {topic.author.name} · {formatRelative(topic.createdAt)}
       </p>
       <p>{topic.content}</p>
       {topic.verse && <p className="italic text-muted-foreground">{topic.verse}</p>}
+      {error && <p className="text-xs text-destructive">{error}</p>}
 
       <div className="flex items-center gap-3 pt-1">
         <Button
@@ -278,7 +311,7 @@ export function TopicPage() {
         <ArrowLeft className="size-4" /> Volver a la comunidad
       </Link>
 
-      <TopicHeader topic={topic} user={user} />
+      <TopicHeader topic={topic} user={user} role={role} />
 
       <Separator />
 
