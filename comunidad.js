@@ -29,22 +29,50 @@ const CommunityModule = {
     currentUser: null,
     retryCount: 0,
     maxRetries: 3,
-    
-    // Inicialización del módulo de comunidad
+    stats: { topics: 3, comments: 12 },
+    initialized: false,
+
+    // Inicialización del módulo de comunidad (incluye su propio toggle).
+    // Solo se usa si el módulo se carga fuera del index, donde nadie más
+    // controla el botón de comunidad.
     init: function() {
-        // Solo ejecutar en la página principal, NO en forum.html
-        if (window.location.pathname.includes('forum.html')) {
-            console.log('⚠️ En página de forum - saltando inicialización de comunidad');
-            return;
-        }
-        
-        console.log('🌟 Inicializando módulo de comunidad...');
-        this.checkFirebaseConnection();
+        if (this.initialized) return;
+
+        console.log('🌟 Inicializando módulo de comunidad (con toggle propio)...');
         this.setupCommunityWidget();
+        this.initWithoutToggle();
+    },
+
+    // Inicialización sin tocar el toggle: lo usa index.html, que ya maneja
+    // el click del botón y el cierre al hacer clic fuera por su cuenta.
+    initWithoutToggle: function() {
+        if (this.initialized) return;
+
+        console.log('🌟 Inicializando módulo de comunidad (sin toggle propio)...');
+        this.checkFirebaseConnection();
         this.setupAuthListener();
-        
+
         // Intentar cargar estadísticas incluso sin autenticación (con permisos públicos)
         this.loadCommunityStatsWithFallback();
+
+        this.initialized = true;
+    },
+
+    // 🔔 Hooks llamados por index.html cuando el usuario abre/cierra el sidebar
+    onToggleEvent: function(isOpen) {
+        if (isOpen) {
+            console.log('🔔 Sidebar de comunidad abierto: refrescando stats...');
+            this.forceReload();
+        }
+    },
+
+    onCloseEvent: function() {
+        console.log('🔔 Sidebar de comunidad cerrado');
+    },
+
+    // 📊 Últimas estadísticas conocidas (sincrónico, para index.html)
+    getStats: function() {
+        return this.stats;
     },
 
     // Verificar conexión a Firebase
@@ -358,7 +386,9 @@ const CommunityModule = {
 
     updateCommunityStats: function(topicsCount, commentsCount) {
         console.log(`🔄 Actualizando UI con: ${topicsCount} temas, ${commentsCount} comentarios`);
-        
+
+        this.stats = { topics: topicsCount, comments: commentsCount };
+
         // Actualizar contadores en la barra lateral
         const topicsElement = document.getElementById('home-topics-count');
         const commentsElement = document.getElementById('home-comments-count');
@@ -493,22 +523,9 @@ window.CommunityModule = CommunityModule;
 window.debugComunidad = () => CommunityModule.debugFirestore();
 window.recargarStats = () => CommunityModule.forceReload();
 
-// Auto-inicializar cuando se carga el DOM
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('🌟 DOM cargado, inicializando módulo de comunidad...');
-    
-    // Delay para asegurar que Firebase esté completamente cargado
-    setTimeout(() => {
-        CommunityModule.init();
-    }, 1000);
-    
-    // Opcional: Activar stats en tiempo real después de la autenticación
-    setTimeout(() => {
-        if (CommunityModule.isFirebaseConnected && CommunityModule.isUserAuthenticated) {
-            CommunityModule.setupRealtimeStats();
-        }
-    }, 8000);
-});
+// Nota: la inicialización NO es automática aquí. Es index.html (ProtectedIndexPage)
+// quien llama a CommunityModule.initWithoutToggle() una vez confirmada la
+// autenticación, para no duplicar el listener de auth ni el toggle del sidebar.
 
 // Limpiar al salir de la página
 window.addEventListener('beforeunload', function() {
