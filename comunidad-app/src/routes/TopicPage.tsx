@@ -1,0 +1,203 @@
+import { useState, type FormEvent } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import type { User } from 'firebase/auth'
+import { ArrowLeft, Bookmark, Heart } from 'lucide-react'
+import { useAuth } from '@/hooks/useAuth'
+import { useTopic } from '@/hooks/useTopic'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Textarea } from '@/components/ui/textarea'
+import { Separator } from '@/components/ui/separator'
+import { TOPIC_CATEGORY_LABELS } from '@/types/firestore-schema'
+import { formatRelative } from '@/lib/date'
+import { cn } from '@/lib/utils'
+import {
+  addComment,
+  addReply,
+  toggleBookmark,
+  toggleCommentLike,
+  toggleTopicLike,
+} from '@/lib/forum-actions'
+import type { Comment, ReplyItem, Topic } from '@/types/firestore-schema'
+
+function ReplyBubble({ reply }: { reply: ReplyItem }) {
+  return (
+    <div className="ml-8 border-l pl-4 text-sm">
+      <p className="font-medium">{reply.author.name}</p>
+      <p className="text-muted-foreground">{reply.content}</p>
+      <p className="text-xs text-muted-foreground">{formatRelative(reply.createdAt)}</p>
+    </div>
+  )
+}
+
+function CommentItem({ comment, topicId, user }: { comment: Comment; topicId: string; user: User }) {
+  const [replying, setReplying] = useState(false)
+  const [replyText, setReplyText] = useState('')
+  const [submitting, setSubmitting] = useState(false)
+  const isLiked = comment.likedBy.includes(user.uid)
+
+  async function handleReply(e: FormEvent) {
+    e.preventDefault()
+    if (replyText.trim().length < 5) return
+
+    setSubmitting(true)
+    try {
+      await addReply(user, topicId, comment.id, replyText.trim())
+      setReplyText('')
+      setReplying(false)
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
+  return (
+    <div className="space-y-2">
+      <div>
+        <p className="font-medium">{comment.author.name}</p>
+        <p>{comment.content}</p>
+        <div className="flex items-center gap-3 text-xs text-muted-foreground">
+          <span>{formatRelative(comment.createdAt)}</span>
+          <button
+            type="button"
+            className={cn('flex items-center gap-1', isLiked && 'text-destructive')}
+            onClick={() => toggleCommentLike(user, topicId, comment)}
+          >
+            <Heart className={cn('size-3.5', isLiked && 'fill-current')} /> {comment.likes}
+          </button>
+          <button type="button" onClick={() => setReplying((v) => !v)}>
+            Responder
+          </button>
+        </div>
+      </div>
+
+      {replying && (
+        <form className="ml-8 flex gap-2" onSubmit={handleReply}>
+          <Textarea
+            value={replyText}
+            onChange={(e) => setReplyText(e.target.value)}
+            rows={2}
+            placeholder="Escribe una respuesta..."
+            className="text-sm"
+          />
+          <Button type="submit" size="sm" disabled={submitting}>
+            Enviar
+          </Button>
+        </form>
+      )}
+
+      {comment.replies.map((reply) => (
+        <ReplyBubble key={reply.id} reply={reply} />
+      ))}
+    </div>
+  )
+}
+
+function NewCommentForm({ topicId, user }: { topicId: string; user: User }) {
+  const [content, setContent] = useState('')
+  const [error, setError] = useState<string | null>(null)
+  const [submitting, setSubmitting] = useState(false)
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault()
+    if (content.trim().length < 10) {
+      setError('El comentario debe tener al menos 10 caracteres.')
+      return
+    }
+
+    setSubmitting(true)
+    setError(null)
+    try {
+      await addComment(user, topicId, content.trim())
+      setContent('')
+    } catch {
+      setError('No se pudo publicar el comentario.')
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
+  return (
+    <form className="space-y-2" onSubmit={handleSubmit}>
+      <Textarea
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+        rows={3}
+        placeholder="Escribe un comentario..."
+      />
+      {error && <p className="text-sm text-destructive">{error}</p>}
+      <Button type="submit" disabled={submitting}>
+        {submitting ? 'Publicando...' : 'Comentar'}
+      </Button>
+    </form>
+  )
+}
+
+function TopicHeader({ topic, user }: { topic: Topic; user: User }) {
+  const isLiked = topic.likedBy.includes(user.uid)
+  const isBookmarked = topic.bookmarkedBy.includes(user.uid)
+
+  return (
+    <div className="space-y-2">
+      <Badge variant="secondary">{TOPIC_CATEGORY_LABELS[topic.category]}</Badge>
+      <h1 className="text-xl font-semibold">{topic.title}</h1>
+      <p className="text-sm text-muted-foreground">
+        {topic.author.name} · {formatRelative(topic.createdAt)}
+      </p>
+      <p>{topic.content}</p>
+      {topic.verse && <p className="italic text-muted-foreground">{topic.verse}</p>}
+
+      <div className="flex items-center gap-3 pt-1">
+        <Button
+          type="button"
+          variant="ghost"
+          size="sm"
+          className={cn('gap-1', isLiked && 'text-destructive')}
+          onClick={() => toggleTopicLike(user, topic)}
+        >
+          <Heart className={cn('size-4', isLiked && 'fill-current')} /> {topic.likes}
+        </Button>
+        <Button
+          type="button"
+          variant="ghost"
+          size="sm"
+          className={cn('gap-1', isBookmarked && 'text-primary')}
+          onClick={() => toggleBookmark(user, topic)}
+        >
+          <Bookmark className={cn('size-4', isBookmarked && 'fill-current')} />
+          {isBookmarked ? 'En favoritos' : 'Guardar'}
+        </Button>
+      </div>
+    </div>
+  )
+}
+
+export function TopicPage() {
+  const { id } = useParams<{ id: string }>()
+  const { user } = useAuth()
+  const { topic, comments, loading, error } = useTopic(id)
+
+  if (loading) return <p className="p-6 text-muted-foreground">Cargando tema...</p>
+  if (error) return <p className="p-6 text-destructive">Error: {error.message}</p>
+  if (!topic || !id) return <p className="p-6 text-muted-foreground">Tema no encontrado.</p>
+  if (!user) return null
+
+  return (
+    <div className="mx-auto max-w-2xl space-y-6 p-6">
+      <Link to="/" className="flex items-center gap-1 text-sm text-muted-foreground">
+        <ArrowLeft className="size-4" /> Volver a la comunidad
+      </Link>
+
+      <TopicHeader topic={topic} user={user} />
+
+      <Separator />
+
+      <div className="space-y-4">
+        <h2 className="font-medium">Comentarios ({comments.length})</h2>
+        {comments.map((comment) => (
+          <CommentItem key={comment.id} comment={comment} topicId={id} user={user} />
+        ))}
+        <NewCommentForm topicId={id} user={user} />
+      </div>
+    </div>
+  )
+}
