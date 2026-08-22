@@ -131,6 +131,9 @@ export function NewTopicDialog({ user }: { user: User }) {
               onChange={(e) => setContent(e.target.value)}
               rows={5}
             />
+            <p className="text-xs text-muted-foreground">
+              Puedes usar <code>**negrita**</code>, <code># Título</code> y listas con <code>-</code>.
+            </p>
           </div>
 
           <div className="space-y-2">

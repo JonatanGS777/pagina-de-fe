@@ -31,6 +31,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { ReportDialog } from '@/components/ReportDialog'
+import { MarkdownContent } from '@/components/MarkdownContent'
 import { AuthorLink } from '@/components/AuthorLink'
 import { ReactionBar } from '@/components/ReactionBar'
 import { MentionTextarea } from '@/components/MentionTextarea'
@@ -108,7 +109,7 @@ function ReplyBubble({
       <p className="font-medium">
         <AuthorLink uid={reply.author.uid} name={reply.author.name} />
       </p>
-      <p className="whitespace-pre-wrap text-muted-foreground">{reply.content}</p>
+      <MarkdownContent content={reply.content} className="text-sm text-muted-foreground" />
       <div className="flex items-center gap-3 text-xs text-muted-foreground">
         <span>{formatRelative(reply.createdAt)}</span>
         <button
@@ -223,6 +224,9 @@ function CommentItem({
         {editing ? (
           <form className="space-y-2" onSubmit={handleEditSave}>
             <Textarea value={editText} onChange={(e) => setEditText(e.target.value)} rows={3} />
+            <p className="text-xs text-muted-foreground">
+              Puedes usar <code>**negrita**</code>, <code># Título</code> y listas con <code>-</code>.
+            </p>
             <div className="flex gap-2">
               <Button type="submit" size="sm" disabled={submitting}>
                 Guardar
@@ -233,10 +237,10 @@ function CommentItem({
             </div>
           </form>
         ) : (
-          <p className="whitespace-pre-wrap">
-            {comment.content}
-            {comment.editedAt && <span className="ml-1 text-xs text-muted-foreground">(editado)</span>}
-          </p>
+          <>
+            <MarkdownContent content={comment.content} className="text-sm" />
+            {comment.editedAt && <span className="text-xs text-muted-foreground">(editado)</span>}
+          </>
         )}
 
         <div className="flex items-center gap-3 text-xs text-muted-foreground">
@@ -352,6 +356,9 @@ function NewCommentForm({
         rows={3}
         placeholder="Escribe un comentario... (usa @ para mencionar)"
       />
+      <p className="text-xs text-muted-foreground">
+        Puedes usar <code>**negrita**</code>, <code># Título</code> y listas con <code>-</code>.
+      </p>
       {error && <p className="text-sm text-destructive">{error}</p>}
       <Button type="submit" disabled={submitting}>
         {submitting ? 'Publicando...' : 'Comentar'}
@@ -442,6 +449,9 @@ function TopicHeader({ topic, user, role }: { topic: Topic; user: User; role: Us
       <form className="space-y-3" onSubmit={handleEditSave}>
         <Input value={editTitle} onChange={(e) => setEditTitle(e.target.value)} placeholder="Título" />
         <Textarea value={editContent} onChange={(e) => setEditContent(e.target.value)} rows={5} />
+        <p className="text-xs text-muted-foreground">
+          Puedes usar <code>**negrita**</code>, <code># Título</code> y listas con <code>-</code>.
+        </p>
         <Input
           value={editVerse}
           onChange={(e) => setEditVerse(e.target.value)}
@@ -529,7 +539,7 @@ function TopicHeader({ topic, user, role }: { topic: Topic; user: User; role: Us
         <AuthorLink uid={topic.authorUid} name={topic.author.name} /> · {formatRelative(topic.createdAt)}
         {topic.editedAt && ' · editado'}
       </p>
-      <p className="whitespace-pre-wrap">{topic.content}</p>
+      <MarkdownContent content={topic.content} />
       {topic.verse && <p className="italic text-muted-foreground">{topic.verse}</p>}
       {topic.siteLink && (
         <a
