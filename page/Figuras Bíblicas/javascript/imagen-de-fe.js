@@ -224,7 +224,7 @@
     async function copyReference() {
         const scene = scenes.find((item) => item.id === state.activeSceneId);
         if (!scene) return;
-        const text = `${scene.title} — ${scene.reference}`;
+        const text = `${scene.title}: ${scene.reference}`;
 
         try {
             await navigator.clipboard.writeText(text);
