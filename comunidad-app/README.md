@@ -1,32 +1,98 @@
-# React + TypeScript + Vite
+# Comunidad de fe
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Foro de la comunidad del Ministerio "La Gloria es del Señor", montado bajo `/comunidad`
+del sitio principal. React 19 + TypeScript + Vite + Tailwind 4 + shadcn/radix, con
+Firebase (Auth + Firestore) como backend. Usa el mismo proyecto de Firebase que el resto
+del sitio — no migra ni duplica datos, lee/escribe directamente las colecciones
+`forumTopics`, `notifications`, `reports`, `userProfiles`, etc.
 
-Currently, two official plugins are available:
+## Datos (Firestore)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **`forumTopics/{topicId}`** — un tema del foro: título, contenido (Markdown),
+  categoría, autor, likes/favoritos, contador de vistas, reacciones, y opcionalmente
+  `siteLink` (cita a una página real del sitio), `pinned` y `acceptedCommentId`.
+  - **`forumTopics/{topicId}/comments/{commentId}`** — comentarios de nivel superior.
+    Las respuestas van embebidas en `Comment.replies` (no son subcolección).
+- **`notifications/{uid}/items/{id}`** — notificaciones in-app (comentario, respuesta,
+  mención).
+- **`reports/{id}`** — reportes de contenido para moderación.
+- **`userProfiles/{uid}`** — perfil y rol (`member` / `moderator` / `admin`).
 
-## React Compiler
+El modelo completo está tipado en `src/types/firestore-schema.ts`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Funcionalidad implementada
 
-## Expanding the Oxlint configuration
+**Base**
+- Login con Google, temas por categoría, comentarios y respuestas (2 niveles),
+  likes, favoritos, búsqueda por título/contenido.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+**Fase 1 — Completar lo que las reglas de Firestore ya permitían**
+- Editar temas y comentarios propios (marca "editado").
+- Contador de vistas real.
+- Like en respuestas embebidas.
+- Reportar tema/comentario/respuesta ante moderación.
+- Notificaciones in-app (comentario, respuesta) con campana y contador de no leídas.
+- Panel de moderación (`/moderacion`, solo admin/moderador) para revisar reportes.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+**Fase 2 — Aprendizaje**
+- Respuesta aceptada en temas de "Preguntas y Respuestas".
+- Vincular un tema a una página real del sitio (`src/lib/site-content.ts`, índice
+  curado de ~34 páginas por categoría) en vez de solo texto libre.
+- Temas fijados por admin/moderador (hilos de estudio guiado), siempre visibles arriba.
+- Perfil público de autor (`/autor/:uid`) con sus temas y estadísticas reales.
+
+**Fase 3 — Colaboración**
+- Menciones `@Nombre`, limitadas a los participantes del hilo actual (no hay
+  directorio de usuarios navegable por privacidad) — con notificación al mencionado.
+- Reacciones 🙏 y 💡 a nivel de tema, además del like.
+
+**Fase 4 — Escala (parcial)**
+- Paginación real (`limit`/`startAfter`, 20 por página) en vez de cargar toda la
+  colección. Temas fijados y contadores de categoría se resuelven aparte (consultas
+  de agregación `count`/`sum`) para seguir exactos sin descargar todo.
+- Filtrar por categoría se resuelve en el servidor — requiere el índice compuesto
+  `category + createdAt` (`firestore.indexes.json`).
+
+**Formato de contenido**
+- Markdown básico (`react-markdown`, sin HTML crudo) en temas, comentarios y
+  respuestas: `**negrita**`, `# título`, listas, citas. Aviso de sintaxis visible
+  junto a cada formulario de escritura.
+
+## Pendiente
+
+**Fase 4 (resto)**
+- Búsqueda que incluya comentarios y autor, no solo título/contenido del tema.
+- Filtros de orden ("sin responder", "más comentados", "más recientes").
+
+**Fase 5 — Confianza y salud de la comunidad**
+- Insignias de participación.
+- Digest semanal por correo — requiere una Cloud Function (código en servidor),
+  infraestructura nueva distinta a todo lo implementado hasta ahora.
+
+## Desarrollo local
+
+```bash
+npm install
+cp .env.example .env.local   # completar con las credenciales del proyecto Firebase
+npm run dev                  # sirve en /comunidad
+npm run build                # tsc -b && vite build
+npm run lint                 # oxlint
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+El dev server se conecta al proyecto de Firebase **real** (no hay emulador
+configurado) — cuidado al probar acciones que escriben datos.
+
+## Deploy
+
+Vercel reconstruye `comunidad-app` automáticamente en cada push a `main` (ver
+`deploy/build.sh` en la raíz del repo, que arma `dist/comunidad`). Eso **no** incluye
+las reglas ni los índices de Firestore — hay que desplegarlos aparte desde la raíz
+del repo:
+
+```bash
+firebase deploy --only firestore:rules     # después de tocar firestore.rules
+firebase deploy --only firestore:indexes   # después de tocar firestore.indexes.json
+```
+
+Un `firestore.rules` desactualizado no rompe el build, pero sí rechaza en
+producción cualquier campo/colección nueva que el código intente leer o escribir.
