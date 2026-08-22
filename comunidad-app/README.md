@@ -96,3 +96,15 @@ firebase deploy --only firestore:indexes   # después de tocar firestore.indexes
 
 Un `firestore.rules` desactualizado no rompe el build, pero sí rechaza en
 producción cualquier campo/colección nueva que el código intente leer o escribir.
+
+**Cuidado con `firestore:indexes` y un índice ya existente**: esta versión del CLI
+a veces falla con `409 index already exists` al desplegar `firestore.indexes.json`
+si el archivo incluye un índice que ya está `READY` en el proyecto — en vez de
+reconocerlo como ya cumplido, intenta recrearlo y aborta el resto del deploy
+(incluidos los índices genuinamente nuevos que venían después en el archivo). Si
+pasa esto: quita temporalmente del archivo los índices que ya existen (confirmar
+con `firebase deploy --only firestore:indexes --debug 2>&1 | grep
+"collectionGroups/-/indexes {"`, que trae el estado real desde la API), despliega
+solo los nuevos, y después restaura el archivo completo — el archivo debe seguir
+describiendo el conjunto completo de índices que la app necesita, aunque este CLI
+no siempre pueda reaplicarlo de una sola vez.
