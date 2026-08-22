@@ -17,6 +17,14 @@ export const TOPIC_CATEGORY_LABELS: Record<TopicCategory, string> = {
 
 export type CategoryFilter = 'all' | TopicCategory
 
+export type TopicSort = 'recent' | 'active' | 'unanswered'
+
+export const TOPIC_SORT_LABELS: Record<TopicSort, string> = {
+  recent: 'Más recientes',
+  active: 'Más comentados',
+  unanswered: 'Sin responder',
+}
+
 export interface AuthorRef {
   name: string
   email: string

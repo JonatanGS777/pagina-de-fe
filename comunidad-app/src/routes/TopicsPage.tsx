@@ -9,14 +9,21 @@ import { TopicCard } from '@/components/TopicCard'
 import { CategorySidebar } from '@/components/CategorySidebar'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { TOPIC_CATEGORY_LABELS, type CategoryFilter } from '@/types/firestore-schema'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import {
+  TOPIC_CATEGORY_LABELS,
+  TOPIC_SORT_LABELS,
+  type CategoryFilter,
+  type TopicSort,
+} from '@/types/firestore-schema'
 
 export function TopicsPage() {
   const { user } = useAuth()
   const [category, setCategory] = useState<CategoryFilter>('all')
+  const [sort, setSort] = useState<TopicSort>('recent')
   const [search, setSearch] = useState('')
 
-  const { topics, loading, loadingMore, hasMore, loadMore, error } = useTopics(category)
+  const { topics, loading, loadingMore, hasMore, loadMore, error } = useTopics(category, sort)
   const pinnedTopics = usePinnedTopics()
   const { counts, totalComments } = useForumCounts()
 
@@ -28,7 +35,10 @@ export function TopicsPage() {
     const q = search.trim().toLowerCase()
     if (!q) return merged
     return merged.filter(
-      (topic) => topic.title.toLowerCase().includes(q) || topic.content.toLowerCase().includes(q),
+      (topic) =>
+        topic.title.toLowerCase().includes(q) ||
+        topic.content.toLowerCase().includes(q) ||
+        topic.author.name.toLowerCase().includes(q),
     )
   }, [topics, pinnedTopics, category, search])
 
@@ -63,14 +73,28 @@ export function TopicsPage() {
             </Button>
           </div>
 
-          <div className="relative">
-            <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-            <Input
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Buscar en los temas..."
-              className="pl-9"
-            />
+          <div className="flex flex-col gap-2 sm:flex-row">
+            <div className="relative flex-1">
+              <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Buscar por título, contenido o autor..."
+                className="pl-9"
+              />
+            </div>
+            <Select value={sort} onValueChange={(v) => setSort(v as TopicSort)}>
+              <SelectTrigger className="sm:w-48">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {Object.entries(TOPIC_SORT_LABELS).map(([value, label]) => (
+                  <SelectItem key={value} value={value}>
+                    {label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
 
           {isSearching && hasMore && (
