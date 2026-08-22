@@ -108,7 +108,7 @@ function ReplyBubble({
       <p className="font-medium">
         <AuthorLink uid={reply.author.uid} name={reply.author.name} />
       </p>
-      <p className="text-muted-foreground">{reply.content}</p>
+      <p className="whitespace-pre-wrap text-muted-foreground">{reply.content}</p>
       <div className="flex items-center gap-3 text-xs text-muted-foreground">
         <span>{formatRelative(reply.createdAt)}</span>
         <button
@@ -233,7 +233,7 @@ function CommentItem({
             </div>
           </form>
         ) : (
-          <p>
+          <p className="whitespace-pre-wrap">
             {comment.content}
             {comment.editedAt && <span className="ml-1 text-xs text-muted-foreground">(editado)</span>}
           </p>
@@ -529,7 +529,7 @@ function TopicHeader({ topic, user, role }: { topic: Topic; user: User; role: Us
         <AuthorLink uid={topic.authorUid} name={topic.author.name} /> · {formatRelative(topic.createdAt)}
         {topic.editedAt && ' · editado'}
       </p>
-      <p>{topic.content}</p>
+      <p className="whitespace-pre-wrap">{topic.content}</p>
       {topic.verse && <p className="italic text-muted-foreground">{topic.verse}</p>}
       {topic.siteLink && (
         <a
