@@ -47,6 +47,8 @@
 
     function cardTemplate(scene) {
         const testamentLabel = scene.testament === "AT" ? "Antiguo Testamento" : "Nuevo Testamento";
+        const imageWidth = scene.size === "tall" ? 800 : 1200;
+        const imageHeight = scene.size === "tall" ? 1200 : 800;
         return `
             <button
                 class="gallery-card"
@@ -60,8 +62,8 @@
                 <img
                     src="${imagePath(scene)}"
                     alt="Representación artística original: ${scene.title}"
-                    width="1200"
-                    height="800"
+                    width="${imageWidth}"
+                    height="${imageHeight}"
                     loading="lazy"
                     decoding="async"
                 >

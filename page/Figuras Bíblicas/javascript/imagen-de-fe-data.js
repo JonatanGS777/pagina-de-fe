@@ -748,5 +748,505 @@ window.BIBLICAL_GALLERY_SCENES = [
         description: "La visión final presenta cielo y tierra renovados, la ciudad iluminada por la gloria de Dios y la promesa de que el dolor terminará.",
         query: "New Jerusalem Revelation biblical art",
         size: "wide"
+    },
+    {
+        id: 76,
+        title: "Abraham rescata a Lot",
+        testament: "AT",
+        category: "Guerras del Antiguo Pacto",
+        reference: "Génesis 14:14 al 16",
+        description: "Abraham reúne a los hombres preparados de su casa, persigue a los reyes invasores y libera a Lot junto con los cautivos y sus bienes.",
+        query: "Abraham rescues Lot Genesis 14 biblical painting",
+        size: "wide"
+    },
+    {
+        id: 77,
+        title: "La batalla de Refidim",
+        testament: "AT",
+        category: "Guerras del Antiguo Pacto",
+        reference: "Éxodo 17:8 al 13",
+        description: "Josué combate contra Amalec mientras Moisés intercede desde la colina. Aarón y Hur sostienen sus manos hasta la victoria de Israel.",
+        query: "Moses Aaron Hur battle Rephidim painting",
+        size: "wide"
+    },
+    {
+        id: 78,
+        title: "La victoria sobre Sehón",
+        testament: "AT",
+        category: "Guerras del Antiguo Pacto",
+        reference: "Números 21:21 al 25",
+        description: "Después de que Sehón niega el paso, Israel enfrenta al ejército amorreo en Jahaza y ocupa sus ciudades al este del Jordán.",
+        query: "Israel defeats Sihon Amorites biblical painting",
+        size: "standard"
+    },
+    {
+        id: 79,
+        title: "La emboscada de Hai",
+        testament: "AT",
+        category: "Guerras del Antiguo Pacto",
+        reference: "Josué 8:18 al 23",
+        description: "Josué extiende su jabalina hacia Hai y da la señal para que las tropas ocultas entren en la ciudad y completen la estrategia.",
+        query: "Joshua ambush Ai javelin biblical painting",
+        size: "wide"
+    },
+    {
+        id: 80,
+        title: "El sol se detiene en Gabaón",
+        testament: "AT",
+        category: "Guerras del Antiguo Pacto",
+        reference: "Josué 10:6 al 14",
+        description: "Josué clama delante de Israel y la luz del día se prolonga mientras el pueblo defiende a Gabaón frente a la coalición amorrea.",
+        query: "Joshua sun stands still Gibeon painting",
+        size: "wide"
+    },
+    {
+        id: 81,
+        title: "La batalla junto a Merom",
+        testament: "AT",
+        category: "Guerras del Antiguo Pacto",
+        reference: "Josué 11:1 al 9",
+        description: "Josué sorprende a la gran coalición del norte junto a las aguas de Merom y vence a un ejército equipado con numerosos carros.",
+        query: "Joshua battle waters of Merom painting",
+        size: "standard"
+    },
+    {
+        id: 82,
+        title: "Débora y Barac",
+        testament: "AT",
+        category: "Guerras del Antiguo Pacto",
+        reference: "Jueces 4:6 al 16",
+        description: "Débora anima a Barac a descender del monte Tabor. La tormenta convierte los carros de Sísara en una desventaja y abre paso a la liberación.",
+        query: "Deborah Barak Sisera battle painting",
+        size: "wide"
+    },
+    {
+        id: 83,
+        title: "Los trescientos de Gedeón",
+        testament: "AT",
+        category: "Guerras del Antiguo Pacto",
+        reference: "Jueces 7:16 al 22",
+        description: "Gedeón rodea el campamento de Madián con solo trescientos hombres. Las trompetas, las vasijas rotas y las antorchas desatan la confusión.",
+        query: "Gideon three hundred torches trumpets painting",
+        size: "wide"
+    },
+    {
+        id: 84,
+        title: "Jefté vence a los amonitas",
+        testament: "AT",
+        category: "Guerras del Antiguo Pacto",
+        reference: "Jueces 11:29 al 33",
+        description: "El Espíritu del Señor viene sobre Jefté, quien cruza Galaad y derrota a los amonitas que oprimían a Israel.",
+        query: "Jephthah defeats Ammonites biblical painting",
+        size: "standard"
+    },
+    {
+        id: 85,
+        title: "Sansón en Lehi",
+        testament: "AT",
+        category: "Guerras del Antiguo Pacto",
+        reference: "Jueces 15:14 al 17",
+        description: "Sansón rompe las cuerdas que lo ataban y enfrenta a los filisteos con una quijada, convirtiendo un objeto humilde en instrumento de liberación.",
+        query: "Samson jawbone Lehi biblical painting",
+        size: "standard"
+    },
+    {
+        id: 86,
+        title: "Jonatán sube al peñasco",
+        testament: "AT",
+        category: "Guerras del Antiguo Pacto",
+        reference: "1 Samuel 14:6 al 15",
+        description: "Jonatán y su escudero escalan hacia el puesto filisteo confiando en que Dios puede salvar con muchos o con pocos.",
+        query: "Jonathan armor bearer Philistine outpost painting",
+        size: "standard"
+    },
+    {
+        id: 87,
+        title: "David conquista Jerusalén",
+        testament: "AT",
+        category: "Guerras del Antiguo Pacto",
+        reference: "2 Samuel 5:6 al 10",
+        description: "David toma la fortaleza de Sion y establece allí la ciudad que será el centro del reino y de la adoración de Israel.",
+        query: "David captures Jerusalem Zion painting",
+        size: "wide"
+    },
+    {
+        id: 88,
+        title: "La batalla del bosque de Efraín",
+        testament: "AT",
+        category: "Guerras del Antiguo Pacto",
+        reference: "2 Samuel 18:6 al 8",
+        description: "Las fuerzas leales a David enfrentan la rebelión de Absalón en un terreno tan peligroso que el bosque mismo dispersa a los combatientes.",
+        query: "battle forest Ephraim Absalom biblical painting",
+        size: "standard"
+    },
+    {
+        id: 89,
+        title: "La victoria de Josafat",
+        testament: "AT",
+        category: "Guerras del Antiguo Pacto",
+        reference: "2 Crónicas 20:20 al 24",
+        description: "Judá marcha con cantores delante del ejército. Mientras alaban a Dios, la coalición enemiga se deshace sin que el pueblo tenga que pelear.",
+        query: "Jehoshaphat singers victory biblical painting",
+        size: "wide"
+    },
+    {
+        id: 90,
+        title: "Jerusalén librada de Asiria",
+        testament: "AT",
+        category: "Guerras del Antiguo Pacto",
+        reference: "2 Reyes 19:32 al 36",
+        description: "Cuando el enorme campamento asirio rodea Jerusalén, Dios responde a la oración de Ezequías y libra la ciudad durante la noche.",
+        query: "Hezekiah Assyrian siege Jerusalem angel painting",
+        size: "wide"
+    },
+    {
+        id: 91,
+        title: "Enoc camina con Dios",
+        testament: "AT",
+        category: "Orígenes y patriarcas",
+        reference: "Génesis 5:21 al 24",
+        description: "Enoc vive en comunión con Dios en medio de su generación. Su historia breve deja un testimonio de intimidad, fidelidad y esperanza.",
+        query: "Enoch walks with God biblical painting",
+        size: "tall"
+    },
+    {
+        id: 92,
+        title: "Melquisedec bendice a Abraham",
+        testament: "AT",
+        category: "Orígenes y patriarcas",
+        reference: "Génesis 14:18 al 20",
+        description: "El rey y sacerdote de Salem recibe a Abraham con pan y vino, bendice al patriarca y reconoce al Dios Altísimo como autor de la victoria.",
+        query: "Melchizedek blesses Abraham bread wine painting",
+        size: "standard"
+    },
+    {
+        id: 93,
+        title: "Sara escucha la promesa",
+        testament: "AT",
+        category: "Orígenes y patriarcas",
+        reference: "Génesis 18:9 al 15",
+        description: "Desde la entrada de la tienda, Sara oye que tendrá un hijo. La promesa confronta los límites humanos con la fidelidad de Dios.",
+        query: "Sarah hears promise visitors Mamre painting",
+        size: "standard"
+    },
+    {
+        id: 94,
+        title: "Jacob se reconcilia con Esaú",
+        testament: "AT",
+        category: "Orígenes y patriarcas",
+        reference: "Génesis 33:1 al 11",
+        description: "Después de años de temor y distancia, los hermanos se abrazan. El encuentro transforma una amenaza esperada en una escena de reconciliación.",
+        query: "Jacob Esau reconciliation biblical painting",
+        size: "wide"
+    },
+    {
+        id: 95,
+        title: "El consejo de Jetro",
+        testament: "AT",
+        category: "Éxodo y conquista",
+        reference: "Éxodo 18:13 al 24",
+        description: "Jetro observa el agotamiento de Moisés y le aconseja compartir la responsabilidad con hombres capaces que atiendan las causas del pueblo.",
+        query: "Jethro counsels Moses judges painting",
+        size: "standard"
+    },
+    {
+        id: 96,
+        title: "Los espías regresan de Canaán",
+        testament: "AT",
+        category: "Éxodo y conquista",
+        reference: "Números 13:21 al 27",
+        description: "Los exploradores vuelven cargando uvas, granadas e higos. La abundancia confirma la bondad de la tierra que Dios había prometido.",
+        query: "spies return Canaan giant grapes painting",
+        size: "wide"
+    },
+    {
+        id: 97,
+        title: "El pacto en Siquem",
+        testament: "AT",
+        category: "Éxodo y conquista",
+        reference: "Josué 24:14 al 28",
+        description: "Al final de su vida, Josué reúne a las tribus en Siquem y las llama a escoger con claridad a quién servirán.",
+        query: "Joshua covenant Shechem memorial stone painting",
+        size: "wide"
+    },
+    {
+        id: 98,
+        title: "La oración de Ana",
+        testament: "AT",
+        category: "Reino y profetas",
+        reference: "1 Samuel 1:9 al 18",
+        description: "Ana derrama silenciosamente su angustia delante de Dios en Silo. Elí comprende su dolor y ella sale del santuario con esperanza renovada.",
+        query: "Hannah prays Shiloh Eli painting",
+        size: "tall"
+    },
+    {
+        id: 99,
+        title: "David danza delante del arca",
+        testament: "AT",
+        category: "Reino y profetas",
+        reference: "2 Samuel 6:12 al 15",
+        description: "El arca entra en Jerusalén llevada por los levitas. David celebra con todas sus fuerzas mientras la ciudad se une en adoración y alegría.",
+        query: "David dances before ark Jerusalem painting",
+        size: "wide"
+    },
+    {
+        id: 100,
+        title: "La dedicación del templo",
+        testament: "AT",
+        category: "Reino y profetas",
+        reference: "1 Reyes 8:10 al 14",
+        description: "Salomón ora delante del altar y una nube llena el templo. La gloria de Dios manifiesta que ha escogido habitar en medio de su pueblo.",
+        query: "Solomon dedicates temple glory cloud painting",
+        size: "wide"
+    },
+    {
+        id: 101,
+        title: "Elías llevado en el torbellino",
+        testament: "AT",
+        category: "Reino y profetas",
+        reference: "2 Reyes 2:9 al 14",
+        description: "Un carro de fuego separa a los dos profetas y Elías asciende en el torbellino. Su manto cae hacia Eliseo como señal de continuidad.",
+        query: "Elijah fiery chariot whirlwind Elisha painting",
+        size: "tall"
+    },
+    {
+        id: 102,
+        title: "Los carros de fuego en Dotán",
+        testament: "AT",
+        category: "Reino y profetas",
+        reference: "2 Reyes 6:15 al 17",
+        description: "Eliseo pide que los ojos de su criado sean abiertos. Entonces el joven contempla la montaña llena de caballos y carros de fuego.",
+        query: "Elisha chariots of fire Dothan painting",
+        size: "wide"
+    },
+    {
+        id: 103,
+        title: "Dios responde a Job",
+        testament: "AT",
+        category: "Poesía y sabiduría",
+        reference: "Job 38:1 al 7",
+        description: "Desde el torbellino, Dios conduce a Job a contemplar la amplitud y el misterio de la creación. La respuesta transforma su perspectiva.",
+        query: "God answers Job whirlwind painting",
+        size: "wide"
+    },
+    {
+        id: 104,
+        title: "La visión de Isaías",
+        testament: "AT",
+        category: "Profetas y visiones",
+        reference: "Isaías 6:1 al 8",
+        description: "Isaías contempla el trono, los serafines y el templo lleno de humo. Purificado por el carbón encendido, responde al llamado de Dios.",
+        query: "Isaiah temple vision seraphim coal painting",
+        size: "tall"
+    },
+    {
+        id: 105,
+        title: "El valle de los huesos secos",
+        testament: "AT",
+        category: "Profetas y visiones",
+        reference: "Ezequiel 37:1 al 14",
+        description: "Ezequiel profetiza sobre un valle sin vida. Los huesos se unen, reciben aliento y se levantan como imagen de la restauración de Israel.",
+        query: "Ezekiel valley dry bones restoration painting",
+        size: "wide"
+    },
+    {
+        id: 106,
+        title: "Juan predica junto al Jordán",
+        testament: "NT",
+        category: "Preparación del camino",
+        reference: "Mateo 3:1 al 12",
+        description: "Juan el Bautista llama al arrepentimiento en el desierto y prepara al pueblo para la llegada de aquel que bautizará con el Espíritu Santo.",
+        query: "John Baptist preaches Jordan wilderness painting",
+        size: "tall"
+    },
+    {
+        id: 107,
+        title: "Jesús camina sobre el mar",
+        testament: "NT",
+        category: "Ministerio de Jesús",
+        reference: "Mateo 14:22 al 33",
+        description: "En medio del viento y las olas, Jesús se acerca caminando sobre el agua y extiende su mano a Pedro cuando el temor vence su confianza.",
+        query: "Jesus walks water Peter storm painting",
+        size: "wide"
+    },
+    {
+        id: 108,
+        title: "El ciego de nacimiento",
+        testament: "NT",
+        category: "Ministerio de Jesús",
+        reference: "Juan 9:1 al 11",
+        description: "Jesús unge los ojos del hombre y lo envía a lavarse en Siloé. Quien nunca había visto regresa con la vista restaurada.",
+        query: "Jesus heals man born blind Siloam painting",
+        size: "standard"
+    },
+    {
+        id: 109,
+        title: "Jesús bendice a los niños",
+        testament: "NT",
+        category: "Ministerio de Jesús",
+        reference: "Marcos 10:13 al 16",
+        description: "Jesús recibe a los niños que otros intentaban apartar, los abraza y presenta su confianza como ejemplo del reino de Dios.",
+        query: "Jesus blesses children biblical painting",
+        size: "wide"
+    },
+    {
+        id: 110,
+        title: "Jesús purifica el templo",
+        testament: "NT",
+        category: "Ministerio de Jesús",
+        reference: "Juan 2:13 al 17",
+        description: "Jesús vuelca las mesas de los cambistas y expulsa el comercio del recinto, defendiendo la santidad de la casa de su Padre.",
+        query: "Jesus cleanses temple money changers painting",
+        size: "wide"
+    },
+    {
+        id: 111,
+        title: "El buen pastor",
+        testament: "NT",
+        category: "Ministerio de Jesús",
+        reference: "Juan 10:11 al 16",
+        description: "Jesús se presenta como el pastor que conoce a sus ovejas, las protege y entrega su vida por ellas para reunirlas en un solo rebaño.",
+        query: "Jesus good shepherd biblical painting",
+        size: "tall"
+    },
+    {
+        id: 112,
+        title: "El camino a Emaús",
+        testament: "NT",
+        category: "Ministerio de Jesús",
+        reference: "Lucas 24:28 al 35",
+        description: "Los dos viajeros reconocen al Señor resucitado cuando parte el pan. Entonces comprenden por qué sus corazones ardían en el camino.",
+        query: "Jesus Emmaus breaking bread painting",
+        size: "standard"
+    },
+    {
+        id: 113,
+        title: "El testimonio de Esteban",
+        testament: "NT",
+        category: "Iglesia primitiva",
+        reference: "Hechos 7:54 al 60",
+        description: "Esteban contempla el cielo abierto, da testimonio de Jesús y pide perdón por quienes lo atacan. Saulo observa la escena.",
+        query: "Stephen sees heaven opened Acts painting",
+        size: "wide"
+    },
+    {
+        id: 114,
+        title: "Pedro es liberado de la cárcel",
+        testament: "NT",
+        category: "Iglesia primitiva",
+        reference: "Hechos 12:6 al 11",
+        description: "Una luz llena la celda, las cadenas caen y un ángel conduce a Pedro más allá de los guardias y de la puerta de hierro.",
+        query: "angel frees Peter prison painting",
+        size: "tall"
+    },
+    {
+        id: 115,
+        title: "Pablo y Silas cantan en prisión",
+        testament: "NT",
+        category: "Iglesia primitiva",
+        reference: "Hechos 16:25 al 34",
+        description: "A medianoche, Pablo y Silas oran y cantan. Un terremoto abre las puertas, suelta las cadenas y prepara la conversión del carcelero.",
+        query: "Paul Silas prison earthquake painting",
+        size: "wide"
+    },
+    {
+        id: 116,
+        title: "Cristo entre los candeleros",
+        testament: "NT",
+        category: "Apocalipsis",
+        reference: "Apocalipsis 1:9 al 18",
+        description: "Juan contempla al Cristo glorificado en medio de siete candeleros de oro. Su presencia resplandeciente comunica autoridad y consuelo a las iglesias.",
+        query: "Christ seven lampstands Revelation painting",
+        size: "tall"
+    },
+    {
+        id: 117,
+        title: "El trono y los veinticuatro ancianos",
+        testament: "NT",
+        category: "Apocalipsis",
+        reference: "Apocalipsis 4:1 al 11",
+        description: "La puerta abierta en el cielo revela el trono rodeado por el arcoíris, el mar de cristal, los seres vivientes y veinticuatro ancianos en adoración.",
+        query: "Revelation throne room twenty four elders painting",
+        size: "wide"
+    },
+    {
+        id: 118,
+        title: "El Cordero y el rollo sellado",
+        testament: "NT",
+        category: "Apocalipsis",
+        reference: "Apocalipsis 5:1 al 14",
+        description: "El Cordero recibe el rollo de siete sellos y todo el cielo reconoce que solo él es digno de abrirlo por haber realizado la redención.",
+        query: "Lamb seven sealed scroll Revelation painting",
+        size: "wide"
+    },
+    {
+        id: 119,
+        title: "Los cuatro jinetes",
+        testament: "NT",
+        category: "Apocalipsis",
+        reference: "Apocalipsis 6:1 al 8",
+        description: "La apertura de los primeros cuatro sellos pone en marcha a los jinetes sobre caballos blanco, rojo, negro y pálido como signos de juicio.",
+        query: "four horsemen Revelation painting",
+        size: "wide"
+    },
+    {
+        id: 120,
+        title: "La gran multitud",
+        testament: "NT",
+        category: "Apocalipsis",
+        reference: "Apocalipsis 7:9 al 17",
+        description: "Una multitud incontable de toda nación adora delante del trono y del Cordero. Sus ropas blancas y palmas anuncian consuelo y victoria.",
+        query: "great multitude white robes Revelation painting",
+        size: "wide"
+    },
+    {
+        id: 121,
+        title: "La mujer y el dragón",
+        testament: "NT",
+        category: "Apocalipsis",
+        reference: "Apocalipsis 12:1 al 6",
+        description: "Una mujer vestida del sol aparece con la luna bajo sus pies y una corona de doce estrellas, mientras el gran dragón intenta oponerse al propósito de Dios.",
+        query: "woman clothed sun dragon Revelation painting",
+        size: "tall"
+    },
+    {
+        id: 122,
+        title: "La guerra en el cielo",
+        testament: "NT",
+        category: "Apocalipsis",
+        reference: "Apocalipsis 12:7 al 12",
+        description: "Miguel y sus ángeles combaten contra el dragón, que es expulsado del cielo. La escena proclama la victoria del Cordero y del testimonio fiel.",
+        query: "Michael war in heaven dragon Revelation painting",
+        size: "wide"
+    },
+    {
+        id: 123,
+        title: "Los siete ángeles con trompetas",
+        testament: "NT",
+        category: "Apocalipsis",
+        reference: "Apocalipsis 8:1 al 6",
+        description: "Tras el silencio celestial, siete ángeles reciben trompetas mientras el incienso de las oraciones asciende desde el altar delante del trono.",
+        query: "seven angels trumpets Revelation painting",
+        size: "wide"
+    },
+    {
+        id: 124,
+        title: "El Jinete fiel y verdadero",
+        testament: "NT",
+        category: "Apocalipsis",
+        reference: "Apocalipsis 19:11 al 16",
+        description: "El cielo se abre y Cristo aparece sobre un caballo blanco, seguido por los ejércitos celestiales. Su venida revela justicia, autoridad y victoria definitiva.",
+        query: "faithful true rider white horse Revelation painting",
+        size: "wide"
+    },
+    {
+        id: 125,
+        title: "El río y el árbol de la vida",
+        testament: "NT",
+        category: "Apocalipsis",
+        reference: "Apocalipsis 22:1 al 5",
+        description: "El río de agua de vida fluye desde el trono y el árbol da fruto para sanidad. La historia concluye con luz, servicio y comunión eterna.",
+        query: "river tree of life Revelation painting",
+        size: "wide"
     }
 ];
