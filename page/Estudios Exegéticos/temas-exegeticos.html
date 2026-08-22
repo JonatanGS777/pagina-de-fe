@@ -220,10 +220,10 @@
             min-height: 400px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
+            justify-content: flex-start;
+            text-align: left;
             color: var(--stone);
-            padding: 3rem 1rem;
+            padding: 4rem max(5vw, calc((100vw - 1200px) / 2 + 15px));
             overflow: hidden;
             isolation: isolate;
             background: var(--basalt-deep);
@@ -234,8 +234,7 @@
             position: absolute;
             inset: 0;
             z-index: -2;
-            background: url('./images/fondo-exegesis-web.jpg') center 38% / cover no-repeat;
-            filter: grayscale(1) sepia(0.78) saturate(0.86) brightness(0.58) contrast(1.14);
+            background: url('./images/hero-temas-exegeticos.png') center / cover no-repeat;
             transform: scale(1.025);
             pointer-events: none;
         }
@@ -246,15 +245,15 @@
             inset: 0;
             z-index: -1;
             background:
-                radial-gradient(circle at 69% 42%, rgba(217, 181, 102, 0.22) 0%, rgba(184, 146, 63, 0.08) 17%, transparent 36%),
-                linear-gradient(90deg, rgba(18, 15, 12, 0.88) 0%, rgba(30, 26, 21, 0.64) 48%, rgba(18, 15, 12, 0.78) 100%),
-                linear-gradient(180deg, rgba(18, 15, 12, 0.22) 0%, rgba(18, 15, 12, 0.02) 46%, rgba(18, 15, 12, 0.68) 100%),
+                radial-gradient(circle at 84% 41%, rgba(217, 181, 102, 0.18) 0%, rgba(184, 146, 63, 0.06) 14%, transparent 31%),
+                linear-gradient(90deg, rgba(18, 15, 12, 0.88) 0%, rgba(18, 15, 12, 0.68) 38%, rgba(30, 26, 21, 0.24) 72%, rgba(18, 15, 12, 0.18) 100%),
+                linear-gradient(180deg, rgba(18, 15, 12, 0.16) 0%, rgba(18, 15, 12, 0.02) 46%, rgba(18, 15, 12, 0.62) 100%),
                 repeating-linear-gradient(115deg, rgba(228, 220, 196, 0.045) 0, rgba(228, 220, 196, 0.045) 1px, transparent 1px, transparent 46px);
             pointer-events: none;
         }
 
         .hero-content {
-            max-width: 780px;
+            max-width: 610px;
             z-index: 1;
             position: relative;
             padding: 1.5rem 2rem;
@@ -749,7 +748,14 @@
             .menu-item-has-children:hover .sub-menu { display: none; }
             .menu-item-has-children.active .sub-menu { display: block; }
 
-            .hero { min-height: 0; padding: 3.5rem 1rem; }
+            .hero {
+                min-height: 0;
+                justify-content: center;
+                padding: 3.5rem 1rem;
+                text-align: center;
+            }
+            .hero::before { background-position: 68% center; }
+            .hero-content { padding: 1.25rem 0.5rem; }
             .hero h1 { font-size: 2.1rem; }
             .hero p { font-size: 1rem; }
 
