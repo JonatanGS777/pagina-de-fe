@@ -24,7 +24,7 @@ El modelo completo está tipado en `src/types/firestore-schema.ts`.
 
 **Base**
 - Login con Google, temas por categoría, comentarios y respuestas (2 niveles),
-  likes, favoritos, búsqueda por título/contenido.
+  likes, favoritos.
 
 **Fase 1 — Completar lo que las reglas de Firestore ya permitían**
 - Editar temas y comentarios propios (marca "editado").
@@ -46,12 +46,18 @@ El modelo completo está tipado en `src/types/firestore-schema.ts`.
   directorio de usuarios navegable por privacidad) — con notificación al mencionado.
 - Reacciones 🙏 y 💡 a nivel de tema, además del like.
 
-**Fase 4 — Escala (parcial)**
+**Fase 4 — Escala y descubrimiento**
 - Paginación real (`limit`/`startAfter`, 20 por página) en vez de cargar toda la
   colección. Temas fijados y contadores de categoría se resuelven aparte (consultas
   de agregación `count`/`sum`) para seguir exactos sin descargar todo.
-- Filtrar por categoría se resuelve en el servidor — requiere el índice compuesto
-  `category + createdAt` (`firestore.indexes.json`).
+- Filtrar por categoría se resuelve en el servidor (índice `category + createdAt`).
+- Búsqueda por título, contenido o autor (del lado del cliente, sobre los temas ya
+  cargados — buscar dentro de comentarios queda fuera de alcance por ahora, ver
+  "Pendiente").
+- Filtros de orden: Más recientes (`createdAt desc`), Más comentados
+  (`replies desc`), Sin responder (`where replies == 0`). Cada combinación de
+  categoría + orden es una consulta distinta — 4 índices compuestos en total
+  (`firestore.indexes.json`).
 
 **Formato de contenido**
 - Markdown básico (`react-markdown`, sin HTML crudo) en temas, comentarios y
@@ -60,9 +66,11 @@ El modelo completo está tipado en `src/types/firestore-schema.ts`.
 
 ## Pendiente
 
-**Fase 4 (resto)**
-- Búsqueda que incluya comentarios y autor, no solo título/contenido del tema.
-- Filtros de orden ("sin responder", "más comentados", "más recientes").
+**Búsqueda dentro de comentarios** — no implementada. Requeriría tokenizar el
+contenido de cada comentario al crearlo/editarlo (`contentTokens: string[]`) y una
+consulta `collectionGroup` con `array-contains-any`, más un índice de collection
+group nuevo. Se dejó fuera de la Fase 4 por el esfuerzo que implica frente al valor
+(la búsqueda por título/contenido/autor ya cubre la mayoría de casos reales).
 
 **Fase 5 — Confianza y salud de la comunidad**
 - Insignias de participación.
