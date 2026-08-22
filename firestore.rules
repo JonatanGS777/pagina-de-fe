@@ -73,7 +73,7 @@ service cloud.firestore {
           (resource.data.author.uid == request.auth.uid &&
             request.resource.data.diff(resource.data).affectedKeys()
               .hasOnly(['title', 'content', 'verse', 'editedAt', 'siteLink', 'acceptedCommentId'])) ||
-          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['replies', 'lastReply', 'likes', 'likedBy', 'bookmarkedBy', 'views'])
+          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['replies', 'lastReply', 'likes', 'likedBy', 'bookmarkedBy', 'views', 'reactions'])
       );
 
       // Reglas para Comentarios dentro de un tema

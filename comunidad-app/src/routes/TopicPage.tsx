@@ -32,8 +32,11 @@ import {
 } from '@/components/ui/select'
 import { ReportDialog } from '@/components/ReportDialog'
 import { AuthorLink } from '@/components/AuthorLink'
+import { ReactionBar } from '@/components/ReactionBar'
+import { MentionTextarea } from '@/components/MentionTextarea'
 import { TOPIC_CATEGORY_LABELS } from '@/types/firestore-schema'
 import { SITE_CATEGORIES, SITE_PAGES, SITE_PAGES_BY_ID } from '@/lib/site-content'
+import { getThreadParticipants } from '@/lib/mentions'
 import { formatRelative } from '@/lib/date'
 import { cn } from '@/lib/utils'
 import {
@@ -52,7 +55,7 @@ import {
   updateComment,
   updateTopic,
 } from '@/lib/forum-actions'
-import type { Comment, ReplyItem, Topic } from '@/types/firestore-schema'
+import type { AuthorRef, Comment, ReplyItem, Topic } from '@/types/firestore-schema'
 
 const NO_SITE_LINK = 'none'
 
@@ -136,11 +139,13 @@ function CommentItem({
   topic,
   user,
   role,
+  participants,
 }: {
   comment: Comment
   topic: Topic
   user: User
   role: UserRole
+  participants: AuthorRef[]
 }) {
   const [replying, setReplying] = useState(false)
   const [replyText, setReplyText] = useState('')
@@ -164,7 +169,7 @@ function CommentItem({
 
     setSubmitting(true)
     try {
-      await addReply(user, topic, comment, replyText.trim())
+      await addReply(user, topic, comment, replyText.trim(), participants)
       setReplyText('')
       setReplying(false)
     } finally {
@@ -283,13 +288,16 @@ function CommentItem({
 
       {replying && (
         <form className="ml-8 flex gap-2" onSubmit={handleReply}>
-          <Textarea
-            value={replyText}
-            onChange={(e) => setReplyText(e.target.value)}
-            rows={2}
-            placeholder="Escribe una respuesta..."
-            className="text-sm"
-          />
+          <div className="flex-1">
+            <MentionTextarea
+              participants={participants}
+              value={replyText}
+              onChange={setReplyText}
+              rows={2}
+              placeholder="Escribe una respuesta... (usa @ para mencionar)"
+              className="text-sm"
+            />
+          </div>
           <Button type="submit" size="sm" disabled={submitting}>
             Enviar
           </Button>
@@ -303,7 +311,15 @@ function CommentItem({
   )
 }
 
-function NewCommentForm({ topic, user }: { topic: Topic; user: User }) {
+function NewCommentForm({
+  topic,
+  user,
+  participants,
+}: {
+  topic: Topic
+  user: User
+  participants: AuthorRef[]
+}) {
   const [content, setContent] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
@@ -318,7 +334,7 @@ function NewCommentForm({ topic, user }: { topic: Topic; user: User }) {
     setSubmitting(true)
     setError(null)
     try {
-      await addComment(user, topic, content.trim())
+      await addComment(user, topic, content.trim(), participants)
       setContent('')
     } catch {
       setError('No se pudo publicar el comentario.')
@@ -329,11 +345,12 @@ function NewCommentForm({ topic, user }: { topic: Topic; user: User }) {
 
   return (
     <form className="space-y-2" onSubmit={handleSubmit}>
-      <Textarea
+      <MentionTextarea
+        participants={participants}
         value={content}
-        onChange={(e) => setContent(e.target.value)}
+        onChange={setContent}
         rows={3}
-        placeholder="Escribe un comentario..."
+        placeholder="Escribe un comentario... (usa @ para mencionar)"
       />
       {error && <p className="text-sm text-destructive">{error}</p>}
       <Button type="submit" disabled={submitting}>
@@ -549,6 +566,7 @@ function TopicHeader({ topic, user, role }: { topic: Topic; user: User; role: Us
         <span className="flex items-center gap-1 text-sm text-muted-foreground">
           <Eye className="size-4" /> {topic.views}
         </span>
+        <ReactionBar topic={topic} user={user} />
       </div>
     </div>
   )
@@ -574,6 +592,8 @@ export function TopicPage() {
   if (!topic || !id) return <p className="p-6 text-muted-foreground">Tema no encontrado.</p>
   if (!user) return null
 
+  const participants = getThreadParticipants(topic, comments)
+
   return (
     <div className="mx-auto max-w-2xl space-y-6 p-6">
       <Link to="/" className="flex items-center gap-1 text-sm text-muted-foreground">
@@ -587,9 +607,16 @@ export function TopicPage() {
       <div className="space-y-4">
         <h2 className="font-medium">Comentarios ({comments.length})</h2>
         {comments.map((comment) => (
-          <CommentItem key={comment.id} comment={comment} topic={topic} user={user} role={role} />
+          <CommentItem
+            key={comment.id}
+            comment={comment}
+            topic={topic}
+            user={user}
+            role={role}
+            participants={participants}
+          />
         ))}
-        <NewCommentForm topic={topic} user={user} />
+        <NewCommentForm topic={topic} user={user} participants={participants} />
       </div>
     </div>
   )

@@ -13,6 +13,7 @@ import {
   writeBatch,
 } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
+import { extractMentions } from '@/lib/mentions'
 import type {
   AuthorRef,
   Comment,
@@ -38,7 +39,7 @@ function authorFromUser(user: User): AuthorRef {
  */
 async function notifyUser(
   toUid: string,
-  input: { type: 'comment' | 'reply'; topicId: string; topicTitle: string; from: AuthorRef },
+  input: { type: 'comment' | 'reply' | 'mention'; topicId: string; topicTitle: string; from: AuthorRef },
 ) {
   if (toUid === input.from.uid) return
   await addDoc(collection(db, 'notifications', toUid, 'items'), {
@@ -88,7 +89,12 @@ export async function createTopic(
  * (ese contador cuenta comentarios + respuestas juntos), y notifica al autor del
  * tema (si no es quien comenta).
  */
-export async function addComment(user: User, topic: Topic, content: string) {
+export async function addComment(
+  user: User,
+  topic: Topic,
+  content: string,
+  threadParticipants: AuthorRef[] = [],
+) {
   const author = authorFromUser(user)
   await addDoc(collection(db, 'forumTopics', topic.id, 'comments'), {
     topicId: topic.id,
@@ -112,6 +118,13 @@ export async function addComment(user: User, topic: Topic, content: string) {
     topicTitle: topic.title,
     from: author,
   })
+
+  // Menciones @Nombre a otros participantes del hilo (el autor del tema ya fue
+  // notificado arriba como 'comment', así que se excluye para no duplicar).
+  for (const mentioned of extractMentions(content, threadParticipants)) {
+    if (mentioned.uid === topic.authorUid) continue
+    await notifyUser(mentioned.uid, { type: 'mention', topicId: topic.id, topicTitle: topic.title, from: author })
+  }
 }
 
 /**
@@ -120,7 +133,13 @@ export async function addComment(user: User, topic: Topic, content: string) {
  * dentro de arrays, así que no hay forma de usarlo aquí sin cambiar el modelo de datos.
  * Notifica al autor del comentario respondido (si no es quien responde).
  */
-export async function addReply(user: User, topic: Topic, comment: Comment, content: string) {
+export async function addReply(
+  user: User,
+  topic: Topic,
+  comment: Comment,
+  content: string,
+  threadParticipants: AuthorRef[] = [],
+) {
   const author = authorFromUser(user)
   const reply: ReplyItem = {
     id: crypto.randomUUID(),
@@ -146,6 +165,11 @@ export async function addReply(user: User, topic: Topic, comment: Comment, conte
     topicTitle: topic.title,
     from: author,
   })
+
+  for (const mentioned of extractMentions(content, threadParticipants)) {
+    if (mentioned.uid === comment.authorUid) continue
+    await notifyUser(mentioned.uid, { type: 'mention', topicId: topic.id, topicTitle: topic.title, from: author })
+  }
 }
 
 /**
@@ -328,4 +352,16 @@ export async function markNotificationRead(uid: string, notificationId: string) 
 /** Borra una notificación propia. */
 export async function deleteNotification(uid: string, notificationId: string) {
   await deleteDoc(doc(db, 'notifications', uid, 'items', notificationId))
+}
+
+/**
+ * Da/quita una reacción de emoji a un tema (independiente del like). Usa el path
+ * con notación de punto para tocar solo `reactions.<emoji>`, sin leer/reescribir
+ * todo el mapa de reacciones.
+ */
+export async function toggleTopicReaction(user: User, topic: Topic, emoji: string) {
+  const alreadyReacted = (topic.reactions?.[emoji] ?? []).includes(user.uid)
+  await updateDoc(doc(db, 'forumTopics', topic.id), {
+    [`reactions.${emoji}`]: alreadyReacted ? arrayRemove(user.uid) : arrayUnion(user.uid),
+  })
 }

@@ -51,7 +51,14 @@ export interface Topic {
    * 'preguntas'). Lo pone el autor del tema o un moderador.
    */
   acceptedCommentId?: string
+  /**
+   * Reacciones más allá del like, por emoji -> uids que reaccionaron. Solo a
+   * nivel de tema (no comentarios/respuestas) para no saturar la UI de hilos.
+   */
+  reactions?: Record<string, string[]>
 }
+
+export const TOPIC_REACTIONS = ['🙏', '💡'] as const
 
 /**
  * Respuesta embebida dentro de Comment.replies (arrayUnion), no una subcolección.
@@ -103,7 +110,7 @@ export interface Report {
   resolvedAt?: Timestamp
 }
 
-export type NotificationType = 'comment' | 'reply'
+export type NotificationType = 'comment' | 'reply' | 'mention'
 
 /** notifications/{uid}/items/{notificationId} */
 export interface AppNotification {
