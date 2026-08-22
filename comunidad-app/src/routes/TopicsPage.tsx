@@ -3,31 +3,36 @@ import { Link } from 'react-router-dom'
 import { Search } from 'lucide-react'
 import { useAuth } from '@/hooks/useAuth'
 import { useTopics } from '@/hooks/useTopics'
+import { usePinnedTopics } from '@/hooks/usePinnedTopics'
+import { useForumCounts } from '@/hooks/useForumCounts'
 import { TopicCard } from '@/components/TopicCard'
-import { CategorySidebar, type CategoryFilter } from '@/components/CategorySidebar'
+import { CategorySidebar } from '@/components/CategorySidebar'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { TOPIC_CATEGORY_LABELS } from '@/types/firestore-schema'
+import { TOPIC_CATEGORY_LABELS, type CategoryFilter } from '@/types/firestore-schema'
 
 export function TopicsPage() {
   const { user } = useAuth()
-  const { topics, loading, error } = useTopics()
   const [category, setCategory] = useState<CategoryFilter>('all')
   const [search, setSearch] = useState('')
 
-  const filteredTopics = useMemo(() => {
-    const query = search.trim().toLowerCase()
-    return topics
-      .filter((topic) => {
-        const matchesCategory = category === 'all' || topic.category === category
-        const matchesSearch =
-          !query ||
-          topic.title.toLowerCase().includes(query) ||
-          topic.content.toLowerCase().includes(query)
-        return matchesCategory && matchesSearch
-      })
-      .sort((a, b) => Number(!!b.pinned) - Number(!!a.pinned))
-  }, [topics, category, search])
+  const { topics, loading, loadingMore, hasMore, loadMore, error } = useTopics(category)
+  const pinnedTopics = usePinnedTopics()
+  const { counts, totalComments } = useForumCounts()
+
+  const visibleTopics = useMemo(() => {
+    const pinnedForCategory = pinnedTopics.filter((t) => category === 'all' || t.category === category)
+    const pinnedIds = new Set(pinnedForCategory.map((t) => t.id))
+    const merged = [...pinnedForCategory, ...topics.filter((t) => !pinnedIds.has(t.id))]
+
+    const q = search.trim().toLowerCase()
+    if (!q) return merged
+    return merged.filter(
+      (topic) => topic.title.toLowerCase().includes(q) || topic.content.toLowerCase().includes(q),
+    )
+  }, [topics, pinnedTopics, category, search])
+
+  const isSearching = search.trim().length > 0
 
   if (loading) {
     return <p className="p-6 text-muted-foreground">Cargando temas...</p>
@@ -45,13 +50,13 @@ export function TopicsPage() {
   return (
     <div className="mx-auto max-w-5xl p-6">
       <div className="grid gap-6 md:grid-cols-[260px_1fr]">
-        <CategorySidebar topics={topics} selected={category} onSelect={setCategory} user={user} />
+        <CategorySidebar counts={counts} totalComments={totalComments} selected={category} onSelect={setCategory} user={user} />
 
         <div className="space-y-4">
           <div className="flex items-center justify-between gap-2">
             <div>
               <h1 className="text-xl font-semibold">{categoryTitle}</h1>
-              <p className="text-sm text-muted-foreground">{filteredTopics.length} temas</p>
+              <p className="text-sm text-muted-foreground">{counts[category]} temas</p>
             </div>
             <Button asChild variant="outline">
               <Link to="/favoritos">Mis favoritos</Link>
@@ -68,15 +73,27 @@ export function TopicsPage() {
             />
           </div>
 
-          {filteredTopics.length === 0 && (
+          {isSearching && hasMore && (
+            <p className="text-xs text-muted-foreground">
+              La búsqueda solo abarca los temas ya cargados — carga más abajo si no encuentras lo que buscas.
+            </p>
+          )}
+
+          {visibleTopics.length === 0 && (
             <p className="text-muted-foreground">No hay temas en esta categoría todavía.</p>
           )}
 
           <div className="space-y-3">
-            {filteredTopics.map((topic) => (
+            {visibleTopics.map((topic) => (
               <TopicCard key={topic.id} topic={topic} user={user} />
             ))}
           </div>
+
+          {hasMore && (
+            <Button type="button" variant="outline" className="w-full" onClick={loadMore} disabled={loadingMore}>
+              {loadingMore ? 'Cargando...' : 'Cargar más'}
+            </Button>
+          )}
         </div>
       </div>
     </div>

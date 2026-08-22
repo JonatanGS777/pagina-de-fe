@@ -2,9 +2,7 @@ import type { User } from 'firebase/auth'
 import { BookOpen, Globe, HandHeart, Heart, HelpCircle, MessageSquare, type LucideIcon } from 'lucide-react'
 import { NewTopicDialog } from '@/components/NewTopicDialog'
 import { cn } from '@/lib/utils'
-import type { Topic, TopicCategory } from '@/types/firestore-schema'
-
-export type CategoryFilter = 'all' | TopicCategory
+import type { CategoryFilter } from '@/types/firestore-schema'
 
 interface CategoryDef {
   key: CategoryFilter
@@ -24,22 +22,18 @@ const CATEGORIES: CategoryDef[] = [
 ]
 
 export function CategorySidebar({
-  topics,
+  counts,
+  totalComments,
   selected,
   onSelect,
   user,
 }: {
-  topics: Topic[]
+  counts: Record<CategoryFilter, number>
+  totalComments: number
   selected: CategoryFilter
   onSelect: (category: CategoryFilter) => void
   user: User
 }) {
-  const totalComments = topics.reduce((sum, t) => sum + t.replies, 0)
-
-  function countFor(key: CategoryFilter) {
-    return key === 'all' ? topics.length : topics.filter((t) => t.category === key).length
-  }
-
   return (
     <aside className="space-y-6">
       <div>
@@ -68,7 +62,7 @@ export function CategorySidebar({
                 </span>
               </span>
               <span className="shrink-0 rounded-full bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground">
-                {countFor(key)}
+                {counts[key]}
               </span>
             </button>
           ))}
@@ -79,7 +73,7 @@ export function CategorySidebar({
         <h3 className="mb-2 text-sm font-semibold text-muted-foreground">Estadísticas</h3>
         <div className="space-y-1 text-sm">
           <p>
-            <strong>{topics.length}</strong> temas en total
+            <strong>{counts.all}</strong> temas en total
           </p>
           <p>
             <strong>{totalComments}</strong> comentarios

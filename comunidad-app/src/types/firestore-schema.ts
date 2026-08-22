@@ -15,6 +15,8 @@ export const TOPIC_CATEGORY_LABELS: Record<TopicCategory, string> = {
   general: 'Conversación General',
 }
 
+export type CategoryFilter = 'all' | TopicCategory
+
 export interface AuthorRef {
   name: string
   email: string
