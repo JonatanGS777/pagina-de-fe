@@ -64,8 +64,13 @@ service cloud.firestore {
       allow create: if isAuthenticated();
       allow delete: if isAuthenticated() && (resource.data.author.uid == request.auth.uid || isModerator());
 
+      // El autor solo puede tocar título/contenido/versículo/marca de edición al editar
+      // su propio tema; un moderador puede tocar cualquier campo; cualquier autenticado
+      // puede escribir los contadores/arrays de interacción (likes, favoritos, vistas, etc).
       allow update: if isAuthenticated() && (
-          (resource.data.author.uid == request.auth.uid || isModerator()) ||
+          isModerator() ||
+          (resource.data.author.uid == request.auth.uid &&
+            request.resource.data.diff(resource.data).affectedKeys().hasOnly(['title', 'content', 'verse', 'editedAt'])) ||
           request.resource.data.diff(resource.data).affectedKeys().hasOnly(['replies', 'lastReply', 'likes', 'likedBy', 'bookmarkedBy', 'views'])
       );
 
@@ -74,9 +79,14 @@ service cloud.firestore {
         // Solo miembros autenticados pueden leer comentarios (antes: "if true", público).
         allow read: if isAuthenticated();
         allow create: if isAuthenticated();
-        allow update, delete: if isAuthenticated() && (
-            resource.data.author.uid == request.auth.uid ||
+        allow delete: if isAuthenticated() && (resource.data.author.uid == request.auth.uid || isModerator());
+
+        // Mismo criterio que en el tema: el autor solo edita contenido/marca de edición;
+        // cualquier autenticado puede tocar los campos de interacción (likes, respuestas).
+        allow update: if isAuthenticated() && (
             isModerator() ||
+            (resource.data.author.uid == request.auth.uid &&
+              request.resource.data.diff(resource.data).affectedKeys().hasOnly(['content', 'editedAt'])) ||
             request.resource.data.diff(resource.data).affectedKeys().hasOnly(['likes', 'likedBy', 'replies'])
         );
       }
@@ -96,15 +106,20 @@ service cloud.firestore {
 
     // Reglas para reportes
     match /reports/{reportId} {
-      allow create: if isAuthenticated() && request.resource.data.reportedBy == request.auth.uid;
-      allow read, update, delete: if isAdmin();
+      allow create: if isAuthenticated() &&
+          request.resource.data.reportedBy == request.auth.uid &&
+          request.resource.data.status == 'pending' &&
+          request.resource.data.targetType in ['topic', 'comment', 'reply'];
+      // Antes solo isAdmin(): un moderador también debe poder revisar y resolver reportes.
+      allow read, update, delete: if isModerator();
     }
 
     // Reglas para notificaciones
     match /notifications/{userId}/items/{notificationId} {
       allow read, delete: if isAuthor(userId);
       allow update: if isAuthor(userId) && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['read', 'readAt']);
-      allow create: if isAuthenticated();
+      // El emisor nunca es el destinatario: evita que alguien se autonotifique/spamee su propia bandeja.
+      allow create: if isAuthenticated() && request.resource.data.fromUid == request.auth.uid && request.resource.data.fromUid != userId;
     }
 
     // Reglas para configuraciones de usuario

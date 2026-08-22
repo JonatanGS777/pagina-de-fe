@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import type { User } from 'firebase/auth'
-import { MessageCircle, Heart, Bookmark } from 'lucide-react'
+import { MessageCircle, Heart, Bookmark, Eye } from 'lucide-react'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -30,6 +30,9 @@ export function TopicCard({ topic, user }: { topic: Topic; user: User }) {
         <span>{topic.author.name}</span>
         <span className="flex items-center gap-1">
           <MessageCircle className="size-4" /> {topic.replies}
+        </span>
+        <span className="flex items-center gap-1">
+          <Eye className="size-4" /> {topic.views}
         </span>
         <Button
           type="button"

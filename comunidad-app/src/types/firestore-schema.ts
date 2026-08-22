@@ -40,6 +40,8 @@ export interface Topic {
   views: number
   createdAt: Timestamp
   lastReply: Timestamp | null
+  /** Presente solo si el autor editó el tema después de publicarlo. */
+  editedAt?: Timestamp
 }
 
 /**
@@ -67,6 +69,44 @@ export interface Comment {
   likedBy: string[]
   createdAt: Timestamp
   replies: ReplyItem[]
+  /** Presente solo si el autor editó el comentario después de publicarlo. */
+  editedAt?: Timestamp
+}
+
+export type ReportTargetType = 'topic' | 'comment' | 'reply'
+export type ReportStatus = 'pending' | 'resolved' | 'dismissed'
+
+/** reports/{reportId} */
+export interface Report {
+  id: string
+  targetType: ReportTargetType
+  topicId: string
+  /** Id del comentario reportado (targetType 'comment' o 'reply'); ausente si targetType es 'topic'. */
+  commentId?: string
+  /** Id de la respuesta reportada (targetType 'reply'); ausente en otros casos. */
+  replyId?: string
+  reason: string
+  reportedBy: string
+  reporterName: string
+  status: ReportStatus
+  createdAt: Timestamp
+  resolvedBy?: string
+  resolvedAt?: Timestamp
+}
+
+export type NotificationType = 'comment' | 'reply'
+
+/** notifications/{uid}/items/{notificationId} */
+export interface AppNotification {
+  id: string
+  type: NotificationType
+  topicId: string
+  topicTitle: string
+  fromUid: string
+  fromName: string
+  read: boolean
+  createdAt: Timestamp
+  readAt?: Timestamp
 }
 
 /** forumStats (documento único agregado, recalculado manualmente) */
