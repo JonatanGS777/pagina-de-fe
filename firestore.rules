@@ -64,13 +64,15 @@ service cloud.firestore {
       allow create: if isAuthenticated();
       allow delete: if isAuthenticated() && (resource.data.author.uid == request.auth.uid || isModerator());
 
-      // El autor solo puede tocar título/contenido/versículo/marca de edición al editar
-      // su propio tema; un moderador puede tocar cualquier campo; cualquier autenticado
-      // puede escribir los contadores/arrays de interacción (likes, favoritos, vistas, etc).
+      // El autor solo puede tocar título/contenido/versículo/cita al sitio/marca de
+      // edición/respuesta aceptada al editar su propio tema; un moderador puede tocar
+      // cualquier campo (incluido 'pinned', que un autor normal NO puede fijar); cualquier
+      // autenticado puede escribir los contadores/arrays de interacción.
       allow update: if isAuthenticated() && (
           isModerator() ||
           (resource.data.author.uid == request.auth.uid &&
-            request.resource.data.diff(resource.data).affectedKeys().hasOnly(['title', 'content', 'verse', 'editedAt'])) ||
+            request.resource.data.diff(resource.data).affectedKeys()
+              .hasOnly(['title', 'content', 'verse', 'editedAt', 'siteLink', 'acceptedCommentId'])) ||
           request.resource.data.diff(resource.data).affectedKeys().hasOnly(['replies', 'lastReply', 'likes', 'likedBy', 'bookmarkedBy', 'views'])
       );
 

@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 import type { User } from 'firebase/auth'
-import { MessageCircle, Heart, Bookmark, Eye } from 'lucide-react'
+import { MessageCircle, Heart, Bookmark, Eye, Pin, CircleCheck } from 'lucide-react'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { AuthorLink } from '@/components/AuthorLink'
 import { TOPIC_CATEGORY_LABELS, type Topic } from '@/types/firestore-schema'
 import { formatRelative } from '@/lib/date'
 import { toggleTopicLike, toggleBookmark } from '@/lib/forum-actions'
@@ -12,13 +13,26 @@ import { cn } from '@/lib/utils'
 export function TopicCard({ topic, user }: { topic: Topic; user: User }) {
   const isLiked = topic.likedBy.includes(user.uid)
   const isBookmarked = topic.bookmarkedBy.includes(user.uid)
+  const isResolved = topic.category === 'preguntas' && !!topic.acceptedCommentId
 
   return (
     <Card className="transition-colors hover:bg-muted/50">
       <Link to={`/tema/${topic.id}`}>
         <CardHeader className="flex-row items-start justify-between gap-2">
           <div>
-            <Badge variant="secondary">{TOPIC_CATEGORY_LABELS[topic.category]}</Badge>
+            <div className="flex flex-wrap items-center gap-2">
+              <Badge variant="secondary">{TOPIC_CATEGORY_LABELS[topic.category]}</Badge>
+              {topic.pinned && (
+                <Badge variant="outline" className="gap-1">
+                  <Pin className="size-3" /> Fijado
+                </Badge>
+              )}
+              {isResolved && (
+                <Badge variant="outline" className="gap-1 text-primary">
+                  <CircleCheck className="size-3" /> Resuelto
+                </Badge>
+              )}
+            </div>
             <h3 className="mt-2 font-medium">{topic.title}</h3>
           </div>
           <span className="shrink-0 text-xs text-muted-foreground">
@@ -27,7 +41,7 @@ export function TopicCard({ topic, user }: { topic: Topic; user: User }) {
         </CardHeader>
       </Link>
       <CardContent className="flex items-center gap-4 text-sm text-muted-foreground">
-        <span>{topic.author.name}</span>
+        <AuthorLink uid={topic.authorUid} name={topic.author.name} />
         <span className="flex items-center gap-1">
           <MessageCircle className="size-4" /> {topic.replies}
         </span>

@@ -1,7 +1,18 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import type { User } from 'firebase/auth'
-import { ArrowLeft, Bookmark, Eye, Heart, Pencil, Trash2 } from 'lucide-react'
+import {
+  ArrowLeft,
+  Bookmark,
+  CircleCheck,
+  ExternalLink,
+  Eye,
+  Heart,
+  Pencil,
+  Pin,
+  PinOff,
+  Trash2,
+} from 'lucide-react'
 import { useAuth } from '@/hooks/useAuth'
 import { useTopic } from '@/hooks/useTopic'
 import { useUserRole, type UserRole } from '@/hooks/useUserRole'
@@ -10,8 +21,19 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Separator } from '@/components/ui/separator'
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { ReportDialog } from '@/components/ReportDialog'
+import { AuthorLink } from '@/components/AuthorLink'
 import { TOPIC_CATEGORY_LABELS } from '@/types/firestore-schema'
+import { SITE_CATEGORIES, SITE_PAGES, SITE_PAGES_BY_ID } from '@/lib/site-content'
 import { formatRelative } from '@/lib/date'
 import { cn } from '@/lib/utils'
 import {
@@ -21,6 +43,8 @@ import {
   deleteReply,
   deleteTopic,
   incrementTopicViews,
+  setAcceptedAnswer,
+  setTopicPinned,
   toggleBookmark,
   toggleCommentLike,
   toggleReplyLike,
@@ -29,6 +53,8 @@ import {
   updateTopic,
 } from '@/lib/forum-actions'
 import type { Comment, ReplyItem, Topic } from '@/types/firestore-schema'
+
+const NO_SITE_LINK = 'none'
 
 function isModeratorOrAdmin(role: UserRole) {
   return role === 'moderator' || role === 'admin'
@@ -76,7 +102,9 @@ function ReplyBubble({
 
   return (
     <div className="ml-8 border-l pl-4 text-sm">
-      <p className="font-medium">{reply.author.name}</p>
+      <p className="font-medium">
+        <AuthorLink uid={reply.author.uid} name={reply.author.name} />
+      </p>
       <p className="text-muted-foreground">{reply.content}</p>
       <div className="flex items-center gap-3 text-xs text-muted-foreground">
         <span>{formatRelative(reply.createdAt)}</span>
@@ -123,6 +151,12 @@ function CommentItem({
   const isLiked = comment.likedBy.includes(user.uid)
   const isOwn = isOwnEntity(comment, user)
   const canDelete = isOwn || isModeratorOrAdmin(role)
+  const isAccepted = topic.acceptedCommentId === comment.id
+  const canMarkAccepted = topic.category === 'preguntas' && (isOwnEntity(topic, user) || isModeratorOrAdmin(role))
+
+  async function handleToggleAccepted() {
+    await setAcceptedAnswer(topic.id, isAccepted ? null : comment.id)
+  }
 
   async function handleReply(e: FormEvent) {
     e.preventDefault()
@@ -168,9 +202,18 @@ function CommentItem({
   }
 
   return (
-    <div className="space-y-2">
+    <div className={cn('space-y-2', isAccepted && 'rounded-lg border border-primary/40 bg-primary/5 p-3')}>
       <div>
-        <p className="font-medium">{comment.author.name}</p>
+        <div className="flex items-center gap-2">
+          <p className="font-medium">
+            <AuthorLink uid={comment.authorUid} name={comment.author.name} />
+          </p>
+          {isAccepted && (
+            <Badge variant="outline" className="gap-1 text-primary">
+              <CircleCheck className="size-3" /> Respuesta aceptada
+            </Badge>
+          )}
+        </div>
 
         {editing ? (
           <form className="space-y-2" onSubmit={handleEditSave}>
@@ -203,6 +246,15 @@ function CommentItem({
           <button type="button" onClick={() => setReplying((v) => !v)}>
             Responder
           </button>
+          {canMarkAccepted && (
+            <button
+              type="button"
+              className={cn('flex items-center gap-1', isAccepted ? 'text-primary' : 'hover:text-primary')}
+              onClick={handleToggleAccepted}
+            >
+              <CircleCheck className="size-3.5" /> {isAccepted ? 'Quitar aceptada' : 'Marcar como aceptada'}
+            </button>
+          )}
           {isOwn && !editing && (
             <button
               type="button"
@@ -298,12 +350,15 @@ function TopicHeader({ topic, user, role }: { topic: Topic; user: User; role: Us
   const [editTitle, setEditTitle] = useState(topic.title)
   const [editContent, setEditContent] = useState(topic.content)
   const [editVerse, setEditVerse] = useState(topic.verse ?? '')
+  const [editSitePageId, setEditSitePageId] = useState(topic.siteLink?.pageId ?? NO_SITE_LINK)
   const [submitting, setSubmitting] = useState(false)
+  const [pinning, setPinning] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const isLiked = topic.likedBy.includes(user.uid)
   const isBookmarked = topic.bookmarkedBy.includes(user.uid)
   const isOwn = isOwnEntity(topic, user)
   const canDelete = isOwn || isModeratorOrAdmin(role)
+  const isResolved = topic.category === 'preguntas' && !!topic.acceptedCommentId
 
   async function handleDelete() {
     if (!window.confirm('¿Borrar este tema junto con todos sus comentarios? Esta acción no se puede deshacer.'))
@@ -320,10 +375,20 @@ function TopicHeader({ topic, user, role }: { topic: Topic; user: User; role: Us
     }
   }
 
+  async function handleTogglePinned() {
+    setPinning(true)
+    try {
+      await setTopicPinned(topic.id, !topic.pinned)
+    } finally {
+      setPinning(false)
+    }
+  }
+
   function startEditing() {
     setEditTitle(topic.title)
     setEditContent(topic.content)
     setEditVerse(topic.verse ?? '')
+    setEditSitePageId(topic.siteLink?.pageId ?? NO_SITE_LINK)
     setEditing(true)
   }
 
@@ -337,6 +402,7 @@ function TopicHeader({ topic, user, role }: { topic: Topic; user: User; role: Us
       setError('El contenido debe tener al menos 10 caracteres.')
       return
     }
+    const sitePage = editSitePageId !== NO_SITE_LINK ? SITE_PAGES_BY_ID.get(editSitePageId) : undefined
     setSubmitting(true)
     setError(null)
     try {
@@ -344,6 +410,7 @@ function TopicHeader({ topic, user, role }: { topic: Topic; user: User; role: Us
         title: editTitle.trim(),
         content: editContent.trim(),
         verse: editVerse.trim(),
+        siteLink: sitePage ? { pageId: sitePage.id, title: sitePage.title, url: sitePage.url } : null,
       })
       setEditing(false)
     } catch {
@@ -363,6 +430,24 @@ function TopicHeader({ topic, user, role }: { topic: Topic; user: User; role: Us
           onChange={(e) => setEditVerse(e.target.value)}
           placeholder="Referencia bíblica (opcional)"
         />
+        <Select value={editSitePageId} onValueChange={setEditSitePageId}>
+          <SelectTrigger className="w-full">
+            <SelectValue placeholder="Sin vínculo" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value={NO_SITE_LINK}>Sin vínculo al sitio</SelectItem>
+            {SITE_CATEGORIES.map((cat) => (
+              <SelectGroup key={cat}>
+                <SelectLabel>{cat}</SelectLabel>
+                {SITE_PAGES.filter((p) => p.category === cat).map((p) => (
+                  <SelectItem key={p.id} value={p.id}>
+                    {p.title}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            ))}
+          </SelectContent>
+        </Select>
         {error && <p className="text-sm text-destructive">{error}</p>}
         <div className="flex gap-2">
           <Button type="submit" size="sm" disabled={submitting}>
@@ -379,11 +464,34 @@ function TopicHeader({ topic, user, role }: { topic: Topic; user: User; role: Us
   return (
     <div className="space-y-2">
       <div className="flex items-start justify-between gap-2">
-        <Badge variant="secondary">{TOPIC_CATEGORY_LABELS[topic.category]}</Badge>
+        <div className="flex flex-wrap items-center gap-2">
+          <Badge variant="secondary">{TOPIC_CATEGORY_LABELS[topic.category]}</Badge>
+          {topic.pinned && (
+            <Badge variant="outline" className="gap-1">
+              <Pin className="size-3" /> Fijado
+            </Badge>
+          )}
+          {isResolved && (
+            <Badge variant="outline" className="gap-1 text-primary">
+              <CircleCheck className="size-3" /> Resuelto
+            </Badge>
+          )}
+        </div>
         <div className="flex shrink-0 items-center gap-3 text-xs text-muted-foreground">
           {isOwn && (
             <button type="button" className="flex items-center gap-1 hover:text-primary" onClick={startEditing}>
               <Pencil className="size-3.5" /> Editar
+            </button>
+          )}
+          {isModeratorOrAdmin(role) && (
+            <button
+              type="button"
+              className="flex items-center gap-1 hover:text-primary disabled:opacity-50"
+              onClick={handleTogglePinned}
+              disabled={pinning}
+            >
+              {topic.pinned ? <PinOff className="size-3.5" /> : <Pin className="size-3.5" />}
+              {topic.pinned ? 'Desfijar' : 'Fijar'}
             </button>
           )}
           <ReportDialog user={user} targetType="topic" topicId={topic.id} />
@@ -401,11 +509,21 @@ function TopicHeader({ topic, user, role }: { topic: Topic; user: User; role: Us
       </div>
       <h1 className="text-xl font-semibold">{topic.title}</h1>
       <p className="text-sm text-muted-foreground">
-        {topic.author.name} · {formatRelative(topic.createdAt)}
+        <AuthorLink uid={topic.authorUid} name={topic.author.name} /> · {formatRelative(topic.createdAt)}
         {topic.editedAt && ' · editado'}
       </p>
       <p>{topic.content}</p>
       {topic.verse && <p className="italic text-muted-foreground">{topic.verse}</p>}
+      {topic.siteLink && (
+        <a
+          href={topic.siteLink.url}
+          target="_blank"
+          rel="noreferrer"
+          className="flex w-fit items-center gap-1 text-sm text-primary hover:underline"
+        >
+          <ExternalLink className="size-3.5" /> {topic.siteLink.title}
+        </a>
+      )}
       {error && <p className="text-xs text-destructive">{error}</p>}
 
       <div className="flex items-center gap-3 pt-1">

@@ -42,6 +42,15 @@ export interface Topic {
   lastReply: Timestamp | null
   /** Presente solo si el autor editó el tema después de publicarlo. */
   editedAt?: Timestamp
+  /** Cita opcional a una página real del sitio (ver src/lib/site-content.ts). */
+  siteLink?: { pageId: string; title: string; url: string }
+  /** Solo admin/moderador la fija; los temas fijados se muestran primero en la lista. */
+  pinned?: boolean
+  /**
+   * Id del comentario marcado como respuesta aceptada (solo aplica a la categoría
+   * 'preguntas'). Lo pone el autor del tema o un moderador.
+   */
+  acceptedCommentId?: string
 }
 
 /**

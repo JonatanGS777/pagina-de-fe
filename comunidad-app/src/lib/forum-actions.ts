@@ -55,7 +55,13 @@ async function notifyUser(
 /** Sube un tema nuevo a forumTopics. Mismo shape que escriben forum.js/topic.js. */
 export async function createTopic(
   user: User,
-  input: { title: string; content: string; category: TopicCategory; verse?: string },
+  input: {
+    title: string
+    content: string
+    category: TopicCategory
+    verse?: string
+    siteLink?: { pageId: string; title: string; url: string } | null
+  },
 ) {
   const author = authorFromUser(user)
   return addDoc(collection(db, 'forumTopics'), {
@@ -63,6 +69,7 @@ export async function createTopic(
     content: input.content,
     category: input.category,
     verse: input.verse ?? '',
+    ...(input.siteLink ? { siteLink: input.siteLink } : {}),
     author,
     authorUid: user.uid,
     likes: 0,
@@ -228,14 +235,33 @@ export async function incrementTopicViews(topicId: string) {
 /** Edita título/contenido/versículo de un tema propio. Marca editedAt. */
 export async function updateTopic(
   topicId: string,
-  input: { title: string; content: string; verse?: string },
+  input: {
+    title: string
+    content: string
+    verse?: string
+    siteLink?: { pageId: string; title: string; url: string } | null
+  },
 ) {
   await updateDoc(doc(db, 'forumTopics', topicId), {
     title: input.title,
     content: input.content,
     verse: input.verse ?? '',
+    siteLink: input.siteLink ?? null,
     editedAt: serverTimestamp(),
   })
+}
+
+/**
+ * Marca/desmarca la respuesta aceptada de un tema (categoría 'preguntas').
+ * La hace el autor del tema o un moderador; pasar `commentId: null` la quita.
+ */
+export async function setAcceptedAnswer(topicId: string, commentId: string | null) {
+  await updateDoc(doc(db, 'forumTopics', topicId), { acceptedCommentId: commentId })
+}
+
+/** Fija/desfija un tema como destacado (solo admin/moderador, ver firestore.rules). */
+export async function setTopicPinned(topicId: string, pinned: boolean) {
+  await updateDoc(doc(db, 'forumTopics', topicId), { pinned })
 }
 
 /** Edita el contenido de un comentario propio. Marca editedAt. */

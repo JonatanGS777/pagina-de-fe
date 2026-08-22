@@ -16,12 +16,17 @@ import { Textarea } from '@/components/ui/textarea'
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
 import { createTopic } from '@/lib/forum-actions'
 import { TOPIC_CATEGORY_LABELS, type TopicCategory } from '@/types/firestore-schema'
+import { SITE_CATEGORIES, SITE_PAGES, SITE_PAGES_BY_ID } from '@/lib/site-content'
+
+const NO_SITE_LINK = 'none'
 
 export function NewTopicDialog({ user }: { user: User }) {
   const [open, setOpen] = useState(false)
@@ -29,6 +34,7 @@ export function NewTopicDialog({ user }: { user: User }) {
   const [category, setCategory] = useState<TopicCategory | ''>('')
   const [content, setContent] = useState('')
   const [verse, setVerse] = useState('')
+  const [sitePageId, setSitePageId] = useState(NO_SITE_LINK)
   const [error, setError] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
 
@@ -37,6 +43,7 @@ export function NewTopicDialog({ user }: { user: User }) {
     setCategory('')
     setContent('')
     setVerse('')
+    setSitePageId(NO_SITE_LINK)
     setError(null)
   }
 
@@ -56,6 +63,8 @@ export function NewTopicDialog({ user }: { user: User }) {
       return
     }
 
+    const sitePage = sitePageId !== NO_SITE_LINK ? SITE_PAGES_BY_ID.get(sitePageId) : undefined
+
     setSubmitting(true)
     setError(null)
     try {
@@ -64,6 +73,7 @@ export function NewTopicDialog({ user }: { user: User }) {
         category,
         content: content.trim(),
         verse: verse.trim(),
+        siteLink: sitePage ? { pageId: sitePage.id, title: sitePage.title, url: sitePage.url } : null,
       })
       reset()
       setOpen(false)
@@ -131,6 +141,28 @@ export function NewTopicDialog({ user }: { user: User }) {
               onChange={(e) => setVerse(e.target.value)}
               placeholder="Ej. Juan 3:16"
             />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="topic-site-link">Vincular a una página del sitio (opcional)</Label>
+            <Select value={sitePageId} onValueChange={setSitePageId}>
+              <SelectTrigger id="topic-site-link" className="w-full">
+                <SelectValue placeholder="Sin vínculo" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value={NO_SITE_LINK}>Sin vínculo</SelectItem>
+                {SITE_CATEGORIES.map((cat) => (
+                  <SelectGroup key={cat}>
+                    <SelectLabel>{cat}</SelectLabel>
+                    {SITE_PAGES.filter((p) => p.category === cat).map((p) => (
+                      <SelectItem key={p.id} value={p.id}>
+                        {p.title}
+                      </SelectItem>
+                    ))}
+                  </SelectGroup>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
 
           {error && <p className="text-sm text-destructive">{error}</p>}

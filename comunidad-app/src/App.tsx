@@ -5,6 +5,7 @@ import { TopicsPage } from '@/routes/TopicsPage'
 import { TopicPage } from '@/routes/TopicPage'
 import { FavoritesPage } from '@/routes/FavoritesPage'
 import { ModerationPage } from '@/routes/ModerationPage'
+import { AuthorProfilePage } from '@/routes/AuthorProfilePage'
 
 // HashRouter (no BrowserRouter): las rutas viven después de # y nunca llegan
 // al servidor como paths distintos. El rewrite de Vercel para /comunidad/**
@@ -21,6 +22,7 @@ function App() {
           <Route path="/tema/:id" element={<TopicPage />} />
           <Route path="/favoritos" element={<FavoritesPage />} />
           <Route path="/moderacion" element={<ModerationPage />} />
+          <Route path="/autor/:uid" element={<AuthorProfilePage />} />
         </Routes>
       </AuthGate>
     </HashRouter>

@@ -17,14 +17,16 @@ export function TopicsPage() {
 
   const filteredTopics = useMemo(() => {
     const query = search.trim().toLowerCase()
-    return topics.filter((topic) => {
-      const matchesCategory = category === 'all' || topic.category === category
-      const matchesSearch =
-        !query ||
-        topic.title.toLowerCase().includes(query) ||
-        topic.content.toLowerCase().includes(query)
-      return matchesCategory && matchesSearch
-    })
+    return topics
+      .filter((topic) => {
+        const matchesCategory = category === 'all' || topic.category === category
+        const matchesSearch =
+          !query ||
+          topic.title.toLowerCase().includes(query) ||
+          topic.content.toLowerCase().includes(query)
+        return matchesCategory && matchesSearch
+      })
+      .sort((a, b) => Number(!!b.pinned) - Number(!!a.pinned))
   }, [topics, category, search])
 
   if (loading) {
