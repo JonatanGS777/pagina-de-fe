@@ -617,6 +617,27 @@ Tras agregarse `tabernaculo-3d.html`, una revisión a fondo (a pedido del usuari
 - **Otros bugs corregidos:** copyright de pie de página "© 2025" → "© 2026"; el `<link>` de Font Awesome (`cdnjs`) eliminado del `<head>`.
 - Verificado: balance de etiquetas (`div`/`section`/`header`/`footer`/`nav`/`ul`/`li`/`a`/`button`/`svg`), balance de llaves del `<style>`, sintaxis del `<script type="module">` inline con `node --check`, y auditoría automática de las 15 IDs + 3 selectores que el JS de autenticación/comunidad referencia.
 
+### 2026-08-24: rediseño "Manuscrito" (libro por capítulos) de aguila-cinco-ministerios.html
+
+- **Primer intento descartado:** se probó primero una capa puramente decorativa sobre el layout de tarjetas/grid existente (numerales de capítulo, letra capital, cinta marcadora, lomo de libro) — el usuario la rechazó: "es el mismo diseño... como un libro por capítulos o una revista de artículo". Se pidió aclaración y el usuario eligió explícitamente "libro por capítulos" sobre "revista de artículo".
+- **Reescritura estructural completa** (no solo visual): portada tipo página de título, tabla de contenido con numeración romana (I–VIII) y líneas punteadas enlazando a cada capítulo, epígrafe de apertura (Ef 4:11-13) como página propia, cabecera de página por capítulo ("El águila y los cinco ministerios · Capítulo N") y un folio (número de página) al cierre de cada uno. El Capítulo IV, que en el original no tenía encabezado propio, recibió uno ("Fundamento doctrinal explícito").
+- **Los grids/tarjetas se convirtieron en elementos de libro real:** el esquema de los 5 símbolos pasó de tarjetas con ícono a una lista de definiciones tipo glosario; las comparaciones ("doctrina explícita" vs. "tipología") y las tablas de tribus/evangelistas del Capítulo V pasaron a `<table>` reales; los `callout` de color sólido se volvieron notas al margen con borde fino; la sección de las 4 criaturas vivientes dejó de ser un bloque oscuro tipo dashboard. El Capítulo VI (los 5 estudios profundos) perdió las fotos de fondo tipo revista a favor de subcapítulos con letra capital (drop cap) en el primer párrafo, como el arranque de un capítulo impreso. Se agregó un colofón final (la nota metodológica) al estilo de un colofón real de libro.
+- **Contenido preservado verbatim:** todo el texto teológico, citas bíblicas y referencias se mantuvieron exactamente iguales; solo cambió el envoltorio HTML/CSS.
+- **Paleta cambiada por segunda petición del usuario** ("debes de cambiar el rediseño completo que incluye el color"): de dorado/pergamino con acento azul petróleo a **cuero y pergamino antiguo** — cuero oxblood (`#241209`→`#3d2013`) en portada/cabecera/pie, crema envejecido (`#f3e9d4`) en las páginas, vino/borgoña (`#7a2331`) como acento estructural y terracota/óxido (`#a35a2f`) para numerales y capitulares (sin dorado metálico ni azul, según lo pedido). Los 5 colores por símbolo/ministerio se reajustaron a una familia terrosa (castaño, bronce, musgo, vino, nogal).
+- Ancho de columna reducido de 1120px a ~700px para que se lea como página de libro en vez de panel de dashboard.
+
+### 2026-08-24: limpieza del submenú "Estudios Exegéticos" y "Figuras Bíblicas" en todo el sitio
+
+- **Bug reportado por el usuario:** "Romanos 11" aparecía en el submenú desplegable de Estudios Exegéticos en varias páginas ajenas a esa categoría, aunque ese estudio ya vive como tarjeta en la página índice `temas-exegeticos.html`. Se encontró y quitó el enlace duplicado de 7 archivos (`software-biblico.html`, `nuestras-ensenanzas/index.html` y 5 páginas de `Época de Jesús/`) que sí tienen el mega-menú completo; `temas-exegeticos.html` no se tocó porque ahí sí corresponde.
+- **Auditoría solicitada por el usuario** ("revisa que los otros submenús no tengan más duplicados"): se extrajeron programáticamente los 6 submenús desplegables de las 18 páginas del sitio que tienen el mega-menú completo y se compararon entre sí. No se encontró ningún otro duplicado, pero sí el problema inverso: **enlaces faltantes**. "El tabernáculo y sus figuras" faltaba en el submenú "Figuras Bíblicas" de 10 páginas, y "Galería bíblica" faltaba en 16 de las 18 (solo estaba en `index.html`). Con permiso del usuario, se agregaron ambos enlaces donde faltaban — las 18 copias del menú quedan con los mismos 8 ítems bajo "Figuras Bíblicas".
+
+### 2026-08-24: rediseño "ficha de miembro" de auth/profile.html + integración de Alpine.js
+
+- **Concepto elegido entre 2 propuestas** ("ficha/carné de miembro" vs. "dashboard refinado"): el usuario eligió ficha de miembro. La página pasó de un dashboard genérico de tarjetas de estadísticas a una credencial: membrete oscuro con el nombre del ministerio, foto con marco circular doble y una insignia de verificación superpuesta, campos de credencial (correo/proveedor/fecha) con íconos en vez de párrafos sueltos, una placa de logros continua (las 3 estadísticas divididas por líneas finas en vez de 3 tarjetas separadas) y una bitácora de actividad con línea de tiempo punteada vertical. Font Awesome (CDN) reemplazado por SVG Lucide inline en toda la página, incluidos los íconos que `js/profile.js` inyecta dinámicamente (actividad y mensajes toast de éxito/advertencia/error); se quitó también la dependencia no usada de `css/auth.css`.
+- **Se integró Alpine.js** (CDN, sin build) como capa reactiva, a pedido explícito del usuario tras preguntar qué tecnología convenía más que HTML/CSS/JS plano para esta página. Integración mínimamente invasiva: un store global `Alpine.store('profile', {...})` registrado en el evento `alpine:init` alimenta bindings `x-text`/`:src`/`x-html` en el HTML; toda la lógica de negocio existente en `js/profile.js` (Firebase Auth, Firestore, cálculo de días de membresía, sincronización localStorage↔Firestore, funciones de debugging) se dejó intacta — solo se reemplazaron los ~20 sitios que escribían directo al DOM (`document.getElementById(...).textContent = ...`) por escrituras al store reactivo. La lista de actividad, que antes creaba nodos DOM manualmente con `innerHTML`, ahora es un `<template x-for>` sobre un arreglo de datos en el store.
+- **Bug de caché encontrado en producción tras el primer deploy:** `vercel.json` cachea todo `*.js` con `Cache-Control: immutable, max-age=31536000` (1 año); como el `<script src="/js/profile.js">` no tenía parámetro de versión, los navegadores que ya habían visitado la página antes del deploy seguían sirviendo el `profile.js` anterior al refactor de Alpine (causaba `TypeError: null is not an object` sobre un `getElementById('registration-date')` que ya no existe). Se corrigió agregando `?v=2` al `src`, mismo patrón de cache-busting que ya usan los `<link>` de favicon en todo el sitio.
+- **Verificación:** sintaxis de `js/profile.js` con `node --check` (sin errores); balance de etiquetas HTML; render visual con datos mock vía un archivo temporal sin el script de auth (borrado después de la prueba) para confirmar los bindings de Alpine sin necesitar sesión real; y finalmente verificación en producción (`lagloriaesdelsenor.com/auth/profile.html`) con una sesión de Google real — sin errores de consola, datos y bitácora renderizando correctamente.
+
 ---
 
 ## Estrategia de hosting y escalabilidad
@@ -687,6 +708,7 @@ Con 1,000+ usuarios activos en el foro se supera el límite de lecturas. Activar
 | Frontend | HTML / CSS / JS ES Modules (sin bundler) |
 | Fuentes | Cormorant Garamond + Lato (Google Fonts) |
 | Iconos | Font Awesome 6 (CDN) + Lucide (SVG inline, sin CDN, ~292 usos en 25 páginas) |
+| Reactividad puntual | Alpine.js (CDN, sin build) — usado en `auth/profile.html` como capa reactiva sobre un store global |
 | SSL | Let's Encrypt (auto-emitido y renovado por Vercel) |
 
 ---
@@ -847,7 +869,7 @@ Página de Fe/
 |---------|--------|
 | `index.html` | Completado — reskin "Amanecer en el Templo" (preserva auth/comunidad en vivo), ver historial 2026-08-20 |
 | `access.html` | Completado |
-| `auth/profile.html` | Completado |
+| `auth/profile.html` | Completado — estilo propio "ficha de miembro" (credencial con marco de foto, campos de credencial, placa de logros, bitácora de actividad con línea de tiempo) + Alpine.js como capa reactiva; ver historial 2026-08-24 |
 | `css/auth.css` | Completado |
 | `Comunidad/forum.html` | Completado |
 | `Comunidad/topic.html` | Completado |
@@ -865,7 +887,7 @@ Página de Fe/
 | `page/Estudios Bíblicos/doctrina-basica.html` | Completado: estilo propio "Cimientos" (piedra caliza/óxido-rebar; ver historial 2026-08-18) |
 | `page/Estudios Bíblicos/doctrina-intermedia.html` | Completado: estilo propio "Andamiaje" (plano técnico/cianotipo; ver historial 2026-08-18) |
 | `page/Estudios Bíblicos/doctrina-avanzada.html` | Completado: estilo propio "Observatorio" (cielo nocturno/telescopio; ver historial 2026-08-18) |
-| `page/Estudios Bíblicos/aguila-cinco-ministerios.html` | Completado: estilo propio "Cielo Abierto" (acento cerúleo, con fotografías reales en 4 de los 5 símbolos; ver historial 2026-08-17 y 2026-08-18) |
+| `page/Estudios Bíblicos/aguila-cinco-ministerios.html` | Completado: estilo propio "Manuscrito" (libro por capítulos: portada, tabla de contenido, capitulares, folios; paleta cuero y pergamino antiguo — vino/terracota, sin dorado ni azul); ver historial 2026-08-24 |
 | `page/Estudios Bíblicos/estudios/hermeneutica-biblica.html` | Completado — deep teal `#1e4040` |
 | `page/Estudios Bíblicos/estudios/pneumatologia-avanzada.html` | Completado — ember `#5c2a0a` |
 | `page/Estudios Bíblicos/estudios/cristologia-profunda.html` | Completado — crimson `#7a1528` |
