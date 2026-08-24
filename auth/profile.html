@@ -15,423 +15,426 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/auth.css">
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.store('profile', {
+                name: 'Cargando...',
+                email: 'email@ejemplo.com',
+                photo: 'https://via.placeholder.com/104x104?text=...',
+                provider: 'Conectado con Google',
+                joinDateText: 'Miembro desde: ...',
+                visitCount: '0',
+                daysMemberText: '0',
+                lastVisitText: 'Hoy',
+                activities: [
+                    {
+                        icon: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>',
+                        title: 'Visitaste la página principal',
+                        description: 'Hace unos momentos'
+                    },
+                    {
+                        icon: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 21a8 8 0 0 1 13.292-6" /><circle cx="10" cy="8" r="5" /><path d="M19 16v6" /><path d="M22 19h-6" /></svg>',
+                        title: 'Te registraste exitosamente',
+                        description: 'Hoy'
+                    }
+                ]
+            });
+        });
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
     <style>
         :root {
-            --primary-color: #1a1410;
-            --secondary-color: #b89a5f;
-            --accent-color: #6b4f2a;
-            --background-color: #f7f4ed;
-            --text-color: #2d2010;
-            --light-accent: #ede5d8;
-            --gold-accent: #c9aa6a;
-            --dark-color: #0e0c0a;
-            --gradient-bg: linear-gradient(160deg, #0e0c0a 0%, #1f1a14 100%);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06), 0 6px 12px rgba(0, 0, 0, 0.03);
+            --ink:          #1a1410;
+            --gold:         #b89a5f;
+            --gold-light:   #d4b87a;
+            --parchment:    #f7f4ed;
+            --parchment-dk: #ede5d8;
+            --accent:       #6b4f2a;
+            --text-body:    #2d2010;
+            --text-muted:   #a0917e;
+            --danger:       #b91c1c;
+            --gradient-bg:  linear-gradient(160deg, #0e0c0a 0%, #1f1a14 100%);
+            --transition:   all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --box-shadow:   0 12px 24px rgba(0, 0, 0, 0.06), 0 6px 12px rgba(0, 0, 0, 0.03);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Lato', sans-serif;
             font-weight: 300;
-            background: var(--background-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
+            background: var(--parchment);
+            color: var(--text-body);
             min-height: 100vh;
         }
 
-        .profile-container {
-            max-width: 900px;
+        .ic { width: 1em; height: 1em; vertical-align: -0.15em; flex-shrink: 0; display: inline-block; }
+
+        .page-wrap {
+            max-width: 760px;
             margin: 0 auto;
-            padding: 40px 20px;
-            min-height: 100vh;
-        }
-
-        .profile-card {
-            background: white;
-            border-radius: 4px;
-            padding: 40px;
-            box-shadow: var(--box-shadow);
-            margin-bottom: 24px;
-            border: 1px solid rgba(184, 154, 95, 0.15);
-            position: relative;
-        }
-
-        .profile-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 10%;
-            width: 80%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
-        }
-
-        .profile-header {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-            margin-bottom: 36px;
-            padding-bottom: 28px;
-            border-bottom: 1px solid var(--light-accent);
-        }
-
-        .profile-photo {
-            width: 88px;
-            height: 88px;
-            border-radius: 50%;
-            border: 2px solid rgba(184, 154, 95, 0.5);
-            box-shadow: none;
-        }
-
-        .profile-info h1 {
-            margin: 0 0 6px 0;
-            color: var(--primary-color);
-            font-size: 2rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-        }
-
-        .profile-info p {
-            margin: 4px 0;
-            color: var(--text-color);
-            font-size: 0.9rem;
-        }
-
-        .profile-info .email {
-            color: var(--accent-color);
-            font-weight: 400;
-        }
-
-        .profile-info .provider {
-            color: var(--secondary-color);
-            font-weight: 400;
-            font-size: 0.78rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .profile-info .join-date {
-            color: #a0917e;
-            font-size: 0.82rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .stat-card {
-            background: var(--background-color);
-            border: 1px solid rgba(184, 154, 95, 0.2);
-            border-radius: 4px;
-            padding: 28px 20px;
-            text-align: center;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 20%;
-            width: 60%;
-            height: 1px;
-            background: var(--secondary-color);
-            opacity: 0.6;
-        }
-
-        .stat-card:hover {
-            border-color: rgba(184, 154, 95, 0.45);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-        }
-
-        .stat-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            font-weight: 600;
-            color: var(--secondary-color);
-            margin-bottom: 6px;
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-family: 'Lato', sans-serif;
-            font-size: 0.68rem;
-            font-weight: 400;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: #a0917e;
-        }
-
-        .activity-section {
-            background: white;
-            border-radius: 4px;
-            padding: 40px;
-            box-shadow: var(--box-shadow);
-            border: 1px solid rgba(184, 154, 95, 0.15);
-            position: relative;
-        }
-
-        .activity-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 10%;
-            width: 80%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
-        }
-
-        .activity-section h2 {
-            color: var(--primary-color);
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 1.7rem;
-            font-weight: 600;
-            margin-bottom: 28px;
-            letter-spacing: 0.02em;
-        }
-
-        .activity-item {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 16px 0;
-            margin-bottom: 0;
-            background: transparent;
-            border-bottom: 1px solid rgba(184, 154, 95, 0.12);
-            transition: var(--transition);
-        }
-
-        .activity-item:last-child {
-            border-bottom: none;
-        }
-
-        .activity-item:hover {
-            padding-left: 6px;
-        }
-
-        .activity-icon {
-            width: 36px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary-color);
-            font-size: 1rem;
-        }
-
-        .activity-content strong {
-            color: var(--primary-color);
-            font-weight: 400;
-            font-size: 0.95rem;
-        }
-
-        .activity-content p {
-            margin: 3px 0 0 0;
-            color: #a0917e;
-            font-size: 0.82rem;
-        }
-
-        .btn-section {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 13px 26px;
-            border-radius: 2px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            font-family: 'Lato', sans-serif;
-            font-size: 0.72rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-color);
-            border: 1px solid rgba(184, 154, 95, 0.4);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--secondary-color);
-            color: var(--secondary-color);
-        }
-
-        .btn-danger {
-            background: transparent;
-            color: #b91c1c;
-            border: 1px solid rgba(185, 28, 28, 0.35);
-        }
-
-        .btn-danger:hover {
-            background: #b91c1c;
-            color: white;
-            border-color: #b91c1c;
+            padding: 40px 20px 60px;
         }
 
         .back-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: #a0917e;
+            color: var(--text-muted);
             text-decoration: none;
-            margin-bottom: 28px;
+            margin-bottom: 32px;
             font-weight: 400;
             font-size: 0.75rem;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             transition: var(--transition);
         }
+        .back-link .ic { font-size: 0.8rem; }
+        .back-link:hover { color: var(--gold); transform: translateX(-3px); }
 
-        .back-link:hover {
-            color: var(--secondary-color);
-            transform: translateX(-3px);
+        /* ── FICHA DE MIEMBRO ── */
+        .member-card {
+            background: white;
+            border: 1px solid rgba(184, 154, 95, 0.2);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 28px;
+            overflow: hidden;
         }
 
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .profile-container {
-                padding: 20px 15px;
-            }
-
-            .profile-card {
-                padding: 30px 25px;
-            }
-
-            .profile-header {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-
-            .profile-photo {
-                width: 80px;
-                height: 80px;
-            }
-
-            .profile-info h1 {
-                font-size: 1.8rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .activity-section {
-                padding: 30px 25px;
-            }
-
-            .btn-section {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
+        .card-letterhead {
+            background: var(--gradient-bg);
+            padding: 14px 20px;
+            text-align: center;
+            position: relative;
+        }
+        .card-letterhead::after {
+            content: '';
+            position: absolute;
+            left: 50%; bottom: 0;
+            transform: translateX(-50%);
+            width: 60px; height: 2px;
+            background: var(--gold);
+            opacity: 0.6;
+        }
+        .card-letterhead span {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--gold-light);
         }
 
-        /* Loading state */
-        .loading-skeleton {
-            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-            background-size: 200% 100%;
-            animation: loading 1.5s infinite;
-            border-radius: 8px;
+        .card-body {
+            padding: 44px 40px 36px;
+            text-align: center;
         }
 
-        @keyframes loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
+        .member-photo-frame {
+            position: relative;
+            width: 104px;
+            height: 104px;
+            margin: 0 auto 22px;
+        }
+        .profile-photo {
+            width: 104px;
+            height: 104px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 0 5px white, 0 0 0 6px rgba(184, 154, 95, 0.35), 0 8px 18px rgba(0,0,0,0.12);
+        }
+        .member-badge {
+            position: absolute;
+            right: -2px; bottom: -2px;
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: white;
+            display: flex; align-items: center; justify-content: center;
+            border: 3px solid white;
+            font-size: 0.8rem;
+        }
+
+        .member-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-style: italic;
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: 0.01em;
+            margin-bottom: 6px;
+        }
+
+        .member-subtitle {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .credential-fields {
+            max-width: 380px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding-top: 26px;
+            border-top: 1px dashed var(--parchment-dk);
+        }
+        .credential-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.88rem;
+            color: var(--text-body);
+        }
+        .credential-row .ic { color: var(--gold); font-size: 1rem; }
+        .credential-row .email { color: var(--accent); font-weight: 400; word-break: break-word; }
+        .credential-row .provider {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .credential-row .join-date { color: var(--text-muted); font-size: 0.82rem; }
+
+        /* ── PLACA DE LOGROS ── */
+        .achievement-plaque {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid var(--parchment-dk);
+            background: var(--parchment);
+        }
+        .achievement-item {
+            padding: 26px 14px;
+            text-align: center;
+            position: relative;
+        }
+        .achievement-item + .achievement-item::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 22%; bottom: 22%;
+            width: 1px;
+            background: rgba(184, 154, 95, 0.3);
+        }
+        .achievement-icon { color: var(--gold); font-size: 1.1rem; margin-bottom: 10px; }
+        .achievement-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.1rem;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--ink);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .achievement-label {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ── ACCIONES ── */
+        .account-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            padding: 22px 20px;
+            border-top: 1px solid var(--parchment-dk);
+            flex-wrap: wrap;
+        }
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 20px;
+            background: transparent;
+            border: 1px solid rgba(184, 154, 95, 0.4);
+            color: var(--text-body);
+            border-radius: 2px;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .action-btn:hover { border-color: var(--gold); color: var(--accent); }
+        .action-btn--danger { color: var(--danger); border-color: rgba(185, 28, 28, 0.3); }
+        .action-btn--danger:hover { background: var(--danger); color: white; border-color: var(--danger); }
+
+        /* ── BITÁCORA ── */
+        .ledger-section {
+            background: white;
+            border: 1px solid rgba(184, 154, 95, 0.2);
+            box-shadow: var(--box-shadow);
+            padding: 36px 40px 30px;
+        }
+        .ledger-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--ink);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 26px;
+        }
+        .ledger-title .ic { color: var(--gold); font-size: 1.2rem; }
+
+        #activity-list { position: relative; padding-left: 4px; }
+        #activity-list::before {
+            content: '';
+            position: absolute;
+            left: 17px; top: 6px; bottom: 6px;
+            width: 1px;
+            background: repeating-linear-gradient(to bottom, rgba(184,154,95,0.4) 0 5px, transparent 5px 10px);
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 14px 0;
+            position: relative;
+        }
+        .activity-item:last-child { padding-bottom: 0; }
+
+        .activity-icon {
+            position: relative;
+            z-index: 1;
+            width: 34px; height: 34px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: var(--parchment);
+            border: 1px solid rgba(184, 154, 95, 0.4);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        .activity-content { padding-top: 3px; }
+        .activity-content strong {
+            display: block;
+            color: var(--ink);
+            font-weight: 400;
+            font-size: 0.92rem;
+        }
+        .activity-content p {
+            margin: 3px 0 0 0;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 640px) {
+            .page-wrap { padding: 24px 16px 40px; }
+            .card-body { padding: 34px 22px 28px; }
+            .ledger-section { padding: 28px 22px 24px; }
+            .member-name { font-size: 1.7rem; }
+            .achievement-plaque { grid-template-columns: 1fr; }
+            .achievement-item + .achievement-item::before { display: none; }
+            .achievement-item { border-top: 1px solid rgba(184,154,95,0.2); }
+            .achievement-item:first-child { border-top: none; }
+            .account-actions { flex-direction: column; align-items: stretch; }
+            .action-btn { justify-content: center; }
         }
     </style>
 </head>
 <body>
-    <div class="profile-container">
+    <div class="page-wrap" x-data>
         <a href="../index.html" class="back-link">
-            <i class="fas fa-arrow-left"></i>
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
             Volver al inicio
         </a>
 
-        <div class="profile-card">
-            <div class="profile-header">
-                <img id="profile-photo" class="profile-photo" src="https://via.placeholder.com/100x100?text=..." alt="Foto de perfil">
-                <div class="profile-info">
-                    <h1 id="profile-name">Cargando...</h1>
-                    <p id="profile-email" class="email">email@ejemplo.com</p>
-                    <p id="profile-provider" class="provider">Conectado con Google</p>
-                    <p id="profile-join-date" class="join-date">Miembro desde: ...</p>
+        <div class="member-card">
+            <div class="card-letterhead">
+                <span>Ministerio "La Gloria es del Señor"</span>
+            </div>
+
+            <div class="card-body">
+                <div class="member-photo-frame">
+                    <img id="profile-photo" class="profile-photo" src="https://via.placeholder.com/104x104?text=..." :src="$store.profile.photo" alt="Foto de perfil">
+                    <div class="member-badge" aria-hidden="true">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="m9 12 2 2 4-4" /></svg>
+                    </div>
+                </div>
+
+                <h1 id="profile-name" class="member-name" x-text="$store.profile.name">Cargando...</h1>
+                <p class="member-subtitle">Miembro del ministerio</p>
+
+                <div class="credential-fields">
+                    <div class="credential-row">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
+                        <span id="profile-email" class="email" x-text="$store.profile.email">email@ejemplo.com</span>
+                    </div>
+                    <div class="credential-row">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="m9 12 2 2 4-4" /></svg>
+                        <span id="profile-provider" class="provider" x-text="$store.profile.provider">Conectado con Google</span>
+                    </div>
+                    <div class="credential-row">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg>
+                        <span id="profile-join-date" class="join-date" x-text="$store.profile.joinDateText">Miembro desde: ...</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number" id="visit-count">0</div>
-                    <div class="stat-label">Visitas totales</div>
+            <div class="achievement-plaque">
+                <div class="achievement-item">
+                    <div class="achievement-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg></div>
+                    <div class="achievement-number" id="visit-count" x-text="$store.profile.visitCount">0</div>
+                    <div class="achievement-label">Visitas totales</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="days-member">0</div>
-                    <div class="stat-label">Días como miembro</div>
+                <div class="achievement-item">
+                    <div class="achievement-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /><path d="M8 14h.01" /><path d="M12 14h.01" /><path d="M16 14h.01" /><path d="M8 18h.01" /><path d="M12 18h.01" /><path d="M16 18h.01" /></svg></div>
+                    <div class="achievement-number" id="days-member" x-text="$store.profile.daysMemberText">0</div>
+                    <div class="achievement-label">Días como miembro</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="last-visit">Hoy</div>
-                    <div class="stat-label">Última visita</div>
+                <div class="achievement-item">
+                    <div class="achievement-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /><path d="M12 7v5l4 2" /></svg></div>
+                    <div class="achievement-number" id="last-visit" x-text="$store.profile.lastVisitText">Hoy</div>
+                    <div class="achievement-label">Última visita</div>
                 </div>
             </div>
 
-            <div class="btn-section">
-                <button class="btn btn-secondary" onclick="clearHistory()">
-                    <i class="fas fa-broom"></i>
+            <div class="account-actions">
+                <button class="action-btn" onclick="clearHistory()">
+                    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 21H8a2 2 0 0 1-1.42-.587l-3.994-3.999a2 2 0 0 1 0-2.828l10-10a2 2 0 0 1 2.829 0l5.999 6a2 2 0 0 1 0 2.828L12.834 21" /><path d="m5.082 11.09 8.828 8.828" /></svg>
                     Limpiar historial
                 </button>
-                <button class="btn btn-danger" onclick="deleteAccount()">
-                    <i class="fas fa-trash-alt"></i>
+                <button class="action-btn action-btn--danger" onclick="deleteAccount()">
+                    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 11v6" /><path d="M14 11v6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /><path d="M3 6h18" /><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg>
                     Eliminar cuenta
                 </button>
             </div>
         </div>
 
-        <div class="activity-section">
-            <h2><i class="fas fa-chart-line"></i> Tu actividad reciente</h2>
+        <div class="ledger-section">
+            <h2 class="ledger-title">
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 12h-5" /><path d="M15 8h-5" /><path d="M19 17V5a2 2 0 0 0-2-2H4" /><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" /></svg>
+                Bitácora de actividad
+            </h2>
             <div id="activity-list">
-                <div class="activity-item">
-                    <div class="activity-icon">
-                        <i class="fas fa-home"></i>
+                <template x-for="(item, index) in $store.profile.activities" :key="index">
+                    <div class="activity-item">
+                        <div class="activity-icon" x-html="item.icon"></div>
+                        <div class="activity-content">
+                            <strong x-text="item.title"></strong>
+                            <p x-text="item.description"></p>
+                        </div>
                     </div>
-                    <div class="activity-content">
-                        <strong>Visitaste la página principal</strong>
-                        <p>Hace unos momentos</p>
-                    </div>
-                </div>
-                <div class="activity-item">
-                    <div class="activity-icon">
-                        <i class="fas fa-user-plus"></i>
-                    </div>
-                    <div class="activity-content">
-                        <strong>Te registraste exitosamente</strong>
-                        <p id="registration-date">Hoy</p>
-                    </div>
-                </div>
+                </template>
             </div>
         </div>
     </div>

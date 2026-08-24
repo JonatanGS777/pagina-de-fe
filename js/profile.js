@@ -15,6 +15,13 @@ import { trackPageView, trackMinistryEvent } from './analytics.js';
 // Variables globales
 let currentUser = null;
 
+// Acceso al store reactivo de Alpine.js (Alpine.store('profile', {...}) se
+// registra en auth/profile.html vía el listener 'alpine:init', antes de que
+// este módulo se ejecute).
+function profileStore() {
+    return window.Alpine.store('profile');
+}
+
 // 🔍 FUNCIÓN DE DIAGNÓSTICO ESPECIAL PARA JOINDATE
 async function diagnoseJoinDateIssue() {
     console.log('🔍 ===== DIAGNÓSTICO DE JOINDATE =====');
@@ -188,8 +195,8 @@ function forceRecalculateDays(joinDateStr) {
         
         // Actualizar la interfaz
         const daysText = getDaysMemberTextFixed(daysCorrected);
-        document.getElementById('days-member').textContent = daysText;
-        
+        profileStore().daysMemberText = daysText;
+
         console.log('✅ Interfaz actualizada a:', daysText);
         
         return daysCorrected;
@@ -210,16 +217,13 @@ async function loadProfileData(user) {
         // DATOS BÁSICOS DEL USUARIO
         // ========================
         
-        document.getElementById('profile-name').textContent = user.displayName || 'Usuario';
-        document.getElementById('profile-email').textContent = user.email;
-        document.getElementById('profile-photo').src = user.photoURL || 
+        profileStore().name = user.displayName || 'Usuario';
+        profileStore().email = user.email;
+        profileStore().photo = user.photoURL ||
             `https://ui-avatars.com/api/?name=${encodeURIComponent(user.displayName || 'Usuario')}&background=5e4b8b&color=fff&size=100`;
-        
+
         // Mostrar provider (siempre Google en este caso)
-        const providerElement = document.getElementById('profile-provider');
-        if (providerElement) {
-            providerElement.textContent = 'Conectado con Google';
-        }
+        profileStore().provider = 'Conectado con Google';
         
         // ========================
         // DATOS DE MEMBRESÍA Y ESTADÍSTICAS
@@ -298,7 +302,7 @@ async function loadMembershipData(user) {
         
         // Forzar corrección inmediata del cálculo de días si es necesario
         setTimeout(() => {
-            const currentDaysText = document.getElementById('days-member').textContent;
+            const currentDaysText = profileStore().daysMemberText;
             if (currentDaysText === 'Nuevo' && finalData.joinDate) {
                 console.log('🔧 Detectado "Nuevo" incorrecto, forzando recálculo...');
                 forceRecalculateDays(finalData.joinDate);
@@ -366,33 +370,32 @@ function displayMembershipData(data) {
         // FECHA DE REGISTRO
         // ========================
         
-        document.getElementById('profile-join-date').textContent = 
-            `Miembro desde: ${joinDate.toLocaleDateString('es-ES', { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
+        profileStore().joinDateText =
+            `Miembro desde: ${joinDate.toLocaleDateString('es-ES', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
             })}`;
-        
+
         // ========================
         // ESTADÍSTICAS EN TARJETAS
         // ========================
-        
+
         // Contador de visitas
-        document.getElementById('visit-count').textContent = data.visitCount || 1;
-        
+        profileStore().visitCount = data.visitCount || 1;
+
         // Días como miembro (con el cálculo CORREGIDO)
         const daysText = getDaysMemberTextFixed(daysSinceJoining);
-        document.getElementById('days-member').textContent = daysText;
-        
+        profileStore().daysMemberText = daysText;
+
         // Última visita
         displayLastVisitTime(data.lastLogin);
-        
+
         // ========================
         // FECHA EN SECCIÓN DE ACTIVIDAD
         // ========================
-        
-        document.getElementById('registration-date').textContent = 
-            joinDate.toLocaleDateString('es-ES');
+
+        setRegistrationDateText(joinDate.toLocaleDateString('es-ES'));
         
         console.log('✅ Datos mostrados correctamente:', {
             joinDate: joinDate.toLocaleDateString('es-ES'),
@@ -405,16 +408,26 @@ function displayMembershipData(data) {
         console.error('❌ Error al mostrar datos de membresía:', error);
         // Mostrar datos por defecto en caso de error
         const today = new Date();
-        document.getElementById('profile-join-date').textContent = 
-            `Miembro desde: ${today.toLocaleDateString('es-ES', { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
+        profileStore().joinDateText =
+            `Miembro desde: ${today.toLocaleDateString('es-ES', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
             })}`;
-        document.getElementById('visit-count').textContent = '1';
-        document.getElementById('days-member').textContent = 'Nuevo';
-        document.getElementById('last-visit').textContent = 'Ahora';
-        document.getElementById('registration-date').textContent = 'Hoy';
+        profileStore().visitCount = '1';
+        profileStore().daysMemberText = 'Nuevo';
+        profileStore().lastVisitText = 'Ahora';
+        setRegistrationDateText('Hoy');
+    }
+}
+
+// El segundo item de actividad por defecto ("Te registraste exitosamente")
+// muestra la fecha de registro en su descripción; equivalente reactivo del
+// antiguo #registration-date.
+function setRegistrationDateText(text) {
+    const activities = profileStore().activities;
+    if (activities && activities[1]) {
+        activities[1].description = text;
     }
 }
 
@@ -552,16 +565,16 @@ function getDaysMemberTextFixed(daysSinceJoining) {
 function displayLastVisitTime(lastLogin) {
     try {
         if (!lastLogin) {
-            document.getElementById('last-visit').textContent = 'Ahora';
+            profileStore().lastVisitText = 'Ahora';
             return;
         }
-        
+
         const lastDate = new Date(lastLogin);
         const now = new Date();
         const diffMinutes = Math.floor((now - lastDate) / (1000 * 60));
-        
+
         let lastVisitText = 'Ahora';
-        
+
         if (diffMinutes < 5) {
             lastVisitText = 'Ahora';
         } else if (diffMinutes < 60) {
@@ -573,83 +586,75 @@ function displayLastVisitTime(lastLogin) {
             const days = Math.floor(diffMinutes / 1440);
             lastVisitText = `${days}d`;
         }
-        
-        document.getElementById('last-visit').textContent = lastVisitText;
-        
+
+        profileStore().lastVisitText = lastVisitText;
+
     } catch (error) {
         console.error('❌ Error al calcular última visita:', error);
-        document.getElementById('last-visit').textContent = 'Ahora';
+        profileStore().lastVisitText = 'Ahora';
     }
 }
 
 function loadUserActivity() {
     try {
         const history = JSON.parse(localStorage.getItem('userHistory') || '[]');
-        const activityList = document.getElementById('activity-list');
-        
+
         if (history.length > 0) {
-            // Limpiar actividades por defecto solo si hay historial real
-            activityList.innerHTML = '';
-            
-            // Mostrar las últimas 5 actividades
+            // Reemplazar las actividades por defecto solo si hay historial real
             const recentHistory = history.slice(0, 5);
-            
-            recentHistory.forEach(item => {
-                const activityItem = createActivityItem(item);
-                if (activityItem) {
-                    activityList.appendChild(activityItem);
-                }
-            });
+            const activities = recentHistory
+                .map(createActivityItem)
+                .filter(Boolean);
+
+            if (activities.length > 0) {
+                profileStore().activities = activities;
+            }
         }
-        
+
         console.log('📚 Actividades cargadas:', history.length, 'entradas en historial');
-        
+
     } catch (error) {
         console.error('❌ Error al cargar historial:', error);
     }
 }
 
+// Devuelve un objeto {icon, title, description} para el store reactivo de
+// Alpine.js (en vez de un nodo DOM); la plantilla x-for en profile.html lo
+// renderiza.
 function createActivityItem(historyItem) {
     try {
-        const item = document.createElement('div');
-        item.className = 'activity-item';
-        
         let icon, title, description;
         const date = new Date(historyItem.timestamp);
         const timeAgo = getTimeAgo(date);
-        
+
+        const ICONS = {
+            bookOpen: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg>',
+            clock: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>',
+            calendarCheck: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /><path d="m9 16 2 2 4-4" /></svg>'
+        };
+
         switch (historyItem.action) {
             case 'section_visit':
-                icon = 'fas fa-book-open';
+                icon = ICONS.bookOpen;
                 title = `Visitaste: ${historyItem.data.section}`;
                 description = timeAgo;
                 break;
             case 'page_engagement':
-                icon = 'fas fa-clock';
+                icon = ICONS.clock;
                 title = `Tiempo en página: ${historyItem.data.timeSpent}s`;
                 description = `${historyItem.data.page} - ${timeAgo}`;
                 break;
             case 'daily_visit':
-                icon = 'fas fa-calendar-day';
+                icon = ICONS.calendarCheck;
                 title = 'Nueva visita diaria';
                 description = `Visita #${historyItem.data.visitNumber || ''} - ${timeAgo}`;
                 break;
             default:
                 return null;
         }
-        
-        item.innerHTML = `
-            <div class="activity-icon">
-                <i class="${icon}"></i>
-            </div>
-            <div class="activity-content">
-                <strong>${title}</strong>
-                <p>${description}</p>
-            </div>
-        `;
-        
-        return item;
-        
+
+        return { icon, title, description };
+
     } catch (error) {
         console.error('❌ Error al crear item de actividad:', error);
         return null;
@@ -809,28 +814,31 @@ function showMessage(message, type) {
     `;
     
     let backgroundColor, icon;
-    
+
+    const ICON_CHECK = '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.801 10A10 10 0 1 1 17 3.335" /><path d="m9 11 3 3L22 4" /></svg>';
+    const ICON_ALERT = '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /><path d="M12 9v4" /><path d="M12 17h.01" /></svg>';
+
     switch (type) {
         case 'success':
             backgroundColor = 'linear-gradient(135deg, #10b981, #059669)';
-            icon = 'fas fa-check-circle';
+            icon = ICON_CHECK;
             break;
         case 'warning':
             backgroundColor = 'linear-gradient(135deg, #f59e0b, #d97706)';
-            icon = 'fas fa-exclamation-triangle';
+            icon = ICON_ALERT;
             break;
         case 'error':
         default:
             backgroundColor = 'linear-gradient(135deg, #ef4444, #dc2626)';
-            icon = 'fas fa-exclamation-triangle';
+            icon = ICON_ALERT;
             break;
     }
-    
+
     messageDiv.style.background = backgroundColor;
-    
+
     messageDiv.innerHTML = `
         <div style="display: flex; align-items: center; gap: 12px;">
-            <i class="${icon}"></i>
+            ${icon}
             <span>${message}</span>
         </div>
     `;
