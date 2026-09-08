@@ -617,6 +617,16 @@ Tras agregarse `tabernaculo-3d.html`, una revisión a fondo (a pedido del usuari
 - **Otros bugs corregidos:** copyright de pie de página "© 2025" → "© 2026"; el `<link>` de Font Awesome (`cdnjs`) eliminado del `<head>`.
 - Verificado: balance de etiquetas (`div`/`section`/`header`/`footer`/`nav`/`ul`/`li`/`a`/`button`/`svg`), balance de llaves del `<style>`, sintaxis del `<script type="module">` inline con `node --check`, y auditoría automática de las 15 IDs + 3 selectores que el JS de autenticación/comunidad referencia.
 
+### 2026-08-21 a 2026-08-22: reemplazo del foro legado por `comunidad-app` (React/Vite) bajo `/comunidad`
+
+- **Cambio de arquitectura, no de diseño:** el foro plano (`Comunidad/forum.html`, `topic.html`, `favorites.html` + `Comunidad/js/*.js`) se retiró de producción y se movió intacto a `_archive/comunidad-legacy/` (commit `f2e50e4`, *"monta comunidad-app (Vite/React) bajo /comunidad, retira el foro legado"*). En su lugar, `comunidad-app/` — una SPA nueva en React 19 + TypeScript + Vite + Tailwind 4 + shadcn/radix — se monta bajo `/comunidad`. Usa el mismo proyecto Firebase (Auth + Firestore) que el resto del sitio, sin migrar ni duplicar datos: lee/escribe directamente `forumTopics`, `notifications`, `reports`, `userProfiles`.
+- **Ruteo:** `HashRouter` (no `BrowserRouter`) — el rewrite de Vercel con comodín para `/comunidad/**` no resultó confiable en el edge real de producción pese a funcionar en `vercel dev` local, así que las rutas internas viven después de `#` y solo se depende de que `/comunidad` (ruta exacta) resuelva a `/comunidad/index.html` (`vercel.json`).
+- **Build combinado:** `deploy/build.sh` (nuevo, referenciado como `buildCommand` en `vercel.json`) copia el sitio estático legado a `dist/` excluyendo `comunidad-app/`, `_archive/`, `deploy/` y `.git/`, luego compila `comunidad-app` (`npm ci && npm run build`) y copia su salida a `dist/comunidad/`. Las reglas e índices de Firestore no se despliegan con este build — hay que hacerlo aparte (`firebase deploy --only firestore:rules`/`:indexes`).
+- **Funcionalidad agregada en 4 fases** (más allá de paridad con el foro legado — login Google, temas por categoría, comentarios/respuestas de 2 niveles, likes, favoritos): edición de temas/comentarios propios, contador de vistas real, like en respuestas embebidas, reportes y panel de moderación (`/moderacion`), notificaciones in-app con campana (Fase 1); respuesta aceptada, vínculo de un tema a una página real del sitio, temas fijados por admin/moderador, perfil público de autor `/autor/:uid` (Fase 2); menciones `@usuario` limitadas a participantes del hilo, reacciones 🙏/💡 (Fase 3); paginación real (20/página, `limit`/`startAfter`), filtro por categoría resuelto en servidor, búsqueda cliente por título/contenido/autor, 3 filtros de orden con 4 índices compuestos nuevos en `firestore.indexes.json` (Fase 4). Markdown básico (`react-markdown`, sin HTML crudo) en temas, comentarios y respuestas.
+- **Pendiente, documentado en `comunidad-app/README.md`:** búsqueda dentro de comentarios (requeriría tokenizar contenido + `collectionGroup` con `array-contains-any`); Fase 5 (insignias de participación, digest semanal por correo — necesita una Cloud Function, infraestructura nueva).
+- **Nota operativa:** un índice de Firestore ya `READY` en el archivo `firestore.indexes.json` puede hacer que `firebase deploy --only firestore:indexes` falle con `409 index already exists` y aborte el resto del deploy (incluidos índices nuevos genuinos que vengan después en el archivo); el archivo debe seguir describiendo el conjunto completo de índices aunque el CLI no siempre pueda reaplicarlo de una sola vez.
+- **Nota:** este README (raíz) documenta el sitio estático; el detalle de datos, fases y desarrollo local de la Comunidad vive en [`comunidad-app/README.md`](./comunidad-app/README.md), que se mantiene aparte.
+
 ### 2026-08-24: rediseño "Manuscrito" (libro por capítulos) de aguila-cinco-ministerios.html
 
 - **Primer intento descartado:** se probó primero una capa puramente decorativa sobre el layout de tarjetas/grid existente (numerales de capítulo, letra capital, cinta marcadora, lomo de libro) — el usuario la rechazó: "es el mismo diseño... como un libro por capítulos o una revista de artículo". Se pidió aclaración y el usuario eligió explícitamente "libro por capítulos" sobre "revista de artículo".
@@ -705,7 +715,8 @@ Con 1,000+ usuarios activos en el foro se supera el límite de lecturas. Activar
 | Auth | Firebase Auth — Google Sign-In (popup + redirect fallback) |
 | Base de datos | Cloud Firestore |
 | Analítica | Firebase Analytics |
-| Frontend | HTML / CSS / JS ES Modules (sin bundler) |
+| Frontend (sitio principal) | HTML / CSS / JS ES Modules (sin bundler) |
+| Frontend (Comunidad, `/comunidad`) | React 19 + TypeScript + Vite + Tailwind 4 + shadcn/radix (`comunidad-app/`, build aparte vía `deploy/build.sh`) |
 | Fuentes | Cormorant Garamond + Lato (Google Fonts) |
 | Iconos | Font Awesome 6 (CDN) + Lucide (SVG inline, sin CDN, ~292 usos en 25 páginas) |
 | Reactividad puntual | Alpine.js (CDN, sin build) — usado en `auth/profile.html` como capa reactiva sobre un store global |
@@ -829,14 +840,13 @@ Página de Fe/
 │   └── profile.html                    # Perfil de usuario
 ├── css/
 │   └── auth.css                        # Hoja de estilos compartida (auth)
-├── Comunidad/
-│   ├── forum.html                      # Foro principal
-│   ├── topic.html                      # Vista de tema/discusión
-│   ├── favorites.html                  # Favoritos del usuario
-│   └── js/
-│       ├── forum.js
-│       ├── topic.js
-│       └── favorites.js
+├── comunidad-app/                      # Foro (React 19 + Vite + TS), montado en /comunidad
+│   ├── src/                            # Ver comunidad-app/README.md para datos y fases
+│   └── dist/                           # Salida de build, copiada a dist/comunidad/ (deploy/build.sh)
+├── deploy/
+│   └── build.sh                        # Build combinado: sitio estático + comunidad-app
+├── _archive/
+│   └── comunidad-legacy/               # Foro plano retirado (forum.html/topic.html/favorites.html), ver historial 2026-08-21
 ├── js/
 │   ├── firebase-config.js
 │   ├── auth.js
@@ -871,9 +881,7 @@ Página de Fe/
 | `access.html` | Completado |
 | `auth/profile.html` | Completado — estilo propio "ficha de miembro" (credencial con marco de foto, campos de credencial, placa de logros, bitácora de actividad con línea de tiempo) + Alpine.js como capa reactiva; ver historial 2026-08-24 |
 | `css/auth.css` | Completado |
-| `Comunidad/forum.html` | Completado |
-| `Comunidad/topic.html` | Completado |
-| `Comunidad/favorites.html` | Completado |
+| `comunidad-app/` (bajo `/comunidad`) | Reemplaza al foro plano (`Comunidad/forum.html`/`topic.html`/`favorites.html`, archivado en `_archive/comunidad-legacy/`) — SPA propia en React/Vite con su propio sistema de diseño (shadcn/Tailwind), no la dirección "Refinado y Solemne" del resto del sitio; ver historial 2026-08-21 y [`comunidad-app/README.md`](./comunidad-app/README.md) |
 | `404.html` | Completado |
 | `admin.html` | Completado |
 | `nuestras-ensenanzas/index.html` | Completado — estilo propio "Fundamento de Roca", ver historial 2026-08-20 |
