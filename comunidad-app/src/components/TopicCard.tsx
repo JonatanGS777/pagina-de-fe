@@ -41,7 +41,7 @@ export function TopicCard({ topic, user }: { topic: Topic; user: User }) {
         </CardHeader>
       </Link>
       <CardContent className="flex items-center gap-4 text-sm text-muted-foreground">
-        <AuthorLink uid={topic.authorUid} name={topic.author.name} />
+        <AuthorLink uid={topic.authorUid} name={topic.author.name} photo={topic.author.photo} />
         <span className="flex items-center gap-1">
           <MessageCircle className="size-4" /> {topic.replies}
         </span>

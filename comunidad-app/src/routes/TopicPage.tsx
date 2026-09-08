@@ -107,7 +107,7 @@ function ReplyBubble({
   return (
     <div className="ml-8 border-l pl-4 text-sm">
       <p className="font-medium">
-        <AuthorLink uid={reply.author.uid} name={reply.author.name} />
+        <AuthorLink uid={reply.author.uid} name={reply.author.name} photo={reply.author.photo} />
       </p>
       <MarkdownContent content={reply.content} className="text-sm text-muted-foreground" />
       <div className="flex items-center gap-3 text-xs text-muted-foreground">
@@ -212,7 +212,7 @@ function CommentItem({
       <div>
         <div className="flex items-center gap-2">
           <p className="font-medium">
-            <AuthorLink uid={comment.authorUid} name={comment.author.name} />
+            <AuthorLink uid={comment.authorUid} name={comment.author.name} photo={comment.author.photo} />
           </p>
           {isAccepted && (
             <Badge variant="outline" className="gap-1 text-primary">
@@ -536,7 +536,7 @@ function TopicHeader({ topic, user, role }: { topic: Topic; user: User; role: Us
       </div>
       <h1 className="text-xl font-semibold">{topic.title}</h1>
       <p className="text-sm text-muted-foreground">
-        <AuthorLink uid={topic.authorUid} name={topic.author.name} /> · {formatRelative(topic.createdAt)}
+        <AuthorLink uid={topic.authorUid} name={topic.author.name} photo={topic.author.photo} /> · {formatRelative(topic.createdAt)}
         {topic.editedAt && ' · editado'}
       </p>
       <MarkdownContent content={topic.content} />
