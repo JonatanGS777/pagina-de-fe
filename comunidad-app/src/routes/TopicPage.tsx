@@ -535,9 +535,12 @@ function TopicHeader({ topic, user, role }: { topic: Topic; user: User; role: Us
         </div>
       </div>
       <h1 className="text-xl font-semibold">{topic.title}</h1>
-      <p className="text-sm text-muted-foreground">
-        <AuthorLink uid={topic.authorUid} name={topic.author.name} photo={topic.author.photo} /> · {formatRelative(topic.createdAt)}
-        {topic.editedAt && ' · editado'}
+      <p className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
+        <AuthorLink uid={topic.authorUid} name={topic.author.name} photo={topic.author.photo} />
+        <span>
+          · {formatRelative(topic.createdAt)}
+          {topic.editedAt && ' · editado'}
+        </span>
       </p>
       <MarkdownContent content={topic.content} />
       {topic.verse && <p className="italic text-muted-foreground">{topic.verse}</p>}
