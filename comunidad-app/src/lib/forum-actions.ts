@@ -14,6 +14,7 @@ import {
 } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import { extractMentions } from '@/lib/mentions'
+import { tokenize } from '@/lib/search-tokens'
 import type {
   AuthorRef,
   Comment,
@@ -99,6 +100,7 @@ export async function addComment(
   await addDoc(collection(db, 'forumTopics', topic.id, 'comments'), {
     topicId: topic.id,
     content,
+    searchTokens: tokenize(content),
     author,
     authorUid: user.uid,
     likes: 0,
@@ -292,6 +294,7 @@ export async function setTopicPinned(topicId: string, pinned: boolean) {
 export async function updateComment(topicId: string, commentId: string, content: string) {
   await updateDoc(doc(db, 'forumTopics', topicId, 'comments', commentId), {
     content,
+    searchTokens: tokenize(content),
     editedAt: serverTimestamp(),
   })
 }

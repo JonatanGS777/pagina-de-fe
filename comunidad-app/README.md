@@ -64,18 +64,28 @@ El modelo completo está tipado en `src/types/firestore-schema.ts`.
   respuestas: `**negrita**`, `# título`, listas, citas. Aviso de sintaxis visible
   junto a cada formulario de escritura.
 
+**Fase 5 — Confianza y salud de la comunidad**
+- Insignias de participación: 5 insignias (`src/lib/badges.ts`) calculadas una vez por
+  sesión (`src/hooks/useBadges.ts`) con aggregation queries (`count`/`sum`), y
+  otorgadas por arrayUnion sobre `userProfiles/{uid}.badges` (nunca se retiran). Solo
+  visibles en el perfil propio (`/autor/:uid` cuando `uid` es el propio) — verlas en
+  perfiles ajenos requeriría ampliar la regla de lectura pública de `userProfiles`,
+  que hoy esta app no usa en absoluto.
+- Búsqueda dentro de comentarios: tokenización (`src/lib/search-tokens.ts`, quita
+  acentos y palabras cortas) escrita en `searchTokens` al crear/editar un comentario,
+  consultada vía `collectionGroup('comments')` + `array-contains-any`
+  (`src/hooks/useCommentSearch.ts`), con resultados aparte en `TopicsPage`
+  ("Coincidencias en comentarios"). Dos límites conocidos: solo alcanza comentarios
+  de primer nivel (las respuestas embebidas en `Comment.replies` no son una colección
+  indexable), y solo comentarios creados/editados después de este cambio (los
+  existentes no tienen `searchTokens`; no hay backfill en este alcance).
+
 ## Pendiente
 
-**Búsqueda dentro de comentarios** — no implementada. Requeriría tokenizar el
-contenido de cada comentario al crearlo/editarlo (`contentTokens: string[]`) y una
-consulta `collectionGroup` con `array-contains-any`, más un índice de collection
-group nuevo. Se dejó fuera de la Fase 4 por el esfuerzo que implica frente al valor
-(la búsqueda por título/contenido/autor ya cubre la mayoría de casos reales).
-
-**Fase 5 — Confianza y salud de la comunidad**
-- Insignias de participación.
 - Digest semanal por correo — requiere una Cloud Function (código en servidor),
   infraestructura nueva distinta a todo lo implementado hasta ahora.
+- Backfill de `searchTokens` para comentarios existentes (script de migración
+  aparte, fuera de esta implementación).
 
 ## Desarrollo local
 
@@ -116,3 +126,12 @@ con `firebase deploy --only firestore:indexes --debug 2>&1 | grep
 solo los nuevos, y después restaura el archivo completo — el archivo debe seguir
 describiendo el conjunto completo de índices que la app necesita, aunque este CLI
 no siempre pueda reaplicarlo de una sola vez.
+
+**Índices de un solo campo van en `fieldOverrides`, no en `indexes`**: un índice
+compuesto (`indexes`) con un único `fieldPath` (como los de `comments.searchTokens`
+y `comments.authorUid` a nivel `COLLECTION_GROUP`, usados por la búsqueda en
+comentarios y por `useBadges`) falla el deploy con `400 this index is not
+necessary, configure using single field index controls`. Van en `fieldOverrides`
+en cambio, listando explícitamente los `queryScope` a `COLLECTION` (para no perder
+el indexado automático que Firestore aplica por defecto a todo campo) además del
+`COLLECTION_GROUP` que se necesita.

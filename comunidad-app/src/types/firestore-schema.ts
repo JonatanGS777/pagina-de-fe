@@ -157,4 +157,6 @@ export interface UserProfile {
   isValidData: boolean
   /** Seteado por fuera de la app (script set-admin-role.mjs), no por escritura de cliente. */
   role?: 'admin' | 'moderator' | 'member'
+  /** Ids de insignias ganadas (ver src/lib/badges.ts). Solo esta app escribe este campo. */
+  badges?: string[]
 }

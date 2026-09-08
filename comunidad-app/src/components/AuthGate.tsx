@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { useAuth } from '@/hooks/useAuth'
+import { useBadges } from '@/hooks/useBadges'
 import { Button } from '@/components/ui/button'
 import { SiteHeader } from '@/components/SiteHeader'
 
@@ -10,6 +11,7 @@ import { SiteHeader } from '@/components/SiteHeader'
  */
 export function AuthGate({ children }: { children: ReactNode }) {
   const { user, loading, signIn } = useAuth()
+  useBadges(user)
 
   if (loading) {
     return (

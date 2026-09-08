@@ -5,8 +5,10 @@ import { useAuth } from '@/hooks/useAuth'
 import { useTopics } from '@/hooks/useTopics'
 import { usePinnedTopics } from '@/hooks/usePinnedTopics'
 import { useForumCounts } from '@/hooks/useForumCounts'
+import { useCommentSearch } from '@/hooks/useCommentSearch'
 import { TopicCard } from '@/components/TopicCard'
 import { CategorySidebar } from '@/components/CategorySidebar'
+import { CommentSearchResults } from '@/components/CommentSearchResults'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
@@ -26,6 +28,7 @@ export function TopicsPage() {
   const { topics, loading, loadingMore, hasMore, loadMore, error } = useTopics(category, sort)
   const pinnedTopics = usePinnedTopics()
   const { counts, totalComments } = useForumCounts()
+  const commentSearch = useCommentSearch(search)
 
   const visibleTopics = useMemo(() => {
     const pinnedForCategory = pinnedTopics.filter((t) => category === 'all' || t.category === category)
@@ -117,6 +120,10 @@ export function TopicsPage() {
             <Button type="button" variant="outline" className="w-full" onClick={loadMore} disabled={loadingMore}>
               {loadingMore ? 'Cargando...' : 'Cargar más'}
             </Button>
+          )}
+
+          {isSearching && (
+            <CommentSearchResults results={commentSearch.results} loading={commentSearch.loading} />
           )}
         </div>
       </div>

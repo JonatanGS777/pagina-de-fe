@@ -1,13 +1,43 @@
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ArrowLeft, Eye, Heart, MessageCircle } from 'lucide-react'
+import { doc, onSnapshot } from 'firebase/firestore'
+import { db } from '@/lib/firebase'
 import { useAuth } from '@/hooks/useAuth'
 import { useAuthorTopics } from '@/hooks/useAuthorTopics'
 import { TopicCard } from '@/components/TopicCard'
+import { UserBadges } from '@/components/UserBadges'
+
+/**
+ * Insignias solo se muestran en el perfil propio: leer userProfiles/{uid} de
+ * otro usuario no está permitido por las reglas de Firestore hoy (allow read
+ * exige ser el propio uid o una query proyectada a campos públicos que esta
+ * app no usa), así que este hook solo se suscribe cuando ownUid === viewedUid.
+ */
+function useOwnBadges(ownUid: string | undefined, viewedUid: string | undefined) {
+  const [badgeIds, setBadgeIds] = useState<string[]>([])
+
+  useEffect(() => {
+    if (!ownUid || ownUid !== viewedUid) {
+      setBadgeIds([])
+      return
+    }
+
+    const unsubscribe = onSnapshot(doc(db, 'userProfiles', ownUid), (snap) => {
+      setBadgeIds(snap.data()?.badges ?? [])
+    })
+
+    return unsubscribe
+  }, [ownUid, viewedUid])
+
+  return badgeIds
+}
 
 export function AuthorProfilePage() {
   const { uid } = useParams<{ uid: string }>()
   const { user } = useAuth()
   const { topics, loading, error } = useAuthorTopics(uid)
+  const badgeIds = useOwnBadges(user?.uid, uid)
 
   if (!user || !uid) return null
 
@@ -40,6 +70,8 @@ export function AuthorProfilePage() {
               <p className="text-sm text-muted-foreground">{topics.length} temas publicados</p>
             </div>
           </div>
+
+          {uid === user.uid && <UserBadges badgeIds={badgeIds} />}
 
           <div className="flex items-center gap-5 text-sm text-muted-foreground">
             <span className="flex items-center gap-1">
